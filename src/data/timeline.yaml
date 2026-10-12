@@ -17,10 +17,14 @@ events:
      fr: "Arrestation annoncée de John Podesta (n'a pas eu lieu)",
      en: "Predicted arrest of John Podesta (did not happen)",
      source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2017-11-25, id: move-8chan, category: q,
+     fr: "Premier drop sur 8chan, après l'abandon de 4chan",
+     en: "First drop on 8chan, after leaving 4chan",
+     source: "https://www.kaggle.com/datasets/jkingsman/qanondrops"}
   - {date: 2018-03-14, id: reddit-cbts, category: platform,
-     fr: "Reddit ferme r/CBTS_Stream",
-     en: "Reddit closes r/CBTS_Stream",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     fr: "Reddit bannit r/CBTS_Stream, mis en quarantaine fin février",
+     en: "Reddit bans r/CBTS_Stream, quarantined since late February",
+     source: "https://arxiv.org/abs/2302.01397"}
   - {date: 2018-06-15, id: hoover-dam, category: violence,
      fr: "Barrage Hoover : un homme armé bloque la route en réclamant un rapport cité par Q",
      en: "Hoover Dam: armed man blocks the road demanding a report cited by Q",
@@ -34,9 +38,9 @@ events:
      en: "Trump hosts QAnon promoter Lionel Lebron in the Oval Office",
      source: "https://en.wikipedia.org/wiki/QAnon"}
   - {date: 2018-09-12, id: reddit-ga, category: platform,
-     fr: "Reddit bannit r/GreatAwakening",
-     en: "Reddit bans r/GreatAwakening",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     fr: "Reddit bannit r/GreatAwakening (71 000 abonnés) et d'autres forums QAnon",
+     en: "Reddit bans r/GreatAwakening (71,000 subscribers) and other QAnon forums",
+     source: "https://www.nbcnews.com/tech/tech-news/reddit-bans-qanon-subreddits-after-months-violent-threats-n909061"}
   - {date: 2018-11-06, id: midterms-2018, category: politics,
      fr: "Élections de mi-mandat américaines",
      en: "US midterm elections",
@@ -60,6 +64,10 @@ events:
   - {date: 2019-08-05, id: 8chan-down, category: platform,
      fr: "8chan mis hors ligne après la tuerie d'El Paso",
      en: "8chan taken offline after the El Paso shooting",
+     source: "https://en.wikipedia.org/wiki/8chan"}
+  - {date: 2019-11-02, id: return-8kun, category: q,
+     fr: "Retour de Q sur 8kun, successeur de 8chan, après trois mois de silence",
+     en: "Q returns on 8kun, 8chan's successor, after three months of silence",
      source: "https://en.wikipedia.org/wiki/8chan"}
   - {date: 2020-03-23, id: covid-first, category: q,
      fr: "Premier drop sur la pandémie (« China virus »)",
