@@ -82,20 +82,6 @@ references:
   summary_fr: "Essai qui examine la politique de genre complexe de QAnon pour élargir l'étude des rapports entre genre et populisme, jusque-là centrée sur les hommes et la masculinité."
   summary_en: "Essay examining QAnon's complex gender politics to broaden the study of gender and populism beyond its usual focus on men and masculinity."
 
-- id: chen2021covid
-  type: article
-  authors: ["Chen, Emily", "Chang, Herbert", "Rao, Ashwin", "Lerman, Kristina", "Cowan, Geoffrey", "Ferrara, Emilio"]
-  year: 2021
-  title: "COVID-19 misinformation and the 2020 U.S. presidential election"
-  container: "Harvard Kennedy School Misinformation Review"
-  doi: "10.37016/mr-2020-57"
-  url: "https://doi.org/10.37016/mr-2020-57"
-  open_access: true
-  lang: en
-  topics: [health, elections, platforms]
-  summary_fr: "Analyse de plus de 67 millions de tweets sur la politisation des pratiques de santé publique pendant les primaires de 2020 : un petit groupe dense d'utilisateurs conservateurs diffuse des récits anti-masque et de fraude électorale."
-  summary_en: "Analysis of over 67 million tweets on the politicisation of public-health practices during the 2020 primaries: a small, dense group of conservative users pushed anti-mask and voter-fraud narratives."
-
 - id: garry2021qanon
   type: article
   authors: ["Garry, Amanda", "Walther, Samantha", "Mohamed, Rukaya", "Mohammed, Ayan"]
