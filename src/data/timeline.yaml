@@ -1,0 +1,123 @@
+# Chronologie curee des evenements reels utilises pour les correlations.
+# Une entree : date (AAAA-MM-JJ), id court, categorie, libelles fr/en, source.
+# Categories : q (vie du corpus), platform (moderation/plateformes),
+# politics (politique US), justice, violence (incidents lies a QAnon),
+# failed (echeance d'une prediction de Q ou du mouvement).
+# Les dates des migrations de plateforme sont aussi derivees des donnees.
+events:
+  - {date: 2017-10-28, id: first-drop, category: q,
+     fr: "Premier message de « Q Clearance Patriot » sur 4chan /pol/",
+     en: "First post by \"Q Clearance Patriot\" on 4chan /pol/",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2017-10-30, id: hrc-arrest, category: failed,
+     fr: "Arrestation annoncée d'Hillary Clinton (n'a pas eu lieu)",
+     en: "Predicted arrest of Hillary Clinton (did not happen)",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2017-11-03, id: podesta-arrest, category: failed,
+     fr: "Arrestation annoncée de John Podesta (n'a pas eu lieu)",
+     en: "Predicted arrest of John Podesta (did not happen)",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-03-14, id: reddit-cbts, category: platform,
+     fr: "Reddit ferme r/CBTS_Stream",
+     en: "Reddit closes r/CBTS_Stream",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-06-15, id: hoover-dam, category: violence,
+     fr: "Barrage Hoover : un homme armé bloque la route en réclamant un rapport cité par Q",
+     en: "Hoover Dam: armed man blocks the road demanding a report cited by Q",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-07-31, id: tampa-rally, category: politics,
+     fr: "Meeting Trump à Tampa : premières pancartes « Q » très médiatisées",
+     en: "Trump rally in Tampa: first widely covered \"Q\" signs",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-08-24, id: lebron-oval, category: politics,
+     fr: "Trump reçoit le promoteur QAnon Lionel Lebron dans le Bureau ovale",
+     en: "Trump hosts QAnon promoter Lionel Lebron in the Oval Office",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-09-12, id: reddit-ga, category: platform,
+     fr: "Reddit bannit r/GreatAwakening",
+     en: "Reddit bans r/GreatAwakening",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2018-11-06, id: midterms-2018, category: politics,
+     fr: "Élections de mi-mandat américaines",
+     en: "US midterm elections",
+     source: "https://en.wikipedia.org/wiki/2018_United_States_elections"}
+  - {date: 2019-03-13, id: cali-murder, category: violence,
+     fr: "Meurtre de Frank Cali par un adepte de QAnon",
+     en: "Murder of Frank Cali by a QAnon adherent",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2019-03-22, id: mueller-report, category: justice,
+     fr: "Rapport Mueller remis au ministre de la Justice",
+     en: "Mueller report delivered to the Attorney General",
+     source: "https://en.wikipedia.org/wiki/Mueller_report"}
+  - {date: 2019-04-18, id: mueller-public, category: justice,
+     fr: "Publication de la version expurgée du rapport Mueller",
+     en: "Redacted Mueller report released",
+     source: "https://en.wikipedia.org/wiki/Mueller_report"}
+  - {date: 2019-05-30, id: fbi-bulletin, category: justice,
+     fr: "Bulletin du FBI (Phoenix) : QAnon cité comme menace terroriste intérieure",
+     en: "FBI (Phoenix) bulletin cites QAnon as a domestic terrorism threat",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2019-08-05, id: 8chan-down, category: platform,
+     fr: "8chan mis hors ligne après la tuerie d'El Paso",
+     en: "8chan taken offline after the El Paso shooting",
+     source: "https://en.wikipedia.org/wiki/8chan"}
+  - {date: 2020-03-23, id: covid-first, category: q,
+     fr: "Premier drop sur la pandémie (« China virus »)",
+     en: "First drop about the pandemic (\"China virus\")",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-07-21, id: twitter-ban, category: platform,
+     fr: "Twitter suspend des milliers de comptes QAnon",
+     en: "Twitter suspends thousands of QAnon accounts",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-08-11, id: mtg-runoff, category: politics,
+     fr: "Marjorie Taylor Greene, sympathisante QAnon, remporte la primaire républicaine (Géorgie)",
+     en: "QAnon sympathiser Marjorie Taylor Greene wins Georgia GOP runoff",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-08-19, id: trump-like-me, category: politics,
+     fr: "Trump à propos de QAnon : « ils m'apprécient beaucoup »",
+     en: "Trump on QAnon: \"they like me very much\"",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-10-02, id: hres-1154, category: politics,
+     fr: "La Chambre condamne QAnon (H.Res. 1154, 371 voix contre 18)",
+     en: "House condemns QAnon (H.Res. 1154, 371–18)",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-10-06, id: facebook-ban, category: platform,
+     fr: "Facebook et Instagram bannissent QAnon",
+     en: "Facebook and Instagram ban QAnon",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-10-15, id: town-hall, category: politics,
+     fr: "Town hall NBC : Trump refuse de désavouer QAnon",
+     en: "NBC town hall: Trump declines to disavow QAnon",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2020-11-03, id: election-2020, category: politics,
+     fr: "Élection présidentielle américaine",
+     en: "US presidential election",
+     source: "https://en.wikipedia.org/wiki/2020_United_States_presidential_election"}
+  - {date: 2020-12-08, id: last-drop-2020, category: q,
+     fr: "Dernier drop avant 18 mois de silence",
+     en: "Last drop before an 18-month silence",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2021-01-06, id: capitol, category: violence,
+     fr: "Assaut du Capitole",
+     en: "Attack on the US Capitol",
+     source: "https://en.wikipedia.org/wiki/January_6_United_States_Capitol_attack"}
+  - {date: 2021-01-08, id: trump-suspended, category: platform,
+     fr: "Twitter suspend définitivement @realDonaldTrump",
+     en: "Twitter permanently suspends @realDonaldTrump",
+     source: "https://en.wikipedia.org/wiki/Suspension_of_Twitter_accounts_of_Donald_Trump"}
+  - {date: 2021-01-20, id: inauguration, category: failed,
+     fr: "Investiture de Joe Biden (le « piège » annoncé n'a pas eu lieu)",
+     en: "Joe Biden's inauguration (the predicted \"trap\" did not happen)",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2021-03-04, id: march-4, category: failed,
+     fr: "« Investiture » de Trump attendue par le mouvement (n'a pas eu lieu)",
+     en: "Movement-predicted Trump \"inauguration\" (did not happen)",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2022-02-19, id: stylometry-nyt, category: q,
+     fr: "NYT : deux analyses stylométriques attribuent les drops à Paul Furber puis Ron Watkins",
+     en: "NYT: two stylometric analyses attribute drops to Paul Furber, then Ron Watkins",
+     source: "https://en.wikipedia.org/wiki/QAnon"}
+  - {date: 2022-06-24, id: q-returns, category: q,
+     fr: "Retour de Q sur 8kun après 18 mois",
+     en: "Q returns on 8kun after 18 months",
+     source: "https://en.wikipedia.org/wiki/QAnon"}

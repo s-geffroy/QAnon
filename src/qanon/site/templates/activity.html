@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% from "macros.html" import chart %}
+{% block title %}{{ t.activity_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.activity_title }}</h1>
+{{ chart("yearly", charts.yearly, t.yearly_title) }}
+{{ chart("heatmap", charts.heatmap, t.heat_title, t.heat_note) }}
+<section>
+  <h2>{{ t.platforms_title }}</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_site }}</th><th>{{ t.col_board }}</th><th class="r">{{ t.col_n }}</th><th>{{ t.col_first }}</th><th>{{ t.col_last }}</th></tr></thead>
+    <tbody>{% for p in platforms %}<tr><td>{{ p.site }}</td><td>{{ p.board }}</td><td class="r">{{ p.n }}</td><td>{{ p.first }}</td><td>{{ p.last }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+<section>
+  <h2>{{ t.gaps_title }}</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th class="r">{{ t.col_days }}</th><th>{{ t.col_from }}</th><th>{{ t.col_to }}</th></tr></thead>
+    <tbody>{% for g in gaps %}<tr><td class="r">{{ g.days }}</td><td>{{ g.from }}</td><td>{{ g.to }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+{% endblock %}

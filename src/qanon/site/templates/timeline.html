@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ t.timeline_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.timeline_title }}</h1>
+<p class="lead">{{ t.timeline_lead }}</p>
+<ol class="timeline">
+{% for e in events %}
+  <li class="ev ev-{{ e.cat }}"><time datetime="{{ e.iso }}">{{ e.date }}</time>
+    <span class="tag">{{ e.cat_label }}</span>
+    <span class="ev-label">{{ e.label }}</span>{% if e.source %} <a class="src" href="{{ e.source }}">{{ t.source }}</a>{% endif %}</li>
+{% endfor %}
+</ol>
+{% endblock %}

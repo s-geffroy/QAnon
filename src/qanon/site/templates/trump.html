@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% from "macros.html" import chart %}
+{% block title %}{{ t.trump_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.trump_title }}</h1>
+<p class="lead">{{ trump_lead }}</p>
+{% call chart("hist", charts.hist, t.hist_title, t.hist_note) %}
+<details><summary>{{ t.table_view }}</summary><div class="table-wrap"><table>
+  <thead><tr><th class="r">{{ t.min }}</th><th class="r">{{ t.observed }}</th><th class="r">{{ t.expected }}</th></tr></thead>
+  <tbody>{% for b in hist_rows %}<tr><td class="r">{{ b.minute }}</td><td class="r">{{ b.observed }}</td><td class="r">{{ b.expected }}</td></tr>{% endfor %}</tbody>
+</table></div></details>
+{% endcall %}
+<section>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_null }}</th><th>{{ t.col_window }}</th><th>{{ t.col_dir }}</th><th class="r">{{ t.col_obs }}</th><th class="r">{{ t.col_exp }}</th><th class="r">{{ t.col_ratio }}</th><th class="r">{{ t.col_p }}</th></tr></thead>
+    <tbody>{% for x in tests %}<tr{% if x.sig %} class="sig"{% endif %}><td>{{ x.null }}</td><td>{{ x.window }}</td><td>{{ x.dir }}</td><td class="r">{{ x.obs }}</td><td class="r">{{ x.exp }}</td><td class="r">{{ x.ratio }}</td><td class="r">{{ x.p }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ trump_method }}</p>
+  <p class="note">{{ t.trump_nulls }}</p>
+</section>
+<section>
+  <h2>{{ t.quotes_title }}</h2>
+  <p>{{ quotes }}</p>
+  <p>{{ delta }}</p>
+</section>
+{% endblock %}

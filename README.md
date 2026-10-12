@@ -3,9 +3,32 @@
 Worker heberge sur le VPS multi-applications : du travail de fond, **aucune
 surface HTTP**.
 
-## Ou est le travail
+## Ce que fait le worker
 
-`src/worker.py`, fonction `cycle()`. Tout le reste est la charpente :
+Une etude statistique des drops de « Q » (2017-2022), confrontee a l'actualite,
+publiee en site bilingue FR/EN sur GitHub Pages
+(`https://s-geffroy.github.io/QAnon/`).
+
+`cycle()` fait avancer un pipeline d'etapes reprenables (`src/qanon/stages.py`) :
+
+| etape | role |
+|---|---|
+| `fetch_qdrops` | drops Kaggle `jkingsman/qanondrops` (public, sans jeton), relu chaque semaine |
+| `fetch_tweets` | tweets de Trump, Kaggle `codebreaker619/donald-trump-tweets-dataset` (UTC) |
+| `load_timeline` | chronologie curee `src/data/timeline.yaml` (sourcee, bilingue) |
+| `analyze_descriptive` | volumes, plateformes, rythmes, silences |
+| `analyze_trump` | test des « deltas » : coincidences drop/tweet contre deux modeles nuls |
+| `build_site` | site statique FR/EN dans `/state/site` |
+| `publish_site` | force-push sur la branche `gh-pages` (secret `github_token`) |
+
+Une etape est relancee quand ses entrees changent (donnees amont, code,
+periode de rafraichissement) ; sinon le worker dort. Base : `/state/qanon.db`
+(SQLite), resultats : `/state/results/*.json`. Une etape en echec garde son
+avancement et reessaie avec un delai croissant (1 min a 1 h).
+
+## Charpente
+
+`src/worker.py` :
 
 | element | role |
 |---|---|
@@ -25,7 +48,7 @@ claude
 Puis, apres modification :
 
 ```bash
-tests/test_smoke.sh      # un cycle, un battement, un arret propre
+tests/test_smoke.sh      # dans un conteneur jetable : cycle, battement, arret propre, pytest
 sudo appctl validate
 sudo appctl rebuild
 sudo appctl status       # le conteneur doit passer 'healthy'
@@ -40,7 +63,10 @@ necessaires.
 
 | variable | defaut | role |
 |---|---|---|
-| `WORKER_INTERVAL` | `30` | secondes entre deux cycles |
+| `WORKER_INTERVAL` | `60` | secondes entre deux cycles |
+| `PIPELINE_CYCLE_BUDGET` | `45` | secondes de travail par cycle au plus |
+| `PIPELINE_STAGES` | (toutes) | restreint les etapes executees (tests) |
+| `PAGES_REPO` | `s-geffroy/QAnon` | depot cible de la publication |
 | `WORKER_STATE` | `/state` | repertoire d'etat (volume persistant) |
 | `WORKER_HEARTBEAT` | `/tmp/heartbeat` | fichier de battement |
 
@@ -59,6 +85,14 @@ sudo /opt/infra/scripts/app-exposure.py qanon --set worker=tailnet --port worker
 `app.yaml` et les labels Traefik sont mis a jour ensemble.
 
 ## Secrets
+
+| secret | usage |
+|---|---|
+| `github_token` | PAT fine-grained, depot `s-geffroy/QAnon` seul, *Contents: Read and write* |
+| `openai_api_key` | classification des predictions (etape a venir) |
+
+GitHub : apres le premier push de `gh-pages`, Settings → Pages → *Deploy from a
+branch* → `gh-pages` / `(root)`.
 
 Les secrets reels vont dans `/etc/app-secrets/qanon/` (root uniquement),
 jamais dans ce depot :

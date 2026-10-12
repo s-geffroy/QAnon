@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% from "macros.html" import chart %}
+{% block content %}
+<p class="lead">{{ lead }}</p>
+<section class="kpis">
+  {% for v, label in kpis %}<div class="kpi"><span class="kpi-v">{{ v }}</span><span class="kpi-l">{{ label }}</span></div>{% endfor %}
+</section>
+{{ chart("weekly", charts.weekly, t.weekly_title, t.weekly_note) }}
+<section>
+  <h2>{{ t.findings }}</h2>
+  <ul class="findings">{% for f in findings %}<li>{{ f }}</li>{% endfor %}</ul>
+  <p class="note">{{ t.next }}</p>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ t.site_title }}{% endblock %}</title>
+<meta name="description" content="{{ t.site_sub }}">
+<link rel="alternate" hreflang="{{ t.other }}" href="../{{ t.other }}/{{ page }}.html">
+<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <a href="index.html" class="brand-title">{{ t.site_title }}</a>
+      <span class="brand-sub">{{ t.site_sub }}</span>
+    </div>
+    <a class="lang" href="../{{ t.other }}/{{ page }}.html" hreflang="{{ t.other }}" lang="{{ t.other }}">{{ t.other_name }}</a>
+  </div>
+  <nav class="wrap nav" aria-label="sections">
+    {% for p in pages %}<a href="{{ p }}.html"{% if p == page %} aria-current="page"{% endif %}>{{ t[nav[p]] }}</a>{% endfor %}
+  </nav>
+</header>
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+<footer class="wrap foot">
+  <p class="disclaimer">{{ t.disclaimer }}</p>
+  <p>{{ t.updated }} {{ updated }} · <a href="{{ repo }}">GitHub</a></p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0/build/vega-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"></script>
+<script src="../static/charts.js"></script>
+</body>
+</html>

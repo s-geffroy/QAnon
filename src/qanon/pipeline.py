@@ -1,0 +1,150 @@
+"""Pipeline d'etapes reprenables.
+
+Chaque etape est idempotente et avance par lots : un appel a `run(ctx)` fait un
+lot borne, ecrit son avancement (curseur, donnees) et renvoie True quand
+l'etape est terminee. Une etape est "a jour" quand elle est terminee et que
+l'empreinte de ses entrees n'a pas change depuis ; sinon elle est relancee.
+
+L'empreinte combine : la version de l'etape, les sorties des etapes amont,
+l'empreinte du code (etapes derivees) et une periode de rafraichissement
+(sources distantes). Une etape dont un amont n'est pas a jour attend.
+"""
+import os
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Callable
+
+from . import db
+from .log import log
+
+APP_DIR = Path(__file__).resolve().parent.parent
+CYCLE_BUDGET = int(os.environ.get("PIPELINE_CYCLE_BUDGET", "45"))
+
+
+def code_fingerprint():
+    files = sorted(
+        p for p in APP_DIR.rglob("*")
+        if p.is_file() and p.suffix in {".py", ".html", ".css", ".js", ".yaml", ".jsonl"}
+        and "__pycache__" not in p.parts and "tests" not in p.parts
+    )
+    return db.sha(*(f"{p.relative_to(APP_DIR)}:{db.sha(p.read_bytes())}" for p in files))
+
+
+@dataclass
+class Stage:
+    name: str
+    run: Callable
+    inputs: tuple = ()
+    version: str = "1"
+    refresh: int = 0          # secondes ; 0 = jamais de rafraichissement periodique
+    code: bool = False        # l'empreinte du code fait partie des entrees
+    keep_cursor: bool = False  # une nouvelle empreinte reprend au curseur au lieu de repartir de zero
+
+
+class Ctx:
+    def __init__(self, conn, state, stage, deadline, should_stop):
+        self.conn = conn
+        self.state = state
+        self.stage = stage
+        self.deadline = deadline
+        self._should_stop = should_stop
+        self.results = state / "results"
+        self.results.mkdir(exist_ok=True)
+
+    def time_left(self):
+        return self.deadline - time.monotonic()
+
+    def should_yield(self):
+        """Vrai quand le lot doit s'arreter : budget du cycle epuise ou SIGTERM."""
+        return self.time_left() <= 0 or self._should_stop()
+
+    @property
+    def cursor(self):
+        row = self.conn.execute("SELECT cursor FROM stages WHERE name = ?", (self.stage.name,)).fetchone()
+        return row["cursor"] if row else None
+
+    def save_cursor(self, value):
+        """Ecrit l'avancement et valide la transaction en cours avec lui."""
+        self.conn.execute("UPDATE stages SET cursor = ?, updated_at = ? WHERE name = ?",
+                          (value, int(time.time()), self.stage.name))
+        self.conn.commit()
+
+    def set_output(self, value):
+        """Empreinte de la sortie de l'etape : c'est elle que voient les etapes aval."""
+        db.set_meta(self.conn, f"out:{self.stage.name}", value)
+
+
+class Pipeline:
+    def __init__(self, stages, state, only=None):
+        self.stages = [s for s in stages if not only or s.name in only]
+        self.state = Path(state)
+        self.state.mkdir(parents=True, exist_ok=True)
+        self.code = code_fingerprint()
+
+    def fingerprint(self, conn, stage, now):
+        parts = [stage.version]
+        parts += [db.get_meta(conn, f"out:{name}", "") for name in stage.inputs]
+        if stage.code:
+            parts.append(self.code)
+        if stage.refresh:
+            parts.append(int(now // stage.refresh))
+        return db.sha(*parts)
+
+    def step(self, should_stop=lambda: False):
+        """Un cycle : fait avancer d'un lot chaque etape eligible. Renvoie un resume."""
+        conn = db.connect(self.state / "qanon.db")
+        try:
+            return self._step(conn, should_stop)
+        finally:
+            conn.close()
+
+    def _step(self, conn, should_stop):
+        now = time.time()
+        deadline = time.monotonic() + CYCLE_BUDGET
+        fresh, ran, waiting, failed = set(), [], [], []
+        for stage in self.stages:
+            if should_stop() or time.monotonic() >= deadline:
+                waiting.append(stage.name)
+                continue
+            fp = self.fingerprint(conn, stage, now)
+            row = conn.execute("SELECT * FROM stages WHERE name = ?", (stage.name,)).fetchone()
+            if row and row["done"] and row["fingerprint"] == fp:
+                fresh.add(stage.name)
+                continue
+            if any(name not in fresh for name in stage.inputs):
+                waiting.append(stage.name)
+                continue
+            if row and row["retry_at"] > now:
+                waiting.append(stage.name)
+                continue
+            if not row:
+                conn.execute("INSERT INTO stages(name, fingerprint, done) VALUES(?, ?, 0)", (stage.name, fp))
+            elif row["fingerprint"] != fp:
+                cursor = row["cursor"] if stage.keep_cursor else None
+                conn.execute("UPDATE stages SET fingerprint = ?, done = 0, cursor = ? WHERE name = ?",
+                             (fp, cursor, stage.name))
+            conn.commit()
+
+            ctx = Ctx(conn, self.state, stage, deadline, should_stop)
+            t0 = time.monotonic()
+            try:
+                finished = bool(stage.run(ctx))
+            except Exception as exc:
+                conn.rollback()
+                failures = (row["failures"] if row else 0) + 1
+                delay = min(60 * 2 ** (failures - 1), 3600)
+                conn.execute("UPDATE stages SET failures = ?, retry_at = ?, last_error = ?, updated_at = ? "
+                             "WHERE name = ?", (failures, int(now + delay), repr(exc)[:500], int(now), stage.name))
+                conn.commit()
+                log(f"etape {stage.name} : echec ({failures}e, nouvel essai dans {delay} s) : {exc!r}")
+                failed.append(stage.name)
+                continue
+            conn.execute("UPDATE stages SET done = ?, failures = 0, retry_at = 0, last_error = NULL, "
+                         "updated_at = ? WHERE name = ?", (int(finished), int(time.time()), stage.name))
+            conn.commit()
+            ran.append(f"{stage.name}{'' if finished else '…'} {time.monotonic() - t0:.1f}s")
+            if finished:
+                fresh.add(stage.name)
+        return {"ran": ran, "waiting": waiting, "failed": failed,
+                "fresh": len(fresh), "total": len(self.stages)}

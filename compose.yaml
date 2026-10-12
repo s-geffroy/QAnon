@@ -11,14 +11,17 @@ services:
     environment:
       APP_NAME: qanon
       TZ: Europe/Paris
-      WORKER_INTERVAL: "30"
+      WORKER_INTERVAL: "60"
+      # Budget d'un cycle : chaque etape s'arrete a un lot quand il est epuise.
+      PIPELINE_CYCLE_BUDGET: "45"
+      PAGES_REPO: s-geffroy/QAnon
     volumes:
       - state:/state
     deploy:
       resources:
         limits:
           cpus: "1.0"
-          memory: 256M
+          memory: 1G
           pids: 128
     healthcheck:
       # Le worker touche /tmp/heartbeat a chaque tour : le conteneur est sain
@@ -31,9 +34,9 @@ services:
       timeout: 5s
       retries: 3
       start_period: 30s
-    # 'docker stop' laisse 10 s avant le SIGKILL. Le worker s'arrete a la fin du
-    # cycle en cours : si un cycle peut durer plus longtemps, augmenter ici.
-    stop_grace_period: 30s
+    # Le worker s'arrete a la fin du cycle en cours. Un cycle est borne par
+    # PIPELINE_CYCLE_BUDGET (45 s) plus la fin du lot en cours : 90 s de marge.
+    stop_grace_period: 90s
 
 networks:
   internal:

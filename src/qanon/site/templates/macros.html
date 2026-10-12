@@ -1,0 +1,8 @@
+{% macro chart(id, spec, title, note=None) %}
+<figure class="chart">
+  <figcaption><h3>{{ title }}</h3>{% if note %}<p class="note">{{ note }}</p>{% endif %}</figcaption>
+  <div class="vis" id="vis-{{ id }}"></div>
+  <script type="application/json" data-chart="vis-{{ id }}">{{ spec | tojson_compact }}</script>
+  {{ caller() if caller else "" }}
+</figure>
+{% endmacro %}
