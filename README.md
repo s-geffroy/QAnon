@@ -17,14 +17,24 @@ publiee en site bilingue FR/EN sur GitHub Pages
 | `fetch_tweets` | tweets de Trump, Kaggle `codebreaker619/donald-trump-tweets-dataset` (UTC) |
 | `load_timeline` | chronologie curee `src/data/timeline.yaml` (sourcee, bilingue) |
 | `analyze_descriptive` | volumes, plateformes, rythmes, silences |
+| `fetch_pageviews` | pages vues Wikipedia (API Wikimedia), 15 articles, 2017-2023 |
 | `analyze_trump` | test des « deltas » : coincidences drop/tweet contre deux modeles nuls |
-| `build_site` | site statique FR/EN dans `/state/site` |
+| `analyze_discourse` | themes (NMF), mots distinctifs, formules du glossaire, style, stylometrie |
+| `analyze_actors` | acteurs cites (`src/data/actors.yaml`), co-mentions, pays |
+| `analyze_interest` | interet public, etude d'evenements, diffusion par langue |
+| `llm_eval` | evaluation des modeles OpenAI sur `src/data/gold.jsonl` (secret `openai_api_key`) |
+| `build_site` | site statique FR/EN dans `/state/site` (13 pages, donnees telechargeables) |
+| `fetch_gdelt` | GDELT 1.0, un fichier par jour 2017-10 → 2021-01, agrege et reprenable (~1 h) |
+| `analyze_news` | Q contre l'actualite : surrepresentation, correlations decalees, Granger |
 
 La publication ne passe pas par le worker (aucun jeton GitHub dans le
 conteneur) : `scripts/publish-pages.sh`, lance depuis l'hote, extrait
 `/state/site` via `appctl run` et le pousse en SSH sur la branche `gh-pages`
 (un seul commit, force-push). GitHub : Settings → Pages → *Deploy from a
 branch* → `gh-pages` / `(root)`.
+
+Donnees editoriales versionnees dans `src/data/` : chronologie, acteurs,
+glossaire, bibliographie, jeu d'annotation de reference et ses consignes.
 
 Une etape est relancee quand ses entrees changent (donnees amont, code,
 periode de rafraichissement) ; sinon le worker dort. Base : `/state/qanon.db`
@@ -93,7 +103,7 @@ sudo /opt/infra/scripts/app-exposure.py qanon --set worker=tailnet --port worker
 
 | secret | usage |
 |---|---|
-| `openai_api_key` | classification des predictions (etape a venir) |
+| `openai_api_key` | evaluation des modeles (`llm_eval`) puis classification des predictions |
 
 Les secrets reels vont dans `/etc/app-secrets/qanon/` (root uniquement),
 jamais dans ce depot :

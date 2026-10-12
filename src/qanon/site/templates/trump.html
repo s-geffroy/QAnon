@@ -12,7 +12,7 @@
 <section>
   <div class="table-wrap"><table>
     <thead><tr><th>{{ t.col_null }}</th><th>{{ t.col_window }}</th><th>{{ t.col_dir }}</th><th class="r">{{ t.col_obs }}</th><th class="r">{{ t.col_exp }}</th><th class="r">{{ t.col_ratio }}</th><th class="r">{{ t.col_p }}</th></tr></thead>
-    <tbody>{% for x in tests %}<tr{% if x.sig %} class="sig"{% endif %}><td>{{ x.null }}</td><td>{{ x.window }}</td><td>{{ x.dir }}</td><td class="r">{{ x.obs }}</td><td class="r">{{ x.exp }}</td><td class="r">{{ x.ratio }}</td><td class="r">{{ x.p }}</td></tr>{% endfor %}</tbody>
+    <tbody>{% for x in tests %}<tr{% if x.sig %} class="sig"{% endif %}><td>{{ x.null }}</td><td>{{ x.window }}</td><td>{{ x.dir }}</td><td class="r">{{ x.obs }}</td><td class="r">{{ x.exp }}</td><td class="r">{{ x.ratio }}</td><td class="r">{{ x.pv }}</td></tr>{% endfor %}</tbody>
   </table></div>
   <p class="note">{{ trump_method }}</p>
   <p class="note">{{ t.trump_nulls }}</p>

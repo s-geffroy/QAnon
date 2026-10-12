@@ -3,7 +3,8 @@
 // redessine les graphes avec la palette correspondante.
 (function () {
   var TOKENS = {
-    "@series1": "--series-1", "@ink": "--ink", "@ink2": "--ink-2", "@ink3": "--ink-3",
+    "@series1": "--series-1", "@series2": "--series-2", "@series3": "--series-3", "@series4": "--series-4",
+    "@series5": "--series-5", "@series6": "--series-6", "@series7": "--series-7", "@ink": "--ink", "@ink2": "--ink-2", "@ink3": "--ink-3",
     "@surface": "--surface", "@rule": "--rule", "@seqlo": "--seq-lo", "@seqhi": "--seq-hi"
   };
   function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }

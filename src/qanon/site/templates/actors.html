@@ -1,0 +1,27 @@
+{% extends "base.html" %}{% from "macros.html" import chart, pending %}
+{% block title %}{{ t.actors_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.actors_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+<p class="lead">{{ lead }}</p>
+<p class="note">{{ t.actors_method }}</p>
+{{ chart("top", charts.top, t.top_actors) }}
+{{ chart("time", charts.time, t.actors_time) }}
+{{ chart("world", charts.world, t.countries_title, t.countries_note) }}
+<section>
+  <h2>{{ t.pairs_title }}</h2>
+  <p class="note">{{ t.pairs_note }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_pair }}</th><th class="r">{{ t.col_together }}</th><th class="r">NPMI</th></tr></thead>
+    <tbody>{% for e in pairs %}<tr><td>{{ e.a }} — {{ e.b }}</td><td class="r">{{ e.n }}</td><td class="r">{{ e.npmi }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+<section>
+  <h2>{{ t.top_actors }} ({{ rows|length }})</h2>
+  <details><summary>{{ t.table_view }}</summary><div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_actor }}</th><th>{{ t.col_category }}</th><th>{{ t.col_role }}</th><th class="r">{{ t.col_drops }}</th><th>{{ t.col_first }}</th><th>{{ t.col_last }}</th></tr></thead>
+    <tbody>{% for a in rows %}<tr><td>{{ a.name }}</td><td>{{ a.cat }}</td><td>{{ a.role }}</td><td class="r">{{ a.n }}</td><td>{{ a.first }}</td><td>{{ a.last }}</td></tr>{% endfor %}</tbody>
+  </table></div></details>
+</section>
+{% endif %}
+{% endblock %}

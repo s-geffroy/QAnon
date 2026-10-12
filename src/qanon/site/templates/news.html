@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% from "macros.html" import chart, pending %}
+{% block title %}{{ t.news_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.news_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+<p class="lead">{{ lead }}</p>
+<p class="note">{{ t.news_method }}</p>
+{{ chart("overrep", charts.overrep, t.overrep_title, t.overrep_note) }}
+{{ chart("series", charts.series, t.series_title, t.series_note) }}
+<section>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_actor }}</th><th class="r">{{ t.col_q }}</th><th class="r">{{ t.col_news }}</th><th class="r">{{ t.col_overrep }}</th><th class="r">{{ t.col_rho }}</th><th>{{ t.col_lag }}</th><th class="r">{{ t.col_g_news_q }}</th><th class="r">{{ t.col_g_q_news }}</th></tr></thead>
+    <tbody>{% for r in rows %}<tr{% if r.sig %} class="sig"{% endif %}><td>{{ r.name }}</td><td class="r">{{ r.q }}</td><td class="r">{{ r.news }}</td><td class="r">{{ r.overrep }}</td><td class="r">{{ r.rho }}</td><td>{{ r.lag }}</td><td class="r">{{ r.g1 }}</td><td class="r">{{ r.g2 }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+<section>
+  <h2>{{ t.countries_news_title }}</h2>
+  <p class="note">{{ country_rho }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_actor }}</th><th class="r">{{ t.col_q }}</th><th class="r">{{ t.col_news }}</th><th class="r">{{ t.col_overrep }}</th></tr></thead>
+    <tbody>{% for r in countries %}<tr><td>{{ r.name }}</td><td class="r">{{ r.q }}</td><td class="r">{{ r.news }}</td><td class="r">{{ r.overrep }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+{% endif %}
+{% endblock %}

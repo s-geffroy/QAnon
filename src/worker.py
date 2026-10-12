@@ -15,6 +15,7 @@ from qanon.pipeline import Pipeline
 from qanon.stages import STAGES
 
 INTERVAL = int(os.environ.get("WORKER_INTERVAL", "30"))
+BUSY_PAUSE = int(os.environ.get("WORKER_BUSY_PAUSE", "5"))
 HEARTBEAT = Path(os.environ.get("WORKER_HEARTBEAT", "/tmp/heartbeat"))
 STATE = Path(os.environ.get("WORKER_STATE", "/state"))
 
@@ -32,7 +33,9 @@ def on_stop(signum, _frame):
 
 
 def cycle():
-    """Le travail : un lot de chaque etape eligible du pipeline (voir qanon/stages.py)."""
+    """Le travail : un lot de chaque etape eligible du pipeline (voir qanon/stages.py).
+
+    Renvoie vrai s'il reste du travail en cours (une etape a avance sans finir)."""
     counter = STATE / "cycles"
     n = int(counter.read_text()) + 1 if counter.exists() else 1
     counter.write_text(str(n))
@@ -45,6 +48,7 @@ def cycle():
         # Rien a faire : une ligne de temps en temps, pas a chaque tour.
         log(f"cycle {n} : a jour {r['fresh']}/{r['total']}"
             f"{' ; en attente : ' + ', '.join(r['waiting']) if r['waiting'] else ''}")
+    return r["busy"]
 
 
 def main():
@@ -56,8 +60,9 @@ def main():
     log(f"demarrage (intervalle {INTERVAL} s, etat dans {STATE})")
 
     while not stopping:
+        busy = False
         try:
-            cycle()
+            busy = cycle()
         except Exception as exc:
             # Un cycle qui echoue ne tue pas le worker : il rate son tour et
             # reessaie au suivant. Ce qui ne doit jamais etre avale, c'est le
@@ -66,8 +71,9 @@ def main():
         HEARTBEAT.touch()
 
         # Sommeil fractionne : un SIGTERM ne doit pas attendre l'intervalle
-        # entier pour etre pris en compte.
-        for _ in range(INTERVAL):
+        # entier pour etre pris en compte. Travail en cours (GDELT...) : on
+        # enchaine apres une courte pause au lieu d'attendre l'intervalle.
+        for _ in range(BUSY_PAUSE if busy else INTERVAL):
             if stopping:
                 break
             time.sleep(1)

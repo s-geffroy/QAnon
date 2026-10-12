@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ t.pred_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.pred_title }}</h1>
+<p class="lead">{{ t.pred_lead }}</p>
+<section>
+  <h2>{{ t.gold_title }}</h2>
+  <p>{{ t.gold_text.format(n=gold_n, pos=gold_pos) }}</p>
+  <div class="table-wrap"><table>
+    <tbody>
+      <tr><th>{{ t.gold_random_label }}</th><td>{{ gold_random }}</td></tr>
+      <tr><th>{{ t.gold_likely_label }}</th><td>{{ gold_likely }}</td></tr>
+      <tr><th>{{ t.gold_types_label }}</th><td>{{ gold_types }}</td></tr>
+      <tr><th>{{ t.gold_spec_label }}</th><td>{{ gold_spec }}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">{{ t.gold_caveat }}</p>
+</section>
+<section>
+  <h2>{{ t.eval_title }}</h2>
+  {% if eval %}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_model }}</th><th class="r">{{ t.col_f1 }}</th><th class="r">{{ t.col_ci }}</th><th class="r">{{ t.col_prec }}</th><th class="r">{{ t.col_rec }}</th><th class="r">{{ t.col_type }}</th><th class="r">{{ t.col_deadline }}</th><th class="r">{{ t.col_cost }}</th><th class="r">{{ t.col_lat }}</th></tr></thead>
+    <tbody>{% for m in eval %}<tr{% if m.rec_flag %} class="sig"{% endif %}><td><code>{{ m.model }}</code>{% if m.rec_flag %} — {{ t.recommended }}{% endif %}</td><td class="r">{{ m.f1 }}</td><td class="r">{{ m.ci }}</td><td class="r">{{ m.prec }}</td><td class="r">{{ m.rec }}</td><td class="r">{{ m.type }}</td><td class="r">{{ m.deadline }}</td><td class="r">{{ m.cost }}</td><td class="r">{{ m.lat }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ eval_note }}</p>
+  {% else %}<p class="pending">{{ t.eval_pending }}</p>{% endif %}
+</section>
+{% endblock %}

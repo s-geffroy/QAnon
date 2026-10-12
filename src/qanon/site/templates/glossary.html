@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ t.glossary_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.glossary_title }}</h1>
+<p class="lead">{{ t.glossary_lead }}</p>
+<dl class="glossary">
+{% for g in terms %}
+  <div class="term" id="{{ g.id }}">
+    <dt>{{ g.term }}{% if g.expansion %} <span class="expansion">{{ g.expansion }}</span>{% endif %}</dt>
+    <dd>{{ g.definition }}
+      <p class="meta">{{ t.col_drops }} : {{ g.n }}{% if g.first %} · {{ t.col_first_use }} : {{ g.first }} ({{ t.drop_no }}{{ g.first_id }}){% endif %}{% if g.source %} · <a href="{{ g.source }}">{{ t.source }}</a>{% endif %}</p>
+    </dd>
+  </div>
+{% endfor %}
+</dl>
+{% endblock %}

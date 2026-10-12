@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ t.data_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.data_title }}</h1>
+<p class="lead">{{ t.data_lead }}</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>{{ t.col_file }}</th><th>{{ t.col_desc }}</th><th class="r">{{ t.col_size }}</th></tr></thead>
+  <tbody>{% for f in files %}<tr><td>{% if '*' in f.name %}<code>{{ f.name }}</code>{% else %}<a href="../data/{{ f.name }}"><code>{{ f.name }}</code></a>{% endif %}</td><td>{{ f[lang] }}</td><td class="r">{{ f.size|size }}</td></tr>{% endfor %}</tbody>
+</table></div>
+<section><h2>{{ t.license_title }}</h2><p>{{ t.license }}</p></section>
+{% endblock %}

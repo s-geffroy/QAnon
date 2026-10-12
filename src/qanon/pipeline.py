@@ -40,6 +40,7 @@ class Stage:
     refresh: int = 0          # secondes ; 0 = jamais de rafraichissement periodique
     code: bool = False        # l'empreinte du code fait partie des entrees
     keep_cursor: bool = False  # une nouvelle empreinte reprend au curseur au lieu de repartir de zero
+    optional: tuple = ()      # entrees prises en compte si elles existent, sans les attendre
 
 
 class Ctx:
@@ -84,12 +85,20 @@ class Pipeline:
 
     def fingerprint(self, conn, stage, now):
         parts = [stage.version]
-        parts += [db.get_meta(conn, f"out:{name}", "") for name in stage.inputs]
+        parts += [db.get_meta(conn, f"out:{name}", "") for name in stage.inputs + stage.optional]
         if stage.code:
             parts.append(self.code)
         if stage.refresh:
             parts.append(int(now // stage.refresh))
         return db.sha(*parts)
+
+    def _done_elsewhere(self, conn, name):
+        """Entree produite par une etape hors de la selection (PIPELINE_STAGES) :
+        on se fie a son dernier etat enregistre."""
+        if any(s.name == name for s in self.stages):
+            return False
+        row = conn.execute("SELECT done FROM stages WHERE name = ?", (name,)).fetchone()
+        return bool(row and row["done"])
 
     def step(self, should_stop=lambda: False):
         """Un cycle : fait avancer d'un lot chaque etape eligible. Renvoie un resume."""
@@ -103,6 +112,7 @@ class Pipeline:
         now = time.time()
         deadline = time.monotonic() + CYCLE_BUDGET
         fresh, ran, waiting, failed = set(), [], [], []
+        busy = False
         for stage in self.stages:
             if should_stop() or time.monotonic() >= deadline:
                 waiting.append(stage.name)
@@ -112,7 +122,7 @@ class Pipeline:
             if row and row["done"] and row["fingerprint"] == fp:
                 fresh.add(stage.name)
                 continue
-            if any(name not in fresh for name in stage.inputs):
+            if any(name not in fresh and not self._done_elsewhere(conn, name) for name in stage.inputs):
                 waiting.append(stage.name)
                 continue
             if row and row["retry_at"] > now:
@@ -146,5 +156,7 @@ class Pipeline:
             ran.append(f"{stage.name}{'' if finished else '…'} {time.monotonic() - t0:.1f}s")
             if finished:
                 fresh.add(stage.name)
-        return {"ran": ran, "waiting": waiting, "failed": failed,
+            else:
+                busy = True
+        return {"busy": busy, "ran": ran, "waiting": waiting, "failed": failed,
                 "fresh": len(fresh), "total": len(self.stages)}

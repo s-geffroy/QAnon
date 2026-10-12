@@ -2,14 +2,18 @@
 {% block title %}{{ t.method_title }} — {{ t.site_title }}{% endblock %}
 {% block content %}
 <h1>{{ t.method_title }}</h1>
+{% for k in ["corpus", "trump", "discourse", "actors", "news", "interest", "repro"] %}
+<section><h2>{{ t["m_" ~ k ~ "_title"] }}</h2><p>{{ t["m_" ~ k] }}</p></section>
+{% endfor %}
 <section><h2>{{ t.sources_title }}</h2>
-  <ul><li>{{ src_drops }}</li><li>{{ t.src_tweets }}</li><li>{{ t.src_timeline }}</li></ul>
+  <ul><li>{{ src_drops }}</li><li>{{ t.src_tweets }}</li><li>{{ t.src_timeline }}</li>
+  <li>GDELT 1.0 Event Database — <a href="https://www.gdeltproject.org/">gdeltproject.org</a></li>
+  <li>Wikimedia REST API (pageviews) — <a href="https://wikimedia.org/api/rest_v1/">wikimedia.org/api/rest_v1</a></li></ul>
 </section>
 <section><h2>{{ t.limits_title }}</h2>
   <ul><li>{{ t.lim_canon }}</li><li>{{ t.lim_corr }}</li><li>{{ t.lim_time }}</li></ul>
 </section>
 <section><h2>{{ t.refs_title }}</h2>
-  <ul>{% for label, url in refs %}<li><a href="{{ url }}">{{ label }}</a></li>{% endfor %}</ul>
-  <p>{{ t.code }}<a href="{{ repo }}">{{ repo }}</a></p>
+  <p><a href="bibliography.html">{{ t.nav_bibliography }}</a> · {{ t.code }}<a href="{{ repo }}">{{ repo }}</a></p>
 </section>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}{% from "macros.html" import chart, pending %}
+{% block title %}{{ t.discourse_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.discourse_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+<p class="lead">{{ lead }}</p>
+<section>
+  <h2>{{ t.topics_title }}</h2>
+  <p class="note">{{ topics_note }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th class="r">#</th><th>{{ t.col_terms }}</th><th class="r">{{ t.col_share }}</th><th>{{ t.col_examples }}</th></tr></thead>
+    <tbody>{% for x in topics %}<tr><td class="r">{{ x.i }}</td><td>{{ x.terms }}</td><td class="r">{{ x.share }}</td><td>{{ x.examples }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+{{ chart("prevalence", charts.prevalence, t.prevalence_title, t.prevalence_note) }}
+<section>
+  <h2>{{ t.distinctive_title }}</h2>
+  <p class="note">{{ t.distinctive_note }}</p>
+  <div class="table-wrap"><table>
+    <tbody>{% for y, words in distinctive %}<tr><th>{{ y }}</th><td>{{ words }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+{% if charts.formulas %}{{ chart("formulas", charts.formulas, t.formulas_title, t.formulas_note) }}{% endif %}
+{{ chart("style", charts.style, t.style_title, t.style_note) }}
+{% if charts.stylo %}
+<section>
+  <h2>{{ t.stylo_title }}</h2>
+  <p>{{ t.stylo_lead }}</p>
+  <p><strong>{{ stylo_result }}</strong>{% if stylo_platform %} {{ stylo_platform }}{% endif %}</p>
+  <p class="note">{{ t.stylo_candidates }} {{ stylo_candidates }}</p>
+  {{ chart("stylo", charts.stylo, t.stylo_chart, t.stylo_chart_note) }}
+  <p class="note">{{ stylo_method }}</p>
+  <p class="note">{{ t.stylo_caveat }}</p>
+</section>
+{% endif %}
+{% endif %}
+{% endblock %}

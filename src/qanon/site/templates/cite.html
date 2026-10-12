@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{{ t.cite_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.cite_title }}</h1>
+<p class="lead">{{ t.cite_lead }}</p>
+<h2>{{ t.cite_suggested }}</h2>
+<p class="cite-box">{{ cite_text }}</p>
+<pre>{{ cite_bibtex }}</pre>
+<p class="note">{{ cite_version }}</p>
+<section><h2>{{ t.license_title }}</h2><p>{{ t.license }}</p></section>
+{% endblock %}

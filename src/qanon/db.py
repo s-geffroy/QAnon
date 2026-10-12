@@ -85,3 +85,37 @@ def sha(*parts):
         h.update(p if isinstance(p, bytes) else str(p).encode())
         h.update(b"\0")
     return h.hexdigest()[:16]
+
+GDELT_SCHEMA = """
+-- GDELT 1.0, fichiers quotidiens d'evenements : agregats par jour d'ajout.
+CREATE TABLE IF NOT EXISTS gdelt_day (
+    day TEXT PRIMARY KEY, events INTEGER, mentions INTEGER, tone_sum REAL,
+    us_events INTEGER, us_protest INTEGER, us_fight INTEGER
+);
+CREATE TABLE IF NOT EXISTS gdelt_country (
+    day TEXT, fips TEXT, events INTEGER, mentions INTEGER, tone_sum REAL, goldstein_sum REAL,
+    PRIMARY KEY (day, fips)
+);
+-- Noms d'acteurs (Actor1Name / Actor2Name) vus au moins MIN_NAME fois dans la journee.
+CREATE TABLE IF NOT EXISTS gdelt_name (
+    day TEXT, name TEXT, events INTEGER, mentions INTEGER,
+    PRIMARY KEY (day, name)
+);
+CREATE INDEX IF NOT EXISTS gdelt_name_name ON gdelt_name(name);
+CREATE TABLE IF NOT EXISTS gdelt_missing (day TEXT PRIMARY KEY, reason TEXT);
+
+CREATE TABLE IF NOT EXISTS pageviews (
+    project TEXT, article TEXT, day TEXT, views INTEGER,
+    PRIMARY KEY (project, article, day)
+);
+"""
+SCHEMA += GDELT_SCHEMA
+
+SCHEMA += """
+-- Evaluation des modeles OpenAI : une reponse par (modele, drop du jeu d'or).
+CREATE TABLE IF NOT EXISTS llm_eval (
+    model TEXT, drop_id INTEGER, response TEXT, error TEXT,
+    in_tok INTEGER, out_tok INTEGER, latency REAL, created_at INTEGER, attempts INTEGER,
+    PRIMARY KEY (model, drop_id)
+);
+"""
