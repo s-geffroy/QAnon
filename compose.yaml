@@ -14,7 +14,6 @@ services:
       WORKER_INTERVAL: "60"
       # Budget d'un cycle : chaque etape s'arrete a un lot quand il est epuise.
       PIPELINE_CYCLE_BUDGET: "45"
-      PAGES_REPO: s-geffroy/QAnon
     volumes:
       - state:/state
     deploy:

@@ -19,7 +19,12 @@ publiee en site bilingue FR/EN sur GitHub Pages
 | `analyze_descriptive` | volumes, plateformes, rythmes, silences |
 | `analyze_trump` | test des « deltas » : coincidences drop/tweet contre deux modeles nuls |
 | `build_site` | site statique FR/EN dans `/state/site` |
-| `publish_site` | force-push sur la branche `gh-pages` (secret `github_token`) |
+
+La publication ne passe pas par le worker (aucun jeton GitHub dans le
+conteneur) : `scripts/publish-pages.sh`, lance depuis l'hote, extrait
+`/state/site` via `appctl run` et le pousse en SSH sur la branche `gh-pages`
+(un seul commit, force-push). GitHub : Settings → Pages → *Deploy from a
+branch* → `gh-pages` / `(root)`.
 
 Une etape est relancee quand ses entrees changent (donnees amont, code,
 periode de rafraichissement) ; sinon le worker dort. Base : `/state/qanon.db`
@@ -53,6 +58,7 @@ sudo appctl validate
 sudo appctl rebuild
 sudo appctl status       # le conteneur doit passer 'healthy'
 sudo appctl logs -f      # c'est ici qu'on voit si le travail se fait
+scripts/publish-pages.sh # publie /state/site sur GitHub Pages
 ```
 
 Un worker n'a pas d'URL a ouvrir : **les logs sont l'interface**. `status` dit
@@ -66,7 +72,6 @@ necessaires.
 | `WORKER_INTERVAL` | `60` | secondes entre deux cycles |
 | `PIPELINE_CYCLE_BUDGET` | `45` | secondes de travail par cycle au plus |
 | `PIPELINE_STAGES` | (toutes) | restreint les etapes executees (tests) |
-| `PAGES_REPO` | `s-geffroy/QAnon` | depot cible de la publication |
 | `WORKER_STATE` | `/state` | repertoire d'etat (volume persistant) |
 | `WORKER_HEARTBEAT` | `/tmp/heartbeat` | fichier de battement |
 
@@ -88,11 +93,7 @@ sudo /opt/infra/scripts/app-exposure.py qanon --set worker=tailnet --port worker
 
 | secret | usage |
 |---|---|
-| `github_token` | PAT fine-grained, depot `s-geffroy/QAnon` seul, *Contents: Read and write* |
 | `openai_api_key` | classification des predictions (etape a venir) |
-
-GitHub : apres le premier push de `gh-pages`, Settings → Pages → *Deploy from a
-branch* → `gh-pages` / `(root)`.
 
 Les secrets reels vont dans `/etc/app-secrets/qanon/` (root uniquement),
 jamais dans ce depot :
