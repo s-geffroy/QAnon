@@ -82,6 +82,12 @@ class Pipeline:
         self.state = Path(state)
         self.state.mkdir(parents=True, exist_ok=True)
         self.code = code_fingerprint()
+        # Un (re)demarrage est une nouvelle tentative deliberee (secret ajoute,
+        # correctif deploye) : les delais d'attente apres echec sont remis a zero.
+        conn = db.connect(self.state / "qanon.db")
+        conn.execute("UPDATE stages SET retry_at = 0")
+        conn.commit()
+        conn.close()
 
     def fingerprint(self, conn, stage, now):
         parts = [stage.version]

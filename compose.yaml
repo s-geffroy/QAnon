@@ -16,6 +16,10 @@ services:
       PIPELINE_CYCLE_BUDGET: "45"
     volumes:
       - state:/state
+    # Lus dans /run/secrets/<nom> par qanon/secrets.py. Fichiers en 0444 sur
+    # l'hote : le worker tourne en utilisateur non privilegie.
+    secrets:
+      - openai_api_key
     deploy:
       resources:
         limits:
@@ -36,6 +40,10 @@ services:
     # Le worker s'arrete a la fin du cycle en cours. Un cycle est borne par
     # PIPELINE_CYCLE_BUDGET (45 s) plus la fin du lot en cours : 90 s de marge.
     stop_grace_period: 90s
+
+secrets:
+  openai_api_key:
+    file: /etc/app-secrets/qanon/openai_api_key
 
 networks:
   internal:
