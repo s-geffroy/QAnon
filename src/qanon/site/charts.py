@@ -22,9 +22,11 @@ def weekly(desc, lang):
         height=260,
         layer=[
             {"data": {"values": desc["weekly"]},
-             "mark": {"type": "bar", "color": "@series1", "cornerRadiusEnd": 2, "width": {"band": 0.85}},
+             "mark": {"type": "area", "interpolate": "step-after", "color": "@series1", "opacity": 0.85,
+                      "line": {"color": "@series1", "strokeWidth": 1}},
              "encoding": {
-                 "x": {"field": "week", "type": "temporal", "title": None, "timeUnit": "yearweek"},
+                 "x": {"field": "week", "type": "temporal", "title": None,
+                       "axis": {"format": "%Y", "tickCount": "year"}},
                  "y": {"field": "n", "type": "quantitative", "title": t["drops"]},
                  "tooltip": [{"field": "week", "type": "temporal", "title": t["col_first"], "format": "%d/%m/%Y"},
                              {"field": "n", "type": "quantitative", "title": t["drops"]}]}},
@@ -42,7 +44,8 @@ def weekly(desc, lang):
 
 def yearly(desc, lang):
     t = T[lang]
-    data = [{"year": k, "n": v} for k, v in desc["yearly"].items()]
+    years = range(int(min(desc["yearly"])), int(max(desc["yearly"])) + 1)
+    data = [{"year": str(y), "n": desc["yearly"].get(str(y), 0)} for y in years]
     return _spec(
         height=180, data={"values": data},
         mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 4},
@@ -72,8 +75,10 @@ def tweet_hist(trump, lang):
     obs, exp = t["observed"], t["expected"]
     data = []
     for b in trump["hist"]:
-        data.append({"minute": b["minute"] + 1, "value": b["observed"], "series": obs})
-        data.append({"minute": b["minute"] + 1, "value": b["expected"], "series": exp})
+        # Barres de 2 min avec 0,3 min de jeu de chaque cote : l'espace entre barres.
+        m = b["minute"]
+        data.append({"minute": m, "m0": m + 0.15, "m1": m + 1.85, "value": b["observed"], "series": obs})
+        data.append({"minute": m, "m0": m, "m1": m + 2, "value": b["expected"], "series": exp})
     color = {"field": "series", "type": "nominal", "title": None,
              "scale": {"domain": [obs, exp], "range": ["@series1", "@ink2"]},
              "legend": {"orient": "top"}}
@@ -84,8 +89,11 @@ def tweet_hist(trump, lang):
         height=240, data={"values": data},
         layer=[
             {"transform": [{"filter": {"field": "series", "equal": obs}}],
-             "mark": {"type": "bar", "cornerRadiusEnd": 2, "width": {"band": 0.8}, "binSpacing": 2},
-             "encoding": {"x": x, "y": {"field": "value", "type": "quantitative", "title": "tweets"},
+             "mark": {"type": "bar", "cornerRadiusEnd": 2},
+             "encoding": {"x": {**x, "field": "m0"}, "x2": {"field": "m1"},
+                          "y": {"field": "value", "type": "quantitative", "title": "tweets",
+                                "scale": {"zero": True}},
+                          "y2": {"datum": 0},
                           "color": color, "tooltip": tip}},
             {"transform": [{"filter": {"field": "series", "equal": exp}}],
              "mark": {"type": "line", "strokeWidth": 2, "interpolate": "step-after"},

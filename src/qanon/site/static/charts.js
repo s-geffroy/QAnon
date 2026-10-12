@@ -26,12 +26,23 @@
       axisX: { grid: false }, legend: { labelColor: ink2, titleColor: ink2, labelFontSize: 11 }
     };
   }
+  var FR = document.documentElement.lang === "fr";
+  var LOCALE = FR ? {
+    formatLocale: { decimal: ",", thousands: "\u202f", grouping: [3], currency: ["", "\u00a0€"] },
+    timeFormatLocale: {
+      dateTime: "%A %e %B %Y à %X", date: "%d/%m/%Y", time: "%H:%M:%S", periods: ["AM", "PM"],
+      days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+      shortDays: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+      months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+      shortMonths: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."]
+    }
+  } : {};
   function draw() {
     if (!window.vegaEmbed) return;
     document.querySelectorAll("script[data-chart]").forEach(function (node) {
       var spec = resolve(JSON.parse(node.textContent));
       spec.config = config();
-      vegaEmbed("#" + node.dataset.chart, spec, { actions: false, renderer: "svg" });
+      vegaEmbed("#" + node.dataset.chart, spec, Object.assign({ actions: false, renderer: "svg" }, LOCALE));
     });
   }
   draw();
