@@ -363,3 +363,40 @@ def languages(interest, lang):
                                        {"field": "views", "title": t["views"]}]}},
         resolve={"scale": {"y": "independent"}},
     )
+
+
+# --- Predictions
+def pred_monthly(pr, lang):
+    t = T[lang]
+    data = [m for m in pr["monthly"] if m["n"] >= 5 and m["month"] <= LAST_MONTH]
+    return _spec(
+        height=220, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 2},
+        encoding={"x": {"field": "month", "type": "temporal", "timeUnit": "yearmonth", "title": None,
+                        "axis": {"format": "%Y", "tickCount": "year"}},
+                  "y": {"field": "share", "type": "quantitative", "title": None, "axis": {"format": ".0%"}},
+                  "tooltip": [{"field": "month", "type": "temporal", "timeUnit": "yearmonth", "format": "%m/%Y", "title": " "},
+                              {"field": "share", "format": ".0%", "title": t["pred_share"]},
+                              {"field": "pred", "title": t["pred_drops"]}, {"field": "n", "title": t["drops"]}]})
+
+
+def pred_types(pr, lang):
+    t = T[lang]
+    data = [{"type": t.get(f"et_{k}", k), "n": v} for k, v in pr["by_type"]]
+    return _spec(
+        height=len(data) * 22, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
+        encoding={"y": {"field": "type", "type": "nominal", "sort": "-x", "title": None},
+                  "x": {"field": "n", "type": "quantitative", "title": t["pred_n"]},
+                  "tooltip": [{"field": "type", "title": " "}, {"field": "n", "title": t["pred_n"]}]})
+
+
+def pred_actors(pr, lang, n=20):
+    t = T[lang]
+    data = pr["actors"][:n]
+    return _spec(
+        height=len(data) * 20, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
+        encoding={"y": {"field": "name", "type": "nominal", "sort": "-x", "title": None, "axis": {"labelLimit": 200}},
+                  "x": {"field": "n", "type": "quantitative", "title": t["pred_n"]},
+                  "tooltip": [{"field": "name", "title": " "}, {"field": "n", "title": t["pred_n"]}]})

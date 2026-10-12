@@ -118,4 +118,10 @@ CREATE TABLE IF NOT EXISTS llm_eval (
     in_tok INTEGER, out_tok INTEGER, latency REAL, created_at INTEGER, attempts INTEGER,
     PRIMARY KEY (model, drop_id)
 );
+
+-- Annotation du corpus : une ligne par drop.
+CREATE TABLE IF NOT EXISTS llm_class (
+    drop_id INTEGER PRIMARY KEY, model TEXT, response TEXT, error TEXT,
+    in_tok INTEGER, out_tok INTEGER, source TEXT, created_at INTEGER
+);
 """

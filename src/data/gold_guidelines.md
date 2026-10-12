@@ -13,10 +13,20 @@ rapport à l'horodatage du drop) dans le monde réel, falsifiable en principe :
 arrestation, inculpation, démission, déclassification, révélation, action
 militaire, résultat électoral, événement daté…
 
-Ne sont **pas** des prédictions : les questions rhétoriques seules, les slogans
-vagues (« Nothing can stop what is coming », « Enjoy the show », « Judgement is
-coming »), les affirmations sur le passé ou le présent, et ce que Q annonce de
-sa propre activité de publication (« Future posts will be relayed here »).
+Ne sont **pas** des prédictions : les questions rhétoriques seules, les
+formules rituelles sans résultat annoncé (« Nothing can stop what is coming »,
+« Enjoy the show », « Trust the plan », « Dark to light »), les affirmations sur
+le passé ou le présent, les engagements (« We will gladly end our lives… ») et
+ce que Q annonce de sa propre activité de publication (« Future posts will be
+relayed here »).
+
+**Révision 2 (12 octobre 2026, décision du responsable de l'étude)** : une
+annonce vague d'un **résultat futur dans le monde réel** est une prédiction,
+marquée `vague`, même sans objet précis ni échéance (« Judgement is coming »,
+« The next phase will bring JUSTICE », « Difficult truths will soon see the
+light of day », « Symbolism will be their downfall », « Something BIG is
+coming »). Dix drops ont été recodés en ce sens (735, 1296, 1343, 1630, 2063,
+3756, 3918, 4484, 4627, 4768), après comparaison avec les sept modèles évalués.
 
 Sont des prédictions : les prédictions implicites dont l'objet est clair
 (« Goodbye, Mr. Rosenstein » posté avec un article sur son éviction), et les
@@ -41,8 +51,8 @@ neutre en anglais (« Q claims that … will … »).
   **1274** (« Ready for tomorrow? ») et **2686** (« Will action be taken by
   DOJ/FBI? 2019? »).
 - **954 / 4924** — « Next week. BOOM. » / « BOOMS EN_ROUTE TOMORROW » : sans
-  objet mais datés → positif, `other`, `vague`. À l'inverse, **3756**
-  (« Something BIG is coming. ») n'est ancré ni dans le temps ni sur un objet → négatif.
+  objet mais datés → positif, `other`, `vague`. **3756** (« Something BIG is
+  coming. »), d'abord négatif, est positif depuis la révision 2.
 - **4395** — Q cite un article Fox (« arrests … may be imminent ») avec
   « re_read again » : la prédiction est celle de la source, que Q reprend à son
   compte → positif.
@@ -64,17 +74,19 @@ Ids triés, regroupés par année UTC de `time`.
    `\bwill\b|\bexpect\b|\bcoming\b|\bsoon\b|\bnext week\b|\b\d{1,2}/\d{1,2}\b|\bdays?\b|\bweeks?\b|\btomorrow\b|\btonight\b|\bboom\b|\barrest|\bindict|\bdeclas`,
    puis même tirage avec `random.Random(43)` et les mêmes quotas.
 
-## Comptes
+## Comptes (révision 2)
 
 | | positifs | négatifs |
 |---|---|---|
 | random (75) | 6 | 69 |
-| likely (75) | 21 | 54 |
-| **total (150)** | **27** | **123** |
+| likely (75) | 31 | 44 |
+| **total (150)** | **37** | **113** |
 
-29 prédictions dans 27 drops (2416 et 4354 en ont deux chacun) : 23 `vague`,
-6 `specific` ; échéance `none` 15, `relative` 13, `explicit` 1.
+39 prédictions dans 37 drops (2416 et 4354 en ont deux chacun) : 33 `vague`,
+6 `specific` ; échéance `none` 24, `relative` 14, `explicit` 1.
 
-Par `event_type` (en nombre de prédictions) : other 11, resignation 4,
-disclosure 4, indictment 3, arrest 2, declassification 2, military 1,
+Par `event_type` (en nombre de prédictions) : other 18, disclosure 7,
+resignation 4, indictment 3, arrest 2, declassification 2, military 1,
 attack 1, election 1 ; death, legal_ruling, economic 0.
+
+Révision 1 : 27 positifs, 29 prédictions (23 `vague`).

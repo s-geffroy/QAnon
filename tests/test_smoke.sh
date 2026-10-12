@@ -5,6 +5,9 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# L'image doit contenir le code courant : sans ce build, on teste l'ancien.
+sudo appctl build >/dev/null
+
 out=$(sudo appctl run worker sh -c '
   export WORKER_INTERVAL=1 WORKER_STATE=/tmp/state WORKER_HEARTBEAT=/tmp/beat PIPELINE_STAGES=load_timeline
   timeout --signal=TERM 4 python3 -u /app/worker.py || true

@@ -1,6 +1,6 @@
 """Generation du site statique bilingue a partir de /state/results."""
-import csv
 import json
+import re
 import shutil
 import time
 from pathlib import Path
@@ -49,7 +49,7 @@ class Site:
         self.state = state
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
-                                                "llm_eval")}
+                                                "llm_eval", "predictions")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
 
@@ -250,6 +250,23 @@ class Site:
             out["eval_note"] = t["eval_note"].format(date=c["date"](ev["pricing_date"]), n=n(ev["n_gold"]),
                                                      pos=n(ev["n_positive"]))
             out["recommended"] = ev["recommended"]
+        pr = self.r["predictions"]
+        if pr and pr["n_predictions"]:
+            spec = dict(pr["by_specificity"])
+            out["pr"] = {
+                "lead": t["pred_result"].format(model=pr["model"], n=n(pr["n_annotated"]), k=n(pr["n_pred_drops"]),
+                                                share=p(pr["share_pred_drops"], 0), m=n(pr["n_predictions"]),
+                                                spec=n(spec.get("specific", 0)), vague=n(spec.get("vague", 0))),
+                "explicit": [{"drop": x["drop_id"], "date": c["date"](x["date"]), "deadline": c["date"](x["deadline"])
+                              if re.match(r"\d{4}-\d{2}-\d{2}$", str(x["deadline"])) else x["deadline"],
+                              "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"]}
+                             for x in pr["explicit"]],
+                "specific": [{"drop": x["drop_id"], "date": c["date"](x["date"]),
+                              "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"]}
+                             for x in pr["specific"]],
+                "charts": {"monthly": charts.pred_monthly(pr, lang), "types": charts.pred_types(pr, lang),
+                           "actors": charts.pred_actors(pr, lang)},
+            }
         return out
 
     def page_timeline(self, lang, c):
@@ -352,6 +369,13 @@ class Site:
                 "Actors: Q versus GDELT (over-representation, correlations, Granger).")
             pd.DataFrame(r["news"]["countries"]).to_csv(d / "news_countries.csv", index=False)
             add("news_countries.csv", "Pays : mentions par Q et événements GDELT.", "Countries: Q mentions and GDELT events.")
+        if r["predictions"] and r["predictions"]["n_predictions"]:
+            allp = _load(self.state, "predictions_all")["predictions"]
+            pd.DataFrame(allp).assign(subjects=lambda x: x["subjects"].map("; ".join),
+                                      actor_ids=lambda x: x["actor_ids"].map("; ".join)) \
+                .to_csv(d / "predictions.csv", index=False)
+            add("predictions.csv", "Prédictions extraites de chaque drop (paraphrase, type, échéance, cibles) — annotation automatique.",
+                "Predictions extracted from each drop (paraphrase, type, deadline, targets) — automatic annotation.")
         if r["interest"]:
             pd.DataFrame(r["interest"]["weekly"]).to_csv(d / "wikipedia_weekly.csv", index=False)
             add("wikipedia_weekly.csv", "Pages vues Wikipédia par semaine et article.", "Weekly Wikipedia page views per article.")

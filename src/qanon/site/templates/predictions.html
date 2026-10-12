@@ -1,8 +1,33 @@
-{% extends "base.html" %}
+{% extends "base.html" %}{% from "macros.html" import chart %}
 {% block title %}{{ t.pred_title }} — {{ t.site_title }}{% endblock %}
 {% block content %}
 <h1>{{ t.pred_title }}</h1>
 <p class="lead">{{ t.pred_lead }}</p>
+{% if pr %}
+<section>
+  <h2>{{ t.pred_corpus_title }}</h2>
+  <p>{{ pr.lead }}</p>
+  <p class="note">{{ t.pred_caveat }}</p>
+</section>
+{{ chart("pmonthly", pr.charts.monthly, t.pred_monthly_title, t.pred_monthly_note) }}
+{{ chart("ptypes", pr.charts.types, t.pred_types_title) }}
+{{ chart("pactors", pr.charts.actors, t.pred_actors_title, t.pred_actors_note) }}
+<section>
+  <h2>{{ t.pred_explicit_title }}</h2>
+  <p class="note">{{ t.pred_explicit_note }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.drop_no }}</th><th>Date</th><th>{{ t.col_deadline }}</th><th>{{ t.col_type }}</th><th>{{ t.col_claim }}</th></tr></thead>
+    <tbody>{% for x in pr.explicit %}<tr><td>{{ x.drop }}</td><td>{{ x.date }}</td><td>{{ x.deadline }}</td><td>{{ x.type }}</td><td>{{ x.claim }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+<section>
+  <h2>{{ t.pred_specific_title }} ({{ pr.specific|length }})</h2>
+  <details><summary>{{ t.table_view }}</summary><div class="table-wrap"><table>
+    <thead><tr><th>{{ t.drop_no }}</th><th>Date</th><th>{{ t.col_type }}</th><th>{{ t.col_claim }}</th></tr></thead>
+    <tbody>{% for x in pr.specific %}<tr><td>{{ x.drop }}</td><td>{{ x.date }}</td><td>{{ x.type }}</td><td>{{ x.claim }}</td></tr>{% endfor %}</tbody>
+  </table></div></details>
+</section>
+{% endif %}
 <section>
   <h2>{{ t.gold_title }}</h2>
   <p>{{ t.gold_text.format(n=gold_n, pos=gold_pos) }}</p>

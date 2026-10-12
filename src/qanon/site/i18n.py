@@ -433,3 +433,42 @@ T["en"].update({
   "col_type": "Type", "col_deadline": "Deadline", "col_cost": "Corpus cost", "col_lat": "Latency (s)",
   "recommended": "recommended",
 })
+
+_ET = {"arrest": ("Arrestation", "Arrest"), "indictment": ("Inculpation", "Indictment"),
+       "resignation": ("Démission", "Resignation"), "declassification": ("Déclassification", "Declassification"),
+       "disclosure": ("Révélation", "Disclosure"), "military": ("Action militaire", "Military action"),
+       "death": ("Décès", "Death"), "election": ("Élection", "Election"), "legal_ruling": ("Décision de justice", "Court ruling"),
+       "attack": ("Attaque", "Attack"), "economic": ("Économie", "Economy"), "other": ("Autre", "Other")}
+for _k, (_fr, _en) in _ET.items():
+    T["fr"][f"et_{_k}"], T["en"][f"et_{_k}"] = _fr, _en
+
+T["fr"].update({
+  "pred_corpus_title": "Les prédictions du corpus",
+  "pred_result": "Annotation de {n} drops non vides par {model} : {k} drops ({share}) contiennent au moins une prédiction, soit {m} prédictions — {spec} précises et {vague} vagues.",
+  "pred_caveat": "Annotation automatique, dont la qualité est mesurée ci-dessous sur le jeu de référence ; la frontière entre question rhétorique, formule et annonce vague reste discutable. Les paraphrases sont celles du modèle ; elles décrivent ce que Q affirme, jamais des faits.",
+  "pred_monthly_title": "Part des drops contenant une prédiction, par mois",
+  "pred_monthly_note": "Mois d'au moins 5 drops, jusqu'à décembre 2020.",
+  "pred_share": "part", "pred_drops": "drops à prédiction", "pred_n": "prédictions",
+  "pred_types_title": "Ce que Q annonce",
+  "pred_actors_title": "Qui les prédictions visent-elles ?",
+  "pred_actors_note": "Sujets des prédictions rattachés au dictionnaire d'acteurs.",
+  "pred_explicit_title": "Prédictions à échéance",
+  "pred_explicit_note": "Prédictions pour lesquelles le modèle a pu fixer une date (énoncée ou déduite). À vérifier une à une contre les faits.",
+  "pred_specific_title": "Prédictions précises",
+  "col_claim": "Ce que Q affirme (paraphrase)",
+})
+T["en"].update({
+  "pred_corpus_title": "Predictions in the corpus",
+  "pred_result": "{n} non-empty drops annotated by {model}: {k} drops ({share}) contain at least one prediction, i.e. {m} predictions — {spec} specific and {vague} vague.",
+  "pred_caveat": "Automatic annotation, whose quality is measured below on the reference set; the line between rhetorical question, formula and vague announcement remains debatable. Paraphrases are the model's; they describe what Q claims, never facts.",
+  "pred_monthly_title": "Share of drops containing a prediction, by month",
+  "pred_monthly_note": "Months with at least 5 drops, up to December 2020.",
+  "pred_share": "share", "pred_drops": "drops with a prediction", "pred_n": "predictions",
+  "pred_types_title": "What Q announces",
+  "pred_actors_title": "Whom do the predictions target?",
+  "pred_actors_note": "Prediction subjects matched to the actor dictionary.",
+  "pred_explicit_title": "Predictions with a deadline",
+  "pred_explicit_note": "Predictions for which the model could set a date (stated or derived). To be checked one by one against the facts.",
+  "pred_specific_title": "Specific predictions",
+  "col_claim": "What Q claims (paraphrase)",
+})

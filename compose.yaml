@@ -14,6 +14,9 @@ services:
       WORKER_INTERVAL: "60"
       # Budget d'un cycle : chaque etape s'arrete a un lot quand il est epuise.
       PIPELINE_CYCLE_BUDGET: "45"
+      # Annotation du corpus : modele retenu apres evaluation, plafond de depense.
+      LLM_MODEL: gpt-5.6-luna
+      OPENAI_BUDGET_USD: "15"
     volumes:
       - state:/state
     # Lus dans /run/secrets/<nom> par qanon/secrets.py. Fichiers en 0444 sur

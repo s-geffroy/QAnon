@@ -2,7 +2,9 @@
 
 Chaque etape est idempotente et avance par lots : un appel a `run(ctx)` fait un
 lot borne, ecrit son avancement (curseur, donnees) et renvoie True quand
-l'etape est terminee. Une etape est "a jour" quand elle est terminee et que
+l'etape est terminee, False s'il reste du travail a enchainer, None si elle
+attend un evenement exterieur (lot OpenAI en cours) : on repassera au
+prochain cycle normal, sans enchainer. Une etape est "a jour" quand elle est terminee et que
 l'empreinte de ses entrees n'a pas change depuis ; sinon elle est relancee.
 
 L'empreinte combine : la version de l'etape, les sorties des etapes amont,
@@ -145,7 +147,8 @@ class Pipeline:
             ctx = Ctx(conn, self.state, stage, deadline, should_stop)
             t0 = time.monotonic()
             try:
-                finished = bool(stage.run(ctx))
+                result = stage.run(ctx)
+                finished = result is True
             except Exception as exc:
                 conn.rollback()
                 failures = (row["failures"] if row else 0) + 1
@@ -162,7 +165,7 @@ class Pipeline:
             ran.append(f"{stage.name}{'' if finished else '…'} {time.monotonic() - t0:.1f}s")
             if finished:
                 fresh.add(stage.name)
-            else:
+            elif result is False:
                 busy = True
         return {"busy": busy, "ran": ran, "waiting": waiting, "failed": failed,
                 "fresh": len(fresh), "total": len(self.stages)}

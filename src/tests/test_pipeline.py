@@ -41,14 +41,22 @@ def test_batches_resume_and_dependencies(tmp_path):
 
 def test_failure_keeps_progress_and_backs_off(tmp_path):
     calls = []
-    r = Pipeline(make(calls, fail=lambda n: n == 1), tmp_path).step()
+    p = Pipeline(make(calls, fail=lambda n: n == 1), tmp_path)
+    r = p.step()
     assert r["failed"] == ["counter"]
     conn = db.connect(tmp_path / "qanon.db")
     row = conn.execute("SELECT * FROM stages WHERE name='counter'").fetchone()
     assert row["failures"] == 1 and row["retry_at"] > 0 and "panne" in row["last_error"]
     calls.clear()
+    p.step()
+    assert calls == []                        # meme processus : en attente du delai
     Pipeline(make(calls), tmp_path).step()
-    assert calls == []                        # en attente du delai de nouvel essai
+    assert calls == [("counter", 2)]          # redemarrage : nouvel essai immediat, curseur garde
+
+
+def test_waiting_stage_is_not_busy(tmp_path):
+    r = Pipeline([Stage("wait", lambda ctx: None)], tmp_path).step()
+    assert r["busy"] is False and r["ran"] and r["fresh"] == 0
 
 
 def test_within_windows():
