@@ -315,13 +315,14 @@
   "sources":
   - "https://en.wikipedia.org/wiki/Paul_Ryan"
 - "key": "1287-0"
-  "verdict": "not_a_prediction"
-  "horizon": "2019-04-27"
-  "trivial": false
-  "explanation_fr": "Q cite une déclaration de Rudy Giuliani (« une semaine ou deux ») ; ce n'est pas une prédiction de Q. L'enquête Mueller ne s'est achevée que le 22 mars 2019."
-  "explanation_en": "Q quotes a statement by Rudy Giuliani ('a week or two'); this is not Q's own prediction. The Mueller investigation only concluded on March 22, 2019."
-  "sources":
-  - "https://en.wikipedia.org/wiki/Mueller_report"
+  verdict: not_fulfilled
+  horizon: '2018-05-04'
+  trivial: true
+  explanation_fr: 'Q introduit (« Insert Rudy ») la déclaration publique de Rudy Giuliani selon laquelle l''enquête Mueller pourrait être close en « une semaine ou deux » et la reprend dans son récit. L''enquête ne s''est achevée que le 22 mars 2019, avec la remise du rapport Mueller. Annonce déjà publique, donc triviale.'
+  explanation_en: 'Q introduces (''Insert Rudy'') Rudy Giuliani''s public statement that the Mueller probe could be resolved in ''a week or two'' and folds it into its narrative. The investigation only ended on 22 March 2019, when the Mueller report was delivered. Already public, hence trivial.'
+  sources:
+  - https://en.wikipedia.org/wiki/Mueller_special_counsel_investigation
+  - https://en.wikipedia.org/wiki/Mueller_report
 - "key": "1289-0"
   "verdict": "unverifiable"
   "horizon": "2018-05-06"
@@ -434,13 +435,13 @@
   "explanation_en": "'See next' points to Q's next post: it refers to Q's own posting activity, not an announced event."
   "sources": []
 - "key": "1553-0"
-  "verdict": "not_a_prediction"
-  "horizon": "2019-06-18"
-  "trivial": false
-  "explanation_fr": "Q cite une déclaration de Jeff Sessions (juin 2018) décrivant la mission du procureur John Huber ; ce n'est pas une prédiction de Q. L'examen de Huber s'est achevé début 2020 sans poursuites ni nomination d'un procureur spécial."
-  "explanation_en": "Q quotes a June 2018 statement by Jeff Sessions describing prosecutor John Huber's mission; this is not Q's own prediction. Huber's review ended in early 2020 without charges or the appointment of a special counsel."
-  "sources":
-  - "https://www.inquirer.com/politics/nation/justice-department-hillary-clinton-inquiry-trump-20200110.html"
+  verdict: unverifiable
+  horizon: '2019-06-18'
+  trivial: true
+  explanation_fr: 'Q reprend à son compte la déclaration publique de Jeff Sessions (juin 2018) : le procureur John Huber ferait des recommandations sur l''ouverture d''enquêtes ou la nomination d''un procureur spécial. Ces recommandations n''ont jamais été rendues publiques ; la mission de Huber s''est achevée début 2020 sans poursuites.'
+  explanation_en: 'Q adopts Jeff Sessions''s public statement (June 2018) that prosecutor John Huber would make recommendations on opening investigations or appointing a special counsel. Those recommendations were never made public; Huber''s review ended in early 2020 without charges.'
+  sources:
+  - https://en.wikipedia.org/wiki/John_Huber
 - "key": "1589-0"
   "verdict": "not_fulfilled"
   "horizon": "2019-06-26"

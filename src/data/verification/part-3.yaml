@@ -28,11 +28,11 @@ items:
   explanation_en: Q claimed the pushers of 'forced immigration' would be exposed, without naming anyone or describing how; there is no checkable object.
   sources: []
 - key: 1608-0
-  verdict: not_a_prediction
+  verdict: fulfilled
   horizon: '2019-06-27'
   trivial: true
-  explanation_fr: Q cite la déclaration de Trey Gowdy du 31 janvier 2018 annonçant qu'il ne se représenterait pas ; il s'agit d'un fait déjà public, non d'une prédiction. Gowdy a effectivement quitté le Congrès en janvier 2019.
-  explanation_en: Q quotes Trey Gowdy's January 31, 2018 statement that he would not seek re-election; this is an already public fact, not a prediction. Gowdy did leave Congress in January 2019.
+  explanation_fr: 'Q reprend la déclaration de Trey Gowdy (31 janvier 2018) : il ne se représenterait pas et retournerait au « système judiciaire », et l''ajoute à sa liste de départs. Gowdy a quitté le Congrès en janvier 2019 et rejoint un cabinet d''avocats. Annonce déjà publique, donc triviale.'
+  explanation_en: 'Q repeats Trey Gowdy''s statement (31 January 2018) that he would not seek re-election and would return to the ''justice system'', adding him to its list of departures. Gowdy left Congress in January 2019 and joined a law firm. Already public, hence trivial.'
   sources:
   - https://en.wikipedia.org/wiki/Trey_Gowdy
 - key: 1670-0
@@ -109,13 +109,12 @@ items:
   explanation_en: '''BOOM [NEXT WEEK]'': no identifiable event is named for the week after August 11, 2018.'
   sources: []
 - key: 1927-10
-  verdict: not_a_prediction
-  horizon: '2019-01-01'
+  verdict: unverifiable
+  horizon: '2019-08-19'
   trivial: true
-  explanation_fr: Q cite le décret présidentiel modifiant le Manuel des cours martiales, déjà signé et applicable au 1er janvier 2019 ; reproduire un texte officiel n'est pas une prédiction, et ce décret ne concernait pas les poursuites que Q laissait entendre.
-  explanation_en: Q quotes the executive order amending the Manual for Courts-Martial, already signed and effective January 1, 2019; reproducing an official text is not a prediction, and the order did not concern the prosecutions Q implied.
-  sources:
-  - https://trumpwhitehouse.archives.gov/presidential-actions/2018-amendments-manual-courts-martial-united-states/
+  explanation_fr: 'Q cite, comme « effet » attendu, un décret déjà signé (amendements 2018 au Manuel des cours martiales) prévoyant que le secrétaire à la Défense publie des lignes directrices non contraignantes. Annonce déjà officielle, donc triviale ; la publication de ces lignes directrices et leur lien avec le scénario de Q ne sont pas établis.'
+  explanation_en: 'Q cites, as an expected ''effect'', an already signed order (2018 amendments to the Manual for Courts-Martial) providing that the Secretary of Defense would issue nonbinding guidance. Already official, hence trivial; whether that guidance was issued, and any link to Q''s scenario, is not established.'
+  sources: []
 - key: 1947-0
   verdict: not_fulfilled
   horizon: '2019-08-28'

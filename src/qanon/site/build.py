@@ -413,6 +413,9 @@ class Site:
                 "Prediction-by-prediction verification: verdict, horizon, triviality, explanation, sources.")
             for f in sorted((APP_DIR / "data" / "verification").glob("part-*.yaml")):
                 shutil.copy(f, d / f"verification-{f.name}")
+            shutil.copy(APP_DIR / "data" / "verification" / "README.md", d / "verification-README.md")
+            add("verification-README.md", "Protocole de vérification (verdicts, horizon, citations, historique des corrections).",
+                "Verification protocol (verdicts, horizon, quotes, correction history).")
         if r["interest"]:
             pd.DataFrame(r["interest"]["weekly"]).to_csv(d / "wikipedia_weekly.csv", index=False)
             add("wikipedia_weekly.csv", "Pages vues Wikipédia par semaine et article.", "Weekly Wikipedia page views per article.")

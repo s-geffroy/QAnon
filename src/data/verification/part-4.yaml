@@ -95,12 +95,14 @@ items:
   explanation_en: The announcement of 'one of the largest criminal investigations in modern day history' names no identifiable investigation, person or date.
   sources: []
 - key: 2552-0
-  verdict: not_a_prediction
+  verdict: fulfilled
   horizon: '2019-12-05'
-  trivial: false
-  explanation_fr: Le message reprend un article du Wall Street Journal (4 décembre 2018) sur le départ annoncé de Bill Priestap du FBI ; il commente une information déjà publiée et ne prédit rien. Peter Strzok, lui, avait été licencié en août 2018.
-  explanation_en: The post quotes a Wall Street Journal article (4 December 2018) on Bill Priestap's announced departure from the FBI; it comments on published news and predicts nothing. Peter Strzok had been fired in August 2018.
-  sources: []
+  trivial: true
+  explanation_fr: 'Q reprend un article du Wall Street Journal (4 décembre 2018) : après le départ annoncé de Bill Priestap, aucun haut responsable du FBI impliqué dans les enquêtes de 2016 ne resterait au Bureau. Priestap a pris sa retraite début 2019. Annonce déjà publique, donc triviale ; le FBI présentait ce départ comme une retraite ordinaire.'
+  explanation_en: 'Q relays a Wall Street Journal article (4 December 2018): after Bill Priestap''s announced departure, no senior FBI official involved in the 2016 investigations would remain. Priestap retired in early 2019. Already public, hence trivial; the FBI described it as an ordinary retirement.'
+  sources:
+  - https://foxnews.com/politics/top-fbi-official-bill-priestap-to-leave-government.amp
+  - https://en.wikipedia.org/wiki/E._W._Priestap
 - key: 2575-0
   verdict: not_fulfilled
   horizon: '2019-03-01'

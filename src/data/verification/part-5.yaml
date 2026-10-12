@@ -112,12 +112,13 @@ items:
     explanation_en: "'BOOM WEEK AHEAD' identifies no checkable event."
     sources: []
   - key: "4220-0"
-    verdict: not_a_prediction
-    horizon: "2021-05-12"
-    trivial: false
-    explanation_fr: "Q citait un article où Kevin McCarthy jugeait que le plan de 3 000 milliards ne deviendrait jamais loi ; la prévision est celle de McCarthy. De fait, le HEROES Act, adopté par la Chambre le 15 mai 2020, n'a jamais été examiné par le Sénat."
-    explanation_en: "Q quoted an article in which Kevin McCarthy said the $3 trillion bill would never become law; the forecast is McCarthy's. In fact the HEROES Act, passed by the House on 15 May 2020, was never taken up by the Senate."
-    sources: []
+    verdict: fulfilled
+    horizon: '2021-05-12'
+    trivial: true
+    explanation_fr: 'Q cite approbativement Kevin McCarthy, pour qui le projet de loi de 3 000 milliards de dollars « ne deviendra jamais une loi ». Le HEROES Act, adopté par la Chambre le 15 mai 2020, n''a jamais été examiné par le Sénat. Déclaration déjà publique, donc triviale.'
+    explanation_en: 'Q approvingly quotes Kevin McCarthy saying the $3 trillion bill would ''never become law''. The HEROES Act, passed by the House on 15 May 2020, was never taken up by the Senate. Already public, hence trivial.'
+    sources:
+    - https://en.wikipedia.org/wiki/HEROES_Act
   - key: "4294-0"
     verdict: not_fulfilled
     horizon: "2020-11-03"
