@@ -30,8 +30,8 @@ terms:
   term: "WWG1WGA"
   expansion: "Where We Go One, We Go All"
   pattern: '(?i)\bWWG1WGA\b|where we go one,? we go all'
-  def_fr: "Slogan et hashtag le plus répandu du mouvement, employé par Q à partir d'avril 2018 ; il exprime la solidarité de la communauté. Q l'attribuait à John F. Kennedy, mais la réplique semble provenir du film « White Squall » (1996)."
-  def_en: "The movement's most widespread slogan and hashtag, used by Q from April 2018, expressing community solidarity. Q attributed it to John F. Kennedy, but the line appears to come from the 1996 film 'White Squall'."
+  def_fr: "Slogan et hashtag le plus répandu du mouvement, employé en sigle par Q à partir d'avril 2018 (la formule développée apparaît dès janvier 2018) ; il exprime la solidarité de la communauté. Q l'attribuait à John F. Kennedy, mais la réplique semble provenir du film « White Squall » (1996)."
+  def_en: "The movement's most widespread slogan and hashtag, used by Q as an acronym from April 2018 (the full phrase appears as early as January 2018), expressing community solidarity. Q attributed it to John F. Kennedy, but the line appears to come from the 1996 film 'White Squall'."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: trust-the-plan
@@ -50,9 +50,9 @@ terms:
 
 - id: deep-state
   term: "Deep State"
-  pattern: '(?i)\bdeep[ -]?state\b'
-  def_fr: "Dans QAnon, les pouvoirs supposément retranchés au sein des institutions américaines qui agiraient pour le compte de la Cabale et en couvriraient les crimes."
-  def_en: "In QAnon, the powers allegedly entrenched within U.S. institutions that act on behalf of the Cabal and cover up its crimes."
+  pattern: '(?i:\bdeep[ -]?state\b)|\[DS\]|(?<![-\w])DS\b'
+  def_fr: "Dans QAnon, les pouvoirs supposément retranchés au sein des institutions américaines qui agiraient pour le compte de la Cabale et en couvriraient les crimes. Q écrit aussi « DS » ou « [DS] », comptés par le motif."
+  def_en: "In QAnon, the powers allegedly entrenched within U.S. institutions that act on behalf of the Cabal and cover up its crimes. Q also writes 'DS' or '[DS]', which the pattern counts."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: cabal
@@ -85,9 +85,9 @@ terms:
 
 - id: bakers-bread
   term: "Bakers / Bread"
-  pattern: '(?i)\bbakers?\b|\bbread\b|\bbaking\b'
-  def_fr: "Les « bakers » sont les adeptes qui assemblent les « miettes » (crumbs) de Q pour en faire de la « pâte » ou du « pain » (bread), c'est-à-dire une interprétation cohérente du récit."
-  def_en: "'Bakers' are followers who assemble Q's 'crumbs' into 'dough' or 'bread', i.e. a coherent reading of the narrative."
+  pattern: '\b[Bb]akers\b|\b[Bb]aking\b|(?i:\bbread\b)'
+  def_fr: "Les « bakers » sont les adeptes qui assemblent les « miettes » (crumbs) de Q pour en faire de la « pâte » ou du « pain » (bread), c'est-à-dire une interprétation cohérente du récit. Le motif exclut « Baker » au singulier, qui désigne dans les drops James Baker, ancien avocat général du FBI."
+  def_en: "'Bakers' are followers who assemble Q's 'crumbs' into 'dough' or 'bread', i.e. a coherent reading of the narrative. The pattern excludes singular 'Baker', which in the drops refers to James Baker, the FBI's former general counsel."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: deltas
@@ -107,8 +107,8 @@ terms:
 - id: disinformation-is-necessary
   term: "Disinformation is necessary"
   pattern: '(?i)\bdisinformation is (?:necessary|real)\b'
-  def_fr: "Justification avancée par Q pour ses prédictions erronées, présentées comme délibérées ; elle illustre le caractère « auto-immunisé » de la théorie, où les démentis deviennent des preuves."
-  def_en: "Q's justification for its failed predictions, presented as deliberate; it illustrates the theory's 'self-sealing' quality, in which counter-evidence becomes evidence."
+  def_fr: "Justification avancée par Q pour ses prédictions erronées, présentées comme délibérées ; elle illustre le caractère « auto-immunisé » de la théorie, où les démentis deviennent des preuves. Le motif compte aussi la variante « Disinformation is real » (novembre 2017)."
+  def_en: "Q's justification for its failed predictions, presented as deliberate; it illustrates the theory's 'self-sealing' quality, in which counter-evidence becomes evidence. The pattern also counts the variant 'Disinformation is real' (November 2017)."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: patriots-digital-soldiers
@@ -254,8 +254,8 @@ terms:
 - id: red-october
   term: "Red October"
   pattern: '(?i)\bred october\b'
-  def_fr: "Expression de Q, d'abord liée au film « À la poursuite d'Octobre rouge », puis employée à l'automne 2018 pour appeler à une vague républicaine (« red ») aux élections de mi-mandat."
-  def_en: "Q phrase first tied to the film 'The Hunt for Red October', then used in autumn 2018 to call for a Republican ('red') wave in the midterm elections."
+  def_fr: "Expression de Q, d'abord liée au film « À la poursuite d'Octobre rouge », puis employée à l'automne 2018 pour appeler à une vague républicaine (« red ») aux élections de mi-mandat, et de nouveau en octobre 2020 avant l'élection présidentielle."
+  def_en: "Q phrase first tied to the film 'The Hunt for Red October', then used in autumn 2018 to call for a Republican ('red') wave in the midterm elections, and again in October 2020 ahead of the presidential election."
   source: "https://www.bellingcat.com/news/2021/01/29/the-qanon-timeline/"
 
 - id: seventeen
