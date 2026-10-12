@@ -23,7 +23,7 @@ T = {
   "f_questions": "En moyenne {q} points d'interrogation par drop : la question rhétorique est la signature du style Q.",
   "verdict_sig": "écart statistiquement significatif, p = {p}",
   "verdict_ns": "écart non significatif, p = {p}",
-  "next": "À venir : vérification des prédictions, analyse du discours, acteurs cités, corrélations avec GDELT et l'intérêt public.",
+  "next": "À venir : la vérification systématique des prédictions de Q, après l'évaluation des modèles de langue (page Prédictions).",
   # Activite
   "activity_title": "Rythme et plateformes",
   "platforms_title": "Plateformes et forums",
@@ -90,7 +90,7 @@ T = {
   "f_questions": "On average {q} question marks per drop: the rhetorical question is the signature of Q's style.",
   "verdict_sig": "statistically significant difference, p = {p}",
   "verdict_ns": "difference not significant, p = {p}",
-  "next": "Coming next: prediction checking, discourse analysis, named actors, correlations with GDELT and public interest.",
+  "next": "Coming next: systematic checking of Q's predictions, after the language-model evaluation (Predictions page).",
   "activity_title": "Rhythm and platforms",
   "platforms_title": "Platforms and boards",
   "col_site": "Site", "col_board": "Board", "col_n": "Drops", "col_first": "First", "col_last": "Last",
@@ -144,7 +144,7 @@ REPO = "https://github.com/s-geffroy/QAnon"
 # --- Pages ajoutees : discours, acteurs, actualite, interet public, ressources.
 T["fr"].update({
   "f_actors": "Acteurs les plus nommés (nombre de drops) : {top}.",
-  "f_stylo": "Stylométrie : la rupture de style la plus nette se situe autour du {date}, ce qui rejoint les analyses publiées en 2022 sur un changement de plume.",
+  "f_stylo": "Stylométrie : la rupture de style la plus nette se situe autour du {date}, au moment du passage sur 8chan. Cela rejoint les analyses publiées en 2022 sur un changement de plume, sans permettre de le distinguer d'un changement de plateforme.",
   "f_stylo_other": "Stylométrie : la rupture de style la plus nette se situe autour du {date} (méthode et limites dans Discours).",
   "f_overrep": "Par rapport au volume d'actualité mondiale (GDELT), Q sur-représente le plus : {names}.",
   "f_interest": "L'événement qui a le plus fait monter la curiosité pour QAnon sur Wikipédia : {label} (vues ×{ratio} la semaine suivante).",
@@ -250,7 +250,7 @@ T["fr"].update({
 
 T["en"].update({
   "f_actors": "Most-named actors (number of drops): {top}.",
-  "f_stylo": "Stylometry: the sharpest change in style falls around {date}, consistent with the 2022 analyses of a change of author.",
+  "f_stylo": "Stylometry: the sharpest change in style falls around {date}, when Q moved to 8chan. This is consistent with the 2022 analyses of a change of author, but cannot be told apart from a change of platform.",
   "f_stylo_other": "Stylometry: the sharpest change in style falls around {date} (method and limitations under Discourse).",
   "f_overrep": "Compared with world news volume (GDELT), Q most over-represents: {names}.",
   "f_interest": "The event that most raised curiosity about QAnon on Wikipedia: {label} (views ×{ratio} the following week).",
