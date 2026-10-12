@@ -239,21 +239,26 @@ def actors_time(act, lang):
 
 
 def world(countries, lang, field="q", title=None):
+    """Carte : fond gris pour tous les pays, puis les pays cites colores (une
+    seule couche avec lookup ecarte les pays sans correspondance)."""
     t = T[lang]
-    data = [{"id": c["num"], "name": c["name"], "v": c[field]} for c in countries if c.get("num") is not None]
+    data = [{"id": c["num"], "name": c["name"], "v": c[field]} for c in countries
+            if c.get("num") is not None and c[field]]
+    geo = {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json",
+           "format": {"type": "topojson", "feature": "countries"}}
     return _spec(
-        height=380,
-        data={"url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json",
-              "format": {"type": "topojson", "feature": "countries"}},
-        projection={"type": "equalEarth"},
-        transform=[{"lookup": "id", "from": {"data": {"values": data}, "key": "id", "fields": ["name", "v"]},
-                    "default": None}],
-        mark={"type": "geoshape", "stroke": "@surface", "strokeWidth": 0.5},
-        encoding={
-            "color": {"condition": {"test": "datum.v == null", "value": "@rule"},
-                      "field": "v", "type": "quantitative", "title": title or t["drops"],
-                      "scale": {"type": "sqrt", "range": ["@seqlo", "@seqhi"]}},
-            "tooltip": [{"field": "name", "title": " "}, {"field": "v", "title": title or t["drops"]}]})
+        height=380, projection={"type": "equalEarth"},
+        layer=[
+            {"data": geo, "mark": {"type": "geoshape", "fill": "@rule", "stroke": "@surface", "strokeWidth": 0.5}},
+            {"data": geo,
+             "transform": [{"lookup": "id", "from": {"data": {"values": data}, "key": "id", "fields": ["name", "v"]}},
+                           {"filter": "datum.v > 0"}],
+             "mark": {"type": "geoshape", "stroke": "@surface", "strokeWidth": 0.5},
+             "encoding": {
+                 "color": {"field": "v", "type": "quantitative", "title": title or t["drops"],
+                           "scale": {"type": "sqrt", "range": ["@seqlo", "@seqhi"]}},
+                 "tooltip": [{"field": "name", "title": " "}, {"field": "v", "title": title or t["drops"]}]}},
+        ])
 
 
 # --- Actualite

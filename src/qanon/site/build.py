@@ -179,7 +179,7 @@ class Site:
             "pairs": [{"a": names.get(e["a"], e["a"]), "b": names.get(e["b"], e["b"]), "n": n(e["n"]),
                        "npmi": n(e["npmi"], 2)} for e in sorted(act["edges"], key=lambda e: -e["n"])[:40]],
             "charts": {"top": charts.top_actors(act, lang), "time": charts.actors_time(act, lang),
-                       "world": charts.world(countries, lang)},
+                       "world": charts.world(countries, lang, field="n")},
         }
 
     def page_news(self, lang, c):

@@ -1,0 +1,1591 @@
+# Dictionnaire cure des acteurs cites dans les drops Q.
+#
+# Une entree : id (slug unique), name, category, role_fr, role_en, patterns.
+# Optionnel : gdelt (noms Actor1Name/Actor2Name exacts, en majuscules, vus dans
+# des fichiers d'evenements GDELT 1.0 echantillons du 2018-10-01 et du
+# 2019-04-01), iso3 + fips pour les pays (GDELT ActionGeo_CountryCode = FIPS 10-4).
+#
+# Categories : person | country | institution | organization | media |
+# platform | group.
+#
+# Les motifs sont des regex Python appliquees SENSIBLES A LA CASSE au texte
+# des drops. Ils visent les mentions dans la prose : les domaines et les
+# comptes Twitter cites dans des URL ne sont volontairement pas comptes
+# (twitter.com/HillaryClinton, foxnews.com...) -- c'est une autre analyse.
+#
+# Choix de desambiguisation (verifies sur le contexte des drops) :
+# - BO = Barack Obama, sauf "/BO/" (Board Owner de 8chan) ; HUSSEIN = Obama.
+# - AS = Adam Schiff seulement hors d'un texte en capitales ("AS" anglais).
+# - SA = Arabie saoudite ; NK = Coree du Nord ; U1 = Uranium One.
+# - JC = Comey, LL = Lynch, RR = Rosenstein, PS = Strzok, LP = Lisa Page,
+#   AM = McCabe, CS = Schumer, NP = Pelosi, MW = Maxine Waters,
+#   VJ = Valerie Jarrett, JK = John Kerry, MZ = Zuckerberg, GS = Soros,
+#   JA = Assange, WL = WikiLeaks, CF = Clinton Foundation,
+#   MB = Muslim Brotherhood, PP = Planned Parenthood, TG = Trey Gowdy,
+#   KC = Kevin Clinesmith, SH = Sean Hannity, SY = Sally Yates, HA = Huma
+#   Abedin, AW = Anthony Weiner, JP = John Podesta, NG = National Guard.
+# - "Clowns" / "C_A" / "Clowns In America" = CIA ; "No Such Agency" = NSA ;
+#   "No Name" / "we don't say his name" / "John M" = John McCain.
+# - Exclus car ambigus : SC (Supreme Court ou Special Counsel), ES (Eric
+#   Schmidt ou Edward Snowden, Q le dit lui-meme), JB (Brennan, Jim Baker ou
+#   Jeff Bezos), CA (Californie, pas le Canada), BP (Priestap ou Border
+#   Patrol), RT, SR, CM, RC.
+# - Personnes privees exclues (Seth Rich, administrateurs de 8chan, freres
+#   Awan, victimes et anonymes des listes d'inculpations).
+# - "Clinton" seul -> clinton_family (sauf precede de Hillary/Bill/President,
+#   ou suivi de Foundation) ; Hillary et Bill ont leurs propres entrees.
+# - Les pays cites uniquement dans la liste des banques centrales (drops
+#   135-138) ne sont pas repris, sauf ceux qui comptent pour GDELT
+#   (Turquie, Emirats, Egypte).
+
+actors:
+
+  # ---------------------------------------------------------------- personnes
+  - id: trump
+    name: "Donald Trump"
+    category: person
+    role_fr: "45e président des États-Unis (2017-2021)"
+    role_en: "45th President of the United States (2017-2021)"
+    patterns: ['\bPOTUS\b', '\bTrump\b(?! Jr)', '\bTRUMP\b(?! JR)', '\bDJT\b']
+
+  - id: pence
+    name: "Mike Pence"
+    category: person
+    role_fr: "Vice-président des États-Unis (2017-2021)"
+    role_en: "Vice President of the United States (2017-2021)"
+    patterns: ['\bPence\b', '\bPENCE\b']
+
+  - id: obama
+    name: "Barack Obama"
+    category: person
+    role_fr: "44e président des États-Unis (2009-2017)"
+    role_en: "44th President of the United States (2009-2017)"
+    patterns: ['\bHUSSEIN\b', '\bHussein\b', '\bObama\b', '\bOBAMA\b', '\bBarack\b', '(?<!/)\bBO\b(?!/)']
+    gdelt: ["BARACK OBAMA", "OBAMA"]
+
+  - id: hrc
+    name: "Hillary Clinton"
+    category: person
+    role_fr: "Ancienne secrétaire d'État, candidate démocrate 2016"
+    role_en: "Former Secretary of State, 2016 Democratic nominee"
+    patterns: ['\bHRC\b', '\bHillary\b', '\bHILLARY\b', '\bH\. ?Clinton\b']
+    gdelt: ["HILLARY CLINTON"]
+
+  - id: bill_clinton
+    name: "Bill Clinton"
+    category: person
+    role_fr: "42e président des États-Unis (1993-2001)"
+    role_en: "42nd President of the United States (1993-2001)"
+    patterns: ['\bBC\b', '\bBill Clinton\b', '\bPresident Clinton\b']
+    gdelt: ["BILL CLINTON"]
+
+  - id: biden
+    name: "Joe Biden"
+    category: person
+    role_fr: "Ancien vice-président, candidat démocrate 2020"
+    role_en: "Former Vice President, 2020 Democratic nominee"
+    patterns: ['(?<!Hunter )\bBiden\b', '(?<!HUNTER )\bBIDEN\b']
+    gdelt: ["JOE BIDEN"]
+
+  - id: mueller
+    name: "Robert Mueller"
+    category: person
+    role_fr: "Procureur spécial chargé de l'enquête russe (2017-2019), ex-directeur du FBI"
+    role_en: "Special Counsel for the Russia probe (2017-2019), former FBI Director"
+    patterns: ['\bMueller\b', '\bMUELLER\b']
+
+  - id: comey
+    name: "James Comey"
+    category: person
+    role_fr: "Directeur du FBI (2013-2017), limogé par Trump"
+    role_en: "FBI Director (2013-2017), fired by Trump"
+    patterns: ['\bJC\b', '(?<!/)\bComey\b', '\bCOMEY\b', '\bCorney\b']
+
+  - id: mccabe
+    name: "Andrew McCabe"
+    category: person
+    role_fr: "Directeur adjoint du FBI, limogé en 2018"
+    role_en: "FBI Deputy Director, fired in 2018"
+    patterns: ['\bMcCabe\b', '\bMCCABE\b', '\bAM\b(?! ET| EST)']
+
+  - id: strzok
+    name: "Peter Strzok"
+    category: person
+    role_fr: "Agent du contre-espionnage du FBI, limogé en 2018"
+    role_en: "FBI counterintelligence agent, fired in 2018"
+    patterns: ['\bStrzok\b', '\bSTRZOK\b', '\bPS\b(?!/Xbox)']
+
+  - id: lisa_page
+    name: "Lisa Page"
+    category: person
+    role_fr: "Juriste du FBI, échanges de SMS avec Strzok"
+    role_en: "FBI lawyer, texts with Peter Strzok"
+    patterns: ['\bLisa Page\b', '\bLP\b']
+
+  - id: carter_page
+    name: "Carter Page"
+    category: person
+    role_fr: "Conseiller de campagne de Trump visé par un mandat FISA"
+    role_en: "Trump campaign adviser targeted by a FISA warrant"
+    patterns: ['\bCarter Page\b', '(?<=>)Page\b', '\bnon Page\b']
+
+  - id: priestap
+    name: "Bill Priestap"
+    category: person
+    role_fr: "Directeur adjoint du contre-espionnage du FBI"
+    role_en: "FBI Assistant Director for Counterintelligence"
+    patterns: ['\bPriestap\b']
+
+  - id: james_baker
+    name: "James Baker"
+    category: person
+    role_fr: "Conseiller juridique général du FBI"
+    role_en: "FBI General Counsel"
+    patterns: ['\bJames Baker\b', '\bJim Baker\b', '\[Baker\]']
+
+  - id: rybicki
+    name: "James Rybicki"
+    category: person
+    role_fr: "Chef de cabinet de James Comey au FBI"
+    role_en: "Chief of staff to James Comey at the FBI"
+    patterns: ['\bRybicki\b']
+
+  - id: kortan
+    name: "Michael Kortan"
+    category: person
+    role_fr: "Directeur adjoint des affaires publiques du FBI"
+    role_en: "FBI Assistant Director for Public Affairs"
+    patterns: ['\bKortan\b']
+
+  - id: steinbach
+    name: "Michael Steinbach"
+    category: person
+    role_fr: "Directeur exécutif adjoint de la sécurité nationale au FBI"
+    role_en: "FBI Executive Assistant Director, National Security Branch"
+    patterns: ['\bSteinbach\b']
+
+  - id: trisha_anderson
+    name: "Trisha Anderson"
+    category: person
+    role_fr: "Conseillère juridique générale adjointe du FBI"
+    role_en: "FBI Principal Deputy General Counsel"
+    patterns: ['\bTrisha Anderson\b']
+
+  - id: clinesmith
+    name: "Kevin Clinesmith"
+    category: person
+    role_fr: "Juriste du FBI condamné pour falsification dans le dossier FISA"
+    role_en: "FBI lawyer convicted of altering a FISA document"
+    patterns: ['\bClinesmith\b', '\bKC\b']
+
+  - id: josh_campbell
+    name: "Josh Campbell"
+    category: person
+    role_fr: "Agent spécial du FBI, devenu analyste à CNN"
+    role_en: "FBI special agent, later CNN analyst"
+    patterns: ['\bJosh Campbell\b']
+
+  - id: randy_coleman
+    name: "Randy Coleman"
+    category: person
+    role_fr: "Directeur adjoint exécutif du FBI (contre-espionnage)"
+    role_en: "FBI Executive Assistant Director (counterintelligence)"
+    patterns: ['\bRandy Coleman\b']
+
+  - id: giacalone
+    name: "John Giacalone"
+    category: person
+    role_fr: "Directeur exécutif adjoint de la sécurité nationale au FBI"
+    role_en: "FBI Executive Assistant Director, National Security Branch"
+    patterns: ['\bGiacalone\b', '\bGlacalone\b']
+
+  - id: wray
+    name: "Christopher Wray"
+    category: person
+    role_fr: "Directeur du FBI (depuis 2017)"
+    role_en: "FBI Director (from 2017)"
+    patterns: ['\bWray\b', '\bWRAY\b']
+
+  - id: sessions
+    name: "Jeff Sessions"
+    category: person
+    role_fr: "Procureur général des États-Unis (2017-2018)"
+    role_en: "US Attorney General (2017-2018)"
+    patterns: ['\bSessions\b', '\bSESSIONS\b']
+
+  - id: rosenstein
+    name: "Rod Rosenstein"
+    category: person
+    role_fr: "Procureur général adjoint (2017-2019)"
+    role_en: "Deputy Attorney General (2017-2019)"
+    patterns: ['\bRR\b', '\bRosenstein\b', '\bROSENSTEIN\b']
+
+  - id: rachel_brand
+    name: "Rachel Brand"
+    category: person
+    role_fr: "Procureure générale associée (n°3 du DOJ, 2017-2018)"
+    role_en: "Associate Attorney General (No. 3 at DOJ, 2017-2018)"
+    patterns: ['\bRachel Brand\b', '\bBrand[’'']s\b']
+
+  - id: whitaker
+    name: "Matthew Whitaker"
+    category: person
+    role_fr: "Procureur général par intérim (2018-2019)"
+    role_en: "Acting Attorney General (2018-2019)"
+    patterns: ['\bWhitaker\b', '\bWHITAKER\b']
+
+  - id: barr
+    name: "William Barr"
+    category: person
+    role_fr: "Procureur général des États-Unis (2019-2020)"
+    role_en: "US Attorney General (2019-2020)"
+    patterns: ['\bBarr\b', '\bBARR\b']
+
+  - id: huber
+    name: "John Huber"
+    category: person
+    role_fr: "Procureur fédéral de l'Utah chargé d'un examen parallèle"
+    role_en: "US Attorney for Utah assigned a parallel review"
+    patterns: ['\bHuber\b', '\bHUBER\b']
+
+  - id: horowitz
+    name: "Michael Horowitz"
+    category: person
+    role_fr: "Inspecteur général du département de la Justice"
+    role_en: "Department of Justice Inspector General"
+    patterns: ['\bHorowitz\b', '\bHOROWITZ\b']
+
+  - id: durham
+    name: "John Durham"
+    category: person
+    role_fr: "Procureur chargé d'enquêter sur les origines de l'enquête russe"
+    role_en: "Prosecutor probing the origins of the Russia investigation"
+    patterns: ['\bDurham\b', '\bDURHAM\b']
+
+  - id: lynch
+    name: "Loretta Lynch"
+    category: person
+    role_fr: "Procureure générale des États-Unis (2015-2017)"
+    role_en: "US Attorney General (2015-2017)"
+    patterns: ['\bLL\b', '\bLoretta Lynch\b', '(?<!Merrill )\bLynch\b']
+
+  - id: yates
+    name: "Sally Yates"
+    category: person
+    role_fr: "Procureure générale adjointe puis par intérim (2015-2017)"
+    role_en: "Deputy, then Acting Attorney General (2015-2017)"
+    patterns: ['\bYates\b', '\bSY\b']
+
+  - id: bruce_ohr
+    name: "Bruce Ohr"
+    category: person
+    role_fr: "Haut fonctionnaire du DOJ, contact de Christopher Steele"
+    role_en: "Senior DOJ official, contact of Christopher Steele"
+    patterns: ['(?<!Nellie )\bOhr\b', '\bOHR\b']
+
+  - id: nellie_ohr
+    name: "Nellie Ohr"
+    category: person
+    role_fr: "Chercheuse employée par Fusion GPS, épouse de Bruce Ohr"
+    role_en: "Fusion GPS contractor, wife of Bruce Ohr"
+    patterns: ['\bNellie\b']
+
+  - id: steele
+    name: "Christopher Steele"
+    category: person
+    role_fr: "Ex-agent du MI6, auteur du « dossier Steele »"
+    role_en: "Former MI6 officer, author of the \"Steele dossier\""
+    patterns: ['\bSteele\b', '\bSTEELE\b']
+
+  - id: brennan
+    name: "John Brennan"
+    category: person
+    role_fr: "Directeur de la CIA (2013-2017)"
+    role_en: "CIA Director (2013-2017)"
+    patterns: ['\bBrennan\b', '\bBRENNAN\b']
+
+  - id: clapper
+    name: "James Clapper"
+    category: person
+    role_fr: "Directeur du renseignement national (2010-2017)"
+    role_en: "Director of National Intelligence (2010-2017)"
+    patterns: ['\bClapper\b', '\bCLAPPER\b']
+
+  - id: coats
+    name: "Dan Coats"
+    category: person
+    role_fr: "Directeur du renseignement national (2017-2019)"
+    role_en: "Director of National Intelligence (2017-2019)"
+    patterns: ['\bCoats\b']
+
+  - id: mike_rogers
+    name: "Mike Rogers (Adm.)"
+    category: person
+    role_fr: "Amiral, directeur de la NSA (2014-2018)"
+    role_en: "Admiral, NSA Director (2014-2018)"
+    patterns: ['\bRogers\b', '\bROGERS\b']
+
+  - id: flynn
+    name: "Michael Flynn"
+    category: person
+    role_fr: "Général, conseiller à la sécurité nationale (2017)"
+    role_en: "General, National Security Advisor (2017)"
+    patterns: ['\bFlynn\b', '\bFLYNN\b']
+
+  - id: bolton
+    name: "John Bolton"
+    category: person
+    role_fr: "Conseiller à la sécurité nationale (2018-2019)"
+    role_en: "National Security Advisor (2018-2019)"
+    patterns: ['\bBolton\b', '\bBOLTON\b']
+    gdelt: ["JOHN R. BOLTON"]
+
+  - id: rice
+    name: "Susan Rice"
+    category: person
+    role_fr: "Conseillère à la sécurité nationale d'Obama (2013-2017)"
+    role_en: "Obama's National Security Advisor (2013-2017)"
+    patterns: ['(?<!J\. )\bRice\b']
+    gdelt: ["SUSAN RICE"]
+
+  - id: jarrett
+    name: "Valerie Jarrett"
+    category: person
+    role_fr: "Conseillère principale de Barack Obama"
+    role_en: "Senior adviser to Barack Obama"
+    patterns: ['\bJarrett\b', '\bVJ\b']
+
+  - id: kerry
+    name: "John Kerry"
+    category: person
+    role_fr: "Secrétaire d'État (2013-2017)"
+    role_en: "Secretary of State (2013-2017)"
+    patterns: ['\bKerry\b', '\bJK\b']
+
+  - id: scaramucci
+    name: "Anthony Scaramucci"
+    category: person
+    role_fr: "Directeur de la communication de la Maison-Blanche (2017)"
+    role_en: "White House Communications Director (2017)"
+    patterns: ['\bScaramucci\b', '\bSCARAMUCCI\b']
+
+  - id: giuliani
+    name: "Rudy Giuliani"
+    category: person
+    role_fr: "Ancien maire de New York, avocat de Trump"
+    role_en: "Former New York mayor, Trump's lawyer"
+    patterns: ['\bGiuliani\b', '\bRudy\b']
+
+  - id: manafort
+    name: "Paul Manafort"
+    category: person
+    role_fr: "Directeur de campagne de Trump (2016), condamné"
+    role_en: "Trump 2016 campaign chairman, convicted"
+    patterns: ['\bManafort\b']
+
+  - id: schiff
+    name: "Adam Schiff"
+    category: person
+    role_fr: "Représentant démocrate de Californie, président de la commission du renseignement"
+    role_en: "Democratic Representative (CA), House Intelligence chair"
+    patterns: ['\bSchiff\b', '\bSCHIFF\b', '\[AS\]', '(?<![A-Z] )(?<![\[\]])\bAS\b(?! [A-Z]{2})(?!\])']
+
+  - id: pelosi
+    name: "Nancy Pelosi"
+    category: person
+    role_fr: "Présidente démocrate de la Chambre des représentants"
+    role_en: "Democratic Speaker of the House"
+    patterns: ['\bPelosi\b', '\bPELOSI\b', '(?<!a )\bNP\b']
+
+  - id: schumer
+    name: "Chuck Schumer"
+    category: person
+    role_fr: "Sénateur de New York, chef de la minorité démocrate au Sénat"
+    role_en: "Senator (NY), Senate Democratic leader"
+    patterns: ['\bSchumer\b', '\bSCHUMER\b', '\bCS\b']
+
+  - id: feinstein
+    name: "Dianne Feinstein"
+    category: person
+    role_fr: "Sénatrice démocrate de Californie"
+    role_en: "Democratic Senator (CA)"
+    patterns: ['\bFeinstein\b', '\bFEINSTEIN\b']
+
+  - id: maxine_waters
+    name: "Maxine Waters"
+    category: person
+    role_fr: "Représentante démocrate de Californie"
+    role_en: "Democratic Representative (CA)"
+    patterns: ['\bWaters\b', '\bMW\b']
+
+  - id: weiner
+    name: "Anthony Weiner"
+    category: person
+    role_fr: "Ancien représentant démocrate de New York, condamné"
+    role_en: "Former Democratic Representative (NY), convicted"
+    patterns: ['\bWeiner\b', '\bWiener\b', '\bWEINER\b', '\bAW\b']
+
+  - id: huma
+    name: "Huma Abedin"
+    category: person
+    role_fr: "Proche collaboratrice d'Hillary Clinton"
+    role_en: "Close aide to Hillary Clinton"
+    patterns: ['\bHuma\b', '\bHUMA\b', '(?<!Saleha )\bAbedin\b', '\bHA\b']
+
+  - id: podesta
+    name: "John Podesta"
+    category: person
+    role_fr: "Directeur de la campagne Clinton 2016"
+    role_en: "Chairman of the 2016 Clinton campaign"
+    patterns: ['(?<!Tony )\bPodesta\b(?! Group)', '\bPODESTA\b(?! GROUP)', '\bJP\b']
+
+  - id: mccain
+    name: "John McCain"
+    category: person
+    role_fr: "Sénateur républicain de l'Arizona (mort en 2018)"
+    role_en: "Republican Senator (AZ), died 2018"
+    patterns: ['(?<!Colleen )\bMcCain\b', '\bMCCAIN\b', '\bNo Name\b', '\bNO NAME\b', '\bsay his name\b', '\bJohn M\b(?!\.)']
+
+  - id: paul_ryan
+    name: "Paul Ryan"
+    category: person
+    role_fr: "Président républicain de la Chambre (2015-2019)"
+    role_en: "Republican Speaker of the House (2015-2019)"
+    patterns: ['(?<!Carolyn )(?<!April )\bRyan\b', '\bRYAN\b']
+
+  - id: flake
+    name: "Jeff Flake"
+    category: person
+    role_fr: "Sénateur républicain de l'Arizona"
+    role_en: "Republican Senator (AZ)"
+    patterns: ['\bFlake\b']
+
+  - id: graham
+    name: "Lindsey Graham"
+    category: person
+    role_fr: "Sénateur républicain de Caroline du Sud, président de la commission judiciaire"
+    role_en: "Republican Senator (SC), Judiciary Committee chair"
+    patterns: ['\bGraham\b']
+
+  - id: grassley
+    name: "Chuck Grassley"
+    category: person
+    role_fr: "Sénateur républicain de l'Iowa, président de la commission judiciaire"
+    role_en: "Republican Senator (IA), Judiciary Committee chair"
+    patterns: ['\bGrassley\b']
+
+  - id: nunes
+    name: "Devin Nunes"
+    category: person
+    role_fr: "Représentant républicain, président de la commission du renseignement"
+    role_en: "Republican Representative, House Intelligence chair"
+    patterns: ['\bNunes\b', '\bNUNES\b']
+
+  - id: goodlatte
+    name: "Bob Goodlatte"
+    category: person
+    role_fr: "Représentant républicain, président de la commission judiciaire de la Chambre"
+    role_en: "Republican Representative, House Judiciary chair"
+    patterns: ['\bGoodlatte\b']
+
+  - id: gowdy
+    name: "Trey Gowdy"
+    category: person
+    role_fr: "Représentant républicain, président de la commission de contrôle"
+    role_en: "Republican Representative, House Oversight chair"
+    patterns: ['\bGowdy\b', '\bTG\b']
+
+  - id: ginsburg
+    name: "Ruth Bader Ginsburg"
+    category: person
+    role_fr: "Juge à la Cour suprême (morte en 2020)"
+    role_en: "Supreme Court Justice (died 2020)"
+    patterns: ['\bRBG\b', '\bGinsburg\b']
+
+  - id: soros
+    name: "George Soros"
+    category: person
+    role_fr: "Financier et philanthrope, cible récurrente de théories du complot"
+    role_en: "Financier and philanthropist, recurring conspiracy-theory target"
+    patterns: ['\bSoros\b', '\bSOROS\b', '\bGS\b']
+    gdelt: ["GEORGE SOROS"]
+
+  - id: epstein
+    name: "Jeffrey Epstein"
+    category: person
+    role_fr: "Financier condamné pour crimes sexuels (mort en 2019)"
+    role_en: "Financier convicted of sex crimes (died 2019)"
+    patterns: ['\bEpstein\b', '\bEPSTEIN\b']
+
+  - id: maxwell
+    name: "Ghislaine Maxwell"
+    category: person
+    role_fr: "Complice d'Epstein, condamnée en 2021"
+    role_en: "Epstein associate, convicted in 2021"
+    patterns: ['\bMaxwell\b', '\bGhislaine\b']
+
+  - id: alwaleed
+    name: "Al-Waleed bin Talal"
+    category: person
+    role_fr: "Prince et investisseur saoudien, détenu en 2017"
+    role_en: "Saudi prince and investor, detained in 2017"
+    patterns: ['\bAlwaleed\b', '\bAl[- ]?Waleed\b', '\bALWALEED\b']
+
+  - id: bin_laden
+    name: "Osama bin Laden"
+    category: person
+    role_fr: "Fondateur d'Al-Qaïda (tué en 2011)"
+    role_en: "Founder of al-Qaeda (killed 2011)"
+    patterns: ['\bUBL\b', '\b[Bb]in Laden\b']
+    gdelt: ["OSAMA BIN LADEN"]
+
+  - id: putin
+    name: "Vladimir Putin"
+    category: person
+    role_fr: "Président de la Russie"
+    role_en: "President of Russia"
+    patterns: ['\bPutin\b', '\bPUTIN\b']
+    gdelt: ["VLADIMIR PUTIN"]
+
+  - id: kim_jong_un
+    name: "Kim Jong Un"
+    category: person
+    role_fr: "Dirigeant de la Corée du Nord"
+    role_en: "Leader of North Korea"
+    patterns: ['(?<!\[)\bKim\b(?! Jong Il| Foxx)', '\bKim Jong[- ]?[Uu]n\b']
+
+  - id: xi_jinping
+    name: "Xi Jinping"
+    category: person
+    role_fr: "Président de la Chine"
+    role_en: "President of China"
+    patterns: ['\bXi\b', '\bXI\b', '\bJinping\b']
+    gdelt: ["XI JINPING"]
+
+  - id: merkel
+    name: "Angela Merkel"
+    category: person
+    role_fr: "Chancelière d'Allemagne (2005-2021)"
+    role_en: "Chancellor of Germany (2005-2021)"
+    patterns: ['\bMerkel\b', '\bMERKEL\b']
+    gdelt: ["ANGELA MERKEL"]
+
+  - id: rouhani
+    name: "Hassan Rouhani"
+    category: person
+    role_fr: "Président de l'Iran (2013-2021)"
+    role_en: "President of Iran (2013-2021)"
+    patterns: ['\bRouhani\b']
+
+  - id: snowden
+    name: "Edward Snowden"
+    category: person
+    role_fr: "Ancien contractuel de la NSA, lanceur d'alerte (2013)"
+    role_en: "Former NSA contractor, 2013 whistleblower"
+    patterns: ['\bSnowden\b', '\bSNOWDEN\b']
+
+  - id: assange
+    name: "Julian Assange"
+    category: person
+    role_fr: "Fondateur de WikiLeaks"
+    role_en: "Founder of WikiLeaks"
+    patterns: ['\bAssange\b', '\bASSANGE\b', '\bJA\b']
+
+  - id: barlow
+    name: "John Perry Barlow"
+    category: person
+    role_fr: "Cofondateur de l'Electronic Frontier Foundation (mort en 2018)"
+    role_en: "Co-founder of the Electronic Frontier Foundation (died 2018)"
+    patterns: ['\bBarlow\b', '\bBARLOW\b']
+
+  - id: zuckerberg
+    name: "Mark Zuckerberg"
+    category: person
+    role_fr: "Fondateur et PDG de Facebook"
+    role_en: "Founder and CEO of Facebook"
+    patterns: ['\bZuckerberg\b', '\bMZ\b']
+
+  - id: dorsey
+    name: "Jack Dorsey"
+    category: person
+    role_fr: "Cofondateur et PDG de Twitter"
+    role_en: "Co-founder and CEO of Twitter"
+    patterns: ['@Jack\b', '@JACK\b', '\bJack Dorsey\b', '\bJack[’'']s\b']
+
+  - id: hannity
+    name: "Sean Hannity"
+    category: person
+    role_fr: "Animateur de Fox News"
+    role_en: "Fox News host"
+    patterns: ['\bHannity\b', '\bSH\b']
+
+  - id: smollett
+    name: "Jussie Smollett"
+    category: person
+    role_fr: "Acteur, condamné pour une fausse agression (2019)"
+    role_en: "Actor, convicted over a staged attack (2019)"
+    patterns: ['\bSmollett\b', '\bSMOLLETT\b', '\bJussie\b']
+
+  - id: reagan
+    name: "Ronald Reagan"
+    category: person
+    role_fr: "40e président des États-Unis (1981-1989)"
+    role_en: "40th President of the United States (1981-1989)"
+    patterns: ['\bReagan\b', '\bREAGAN\b']
+
+  - id: jfk
+    name: "John F. Kennedy"
+    category: person
+    role_fr: "35e président des États-Unis (assassiné en 1963)"
+    role_en: "35th President of the United States (assassinated 1963)"
+    patterns: ['\bJFK\b(?! [Jj][Rr])', '(?<!Anthony )\bKennedy\b']
+
+  - id: hitler
+    name: "Adolf Hitler"
+    category: person
+    role_fr: "Dictateur nazi, invoqué comme référence historique"
+    role_en: "Nazi dictator, invoked as a historical reference"
+    patterns: ['\bHitler\b', '\bHITLER\b']
+
+  # ------------------------------------------------------------------ groupes
+  - id: clinton_family
+    name: "Clinton family"
+    category: group
+    role_fr: "Les Clinton (mention du seul nom « Clinton »)"
+    role_en: "The Clintons (bare \"Clinton\" mentions)"
+    patterns: ['(?<!Hillary )(?<!Bill )(?<!President )(?<!H\. )(?<!H\.)\bClinton\b(?! Foundation| Global)', '\bClintons\b', '\bCLINTONS?\b(?! FOUNDATION)']
+
+  - id: bush_family
+    name: "Bush family"
+    category: group
+    role_fr: "Les Bush (George H. W. et George W. Bush)"
+    role_en: "The Bushes (George H. W. and George W. Bush)"
+    patterns: ['\bBush\b', '\bBUSH\b']
+    gdelt: ["GEORGE W. BUSH", "GEORGE BUSH"]
+
+  - id: rothschild_family
+    name: "Rothschild family"
+    category: group
+    role_fr: "Famille de banquiers, cible de théories du complot antisémites"
+    role_en: "Banking family, target of antisemitic conspiracy theories"
+    patterns: ['\bRothschilds?\b', '\bROTHSCHILDS?\b', 'FLYROTHSFLY']
+
+  - id: deep_state
+    name: "\"Deep State\""
+    category: group
+    role_fr: "« État profond », adversaire imaginaire central du récit QAnon"
+    role_en: "\"Deep State\", the central imagined enemy of the QAnon narrative"
+    patterns: ['\b[Dd]eep [Ss]tate\b', '\bDEEP STATE\b', '\bDS\b']
+
+  - id: hollywood
+    name: "Hollywood"
+    category: group
+    role_fr: "Industrie du cinéma américaine"
+    role_en: "US film industry"
+    patterns: ['\bHollywood\b', '\bHOLLYWOOD\b']
+
+  - id: isis
+    name: "ISIS (Islamic State)"
+    category: group
+    role_fr: "Organisation djihadiste État islamique"
+    role_en: "Islamic State jihadist organisation"
+    patterns: ['\bISIS\b', '\bISIL\b', '\bIslamic State\b']
+
+  - id: al_qaeda
+    name: "Al-Qaeda"
+    category: group
+    role_fr: "Réseau djihadiste fondé par Ben Laden"
+    role_en: "Jihadist network founded by bin Laden"
+    patterns: ['\bAL-Q\b', '\b[Aa]l[- ]Qa[ei]da\b', '\bAL[- ]QAEDA\b']
+    gdelt: ["AL QAEDA", "AL QAIDA"]
+
+  - id: ms13
+    name: "MS-13"
+    category: group
+    role_fr: "Gang transnational Mara Salvatrucha"
+    role_en: "Mara Salvatrucha transnational gang"
+    patterns: ['\bMS[-_]?13\b']
+
+  - id: antifa
+    name: "Antifa"
+    category: group
+    role_fr: "Mouvance militante antifasciste"
+    role_en: "Militant anti-fascist movement"
+    patterns: ['\bAntifa\b', '\bANTIFA\b']
+
+  - id: blm
+    name: "Black Lives Matter"
+    category: group
+    role_fr: "Mouvement contre les violences policières racistes"
+    role_en: "Movement against racist police violence"
+    patterns: ['\bBLM\b', '\bBlack Lives Matter\b', '\bBLACK LIVES MATTER\b']
+
+  # ------------------------------------------------------------- institutions
+  - id: fbi
+    name: "FBI"
+    category: institution
+    role_fr: "Police fédérale américaine (Federal Bureau of Investigation)"
+    role_en: "Federal Bureau of Investigation"
+    patterns: ['\bFBI\b', '\bF_B_I\b', '\bFederal Bureau of Investigation\b']
+
+  - id: doj
+    name: "Department of Justice"
+    category: institution
+    role_fr: "Département de la Justice des États-Unis"
+    role_en: "US Department of Justice"
+    patterns: ['\bDOJ\b', '\bD_J\b', '\bJustice Department\b', '\bDepartment of Justice\b', '\bJustice Dept\b']
+
+  - id: cia
+    name: "CIA"
+    category: institution
+    role_fr: "Agence centrale de renseignement (« Clowns In America » pour Q)"
+    role_en: "Central Intelligence Agency (\"Clowns In America\" in Q's idiom)"
+    patterns: ['\bCIA\b', '\bC_A\b', '\bCentral Intelligence\b', '\bClowns?\b', '\bCLOWNS?\b']
+
+  - id: nsa
+    name: "NSA"
+    category: institution
+    role_fr: "Agence nationale de sécurité (« No Such Agency »)"
+    role_en: "National Security Agency (\"No Such Agency\")"
+    patterns: ['\bNSA\b', '\bNo Such Agency\b', '\bNO SUCH AGENCY\b', '\bNational Security Agency\b']
+
+  - id: dni
+    name: "Director of National Intelligence"
+    category: institution
+    role_fr: "Direction du renseignement national (ODNI)"
+    role_en: "Office of the Director of National Intelligence"
+    patterns: ['\bO?DNI\b', '\bDirector of National Intelligence\b']
+
+  - id: dhs
+    name: "Department of Homeland Security"
+    category: institution
+    role_fr: "Département de la Sécurité intérieure"
+    role_en: "Department of Homeland Security"
+    patterns: ['\bDHS\b', '\bHomeland Security\b']
+
+  - id: state_dept
+    name: "State Department"
+    category: institution
+    role_fr: "Département d'État (affaires étrangères)"
+    role_en: "US Department of State"
+    patterns: ['\bState Dept\b', '\bState Department\b', '\bSTATE DEPT\b', '\bDepartment of State\b']
+    gdelt: ["US STATE DEPARTMENT"]
+
+  - id: pentagon
+    name: "Pentagon / Department of Defense"
+    category: institution
+    role_fr: "Département de la Défense des États-Unis"
+    role_en: "US Department of Defense"
+    patterns: ['\bPentagon\b', '\bPENTAGON\b', '\bDoD\b', '\bDOD\b', '\bDept of Defense\b', '\bDEPT OF DEFENSE\b', '\bDepartment of Defense\b']
+    gdelt: ["DEFENSE DEPARTMENT", "DEPARTMENT OF DEFENSE"]
+
+  - id: us_military
+    name: "US Armed Forces"
+    category: institution
+    role_fr: "Forces armées américaines"
+    role_en: "US armed forces"
+    patterns: ['\bMIL\b', '\bUS M[’'']s\b', '\bUSMC\b', '\bMarines\b', '\bUS Army\b', '\bUS Navy\b', '\bAir Force\b', '\bUS [Mm]ilitary\b', '\bUS MILITARY\b']
+
+  - id: military_intelligence
+    name: "Military intelligence"
+    category: institution
+    role_fr: "Renseignement militaire américain (« MI » chez Q)"
+    role_en: "US military intelligence (\"MI\" in Q's idiom)"
+    patterns: ['\bMI\b(?!,)', '\bMilitary Intel(?:ligence)?\b', '\bMILITARY INTEL(?:LIGENCE)?\b']
+    gdelt: ["MILITARY INTELLIGENCE"]
+
+  - id: national_guard
+    name: "National Guard"
+    category: institution
+    role_fr: "Garde nationale"
+    role_en: "National Guard"
+    patterns: ['\bNG\b', '\bNational Guard\b', '\bNATIONAL GUARD\b']
+    gdelt: ["NATIONAL GUARD"]
+
+  - id: secret_service
+    name: "Secret Service"
+    category: institution
+    role_fr: "Service de protection présidentielle (USSS)"
+    role_en: "United States Secret Service"
+    patterns: ['\bUSSS\b', '\bSecret Service\b', '\bSECRET SERVICE\b', '\bSS\b']
+
+  - id: inspector_general
+    name: "Inspector General (DOJ OIG)"
+    category: institution
+    role_fr: "Inspection générale (notamment celle du département de la Justice)"
+    role_en: "Inspector General (chiefly the DOJ Office of the Inspector General)"
+    patterns: ['\bO?IG\b', '\bInspectors? General\b', '\bINSPECTOR GENERAL\b']
+
+  - id: fisc
+    name: "FISA Court"
+    category: institution
+    role_fr: "Cour de surveillance du renseignement étranger (FISC)"
+    role_en: "Foreign Intelligence Surveillance Court"
+    patterns: ['\bFISC\b', '\bFISA [Cc]ourt\b', '\bFISA COURT\b']
+
+  - id: supreme_court
+    name: "Supreme Court"
+    category: institution
+    role_fr: "Cour suprême des États-Unis"
+    role_en: "US Supreme Court"
+    patterns: ['\bSupreme Court\b', '\bSUPREME COURT\b', '\bSCOTUS\b']
+    gdelt: ["SUPREME COURT"]
+
+  - id: special_counsel
+    name: "Special Counsel's Office"
+    category: institution
+    role_fr: "Bureau du procureur spécial (enquête Mueller)"
+    role_en: "Special Counsel's Office (Mueller probe)"
+    patterns: ['\bSpecial Counsel\b', '\bSPECIAL COUNSEL\b', '\bSC Mueller\b']
+
+  - id: sdny
+    name: "SDNY"
+    category: institution
+    role_fr: "Parquet fédéral du district sud de New York"
+    role_en: "US Attorney's Office, Southern District of New York"
+    patterns: ['\bSDNY\b']
+
+  - id: congress
+    name: "US Congress"
+    category: institution
+    role_fr: "Congrès des États-Unis"
+    role_en: "United States Congress"
+    patterns: ['\bCongress\b', '\bCONGRESS\b', '\bD_Congress\b']
+    gdelt: ["CONGRESS"]
+
+  - id: senate
+    name: "US Senate"
+    category: institution
+    role_fr: "Sénat des États-Unis"
+    role_en: "United States Senate"
+    patterns: ['\bSenate\b', '\bSENATE\b']
+    gdelt: ["SENATE"]
+
+  - id: house
+    name: "House of Representatives"
+    category: institution
+    role_fr: "Chambre des représentants des États-Unis"
+    role_en: "US House of Representatives"
+    patterns: ['\bHouse of Representatives\b', '\bHouse (?:Intel|Judiciary|Oversight|Committee|Permanent|Speaker|Republicans|Democrats|Ethics|Financial|floor|Floor|vote|GOP|Minority|Majority)', '\b[Tt]he House\b(?! of)', '\bHPSCI\b']
+    gdelt: ["HOUSE OF REPRESENTATIVES"]
+
+  - id: gang_of_eight
+    name: "Gang of Eight"
+    category: institution
+    role_fr: "Les huit élus du Congrès informés des secrets du renseignement"
+    role_en: "The eight congressional leaders briefed on classified intelligence"
+    patterns: ['\b[Gg]ang of (?:8|[Ee]ight)\b', '\bGANG OF (?:8|EIGHT)\b']
+
+  - id: white_house
+    name: "White House"
+    category: institution
+    role_fr: "Maison-Blanche (présidence)"
+    role_en: "White House (presidency)"
+    patterns: ['\bWH\b', '\bWhite House\b', '\bWHITE HOUSE\b']
+    gdelt: ["THE WHITE HOUSE"]
+
+  - id: federal_reserve
+    name: "Federal Reserve"
+    category: institution
+    role_fr: "Banque centrale des États-Unis (Fed)"
+    role_en: "US central bank (the Fed)"
+    patterns: ['\bFED\b', '\bFederal Reserve\b', '\b[Tt]he Fed\b']
+
+  - id: central_banks
+    name: "Central banks"
+    category: institution
+    role_fr: "Banques centrales (liste mondiale reprise par Q)"
+    role_en: "Central banks (worldwide list reposted by Q)"
+    patterns: ['\bCentral Bank\b', '\bCENTRAL BANK\b', '\bBCEAO\b']
+    gdelt: ["CENTRAL BANK"]
+
+  - id: nsc
+    name: "National Security Council"
+    category: institution
+    role_fr: "Conseil de sécurité nationale"
+    role_en: "National Security Council"
+    patterns: ['\bNSC\b', '\bNational Security Council\b']
+    gdelt: ["NATIONAL SECURITY COUNCIL"]
+
+  - id: darpa
+    name: "DARPA"
+    category: institution
+    role_fr: "Agence de recherche avancée de la Défense"
+    role_en: "Defense Advanced Research Projects Agency"
+    patterns: ['\bDARPA\b']
+
+  - id: cdc
+    name: "CDC"
+    category: institution
+    role_fr: "Centres de contrôle et de prévention des maladies"
+    role_en: "Centers for Disease Control and Prevention"
+    patterns: ['\bCDC\b', '\bDisease Control\b']
+
+  - id: ice
+    name: "ICE"
+    category: institution
+    role_fr: "Police de l'immigration et des douanes"
+    role_en: "Immigration and Customs Enforcement"
+    patterns: ['\bICE\b']
+
+  - id: five_eyes
+    name: "Five Eyes"
+    category: institution
+    role_fr: "Alliance de renseignement (États-Unis, Royaume-Uni, Canada, Australie, Nouvelle-Zélande)"
+    role_en: "Intelligence alliance (US, UK, Canada, Australia, New Zealand)"
+    patterns: ['\bFVEY\b', '\bFive Eyes\b', '\bFIVE EYES\b']
+
+  - id: uk_intel
+    name: "UK intelligence (MI6/MI5/GCHQ)"
+    category: institution
+    role_fr: "Services de renseignement britanniques"
+    role_en: "British intelligence services"
+    patterns: ['\bMI6\b', '\bMI5\b', '\bMI5/6\b', '\bSIS\b', '\bGCHQ\b']
+
+  - id: eu
+    name: "European Union"
+    category: institution
+    role_fr: "Union européenne"
+    role_en: "European Union"
+    patterns: ['\bEU\b', '\bEuropean Union\b']
+    gdelt: ["THE EUROPEAN UNION", "EUROPEAN UNION"]
+
+  # ------------------------------------------------------------ organisations
+  - id: dnc
+    name: "Democratic National Committee"
+    category: organization
+    role_fr: "Comité national démocrate"
+    role_en: "Democratic National Committee"
+    patterns: ['\bDNC\b', '\bDemocratic National Committee\b']
+
+  - id: democratic_party
+    name: "Democratic Party"
+    category: organization
+    role_fr: "Parti démocrate (« D's » chez Q)"
+    role_en: "Democratic Party (\"D's\" in Q's idiom)"
+    patterns: ['\bD[’'']s\b', '\bDemocrats?\b', '\bDEMOCRATS?\b', '\bDemocratic Party\b', '\bD_PARTY', '\bD [Pp]arty\b']
+    gdelt: ["DEMOCRATIC PARTY"]
+
+  - id: republican_party
+    name: "Republican Party"
+    category: organization
+    role_fr: "Parti républicain (« R's » chez Q)"
+    role_en: "Republican Party (\"R's\" in Q's idiom)"
+    patterns: ['\bR[’'']s\b', '\bRepublicans?\b', '\bREPUBLICANS?\b', '\bGOP\b', '\bR [Pp]arty\b', '\bR PARTY\b']
+
+  - id: clinton_foundation
+    name: "Clinton Foundation"
+    category: organization
+    role_fr: "Fondation caritative des Clinton"
+    role_en: "Clinton family charitable foundation"
+    patterns: ['\bCF\b', '\bClinton Foundation\b', '\bCLINTON FOUNDATION\b']
+
+  - id: podesta_group
+    name: "Podesta Group"
+    category: organization
+    role_fr: "Cabinet de lobbying de Tony Podesta"
+    role_en: "Tony Podesta's lobbying firm"
+    patterns: ['\bPodesta Group\b', '\bPODESTA GROUP\b']
+
+  - id: muslim_brotherhood
+    name: "Muslim Brotherhood"
+    category: organization
+    role_fr: "Confrérie des Frères musulmans"
+    role_en: "Muslim Brotherhood"
+    patterns: ['\bMuslim Brotherhood\b', '\bMB\b']
+
+  - id: planned_parenthood
+    name: "Planned Parenthood"
+    category: organization
+    role_fr: "Réseau américain de planning familial"
+    role_en: "US reproductive health organisation"
+    patterns: ['\bPlanned Parenthood\b', '\bPP\b']
+
+  - id: crowdstrike
+    name: "CrowdStrike"
+    category: organization
+    role_fr: "Société de cybersécurité ayant enquêté sur le piratage du DNC"
+    role_en: "Cybersecurity firm that investigated the DNC hack"
+    patterns: ['\bCrowd[Ss]trike\b', '\bCROWDSTRIKE\b']
+
+  - id: fusion_gps
+    name: "Fusion GPS"
+    category: organization
+    role_fr: "Société de recherche qui a commandé le dossier Steele"
+    role_en: "Research firm that commissioned the Steele dossier"
+    patterns: ['\bFusion\b', '\bFUSION\b']
+
+  - id: uranium_one
+    name: "Uranium One"
+    category: organization
+    role_fr: "Société minière dont la vente à Rosatom (2010) alimente un récit de complot"
+    role_en: "Mining company whose 2010 sale to Rosatom fuels a conspiracy narrative"
+    patterns: ['\bU1\b', '\bUranium One\b']
+
+  - id: red_cross
+    name: "Red Cross"
+    category: organization
+    role_fr: "Croix-Rouge"
+    role_en: "Red Cross"
+    patterns: ['\bRed Cross\b', '\bRED CROSS\b']
+    gdelt: ["RED CROSS"]
+
+  - id: vatican_church
+    name: "Catholic Church"
+    category: organization
+    role_fr: "Église catholique et papauté"
+    role_en: "Catholic Church and the papacy"
+    patterns: ['\bCatholic\b', '\bPope\b', '\bPOPE\b']
+    gdelt: ["CATHOLIC", "ROMAN CATHOLIC", "THE POPE"]
+
+  # -------------------------------------------------------------------- médias
+  - id: msm
+    name: "Mainstream media"
+    category: media
+    role_fr: "Grands médias, désignés comme « MSM » ou « FAKE NEWS »"
+    role_en: "Mainstream media, labelled \"MSM\" or \"FAKE NEWS\""
+    patterns: ['\bMSM\b', '\b[Mm]ainstream [Mm]edia\b', '\bFAKE NEWS\b', '\bFake News\b', '\bfake news\b']
+
+  - id: cnn
+    name: "CNN"
+    category: media
+    role_fr: "Chaîne d'information en continu"
+    role_en: "Cable news network"
+    patterns: ['\bCNN\b']
+
+  - id: msnbc
+    name: "MSNBC"
+    category: media
+    role_fr: "Chaîne d'information (« MSDNC » chez Q)"
+    role_en: "Cable news network (\"MSDNC\" in Q's idiom)"
+    patterns: ['\bMSNBC\b', '\bMSDNC\b']
+
+  - id: nyt
+    name: "The New York Times"
+    category: media
+    role_fr: "Quotidien new-yorkais"
+    role_en: "New York daily newspaper"
+    patterns: ['\bNYT\b', '\bNew York Times\b', '\bNY Times\b']
+
+  - id: wapo
+    name: "The Washington Post"
+    category: media
+    role_fr: "Quotidien de Washington (propriété de Jeff Bezos)"
+    role_en: "Washington daily newspaper (owned by Jeff Bezos)"
+    patterns: ['\bWashington Post\b', '\bWaPo\b', '\bWASH POST\b', '\bWAPO\b']
+
+  - id: abc
+    name: "ABC News"
+    category: media
+    role_fr: "Réseau de télévision américain"
+    role_en: "US television network"
+    patterns: ['(?<!/)\bABC\b(?! agenc| off| dep|[’'']s| directors)']
+
+  - id: nbc
+    name: "NBC News"
+    category: media
+    role_fr: "Réseau de télévision américain"
+    role_en: "US television network"
+    patterns: ['(?<!MS)\bNBC\b']
+
+  - id: cbs
+    name: "CBS News"
+    category: media
+    role_fr: "Réseau de télévision américain"
+    role_en: "US television network"
+    patterns: ['\bCBS\b']
+
+  - id: fox_news
+    name: "Fox News"
+    category: media
+    role_fr: "Chaîne d'information conservatrice"
+    role_en: "Conservative cable news network"
+    patterns: ['\bFox News\b', '\bFOX NEWS\b', '\bFox\b']
+
+  - id: politico
+    name: "Politico"
+    category: media
+    role_fr: "Média politique américain"
+    role_en: "US political news outlet"
+    patterns: ['\bPolitico\b', '\bPOLITICO\b']
+
+  - id: wikileaks
+    name: "WikiLeaks"
+    category: media
+    role_fr: "Plateforme de publication de documents fuités"
+    role_en: "Leaked-document publishing organisation"
+    patterns: ['\bWL\b', '\bWiki[Ll]eaks\b', '\bWIKILEAKS\b']
+
+  # -------------------------------------------------------------- plateformes
+  - id: twitter
+    name: "Twitter"
+    category: platform
+    role_fr: "Réseau social"
+    role_en: "Social network"
+    patterns: ['\bTwitter\b', '\bTWITTER\b']
+
+  - id: facebook
+    name: "Facebook"
+    category: platform
+    role_fr: "Réseau social"
+    role_en: "Social network"
+    patterns: ['\bFacebook\b', '\bFACEBOOK\b', '\bFB\b']
+
+  - id: google
+    name: "Google"
+    category: platform
+    role_fr: "Moteur de recherche et groupe technologique (Gmail inclus)"
+    role_en: "Search engine and tech company (including Gmail)"
+    patterns: ['\bGoogle\b', '\bGOOGLE\b', '\bGOOG\b', '\bGoog\b', '\bGmail\b', '\bGMAIL\b']
+    gdelt: ["GOOGLE"]
+
+  - id: youtube
+    name: "YouTube"
+    category: platform
+    role_fr: "Plateforme vidéo de Google"
+    role_en: "Google's video platform"
+    patterns: ['\bYT\b', '\bYouTube\b', '\bYoutube\b', '\bYOUTUBE\b', '\bYou Tube\b']
+
+  - id: reddit
+    name: "Reddit"
+    category: platform
+    role_fr: "Forum social, a banni les communautés QAnon en 2018"
+    role_en: "Social forum, banned QAnon communities in 2018"
+    patterns: ['\bReddit\b', '\bREDDIT\b']
+
+  - id: fourchan
+    name: "4chan"
+    category: platform
+    role_fr: "Forum d'images anonyme, lieu des premiers drops"
+    role_en: "Anonymous imageboard, site of the first drops"
+    patterns: ['\b4chan\b', '\b4CHAN\b', '\b4ch\b']
+
+  - id: eightchan
+    name: "8chan / 8kun"
+    category: platform
+    role_fr: "Forum d'images anonyme, principal support des drops"
+    role_en: "Anonymous imageboard, main home of the drops"
+    patterns: ['\b8chan\b', '\b8CHAN\b', '\b8kun\b', '\b8KUN\b', '\b8ch\b(?!\.)']
+
+  - id: amazon
+    name: "Amazon"
+    category: platform
+    role_fr: "Groupe de commerce en ligne et de cloud"
+    role_en: "E-commerce and cloud company"
+    patterns: ['\bAmazon\b', '\bAMAZON\b']
+
+  # ------------------------------------------------------------------- pays
+  - id: usa
+    name: "United States"
+    category: country
+    role_fr: "États-Unis"
+    role_en: "United States"
+    patterns: ['\bUnited States\b', '\bUNITED STATES\b', '\bUSA\b', '\bU\.S\.(?:A\.)?']
+    gdelt: ["UNITED STATES", "THE US", "UNITED STATES OF AMERICA"]
+    iso3: "USA"
+    fips: "US"
+
+  - id: saudi_arabia
+    name: "Saudi Arabia"
+    category: country
+    role_fr: "Arabie saoudite"
+    role_en: "Saudi Arabia"
+    patterns: ['\bSA\b', '\bSaudis?\b', '\bSAUDI\b', '\bKSA\b']
+    gdelt: ["SAUDI ARABIA", "SAUDI", "SAUDI ARABIAN"]
+    iso3: "SAU"
+    fips: "SA"
+
+  - id: iran
+    name: "Iran"
+    category: country
+    role_fr: "Iran"
+    role_en: "Iran"
+    patterns: ['\bIran\b', '\bIRAN\b', '\bIranians?\b', '\bIRANIAN\b']
+    gdelt: ["IRAN", "IRANIAN"]
+    iso3: "IRN"
+    fips: "IR"
+
+  - id: north_korea
+    name: "North Korea"
+    category: country
+    role_fr: "Corée du Nord"
+    role_en: "North Korea"
+    patterns: ['\bNK\b', '\bNorth Korea', '\bNORTH KOREA', '\bDPRK\b']
+    gdelt: ["NORTH KOREA", "NORTH KOREAN"]
+    iso3: "PRK"
+    fips: "KN"
+
+  - id: south_korea
+    name: "South Korea"
+    category: country
+    role_fr: "Corée du Sud"
+    role_en: "South Korea"
+    patterns: ['\bSouth Korea', '(?<=/)SK\b', '\bKorea: Bank of Korea\b']
+    gdelt: ["SOUTH KOREA", "SOUTH KOREAN"]
+    iso3: "KOR"
+    fips: "KS"
+
+  - id: china
+    name: "China"
+    category: country
+    role_fr: "Chine"
+    role_en: "China"
+    patterns: ['\bChina\b', '\bCHINA\b', '\bChinese\b', '\bCHINESE\b', '\bCCP\b']
+    gdelt: ["CHINA", "CHINESE"]
+    iso3: "CHN"
+    fips: "CH"
+
+  - id: russia
+    name: "Russia"
+    category: country
+    role_fr: "Russie"
+    role_en: "Russia"
+    patterns: ['\bRussia\b', '\bRUSSIA\b', '\bRussians?\b', '\bRUSSIANS?\b', '\bRUSSA\b']
+    gdelt: ["RUSSIA", "RUSSIAN", "RUSSIAN FEDERATION"]
+    iso3: "RUS"
+    fips: "RS"
+
+  - id: ukraine
+    name: "Ukraine"
+    category: country
+    role_fr: "Ukraine"
+    role_en: "Ukraine"
+    patterns: ['\bUkrain(?:e|ian)\b', '\bUKRAIN(?:E|IAN)\b']
+    gdelt: ["UKRAINE", "UKRAINIAN"]
+    iso3: "UKR"
+    fips: "UP"
+
+  - id: israel
+    name: "Israel"
+    category: country
+    role_fr: "Israël"
+    role_en: "Israel"
+    patterns: ['\bIsrael\b', '\bISRAEL\b', '\bIsraelis?\b']
+    gdelt: ["ISRAEL", "ISRAELI"]
+    iso3: "ISR"
+    fips: "IS"
+
+  - id: uk
+    name: "United Kingdom"
+    category: country
+    role_fr: "Royaume-Uni"
+    role_en: "United Kingdom"
+    patterns: ['\bUK\b', '\bU\.K\.', '\bUnited Kingdom\b', '\b(?:Great )?Britain\b', '\bBritish\b', '\bEngland\b', '\bLondon\b']
+    gdelt: ["UNITED KINGDOM", "BRITAIN", "BRITISH", "GREAT BRITAIN", "LONDON"]
+    iso3: "GBR"
+    fips: "UK"
+
+  - id: germany
+    name: "Germany"
+    category: country
+    role_fr: "Allemagne"
+    role_en: "Germany"
+    patterns: ['\bGermany\b', '\bGERMANY\b', '\bGerman\b', '\bGERMAN\b', '\bBerlin\b']
+    gdelt: ["GERMANY", "GERMAN"]
+    iso3: "DEU"
+    fips: "GM"
+
+  - id: france
+    name: "France"
+    category: country
+    role_fr: "France"
+    role_en: "France"
+    patterns: ['\bFrance\b', '\bFRANCE\b', '\bFrench\b']
+    gdelt: ["FRANCE"]
+    iso3: "FRA"
+    fips: "FR"
+
+  - id: italy
+    name: "Italy"
+    category: country
+    role_fr: "Italie"
+    role_en: "Italy"
+    patterns: ['\bItaly\b', '\bITALY\b', '\bItalian\b', '\bRome\b']
+    gdelt: ["ITALY", "ITALIAN"]
+    iso3: "ITA"
+    fips: "IT"
+
+  - id: vatican
+    name: "Vatican / Holy See"
+    category: country
+    role_fr: "Saint-Siège (Cité du Vatican)"
+    role_en: "Holy See (Vatican City)"
+    patterns: ['\bVatican\b', '\bVATICAN\b', '\bHoly See\b']
+    gdelt: ["VATICAN", "HOLY SEE"]
+    iso3: "VAT"
+    fips: "VT"
+
+  - id: belgium
+    name: "Belgium"
+    category: country
+    role_fr: "Belgique"
+    role_en: "Belgium"
+    patterns: ['\bBelgium\b']
+    gdelt: ["BELGIUM"]
+    iso3: "BEL"
+    fips: "BE"
+
+  - id: austria
+    name: "Austria"
+    category: country
+    role_fr: "Autriche"
+    role_en: "Austria"
+    patterns: ['\bAustria\b']
+    gdelt: ["AUSTRIA"]
+    iso3: "AUT"
+    fips: "AU"
+
+  - id: armenia
+    name: "Armenia"
+    category: country
+    role_fr: "Arménie"
+    role_en: "Armenia"
+    patterns: ['\bArmenia\b', '\bArmenian\b']
+    gdelt: ["ARMENIA", "ARMENIAN"]
+    iso3: "ARM"
+    fips: "AM"
+
+  - id: iraq
+    name: "Iraq"
+    category: country
+    role_fr: "Irak"
+    role_en: "Iraq"
+    patterns: ['\bIraq\b', '\bIRAQ\b', '\bIraqi\b']
+    gdelt: ["IRAQ", "IRAQI"]
+    iso3: "IRQ"
+    fips: "IZ"
+
+  - id: syria
+    name: "Syria"
+    category: country
+    role_fr: "Syrie"
+    role_en: "Syria"
+    patterns: ['\bSyria\b', '\bSYRIA\b', '\bSyrian\b']
+    gdelt: ["SYRIA", "SYRIAN"]
+    iso3: "SYR"
+    fips: "SY"
+
+  - id: turkey
+    name: "Turkey"
+    category: country
+    role_fr: "Turquie"
+    role_en: "Turkey"
+    patterns: ['\bTurkey\b', '\bTURKEY\b', '\bTurkish\b']
+    gdelt: ["TURKEY", "TURKISH"]
+    iso3: "TUR"
+    fips: "TU"
+
+  - id: qatar
+    name: "Qatar"
+    category: country
+    role_fr: "Qatar"
+    role_en: "Qatar"
+    patterns: ['\bQatar\b', '\bQATAR\b', '\bQatari\b']
+    gdelt: ["QATAR", "QATARI"]
+    iso3: "QAT"
+    fips: "QA"
+
+  - id: uae
+    name: "United Arab Emirates"
+    category: country
+    role_fr: "Émirats arabes unis"
+    role_en: "United Arab Emirates"
+    patterns: ['\bUAE\b', '\bUnited Arab Emirates\b']
+    gdelt: ["UNITED ARAB EMIRATES"]
+    iso3: "ARE"
+    fips: "AE"
+
+  - id: yemen
+    name: "Yemen"
+    category: country
+    role_fr: "Yémen"
+    role_en: "Yemen"
+    patterns: ['\bYemen\b', '\bYEMEN\b']
+    gdelt: ["YEMEN", "YEMENI"]
+    iso3: "YEM"
+    fips: "YM"
+
+  - id: egypt
+    name: "Egypt"
+    category: country
+    role_fr: "Égypte"
+    role_en: "Egypt"
+    patterns: ['\bEgypt\b', '\bEGYPT\b', '\bEgyptian\b']
+    gdelt: ["EGYPT", "EGYPTIAN"]
+    iso3: "EGY"
+    fips: "EG"
+
+  - id: libya
+    name: "Libya"
+    category: country
+    role_fr: "Libye"
+    role_en: "Libya"
+    patterns: ['\bLibya\b', '\bLIBYA\b', '\bLibyan\b']
+    gdelt: ["LIBYA", "LIBYAN"]
+    iso3: "LBY"
+    fips: "LY"
+
+  - id: sudan
+    name: "Sudan"
+    category: country
+    role_fr: "Soudan"
+    role_en: "Sudan"
+    patterns: ['(?<!South )\bSudan\b', '\bSUDAN\b']
+    iso3: "SDN"
+    fips: "SU"
+
+  - id: somalia
+    name: "Somalia"
+    category: country
+    role_fr: "Somalie"
+    role_en: "Somalia"
+    patterns: ['\bSomalia\b', '\bSOMALIA\b']
+    iso3: "SOM"
+    fips: "SO"
+
+  - id: kenya
+    name: "Kenya"
+    category: country
+    role_fr: "Kenya"
+    role_en: "Kenya"
+    patterns: ['\bKenya\b', '\bKENYA\b']
+    iso3: "KEN"
+    fips: "KE"
+
+  - id: afghanistan
+    name: "Afghanistan"
+    category: country
+    role_fr: "Afghanistan"
+    role_en: "Afghanistan"
+    patterns: ['\bAfghanistan\b', '\bAFGHANISTAN\b', '\bAfghans?\b']
+    gdelt: ["AFGHANISTAN"]
+    iso3: "AFG"
+    fips: "AF"
+
+  - id: pakistan
+    name: "Pakistan"
+    category: country
+    role_fr: "Pakistan"
+    role_en: "Pakistan"
+    patterns: ['\bPakistan\b', '\bPAKISTAN\b', '\bPakistani\b', '\bPaki\b', '\bPAKI\b']
+    gdelt: ["PAKISTAN", "PAKISTANI"]
+    iso3: "PAK"
+    fips: "PK"
+
+  - id: japan
+    name: "Japan"
+    category: country
+    role_fr: "Japon"
+    role_en: "Japan"
+    patterns: ['\bJapan\b', '\bJAPAN\b', '\bJapanese\b']
+    gdelt: ["JAPAN", "JAPANESE"]
+    iso3: "JPN"
+    fips: "JA"
+
+  - id: vietnam
+    name: "Vietnam"
+    category: country
+    role_fr: "Viêt Nam"
+    role_en: "Vietnam"
+    patterns: ['\bVietnam\b']
+    gdelt: ["VIETNAM"]
+    iso3: "VNM"
+    fips: "VM"
+
+  - id: hong_kong
+    name: "Hong Kong"
+    category: country
+    role_fr: "Hong Kong (région administrative spéciale chinoise)"
+    role_en: "Hong Kong (Chinese special administrative region)"
+    patterns: ['\bHong Kong\b', '\bHK\b']
+    iso3: "HKG"
+    fips: "HK"
+
+  - id: singapore
+    name: "Singapore"
+    category: country
+    role_fr: "Singapour"
+    role_en: "Singapore"
+    patterns: ['\bSingapore\b', '\bSINGAPORE\b']
+    iso3: "SGP"
+    fips: "SN"
+
+  - id: australia
+    name: "Australia"
+    category: country
+    role_fr: "Australie"
+    role_en: "Australia"
+    patterns: ['\bAUS\b', '\bAustralia\b', '\bAUSTRALIA\b', '\bAustralian\b']
+    gdelt: ["AUSTRALIA", "AUSTRALIAN"]
+    iso3: "AUS"
+    fips: "AS"
+
+  - id: new_zealand
+    name: "New Zealand"
+    category: country
+    role_fr: "Nouvelle-Zélande"
+    role_en: "New Zealand"
+    patterns: ['\bNew Zealand\b', '\bNZ\b']
+    gdelt: ["NEW ZEALAND"]
+    iso3: "NZL"
+    fips: "NZ"
+
+  - id: canada
+    name: "Canada"
+    category: country
+    role_fr: "Canada"
+    role_en: "Canada"
+    patterns: ['\bCanada\b', '\bCANADA\b', '\bCanadian\b']
+    gdelt: ["CANADA", "CANADIAN"]
+    iso3: "CAN"
+    fips: "CA"
+
+  - id: mexico
+    name: "Mexico"
+    category: country
+    role_fr: "Mexique"
+    role_en: "Mexico"
+    patterns: ['\bMexico\b', '\bMEXICO\b', '\bMexican\b', '\bMX\b']
+    gdelt: ["MEXICO", "MEXICAN"]
+    iso3: "MEX"
+    fips: "MX"
+
+  - id: haiti
+    name: "Haiti"
+    category: country
+    role_fr: "Haïti"
+    role_en: "Haiti"
+    patterns: ['\bHaiti\b', '\bHAITI\b', '\bHaitian\b']
+    gdelt: ["HAITI", "HAITIAN"]
+    iso3: "HTI"
+    fips: "HA"
+
+  - id: cuba
+    name: "Cuba"
+    category: country
+    role_fr: "Cuba"
+    role_en: "Cuba"
+    patterns: ['\bCuba\b', '\bCUBA\b', '\bCuban\b']
+    gdelt: ["CUBA", "CUBAN"]
+    iso3: "CUB"
+    fips: "CU"
+
+  - id: venezuela
+    name: "Venezuela"
+    category: country
+    role_fr: "Venezuela"
+    role_en: "Venezuela"
+    patterns: ['\bVenezuela\b', '\bVENEZUELA\b', '\bVenezuelan\b']
+    gdelt: ["VENEZUELA", "VENEZUELAN"]
+    iso3: "VEN"
+    fips: "VE"
+
+  - id: ecuador
+    name: "Ecuador"
+    category: country
+    role_fr: "Équateur"
+    role_en: "Ecuador"
+    patterns: ['\bEcuador\b', '\bECUADOR\b']
+    gdelt: ["ECUADOR"]
+    iso3: "ECU"
+    fips: "EC"
