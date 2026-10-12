@@ -91,6 +91,13 @@ class Site:
             if ranked:
                 extra.append(t["f_overrep"].format(names=", ".join(f"{a['name']} (×{n(a['overrep'], 1)})"
                                                                    for a in ranked[:3])))
+        ve = self.r["verification"]
+        if ve and ve.get("items"):
+            legal = [ve["by_type"].get(k) for k in ("arrest", "indictment") if ve["by_type"].get(k)]
+            extra.insert(0, t["f_verif"].format(
+                c=n(ve["overall"]["checkable"]), rate=p(ve["overall"]["rate"] or 0, 0),
+                rate_nt=p(ve["nontrivial"]["rate"] or 0, 0),
+                legal=n(sum(x["checkable"] for x in legal)), legal_ok=n(sum(x["fulfilled"] for x in legal))))
         if inter and inter["events"]:
             e = inter["events"][0]
             extra.append(t["f_interest"].format(label=e[f"label_{lang}"], ratio=n(e["ratio"], 1)))
@@ -284,7 +291,7 @@ class Site:
                         + [row(y, r) for y, r in ve["by_year"].items()],
                 "types": [row(t.get(f"et_{k}", k), r) for k, r in
                           sorted(ve["by_type"].items(), key=lambda kv: -kv[1]["n"])],
-                "items": [{"key": x["key"], "drop": x["drop_id"], "date": c["date"](x["date"]), "verdict": x["verdict"],
+                "list": [{"key": x["key"], "drop": x["drop_id"], "date": c["date"](x["date"]), "verdict": x["verdict"],
                            "verdict_label": t[f"vd_{x['verdict']}"], "trivial": x["trivial"],
                            "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"],
                            "explanation": x.get(f"explanation_{lang}") or "", "sources": x["sources"]}

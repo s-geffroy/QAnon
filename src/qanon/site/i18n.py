@@ -23,7 +23,7 @@ T = {
   "f_questions": "En moyenne {q} points d'interrogation par drop : la question rhétorique est la signature du style Q.",
   "verdict_sig": "écart statistiquement significatif, p = {p}",
   "verdict_ns": "écart non significatif, p = {p}",
-  "next": "À venir : la vérification systématique des prédictions de Q, après l'évaluation des modèles de langue (page Prédictions).",
+  "next": "Toutes les prédictions, leur vérification et leurs sources : page Prédictions.",
   # Activite
   "activity_title": "Rythme et plateformes",
   "platforms_title": "Plateformes et forums",
@@ -90,7 +90,7 @@ T = {
   "f_questions": "On average {q} question marks per drop: the rhetorical question is the signature of Q's style.",
   "verdict_sig": "statistically significant difference, p = {p}",
   "verdict_ns": "difference not significant, p = {p}",
-  "next": "Coming next: systematic checking of Q's predictions, after the language-model evaluation (Predictions page).",
+  "next": "All predictions, their verification and sources: Predictions page.",
   "activity_title": "Rhythm and platforms",
   "platforms_title": "Platforms and boards",
   "col_site": "Site", "col_board": "Board", "col_n": "Drops", "col_first": "First", "col_last": "Last",
@@ -493,3 +493,6 @@ T["en"].update({
   "vd_fulfilled": "Came true", "vd_partial": "Partly", "vd_not_fulfilled": "Did not happen",
   "vd_unverifiable": "Unverifiable", "vd_not_a_prediction": "Not a prediction",
 })
+
+T["fr"]["f_verif"] = "Prédictions vérifiées une à une : {rate} des {c} prédictions vérifiables se sont réalisées, {rate_nt} hors événements déjà programmés ; arrestations et inculpations annoncées : {legal_ok} sur {legal}."
+T["en"]["f_verif"] = "Predictions checked one by one: {rate} of the {c} checkable predictions came true, {rate_nt} excluding already-scheduled events; announced arrests and indictments: {legal_ok} of {legal}."

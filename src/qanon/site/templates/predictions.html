@@ -42,10 +42,10 @@
   <div class="filters">
     <select id="ve-verdict" aria-label="verdict"><option value="">{{ t.bib_all }}</option>{% for v in ["fulfilled", "partial", "not_fulfilled", "unverifiable", "not_a_prediction"] %}<option value="{{ v }}">{{ t["vd_" ~ v] }}</option>{% endfor %}</select>
     <input type="search" id="ve-q" placeholder="{{ t.bib_search }}" aria-label="{{ t.bib_search }}">
-    <span class="note"><span id="ve-n">{{ ve.items|length }}</span> / {{ ve.items|length }}</span>
+    <span class="note"><span id="ve-n">{{ ve.list|length }}</span> / {{ ve.list|length }}</span>
   </div>
   <ol class="bib verif">
-  {% for x in ve.items %}
+  {% for x in ve.list %}
     <li class="ref ve-item" data-verdict="{{ x.verdict }}" data-search="{{ (x.claim ~ ' ' ~ x.explanation)|lower }}">
       <p class="tags"><span class="tag vd vd-{{ x.verdict }}">{{ x.verdict_label }}</span>{% if x.trivial %} <span class="tag">{{ t.ve_trivial }}</span>{% endif %} <span class="tag">{{ x.type }}</span> <span class="topic">{{ x.date }} · {{ t.drop_no }}{{ x.drop }}</span></p>
       <p class="cit">{{ x.claim }}</p>
