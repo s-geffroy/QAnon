@@ -302,9 +302,19 @@ class Site:
     def page_timeline(self, lang, c):
         t = c["t"]
         events = sorted(self.r["descriptive"]["events"], key=lambda e: e["date"])
-        return {"events": [{"date": c["date"](e["date"]), "iso": e["date"], "cat": e["category"],
-                            "cat_label": t[f"cat_{e['category']}"], "label": e[f"label_{lang}"],
-                            "source": e["source"]} for e in events]}
+        def source_label(e):
+            meta = json.loads(e["source_meta"]) if e.get("source_meta") else {}
+            if not meta.get("outlet"):
+                return t["source"], None
+            when = c["date"](meta["date"]) if meta.get("date") else ""
+            return f"{meta['outlet']}{', ' + when if when else ''}", meta.get("title")
+        out = []
+        for e in events:
+            label, title = source_label(e)
+            out.append({"date": c["date"](e["date"]), "iso": e["date"], "cat": e["category"],
+                        "cat_label": t[f"cat_{e['category']}"], "label": e[f"label_{lang}"],
+                        "source": e["source"], "source_label": label, "source_title": title})
+        return {"events": out}
 
     def page_glossary(self, lang, c):
         disc = self.r["discourse"] or {"glossary": []}

@@ -52,9 +52,15 @@ CREATE TABLE IF NOT EXISTS events (
     category    TEXT,
     label_fr    TEXT,
     label_en    TEXT,
-    source      TEXT
+    source      TEXT,
+    source_meta TEXT              -- JSON : media, date, titre de la source
 );
 """
+
+
+# Colonnes ajoutees apres coup a des tables existantes (CREATE IF NOT EXISTS ne
+# modifie pas une table deja creee).
+MIGRATIONS = [("events", "source_meta", "TEXT")]
 
 
 def connect(path):
@@ -63,6 +69,9 @@ def connect(path):
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     conn.executescript(SCHEMA)
+    for table, column, kind in MIGRATIONS:
+        if column not in {r["name"] for r in conn.execute(f"PRAGMA table_info({table})")}:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {kind}")
     return conn
 
 

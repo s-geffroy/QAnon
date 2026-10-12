@@ -7,7 +7,7 @@
 {% for e in events %}
   <li class="ev ev-{{ e.cat }}"><time datetime="{{ e.iso }}">{{ e.date }}</time>
     <span class="tag">{{ e.cat_label }}</span>
-    <span class="ev-label">{{ e.label }}</span>{% if e.source %} <a class="src" href="{{ e.source }}">{{ t.source }}</a>{% endif %}</li>
+    <span class="ev-label">{{ e.label }}</span>{% if e.source %} <a class="src" href="{{ e.source }}"{% if e.source_title %} title="{{ e.source_title }}"{% endif %}>{{ e.source_label }}</a>{% endif %}</li>
 {% endfor %}
 </ol>
 {% endblock %}

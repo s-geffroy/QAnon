@@ -1,4 +1,6 @@
 """Chronologie curee : data/timeline.yaml, versionnee dans Git."""
+import json
+
 import yaml
 
 from .. import db
@@ -14,9 +16,12 @@ def run(ctx):
     rows = []
     for e in events:
         date = str(e["date"])
-        rows.append((f"{date}-{e['id']}", date, e["category"], e["fr"], e["en"], e.get("source")))
+        meta = {k: str(e[f"source_{k}"]) for k in ("outlet", "date", "title") if e.get(f"source_{k}")}
+        rows.append((f"{date}-{e['id']}", date, e["category"], e["fr"], e["en"], e.get("source"),
+                     json.dumps(meta, ensure_ascii=False) if meta else None))
     ctx.conn.execute("DELETE FROM events")
-    ctx.conn.executemany("INSERT INTO events VALUES (?,?,?,?,?,?)", rows)
+    ctx.conn.executemany("INSERT INTO events (id, date, category, label_fr, label_en, source, source_meta) "
+                         "VALUES (?,?,?,?,?,?,?)", rows)
     ctx.set_output(db.sha(raw))
     log(f"chronologie : {len(rows)} evenements")
     return True

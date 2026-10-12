@@ -8,124 +8,186 @@ events:
   - {date: 2017-10-28, id: first-drop, category: q,
      fr: "Premier message de « Q Clearance Patriot » sur 4chan /pol/",
      en: "First post by \"Q Clearance Patriot\" on 4chan /pol/",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.nbcnews.com/tech/tech-news/how-three-conspiracy-theorists-took-q-sparked-qanon-n900531",
+     source_outlet: "NBC News", source_date: 2018-08-14,
+     source_title: "How three conspiracy theorists took 'Q' and sparked Qanon"}
   - {date: 2017-10-30, id: hrc-arrest, category: failed,
      fr: "Arrestation annoncée d'Hillary Clinton (n'a pas eu lieu)",
      en: "Predicted arrest of Hillary Clinton (did not happen)",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.nbcnews.com/tech/tech-news/what-qanon-guide-conspiracy-theory-taking-hold-among-trump-supporters-n897271",
+     source_outlet: "NBC News", source_date: 2018-08-03,
+     source_title: "What is Qanon? A guide to the conspiracy theory taking hold among Trump supporters"}
   - {date: 2017-11-03, id: podesta-arrest, category: failed,
      fr: "Arrestation annoncée de John Podesta (n'a pas eu lieu)",
      en: "Predicted arrest of John Podesta (did not happen)",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.buzzfeednews.com/article/ryanhatesthis/its-looking-extremely-likely-that-qanon-is-probably-a",
+     source_outlet: "BuzzFeed News", source_date: 2018-08-06,
+     source_title: "People Think This Whole QAnon Conspiracy Theory Is A Prank On Trump Supporters"}
   - {date: 2017-11-25, id: move-8chan, category: q,
      fr: "Premier drop sur 8chan, après l'abandon de 4chan",
      en: "First drop on 8chan, after leaving 4chan",
-     source: "https://www.kaggle.com/datasets/jkingsman/qanondrops"}
+     source: "https://www.kaggle.com/datasets/jkingsman/qanondrops",
+     source_outlet: "Kaggle, QAnon Posts Dataset",
+     source_title: "QAnon Posts Dataset (jkingsman/qanondrops)"}
   - {date: 2018-03-14, id: reddit-cbts, category: platform,
      fr: "Reddit bannit r/CBTS_Stream, mis en quarantaine fin février",
      en: "Reddit bans r/CBTS_Stream, quarantined since late February",
-     source: "https://arxiv.org/abs/2302.01397"}
+     source: "https://arxiv.org/abs/2302.01397",
+     source_outlet: "Papasavva & Mariconti, arXiv", source_date: 2023-02-02,
+     source_title: "Waiting for Q: An Exploration of QAnon Users' Online Migration to Poal in the Wake of Voat's Demise"}
   - {date: 2018-06-15, id: hoover-dam, category: violence,
      fr: "Barrage Hoover : un homme armé bloque la route en réclamant un rapport cité par Q",
      en: "Hoover Dam: armed man blocks the road demanding a report cited by Q",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.buzzfeednews.com/article/skbaer/qanon-believer-arrested-hoover-dam",
+     source_outlet: "BuzzFeed News", source_date: 2018-06-17,
+     source_title: "An Armed Man Spouting A Bizarre Right-Wing Conspiracy Theory Was Arrested After A Standoff At The Hoover Dam"}
   - {date: 2018-07-31, id: tampa-rally, category: politics,
      fr: "Meeting Trump à Tampa : premières pancartes « Q » très médiatisées",
      en: "Trump rally in Tampa: first widely covered \"Q\" signs",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
-  - {date: 2018-08-24, id: lebron-oval, category: politics,
+     source: "https://edition.cnn.com/2018/08/01/us/youtube-qanon-8chan-conspiracy-theory-trnd/index.html",
+     source_outlet: "CNN", source_date: 2018-08-01,
+     source_title: "From 8chan to YouTube and Trump rallies: how a right-wing conspiracy theory is going mainstream"}
+  - {date: 2018-08-23, id: lebron-oval, category: politics,
      fr: "Trump reçoit le promoteur QAnon Lionel Lebron dans le Bureau ovale",
      en: "Trump hosts QAnon promoter Lionel Lebron in the Oval Office",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.buzzfeednews.com/article/jimdalrympleii/trump-met-with-a-prominent-qanon-conspiracy-theorist-in-the",
+     source_outlet: "BuzzFeed News", source_date: 2018-08-24,
+     source_title: "A Prominent Conspiracy Theorist Met With Trump At The White House"}
   - {date: 2018-09-12, id: reddit-ga, category: platform,
      fr: "Reddit bannit r/GreatAwakening (71 000 abonnés) et d'autres forums QAnon",
      en: "Reddit bans r/GreatAwakening (71,000 subscribers) and other QAnon forums",
-     source: "https://www.nbcnews.com/tech/tech-news/reddit-bans-qanon-subreddits-after-months-violent-threats-n909061"}
+     source: "https://www.nbcnews.com/tech/tech-news/reddit-bans-qanon-subreddits-after-months-violent-threats-n909061",
+     source_outlet: "NBC News", source_date: 2018-09-12,
+     source_title: "Reddit bans Qanon subreddits after months of violent threats"}
   - {date: 2018-11-06, id: midterms-2018, category: politics,
      fr: "Élections de mi-mandat américaines",
      en: "US midterm elections",
-     source: "https://en.wikipedia.org/wiki/2018_United_States_elections"}
+     source: "https://www.npr.org/2018/11/07/665112481/midterm-results-democrats-take-back-control-of-the-house",
+     source_outlet: "NPR", source_date: 2018-11-07,
+     source_title: "Midterm Results: Democrats Take Back Control Of The House"}
   - {date: 2019-03-13, id: cali-murder, category: violence,
      fr: "Meurtre de Frank Cali par un adepte de QAnon",
      en: "Murder of Frank Cali by a QAnon adherent",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.thedailybeast.com/anthony-camello-accused-of-killing-gambino-boss-frank-cali-might-be-crazy-about-qanon/",
+     source_outlet: "The Daily Beast", source_date: 2019-03-18,
+     source_title: "Is Mob Boss Murder Suspect Anthony Comello Just Nuts—or a QAnon Crazy?"}
   - {date: 2019-03-22, id: mueller-report, category: justice,
      fr: "Rapport Mueller remis au ministre de la Justice",
      en: "Mueller report delivered to the Attorney General",
-     source: "https://en.wikipedia.org/wiki/Mueller_report"}
+     source: "https://www.npr.org/2019/03/22/706034656/mueller-delivers-findings-from-russia-investigation-to-attorney-general-barr",
+     source_outlet: "NPR", source_date: 2019-03-22,
+     source_title: "Mueller Delivers Findings From Russia Investigation To Attorney General Barr"}
   - {date: 2019-04-18, id: mueller-public, category: justice,
      fr: "Publication de la version expurgée du rapport Mueller",
      en: "Redacted Mueller report released",
-     source: "https://en.wikipedia.org/wiki/Mueller_report"}
+     source: "https://www.npr.org/2019/04/18/714667960/redacted-mueller-report-is-released",
+     source_outlet: "NPR", source_date: 2019-04-18,
+     source_title: "Redacted Mueller Report Released; Congress, Trump React"}
   - {date: 2019-05-30, id: fbi-bulletin, category: justice,
      fr: "Bulletin du FBI (Phoenix) : QAnon cité comme menace terroriste intérieure",
      en: "FBI (Phoenix) bulletin cites QAnon as a domestic terrorism threat",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://news.yahoo.com/fbi-documents-conspiracy-theories-terrorism-160000507.html",
+     source_outlet: "Yahoo News", source_date: 2019-08-01,
+     source_title: "Exclusive: FBI document warns conspiracy theories are a new domestic terrorism threat"}
   - {date: 2019-08-05, id: 8chan-down, category: platform,
      fr: "8chan mis hors ligne après la tuerie d'El Paso",
      en: "8chan taken offline after the El Paso shooting",
-     source: "https://en.wikipedia.org/wiki/8chan"}
+     source: "https://blog.cloudflare.com/terminating-service-for-8chan/",
+     source_outlet: "Cloudflare", source_date: 2019-08-04,
+     source_title: "Terminating Service for 8Chan"}
   - {date: 2019-11-02, id: return-8kun, category: q,
      fr: "Retour de Q sur 8kun, successeur de 8chan, après trois mois de silence",
      en: "Q returns on 8kun, 8chan's successor, after three months of silence",
-     source: "https://en.wikipedia.org/wiki/8chan"}
+     source: "https://www.vice.com/en/article/8chan-is-back-with-a-new-name-and-qanon-is-already-posting/",
+     source_outlet: "Vice News", source_date: 2019-11-04,
+     source_title: "8chan Is Back With a New Name — and QAnon Is Already Posting"}
   - {date: 2020-03-23, id: covid-first, category: q,
      fr: "Premier drop sur la pandémie (« China virus »)",
      en: "First drop about the pandemic (\"China virus\")",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://theconversation.com/qanon-conspiracytheories-about-the-coronavirus-pandemic-are-a-public-health-threat-135515",
+     source_outlet: "The Conversation", source_date: 2020-04-08,
+     source_title: "QAnon conspiracy theories about the coronavirus pandemic are a public health threat"}
   - {date: 2020-07-21, id: twitter-ban, category: platform,
      fr: "Twitter suspend des milliers de comptes QAnon",
      en: "Twitter suspends thousands of QAnon accounts",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.nbcnews.com/tech/tech-news/twitter-bans-7-000-qanon-accounts-limits-150-000-others-n1234541",
+     source_outlet: "NBC News", source_date: 2020-07-21,
+     source_title: "Twitter bans 7,000 QAnon accounts, limits 150,000 others as part of broad crackdown"}
   - {date: 2020-08-11, id: mtg-runoff, category: politics,
      fr: "Marjorie Taylor Greene, sympathisante QAnon, remporte la primaire républicaine (Géorgie)",
      en: "QAnon sympathiser Marjorie Taylor Greene wins Georgia GOP runoff",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.npr.org/2020/08/12/901592084/marjorie-taylor-greene-qanon-supporter-wins-primary-in-georgia",
+     source_outlet: "NPR", source_date: 2020-08-12,
+     source_title: "Marjorie Taylor Greene, QAnon Supporter, Wins Primary In Georgia"}
   - {date: 2020-08-19, id: trump-like-me, category: politics,
      fr: "Trump à propos de QAnon : « ils m'apprécient beaucoup »",
      en: "Trump on QAnon: \"they like me very much\"",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.npr.org/2020/08/19/904055593/trump-addressing-far-right-qanon-conspiracy-offers-praise-for-its-followers",
+     source_outlet: "NPR", source_date: 2020-08-19,
+     source_title: "Trump, Addressing Far-Right QAnon Conspiracy, Offers Praise For Its Followers"}
   - {date: 2020-10-02, id: hres-1154, category: politics,
      fr: "La Chambre condamne QAnon (H.Res. 1154, 371 voix contre 18)",
      en: "House condemns QAnon (H.Res. 1154, 371–18)",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://clerk.house.gov/Votes/2020218",
+     source_outlet: "Clerk of the House", source_date: 2020-10-02,
+     source_title: "Roll Call 218, Bill Number: H. Res. 1154, 116th Congress, 2nd Session"}
   - {date: 2020-10-06, id: facebook-ban, category: platform,
      fr: "Facebook et Instagram bannissent QAnon",
      en: "Facebook and Instagram ban QAnon",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://about.fb.com/news/2020/08/addressing-movements-and-organizations-tied-to-violence/",
+     source_outlet: "Facebook Newsroom", source_date: 2020-10-06,
+     source_title: "An Update to How We Address Movements and Organizations Tied to Violence"}
   - {date: 2020-10-15, id: town-hall, category: politics,
      fr: "Town hall NBC : Trump refuse de désavouer QAnon",
      en: "NBC town hall: Trump declines to disavow QAnon",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.nbcnews.com/politics/2020-election/live-blog/trump-biden-town-halls-start-time-how-watch-live-updates-n1243511/ncrd1243628",
+     source_outlet: "NBC News", source_date: 2020-10-15,
+     source_title: "Trump dodges QAnon question: 'I know nothing about QAnon'"}
   - {date: 2020-11-03, id: election-2020, category: politics,
      fr: "Élection présidentielle américaine",
      en: "US presidential election",
-     source: "https://en.wikipedia.org/wiki/2020_United_States_presidential_election"}
+     source: "https://www.nbcnews.com/politics/2020-election/biden-defeats-trump-win-white-house-nbc-news-projects-n1246912",
+     source_outlet: "NBC News", source_date: 2020-11-07,
+     source_title: "Biden defeats Trump to win White House, NBC News projects"}
   - {date: 2020-12-08, id: last-drop-2020, category: q,
      fr: "Dernier drop avant 18 mois de silence",
      en: "Last drop before an 18-month silence",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.vice.com/en/article/qanon-q-is-back-jim-watkins/",
+     source_outlet: "Vice News", source_date: 2022-06-30,
+     source_title: "Q Is Back and It’s Tearing the QAnon World Apart"}
   - {date: 2021-01-06, id: capitol, category: violence,
      fr: "Assaut du Capitole",
      en: "Attack on the US Capitol",
-     source: "https://en.wikipedia.org/wiki/January_6_United_States_Capitol_attack"}
+     source: "https://www.cnn.com/2021/01/07/us/insurrection-capitol-extremist-groups-invs/",
+     source_outlet: "CNN", source_date: 2021-01-07,
+     source_title: "Insurrection a stunning show of force for conspiracy groups, extremists and fringe movements"}
   - {date: 2021-01-08, id: trump-suspended, category: platform,
      fr: "Twitter suspend définitivement @realDonaldTrump",
      en: "Twitter permanently suspends @realDonaldTrump",
-     source: "https://en.wikipedia.org/wiki/Suspension_of_Twitter_accounts_of_Donald_Trump"}
+     source: "https://www.aljazeera.com/news/2021/1/8/twitter-permanently-suspends-trumps-account",
+     source_outlet: "Al Jazeera", source_date: 2021-01-08,
+     source_title: "Twitter permanently suspends Trump's account"}
   - {date: 2021-01-20, id: inauguration, category: failed,
      fr: "Investiture de Joe Biden (le « piège » annoncé n'a pas eu lieu)",
      en: "Joe Biden's inauguration (the predicted \"trap\" did not happen)",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.npr.org/sections/inauguration-day-live-updates/2021/01/20/958907699/the-qanon-storm-never-struck-some-supporters-are-wavering-others-steadfast",
+     source_outlet: "NPR", source_date: 2021-01-20,
+     source_title: "The QAnon 'Storm' Never Struck. Some Supporters Are Wavering, Others Steadfast"}
   - {date: 2021-03-04, id: march-4, category: failed,
      fr: "« Investiture » de Trump attendue par le mouvement (n'a pas eu lieu)",
      en: "Movement-predicted Trump \"inauguration\" (did not happen)",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.newsweek.com/qanon-turn-shills-pushed-march-4-theory-latest-prophecy-fails-1573984",
+     source_outlet: "Newsweek", source_date: 2021-03-05,
+     source_title: "QAnon Turn on 'Shills' Who Pushed March 4 Theory as Latest Prophecy Fails"}
   - {date: 2022-02-19, id: stylometry-nyt, category: q,
      fr: "NYT : deux analyses stylométriques attribuent les drops à Paul Furber puis Ron Watkins",
      en: "NYT: two stylometric analyses attribute drops to Paul Furber, then Ron Watkins",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.nytimes.com/2022/02/19/technology/qanon-messages-authors.html",
+     source_outlet: "The New York Times", source_date: 2022-02-19,
+     source_title: "Who Is Behind QAnon? Linguistic Detectives Find Fingerprints"}
   - {date: 2022-06-24, id: q-returns, category: q,
      fr: "Retour de Q sur 8kun après 18 mois",
      en: "Q returns on 8kun after 18 months",
-     source: "https://en.wikipedia.org/wiki/QAnon"}
+     source: "https://www.adl.org/resources/blog/after-18-month-hiatus-new-qanon-posts-surface",
+     source_outlet: "ADL", source_date: 2022-06-29,
+     source_title: "After 18-Month Hiatus, New QAnon Posts Surface"}
