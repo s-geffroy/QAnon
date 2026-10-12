@@ -291,24 +291,30 @@ def news_series(news, lang, n=6):
     a, b = t["q_mentions"], t["news_volume"]
     data = []
     for r in news["actors"][:n]:
-        mq = sum(x["q"] for x in r["series"]) / len(r["series"]) or 1
-        mn = sum(x["news"] for x in r["series"]) / len(r["series"]) or 1
+        # Affichage mensuel : a l'echelle de la semaine, la serie de Q n'est que du bruit.
+        months = {}
         for x in r["series"]:
-            data.append({"name": r["name"], "week": x["week"], "series": a, "v": round(100 * x["q"] / mq, 1)})
-            data.append({"name": r["name"], "week": x["week"], "series": b, "v": round(100 * x["news"] / mn, 1)})
+            m = months.setdefault(x["week"][:7], [0, 0])
+            m[0] += x["q"]; m[1] += x["news"]
+        mq = sum(v[0] for v in months.values()) / len(months) or 1
+        mn = sum(v[1] for v in months.values()) / len(months) or 1
+        for month, (q, nw) in sorted(months.items()):
+            data.append({"name": r["name"], "week": month, "series": a, "v": round(100 * q / mq, 1)})
+            data.append({"name": r["name"], "week": month, "series": b, "v": round(100 * nw / mn, 1)})
     order = [r["name"] for r in news["actors"][:n]]
     return _spec(
         data={"values": data},
         facet={"field": "name", "type": "nominal", "sort": order, "title": None, "header": {"labelFontWeight": 600}},
         columns=3,
-        spec={"width": 250, "height": 120, "mark": {"type": "line", "strokeWidth": 1.5, "interpolate": "monotone"},
+        spec={"width": 250, "height": 120, "mark": {"type": "line", "strokeWidth": 1.5},
               "encoding": {
-                  "x": {"field": "week", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+                  "x": {"field": "week", "type": "temporal", "timeUnit": "yearmonth", "title": None,
+                        "axis": {"format": "%Y", "tickCount": "year"}},
                   "y": {"field": "v", "type": "quantitative", "title": t["index"]},
                   "color": {"field": "series", "type": "nominal", "title": None,
                             "scale": {"domain": [a, b], "range": ["@series1", "@ink3"]}, "legend": {"orient": "top"}},
                   "tooltip": [{"field": "name", "title": " "}, {"field": "series", "title": " "},
-                              {"field": "week", "type": "temporal", "format": "%d/%m/%Y", "title": " "},
+                              {"field": "week", "type": "temporal", "timeUnit": "yearmonth", "format": "%m/%Y", "title": " "},
                               {"field": "v", "title": t["index"]}]}},
         resolve={"scale": {"y": "independent"}},
     )
