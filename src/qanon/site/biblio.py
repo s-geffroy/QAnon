@@ -17,7 +17,7 @@ CSL_TYPE = {"article": "article-journal", "conference": "paper-conference", "boo
 def load():
     refs = load_yaml("bibliography", "references")
     return sorted(refs, key=lambda r: (TYPE_ORDER.index(r["type"]) if r["type"] in TYPE_ORDER else 99,
-                                       -int(r.get("year") or 0), r.get("authors", [""])[0]))
+                                       -int(r.get("year") or 0), (r.get("authors") or [""])[0]))
 
 
 def authors_text(names, lang):

@@ -136,8 +136,11 @@ def prevalence(disc, lang):
 def formulas(disc, glossary, lang, n=6):
     t = T[lang]
     terms = {g["id"]: g["term"] for g in glossary}
-    ranked = [g["id"] for g in sorted(disc["glossary"], key=lambda g: -(g["n"] or 0))][:n]
-    data = [{**s, "term": terms.get(s["id"], s["id"])} for s in disc["glossary_series"] if s["id"] in ranked]
+    # Termes generiques ou trop bruites (messages, participants, mots courants) : pas des formules.
+    generic = {"drops", "anons", "bakers-bread", "crumbs", "boom", "the-plan", "clowns"}
+    ranked = [g["id"] for g in sorted(disc["glossary"], key=lambda g: -(g["n"] or 0)) if g["id"] not in generic][:n]
+    data = [{**s, "term": terms.get(s["id"], s["id"])} for s in disc["glossary_series"]
+            if s["id"] in ranked and s["month"] <= LAST_MONTH]
     order = [terms.get(i, i) for i in ranked]
     return _spec(
         data={"values": data},
