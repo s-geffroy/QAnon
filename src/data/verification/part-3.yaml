@@ -399,12 +399,13 @@ items:
   explanation_en: '''[RR] next week'' names no specific event. Rod Rosenstein''s closed-door interview with two House committees, set for October 11, 2018, was postponed the day before and did not take place in 2018.'
   sources: []
 - key: 2358-0
-  verdict: not_fulfilled
+  verdict: partial
   horizon: '2019-10-06'
   trivial: false
-  explanation_fr: Q annonçait que les démocrates promettraient de destituer le juge Kavanaugh. Après avoir pris la Chambre, ils n'ont engagé aucune procédure contre lui. (Contrairement à ce qu'écrivait Q, la mise en accusation relève de la majorité simple de la Chambre ; c'est la condamnation qui exige deux tiers du Sénat.)
-  explanation_en: Q announced that Democrats would promise to impeach Justice Kavanaugh. After taking the House, they initiated no proceedings against him. (Contrary to Q's statement, impeachment requires a simple House majority; it is conviction that requires two-thirds of the Senate.)
+  explanation_fr: 'Q annonçait que les démocrates chercheraient à destituer le juge Kavanaugh. Après leur victoire à la Chambre (novembre 2018), aucune procédure n''a été engagée, mais en septembre 2019, après de nouvelles révélations du New York Times, plusieurs candidats démocrates à la présidentielle (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) ont publiquement réclamé sa destitution.'
+  explanation_en: 'Q claimed Democrats would seek to impeach Justice Kavanaugh. After they won the House (November 2018), no proceedings were opened, but in September 2019, following new New York Times reporting, several Democratic presidential candidates (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) publicly called for his impeachment.'
   sources:
+  - https://www.foxla.com/news/democratic-presidential-candidates-call-for-kavanaughs-impeachment
   - https://en.wikipedia.org/wiki/Brett_Kavanaugh
 - key: 2362-0
   verdict: unverifiable
@@ -414,12 +415,13 @@ items:
   explanation_en: '''[BOOM WEEK]'', below Ronald Reagan quotes, names no checkable event for the week after October 7, 2018.'
   sources: []
 - key: 2368-0
-  verdict: not_fulfilled
+  verdict: partial
   horizon: '2019-10-08'
   trivial: false
-  explanation_fr: Q affirmait que les démocrates chercheraient à destituer Brett Kavanaugh. Aucune procédure de destitution n'a été engagée contre lui, ni après les élections de 2018, ni ensuite.
-  explanation_en: Q claimed Democrats would seek to impeach Brett Kavanaugh. No impeachment proceedings were ever initiated against him, after the 2018 elections or later.
+  explanation_fr: 'Q annonçait que les démocrates chercheraient à destituer le juge Kavanaugh. Après leur victoire à la Chambre (novembre 2018), aucune procédure n''a été engagée, mais en septembre 2019, après de nouvelles révélations du New York Times, plusieurs candidats démocrates à la présidentielle (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) ont publiquement réclamé sa destitution.'
+  explanation_en: 'Q claimed Democrats would seek to impeach Justice Kavanaugh. After they won the House (November 2018), no proceedings were opened, but in September 2019, following new New York Times reporting, several Democratic presidential candidates (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) publicly called for his impeachment.'
   sources:
+  - https://www.foxla.com/news/democratic-presidential-candidates-call-for-kavanaughs-impeachment
   - https://en.wikipedia.org/wiki/Brett_Kavanaugh
 - key: 2369-0
   verdict: not_fulfilled

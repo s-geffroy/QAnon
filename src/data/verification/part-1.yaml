@@ -253,39 +253,33 @@ items:
   explanation_en: '''POTUS refuses to be silenced'' is a phrase without a precise object, tied to a hypothetical scenario; Trump simply kept tweeting.'
   sources: []
 - key: 228-0
-  verdict: not_fulfilled
+  verdict: not_a_prediction
   horizon: '2018-11-25'
   trivial: false
-  explanation_fr: Trump est resté président durant tout l'horizon. Le message peut aussi se lire comme un rappel de changements passés (élection de 2016).
-  explanation_en: Trump remained president throughout the horizon. The post can also be read as a reference to past changes (the 2016 election).
-  sources:
-  - https://en.wikipedia.org/wiki/First_presidency_of_Donald_Trump
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
 - key: 228-1
-  verdict: not_fulfilled
+  verdict: not_a_prediction
   horizon: '2018-11-25'
   trivial: false
-  explanation_fr: Le roi Salmane est resté au pouvoir et Mohammed ben Salmane était prince héritier depuis juin 2017, avant le message ; aucun nouveau changement de direction saoudienne n'a eu lieu dans l'horizon. Le message peut renvoyer à la purge de novembre 2017, déjà en cours.
-  explanation_en: King Salman stayed in power and Mohammed bin Salman had been crown prince since June 2017, before the post; no new change of Saudi leadership occurred within the horizon. The post may refer to the November 2017 purge, already under way.
-  sources:
-  - https://en.wikipedia.org/wiki/Salman_of_Saudi_Arabia
-  - https://en.wikipedia.org/wiki/Mohammed_bin_Salman
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
 - key: 228-2
-  verdict: not_fulfilled
+  verdict: not_a_prediction
   horizon: '2018-11-25'
   trivial: false
-  explanation_fr: Angela Merkel a été réélue chancelière le 14 mars 2018 et l'est restée jusqu'en décembre 2021. Elle a annoncé le 29 octobre 2018 renoncer à la présidence de la CDU, ce qui ne constitue pas un changement à la tête du pays.
-  explanation_en: Angela Merkel was re-elected chancellor on 14 March 2018 and remained in office until December 2021. On 29 October 2018 she announced she would give up the CDU chair, which is not a change of national leadership.
-  sources:
-  - https://en.wikipedia.org/wiki/Fourth_Merkel_cabinet
-  - https://en.wikipedia.org/wiki/Angela_Merkel
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
 - key: 228-3
-  verdict: fulfilled
+  verdict: not_a_prediction
   horizon: '2018-11-25'
-  trivial: true
-  explanation_fr: Imran Khan est devenu Premier ministre du Pakistan le 18 août 2018 à l'issue des élections générales du 25 juillet 2018, prévues par le calendrier constitutionnel.
-  explanation_en: Imran Khan became Prime Minister of Pakistan on 18 August 2018 after the general election of 25 July 2018, which was due under the constitutional calendar.
-  sources:
-  - https://en.wikipedia.org/wiki/2018_Pakistani_general_election
+  trivial: false
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
 - key: 242-0
   verdict: unverifiable
   horizon: '2017-12-02'
