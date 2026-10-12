@@ -36,4 +36,7 @@ Un fichier `part-N.yaml` par tranche chronologique ; une entrée par prédiction
 - Corrections de la relecture : départ de Rosenstein et « zéro risque de
   destitution » alignés sur l'horizon de 12 mois ; drop 228 requalifié (constats
   passés et questions) ; 2358 et 2368 partiels ; citations harmonisées
-  (1287, 1553, 1608, 1927, 2552, 4220).
+  (1287, 1553, 1608, 1927, 2552, 4220) ; relecture des 41 non-prédictions :
+  3472 (« 2019 – YEAR OF THE BOOMERANG ») requalifié en annonce vague
+  invérifiable ; 1266 (commentaire de l'annonce de Paul Ryan) et 3915 (posté
+  après l'annonce du retrait de Sanders, 16 h 28 heure de New York) confirmés.

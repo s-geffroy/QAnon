@@ -409,11 +409,11 @@ items:
   sources:
   - https://en.wikipedia.org/wiki/Jussie_Smollett_hate_crime_hoax
 - key: 3472-0
-  verdict: not_a_prediction
+  verdict: unverifiable
   horizon: '2019-12-31'
   trivial: false
-  explanation_fr: « 2019, l'année du boomerang » est un slogan sans événement annoncé.
-  explanation_en: '''2019 - Year of the boomerang'' is a slogan with no announced event.'
+  explanation_fr: '« 2019 – YEAR OF THE BOOMERANG » annonce un retour de bâton contre les adversaires de Q en 2019 : une annonce vague d''un résultat futur (prédiction vague selon la révision 2 des consignes), sans objet identifiable permettant de la vérifier.'
+  explanation_en: '''2019 - YEAR OF THE BOOMERANG'' announces a backlash against Q''s opponents in 2019: a vague announcement of a future outcome (a vague prediction under revision 2 of the guidelines), with no identifiable object that would allow checking it.'
   sources: []
 - key: 3513-0
   verdict: fulfilled
