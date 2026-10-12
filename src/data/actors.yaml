@@ -60,7 +60,7 @@ actors:
     category: person
     role_fr: "44e président des États-Unis (2009-2017)"
     role_en: "44th President of the United States (2009-2017)"
-    patterns: ['\bHUSSEIN\b', '\bHussein\b', '\bObama\b', '\bOBAMA\b', '\bBarack\b', '(?<!/)\bBO\b(?!/)']
+    patterns: ['\bHUSSEIN\b', '\bHussein\b', '\bObama\b', '\bOBAMA\b', '\bBarack\b', '(?<!/)(?<!the )(?<!you, )(?<!service, )\bBO\b(?!/)(?!, Bakers)']
     gdelt: ["BARACK OBAMA", "OBAMA"]
 
   - id: hrc
@@ -113,7 +113,7 @@ actors:
     category: person
     role_fr: "Agent du contre-espionnage du FBI, limogé en 2018"
     role_en: "FBI counterintelligence agent, fired in 2018"
-    patterns: ['\bStrzok\b', '\bSTRZOK\b', '\bPS\b(?!/Xbox)']
+    patterns: ['\bStrzok\b', '\bSTRZOK\b', '(?<!Xbox / )(?<!XBOX/)\bPS\b(?!/Xbox)(?!,)']
 
   - id: lisa_page
     name: "Lisa Page"
@@ -675,7 +675,7 @@ actors:
     category: group
     role_fr: "« État profond », adversaire imaginaire central du récit QAnon"
     role_en: "\"Deep State\", the central imagined enemy of the QAnon narrative"
-    patterns: ['\b[Dd]eep [Ss]tate\b', '\bDEEP STATE\b', '\bDS\b']
+    patterns: ['\b[Dd]eep [Ss]tate\b', '\bDEEP STATE\b', '(?<![-\w])DS\b']
 
   - id: hollywood
     name: "Hollywood"
@@ -889,7 +889,7 @@ actors:
     category: institution
     role_fr: "Banque centrale des États-Unis (Fed)"
     role_en: "US central bank (the Fed)"
-    patterns: ['\bFED\b', '\bFederal Reserve\b', '\b[Tt]he Fed\b']
+    patterns: ['\b(?:[Tt]he|THE) FED\b(?! [Gg]ov| money| payment| funding| [Jj]udge)', '\bFED (?:raise|to inc)', '\bdestroy FED\b', '\bFederal Reserve\b', '\b[Tt]he Fed\b']
 
   - id: central_banks
     name: "Central banks"
