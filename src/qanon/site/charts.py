@@ -393,7 +393,8 @@ def pred_types(pr, lang):
 
 def pred_actors(pr, lang, n=20):
     t = T[lang]
-    data = pr["actors"][:n]
+    # "United States" absorbe tout sujet du type "the U.S. military" : trop generique pour ce graphe.
+    data = [a for a in pr["actors"] if a["id"] != "usa"][:n]
     return _spec(
         height=len(data) * 20, data={"values": data},
         mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
