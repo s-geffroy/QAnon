@@ -28,6 +28,17 @@ light of day », « Symbolism will be their downfall », « Something BIG is
 coming »). Dix drops ont été recodés en ce sens (735, 1296, 1343, 1630, 2063,
 3756, 3918, 4484, 4627, 4768), après comparaison avec les sept modèles évalués.
 
+**Citations** (règle commune avec la vérification des prédictions) : une
+annonce d'autrui que Q reprend à son compte (article, tweet, déclaration d'un
+allié) est une prédiction de Q ; une citation faite pour dénoncer ou tourner en
+dérision, ou un texte cité qui ne porte pas sur l'avenir, n'en est pas une.
+
+**Révision 3 (12 octobre 2026, relecture complète des 150 drops)** : 393
+(message personnalisé promis aux modérateurs : activité de Q) devient négatif ;
+2711 (annonce de McConnell reprise par Q, « #WinningBigly ») et 2855 (« THEY
+WILL STOP AT NOTHING TO REGAIN POWER », même type que 4484) deviennent
+positifs.
+
 Sont des prédictions : les prédictions implicites dont l'objet est clair
 (« Goodbye, Mr. Rosenstein » posté avec un article sur son éviction), et les
 annonces sans objet mais **ancrées dans le temps** (« Next week. BOOM. »),
@@ -74,19 +85,20 @@ Ids triés, regroupés par année UTC de `time`.
    `\bwill\b|\bexpect\b|\bcoming\b|\bsoon\b|\bnext week\b|\b\d{1,2}/\d{1,2}\b|\bdays?\b|\bweeks?\b|\btomorrow\b|\btonight\b|\bboom\b|\barrest|\bindict|\bdeclas`,
    puis même tirage avec `random.Random(43)` et les mêmes quotas.
 
-## Comptes (révision 2)
+## Comptes (révision 3)
 
 | | positifs | négatifs |
 |---|---|---|
 | random (75) | 6 | 69 |
-| likely (75) | 31 | 44 |
-| **total (150)** | **37** | **113** |
+| likely (75) | 32 | 43 |
+| **total (150)** | **38** | **112** |
 
-39 prédictions dans 37 drops (2416 et 4354 en ont deux chacun) : 33 `vague`,
-6 `specific` ; échéance `none` 24, `relative` 14, `explicit` 1.
+40 prédictions dans 38 drops (2416 et 4354 en ont deux chacun) : 33 `vague`,
+7 `specific` ; échéance `none` 25, `relative` 14, `explicit` 1.
 
-Par `event_type` (en nombre de prédictions) : other 18, disclosure 7,
+Par `event_type` (en nombre de prédictions) : other 19, disclosure 7,
 resignation 4, indictment 3, arrest 2, declassification 2, military 1,
 attack 1, election 1 ; death, legal_ruling, economic 0.
 
-Révision 1 : 27 positifs, 29 prédictions (23 `vague`).
+Révision 2 : 37 positifs, 39 prédictions. Révision 1 : 27 positifs, 29
+prédictions (23 `vague`).
