@@ -472,3 +472,24 @@ T["en"].update({
   "pred_specific_title": "Specific predictions",
   "col_claim": "What Q claims (paraphrase)",
 })
+
+T["fr"].update({
+  "ve_title": "Les prédictions se sont-elles réalisées ?",
+  "ve_result": "{n} prédictions précises ou datées vérifiées une à une. Sur les {c} vérifiables, {f} se sont réalisées, {pa} en partie et {nf} ne se sont pas réalisées ({u} invérifiables) : taux de réalisation de {rate}. {triv} portaient sur des événements déjà programmés publiquement ; hors triviales, le taux est de {rate_nt}. {nap} extractions automatiques n'étaient pas de vraies prédictions.",
+  "ve_method": "Méthode : horizon = échéance énoncée, sinon 12 mois après le drop ; verdict sourcé pour chaque prédiction vérifiable ; « triviale » = événement déjà annoncé ou programmé au moment du drop (élection, audition, voyage officiel). Taux = réalisées ÷ vérifiables (réalisées + partielles + non réalisées). Vérification assistée par des agents de recherche, sources consultées en ligne ; à relire.",
+  "ve_n": "Prédictions", "ve_rate": "Taux", "ve_rate2": "Taux avec partielles",
+  "ve_all": "Toutes", "ve_nontrivial": "Hors triviales", "ve_by_type": "Par type d'événement",
+  "ve_list_title": "Le détail, prédiction par prédiction", "ve_trivial": "triviale",
+  "vd_fulfilled": "Réalisée", "vd_partial": "Partielle", "vd_not_fulfilled": "Non réalisée",
+  "vd_unverifiable": "Invérifiable", "vd_not_a_prediction": "Pas une prédiction",
+})
+T["en"].update({
+  "ve_title": "Did the predictions come true?",
+  "ve_result": "{n} specific or dated predictions checked one by one. Of the {c} checkable ones, {f} came true, {pa} partly and {nf} did not ({u} unverifiable): a fulfilment rate of {rate}. {triv} concerned events already publicly scheduled; excluding them, the rate is {rate_nt}. {nap} automatic extractions were not real predictions.",
+  "ve_method": "Method: horizon = stated deadline, otherwise 12 months after the drop; sourced verdict for every checkable prediction; \"trivial\" = event already announced or scheduled when Q posted (election, hearing, official trip). Rate = fulfilled ÷ checkable (fulfilled + partial + not fulfilled). Verification assisted by research agents, sources consulted online; to be reviewed.",
+  "ve_n": "Predictions", "ve_rate": "Rate", "ve_rate2": "Rate incl. partial",
+  "ve_all": "All", "ve_nontrivial": "Non-trivial", "ve_by_type": "By event type",
+  "ve_list_title": "Prediction by prediction", "ve_trivial": "trivial",
+  "vd_fulfilled": "Came true", "vd_partial": "Partly", "vd_not_fulfilled": "Did not happen",
+  "vd_unverifiable": "Unverifiable", "vd_not_a_prediction": "Not a prediction",
+})

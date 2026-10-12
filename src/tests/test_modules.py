@@ -32,3 +32,11 @@ def test_bibtex_and_citation():
     cit = biblio.citation(r, "fr")
     assert cit["authors"] == "Doe, J. M. & Org Inc" and cit["loc"] == "3(2), 1-9"
     assert biblio.csl(r)["issued"] == {"date-parts": [[2020]]}
+
+
+def test_verification_rate():
+    from qanon.analysis.verification import rate
+    items = [{"verdict": v} for v in ["fulfilled", "partial", "not_fulfilled", "not_fulfilled", "unverifiable"]]
+    r = rate(items)
+    assert r["checkable"] == 4 and r["rate"] == 0.25 and r["rate_with_partial"] == 0.5
+    assert rate([{"verdict": "unverifiable"}])["rate"] is None

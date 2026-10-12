@@ -2,7 +2,7 @@
 
 Les etapes longues et incrementales (GDELT) viennent en dernier : chaque cycle a
 un budget de temps, et les etapes rapides doivent passer avant."""
-from .analysis import actors, descriptive, discourse, interest, news, predictions, trump
+from .analysis import actors, descriptive, discourse, interest, news, predictions, trump, verification
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .pipeline import Stage
@@ -26,7 +26,7 @@ STAGES = [
     Stage("build_site", build.run, code=True,
           inputs=("fetch_qdrops", "analyze_descriptive", "analyze_trump", "analyze_discourse", "analyze_actors",
                   "analyze_interest"),
-          optional=("analyze_news", "llm_eval", "analyze_predictions")),
+          optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification")),
     # Plusieurs heures au premier passage : reprend au dernier jour traite.
     Stage("fetch_gdelt", gdelt.run, keep_cursor=True),
     Stage("analyze_news", news.run, inputs=("fetch_qdrops", "fetch_gdelt"), code=True),
@@ -34,4 +34,6 @@ STAGES = [
     # resoumettre le corpus par accident ; seuls les drops non annotes partent.
     Stage("llm_classify", llm_classify.run, inputs=("fetch_qdrops",), keep_cursor=True),
     Stage("analyze_predictions", predictions.run, inputs=("llm_classify",), code=True),
+    # Verdicts editoriaux versionnes dans data/verification/ (inclus dans l'empreinte du code).
+    Stage("analyze_verification", verification.run, inputs=("analyze_predictions",), code=True),
 ]

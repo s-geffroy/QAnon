@@ -1,8 +1,60 @@
 {% extends "base.html" %}{% from "macros.html" import chart %}
 {% block title %}{{ t.pred_title }} — {{ t.site_title }}{% endblock %}
+{% block scripts %}
+<script>
+(function () {
+  var v = document.getElementById("ve-verdict"), q = document.getElementById("ve-q"), n = document.getElementById("ve-n");
+  if (!v) return;
+  var items = Array.prototype.slice.call(document.querySelectorAll(".ve-item"));
+  function apply() {
+    var words = q.value.toLowerCase().split(/\s+/).filter(Boolean), shown = 0;
+    items.forEach(function (it) {
+      var ok = (!v.value || it.dataset.verdict === v.value) &&
+               words.every(function (w) { return it.dataset.search.indexOf(w) >= 0; });
+      it.hidden = !ok; if (ok) shown++;
+    });
+    n.textContent = shown;
+  }
+  [v, q].forEach(function (el) { el.addEventListener("input", apply); });
+})();
+</script>
+{% endblock %}
 {% block content %}
 <h1>{{ t.pred_title }}</h1>
 <p class="lead">{{ t.pred_lead }}</p>
+{% if ve %}
+<section>
+  <h2>{{ t.ve_title }}</h2>
+  <p class="lead">{{ ve.lead }}</p>
+  <p class="note">{{ t.ve_method }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
+    <tbody>{% for r in ve.rows %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <h3>{{ t.ve_by_type }}</h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
+    <tbody>{% for r in ve.types %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+<section>
+  <h2>{{ t.ve_list_title }}</h2>
+  <div class="filters">
+    <select id="ve-verdict" aria-label="verdict"><option value="">{{ t.bib_all }}</option>{% for v in ["fulfilled", "partial", "not_fulfilled", "unverifiable", "not_a_prediction"] %}<option value="{{ v }}">{{ t["vd_" ~ v] }}</option>{% endfor %}</select>
+    <input type="search" id="ve-q" placeholder="{{ t.bib_search }}" aria-label="{{ t.bib_search }}">
+    <span class="note"><span id="ve-n">{{ ve.items|length }}</span> / {{ ve.items|length }}</span>
+  </div>
+  <ol class="bib verif">
+  {% for x in ve.items %}
+    <li class="ref ve-item" data-verdict="{{ x.verdict }}" data-search="{{ (x.claim ~ ' ' ~ x.explanation)|lower }}">
+      <p class="tags"><span class="tag vd vd-{{ x.verdict }}">{{ x.verdict_label }}</span>{% if x.trivial %} <span class="tag">{{ t.ve_trivial }}</span>{% endif %} <span class="tag">{{ x.type }}</span> <span class="topic">{{ x.date }} · {{ t.drop_no }}{{ x.drop }}</span></p>
+      <p class="cit">{{ x.claim }}</p>
+      <p class="summary">{{ x.explanation }}{% for u in x.sources %} <a href="{{ u }}">[{{ loop.index }}]</a>{% endfor %}</p>
+    </li>
+  {% endfor %}
+  </ol>
+</section>
+{% endif %}
 {% if pr %}
 <section>
   <h2>{{ t.pred_corpus_title }}</h2>

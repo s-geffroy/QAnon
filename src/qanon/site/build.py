@@ -49,7 +49,7 @@ class Site:
         self.state = state
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
-                                                "llm_eval", "predictions")}
+                                                "llm_eval", "predictions", "verification")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
 
@@ -267,6 +267,29 @@ class Site:
                 "charts": {"monthly": charts.pred_monthly(pr, lang), "types": charts.pred_types(pr, lang),
                            "actors": charts.pred_actors(pr, lang)},
             }
+        ve = self.r["verification"]
+        if ve and ve.get("items"):
+            def row(label, r):
+                return {"label": label, "n": n(r["n"]), "f": n(r["fulfilled"]), "pa": n(r["partial"]),
+                        "nf": n(r["not_fulfilled"]), "u": n(r["unverifiable"]),
+                        "rate": "—" if r["rate"] is None else p(r["rate"], 0),
+                        "rate2": "—" if r["rate_with_partial"] is None else p(r["rate_with_partial"], 0)}
+            o, nt = ve["overall"], ve["nontrivial"]
+            out["ve"] = {
+                "lead": t["ve_result"].format(n=n(o["n"]), c=n(o["checkable"]), f=n(o["fulfilled"]), pa=n(o["partial"]),
+                                              nf=n(o["not_fulfilled"]), u=n(o["unverifiable"]),
+                                              rate=p(o["rate"] or 0, 0), triv=n(ve["n_trivial"]),
+                                              rate_nt=p(nt["rate"] or 0, 0), nap=n(ve["n_not_a_prediction"])),
+                "rows": [row(t["ve_all"], o), row(t["ve_nontrivial"], nt)]
+                        + [row(y, r) for y, r in ve["by_year"].items()],
+                "types": [row(t.get(f"et_{k}", k), r) for k, r in
+                          sorted(ve["by_type"].items(), key=lambda kv: -kv[1]["n"])],
+                "items": [{"key": x["key"], "drop": x["drop_id"], "date": c["date"](x["date"]), "verdict": x["verdict"],
+                           "verdict_label": t[f"vd_{x['verdict']}"], "trivial": x["trivial"],
+                           "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"],
+                           "explanation": x.get(f"explanation_{lang}") or "", "sources": x["sources"]}
+                          for x in ve["items"]],
+            }
         return out
 
     def page_timeline(self, lang, c):
@@ -376,6 +399,13 @@ class Site:
                 .to_csv(d / "predictions.csv", index=False)
             add("predictions.csv", "Prédictions extraites de chaque drop (paraphrase, type, échéance, cibles) — annotation automatique.",
                 "Predictions extracted from each drop (paraphrase, type, deadline, targets) — automatic annotation.")
+        if r["verification"] and r["verification"].get("items"):
+            pd.DataFrame([{**x, "subjects": "; ".join(x["subjects"]), "sources": " ".join(x["sources"])}
+                          for x in r["verification"]["items"]]).to_csv(d / "verification.csv", index=False)
+            add("verification.csv", "Vérification des prédictions une à une : verdict, horizon, caractère trivial, explication, sources.",
+                "Prediction-by-prediction verification: verdict, horizon, triviality, explanation, sources.")
+            for f in sorted((APP_DIR / "data" / "verification").glob("part-*.yaml")):
+                shutil.copy(f, d / f"verification-{f.name}")
         if r["interest"]:
             pd.DataFrame(r["interest"]["weekly"]).to_csv(d / "wikipedia_weekly.csv", index=False)
             add("wikipedia_weekly.csv", "Pages vues Wikipédia par semaine et article.", "Weekly Wikipedia page views per article.")
