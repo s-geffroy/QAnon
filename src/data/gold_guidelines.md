@@ -39,6 +39,12 @@ dérision, ou un texte cité qui ne porte pas sur l'avenir, n'en est pas une.
 WILL STOP AT NOTHING TO REGAIN POWER », même type que 4484) deviennent
 positifs.
 
+**Révision 4 (12 octobre 2026, décision du responsable de l'étude)** : une
+**disposition** prêtée aux adversaires n'est pas un **résultat** futur annoncé.
+4484 (« They will fight ») et 2855 (« THEY WILL STOP AT NOTHING TO REGAIN
+POWER ») redeviennent négatifs ; aucun des sept modèles évalués ne voyait de
+prédiction dans 2855.
+
 Sont des prédictions : les prédictions implicites dont l'objet est clair
 (« Goodbye, Mr. Rosenstein » posté avec un article sur son éviction), et les
 annonces sans objet mais **ancrées dans le temps** (« Next week. BOOM. »),
@@ -85,20 +91,19 @@ Ids triés, regroupés par année UTC de `time`.
    `\bwill\b|\bexpect\b|\bcoming\b|\bsoon\b|\bnext week\b|\b\d{1,2}/\d{1,2}\b|\bdays?\b|\bweeks?\b|\btomorrow\b|\btonight\b|\bboom\b|\barrest|\bindict|\bdeclas`,
    puis même tirage avec `random.Random(43)` et les mêmes quotas.
 
-## Comptes (révision 3)
+## Comptes (révision 4)
 
 | | positifs | négatifs |
 |---|---|---|
-| random (75) | 6 | 69 |
-| likely (75) | 32 | 43 |
-| **total (150)** | **38** | **112** |
+| random (75) | 5 | 70 |
+| likely (75) | 31 | 44 |
+| **total (150)** | **36** | **114** |
 
-40 prédictions dans 38 drops (2416 et 4354 en ont deux chacun) : 33 `vague`,
-7 `specific` ; échéance `none` 25, `relative` 14, `explicit` 1.
+38 prédictions dans 36 drops (2416 et 4354 en ont deux chacun) : 31 `vague`,
+7 `specific` ; échéance `none` 23, `relative` 14, `explicit` 1.
 
-Par `event_type` (en nombre de prédictions) : other 19, disclosure 7,
+Par `event_type` (en nombre de prédictions) : other 17, disclosure 7,
 resignation 4, indictment 3, arrest 2, declassification 2, military 1,
 attack 1, election 1 ; death, legal_ruling, economic 0.
 
-Révision 2 : 37 positifs, 39 prédictions. Révision 1 : 27 positifs, 29
-prédictions (23 `vague`).
+Révision 3 : 38 positifs. Révision 2 : 37. Révision 1 : 27.
