@@ -61,6 +61,7 @@
   <h2>{{ t.horo_title }}</h2>
   <p>{{ t.horo_lead }}</p>
   <p><strong>{{ horo.result }}</strong></p>
+  <p>{{ horo.reading }}</p>
   <div class="table-wrap"><table>
     <thead><tr><th></th><th class="r">{{ t.horo_n }}</th><th class="r">{{ t.horo_true }}</th><th class="r">{{ t.horo_random }}</th><th class="r">{{ t.horo_none }}</th><th class="r">{{ t.horo_share }}</th><th class="r">{{ t.ve_ci }}</th><th class="r">p</th><th class="r">{{ t.horo_mean_true }}</th><th class="r">{{ t.horo_mean_random }}</th><th class="r">{{ t.horo_barnum }}</th></tr></thead>
     <tbody>{% for r in horo.rows %}<tr{% if r.sig %} class="sig"{% endif %}><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.true }}</td><td class="r">{{ r.random }}</td><td class="r">{{ r.none }}</td><td class="r">{{ r.share }}</td><td class="r">{{ r.ci }}</td><td class="r">{{ r.p }}</td><td class="r">{{ r.mt }}</td><td class="r">{{ r.mr }}</td><td class="r">{{ r.barnum }}</td></tr>{% endfor %}</tbody>

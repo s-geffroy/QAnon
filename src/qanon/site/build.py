@@ -142,6 +142,10 @@ class Site:
                 c=n(ve["overall"]["checkable"]), rate=p(ve["overall"]["rate"] or 0, 0),
                 rate_nt=p(ve["nontrivial"]["rate"] or 0, 0),
                 legal=n(sum(x["checkable"] for x in legal)), legal_ok=n(sum(x["fulfilled"] for x in legal))))
+        for fid in ("horoscope", "propheties-recyclees"):
+            f = next((x for x in self.figures(lang) if x["id"] == fid), None)
+            if f:
+                extra.append(f["text"])
         st = self.r["stats"]
         if st:
             r = st["rhythm"]
@@ -435,6 +439,8 @@ class Site:
                 "result": t["horo_result"].format(
                     past=p(pa.get("share_true_decided") or 0, 0), future=p(f.get("share_true_decided") or 0, 0),
                     none=p(f["none"] / f["n"], 0) if f.get("n") else "—", barnum=p(f.get("share_random_ge5") or 0, 0)),
+                "reading": t["horo_reading" if (f.get("share_true_decided") or 0) <= (pa.get("share_true_decided") or 0)
+                             else "horo_reading_alt"].format(none=p(f["none"] / f["n"], 0) if f.get("n") else "—"),
                 "examples": f.get("examples", [])[:5],
                 "method": t["horo_method"].format(n=n(ho["n_sample"]), items=n(ho["n_items"]), model=ho["model"]),
             }

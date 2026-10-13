@@ -729,7 +729,7 @@ T["fr"].update({
   "horo_barnum": "Hasard noté ≥ 5",
   "horo_chart": "Notes de lien, comparaisons « avenir »", "horo_chart_note": "Note de 0 (aucun lien précis) à 10 (référence sans ambiguïté), pour la vraie période et pour la période tirée au hasard.",
   "horo_series_true": "30 jours après le drop", "horo_series_random": "30 jours au hasard", "horo_score_axis": "note de lien",
-  "horo_examples": "Quand le hasard « confirme » Q : exemples de listes tirées au hasard jugées liées", "horo_score": "note",
+  "horo_examples": "Quand le hasard « confirme » Q : listes tirées au hasard jugées liées (justification du modèle, en anglais)", "horo_score": "note",
   "horo_method": "Méthode : {n} drops d'au moins 15 mots tirés au sort (stratifiés par année, nov. 2017 – nov. 2020) ; items d'actualité liés aux États-Unis du portail « Current events » de Wikipédia, {items} au plus par liste et autant dans chaque liste ; période au hasard à plus de six mois du drop ; ordre des listes tiré au sort ; modèle {model}, consigne sceptique (une formulation vague ne compte pas). Test binomial contre 50 % parmi les cas tranchés. Si les drops annonçaient l'avenir, la vraie période « avenir » serait choisie nettement plus que la moitié du temps ; mais l'actualité se poursuit d'une semaine à l'autre, si bien qu'un taux supérieur à 50 % peut aussi refléter cette continuité : d'où la comparaison avec le passé.",
   "recy_title": "Prophéties recyclées",
   "recy_lead": "{g} sujets (même type d'événement, même acteur) sont annoncés sur au moins {m} mois différents : ils regroupent {k} prédictions, soit {share} des prédictions. Dans {ga} de ces sujets, Q annonce encore l'événement après qu'une annonce antérieure a été vérifiée non réalisée ({after} annonces en tout).",
@@ -753,7 +753,7 @@ T["en"].update({
   "horo_barnum": "Random scored ≥ 5",
   "horo_chart": "Link scores, \"future\" comparisons", "horo_chart_note": "Score from 0 (no specific link) to 10 (unambiguous reference), for the real period and for the random period.",
   "horo_series_true": "30 days after the drop", "horo_series_random": "30 random days", "horo_score_axis": "link score",
-  "horo_examples": "When chance \"confirms\" Q: random lists judged related", "horo_score": "score",
+  "horo_examples": "When chance \"confirms\" Q: random lists judged related (model's justification)", "horo_score": "score",
   "horo_method": "Method: {n} randomly drawn drops of at least 15 words (stratified by year, Nov 2017 – Nov 2020); US-related news items from Wikipedia's \"Current events\" portal, at most {items} per list and as many in each list; random period more than six months from the drop; list order randomised; model {model}, sceptical instructions (vague wording does not count). Binomial test against 50% among decided cases. If the drops foretold the future, the real \"future\" period would be chosen well over half the time; but news continues from week to week, so a rate above 50% may also reflect that continuity: hence the comparison with the past.",
   "recy_title": "Recycled prophecies",
   "recy_lead": "{g} subjects (same event type, same actor) are announced in at least {m} different months: they cover {k} predictions, i.e. {share} of all predictions. In {ga} of these subjects, Q announces the event again after an earlier announcement was checked as unfulfilled ({after} announcements in all).",
@@ -841,3 +841,11 @@ T["en"].update({
 })
 T["fr"].update({"watch_abstract_only": "QAnon dans le résumé seulement", "watch_title_only": "QAnon dans le titre"})
 T["en"].update({"watch_abstract_only": "QAnon in abstract only", "watch_title_only": "QAnon in the title"})
+T["fr"].update({
+  "horo_reading": "Lecture : dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte, mais moins nettement pour le mois qui suit que pour la semaine qui précède : les drops commentent l'actualité plus qu'ils ne l'annoncent, et l'avantage de « l'avenir » s'explique en partie par la continuité des sujets d'une semaine à l'autre. Une période tirée au hasard peut d'ailleurs sembler « correspondre » : les exemples ci-dessous le montrent, soit parce que le drop est assez vague pour coller à un événement survenu des années plus tard, soit parce qu'il évoque un fait plus ancien qui figure dans la liste.",
+  "horo_reading_alt": "Lecture : dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte un peu plus nettement pour le mois qui suit que pour la semaine qui précède ; la continuité des sujets d'une semaine à l'autre en explique une partie, et les exemples ci-dessous montrent qu'une période tirée au hasard peut aussi sembler « correspondre ».",
+})
+T["en"].update({
+  "horo_reading": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, but less clearly for the following month than for the preceding week: the drops comment on the news more than they announce it, and the \"future\" advantage is partly explained by stories continuing from one week to the next. A randomly drawn period can also seem to \"match\": the examples below show it, either because the drop is vague enough to fit an event that happened years later, or because it mentions an earlier fact that appears in the list.",
+  "horo_reading_alt": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins slightly more clearly for the following month than for the preceding week; stories continuing from week to week explain part of this, and the examples below show that a randomly drawn period can also seem to \"match\".",
+})
