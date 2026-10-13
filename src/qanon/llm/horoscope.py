@@ -52,8 +52,9 @@ SCHEMA = {"name": "horoscope", "strict": True, "schema": {
 
 
 def news_by_day(conn):
-    return {dt.date.fromisoformat(r["day"]): [x for x in (r["text"] or "").split("\n") if x]
-            for r in conn.execute("SELECT day, text FROM wikinews")}
+    from ..sources.wikinews import items
+    return {dt.date.fromisoformat(r["day"]): items(r["wikitext"] or "")
+            for r in conn.execute("SELECT day, wikitext FROM wikinews_raw")}
 
 
 def window(news, start, days, rng):

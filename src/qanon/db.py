@@ -136,8 +136,8 @@ CREATE TABLE IF NOT EXISTS llm_class (
 """
 
 SCHEMA += """
--- Actualite quotidienne (portail Current events de Wikipedia) : items en texte brut, un par ligne.
-CREATE TABLE IF NOT EXISTS wikinews (day TEXT PRIMARY KEY, text TEXT);
+-- Actualite quotidienne (portail Current events de Wikipedia) : wikitexte source, une ligne par jour.
+CREATE TABLE IF NOT EXISTS wikinews_raw (day TEXT PRIMARY KEY, wikitext TEXT);
 
 -- Test de l'horoscope : une reponse par (drop, comparaison).
 CREATE TABLE IF NOT EXISTS llm_horoscope (

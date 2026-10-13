@@ -1,8 +1,8 @@
 """Actualite quotidienne : portail « Current events » de Wikipedia en anglais,
 une page par jour (resume editorial des faits marquants, avec sources).
 
-Sert de reference d'actualite au test de l'horoscope. Les items sont stockes
-en texte brut, un par ligne ; reprenable jour par jour."""
+Sert de reference d'actualite au test de l'horoscope. Le wikitexte est stocke
+tel quel ; les items en sont extraits a la lecture. Reprenable jour par jour."""
 import datetime as dt
 import re
 import time
@@ -21,22 +21,26 @@ def page_title(day):
     return f"Portal:Current events/{day.year}_{day.strftime('%B')}_{day.day}"
 
 
+def _plain(text):
+    text = re.sub(r"\[https?://\S+\s*\(([^)]*)\)\]", "", text)      # [url (Source)]
+    text = re.sub(r"\[https?://\S+[^\]]*\]", "", text)
+    text = re.sub(r"\[\[(?:[^\]|]*\|)?([^\]]*)\]\]", r"\1", text)   # [[cible|libelle]]
+    text = re.sub(r"\{\{convert\|([\d.,]+)\|(\w+)[^}]*\}\}", r"\1 \2", text)
+    text = re.sub(r"\{\{[^{}]*\}\}", "", text)
+    text = re.sub(r"<[^>]+>", "", text).replace("'''", "").replace("''", "")
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def items(wikitext):
-    """Items d'actualite (puces de second niveau ou de premier niveau sans sous-puce), en texte brut."""
+    """Items d'actualite en texte brut : les puces sans sous-puce. Une puce suivie
+    de puces plus profondes est un intitule de sujet (« Brexit »), pas un item."""
+    bullets = [(len(m.group(1)), m.group(2)) for m in
+               (re.match(r"^(\*+)\s*(.*)$", line) for line in wikitext.splitlines()) if m]
     out = []
-    for line in wikitext.splitlines():
-        m = re.match(r"^(\*+)\s*(.*)$", line)
-        if not m:
+    for i, (level, text) in enumerate(bullets):
+        if i + 1 < len(bullets) and bullets[i + 1][0] > level:
             continue
-        text = m.group(2)
-        text = re.sub(r"\[https?://\S+\s*\(([^)]*)\)\]", "", text)      # [url (Source)]
-        text = re.sub(r"\[https?://\S+[^\]]*\]", "", text)
-        text = re.sub(r"\[\[(?:[^\]|]*\|)?([^\]]*)\]\]", r"\1", text)   # [[cible|libelle]]
-        text = re.sub(r"\{\{convert\|([\d.,]+)\|(\w+)[^}]*\}\}", r"\1 \2", text)
-        text = re.sub(r"\{\{[^{}]*\}\}", "", text)
-        text = re.sub(r"<[^>]+>", "", text).replace("'''", "").replace("''", "")
-        text = re.sub(r"\s+", " ", text).strip()
-        # Une puce de premier niveau est souvent un simple intitule (« Brexit ») : on garde les phrases.
+        text = _plain(text)
         if len(text.split()) >= 6:
             out.append(text)
     return out
@@ -52,13 +56,14 @@ def run(ctx):
                          headers=UA, timeout=60)
         r.raise_for_status()
         data = r.json()
-        found = items(data["parse"]["wikitext"]) if "parse" in data else []
-        ctx.conn.execute("INSERT OR REPLACE INTO wikinews VALUES (?, ?)", (day.isoformat(), "\n".join(found)))
+        # Texte source conserve tel quel : l'extraction des items se fait a la lecture.
+        raw = data["parse"]["wikitext"] if "parse" in data else ""
+        ctx.conn.execute("INSERT OR REPLACE INTO wikinews_raw VALUES (?, ?)", (day.isoformat(), raw))
         day += dt.timedelta(days=1)
         ctx.save_cursor(day.isoformat())
         time.sleep(0.2)  # politesse envers l'API
-    n = ctx.conn.execute("SELECT count(*), sum(length(text) - length(replace(text, char(10), '')) + (text != '')) "
-                         "FROM wikinews").fetchone()
-    ctx.set_output(db.sha(n[0], n[1]))
-    log(f"actualite Wikipedia : {n[0]} jours, {n[1]} items")
+    rows = ctx.conn.execute("SELECT day, wikitext FROM wikinews_raw").fetchall()
+    n_items = sum(len(items(r["wikitext"])) for r in rows)
+    ctx.set_output(db.sha(len(rows), n_items))
+    log(f"actualite Wikipedia : {len(rows)} jours, {n_items} items")
     return True

@@ -45,7 +45,8 @@ STAGES = [
 STAGES += [
     Stage("analyze_prophecies", prophecies.run, inputs=("analyze_predictions", "analyze_verification"), code=True),
     # Actualite quotidienne (portail Current events), ~1 200 pages, reprenable jour par jour.
-    Stage("fetch_wikinews", wikinews.run, keep_cursor=True),
+    # Nom de curseur distinct du premier essai (items mal extraits) : la collecte repart de zero.
+    Stage("fetch_wikinews_raw", wikinews.run, keep_cursor=True),
     # Payant (~0,60 $) : seules les questions sans reponse sont posees.
-    Stage("llm_horoscope", horoscope.run, inputs=("fetch_qdrops", "fetch_wikinews"), code=True),
+    Stage("llm_horoscope", horoscope.run, inputs=("fetch_qdrops", "fetch_wikinews_raw"), code=True),
 ]
