@@ -47,17 +47,17 @@ questions:
   q_fr: "Trump répondait-il à Q par ses tweets ?"
   q_en: "Did Trump answer Q through his tweets?"
   a_fr: |
-    C'est ce qu'affirmait Q (les « deltas »), mais les chiffres ne le montrent pas. {fig:deltas} En sens inverse, Q réagissait souvent à Trump : {fig:tweets-cites} ([[trump]])
+    C'est ce qu'affirmait Q (les « deltas »), mais les chiffres ne le montrent pas. {fig:deltas} En sens inverse, Q citait parfois Trump : {fig:tweets-cites} ([[trump]])
   a_en: |
-    Q claimed so (the "deltas"), but the figures do not show it. {fig:deltas} The other way round, Q often reacted to Trump: {fig:tweets-cites} ([[trump]])
+    Q claimed so (the "deltas"), but the figures do not show it. {fig:deltas} The other way round, Q sometimes quoted Trump: {fig:tweets-cites} ([[trump]])
 
 - id: actualite
   q_fr: "De qui et de quoi Q parlait-il ?"
   q_en: "Whom and what did Q talk about?"
   a_fr: |
-    {fig:acteurs} Comparé au volume de l'actualité mondiale, ce choix est très sélectif. {fig:surrepresentation} Q renvoyait aussi à la presse : {fig:medias} ([[actors]], [[news]], [[stats]])
+    {fig:acteurs} Ce choix est très sélectif. {fig:surrepresentation} Q renvoyait aussi à la presse : {fig:medias} ([[actors]], [[news]], [[stats]])
   a_en: |
-    {fig:acteurs} Compared with the volume of world news, this choice is highly selective. {fig:surrepresentation} Q also linked to the press: {fig:medias} ([[actors]], [[news]], [[stats]])
+    {fig:acteurs} This choice is highly selective. {fig:surrepresentation} Q also linked to the press: {fig:medias} ([[actors]], [[news]], [[stats]])
 
 - id: combien
   q_fr: "Combien de personnes croient à QAnon ?"
@@ -87,9 +87,9 @@ questions:
   q_fr: "QAnon existe-t-il encore ?"
   q_en: "Does QAnon still exist?"
   a_fr: |
-    Q s'est tu après le 8 décembre 2020, puis a publié une poignée de messages en 2022 [@adl2022after]. Après les bannissements de 2020-2021, le mouvement s'est fragmenté sur de plus petites plateformes [@holt2021qanon; @audureau2022an], mais ses thèmes se sont banalisés dans la droite américaine, et la part de la population qui adhère à ses énoncés n'a pas reculé [@prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
+    Q s'est tu après le 8 décembre 2020, puis a publié une poignée de messages en 2022 [@adl2022after]. Après les bannissements de 2020-2021, le mouvement s'est fragmenté sur de plus petites plateformes [@holt2021qanon; @audureau2022an], mais ses thèmes se sont banalisés dans la droite américaine, et la part de la population qui adhère à ses énoncés reste, en 2024, au-dessus de son niveau de 2021 (19 % contre 14 %), après un pic à 23 % en 2023 [@prri2023threats; @prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
   a_en: |
-    Q fell silent after 8 December 2020, then posted a handful of messages in 2022 [@adl2022after]. After the 2020-2021 bans the movement fragmented onto smaller platforms [@holt2021qanon; @audureau2022an], but its themes became mainstream on the American right, and the share of the population agreeing with its statements has not declined [@prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
+    Q fell silent after 8 December 2020, then posted a handful of messages in 2022 [@adl2022after]. After the 2020-2021 bans the movement fragmented onto smaller platforms [@holt2021qanon; @audureau2022an], but its themes became mainstream on the American right, and the share of the population agreeing with its statements remains, in 2024, above its 2021 level (19% against 14%), after a peak of 23% in 2023 [@prri2023threats; @prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
 
 - id: fiabilite
   q_fr: "Les chiffres de ce site sont-ils fiables ?"
