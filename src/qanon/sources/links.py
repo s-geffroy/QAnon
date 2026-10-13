@@ -20,6 +20,7 @@ from .. import db
 from ..log import log
 from ..pipeline import APP_DIR
 
+TIMEOUT = 15
 UA = {"User-Agent": "Mozilla/5.0 (compatible; qanon-study-linkcheck/1.0; +https://github.com/s-geffroy/QAnon)"}
 WEEK = 7 * 86400
 
@@ -55,10 +56,10 @@ def check_doi(doi):
 
 def check_url(url):
     try:
-        r = requests.head(url, headers=UA, timeout=30, allow_redirects=True)
+        r = requests.head(url, headers=UA, timeout=TIMEOUT, allow_redirects=True)
         # Certains sites (Kaggle...) refusent HEAD mais servent la page en GET : tout echec est reverifie en GET.
         if r.status_code >= 400:
-            r = requests.get(url, headers=UA, timeout=30, allow_redirects=True, stream=True)
+            r = requests.get(url, headers=UA, timeout=TIMEOUT, allow_redirects=True, stream=True)
             r.close()
     except requests.exceptions.ConnectionError as exc:
         return ("dead", None) if "Name or service not known" in str(exc) or "NameResolution" in str(exc) else ("error", None)
@@ -87,8 +88,10 @@ def run(ctx):
     links = collect()
     week = str(int(time.time() // WEEK))
     # Deja verifies cette semaine et en bon etat : sautes. Les liens morts ou en erreur sont reverifies a chaque passe.
-    done = {r["url"] for r in ctx.conn.execute("SELECT url FROM link_check WHERE pass = ? AND state IN ('ok', 'blocked')",
-                                               (week,))}
+    # (Au plus une nouvelle verification toutes les 6 h : un lien lent ne doit pas bloquer l'etape d'un cycle a l'autre.)
+    done = {r["url"] for r in ctx.conn.execute(
+        "SELECT url FROM link_check WHERE pass = ? AND (state IN ('ok', 'blocked') OR checked_at > ?)",
+        (week, int(time.time()) - 6 * 3600))}
     todo = [u for u in links if u not in done]
     for u in todo:
         if ctx.should_yield():
