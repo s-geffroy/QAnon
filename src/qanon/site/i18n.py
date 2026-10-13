@@ -670,7 +670,7 @@ T["fr"].update({
   "nav_faq": "FAQ", "faq_title": "Questions fréquentes",
   "faq_lead": "Réponses courtes, sourcées par la bibliographie et par les chiffres de ce site. Chaque chiffre renvoie à sa fiche citable.",
   "author_line": "Auteur : Sylvain Geffroy",
-  "license": "Le contenu de ce site et du dépôt (textes, graphiques, données dérivées, données éditoriales et code) est publié sous licence Creative Commons Attribution 4.0 International (CC BY 4.0) : vous pouvez le réutiliser, y compris commercialement, à condition de citer l'auteur et la source et d'indiquer les modifications. Les jeux de données sources (drops, tweets, GDELT, Wikimedia) restent soumis à leurs propres conditions.",
+  "license": "Textes, graphiques, données éditoriales et données dérivées : licence Creative Commons Attribution 4.0 International (CC BY 4.0) ; vous pouvez les réutiliser, y compris commercialement, à condition de citer l'auteur et la source et d'indiquer les modifications. Code : licence MIT. Les jeux de données sources (drops, tweets, GDELT, Wikimedia) restent soumis à leurs propres conditions.",
   "license_link": "Texte de la licence",
 })
 T["en"].update({
@@ -706,7 +706,7 @@ T["en"].update({
   "nav_faq": "FAQ", "faq_title": "Frequently asked questions",
   "faq_lead": "Short answers, sourced from the bibliography and from this site's figures. Each figure links to its citable entry.",
   "author_line": "Author: Sylvain Geffroy",
-  "license": "The content of this site and repository (texts, charts, derived data, editorial data and code) is published under the Creative Commons Attribution 4.0 International licence (CC BY 4.0): you may reuse it, including commercially, provided you credit the author and the source and indicate changes. Source datasets (drops, tweets, GDELT, Wikimedia) remain subject to their own terms.",
+  "license": "Texts, charts, editorial data and derived data: Creative Commons Attribution 4.0 International licence (CC BY 4.0); you may reuse them, including commercially, provided you credit the author and the source and indicate changes. Code: MIT licence. Source datasets (drops, tweets, GDELT, Wikimedia) remain subject to their own terms.",
   "license_link": "Licence text",
 })
 T["fr"]["fig_deltas_sig"] = "Un tweet de Trump suit un drop en moins de 5 minutes dans {obs} des cas, contre {exp} attendus par hasard (modèle nul local, p = {pv})."
@@ -716,3 +716,4 @@ T["en"]["fig_stylo_plain"] = "The sharpest stylistic break in the corpus falls a
 T["fr"]["cite_figures"] = "Pour citer un résultat précis, chaque chiffre a sa propre citation :"
 T["en"]["cite_figures"] = "To cite a specific result, each figure has its own citation:"
 T["fr"]["colon"], T["en"]["colon"] = "\u202f: ", ": "
+T["fr"]["license_code"], T["en"]["license_code"] = "Licence du code (MIT)", "Code licence (MIT)"

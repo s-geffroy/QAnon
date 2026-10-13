@@ -7,5 +7,5 @@
   <thead><tr><th>{{ t.col_file }}</th><th>{{ t.col_desc }}</th><th class="r">{{ t.col_size }}</th></tr></thead>
   <tbody>{% for f in files %}<tr><td>{% if '*' in f.name %}<code>{{ f.name }}</code>{% else %}<a href="../data/{{ f.name }}"><code>{{ f.name }}</code></a>{% endif %}</td><td>{{ f[lang] }}</td><td class="r">{{ f.size|size }}</td></tr>{% endfor %}</tbody>
 </table></div>
-<section><h2>{{ t.license_title }}</h2><p>{{ t.license }}</p><p><a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">{{ t.license_link }} (CC BY 4.0)</a></p></section>
+<section><h2>{{ t.license_title }}</h2><p>{{ t.license }}</p><p><a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">{{ t.license_link }} (CC BY 4.0)</a> · <a href="{{ repo }}/blob/main/LICENSE">{{ t.license_code }}</a></p></section>
 {% endblock %}

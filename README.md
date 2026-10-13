@@ -134,8 +134,11 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
 
 ## Licence et citation
 
-Tout le contenu du depot et du site (code, textes, donnees editoriales et
-derivees) est sous licence CC BY 4.0 (`LICENSE`), auteur Sylvain Geffroy.
-`CITATION.cff` donne la reference ; chaque chiffre cle du site a sa propre
-citation (page « Chiffres cles »). Les jeux de donnees sources gardent leurs
-propres conditions.
+- **Code** (`src/` hors `src/data/`, `scripts/`, `tests/`, `compose.yaml`,
+  `app.yaml`) : licence MIT (`LICENSE`).
+- **Contenu** (textes, donnees editoriales de `src/data/`, donnees derivees,
+  graphiques, site genere) : CC BY 4.0 (`LICENSE-CC-BY-4.0`).
+
+Auteur : Sylvain Geffroy. `CITATION.cff` donne la reference ; chaque chiffre
+cle du site a sa propre citation (page « Chiffres cles »). Les jeux de donnees
+sources gardent leurs propres conditions.

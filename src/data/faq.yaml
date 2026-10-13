@@ -111,6 +111,6 @@ questions:
   q_fr: "Puis-je réutiliser les données et citer ce site ?"
   q_en: "Can I reuse the data and cite this site?"
   a_fr: |
-    Oui, sous licence CC BY 4.0, en citant l'auteur et la source. Les données sont téléchargeables ([[data]]), chaque résultat a sa propre citation ([[figures]]) et la page [[cite]] donne la référence du site et son BibTeX.
+    Oui : les textes et les données sont sous licence CC BY 4.0 (en citant l'auteur et la source), le code sous licence MIT. Les données sont téléchargeables ([[data]]), chaque résultat a sa propre citation ([[figures]]) et la page [[cite]] donne la référence du site et son BibTeX.
   a_en: |
-    Yes, under the CC BY 4.0 licence, crediting the author and the source. Data are downloadable ([[data]]), every result has its own citation ([[figures]]) and the [[cite]] page gives the site's reference and BibTeX.
+    Yes: texts and data are under the CC BY 4.0 licence (crediting the author and the source), the code under the MIT licence. Data are downloadable ([[data]]), every result has its own citation ([[figures]]) and the [[cite]] page gives the site's reference and BibTeX.
