@@ -5,9 +5,17 @@ type: software
 authors:
   - family-names: Geffroy
     given-names: Sylvain
+doi: "10.5281/zenodo.23338131"
 version: "1.0.0"
 date-released: "2026-10-13"
 license: [MIT, CC-BY-4.0]
 repository-code: "https://github.com/s-geffroy/QAnon"
 url: "https://s-geffroy.github.io/QAnon/"
 keywords: [QAnon, conspiracy theories, computational social science, GDELT, text analysis]
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23338131"
+    description: "Toutes versions / all versions (concept DOI)"
+  - type: doi
+    value: "10.5281/zenodo.23338132"
+    description: "Version 1.0.0"

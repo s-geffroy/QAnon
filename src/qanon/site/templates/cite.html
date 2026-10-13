@@ -7,6 +7,11 @@
 <h2>{{ t.cite_suggested }}</h2>
 <p class="cite-box">{{ cite_text }}</p>
 <pre>{{ cite_bibtex }}</pre>
+<section><h2>DOI</h2>
+  <p>{{ t.doi_concept }}{{ t.colon }}<a href="https://doi.org/{{ doi_concept }}">doi:{{ doi_concept }}</a></p>
+  <p class="note">{{ t.doi_note }}</p>
+  <ul>{% for v, d in doi_versions %}<li>{{ t.doi_version }} {{ v }}{{ t.colon }}<a href="https://doi.org/{{ d }}">doi:{{ d }}</a></li>{% endfor %}</ul>
+</section>
 <p class="note">{{ t.cite_figures }} <a href="figures.html">{{ t.nav_figures }}</a>.</p>
 <p class="note">{{ cite_version }}</p>
 <section><h2>{{ t.license_title }}</h2><p>{{ t.license }}</p><p><a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">{{ t.license_link }} (CC BY 4.0)</a> · <a href="{{ repo }}/blob/main/LICENSE">{{ t.license_code }}</a></p></section>

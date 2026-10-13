@@ -849,3 +849,7 @@ T["en"].update({
   "horo_reading": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, but less clearly for the following month than for the preceding week: the drops comment on the news more than they announce it, and the \"future\" advantage is partly explained by stories continuing from one week to the next. A randomly drawn period can also seem to \"match\": the examples below show it, either because the drop is vague enough to fit an event that happened years later, or because it mentions an earlier fact that appears in the list.",
   "horo_reading_alt": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins slightly more clearly for the following month than for the preceding week; stories continuing from week to week explain part of this, and the examples below show that a randomly drawn period can also seem to \"match\".",
 })
+T["fr"].update({"doi_concept": "DOI de l'étude (toutes versions)", "doi_version": "Version",
+  "doi_note": "Archivé sur Zenodo. Le DOI de l'étude pointe toujours vers la dernière version ; pour une citation exacte, utilisez le DOI de la version consultée."})
+T["en"].update({"doi_concept": "DOI of the study (all versions)", "doi_version": "Version",
+  "doi_note": "Archived on Zenodo. The study DOI always resolves to the latest version; for an exact citation, use the DOI of the version you consulted."})

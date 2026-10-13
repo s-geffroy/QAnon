@@ -19,6 +19,9 @@ from .i18n import REFS, REPO, T
 HERE = Path(__file__).resolve().parent
 UPDATED = "@@UPDATED@@"
 SITE_URL = "https://s-geffroy.github.io/QAnon/"
+# Archive Zenodo : DOI de concept (toutes versions, toujours la derniere) et DOI par version publiee.
+ZENODO_CONCEPT = "10.5281/zenodo.23338131"
+ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
     ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
@@ -769,11 +772,14 @@ class Site:
     def page_cite(self, lang, c):
         t = c["t"]
         year = time.strftime("%Y")
-        return {"cite_text": t["cite_text"].format(year=year, version=VERSION),
+        return {"cite_text": t["cite_text"].format(year=year, version=VERSION) + f" https://doi.org/{ZENODO_CONCEPT}",
                 "cite_version": t["cite_version"].format(version=VERSION, updated=UPDATED),
+                "doi_concept": ZENODO_CONCEPT,
+                "doi_versions": sorted(ZENODO_VERSIONS.items(), reverse=True),
                 "cite_bibtex": "@misc{geffroy_qdrops,\n  author = {Geffroy, Sylvain},\n"
                                f"  title = {{{t['site_title']}}},\n  year = {{{year}}},\n"
-                               f"  version = {{{VERSION}}},\n  url = {{https://s-geffroy.github.io/QAnon/}}\n}}"}
+                               f"  version = {{{VERSION}}},\n  doi = {{{ZENODO_CONCEPT}}},\n"
+                               f"  url = {{https://s-geffroy.github.io/QAnon/}}\n}}"}
 
     def cite(self, *ids, pre=""):
         """Appel de reference auteur-date, lie a la bibliographie : cite("a", "b") -> (A, 2020 ; B, 2021)."""

@@ -1,5 +1,7 @@
 # qanon
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23338131.svg)](https://doi.org/10.5281/zenodo.23338131)
+
 Worker heberge sur le VPS multi-applications : du travail de fond, **aucune
 surface HTTP**.
 
@@ -142,6 +144,7 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
 - **Contenu** (textes, donnees editoriales de `src/data/`, donnees derivees,
   graphiques, site genere) : CC BY 4.0 (`LICENSE-CC-BY-4.0`).
 
-Auteur : Sylvain Geffroy. `CITATION.cff` donne la reference ; chaque chiffre
+Auteur : Sylvain Geffroy. Archive Zenodo : doi:10.5281/zenodo.23338131 (toutes
+versions ; v1.0.0 : doi:10.5281/zenodo.23338132). `CITATION.cff` donne la reference ; chaque chiffre
 cle du site a sa propre citation (page « Chiffres cles »). Les jeux de donnees
 sources gardent leurs propres conditions.

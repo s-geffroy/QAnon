@@ -1,6 +1,9 @@
 # Journal des versions du site (flux RSS et page Citer). Le plus recent en premier.
 entries:
 - date: 2026-10-13
+  fr: "Version 1.0.0 archivée sur Zenodo (doi:10.5281/zenodo.23338131) ; publication automatique du site par le worker."
+  en: "Version 1.0.0 archived on Zenodo (doi:10.5281/zenodo.23338131); the worker now publishes the site automatically."
+- date: 2026-10-13
   fr: "Test de l'horoscope, prophéties recyclées et « Future proves past » ; explorateur du corpus ; veille bibliographique hebdomadaire ; kit pédagogique ; flux RSS, plan du site et métadonnées pour les moteurs."
   en: "Horoscope test, recycled prophecies and \"Future proves past\"; corpus explorer; weekly literature watch; teaching kit; RSS feed, sitemap and metadata for search engines."
 - date: 2026-10-13
