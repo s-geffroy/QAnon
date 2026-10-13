@@ -525,12 +525,11 @@ class Site:
                 "examples": [{**e, "reason": self.tr(f"horo:future:{e['drop_id']}", e["reason"], lang)}
                              for e in f.get("examples", [])[:5]],
                 "robust": (lambda rb: t["horo_robust"].format(
-                    model=rb["model"], n=n(rb["n_drops"]),
-                    agree=p(rb["future"]["agreement"] or 0, 0), kappa=n(rb["future"]["kappa"] or 0, 2),
-                    agree_p=p(rb["past"]["agreement"] or 0, 0),
-                    fc=p(rb["future"]["check"]["share_true_decided"] or 0, 0), fm=p(rb["future"]["main"]["share_true_decided"] or 0, 0),
-                    pc=p(rb["past"]["check"]["share_true_decided"] or 0, 0), pm=p(rb["past"]["main"]["share_true_decided"] or 0, 0),
-                    fpv=n(rb["future"]["check"]["p_value"] or 1, 3))
+                    model=rb["model"], n=n(rb["n_drops"]), nf=n(rb["future"]["n"]),
+                    none_c=n(rb["future"]["check"]["none"]), none_m=n(rb["future"]["main"]["none"]),
+                    dec_c=n(rb["future"]["check"]["true"] + rb["future"]["check"]["random"]),
+                    true_c=n(rb["future"]["check"]["true"]), kappa=n(rb["future"]["kappa"] or 0, 2),
+                    agree=p(rb["future"]["agreement"] or 0, 0))
                     if rb and rb.get("future", {}).get("n") else None)(ho.get("robustness")),
                 "method": t["horo_method"].format(n=n(ho["n_sample"]), items=n(ho["n_items"]), model=ho["model"]),
             }
@@ -730,14 +729,10 @@ class Site:
         rb = ho.get("robustness") or {}
         if rb.get("future", {}).get("n"):
             f_ = rb["future"]
-            v["horo_robust_sentence"] = (
-                f"Un second modèle ({rb['model']}), interrogé sur {n(rb['n_drops'])} drops, fait le même choix que le modèle "
-                f"principal dans {fmt.pct(lang, f_['agreement'], 0)} des comparaisons « avenir » (kappa de Cohen "
-                f"{n(f_['kappa'], 2)}) et y reconnaît la vraie période dans {fmt.pct(lang, f_['check']['share_true_decided'] or 0, 0)} "
-                f"des cas tranchés, contre {fmt.pct(lang, f_['main']['share_true_decided'] or 0, 0)} pour le modèle principal sur ce "
-                f"sous-échantillon." if lang == "fr" else
-                f"A second model ({rb['model']}), queried on {n(rb['n_drops'])} drops, makes the same choice as the main model in "
-                f"{fmt.pct(lang, f_['agreement'], 0)} of \"future\" comparisons (Cohen's kappa {n(f_['kappa'], 2)}).")
+            v["horo_robust_sentence"] = T[lang]["horo_robust"].format(
+                model=rb["model"], n=n(rb["n_drops"]), nf=n(f_["n"]), none_c=n(f_["check"]["none"]),
+                none_m=n(f_["main"]["none"]), dec_c=n(f_["check"]["true"] + f_["check"]["random"]),
+                true_c=n(f_["check"]["true"]), kappa=n(f_["kappa"] or 0, 2), agree=fmt.pct(lang, f_["agreement"] or 0, 0))
         else:
             v["horo_robust_sentence"] = ""
         if r["verification"] and r["verification"].get("overall"):
