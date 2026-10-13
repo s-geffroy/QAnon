@@ -86,7 +86,9 @@ def wayback(url):
 def run(ctx):
     links = collect()
     week = str(int(time.time() // WEEK))
-    done = {r["url"] for r in ctx.conn.execute("SELECT url FROM link_check WHERE pass = ?", (week,))}
+    # Deja verifies cette semaine et en bon etat : sautes. Les liens morts ou en erreur sont reverifies a chaque passe.
+    done = {r["url"] for r in ctx.conn.execute("SELECT url FROM link_check WHERE pass = ? AND state IN ('ok', 'blocked')",
+                                               (week,))}
     todo = [u for u in links if u not in done]
     for u in todo:
         if ctx.should_yield():
