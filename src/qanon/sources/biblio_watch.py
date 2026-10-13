@@ -19,7 +19,18 @@ QANON = re.compile(r"q\s?anon|\bQ-?drops?\b", re.I)
 
 
 def norm_title(t):
-    return re.sub(r"[^a-z0-9]+", "", (t or "").lower())
+    """Titre normalise ; sans prefixe de chapitre (« CHAPITRE 16 », « 15. »)."""
+    t = re.sub(r"^\s*(?:chap(?:ter|itre)\s*\d+[.:]?|\d+\.)\s*", "", (t or "").lower())
+    return re.sub(r"[^a-z0-9]+", "", t)
+
+
+def same_title(a, b):
+    """Meme titre, ou l'un contient l'autre (sous-titre absent d'une des sources)."""
+    a, b = norm_title(a), norm_title(b)
+    if not a or not b:
+        return False
+    short, long_ = sorted((a, b), key=len)
+    return short == long_ or (len(short) >= 25 and short in long_)
 
 
 def crossref():

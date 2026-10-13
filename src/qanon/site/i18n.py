@@ -813,3 +813,31 @@ T["fr"].update({"feed_update": "Mise à jour du site", "feed_watch": "Veille",
 T["en"].update({"feed_update": "Site update", "feed_watch": "Watch",
   "dataset_name": "Q drops: derived data of the statistical study",
   "dataset_desc": "Metadata of the 4,966 \"Q\" drops (2017-2022), annotated corpus, extracted and verified predictions, actors, themes, comparisons with Trump tweets, GDELT and Wikipedia, bibliography."})
+T["fr"].update({
+  "fig_horo": "Test de l'horoscope ({n} drops, à l'aveugle) : le modèle reconnaît la vraie période d'actualité dans {past} des cas tranchés pour les 7 jours précédant le drop, et dans {future} pour les 30 jours suivants ; {barnum} des périodes tirées au hasard obtiennent pourtant une note d'au moins 5 sur 10.",
+  "fig_recy": "{g} sujets de prédiction (même événement, même acteur) sont annoncés sur au moins trois mois différents ({k} prédictions) ; dans {ga} d'entre eux, l'annonce revient après un échec vérifié.",
+  "fig_fpp": "Q renvoie {n} fois à l'un de ses propres drops, dont {same} le jour même : ces autocitations sont des compléments, presque jamais des « preuves » après coup.",
+})
+T["en"].update({
+  "fig_horo": "Horoscope test ({n} drops, blind): the model recognises the real news period in {past} of decided cases for the 7 days before the drop, and in {future} for the 30 days after; yet {barnum} of randomly drawn periods still get a score of at least 5 out of 10.",
+  "fig_recy": "{g} prediction subjects (same event, same actor) are announced in at least three different months ({k} predictions); in {ga} of them the announcement returns after a checked failure.",
+  "fig_fpp": "Q references one of his own drops {n} times, {same} of them the same day: these self-quotations are additions, almost never after-the-fact \"proof\".",
+})
+T["fr"].update({
+  "m_tests_title": "Prédictions à l'épreuve",
+  "m_tests": "Test de l'horoscope : comparaisons à l'aveugle entre un drop et deux listes d'actualité (vraie période, période au hasard), jugées par le modèle retenu avec une consigne sceptique, test binomial (page Prédictions). Prophéties recyclées : regroupement des prédictions par type d'événement et acteur. « Future proves past » : délais des renvois de Q vers ses propres drops.",
+  "m_watch_title": "Veille bibliographique",
+  "m_watch": "Chaque semaine, le worker interroge Crossref et OpenAlex (publications depuis 2024 dont le titre ou le résumé contient « QAnon »). Le site publie ces publications avec leur état : dans la bibliographie (vérifiée), repérée mais non vérifiée, ou écartée après examen. Aucune n'entre dans la bibliographie sans relecture.",
+  "src_wikinews": "Actualité quotidienne : portail « Current events » de Wikipédia (anglais), 2017-2021",
+  "src_watch": "Veille bibliographique",
+})
+T["en"].update({
+  "m_tests_title": "Predictions put to the test",
+  "m_tests": "Horoscope test: blind comparisons between a drop and two news lists (real period, random period), judged by the chosen model under sceptical instructions, binomial test (Predictions page). Recycled prophecies: predictions grouped by event type and actor. \"Future proves past\": delays of Q's references to his own drops.",
+  "m_watch_title": "Literature watch",
+  "m_watch": "Every week the worker queries Crossref and OpenAlex (publications since 2024 whose title or abstract contains \"QAnon\"). The site lists them with their status: in the bibliography (verified), found but not verified, or rejected after review. None enters the bibliography without review.",
+  "src_wikinews": "Daily news: Wikipedia's \"Current events\" portal (English), 2017-2021",
+  "src_watch": "Literature watch",
+})
+T["fr"].update({"watch_abstract_only": "QAnon dans le résumé seulement", "watch_title_only": "QAnon dans le titre"})
+T["en"].update({"watch_abstract_only": "QAnon in abstract only", "watch_title_only": "QAnon in the title"})

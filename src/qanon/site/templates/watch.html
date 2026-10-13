@@ -6,13 +6,14 @@
 <p class="note">{{ t.watch_note }} <a href="feed.xml">RSS</a></p>
 <div class="filters">
   <select id="w-status" aria-label="statut"><option value="">{{ t.bib_all }}</option>{% for s in ["new", "in", "rejected"] %}<option value="{{ s }}">{{ t["watch_" ~ s] }}</option>{% endfor %}</select>
+  <label class="note"><input type="checkbox" id="w-title"> {{ t.watch_title_only }} ({{ n_title }})</label>
   <input type="search" id="w-q" placeholder="{{ t.bib_search }}" aria-label="{{ t.bib_search }}">
   <span class="note"><span id="w-n">{{ items|length }}</span> / {{ items|length }}</span>
 </div>
 <ol class="bib">
 {% for x in items %}
-  <li class="ref w-item" data-status="{{ x.status }}" data-search="{{ (x.title ~ ' ' ~ (x.authors or '') ~ ' ' ~ (x.container or ''))|lower }}">
-    <p class="tags"><span class="tag w-{{ x.status }}">{{ x.status_label }}</span> <span class="topic">{{ x.date_label }}</span>{% if x.type %} <span class="topic">{{ x.type }}</span>{% endif %}</p>
+  <li class="ref w-item" data-status="{{ x.status }}" data-title="{{ 1 if x.in_title else 0 }}" data-search="{{ (x.title ~ ' ' ~ (x.authors or '') ~ ' ' ~ (x.container or ''))|lower }}">
+    <p class="tags"><span class="tag w-{{ x.status }}">{{ x.status_label }}</span> {% if not x.in_title %}<span class="tag">{{ t.watch_abstract_only }}</span> {% endif %}<span class="topic">{{ x.date_label }}</span>{% if x.type %} <span class="topic">{{ x.type }}</span>{% endif %}</p>
     <p class="cit">{% if x.authors %}{{ x.authors }}. {% endif %}<a href="{{ x.url }}">{{ x.title }}</a>.{% if x.container %} <em>{{ x.container }}</em>.{% endif %}{% if x.doi %} <span class="note">doi:{{ x.doi }}</span>{% endif %}</p>
     {% if x.status == "in" %}<p class="summary"><a href="bibliography.html#{{ x.ref_id }}">{{ t.watch_see_ref }}</a></p>{% elif x.reason %}<p class="summary">{{ x.reason }}</p>{% endif %}
   </li>
@@ -22,17 +23,17 @@
 {% block scripts %}
 <script>
 (function () {
-  var s = document.getElementById("w-status"), q = document.getElementById("w-q"), n = document.getElementById("w-n"),
+  var s = document.getElementById("w-status"), ti = document.getElementById("w-title"), q = document.getElementById("w-q"), n = document.getElementById("w-n"),
       items = Array.prototype.slice.call(document.querySelectorAll(".w-item"));
   function apply() {
     var words = q.value.toLowerCase().split(/\s+/).filter(Boolean), shown = 0;
     items.forEach(function (it) {
-      var ok = (!s.value || it.dataset.status === s.value) && words.every(function (w) { return it.dataset.search.indexOf(w) >= 0; });
+      var ok = (!s.value || it.dataset.status === s.value) && (!ti.checked || it.dataset.title === "1") && words.every(function (w) { return it.dataset.search.indexOf(w) >= 0; });
       it.hidden = !ok; if (ok) shown++;
     });
     n.textContent = shown;
   }
-  [s, q].forEach(function (el) { el.addEventListener("input", apply); });
+  [s, q, ti].forEach(function (el) { el.addEventListener("input", apply); });
 })();
 </script>
 {% endblock %}

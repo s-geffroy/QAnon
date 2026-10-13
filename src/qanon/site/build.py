@@ -588,6 +588,19 @@ class Site:
                 anon=p(st["references"]["share_anon"], 0))
             add("religion", "stats", "religion", share=p(st["religion"]["share_faith"], 1), nv=n(st["religion"]["n_verse"]))
             add("lisibilite", "stats", "flesch", f=n(st["lexicon"]["flesch_all"], 0), wps=n(st["lexicon"]["words_per_sentence_all"], 1))
+        ho = r.get("horoscope")
+        if ho and ho.get("kinds", {}).get("future"):
+            fk, pk = ho["kinds"]["future"], ho["kinds"].get("past", {})
+            add("horoscope", "predictions", "horo", n=n(ho["n_sample"]),
+                past=p(pk.get("share_true_decided") or 0, 0), future=p(fk["share_true_decided"] or 0, 0),
+                barnum=p(fk["share_random_ge5"], 0))
+        pp = r.get("prophecies")
+        if pp:
+            rc = pp["recycled"]
+            add("propheties-recyclees", "predictions", "recy", g=n(rc["n_groups"]), k=n(rc["n_in_groups"]),
+                ga=n(rc["n_groups_after_failure"]))
+            if pp["fpp"].get("n"):
+                add("autocitations-delai", "predictions", "fpp", n=n(pp["fpp"]["n"]), same=p(pp["fpp"]["share_same_day"], 0))
         year = time.strftime("%Y")
         for f in F:
             f["url"] = f"{SITE_URL}{lang}/figures.html#{f['id']}"
@@ -615,7 +628,7 @@ class Site:
     def watch_items(self):
         if hasattr(self, "_watch"):
             return self._watch
-        from ..sources.biblio_watch import norm_title
+        from ..sources.biblio_watch import QANON, norm_title, same_title
         import yaml
         import sqlite3
         try:
@@ -629,11 +642,16 @@ class Site:
             if path.exists() else {}
         out = []
         for r in rows:
-            ref = by_doi.get((r["doi"] or "").lower()) or by_title.get(norm_title(r["title"]))
+            ref = by_doi.get((r["doi"] or "").lower()) or by_title.get(norm_title(r["title"])) \
+                or next((x for x in self.refs if same_title(x["title"], r["title"])), None)
             rv = review.get(r["key"].lower()) or (review.get(r["doi"].lower()) if r["doi"] else None)
             status = "in" if ref else ("rejected" if rv and rv.get("decision") == "rejected" else "new")
-            out.append({**r, "status": status, "ref_id": ref["id"] if ref else None, "review": rv})
-        out.sort(key=lambda x: (x["date"] or str(x["year"] or "")), reverse=True)
+            today = time.strftime("%Y-%m-%d")
+            # Date future (fin d'annee fictive de certaines notices) : on ne garde que l'annee.
+            shown = r["date"] if r["date"] and r["date"] <= today else (str(r["year"]) if r["year"] else None)
+            out.append({**r, "status": status, "ref_id": ref["id"] if ref else None, "review": rv,
+                        "shown_date": shown, "in_title": bool(QANON.search(r["title"] or ""))})
+        out.sort(key=lambda x: (x["shown_date"] or ""), reverse=True)
         self._watch = out
         return out
 
@@ -643,9 +661,11 @@ class Site:
         cnt = {k: sum(x["status"] == k for x in items) for k in ("in", "rejected", "new")}
         from ..sources.biblio_watch import SINCE
         last = max((x["last_seen"] for x in items), default=None)
-        return {"items": [{**x, "date_label": c["date"](x["date"]) if x["date"] and len(x["date"]) == 10 else (x["date"] or x["year"] or "—"),
+        return {"items": [{**x, "date_label": c["date"](x["shown_date"]) if x["shown_date"] and len(x["shown_date"]) == 10
+                           else (x["shown_date"] or "—"),
                            "status_label": t[f"watch_{x['status']}"],
                            "reason": (x["review"] or {}).get(f"reason_{lang}")} for x in items],
+                "n_title": c["n"](sum(x["in_title"] for x in items)),
                 "lead": t["watch_lead"].format(n=c["n"](len(items)), since=c["date"](SINCE),
                                                last=c["date"](last) if last else "—",
                                                inn=c["n"](cnt["in"]), new=c["n"](cnt["new"]), rej=c["n"](cnt["rejected"]))}
@@ -919,7 +939,7 @@ class Site:
         (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
         import yaml
         log_ = yaml.safe_load((APP_DIR / "data" / "changelog.yaml").read_text())["entries"]
-        watch = [w for w in self.watch_items() if w["status"] in ("in", "new")][:40]
+        watch = [w for w in self.watch_items() if w["status"] == "in" or (w["status"] == "new" and w["in_title"])][:40]
         for lang in T:
             t = T[lang]
             items = []
