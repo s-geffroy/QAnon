@@ -401,3 +401,155 @@ def pred_actors(pr, lang, n=20):
         encoding={"y": {"field": "name", "type": "nominal", "sort": "-x", "title": None, "axis": {"labelLimit": 200}},
                   "x": {"field": "n", "type": "quantitative", "title": t["pred_n"]},
                   "tooltip": [{"field": "name", "title": " "}, {"field": "n", "title": t["pred_n"]}]})
+
+
+# --- Page Statistiques
+def gaps_hist(stats, lang):
+    t = T[lang]
+    data = [h for h in stats["rhythm"]["hist"] if h["n"]]
+    marks = [{"x": m, "label": lab} for m, lab in ((1, "1 min"), (60, "1 h"), (1440, t["one_day"]), (10080, t["one_week"]))]
+    return _spec(
+        height=220,
+        layer=[
+            {"data": {"values": data},
+             "mark": {"type": "bar", "color": "@series1", "cornerRadiusEnd": 2},
+             "encoding": {
+                 "x": {"field": "lo", "type": "quantitative", "scale": {"type": "log"}, "title": t["gap_axis"],
+                       "axis": {"values": [1, 10, 60, 600, 1440, 10080, 100000], "format": "~s"}},
+                 "x2": {"field": "hi"},
+                 "y": {"field": "n", "type": "quantitative", "title": t["n_intervals"]},
+                 "tooltip": [{"field": "lo", "title": t["gap_from"], "format": ".2~f"},
+                             {"field": "hi", "title": t["gap_to"], "format": ".2~f"},
+                             {"field": "n", "title": t["n_intervals"]}]}},
+            {"data": {"values": marks},
+             "mark": {"type": "rule", "color": "@ink3", "strokeDash": [3, 3]},
+             "encoding": {"x": {"field": "x", "type": "quantitative"}}},
+            {"data": {"values": marks},
+             "mark": {"type": "text", "color": "@ink2", "align": "left", "dx": 3, "dy": -4, "baseline": "top", "y": 0},
+             "encoding": {"x": {"field": "x", "type": "quantitative"}, "text": {"field": "label"}}},
+        ])
+
+
+def session_sizes(stats, lang):
+    t = T[lang]
+    data = [{"size": "31+" if s["size"] == 31 else str(s["size"]), "k": s["size"], "n": s["n"]}
+            for s in stats["rhythm"]["session_sizes"]]
+    return _spec(
+        height=180, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
+        encoding={"x": {"field": "size", "type": "ordinal", "sort": {"field": "k"}, "title": t["session_size"],
+                        "axis": {"labelAngle": 0}},
+                  "y": {"field": "n", "type": "quantitative", "title": t["n_sessions"]},
+                  "tooltip": [{"field": "size", "title": t["session_size"]}, {"field": "n", "title": t["n_sessions"]}]})
+
+
+def regimes(stats, desc, lang):
+    t = T[lang]
+    segs = stats["changepoints"]["segments"]
+    return _spec(
+        height=260,
+        layer=[
+            {"data": {"values": desc["weekly"]},
+             "mark": {"type": "area", "interpolate": "step-after", "color": "@seqlo", "opacity": 0.9},
+             "encoding": {"x": {"field": "week", "type": "temporal", "title": None,
+                                "axis": {"format": "%Y", "tickCount": "year"}},
+                          "y": {"field": "n", "type": "quantitative", "title": t["drops_per_week"]},
+                          "tooltip": [{"field": "week", "type": "temporal", "format": "%d/%m/%Y", "title": t["col_first"]},
+                                      {"field": "n", "title": t["drops"]}]}},
+            {"data": {"values": segs},
+             "mark": {"type": "rule", "color": "@series2", "strokeWidth": 3},
+             "encoding": {"x": {"field": "start", "type": "temporal"}, "x2": {"field": "end"},
+                          "y": {"field": "mean_per_week", "type": "quantitative"},
+                          "tooltip": [{"field": "start", "type": "temporal", "format": "%d/%m/%Y", "title": t["col_from"]},
+                                      {"field": "end", "type": "temporal", "format": "%d/%m/%Y", "title": t["col_to"]},
+                                      {"field": "mean_per_week", "title": t["mean_per_week"], "format": ".1f"}]}},
+        ])
+
+
+DOMAIN_CATS = ["social", "press", "official", "archive"]
+
+
+def _cat_scale(t):
+    return {"domain": [t[f"dcat_{c}"] for c in DOMAIN_CATS], "range": ["@series1", "@series2", "@series3", "@series4"]}
+
+
+def top_domains(stats, lang):
+    t = T[lang]
+    data = [{**x, "cat_label": t[f"dcat_{x['cat']}"]} for x in stats["domains"]["top"][:25]]
+    return _spec(
+        height=25 * 17, data={"values": data},
+        mark={"type": "bar", "cornerRadiusEnd": 3, "height": {"band": 0.75}},
+        encoding={"y": {"field": "site", "type": "nominal", "sort": "-x", "title": None},
+                  "x": {"field": "drops", "type": "quantitative", "title": t["drops_citing"], "scale": {"type": "sqrt"}},
+                  "color": {"field": "cat_label", "type": "nominal", "title": None, "scale": _cat_scale(t),
+                            "legend": {"orient": "top"}},
+                  "tooltip": [{"field": "site", "title": " "}, {"field": "cat_label", "title": " "},
+                              {"field": "drops", "title": t["drops_citing"]}]})
+
+
+def domain_years(stats, lang):
+    t = T[lang]
+    data = [{**x, "year": str(x["year"]), "cat_label": t[f"dcat_{x['cat']}"], "o": DOMAIN_CATS.index(x["cat"])}
+            for x in stats["domains"]["cat_year"] if x["year"] <= 2020]
+    return _spec(
+        height=200, data={"values": data},
+        mark={"type": "bar", "stroke": "@surface", "strokeWidth": 2},
+        encoding={"x": {"field": "year", "type": "ordinal", "title": None, "axis": {"labelAngle": 0}},
+                  "y": {"field": "n", "type": "quantitative", "stack": "normalize", "title": t["share_links_axis"],
+                        "axis": {"format": ".0%"}},
+                  "order": {"field": "o"},
+                  "color": {"field": "cat_label", "type": "nominal", "title": None, "scale": _cat_scale(t),
+                            "legend": {"orient": "top"}},
+                  "tooltip": [{"field": "year", "title": " "}, {"field": "cat_label", "title": " "},
+                              {"field": "n", "title": t["n_links"]}]})
+
+
+def religion(stats, lang):
+    t = T[lang]
+    s1, s2 = t["rel_faith"], t["rel_god"]
+    data = []
+    for r in stats["religion"]["quarterly"]:
+        if r["q"] > "2020Q4":
+            continue
+        data += [{"q": r["q"], "series": s1, "value": r["faith"]}, {"q": r["q"], "series": s2, "value": r["god"]}]
+    return _quarter_lines(data, [s1, s2], lang, ".0%")
+
+
+def _quarter_lines(data, domain, lang, fmt_, title=None, zero=True):
+    return _spec(
+        height=200, data={"values": data},
+        mark={"type": "line", "strokeWidth": 2, "point": {"size": 30, "filled": True}},
+        encoding={"x": {"field": "q", "type": "ordinal", "title": None, "axis": {"labelAngle": -45}},
+                  "y": {"field": "value", "type": "quantitative", "title": title, "axis": {"format": fmt_},
+                        "scale": {"zero": zero}},
+                  "color": {"field": "series", "type": "nominal", "title": None,
+                            "scale": {"domain": domain, "range": ["@series1", "@series2"][:len(domain)]},
+                            "legend": {"orient": "top"} if len(domain) > 1 else None},
+                  "tooltip": [{"field": "series", "title": " "}, {"field": "q", "title": " "},
+                              {"field": "value", "format": fmt_, "title": " "}]})
+
+
+def readability(stats, lang):
+    t = T[lang]
+    data = [{"q": r["q"], "series": t["flesch"], "value": r["flesch"]}
+            for r in stats["lexicon"]["quarterly"] if r["q"] <= "2020Q4"]
+    return _quarter_lines(data, [t["flesch"]], lang, ".0f", t["flesch"], zero=False)
+
+
+def richness(stats, lang):
+    t = T[lang]
+    data = [{"q": r["q"], "series": "MATTR", "value": r["mattr"]}
+            for r in stats["lexicon"]["quarterly"] if r["q"] <= "2020Q4"]
+    return _quarter_lines(data, ["MATTR"], lang, ".2f", "MATTR", zero=False)
+
+
+def horizon(pred, lang):
+    t = T[lang]
+    data = [{**b, "o": i} for i, b in enumerate(pred["horizon"]["bins"])]
+    return _spec(
+        height=180, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
+        encoding={"x": {"field": "label", "type": "ordinal", "sort": {"field": "o"}, "title": t["horizon_axis"],
+                        "axis": {"labelAngle": 0}},
+                  "y": {"field": "n", "type": "quantitative", "title": t["pred_n"]},
+                  "tooltip": [{"field": "label", "title": t["horizon_axis"]}, {"field": "n", "title": t["pred_n"]}]})

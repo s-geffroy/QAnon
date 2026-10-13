@@ -1,0 +1,132 @@
+# Etat de la recherche sur QAnon : synthese par question, avec appels de
+# reference [@id] (resolus contre bibliography.yaml au rendu ; un id inconnu
+# fait echouer la generation du site) et renvois aux pages du site [[page]].
+start_here: [rothschild2021storm, sommer2023trust, miller2023social, dezeeuw2020tracing, papasavva2022gospel,
+             enders2022who, jensen2024qanon, argentino2025qanon, bloom2021pastels, marwick2024constructing,
+             cafiero2023who, wuming2022q]
+
+sections:
+
+- id: origines
+  title_fr: "Naissance sur 4chan et diffusion d'une plateforme à l'autre"
+  title_en: "Birth on 4chan and spread across platforms"
+  body_fr: |
+    Le premier message de « Q » paraît le 28 octobre 2017 sur le forum /pol/ de 4chan, dans un milieu, archivé en détail [@papasavva2020raiders], qui avait déjà fabriqué collectivement la théorie du « Pizzagate » en 2016 [@tuters2018posttruth; @bleakley2023panic; @tangherlini2020automated]. Les premiers lecteurs le reçoivent comme un possible jeu de rôle (LARP) [@dezeeuw2023godtier] ; les fils fondateurs mêlent déjà enquête participative, décodage et mise en récit [@hodges2023taxonomizing]. Quelques promoteurs le font sortir du forum dès novembre 2017, vers Reddit et YouTube [@zadrozny2018how].
+    La diffusion suit une « normiefication » en étapes : incubation sur les forums anonymes, migration vers YouTube et Reddit, puis couverture médiatique une fois le mouvement sorti d'internet [@dezeeuw2020tracing]. Les études de plateformes décrivent ensuite chaque refuge : Voat après les bannissements de Reddit [@papasavva2021qoincidence; @mekacher2022cant], Facebook jusqu'en 2020 [@kim2023information; @isd2020boom], Parler et Gab [@sipka2022comparing; @bar2023finding], Telegram [@zihiri2022qanon; @hoseini2023globalization], puis Poal après la fermeture de Voat [@papasavva2024waiting].
+    Ce site retrouve ces migrations dans le corpus : changements de forum, ruptures de régime d'activité et différences de style d'une plateforme à l'autre ([[stats]], [[activity]]).
+  body_en: |
+    "Q"'s first post appeared on 28 October 2017 on 4chan's /pol/ board, in a milieu, archived in detail [@papasavva2020raiders], that had already collectively produced the "Pizzagate" theory in 2016 [@tuters2018posttruth; @bleakley2023panic; @tangherlini2020automated]. Early readers took it as a possible role-play (LARP) [@dezeeuw2023godtier]; the founding threads already mixed participatory investigation, decoding and storytelling [@hodges2023taxonomizing]. A few promoters took it off the board as early as November 2017, to Reddit and YouTube [@zadrozny2018how].
+    Its spread followed a staged "normiefication": incubation on anonymous boards, migration to YouTube and Reddit, then news coverage once the movement went offline [@dezeeuw2020tracing]. Platform studies then describe each refuge: Voat after the Reddit bans [@papasavva2021qoincidence; @mekacher2022cant], Facebook until 2020 [@kim2023information; @isd2020boom], Parler and Gab [@sipka2022comparing; @bar2023finding], Telegram [@zihiri2022qanon; @hoseini2023globalization], and Poal after Voat closed [@papasavva2024waiting].
+    This site finds these migrations in the corpus: board changes, breaks in activity regimes and stylistic differences between platforms ([[stats]], [[activity]]).
+
+- id: auteurs
+  title_fr: "Qui écrivait ? Corpus canonique et attribution d'auteur"
+  title_en: "Who wrote it? Canonical corpus and authorship attribution"
+  body_fr: |
+    Il n'existe pas de corpus officiel des drops : les sites d'agrégation divergent, ce qui laisse penser que certains messages sont apocryphes [@papasavva2022gospel]. Des messages « perdus » d'octobre 2017 éclairent les tout débuts [@qorigins2021how]. Ce site utilise le corpus JSON-QAnon [@kingsman2021qanon].
+    Trois études stylométriques concluent à au moins deux plumes successives [@orphanalytics2020style; @papasavva2022gospel; @cafiero2023who; @orphanalytics2022computational]. Deux équipes indépendantes ont rapproché les premiers drops d'un modérateur de forum sud-africain, puis les suivants de l'administrateur de 8chan/8kun ; les deux intéressés démentent [@kirkpatrick2022who]. Les auteurs présentent ces attributions comme des hypothèses plausibles, non comme des preuves [@storchan2022comment], et des linguistes en discutent les limites [@authier2022qui]. La même méthode appliquée aux cinq messages de juin 2022, très courts, est encore plus fragile [@orphanalytics2022recent].
+    La stylométrie exploratoire de ce site place la rupture la plus nette fin novembre 2017, au moment du passage sur 8chan, sans pouvoir distinguer changement d'auteur et changement de plateforme ([[discourse]]).
+  body_en: |
+    There is no official corpus of drops: aggregation sites disagree, suggesting some posts are apocryphal [@papasavva2022gospel]. "Lost" posts from October 2017 shed light on the very beginning [@qorigins2021how]. This site uses the JSON-QAnon corpus [@kingsman2021qanon].
+    Three stylometric studies conclude there were at least two successive writers [@orphanalytics2020style; @papasavva2022gospel; @cafiero2023who; @orphanalytics2022computational]. Two independent teams linked the early drops to a South African board moderator and the later ones to the administrator of 8chan/8kun; both deny it [@kirkpatrick2022who]. The authors present these attributions as plausible hypotheses, not proof [@storchan2022comment], and linguists discuss their limits [@authier2022qui]. The same method applied to the five very short posts of June 2022 is even more fragile [@orphanalytics2022recent].
+    This site's exploratory stylometry places the sharpest break in late November 2017, when Q moved to 8chan, without being able to separate a change of author from a change of platform ([[discourse]]).
+
+- id: discours
+  title_fr: "Un discours à décoder"
+  title_en: "A discourse to be decoded"
+  body_fr: |
+    Les drops procèdent par questions, indices et injonctions à « faire ses propres recherches » : l'écriture cryptique délègue l'interprétation aux lecteurs et leur donne un rôle actif [@mcintosh2022sinister; @sayers2025do]. Une analyse qualitative de tous les messages les classe en cinq registres, de la connaissance cachée à l'appel à l'action [@linvill2021mapping]. La « recherche » des adeptes imite les formes du savoir savant, une expertise populiste [@marwick2024constructing], et s'inscrit dans des communautés épistémiques propres [@robertson2022how; @baca2024qanon; @forberg2023nocult].
+    Les folkloristes y voient une « superconspiration » qui agrège d'anciens récits [@bodner2025qanon; @ellis2025what; @tangherlini2023qanon], dans la lignée des travaux sur les visions apocalyptiques [@barkun2013culture]. Une analyse de contenu des 4 966 drops décrit une temporalité de la répétition et du déterminisme [@bimo2026repetition].
+    Ce site mesure ces traits : plus d'un point d'interrogation par drop en moyenne, des formules récurrentes, des thèmes qui évoluent, une écriture en rafales et des renvois constants aux anonymes et à ses propres drops ([[discourse]], [[glossary]], [[stats]]).
+  body_en: |
+    Drops work through questions, clues and injunctions to "do your own research": the cryptic writing hands interpretation to readers and gives them an active role [@mcintosh2022sinister; @sayers2025do]. A qualitative analysis of all the posts sorts them into five registers, from hidden knowledge to calls to action [@linvill2021mapping]. Followers' "research" mimics the forms of scholarly knowledge, a populist expertise [@marwick2024constructing], within their own epistemic communities [@robertson2022how; @baca2024qanon; @forberg2023nocult].
+    Folklorists see it as a "superconspiracy" that pulls older narratives together [@bodner2025qanon; @ellis2025what; @tangherlini2023qanon], in line with work on apocalyptic visions [@barkun2013culture]. A content analysis of the 4,966 drops describes a temporality of repetition and determinism [@bimo2026repetition].
+    This site measures these traits: on average more than one question mark per drop, recurring formulas, shifting themes, bursty writing and constant references to anons and to Q's own drops ([[discourse]], [[glossary]], [[stats]]).
+
+- id: propheties
+  title_fr: "Des prophéties qui échouent"
+  title_en: "Prophecies that fail"
+  body_fr: |
+    L'histoire de QAnon est jalonnée d'annonces non réalisées, de l'arrestation de Hillary Clinton annoncée pour le 30 octobre 2017 jusqu'à l'investiture de 2021 [@rothschild2021storm; @tian2021qanon]. La théorie de la dissonance cognitive, née de l'étude d'un groupe qui attendait la fin du monde [@festinger1956when], sert souvent à expliquer la persistance des adeptes. Les travaux distinguent les irréductibles, ceux qui adaptent leur croyance et ceux qui s'en détournent [@westmark2022identifying], et décrivent l'adaptation du mouvement après ses échecs [@wright2023future].
+    Ce site compte les prédictions dans tout le corpus et vérifie une à une les 290 prédictions précises ou datées. Seule une minorité des prédictions vérifiables s'est réalisée, et moins encore hors événements déjà annoncés ou programmés. Les échéances annoncées sont surtout très proches ([[predictions]], [[stats]]).
+  body_en: |
+    QAnon's history is punctuated by unfulfilled announcements, from Hillary Clinton's arrest announced for 30 October 2017 to the 2021 inauguration [@rothschild2021storm; @tian2021qanon]. Cognitive dissonance theory, born from the study of a group awaiting the end of the world [@festinger1956when], is often used to explain followers' persistence. Studies distinguish hardliners, those who adapt their belief and those who drop it [@westmark2022identifying], and describe how the movement adapted after its failures [@wright2023future].
+    This site counts predictions across the whole corpus and checks the 290 specific or dated ones one by one. Only a minority of checkable predictions came true, and fewer still outside already announced or scheduled events. Announced deadlines are mostly very close ([[predictions]], [[stats]]).
+
+- id: adhesion
+  title_fr: "Combien d'adeptes ?"
+  title_en: "How many followers?"
+  body_fr: |
+    Les sondages donnent des ordres de grandeur très différents selon la mesure retenue. Le soutien explicite au « mouvement » reste faible et stable, de l'ordre de 5 à 8 % des Américains entre 2018 et 2021 [@enders2022who; @uscinski2023qanon]. Les mesures fondées sur l'accord avec des énoncés de la théorie donnent davantage : 14 % de « croyants » en mars 2021, 17 % en octobre, 18 % en mars 2022, 23 % en août 2023, 19 % en 2024 [@prri2021understanding; @prri2022persistence; @prri2022beliefs; @prri2023threats; @prri2024rise]. Fin 2020, 17 % des Américains jugeaient vraie l'affirmation centrale de QAnon sur une élite pédocriminelle [@ipsos2020more], et environ un sur cinq connaissait et croyait au moins une théorie née de QAnon, alors que 7 % seulement voyaient le mouvement d'un bon œil [@schaffner2020qanon]. La notoriété du nom, elle, a doublé en 2020 [@blazina2020facts; @pew2020most]. La couverture médiatique de 2020 a souvent surestimé la taille du mouvement [@uscinski2022getting].
+    L'adhésion est liée à l'extrémité plutôt qu'au sens des opinions politiques, aux visions conspirationnistes du monde [@enders2022who] et à des traits antisociaux et anti-institutionnels [@enders2023how]. Des liens existent aussi avec la religiosité évangélique [@beyer2023revelations] et avec l'antisémitisme [@levin2022validating].
+    Les données de ce site sur l'intérêt public (vues des articles Wikipédia) mesurent la curiosité, pas l'adhésion ([[interest]]).
+  body_en: |
+    Polls give very different orders of magnitude depending on the measure. Explicit support for the "movement" stays low and stable, around 5 to 8% of Americans between 2018 and 2021 [@enders2022who; @uscinski2023qanon]. Measures based on agreement with the theory's statements give more: 14% "believers" in March 2021, 17% in October, 18% in March 2022, 23% in August 2023, 19% in 2024 [@prri2021understanding; @prri2022persistence; @prri2022beliefs; @prri2023threats; @prri2024rise]. In late 2020, 17% of Americans judged QAnon's core claim about a paedophile elite to be true [@ipsos2020more], and about one in five recognised and believed at least one QAnon-born theory, while only 7% viewed the movement favourably [@schaffner2020qanon]. Name recognition doubled in 2020 [@blazina2020facts; @pew2020most]. 2020 media coverage often overstated the movement's size [@uscinski2022getting].
+    Support relates to the extremity rather than the direction of political views, to conspiratorial worldviews [@enders2022who] and to antisocial and anti-establishment traits [@enders2023how]. Links also exist with evangelical religiosity [@beyer2023revelations] and with antisemitism [@levin2022validating].
+    This site's public-interest data (Wikipedia article views) measure curiosity, not support ([[interest]]).
+
+- id: psychologie
+  title_fr: "Psychologie des adeptes et coût pour les proches"
+  title_en: "Followers' psychology and the cost to relatives"
+  body_fr: |
+    Les motivations décrites relèvent du besoin de comprendre, de sécurité et d'appartenance [@green2023psychological; @fitzgerald2022conspiracy], dans un mouvement qui divertit et isole à la fois [@moskalenko2021evolution; @bloom2021pastels]. Les croyances QAnon sont corrélées à des intentions d'action radicale [@moskalenko2024qanon].
+    Un champ récent étudie les proches : rupture des liens, conflits épistémiques et souffrance des familles [@moskalenko2023secondhand; @mastroni2024onehundred; @jordan2023aliens], y compris à partir des témoignages publiés sur r/QAnonCasualties [@phillips2025worried; @haupt2025examining; @doan2026beyond].
+  body_en: |
+    The motives described involve the need to understand, to feel safe and to belong [@green2023psychological; @fitzgerald2022conspiracy], in a movement that both entertains and isolates [@moskalenko2021evolution; @bloom2021pastels]. QAnon beliefs correlate with intentions of radical action [@moskalenko2024qanon].
+    A recent field studies relatives: broken ties, epistemic conflict and family distress [@moskalenko2023secondhand; @mastroni2024onehundred; @jordan2023aliens], including from the testimonies posted on r/QAnonCasualties [@phillips2025worried; @haupt2025examining; @doan2026beyond].
+
+- id: religion
+  title_fr: "Secte, religion ou mouvement politique ?"
+  title_en: "Cult, religion or political movement?"
+  body_fr: |
+    QAnon a été décrit comme un phénomène quasi religieux fondé sur la prophétie [@lafrance2020prophecies], comme une secte facilitée par internet [@cohen2022qanon] ou comme un nouveau mouvement religieux [@argentino2025qanon; @argentino2026explaining]. D'autres jugent ces étiquettes discutables [@amarasingam2023categorizing] ou y voient un mélange de croyance religieuse et de mobilisation politique [@foertsch2023asymmetric; @bromley2023qanon]. Plusieurs travaux étudient ses liens avec le christianisme évangélique et le nationalisme chrétien [@austin2023qanon; @lundskow2023qanon; @uca2026reading; @ippolito2025red].
+    Dans les drops eux-mêmes, le vocabulaire religieux ou moral reste minoritaire et ne progresse pas : il culmine dans les premières semaines, fin 2017. La religiosité décrite par ces travaux est surtout celle des adeptes ([[stats]]).
+  body_en: |
+    QAnon has been described as a quasi-religious phenomenon built on prophecy [@lafrance2020prophecies], as an internet-facilitated cult [@cohen2022qanon] or as a new religious movement [@argentino2025qanon; @argentino2026explaining]. Others find these labels questionable [@amarasingam2023categorizing] or see a mix of religious belief and political mobilisation [@foertsch2023asymmetric; @bromley2023qanon]. Several works study its ties with evangelical Christianity and Christian nationalism [@austin2023qanon; @lundskow2023qanon; @uca2026reading; @ippolito2025red].
+    In the drops themselves, religious or moral vocabulary remains a minority and does not grow: it peaks in the first weeks, late 2017. The religiosity these works describe is mainly that of the followers ([[stats]]).
+
+- id: genre
+  title_fr: "Femmes, mères et « pastel QAnon »"
+  title_en: "Women, mothers and \"pastel QAnon\""
+  body_fr: |
+    En 2020, la campagne #SaveTheChildren a fait entrer QAnon dans des réseaux féminins de bien-être et de maternité, l'esthétique « pastel QAnon » [@bloom2022qanon; @bracewell2021gender; @andrade2023qamoms]. Le harcèlement de célébrités visées par ces récits a été mesuré à grande échelle [@gallagher2022she]. Les distributeurs de vente multiniveau y ont servi de relais [@mastrangelo2024downlining]. Ces récits sur la traite d'enfants concurrencent l'information des ONG spécialisées [@patane2026mothers; @moran2023navigating; @kim2025emotional].
+  body_en: |
+    In 2020 the #SaveTheChildren campaign brought QAnon into women's wellness and motherhood networks, the "pastel QAnon" aesthetic [@bloom2022qanon; @bracewell2021gender; @andrade2023qamoms]. Harassment of celebrities targeted by these narratives has been measured at scale [@gallagher2022she]. Multi-level-marketing distributors acted as relays [@mastrangelo2024downlining]. These child-trafficking narratives compete with information from specialised NGOs [@patane2026mothers; @moran2023navigating; @kim2025emotional].
+
+- id: politique
+  title_fr: "Politique américaine, 6 janvier et violence"
+  title_en: "US politics, 6 January and violence"
+  body_fr: |
+    QAnon est passé de la marge à une partie de l'électorat républicain, avec des candidats au Congrès qui s'en réclamaient [@sommer2023trust; @lukito2025how; @rothschild2022qanon]. La critique de ces candidats par d'autres élus réduit le soutien à la théorie, pas au candidat [@wu2022legislator]. La Chambre des représentants a condamné QAnon en octobre 2020 [@house2020condemning]. Sans chef identifiable, Q exerce un leadership « spectral » [@cover2022spectre].
+    Dès 2019, le FBI estimait que ces théories motivaient certains extrémistes [@fbi2019antigovernment]. Le recensement des auteurs d'infractions liés à QAnon compte une centaine de cas aux États-Unis jusqu'en 2021, dont une majorité de participants à l'assaut du Capitole [@jensen2021qanon; @jensen2024qanon; @amarasingam2020qanon; @start2021crimemaps]. Le rapport final de la commission d'enquête de la Chambre consacre une section à QAnon [@house2022final]. Les discours de Trump et l'activité QAnon en ligne avant le 6 janvier sont liés [@lee2022storm; @vishnuprasad2024tracking].
+    Sur ce site : les tweets de Trump et les drops, et la place du 6 janvier dans l'intérêt public ([[trump]], [[interest]]).
+  body_en: |
+    QAnon moved from the fringe to part of the Republican electorate, with congressional candidates who embraced it [@sommer2023trust; @lukito2025how; @rothschild2022qanon]. Criticism of these candidates by other lawmakers reduces support for the theory, not for the candidate [@wu2022legislator]. The House of Representatives condemned QAnon in October 2020 [@house2020condemning]. With no identifiable leader, Q exercises "spectral" leadership [@cover2022spectre].
+    As early as 2019 the FBI assessed that these theories motivated some extremists [@fbi2019antigovernment]. The count of QAnon-linked offenders lists about a hundred cases in the United States up to 2021, a majority of them Capitol attack participants [@jensen2021qanon; @jensen2024qanon; @amarasingam2020qanon; @start2021crimemaps]. The House select committee's final report devotes a section to QAnon [@house2022final]. Trump's speeches and online QAnon activity before 6 January are linked [@lee2022storm; @vishnuprasad2024tracking].
+    On this site: Trump's tweets and the drops, and the place of 6 January in public interest ([[trump]], [[interest]]).
+
+- id: moderation
+  title_fr: "Modération des plateformes"
+  title_en: "Platform moderation"
+  body_fr: |
+    Reddit a fermé les premières communautés en 2018, puis Facebook et YouTube ont agi en 2020 [@meta2020update; @youtube2020managing] et Twitter a suspendu plus de 70 000 comptes après le 6 janvier 2021 [@twitter2021update]. Ce dernier bannissement a réduit la circulation de la désinformation sur la plateforme [@mccabe2024post; @graphika2021disqualified]. Les formules emblématiques de QAnon ont alors reculé sur les grandes plateformes, sans retrouver ailleurs leur audience passée [@holt2021qanon]. Les communautés conspirationnistes résistent mieux au bannissement que d'autres [@monti2023online] ; les utilisateurs bannis migrent vers des plateformes plus petites [@engel2022characterizing; @rastogi2025navigating; @papasavva2024waiting], où le mouvement s'est fragmenté [@audureau2022an].
+  body_en: |
+    Reddit closed the first communities in 2018, then Facebook and YouTube acted in 2020 [@meta2020update; @youtube2020managing] and Twitter suspended more than 70,000 accounts after 6 January 2021 [@twitter2021update]. That last wave reduced the circulation of misinformation on the platform [@mccabe2024post; @graphika2021disqualified]. QAnon's hallmark phrases then declined on the major platforms without regaining their past audience elsewhere [@holt2021qanon]. Conspiracy communities withstand bans better than others [@monti2023online]; banned users migrate to smaller platforms [@engel2022characterizing; @rastogi2025navigating; @papasavva2024waiting], where the movement has fragmented [@audureau2022an].
+
+- id: international
+  title_fr: "Hors des États-Unis"
+  title_en: "Beyond the United States"
+  body_fr: |
+    QAnon s'est exporté en 2020, porté par la pandémie, en s'adaptant aux contextes locaux [@sauvage2020mouvance; @newsguard2020special; @hoseini2023globalization; @gruszko2025qanon]. Une enquête de données sur douze pays suit ces canaux et leurs récits d'un pays à l'autre [@lighthouse2022tracking; @reynaud2022comment]. Les études de cas couvrent le Canada et le Québec [@argentino2021they; @kovac2020how; @celestini2023reviving; @turgeon2026influence], la France [@wheeldon2021stakes; @mace2021qanons; @harfoush2021qanon; @conspiracywatch2021qanon; @aubry2024qanon], la Suisse romande [@farahmand2023pastel], le Royaume-Uni [@hopenothate2020qanon], l'Europe centrale [@hermanova2023fringe], le Brésil [@nalon2020como], l'Allemagne et l'Autriche, où 12 % et 16 % des habitants adhèrent au moins en partie à ses récits et où il rejoint les « citoyens souverains » [@aas2020qanon; @holnburger2022qvadis; @kleinenvonkonigslow2021verschworungstheorien; @fiebig2026german], l'Italie [@pasquetto2022disinformation; @murru2022qanon], l'Australie et la Nouvelle-Zélande [@jones2023sheeple; @ross2020why; @robie2022new], le Japon [@mimizuka2024fly; @mimizuka2025communities; @yeung2022qanon] et l'Afrique subsaharienne [@kohnert2023qanon].
+    Les mentions de pays dans les drops restent centrées sur les États-Unis et leurs adversaires désignés ([[actors]], [[news]]).
+  body_en: |
+    QAnon went abroad in 2020, carried by the pandemic and adapting to local contexts [@sauvage2020mouvance; @newsguard2020special; @hoseini2023globalization; @gruszko2025qanon]. A data investigation across twelve countries follows these channels and their narratives from country to country [@lighthouse2022tracking; @reynaud2022comment]. Case studies cover Canada and Quebec [@argentino2021they; @kovac2020how; @celestini2023reviving; @turgeon2026influence], France [@wheeldon2021stakes; @mace2021qanons; @harfoush2021qanon; @conspiracywatch2021qanon; @aubry2024qanon], French-speaking Switzerland [@farahmand2023pastel], the United Kingdom [@hopenothate2020qanon], Central Europe [@hermanova2023fringe], Brazil [@nalon2020como], Germany and Austria, where 12% and 16% of people agree at least in part with its narratives and where it joined the "sovereign citizens" [@aas2020qanon; @holnburger2022qvadis; @kleinenvonkonigslow2021verschworungstheorien; @fiebig2026german], Italy [@pasquetto2022disinformation; @murru2022qanon], Australia and New Zealand [@jones2023sheeple; @ross2020why; @robie2022new], Japan [@mimizuka2024fly; @mimizuka2025communities; @yeung2022qanon] and sub-Saharan Africa [@kohnert2023qanon].
+    Country mentions in the drops remain centred on the United States and its designated enemies ([[actors]], [[news]]).
+
+- id: apport
+  title_fr: "Ce que ce site ajoute"
+  title_en: "What this site adds"
+  body_fr: |
+    La plupart des études portent sur les adeptes et les plateformes ; peu mesurent les drops eux-mêmes et les confrontent systématiquement à l'actualité. Ce site le fait sur tout le corpus, avec des méthodes et des données publiées : synchronie avec les tweets de Trump testée contre deux modèles nuls, sur-représentation des acteurs par rapport à l'actualité mondiale (GDELT), vérification sourcée des prédictions une à une, rythme et ruptures d'activité ([[trump]], [[news]], [[predictions]], [[stats]], [[method]]).
+  body_en: |
+    Most studies focus on followers and platforms; few measure the drops themselves and systematically confront them with the news. This site does so across the whole corpus, with published methods and data: synchrony with Trump's tweets tested against two null models, over-representation of actors relative to world news (GDELT), sourced prediction-by-prediction verification, rhythm and activity breaks ([[trump]], [[news]], [[predictions]], [[stats]], [[method]]).

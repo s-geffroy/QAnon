@@ -28,13 +28,13 @@
   <p class="lead">{{ ve.lead }}</p>
   <p class="note">{{ t.ve_method }}</p>
   <div class="table-wrap"><table>
-    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
-    <tbody>{% for r in ve.rows %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
+    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_ci }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
+    <tbody>{% for r in ve.rows %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.ci }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
   </table></div>
   <h3>{{ t.ve_by_type }}</h3>
   <div class="table-wrap"><table>
-    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
-    <tbody>{% for r in ve.types %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
+    <thead><tr><th></th><th class="r">{{ t.ve_n }}</th><th class="r">{{ t.vd_fulfilled }}</th><th class="r">{{ t.vd_partial }}</th><th class="r">{{ t.vd_not_fulfilled }}</th><th class="r">{{ t.vd_unverifiable }}</th><th class="r">{{ t.ve_rate }}</th><th class="r">{{ t.ve_ci }}</th><th class="r">{{ t.ve_rate2 }}</th></tr></thead>
+    <tbody>{% for r in ve.types %}<tr><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.f }}</td><td class="r">{{ r.pa }}</td><td class="r">{{ r.nf }}</td><td class="r">{{ r.u }}</td><td class="r">{{ r.rate }}</td><td class="r">{{ r.ci }}</td><td class="r">{{ r.rate2 }}</td></tr>{% endfor %}</tbody>
   </table></div>
 </section>
 <section>

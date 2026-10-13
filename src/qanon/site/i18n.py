@@ -496,3 +496,142 @@ T["en"].update({
 
 T["fr"]["f_verif"] = "Prédictions vérifiées une à une : {rate} des {c} prédictions vérifiables se sont réalisées, {rate_nt} hors événements déjà programmés ; arrestations et inculpations annoncées : {legal_ok} sur {legal}."
 T["en"]["f_verif"] = "Predictions checked one by one: {rate} of the {c} checkable predictions came true, {rate_nt} excluding already-scheduled events; announced arrests and indictments: {legal_ok} of {legal}."
+
+# --- Page Statistiques
+T["fr"].update({
+  "nav_stats": "Statistiques", "stats_title": "Statistiques complémentaires", "toc": "Sommaire",
+  "stats_lead": "Indicateurs calculés sur les {n} drops : rythme et rafales, régimes d'activité, forums, sources citées, renvois, vocabulaire religieux, lisibilité. Chaque section donne sa méthode et ses références.",
+  "rhythm_title": "Rythme : des rafales, pas un flux régulier",
+  "rhythm_text": "L'intervalle médian entre deux drops est de {med} (quartiles : {q25} et {q75}). {w5} des drops suivent le précédent de moins de 5 minutes, {w1h} de moins d'une heure. Coefficient de rafale B = {b} : 0 pour des publications au hasard (processus de Poisson), 1 pour une activité très concentrée. Mémoire M = {m} ({ml} sur les logarithmes des intervalles) : un intervalle court annonce un peu plus souvent un autre intervalle court.",
+  "gaps_hist_title": "Intervalle entre deux drops consécutifs",
+  "gaps_hist_note": "Échelle logarithmique, de la seconde à plusieurs mois.",
+  "gap_axis": "intervalle (minutes, échelle log)", "gap_from": "de (min)", "gap_to": "à (min)", "n_intervals": "intervalles",
+  "one_day": "1 jour", "one_week": "1 semaine",
+  "sessions_text": "En regroupant les drops séparés de moins de {gap} minutes, on obtient {ns} sessions. {multi} des drops appartiennent à une session de plusieurs drops ; une session de plusieurs drops en compte {med} en médiane et dure {span} minutes ; la plus longue en compte {max}.",
+  "sessions_title": "Taille des sessions", "session_size": "drops dans la session", "n_sessions": "sessions",
+  "rhythm_method": "Le seuil de 30 minutes est conventionnel. Sensibilité : {sens}. B et M :",
+  "regimes_title": "Régimes d'activité",
+  "regimes_lead": "Le volume hebdomadaire est découpé en périodes de rythme homogène. Chaque rupture est rapprochée de l'événement de la chronologie le plus proche (à trois semaines près). Une rupture proche d'un événement ne prouve pas qu'il en est la cause.",
+  "regimes_chart": "Drops par semaine et moyenne de chaque régime",
+  "regimes_chart_note": "Aire : drops par semaine. Traits : moyenne hebdomadaire de chaque régime.",
+  "drops_per_week": "drops par semaine", "mean_per_week": "Moyenne / semaine",
+  "col_weeks": "Semaines", "col_near_event": "Événement le plus proche du début",
+  "regimes_note": "Méthode : partition optimale par programmation dynamique, coût de Poisson corrigé de la surdispersion (φ = {phi}, estimé sur les différences premières), pénalité BIC, segments d'au moins {w} semaines.",
+  "boards_title": "Forums : un style par plateforme",
+  "boards_lead": "Q a changé de forum à mesure des fermetures et des migrations. La longueur des drops, la part de liens et d'images varient d'un forum à l'autre ; elles se confondent avec l'évolution dans le temps.",
+  "col_per_day": "Drops / jour actif", "col_words": "Mots (médiane)", "col_links": "Liens", "col_images": "Images",
+  "col_questions": "Questions", "col_refs": "Renvois",
+  "domains_title": "Sources citées",
+  "domains_text": "Les drops contiennent {nl} liens vers {ns} sites différents, dans {nd} drops. Twitter domine. Le premier média d'information cité est {first} ({fn} drops), devant {next}.",
+  "domains_chart": "Les 25 sites les plus cités", "domains_chart_note": "Nombre de drops contenant au moins un lien vers le site (échelle racine carrée).",
+  "domain_years_title": "Type de site cité, par année", "share_links_axis": "part des liens", "n_links": "liens",
+  "drops_citing": "drops",
+  "dcat_social": "Réseaux sociaux et vidéo", "dcat_press": "Presse et médias", "dcat_official": "Sites officiels (.gov, .mil)",
+  "dcat_archive": "Archives, documents, encyclopédies",
+  "domains_method": "Les sites sont classés par type, pas par orientation politique ; les versions mobiles et vidéo d'un même site sont regroupées. Les liens archivés (archive.is) masquent la source d'origine.",
+  "refs_title": "Renvois : Q répond, Q se cite",
+  "refs_text": "{share} des drops renvoient à un autre message du forum (>>) : {anon} à un message d'anonyme, auquel Q répond ou qu'il valide, et {self_} à l'un de ses propres drops ({n_self} renvois). L'autocitation sert à faire « confirmer » une annonce passée par l'actualité (« Future proves past »).",
+  "col_year": "Année", "col_refs_all": "Avec renvoi", "col_refs_anon": "Vers un anonyme", "col_refs_self": "Vers un drop de Q",
+  "religion_title": "Vocabulaire religieux",
+  "religion_text": "{faith} des drops emploient un vocabulaire religieux ou moral (God, Jesus, Lord, pray, evil, armor of God…), {god} le mot God. {nv} drops citent un verset biblique ; le premier est le drop n° {first} ({date}). Livres cités : {books}.",
+  "religion_chart": "Part des drops au vocabulaire religieux, par trimestre", "religion_chart_note": "Trimestres d'au moins 10 drops, jusqu'à fin 2020.",
+  "rel_faith": "vocabulaire religieux ou moral", "rel_god": "mot « God »",
+  "religion_lit": "La dimension religieuse de QAnon est discutée notamment par",
+  "lexicon_title": "Lisibilité et richesse lexicale",
+  "lexicon_text": "Indice de facilité de lecture de Flesch : {f} sur l'ensemble (60 à 70 correspond à un anglais courant), avec {wps} mots par phrase en moyenne. Vocabulaire : {types} formes distinctes pour {tokens} mots, dont {hapax} n'apparaissent qu'une fois. Exposant de Zipf {z} (proche de 1 comme dans la plupart des textes), exposant de Heaps {h}, MATTR (fenêtre de 500 mots) {mattr}.",
+  "flesch_title": "Facilité de lecture (Flesch), par trimestre", "flesch_note": "Plus haut = plus facile.", "flesch": "Flesch",
+  "mattr_title": "Richesse lexicale (MATTR), par trimestre", "mattr_note": "Part de formes distinctes sur une fenêtre glissante de 500 mots.",
+  "lexicon_method": "Texte sans liens, renvois ni signature ; syllabes estimées par groupes de voyelles. L'indice de Flesch est conçu pour la prose : sur des listes et des questions, il reste un repère relatif, utile pour comparer les périodes.",
+  "horizon_title": "Horizon des prédictions",
+  "horizon_text": "Pour les {n} prédictions dont l'échéance est une date précise, celle-ci tombe en médiane {med} jours après le drop : {s7} à moins d'une semaine, {s30} à moins d'un mois. Q annonce surtout pour tout de suite.",
+  "horizon_chart": "Délai entre le drop et l'échéance annoncée", "horizon_axis": "jours", "horizon_note": "Échéances exprimées par une date complète (énoncée ou déduite par le modèle).",
+  "ve_ci": "IC 95 %",
+})
+T["en"].update({
+  "nav_stats": "Statistics", "stats_title": "Further statistics", "toc": "Contents",
+  "stats_lead": "Indicators computed on the {n} drops: rhythm and bursts, activity regimes, boards, cited sources, references, religious vocabulary, readability. Each section gives its method and references.",
+  "rhythm_title": "Rhythm: bursts, not a steady flow",
+  "rhythm_text": "The median interval between two drops is {med} (quartiles: {q25} and {q75}). {w5} of drops follow the previous one within 5 minutes, {w1h} within an hour. Burstiness B = {b}: 0 for random posting (Poisson process), 1 for highly concentrated activity. Memory M = {m} ({ml} on log intervals): a short interval is slightly more often followed by another short one.",
+  "gaps_hist_title": "Interval between consecutive drops",
+  "gaps_hist_note": "Log scale, from seconds to months.",
+  "gap_axis": "interval (minutes, log scale)", "gap_from": "from (min)", "gap_to": "to (min)", "n_intervals": "intervals",
+  "one_day": "1 day", "one_week": "1 week",
+  "sessions_text": "Grouping drops less than {gap} minutes apart gives {ns} sessions. {multi} of drops belong to a multi-drop session; a multi-drop session has a median of {med} drops and lasts {span} minutes; the longest has {max}.",
+  "sessions_title": "Session size", "session_size": "drops in the session", "n_sessions": "sessions",
+  "rhythm_method": "The 30-minute threshold is conventional. Sensitivity: {sens}. B and M:",
+  "regimes_title": "Activity regimes",
+  "regimes_lead": "Weekly volume is split into periods of homogeneous rhythm. Each break is matched with the nearest timeline event (within three weeks). A break close to an event does not prove the event caused it.",
+  "regimes_chart": "Drops per week and mean of each regime",
+  "regimes_chart_note": "Area: drops per week. Lines: weekly mean of each regime.",
+  "drops_per_week": "drops per week", "mean_per_week": "Mean / week",
+  "col_weeks": "Weeks", "col_near_event": "Event nearest to the start",
+  "regimes_note": "Method: optimal partitioning by dynamic programming, Poisson cost corrected for overdispersion (φ = {phi}, estimated on first differences), BIC penalty, segments of at least {w} weeks.",
+  "boards_title": "Boards: one style per platform",
+  "boards_lead": "Q changed boards as sites closed and communities migrated. Drop length and the share of links and images vary from board to board; this is confounded with change over time.",
+  "col_per_day": "Drops / active day", "col_words": "Words (median)", "col_links": "Links", "col_images": "Images",
+  "col_questions": "Questions", "col_refs": "References",
+  "domains_title": "Cited sources",
+  "domains_text": "Drops contain {nl} links to {ns} different sites, in {nd} drops. Twitter dominates. The most cited news outlet is {first} ({fn} drops), ahead of {next}.",
+  "domains_chart": "The 25 most cited sites", "domains_chart_note": "Number of drops with at least one link to the site (square-root scale).",
+  "domain_years_title": "Type of cited site, by year", "share_links_axis": "share of links", "n_links": "links",
+  "drops_citing": "drops",
+  "dcat_social": "Social media and video", "dcat_press": "Press and media", "dcat_official": "Official sites (.gov, .mil)",
+  "dcat_archive": "Archives, documents, encyclopedias",
+  "domains_method": "Sites are classified by type, not by political leaning; mobile and video versions of a site are merged. Archived links (archive.is) hide the original source.",
+  "refs_title": "References: Q replies, Q quotes Q",
+  "refs_text": "{share} of drops reference another post on the board (>>): {anon} an anonymous post, which Q answers or endorses, and {self_} one of Q's own drops ({n_self} references). Self-quotation is used to have the news \"confirm\" a past announcement (\"Future proves past\").",
+  "col_year": "Year", "col_refs_all": "With reference", "col_refs_anon": "To an anon", "col_refs_self": "To a Q drop",
+  "religion_title": "Religious vocabulary",
+  "religion_text": "{faith} of drops use religious or moral vocabulary (God, Jesus, Lord, pray, evil, armor of God…), {god} the word God. {nv} drops quote a Bible verse; the first is drop #{first} ({date}). Books quoted: {books}.",
+  "religion_chart": "Share of drops with religious vocabulary, by quarter", "religion_chart_note": "Quarters with at least 10 drops, up to end 2020.",
+  "rel_faith": "religious or moral vocabulary", "rel_god": "word \"God\"",
+  "religion_lit": "The religious dimension of QAnon is discussed in particular by",
+  "lexicon_title": "Readability and lexical richness",
+  "lexicon_text": "Flesch reading ease: {f} overall (60 to 70 is plain English), with {wps} words per sentence on average. Vocabulary: {types} distinct forms for {tokens} words, {hapax} of which occur only once. Zipf exponent {z} (close to 1 as in most texts), Heaps exponent {h}, MATTR (500-word window) {mattr}.",
+  "flesch_title": "Reading ease (Flesch), by quarter", "flesch_note": "Higher = easier.", "flesch": "Flesch",
+  "mattr_title": "Lexical richness (MATTR), by quarter", "mattr_note": "Share of distinct forms over a moving 500-word window.",
+  "lexicon_method": "Text without links, references or signature; syllables estimated from vowel groups. The Flesch score is designed for prose: on lists and questions it remains a relative marker, useful for comparing periods.",
+  "horizon_title": "Prediction horizon",
+  "horizon_text": "For the {n} predictions whose deadline is a full date, it falls a median of {med} days after the drop: {s7} within a week, {s30} within a month. Q mostly announces for right now.",
+  "horizon_chart": "Delay between the drop and the announced deadline", "horizon_axis": "days", "horizon_note": "Deadlines given as a full date (stated or derived by the model).",
+  "ve_ci": "95% CI",
+})
+
+_TOPICS = {
+  "origins": ("Origines", "Origins"), "platforms": ("Plateformes", "Platforms"), "methods": ("Méthodes", "Methods"),
+  "discourse": ("Discours", "Discourse"), "politics": ("Politique", "Politics"), "extremism": ("Extrémisme", "Extremism"),
+  "datasets": ("Jeux de données", "Datasets"), "psychology": ("Psychologie", "Psychology"), "media": ("Médias", "Media"),
+  "international": ("International", "International"), "belief-surveys": ("Sondages", "Belief surveys"),
+  "authorship": ("Attribution d'auteur", "Authorship"), "violence": ("Violence", "Violence"),
+  "moderation": ("Modération", "Moderation"), "health": ("Santé", "Health"), "elections": ("Élections", "Elections"),
+  "religion": ("Religion", "Religion"), "predictions": ("Prédictions", "Predictions"), "gender": ("Genre", "Gender"),
+  "deradicalization": ("Déradicalisation", "Deradicalisation"),
+  "background": ("Ouvrages de fond", "Background works"),
+}
+for _k, (_fr, _en) in _TOPICS.items():
+    T["fr"][f"topic_{_k}"], T["en"][f"topic_{_k}"] = _fr, _en
+
+T["fr"]["f_rhythm"] = "Q publie par rafales : {w5} des drops suivent le précédent de moins de 5 minutes (coefficient de rafale {b}), regroupés en {ns} sessions (page Statistiques)."
+T["en"]["f_rhythm"] = "Q posts in bursts: {w5} of drops follow the previous one within 5 minutes (burstiness {b}), grouped into {ns} sessions (Statistics page)."
+T["fr"]["f_domains"] = "Hors réseaux sociaux, le média le plus cité en lien est {first} ({fn} drops), {ahead} {second} ({sn})."
+T["en"]["f_domains"] = "Outside social media, the most linked news outlet is {first} ({fn} drops), {ahead} {second} ({sn})."
+T["fr"]["ahead_far"], T["fr"]["ahead"] = "loin devant", "devant"
+T["en"]["ahead_far"], T["en"]["ahead"] = "far ahead of", "ahead of"
+
+T["fr"].update({
+  "nav_research": "État de la recherche", "research_title": "État de la recherche",
+  "research_lead": "Ce que la recherche sait de QAnon, question par question, avec {n} références de la bibliographie. Chaque appel renvoie à la notice ; les liens internes mènent aux résultats de ce site.",
+  "start_title": "Par où commencer", "start_note": "Une sélection de lectures pour entrer dans le sujet : histoires du mouvement, ouvrage collectif de référence, études de données et de plateformes.",
+  "research_caveat": "Synthèse rédigée à partir des résumés et des conclusions publiées des travaux cités ; elle ne remplace pas leur lecture. Les attributions d'auteur citées sont des hypothèses de recherche, contestées par les intéressés.",
+  "bib_start": "Pour commencer : la sélection et la synthèse de la page",
+})
+T["en"].update({
+  "nav_research": "State of research", "research_title": "State of research",
+  "research_lead": "What research knows about QAnon, question by question, with {n} references from the bibliography. Each citation links to its entry; internal links lead to this site's results.",
+  "start_title": "Where to start", "start_note": "A selection of readings to get into the subject: histories of the movement, the reference edited volume, data and platform studies.",
+  "research_caveat": "Synthesis written from the abstracts and published conclusions of the works cited; it does not replace reading them. The authorship attributions cited are research hypotheses, disputed by those concerned.",
+  "bib_start": "To start: the selection and synthesis on the page",
+})
+T["fr"]["sens_item"] = "{gap} min : {ns} sessions, {multi} des drops en session multiple"
+T["en"]["sens_item"] = "{gap} min: {ns} sessions, {multi} of drops in multi-drop sessions"
+T["fr"]["col_active_days"], T["en"]["col_active_days"] = "Jours actifs", "Active days"

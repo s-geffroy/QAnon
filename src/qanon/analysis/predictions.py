@@ -52,6 +52,13 @@ def run(ctx):
 
     actor_counts = Counter(a for ids in P["actor_ids"] for a in ids) if len(P) else Counter()
     explicit = P[P["deadline"].notna()].sort_values("deadline") if len(P) else P
+    # Horizon : delai entre le drop et l'echeance (dates completes seulement).
+    horizon = []
+    if len(P):
+        full = P[P["deadline"].astype(str).str.match(r"^\d{4}-\d{2}-\d{2}$")]
+        days = (pd.to_datetime(full["deadline"]) - pd.to_datetime(full["date"])).dt.days
+        horizon = [int(x) for x in days if x >= 0]
+    hz = pd.Series(horizon, dtype=float)
     # Echeances depassees a la date du dernier drop actif : base de la verification.
     out = {
         "model": model, "n_annotated": len(drops_flag), "n_errors": errors,
@@ -61,6 +68,12 @@ def run(ctx):
         "by_specificity": Counter(P["specificity"]).most_common() if len(P) else [],
         "by_deadline_type": Counter(P["deadline_type"]).most_common() if len(P) else [],
         "monthly": monthly.to_dict("records"),
+        "horizon": {"n": len(horizon), "median_days": float(hz.median()) if len(hz) else None,
+                    "share_7d": float((hz <= 7).mean()) if len(hz) else None,
+                    "share_30d": float((hz <= 30).mean()) if len(hz) else None,
+                    "bins": [{"label": lab, "n": int(((hz >= lo) & (hz <= hi)).sum())} for lab, lo, hi in
+                             (("0-1", 0, 1), ("2-7", 2, 7), ("8-30", 8, 30), ("31-90", 31, 90),
+                              ("91-365", 91, 365), ("365+", 366, 10 ** 6))]},
         "by_year": (P.assign(year=P["date"].str[:4]).groupby(["year", "specificity"]).size()
                     .reset_index(name="n").to_dict("records")) if len(P) else [],
         "actors": [{"id": a, "name": names.get(a, a), "n": n} for a, n in actor_counts.most_common(40)],

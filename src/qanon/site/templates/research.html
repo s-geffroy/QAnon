@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ t.research_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.research_title }}</h1>
+<p class="lead">{{ t.research_lead.format(n=n_cited) }}</p>
+<nav class="toc" aria-label="{{ t.toc }}"><ol>
+  <li><a href="#start">{{ t.start_title }}</a></li>
+  {% for s in sections %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}
+</ol></nav>
+<section id="start">
+  <h2>{{ t.start_title }}</h2>
+  <p class="note">{{ t.start_note }}</p>
+  <ol class="bib">{% for r in start %}
+    <li><p class="cit">{% if r.cit.authors %}{{ r.cit.authors }} {% endif %}({{ r.cit.year }}). <a href="bibliography.html#{{ r.id }}">{{ r.title }}</a>.</p>
+    {% if r.summary %}<p class="summary">{{ r.summary }}</p>{% endif %}</li>{% endfor %}
+  </ol>
+</section>
+{% for s in sections %}
+<section id="{{ s.id }}">
+  <h2>{{ s.title }}</h2>
+  {% for p in s.paras %}<p>{{ p }}</p>{% endfor %}
+</section>
+{% endfor %}
+<p class="note">{{ t.research_caveat }}</p>
+{% endblock %}

@@ -49,6 +49,13 @@ def citation(r, lang):
     if r.get("pages"):
         loc.append(str(r["pages"]))
     parts["loc"] = ", ".join(loc)
+    if r.get("editors") and not r.get("authors"):
+        n = len(r["editors"])
+        parts["authors"] = f"{authors_text(r['editors'], lang)} ({'dir.' if lang == 'fr' else ('Ed.' if n == 1 else 'Eds.')})"
+    elif r.get("editors") and r.get("container"):
+        eds = authors_text(r["editors"], lang)
+        label = ("dir." if lang == "fr" else ("Ed." if len(r["editors"]) == 1 else "Eds."))
+        parts["container"] = f"{'Dans' if lang == 'fr' else 'In'} {eds} ({label}), {r['container']}"
     return parts
 
 
@@ -70,9 +77,12 @@ def bibtex(r):
             f["number" if k == "issue" else k] = r[k]
     if r.get("issue"):
         f["number"] = r["issue"]
+    if r.get("editors"):
+        f["editor"] = " and ".join(r["editors"])
     if r.get("date"):
         f["date"] = r["date"]
-    f["langid"] = {"en": "english", "fr": "french", "de": "german"}.get(r.get("lang"), r.get("lang"))
+    f["langid"] = {"en": "english", "fr": "french", "de": "german", "es": "spanish", "it": "italian", "nl": "dutch",
+                 "pt": "portuguese", "ja": "japanese", "cs": "czech"}.get(r.get("lang"), r.get("lang"))
     body = ",\n".join(f"  {k} = {{{v}}}" for k, v in f.items() if v)
     return f"@{t}{{{r['id']},\n{body}\n}}"
 
@@ -86,6 +96,7 @@ def csl(r):
     date = r.get("date") or str(r.get("year") or "")
     item = {"id": r["id"], "type": CSL_TYPE.get(r["type"], "document"), "title": r["title"],
             "author": [person(n) for n in r.get("authors", [])],
+            "editor": [person(n) for n in r.get("editors", [])] or None,
             "issued": {"date-parts": [[int(x) for x in str(date).split("-") if x.isdigit()]]} if date else None,
             "container-title": r.get("container"), "publisher": r.get("publisher"), "volume": r.get("volume"),
             "issue": r.get("issue"), "page": r.get("pages"), "DOI": r.get("doi"), "URL": r.get("url"),

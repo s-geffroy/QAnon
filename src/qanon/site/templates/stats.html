@@ -1,0 +1,85 @@
+{% extends "base.html" %}{% from "macros.html" import chart, pending %}
+{% block title %}{{ t.stats_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.stats_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+<p class="lead">{{ lead }}</p>
+<nav class="toc" aria-label="{{ t.toc }}"><ol>
+  <li><a href="#rythme">{{ t.rhythm_title }}</a></li><li><a href="#regimes">{{ t.regimes_title }}</a></li>
+  <li><a href="#forums">{{ t.boards_title }}</a></li><li><a href="#sources">{{ t.domains_title }}</a></li>
+  <li><a href="#renvois">{{ t.refs_title }}</a></li><li><a href="#religion">{{ t.religion_title }}</a></li>
+  <li><a href="#lexique">{{ t.lexicon_title }}</a></li>{% if horizon %}<li><a href="#horizon">{{ t.horizon_title }}</a></li>{% endif %}
+</ol></nav>
+
+<section id="rythme">
+  <h2>{{ t.rhythm_title }}</h2>
+  <p>{{ rhythm }}</p>
+  {{ chart("gaps", charts.gaps, t.gaps_hist_title, t.gaps_hist_note) }}
+  <p>{{ sessions }}</p>
+  {{ chart("sessions", charts.sessions, t.sessions_title) }}
+  <p class="note">{{ rhythm_method }} {{ cite("goh2008burstiness") }}</p>
+</section>
+
+<section id="regimes">
+  <h2>{{ t.regimes_title }}</h2>
+  <p>{{ t.regimes_lead }}</p>
+  {{ chart("regimes", charts.regimes, t.regimes_chart, t.regimes_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_from }}</th><th>{{ t.col_to }}</th><th class="r">{{ t.col_weeks }}</th><th class="r">{{ t.mean_per_week }}</th><th class="r">{{ t.col_n }}</th><th>{{ t.col_near_event }}</th></tr></thead>
+    <tbody>{% for s in segments %}<tr><td>{{ s.from }}</td><td>{{ s.to }}</td><td class="r">{{ s.weeks }}</td><td class="r">{{ s.mean }}</td><td class="r">{{ s.total }}</td><td>{{ s.event }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ regimes_note }} {{ cite("jackson2005optimal", "killick2012pelt") }}</p>
+</section>
+
+<section id="forums">
+  <h2>{{ t.boards_title }}</h2>
+  <p>{{ t.boards_lead }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_board }}</th><th>{{ t.col_first }}</th><th>{{ t.col_last }}</th><th class="r">{{ t.col_n }}</th><th class="r">{{ t.col_active_days }}</th><th class="r">{{ t.col_per_day }}</th><th class="r">{{ t.col_words }}</th><th class="r">{{ t.col_links }}</th><th class="r">{{ t.col_images }}</th><th class="r">{{ t.col_questions }}</th><th class="r">{{ t.col_refs }}</th></tr></thead>
+    <tbody>{% for b in boards %}<tr><th>{{ b.board }}</th><td>{{ b.first }}</td><td>{{ b.last }}</td><td class="r">{{ b.n }}</td><td class="r">{{ b.days }}</td><td class="r">{{ b.per_day }}</td><td class="r">{{ b.words }}</td><td class="r">{{ b.links }}</td><td class="r">{{ b.images }}</td><td class="r">{{ b.questions }}</td><td class="r">{{ b.refs }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+
+<section id="sources">
+  <h2>{{ t.domains_title }}</h2>
+  <p>{{ domains }}</p>
+  {{ chart("domains", charts.domains, t.domains_chart, t.domains_chart_note) }}
+  {{ chart("domain_years", charts.domain_years, t.domain_years_title) }}
+  <p class="note">{{ t.domains_method }}</p>
+</section>
+
+<section id="renvois">
+  <h2>{{ t.refs_title }}</h2>
+  <p>{{ refs }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_year }}</th><th class="r">{{ t.col_n }}</th><th class="r">{{ t.col_refs_all }}</th><th class="r">{{ t.col_refs_anon }}</th><th class="r">{{ t.col_refs_self }}</th></tr></thead>
+    <tbody>{% for r in refs_rows %}<tr><th>{{ r.year }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.all }}</td><td class="r">{{ r.anon }}</td><td class="r">{{ r.self }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+</section>
+
+<section id="religion">
+  <h2>{{ t.religion_title }}</h2>
+  <p>{{ religion }}</p>
+  {{ chart("religion", charts.religion, t.religion_chart, t.religion_chart_note) }}
+  <p class="note">{{ t.religion_lit }} {{ cite("lafrance2020prophecies", "amarasingam2023categorizing", "argentino2025qanon") }}. <a href="research.html#religion">{{ t.nav_research }}</a>.</p>
+</section>
+
+<section id="lexique">
+  <h2>{{ t.lexicon_title }}</h2>
+  <p>{{ lexicon }}</p>
+  <div class="grid2">
+    {{ chart("flesch", charts.flesch, t.flesch_title, t.flesch_note) }}
+    {{ chart("mattr", charts.mattr, t.mattr_title, t.mattr_note) }}
+  </div>
+  <p class="note">{{ t.lexicon_method }} {{ cite("flesch1948readability", "covington2010mattr") }}</p>
+</section>
+
+{% if horizon %}
+<section id="horizon">
+  <h2>{{ t.horizon_title }}</h2>
+  <p>{{ horizon }}</p>
+  {{ chart("horizon", charts.horizon, t.horizon_chart, t.horizon_note) }}
+</section>
+{% endif %}
+{% endif %}
+{% endblock %}

@@ -1315,3 +1315,2241 @@ references:
   topics: [politics, extremism]
   summary_fr: "Résolution déposée le 25 septembre 2020 par Tom Malinowski et adoptée par la Chambre le 2 octobre 2020 (371 voix contre 18) ; elle condamne QAnon et appelle les forces de l'ordre fédérales à surveiller les violences qu'il inspire."
   summary_en: "Resolution introduced on 25 September 2020 by Tom Malinowski and adopted by the House on 2 October 2020 (371-18); it condemns QAnon and urges federal law enforcement to focus on violence it inspires."
+
+# ---------------------------------------------------------------- methodes statistiques (references de methode)
+
+- id: goh2008burstiness
+  type: article
+  authors: ["Goh, K.-I.", "Barabási, A.-L."]
+  year: 2008
+  title: "Burstiness and memory in complex systems"
+  container: "EPL (Europhysics Letters)"
+  volume: "81"
+  issue: "4"
+  pages: "48002"
+  doi: "10.1209/0295-5075/81/48002"
+  url: "https://doi.org/10.1209/0295-5075/81/48002"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Définit le coefficient de rafale B et le coefficient de mémoire M qui caractérisent les intervalles entre événements d'un système. Ce sont les mesures utilisées ici pour le rythme de publication de Q."
+  summary_en: "Defines the burstiness coefficient B and the memory coefficient M characterising inter-event times. These are the measures used here for Q's posting rhythm."
+
+- id: jackson2005optimal
+  type: article
+  authors: ["Jackson, B.", "Scargle, J. D.", "Barnes, D.", "Arabhi, S.", "Alt, A.", "Gioumousis, P.", "Gwin, E.", "San, P.", "Tan, L.", "Tsai, Tun Tao"]
+  year: 2005
+  title: "An algorithm for optimal partitioning of data on an interval"
+  container: "IEEE Signal Processing Letters"
+  volume: "12"
+  issue: "2"
+  pages: "105-108"
+  doi: "10.1109/LSP.2001.838216"
+  url: "https://doi.org/10.1109/LSP.2001.838216"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Algorithme de programmation dynamique qui trouve la partition optimale d'une série en segments sous une pénalité par segment. Base de la détection des régimes d'activité."
+  summary_en: "Dynamic-programming algorithm finding the optimal partition of a series into segments under a per-segment penalty. Basis of the activity-regime detection."
+
+- id: killick2012pelt
+  type: article
+  authors: ["Killick, R.", "Fearnhead, P.", "Eckley, I. A."]
+  year: 2012
+  title: "Optimal Detection of Changepoints With a Linear Computational Cost"
+  container: "Journal of the American Statistical Association"
+  volume: "107"
+  issue: "500"
+  pages: "1590-1598"
+  doi: "10.1080/01621459.2012.737745"
+  url: "https://doi.org/10.1080/01621459.2012.737745"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Présente PELT, version élaguée de la partition optimale, et discute le choix des pénalités (dont BIC). Référence standard de la détection de ruptures."
+  summary_en: "Introduces PELT, a pruned version of optimal partitioning, and discusses penalty choice (including BIC). Standard reference for changepoint detection."
+
+- id: flesch1948readability
+  type: article
+  authors: ["Flesch, Rudolph"]
+  year: 1948
+  title: "A new readability yardstick"
+  container: "Journal of Applied Psychology"
+  volume: "32"
+  issue: "3"
+  pages: "221-233"
+  doi: "10.1037/h0057532"
+  url: "https://doi.org/10.1037/h0057532"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Article fondateur de l'indice de facilité de lecture de Flesch, fondé sur la longueur des phrases et le nombre de syllabes par mot."
+  summary_en: "Founding article of the Flesch reading-ease score, based on sentence length and syllables per word."
+
+- id: covington2010mattr
+  type: article
+  authors: ["Covington, Michael A.", "McFall, Joe D."]
+  year: 2010
+  title: "Cutting the Gordian Knot: The Moving-Average Type–Token Ratio (MATTR)"
+  container: "Journal of Quantitative Linguistics"
+  volume: "17"
+  issue: "2"
+  pages: "94-100"
+  doi: "10.1080/09296171003643098"
+  url: "https://doi.org/10.1080/09296171003643098"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Propose le MATTR, rapport formes/occurrences moyenné sur une fenêtre glissante, qui mesure la richesse lexicale indépendamment de la longueur du texte."
+  summary_en: "Proposes MATTR, a type-token ratio averaged over a moving window, measuring lexical richness independently of text length."
+
+- id: wilson1927probable
+  type: article
+  authors: ["Wilson, Edwin B."]
+  year: 1927
+  title: "Probable Inference, the Law of Succession, and Statistical Inference"
+  container: "Journal of the American Statistical Association"
+  volume: "22"
+  issue: "158"
+  pages: "209-212"
+  doi: "10.1080/01621459.1927.10502953"
+  url: "https://doi.org/10.1080/01621459.1927.10502953"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Origine de l'intervalle de confiance de Wilson pour une proportion, fiable même sur de petits effectifs. Utilisé pour les taux de réalisation des prédictions."
+  summary_en: "Origin of the Wilson confidence interval for a proportion, reliable even with small counts. Used for the prediction fulfilment rates."
+
+- id: monroe2008fightin
+  type: article
+  authors: ["Monroe, Burt L.", "Colaresi, Michael P.", "Quinn, Kevin M."]
+  year: 2008
+  title: "Fightin' Words: Lexical Feature Selection and Evaluation for Identifying the Content of Political Conflict"
+  container: "Political Analysis"
+  volume: "16"
+  issue: "4"
+  pages: "372-403"
+  doi: "10.1093/pan/mpn018"
+  url: "https://doi.org/10.1093/pan/mpn018"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Méthode du log-odds avec a priori de Dirichlet informatif pour repérer les mots distinctifs d'un groupe de textes. Utilisée pour les termes distinctifs de chaque année."
+  summary_en: "Log-odds with an informative Dirichlet prior to identify the words distinguishing a group of texts. Used for each year's distinctive terms."
+
+- id: burrows2002delta
+  type: article
+  authors: ["Burrows, J."]
+  year: 2002
+  title: "'Delta': a Measure of Stylistic Difference and a Guide to Likely Authorship"
+  container: "Literary and Linguistic Computing"
+  volume: "17"
+  issue: "3"
+  pages: "267-287"
+  doi: "10.1093/llc/17.3.267"
+  url: "https://doi.org/10.1093/llc/17.3.267"
+  lang: en
+  topics: [methods, authorship, background]
+  summary_fr: "Introduit le Delta de Burrows, distance stylistique fondée sur les fréquences standardisées des mots les plus courants. Base de la stylométrie exploratoire de ce site."
+  summary_en: "Introduces Burrows's Delta, a stylistic distance based on standardised frequencies of the most common words. Basis of this site's exploratory stylometry."
+
+- id: lee1999nmf
+  type: article
+  authors: ["Lee, Daniel D.", "Seung, H. Sebastian"]
+  year: 1999
+  title: "Learning the parts of objects by non-negative matrix factorization"
+  container: "Nature"
+  volume: "401"
+  issue: "6755"
+  pages: "788-791"
+  doi: "10.1038/44565"
+  url: "https://doi.org/10.1038/44565"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Article qui a popularisé la factorisation en matrices non négatives (NMF), utilisée ici pour extraire les thèmes du corpus."
+  summary_en: "Article that popularised non-negative matrix factorisation (NMF), used here to extract the corpus themes."
+
+- id: granger1969causal
+  type: article
+  authors: ["Granger, C. W. J."]
+  year: 1969
+  title: "Investigating Causal Relations by Econometric Models and Cross-spectral Methods"
+  container: "Econometrica"
+  volume: "37"
+  issue: "3"
+  pages: "424-438"
+  doi: "10.2307/1912791"
+  url: "https://doi.org/10.2307/1912791"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Définit la « causalité au sens de Granger » : une série en précède une autre si son passé améliore la prévision. Test utilisé pour Q et l'actualité GDELT."
+  summary_en: "Defines Granger causality: one series precedes another if its past improves the forecast. Test used for Q and GDELT news."
+
+- id: phipson2010permutation
+  type: article
+  authors: ["Phipson, Belinda", "Smyth, Gordon K."]
+  year: 2010
+  title: "Permutation P-values Should Never Be Zero: Calculating Exact P-values When Permutations Are Randomly Drawn"
+  container: "Statistical Applications in Genetics and Molecular Biology"
+  volume: "9"
+  issue: "1"
+  doi: "10.2202/1544-6115.1585"
+  url: "https://doi.org/10.2202/1544-6115.1585"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Montre comment calculer correctement une p-valeur par permutations tirées au hasard. Principe appliqué aux tests Q / tweets de Trump."
+  summary_en: "Shows how to compute a p-value correctly from randomly drawn permutations. Principle applied to the Q / Trump tweet tests."
+
+- id: efron1979bootstrap
+  type: article
+  authors: ["Efron, B."]
+  year: 1979
+  title: "Bootstrap Methods: Another Look at the Jackknife"
+  container: "The Annals of Statistics"
+  volume: "7"
+  issue: "1"
+  pages: "1-26"
+  doi: "10.1214/aos/1176344552"
+  url: "https://doi.org/10.1214/aos/1176344552"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Article fondateur du bootstrap, utilisé pour les intervalles de confiance des scores F1 de l'évaluation des modèles."
+  summary_en: "Founding article of the bootstrap, used for the confidence intervals of the model-evaluation F1 scores."
+
+# ---------------------------------------------------------------- articles recents 2022-2026
+
+- id: dezeeuw2023godtier
+  type: article
+  authors: ["de Zeeuw, Daniël", "Gekker, Alex"]
+  year: 2023
+  title: "A God-Tier LARP? QAnon as Conspiracy Fictioning"
+  container: "Social Media + Society"
+  volume: "9"
+  issue: "1"
+  doi: "10.1177/20563051231157300"
+  url: "https://doi.org/10.1177/20563051231157300"
+  open_access: true
+  lang: en
+  topics: [origins, platforms, discourse]
+  summary_fr: "L'article revient aux origines de QAnon sur le forum /pol/ de 4chan, où les posts de Q furent d'abord reçus comme un possible jeu de rôle (LARP), et l'analyse avec les outils des études du jeu et de la performance. Il propose la notion de « conspiracy fictioning » et réactive celle d'hyperstition pour expliquer comment ce récit participatif a fini par produire sa propre réalité alternative."
+  summary_en: "The article returns to QAnon's origins on 4chan's /pol/ board, where Q's posts were first received as a possible LARP, and analyses it with concepts from play and performance studies. It proposes the notion of 'conspiracy fictioning' and revives that of hyperstition to explain how this participatory narrative came to bootstrap its own alternate reality."
+
+- id: lee2022storm
+  type: article
+  authors: ["Lee, Claire Seungeun", "Merizalde, Juan", "Colautti, John D.", "An, Jisun", "Kwak, Haewoon"]
+  year: 2022
+  title: "Storm the Capitol: Linking Offline Political Speech and Online Twitter Extra-Representational Participation on QAnon and the January 6 Insurrection"
+  container: "Frontiers in Sociology"
+  volume: "7"
+  doi: "10.3389/fsoc.2022.876070"
+  url: "https://doi.org/10.3389/fsoc.2022.876070"
+  open_access: true
+  lang: en
+  topics: [platforms, politics, violence]
+  summary_fr: "L'étude combine les discours de Donald Trump précédant le 6 janvier 2021 et des données Twitter sur les hashtags QAnon, par une analyse quantitative et thématique sur trois jours. Elle met en évidence un lien entre ces discours hors ligne et la participation politique en ligne des comptes QAnon."
+  summary_en: "The study combines Donald Trump's speeches in the run-up to 6 January 2021 with Twitter data on QAnon hashtags, using quantitative and thematic analysis over a three-day window. It finds links between this offline speech and the online political participation of QAnon accounts."
+
+- id: pasquetto2022disinformation
+  type: article
+  authors: ["Pasquetto, Irene V.", "Olivieri, Alberto F.", "Tacchetti, Luca", "Riotta, Gianni", "Spada, Alessandra"]
+  year: 2022
+  title: "Disinformation as Infrastructure: Making and Maintaining the QAnon Conspiracy on Italian Digital Media"
+  container: "Proceedings of the ACM on Human-Computer Interaction"
+  volume: "6"
+  issue: "CSCW1"
+  pages: "1-31"
+  doi: "10.1145/3512931"
+  url: "https://doi.org/10.1145/3512931"
+  open_access: true
+  lang: en
+  topics: [international, platforms, moderation]
+  summary_fr: "Sur onze mois, les auteurs étudient comment les partisans italiens de QAnon ont construit et entretenu une « infrastructure de désinformation » répartie entre réseaux sociaux, messageries, forums, médias alternatifs, sites et agrégateurs. Ils montrent que cette infrastructure reste stable et s'étoffe avec le temps, et que la déplateformisation est d'autant moins efficace qu'elle intervient tard."
+  summary_en: "Over eleven months, the authors examine how Italian QAnon supporters built and maintained a distributed 'infrastructure of disinformation' spanning social media, messaging apps, forums, alternative media, websites and aggregators. They show that this infrastructure stays stable and grows over time, and that deplatforming becomes less effective the later it happens."
+
+- id: cera2023digital
+  type: article
+  authors: ["Cera, Michelle"]
+  year: 2023
+  title: "Digital ethnography: ethics through the case of QAnon"
+  container: "Frontiers in Sociology"
+  volume: "8"
+  doi: "10.3389/fsoc.2023.1119531"
+  url: "https://doi.org/10.3389/fsoc.2023.1119531"
+  open_access: true
+  lang: en
+  topics: [methods]
+  summary_fr: "À partir d'une ethnographie numérique originale des espaces QAnon sur les réseaux sociaux, l'article discute la distinction public/privé, l'observation silencieuse (« lurking »), la reformulation des données et le rôle des comités d'éthique. Il recommande de repenser cette distinction, de signaler la présence du chercheur quand c'est approprié et de ne pas reconstruire les données citées."
+  summary_en: "Drawing on original digital ethnographic research in QAnon social media spaces, the article discusses the public-private binary, lurking, data reconstruction and institutional review boards. It recommends rethinking that binary, making the researcher's presence known where appropriate, and avoiding the reconstruction of quoted data."
+
+- id: moskalenko2024qanon
+  type: article
+  authors: ["Moskalenko, Sophia", "Pavlović, Tomislav", "Burton, Brett"]
+  year: 2024
+  title: "QAnon Beliefs, Political Radicalization and Support for January 6th Insurrection: A Gendered Perspective"
+  container: "Terrorism and Political Violence"
+  volume: "36"
+  issue: "7"
+  pages: "962-981"
+  doi: "10.1080/09546553.2023.2236230"
+  url: "https://doi.org/10.1080/09546553.2023.2236230"
+  lang: en
+  topics: [belief-surveys, gender, violence, psychology]
+  summary_fr: "Une enquête en ligne auprès de 429 participants américains mesure les croyances QAnon, la radicalisation politique, le soutien à l'émeute du 6 janvier et les traits de personnalité du Big Five. Les croyances QAnon sont corrélées aux intentions d'action radicale et au soutien à l'émeute ; dans l'échantillon, les femmes y adhèrent davantage et les liens entre personnalité et radicalisation diffèrent selon le genre."
+  summary_en: "An online survey of 429 US participants measures QAnon beliefs, political radicalisation, support for the January 6 riot and Big Five personality traits. QAnon beliefs correlate with radical action intentions and support for the riot; in the sample women endorse them more, and the links between personality and radicalisation differ by gender."
+
+- id: conner2023qanon
+  type: article
+  authors: ["Conner, Christopher T."]
+  year: 2023
+  title: "QAnon, authoritarianism, and conspiracy within American alternative spiritual spaces"
+  container: "Frontiers in Sociology"
+  volume: "8"
+  doi: "10.3389/fsoc.2023.1136333"
+  url: "https://doi.org/10.3389/fsoc.2023.1136333"
+  open_access: true
+  lang: en
+  topics: [religion, health, discourse]
+  summary_fr: "Par une approche ethnographique qualitative, l'auteur analyse 1 000 heures de contenus produits par 100 influenceurs QAnon (4 104 images et 122 vidéos). Il identifie trois portes d'entrée culturelles peu associées au mouvement : groupes de yoga et de bien-être, cercles néo-chamaniques et voyants, par lesquels QAnon s'est implanté de manière discrète."
+  summary_en: "Using a qualitative ethnographic approach, the author analyses 1,000 hours of content produced by 100 QAnon influencers (4,104 images and 122 videos). He identifies three cultural entry points rarely associated with the movement: yoga and wellness groups, neo-shamanic circles and psychics, through which QAnon embedded itself largely unnoticed."
+
+- id: mcintosh2022sinister
+  type: article
+  authors: ["McIntosh, Janet"]
+  year: 2022
+  title: "The sinister signs of QAnon: Interpretive agency and paranoid truths in alt‐right oracles"
+  container: "Anthropology Today"
+  volume: "38"
+  issue: "1"
+  pages: "8-12"
+  doi: "10.1111/1467-8322.12697"
+  url: "https://doi.org/10.1111/1467-8322.12697"
+  lang: en
+  topics: [discourse, authorship, predictions]
+  summary_fr: "Cet essai d'anthropologie linguistique porte sur le style d'écriture cryptique des « Q drops » et sur les postures d'interprétation qu'il suscite chez les lecteurs. Il montre comment les drops mobilisent le secret et la divination pour se donner une aura d'omniscience tout en faisant de l'« anon » qui les déchiffre un agent épistémique à part entière."
+  summary_en: "This linguistic-anthropological essay examines the cryptic writing style of the 'Q drops' and the interpretive stances it encourages in readers. It shows how the drops invoke secrecy and divination to project omniscience while casting the 'anon' who decodes them as an epistemological agent in their own right."
+
+- id: mastroni2024onehundred
+  type: article
+  authors: ["Mastroni, Lauren", "Mooney, Robyn"]
+  year: 2024
+  title: "“I one-hundred thousand percent blame it on QAnon”: The impact of QAnon belief on interpersonal relationships"
+  container: "Journal of Social and Personal Relationships"
+  volume: "41"
+  issue: "9"
+  pages: "2478-2499"
+  doi: "10.1177/02654075241246124"
+  url: "https://doi.org/10.1177/02654075241246124"
+  lang: en
+  topics: [psychology]
+  summary_fr: "Quinze personnes ayant un proche adhérent à QAnon ont été interrogées sur l'évolution de leur relation, et les entretiens ont fait l'objet d'une analyse thématique. Quatre thèmes ressortent (QAnon comme force nocive, distance, conflit, tentatives de réparation) : les participants communiquent moins avec leur proche mais cherchent souvent à le comprendre et à préserver le lien."
+  summary_en: "Fifteen people with a QAnon-affiliated loved one were interviewed about how their relationship changed, and the interviews were analysed thematically. Four themes emerge (QAnon as a malignant force, distance, conflict, attempts at healing): participants communicate less with their loved one but are often motivated to understand them and preserve the relationship."
+
+- id: jones2023sheeple
+  type: article
+  authors: ["Jones, Callum"]
+  year: 2023
+  title: "‘We the people, not the sheeple’: QAnon and the transnational mobilisation of millennialist far-right conspiracy theories"
+  container: "First Monday"
+  doi: "10.5210/fm.v28i3.12854"
+  url: "https://doi.org/10.5210/fm.v28i3.12854"
+  open_access: true
+  lang: en
+  topics: [international, extremism, discourse]
+  summary_fr: "Une analyse de contenu de 1 000 tweets et posts 8kun, complétée par une analyse de fréquence de 37 782 tweets et 9 023 posts, examine les thèmes d'extrême droite transnationale et millénaristes dans le discours QAnon australien. Les communautés australiennes intègrent des récits nationaux et décrivent un « État profond » de gauche à combattre lors d'une apocalypse à venir à laquelle elles entendent participer."
+  summary_en: "A content analysis of 1,000 tweets and 8kun posts, supplemented by a posting-frequency analysis of 37,782 tweets and 9,023 posts, examines transnational far-right and millennialist themes in Australian QAnon discourse. Australian communities integrate national narratives and describe a left-wing 'deep state' to be fought in a coming apocalypse in which they intend to take part."
+
+- id: beyer2023revelations
+  type: article
+  authors: ["Beyer, Heiko", "Herrberg, Niklas"]
+  year: 2023
+  title: "The revelations of Q. Dissemination and resonance of the QAnon conspiracy theory among US Evangelical Christians and the role of the Covid-19 crisis"
+  container: "Zeitschrift für Religion, Gesellschaft und Politik"
+  volume: "7"
+  issue: "2"
+  pages: "669-687"
+  doi: "10.1007/s41682-023-00147-2"
+  url: "https://doi.org/10.1007/s41682-023-00147-2"
+  open_access: true
+  lang: en
+  topics: [religion, belief-surveys, health]
+  summary_fr: "À partir de trois vagues (2019-2020) de l'American Trends Panel du Pew Research Center, l'étude teste une médiation entre le dogme évangélique et la réceptivité à QAnon. Le soutien à QAnon est lié aux croyances complotistes sur le Covid-19 et à trois traits associés à l'évangélisme : conviction de détenir la vérité absolue, manichéisme et eschatologie immanente."
+  summary_en: "Using three waves (2019-2020) of the Pew Research Center's American Trends Panel, the study tests a mediation between evangelical dogma and receptiveness to QAnon. QAnon support is linked to Covid-19 conspiracy beliefs and to three traits associated with evangelicalism: belief in absolute truth, Manichaeism and immanent eschatology."
+
+- id: bloom2022qanon
+  type: article
+  authors: ["Bloom, Mia", "Moskalenko, Sophia"]
+  year: 2022
+  title: "QAnon, Women, and the American Culture Wars"
+  container: "Social Research: An International Quarterly"
+  volume: "89"
+  issue: "3"
+  pages: "525-550"
+  doi: "10.1353/sor.2022.0037"
+  url: "https://doi.org/10.1353/sor.2022.0037"
+  lang: en
+  topics: [gender, psychology]
+  summary_fr: "Les autrices examinent les récits et images utilisés par QAnon et la psychologie de ses adhérents, en particulier des femmes de la mouvance dite « Pastel QAnon ». Elles soutiennent que le mouvement répond à un besoin d'appartenance et donne à ces femmes le sentiment de protéger des enfants contre des abuseurs puissants."
+  summary_en: "The authors examine the narratives and images used by QAnon and the psychology of its believers, especially women in the so-called 'Pastel QAnon' milieu. They argue that the movement meets a need for in-group belonging and gives these women a sense of empowerment as protectors of children against powerful abusers."
+
+- id: levin2022validating
+  type: article
+  authors: ["Levin, Ines", "Filindra, Alexandra", "Kopstein, Jeffrey S."]
+  year: 2022
+  title: "Validating and testing a measure of anti‐semitism on support for QAnon and vote intention for Trump in 2020"
+  container: "Social Science Quarterly"
+  volume: "103"
+  issue: "4"
+  pages: "794-809"
+  doi: "10.1111/ssqu.13155"
+  url: "https://doi.org/10.1111/ssqu.13155"
+  lang: en
+  topics: [belief-surveys, politics, elections]
+  summary_fr: "À partir de deux enquêtes nationales en ligne pondérées (janvier et août 2020), les auteurs valident une mesure de l'antisémitisme par analyse factorielle bayésienne et la testent par régression. L'antisémitisme partage davantage de variance avec la xénophobie qu'avec le racisme anti-Noirs et prédit fortement le soutien à QAnon comme l'intention de voter pour Donald Trump."
+  summary_en: "Using two weighted national online surveys (January and August 2020), the authors validate a measure of antisemitism with Bayesian factor analysis and test it in regression models. Antisemitism shares more variance with xenophobia than with anti-Black prejudice and strongly predicts both QAnon support and intention to vote for Donald Trump."
+
+- id: jordan2023aliens
+  type: article
+  authors: ["Jordan, Meggan M.", "Whitmer, Jennifer Marie"]
+  year: 2023
+  title: "“I Would Give Anything to Talk about Aliens Now”: QAnon Conspiracy Theories and the Creation of Cognitive Deviance"
+  container: "Sociological Perspectives"
+  volume: "66"
+  issue: "6"
+  pages: "992-1014"
+  doi: "10.1177/07311214231181383"
+  url: "https://doi.org/10.1177/07311214231181383"
+  lang: en
+  topics: [psychology]
+  summary_fr: "L'étude repose sur des entretiens approfondis avec 20 adultes inquiets de l'engagement d'un membre de leur famille dans QAnon. Les participants décrivent des conflits épistémiques, des comportements inhabituels, des limites franchies et des craintes pour l'avenir, ce qui permet de documenter le moment où une croyance devient « déviante » aux yeux des proches."
+  summary_en: "The study draws on in-depth interviews with 20 adults concerned about a family member's involvement in QAnon. Participants describe epistemic conflicts, out-of-character behaviour, broken boundaries and fears of future actions, documenting the point at which a belief becomes 'deviant' in the eyes of others."
+
+- id: zhang2024peripheral
+  type: article
+  authors: ["Zhang, Yini", "Yue, Zhiying", "Yang, Xiyu", "Chen, Fan", "Kwak, Nojin"]
+  year: 2024
+  title: "How a peripheral ideology becomes mainstream: Strategic performance, audience reaction, and news media amplification in the case of QAnon Twitter accounts"
+  container: "New Media & Society"
+  volume: "26"
+  issue: "10"
+  pages: "5597-5618"
+  doi: "10.1177/14614448221137324"
+  url: "https://doi.org/10.1177/14614448221137324"
+  lang: en
+  topics: [platforms, media, methods]
+  summary_fr: "Les auteurs analysent 242 comptes Twitter QAnon par modélisation thématique et séries temporelles. Les tweets de solidarité interne et d'hostilité envers l'exogroupe augmentent les retweets mais pas les abonnés ; la hausse des retweets et des abonnés entraîne une amplification médiatique, surtout par des médias de droite, qui renforce à son tour l'hostilité envers l'exogroupe."
+  summary_en: "The authors analyse 242 QAnon Twitter accounts using topic modelling and time-series modelling. In-group solidarity and out-group animosity tweets boost retweets but not followers; rising retweets and followers drive news media amplification, mostly by right-wing outlets, which in turn encourages more out-group animosity."
+
+- id: mastrangelo2024downlining
+  type: article
+  authors: ["Mastrangelo, Frankie", "Longo, Gina Marie"]
+  year: 2024
+  title: "Downlining Disinformation: How MLM Distributors Use Gendered Strategies for Recruitment and Pastel QAnon Indoctrination"
+  container: "Social Media + Society"
+  volume: "10"
+  issue: "1"
+  doi: "10.1177/20563051231224735"
+  url: "https://doi.org/10.1177/20563051231224735"
+  open_access: true
+  lang: en
+  topics: [gender, health, platforms]
+  summary_fr: "Par une analyse de contenu qualitative de distributrices de deux sociétés de vente multiniveau d'huiles essentielles et d'influenceuses « Pastel QAnon », l'article décrit une stratégie en trois temps de recrutement des femmes. Celle-ci s'appuie sur la défiance envers la médecine et les inégalités structurelles, puis oriente les recrues vers les espaces Pastel QAnon à la croisée du bien-être, du New Age et de l'extrême droite."
+  summary_en: "Through qualitative content analysis of distributors for two essential-oil multi-level marketing companies and of 'Pastel QAnon' influencers, the article describes a three-step strategy for recruiting women. It builds on distrust of medicine and structural inequalities, then steers recruits towards Pastel QAnon spaces at the nexus of wellness, New Age spirituality and far-right ideology."
+
+- id: cover2022spectre
+  type: article
+  authors: ["Cover, Rob", "Thompson, Jay Daniel", "Haw, Ashleigh"]
+  year: 2022
+  title: "The Spectre of Populist Leadership: QAnon, Emergent Formations, and Digital Community"
+  container: "Media and Communication"
+  volume: "10"
+  issue: "4"
+  pages: "118-128"
+  doi: "10.17645/mac.v10i4.5586"
+  url: "https://doi.org/10.17645/mac.v10i4.5586"
+  open_access: true
+  lang: en
+  topics: [politics, authorship, discourse]
+  summary_fr: "Cet article théorique s'appuie sur les études culturelles et la communication numérique pour analyser le leadership « spectral » d'un Q anonyme, à la différence des populismes centrés sur un leader identifiable ou des mouvements communautaires sans leader. Les auteurs décrivent Q comme le simulacre d'un leader et QAnon comme une nouvelle forme de populisme produite par les affordances numériques."
+  summary_en: "This theoretical article draws on cultural studies and digital communication research to analyse the 'spectral' leadership of an anonymous Q, in contrast to populisms centred on an identifiable leader or leaderless community movements. The authors describe Q as the simulacrum of a leader and QAnon as a new populist formation produced by digital affordances."
+
+- id: weinberg2025hidden
+  type: article
+  authors: ["Weinberg, Dana B.", "Levy, Meyer D.", "Edwards, April", "Kopstein, Jeffrey S.", "Frey, David", "Antonaros, Peter", "Baci, Nikola", "Cohen, Noah D.", "Fernandez, Javier A.", "Ni, Yunis"]
+  year: 2025
+  title: "Hidden in plain sight: antisemitic content in QAnon subreddits"
+  container: "PLOS ONE"
+  volume: "20"
+  issue: "3"
+  pages: "e0318988"
+  doi: "10.1371/journal.pone.0318988"
+  url: "https://doi.org/10.1371/journal.pone.0318988"
+  open_access: true
+  lang: en
+  topics: [platforms, discourse, extremism]
+  summary_fr: "À partir de deux subreddits QAnon (r/CBTS_Stream et r/greatawakening), l'étude mesure la cooccurrence de termes antisémites explicites et implicites par analyse de réseaux de contenu et codage qualitatif. Le langage explicite reste rare et le fait d'une minorité, mais plus d'un tiers des utilisateurs emploient des termes implicites qui véhiculent des récits antisémites tout en ménageant un déni plausible."
+  summary_en: "Using two QAnon subreddits (r/CBTS_Stream and r/greatawakening), the study measures the co-occurrence of explicit and implicit antisemitic terms through content network analysis and qualitative coding. Explicit language is rare and used by a small minority, but more than a third of users employ implicit terms that convey antisemitic narratives while offering plausible deniability."
+
+- id: cohen2022qanon
+  type: article
+  authors: ["Cohen, Shuki J."]
+  year: 2022
+  title: "QAnon as an Online-Facilitated Cult: Integrating Models of Belief, Practice, and Identity"
+  container: "Journal of Religion and Violence"
+  volume: "10"
+  issue: "1"
+  pages: "37-71"
+  doi: "10.5840/jrv202272197"
+  url: "https://doi.org/10.5840/jrv202272197"
+  lang: en
+  topics: [religion, psychology, extremism]
+  summary_fr: "L'article analyse QAnon comme un « culte numérique » apocalyptique en intégrant les modèles psychologiques de l'adhésion aux théories du complot et les modèles sociologiques et anthropologiques des cultes, notamment violents. Il distingue croyance, pratique et identité sociale, et met en garde contre la généralisation excessive, le sensationnalisme et la pathologisation des adhérents."
+  summary_en: "The article analyses QAnon as an apocalyptic 'digital cult', integrating psychological models of conspiracy belief with sociological and anthropological models of cults, including violent ones. It distinguishes creed, practice and social identity, and cautions against over-generalising, sensationalising or pathologising believers."
+
+- id: forberg2023nocult
+  type: article
+  authors: ["Forberg, Peter L."]
+  year: 2023
+  title: "“No Cult Tells You to Think for Yourself”: Discursive Ideology and the Limits of Rationality in Conspiracy Theory QAnon"
+  container: "American Behavioral Scientist"
+  volume: "67"
+  issue: "5"
+  pages: "649-664"
+  doi: "10.1177/00027642221091199"
+  url: "https://doi.org/10.1177/00027642221091199"
+  lang: en
+  topics: [discourse, psychology]
+  summary_fr: "L'article propose un cadre discursif pour décrire comment les adeptes de QAnon traduisent l'épistémologie politique du mouvement en idéologies personnelles : intrigue générale, définition du conflit, rôle de chacun, constitution d'un canon. Plutôt que de les présenter comme irrationnels, il montre comment ils composent avec les contradictions du récit pour construire des vérités politiques personnalisées."
+  summary_en: "The article offers a discursive framework describing how QAnon followers translate the movement's political epistemology into personal ideologies: a general plot, the parameters of conflict, their own role, and a canon. Rather than treating them as irrational, it shows how they wrestle with the narrative's contradictions to build personalised political truths."
+
+- id: phillips2025worried
+  type: article
+  authors: ["Phillips, Justin B."]
+  year: 2025
+  title: "“I’m so worried about my whole family”: Modeling r/QAnonCasualties to better understand the effects of (QAnon) conspiracy beliefs on families"
+  container: "Journal of Social and Personal Relationships"
+  volume: "42"
+  issue: "7"
+  pages: "1517-1536"
+  doi: "10.1177/02654075251328116"
+  url: "https://doi.org/10.1177/02654075251328116"
+  open_access: true
+  lang: en
+  topics: [psychology, methods, platforms]
+  summary_fr: "À l'aide de plongements issus de grands modèles de langue et d'algorithmes d'apprentissage automatique, l'étude classe plus de 75 000 mentions de la « famille » sur le subreddit r/QAnonCasualties, consacré aux effets de QAnon sur les relations. Elle fait ressortir les coûts émotionnels, les stratégies pour préserver les liens et la recherche de soutien, les discussions sur la pandémie, les fêtes familiales et les réseaux sociaux étant parmi les mieux reçues."
+  summary_en: "Using large language model embeddings and machine-learning algorithms, the study categorises over 75,000 references to 'family' on r/QAnonCasualties, a subreddit devoted to QAnon's effects on relationships. It highlights emotional tolls, strategies to salvage family ties and the search for support, with pandemic issues, holiday gatherings and social media behaviour among the best-received discussions."
+
+- id: peterkabenton2025conspiracy
+  type: article
+  authors: ["Peterka-Benton, Daniela", "Benton, Bond", "Penney, Joel"]
+  year: 2025
+  title: "From conspiracy to normalcy: The mainstreaming of QAnon in “Disney grooming” messages online"
+  container: "Crime, Media, Culture: An International Journal"
+  volume: "21"
+  issue: "2"
+  pages: "169-186"
+  doi: "10.1177/17416590241257862"
+  url: "https://doi.org/10.1177/17416590241257862"
+  lang: en
+  topics: [platforms, discourse]
+  summary_fr: "L'étude analyse 68 481 tweets publiés entre mars et mai 2022 qui présentent comme du « grooming » la prise de position de Disney contre la loi floridienne dite « Don't Say Gay », afin de tester un lien avec les thèmes QAnon. Les comptes ayant le plus d'impact (vues, partages, abonnés) sont principalement des comptes ayant diffusé des contenus complotistes liés à QAnon."
+  summary_en: "The study analyses 68,481 tweets posted between March and May 2022 that framed Disney's opposition to Florida's so-called 'Don't Say Gay' law as 'grooming', in order to test a link with QAnon themes. The most impactful accounts (views, shares, followers) are mainly accounts that had shared QAnon-related conspiratorial content."
+
+- id: hodges2023taxonomizing
+  type: article
+  authors: ["Hodges, James A."]
+  year: 2023
+  title: "Taxonomizing Information Practices in a Large Conspiracy Movement: Using Early QAnon as a Case Study"
+  container: "Information & Culture"
+  volume: "58"
+  issue: "2"
+  pages: "129-144"
+  doi: "10.7560/ic58201"
+  url: "https://doi.org/10.7560/ic58201"
+  lang: en
+  topics: [origins, discourse]
+  summary_fr: "L'article établit une taxonomie des pratiques informationnelles observées dans le fil n° 147547939 du forum /pol/ de 4chan, qui a introduit plusieurs éléments clés du récit QAnon. Il montre que les premiers participants ne se contentaient pas de fabriquer des faussetés, mais lisaient aussi des sources authentiques de manière soupçonneuse et idiosyncrasique."
+  summary_en: "The article builds a taxonomy of the information practices visible in 4chan /pol/ thread #147547939, which introduced several key elements of the QAnon narrative. It shows that early participants did not merely fabricate falsehoods but also read authentic sources in suspicious and idiosyncratic ways."
+
+- id: sandlin2025support
+  type: article
+  authors: ["Sandlin, Evan W.", "Garland, Marshall"]
+  year: 2025
+  title: "Support for Partisan Violence among the Political Fringe: The Case of Antifa and QAnon Supporters"
+  container: "Terrorism and Political Violence"
+  volume: "37"
+  issue: "5"
+  pages: "707-726"
+  doi: "10.1080/09546553.2024.2365764"
+  url: "https://doi.org/10.1080/09546553.2024.2365764"
+  lang: en
+  topics: [belief-surveys, violence, politics]
+  summary_fr: "À partir des données de l'Understanding America Study, les auteurs comparent les attitudes envers la violence politique des soutiens d'Antifa, de QAnon et du reste des partisans. Les soutiens des deux groupes sont plus enclins à souhaiter du mal aux membres du camp adverse et à approuver la violence, y compris en contrôlant l'extrémisme idéologique, la personnalité et la polarisation affective."
+  summary_en: "Using Understanding America Study data, the authors compare attitudes towards political violence among Antifa supporters, QAnon supporters and other partisans. Supporters of both groups are more likely to wish harm on out-party members and to endorse violence, even controlling for ideological extremity, personality and affective partisanship."
+
+- id: lukito2023doublespeak
+  type: article
+  authors: ["Lukito, Josephine", "Gursky, Jacob", "Foley, Jordan", "Yang, Yunkang", "Joseff, Katie", "Borah, Porsmita"]
+  year: 2023
+  title: "“No Reason[.] [I]t /Should/ Happen here”: Analyzing Flynn’s Retroactive Doublespeak During a QAnon Event"
+  container: "Political Communication"
+  volume: "40"
+  issue: "5"
+  pages: "576-595"
+  doi: "10.1080/10584609.2023.2185332"
+  url: "https://doi.org/10.1080/10584609.2023.2185332"
+  lang: en
+  topics: [discourse, media, politics]
+  summary_fr: "À partir de la couverture médiatique, des réseaux sociaux et d'un terrain ethnographique lors d'une conférence QAnon, l'étude suit la réception d'un propos controversé tenu par une personnalité publique et sa réinterprétation a posteriori. Ce « double langage rétroactif » a convaincu une partie des membres de relire le propos, mais avec une efficacité limitée."
+  summary_en: "Drawing on news coverage, social media and ethnographic fieldwork at a QAnon conference, the study traces the reception of a controversial remark by a public figure and its after-the-fact reinterpretation. This 'retroactive doublespeak' persuaded some members to reinterpret the remark, but its effectiveness was limited."
+
+- id: westmark2022identifying
+  type: article
+  authors: ["Westmark, Colton R.", "McMahon, Adam M."]
+  year: 2022
+  title: "Identifying QAnon Conspiracy Theory Adherent Types"
+  container: "New Political Science"
+  volume: "44"
+  issue: "4"
+  pages: "607-627"
+  doi: "10.1080/07393148.2022.2129927"
+  url: "https://doi.org/10.1080/07393148.2022.2129927"
+  lang: en
+  topics: [predictions, psychology, deradicalization]
+  summary_fr: "À partir de la théorie de la dissonance cognitive face aux prophéties ratées, les auteurs distinguent trois types d'adhérents à QAnon : les « durs », les « modérés » qui adaptent leur croyance et les « suiveurs » qui l'abandonnent. Ils formulent l'hypothèse que souligner l'écart entre ces croyances et la réalité peut accélérer le désengagement des suiveurs."
+  summary_en: "Building on cognitive dissonance theory in the face of failed prophecies, the authors distinguish three types of QAnon adherents: Hardliners, Moderates who adapt their belief, and Bandwagoners who abandon it. They hypothesise that emphasising the gap between these beliefs and reality can accelerate Bandwagoners' disengagement."
+
+- id: moore2024private
+  type: article
+  authors: ["Moore, Ryan C", "Dahlke, Ross", "Forberg, Peter L", "Hancock, Jeffrey T"]
+  year: 2024
+  title: "The Private Life of QAnon: A Mixed Methods Investigation of Americans' Exposure to QAnon Content on the Web"
+  container: "Proceedings of the ACM on Human-Computer Interaction"
+  volume: "8"
+  issue: "CSCW2"
+  pages: "1-34"
+  doi: "10.1145/3687057"
+  url: "https://doi.org/10.1145/3687057"
+  open_access: true
+  lang: en
+  topics: [media, methods, elections]
+  summary_fr: "L'étude analyse 21 millions de visites de sites web recueillies auprès d'un échantillon représentatif de 1 238 adultes américains (ordinateurs, smartphones, tablettes) pendant l'élection de 2020, avec des méthodes quantitatives et qualitatives. L'exposition aux sites QAnon est limitée, stratifiée selon l'idéologie et la consommation d'information, et se produit surtout au sein d'écosystèmes médiatiques de droite."
+  summary_en: "The study analyses 21 million website visits collected from a nationally representative sample of 1,238 American adults across laptops, smartphones and tablets during the 2020 election, using quantitative and qualitative methods. Exposure to QAnon websites is limited, stratified by ideology and news consumption, and occurs mostly within right-wing media ecosystems."
+
+- id: foertsch2023asymmetric
+  type: article
+  authors: ["Foertsch, Steven", "Chakraborty, Rudra", "Joosse, Paul"]
+  year: 2023
+  title: "Asymmetric conflation: QAnon and the political cooptation of religion"
+  container: "Politics and Religion"
+  pages: "1-23"
+  doi: "10.1017/s1755048323000275"
+  url: "https://doi.org/10.1017/s1755048323000275"
+  open_access: true
+  lang: en
+  topics: [religion, politics]
+  summary_fr: "Face au débat opposant les lectures de QAnon comme « culte » religieux ou comme mouvement populiste, les auteurs testent par des méthodes quantitatives et qualitatives l'hypothèse d'un mélange des deux. Les résultats indiquent que QAnon est d'abord un mouvement populiste politique qui recourt à une rhétorique religieuse."
+  summary_en: "Addressing the debate between readings of QAnon as a religious 'cult' or as a populist movement, the authors use quantitative and qualitative methods to test whether it is a mix of both. The results indicate that QAnon is primarily a political populist movement that uses religious rhetoric."
+
+- id: cacopardi2023qanon
+  type: article
+  authors: ["Cacopardi, Irène"]
+  year: 2023
+  title: "QAnon, une guerre culturelle entre canulars et nouveaux mythes"
+  container: "Cahiers d’histoire. Revue d’histoire critique"
+  volume: "156"
+  pages: "113-128"
+  doi: "10.4000/chrhc.21294"
+  url: "https://doi.org/10.4000/chrhc.21294"
+  open_access: true
+  lang: fr
+  topics: [origins, authorship]
+  summary_fr: "L'article retrace la naissance et le développement de QAnon, en propose une définition, puis examine le lien suggéré par une partie de la presse avec le Luther Blissett Project et son roman Q. Le lien direct reste incertain, mais l'autrice y voit le signe d'un dysfonctionnement de la légitimation du savoir."
+  summary_en: "The article traces QAnon's birth and development, proposes a definition, then examines the link suggested by some press outlets with the Luther Blissett Project and its novel Q. A direct link remains uncertain, but the author sees in the case a breakdown in the legitimation of knowledge."
+
+- id: farahmand2023pastel
+  type: article
+  authors: ["Farahmand, Manéli", "Piraud, Mischa", "Rouiller, Sybille"]
+  year: 2023
+  title: "« QAnon pastel » ou la surprenante convergence entre conspirationnisme politique et spiritualités New Age : Cyber-ethnographie d’activistes francophones"
+  container: "Anthropologica"
+  volume: "65"
+  issue: "1"
+  doi: "10.18357/anthropologica65120232601"
+  url: "https://doi.org/10.18357/anthropologica65120232601"
+  open_access: true
+  lang: fr
+  topics: [international, religion, health]
+  summary_fr: "Cette cyber-ethnographie menée par le Centre intercantonal d'information sur les croyances de Genève analyse plus de 60 vidéos et espaces interactifs relayant des discours QAnon en Suisse francophone entre 2020 et 2023. Elle montre, dans le contexte du Covid-19, une politisation d'acteurs du milieu holistique et, en retour, une édulcoration des thèses QAnon dans un récit millénariste de type New Age."
+  summary_en: "This cyber-ethnography by the Geneva-based Centre intercantonal d'information sur les croyances analyses over 60 videos and interactive spaces relaying QAnon discourse in French-speaking Switzerland between 2020 and 2023. It shows, in the Covid-19 context, a politicisation of actors in the holistic milieu and, conversely, a softening of QAnon claims into a New Age millenarian narrative."
+
+- id: kim2026networked
+  type: article
+  authors: ["Kim, Sang Jung", "Foley, Jordan", "Yang, Yunkang", "Lee, Keyeun"]
+  year: 2026
+  title: "Networked Counterpublics and Contentious Publicity: A Cross-Platform Analysis of QAnon on Parler and Twitter"
+  container: "Political Communication"
+  pages: "1-25"
+  doi: "10.1080/10584609.2026.2708132"
+  url: "https://doi.org/10.1080/10584609.2026.2708132"
+  lang: en
+  topics: [platforms, discourse]
+  summary_fr: "À partir de la théorie des affordances, l'étude compare le discours QAnon sur Parler et Twitter entre 2018 et 2021. Les pratiques diffèrent selon la plateforme (accumulation de hashtags identitaire sur Parler, appels à « faire ses propres recherches » sur Twitter), et la contestation entre partisans et opposants de QAnon évolue selon les phases du mouvement."
+  summary_en: "Drawing on affordance theory, the study compares QAnon discourse on Parler and Twitter between 2018 and 2021. Practices differ by platform (identity-oriented hashtag stacking on Parler, calls to 'do your own research' on Twitter), and contestation between pro- and anti-QAnon claims shifts across the movement's stages."
+
+- id: fiebig2026german
+  type: article
+  authors: ["Fiebig, Verena"]
+  year: 2026
+  title: "German Sovereign Citizens in the Fight Against the “Deep State”: The Adoption of QAnon Narratives in Germany"
+  container: "Studies in Conflict & Terrorism"
+  pages: "1-17"
+  doi: "10.1080/1057610x.2026.2617677"
+  url: "https://doi.org/10.1080/1057610x.2026.2617677"
+  lang: en
+  topics: [international, extremism]
+  summary_fr: "Par une analyse de contenu qualitative de matériaux primaires extrémistes, l'article examine la convergence idéologique entre les « Reichsbürger » et « Selbstverwalter » allemands et le mouvement QAnon, arrivé en Allemagne avec la pandémie de Covid-19. Il souligne la nécessité de recherches interdisciplinaires sur cette fusion et sur les stratégies de prévention."
+  summary_en: "Through qualitative content analysis of extremist primary material, the article examines the ideological convergence between German 'Reichsbürger' and 'Selbstverwalter' sovereign citizens and the QAnon movement, which reached Germany with the Covid-19 pandemic. It stresses the need for interdisciplinary research on this fusion and on prevention strategies."
+
+- id: patane2026mothers
+  type: article
+  authors: ["Patane, Christopher", "Perry, Kate", "Gibson, Tobias"]
+  year: 2026
+  title: "Mothers of Conspiracy: Child Trafficking (Dis)information and the Politics of the Women of QAnon in the United States"
+  container: "Politics & Gender"
+  pages: "1-22"
+  doi: "10.1017/s1743923x26100737"
+  url: "https://doi.org/10.1017/s1743923x26100737"
+  open_access: true
+  lang: en
+  topics: [gender, belief-surveys]
+  summary_fr: "Une enquête originale compare les réactions du public aux supports de la campagne #SaveTheChildren de QAnon et à ceux de Polaris, principale ONG antitraite américaine, qui mobilisent tous deux des stéréotypes liés à la maternité. Les récits QAnon ne mobilisent pas mieux les femmes que ceux de l'ONG, mais au moins aussi bien et auprès des mêmes groupes."
+  summary_en: "An original survey compares public responses to materials from QAnon's #SaveTheChildren campaign and from Polaris, the largest US anti-trafficking NGO, both drawing on motherhood stereotypes. QAnon narratives do not mobilise women better than the NGO's, but at least as well and among the same groups."
+
+- id: rastogi2025navigating
+  type: conference
+  authors: ["Rastogi, Naman", "Hill, Aly", "Kogan, Marina"]
+  year: 2025
+  title: "Navigating Early-Stage Migration: Comparing QAnon Community Dynamics on Twitter, Parler, and Dotwin"
+  container: "The 2025 ACM International Conference on Supporting Group Work"
+  pages: "54-57"
+  doi: "10.1145/3688828.3699641"
+  url: "https://doi.org/10.1145/3688828.3699641"
+  open_access: true
+  lang: en
+  topics: [platforms, moderation]
+  summary_fr: "Ce court article suit l'activité de la communauté QAnon sur Twitter, Parler et Dotwin dans les mois précédant le 6 janvier 2021, après les premières vagues de suspension de comptes sur Twitter, en classant les utilisateurs en cinq rôles. Les résultats remettent en cause les modèles de migration linéaire et décrivent un engagement simultané sur plusieurs plateformes."
+  summary_en: "This short paper tracks QAnon community activity on Twitter, Parler and Dotwin in the months before 6 January 2021, after the first waves of Twitter account bans, classifying users into five roles. The findings challenge linear migration models and describe simultaneous multi-platform engagement."
+
+- id: kim2025emotional
+  type: conference
+  authors: ["Kim, Do Won", "Buntain, Cody"]
+  year: 2025
+  title: "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging"
+  container: "Companion Publication of the 17th ACM Web Science Conference 2025"
+  pages: "1-10"
+  doi: "10.1145/3720554.3733843"
+  url: "https://doi.org/10.1145/3720554.3733843"
+  open_access: true
+  lang: en
+  topics: [platforms, discourse]
+  summary_fr: "L'étude compare l'association entre registres émotionnels et engagement pour des contenus #SaveTheChildren appariés sur Parler, Gab, Twitter et Facebook. Les effets varient selon la plateforme : la surprise favorise l'engagement sur Twitter et Parler, la joie seulement sur Facebook, le dégoût sur Gab, tandis que la peur ne mobilise pas sur les plateformes marginales."
+  summary_en: "The study compares the association between emotional cues and engagement for matched #SaveTheChildren content on Parler, Gab, Twitter and Facebook. Effects vary by platform: surprise drives engagement on Twitter and Parler, joy only on Facebook, disgust on Gab, while fear does not mobilise engagement on fringe platforms."
+
+- id: bimo2026repetition
+  type: article
+  authors: ["Bimo, Sara"]
+  year: 2026
+  title: "Repetition, Rumination, and Determinism: Exploring the Temporal Logic of QAnon"
+  container: "International Journal of Communication"
+  volume: "20"
+  pages: "1908-1931"
+  doi: "10.65476/bd6fgw84"
+  url: "https://doi.org/10.65476/bd6fgw84"
+  open_access: true
+  lang: en
+  topics: [discourse, predictions]
+  summary_fr: "À partir d'une analyse de contenu des 4 966 « Q drops », l'article décrit la temporalité propre à QAnon, faite de répétition, de rumination et de déterminisme. Cette temporalité de lenteur, à rebours des logiques de vitesse et de viralité souvent associées à la désinformation, contribue selon l'autrice à souder les participants autour d'un monde et d'investissements affectifs partagés."
+  summary_en: "Based on a content analysis of the 4,966 'Q drops', the article describes QAnon's distinctive temporality of repetition, rumination and determinism. This temporality of slowness, at odds with the speed and virality usually associated with disinformation, helps according to the author to bind participants around a shared world and shared affective investments."
+
+- id: rothschild2022qanon
+  type: article
+  authors: ["Rothschild, Mike"]
+  year: 2022
+  title: "QAnon et le futur de la politique américaine"
+  container: "Hérodote"
+  volume: "N° 184-185"
+  issue: "1"
+  pages: "185-200"
+  doi: "10.3917/her.184.0185"
+  url: "https://doi.org/10.3917/her.184.0185"
+  open_access: true
+  lang: fr
+  topics: [politics, elections]
+  summary_fr: "S'appuyant sur ses recherches pour son livre sur QAnon, sur la presse, des sources primaires collectées en ligne et des travaux antérieurs, l'auteur décrit la diffusion de la croyance dans le conservatisme américain et son influence sur l'élection de 2020. Il soutient que des idées autrefois marginales sont devenues courantes au Parti républicain, y compris chez des personnes qui n'ont jamais entendu parler de Q."
+  summary_en: "Drawing on research for his book on QAnon, press reports, primary sources collected online and earlier studies, the author describes how widespread the belief is in American conservatism and its influence on the 2020 election. He argues that once-fringe ideas have become common in the Republican Party, even among people who have never heard of Q."
+
+- id: moran2023navigating
+  type: article
+  authors: ["Moran, Rachel E.", "Prochaska, Stephen", "Grasso, Izzi", "Schlegel, Isabelle"]
+  year: 2023
+  title: "Navigating Information-Seeking in Conspiratorial Waters: Anti-Trafficking Advocacy and Education Post QAnon"
+  container: "Proceedings of the ACM on Human-Computer Interaction"
+  volume: "7"
+  issue: "CSCW1"
+  pages: "1-27"
+  doi: "10.1145/3579510"
+  url: "https://doi.org/10.1145/3579510"
+  open_access: true
+  lang: en
+  topics: [platforms, moderation]
+  summary_fr: "Par des entretiens approfondis avec des membres du public et des professionnels de la lutte contre la traite, l'étude examine comment ils recherchent une information fiable sur la traite des êtres humains après la campagne #SaveTheChildren portée par QAnon. La défiance apparaît comme le moteur principal de la recherche d'information sur les réseaux sociaux, et les interventions contre la désinformation montrent leurs limites."
+  summary_en: "Through in-depth interviews with members of the public and anti-trafficking professionals, the study examines how they look for trustworthy information on human trafficking after the QAnon-led #SaveTheChildren campaign. Distrust emerges as the main driver of information-seeking on social media, and interventions against misinformation show their limits."
+
+- id: xu2022network
+  type: article
+  authors: ["Xu, Wentao", "Sasahara, Kazutoshi"]
+  year: 2022
+  title: "A Network-Based Approach to QAnon User Dynamics and Topic Diversity During the COVID-19 Infodemic"
+  container: "APSIPA Transactions on Signal and Information Processing"
+  volume: "11"
+  issue: "2"
+  pages: "1-23"
+  doi: "10.1561/116.00000055"
+  url: "https://doi.org/10.1561/116.00000055"
+  open_access: true
+  lang: en
+  topics: [platforms, methods, health]
+  summary_fr: "Par une approche fondée sur les réseaux, l'étude suit sur Twitter les utilisateurs favorables, opposés ou peu orientés vis-à-vis de QAnon pendant l'« infodémie » de Covid-19, ainsi que les thèmes abordés. Les populations pro et anti évoluent différemment, possiblement sous l'effet des suspensions de Twitter, les clusters QAnon comptent de nombreux bots, et le mouvement s'étend vers une théorie du complot englobante."
+  summary_en: "Using a network-based approach, the study tracks pro-, anti- and less-leaning QAnon users on Twitter during the Covid-19 'infodemic', along with the topics they discuss. Pro and anti populations follow different dynamics, possibly shaped by Twitter suspensions, QAnon clusters include many bots, and the movement extends into a broader umbrella conspiracy theory."
+
+- id: cohen2026patterned
+  type: article
+  authors: ["Cohen, Noah D.", "Antonaros, Peter", "Weinberg, Dana B.", "Levy, Meyer", "Kopstein, Jeffrey S."]
+  year: 2026
+  title: "Patterned Radicalization: User Behavior Analysis and Antisemitic Language in QAnon Subreddits"
+  container: "Information"
+  volume: "17"
+  issue: "2"
+  pages: "179"
+  doi: "10.3390/info17020179"
+  url: "https://doi.org/10.3390/info17020179"
+  open_access: true
+  lang: en
+  topics: [platforms, extremism, methods]
+  summary_fr: "À l'aide d'un lexique de termes antisémites implicites et explicites, l'étude analyse plus de 1,26 million de posts et commentaires de deux subreddits QAnon fermés, par modèles de survie, tests du khi-deux et régressions logistiques. La plupart des utilisateurs commencent par des termes implicites avant de passer à un langage explicite, une escalade plus marquée chez les plus engagés et ceux qui interagissent avec des « hyper-posteurs »."
+  summary_en: "Using a lexicon of implicit and explicit antisemitic terms, the study analyses over 1.26 million posts and comments from two banned QAnon subreddits with survival models, chi-square tests and logistic regressions. Most users start with implicit terms before moving to explicit language, an escalation more marked among highly engaged users and those interacting with 'hyper-posters'."
+
+- id: morelock2022nexus
+  type: article
+  authors: ["Morelock, Jeremiah", "Narita, Felipe Ziotti"]
+  year: 2022
+  title: "The Nexus of QAnon and COVID-19: Legitimation Crisis and Epistemic Crisis"
+  container: "Critical Sociology"
+  volume: "48"
+  issue: "6"
+  pages: "1005-1024"
+  doi: "10.1177/08969205211069614"
+  url: "https://doi.org/10.1177/08969205211069614"
+  open_access: true
+  lang: en
+  topics: [health, politics, international]
+  summary_fr: "Cet article théorique mobilise la crise de légitimation de Habermas, le « style paranoïaque » de Hofstadter et la notion de crise épistémique pour analyser l'essor de QAnon pendant la pandémie de Covid-19, avec des exemples tirés des États-Unis et du Brésil. Les auteurs soutiennent que QAnon a alimenté les théories du complot sur le Covid-19, qui ont en retour propulsé le mouvement."
+  summary_en: "This theoretical article draws on Habermas's legitimation crisis, Hofstadter's 'paranoid style' and the notion of epistemic crisis to analyse QAnon's rise during the Covid-19 pandemic, with examples from the United States and Brazil. The authors argue that QAnon fuelled Covid-19 conspiracy theories, which in turn propelled the movement."
+
+# ---------------------------------------------------------------- ouvrages, chapitres, theses, ouvrages de fond
+
+- id: lundskow2023qanon
+  type: book
+  authors: ["Lundskow, George", "MacMillen, Sarah Louise"]
+  year: 2023
+  title: "QAnon and Other Replacement Realities: How Religious Emotion Threatens Free Society but Can Also Contribute to a Progressive Future"
+  publisher: "Lexington Books"
+  doi: "10.5040/9798216420897"
+  url: "https://doi.org/10.5040/9798216420897"
+  lang: en
+  topics: [religion, origins, psychology]
+  summary_fr: "Essai sociologique sur les origines historiques et théologiques des fantasmes complotistes américains portés par QAnon et d'autres croyances de droite, et sur leurs effets socio-psychologiques. Les auteurs y voient une réaction au changement social progressiste et proposent des orientations alternatives au discours conspirationniste."
+  summary_en: "A sociological essay on the historical and theological origins of the American conspiracy fantasies fostered by QAnon and other right-wing beliefs, and on their social-psychological effects. The authors read them as a reaction to progressive social change and outline alternatives to conspiratorial discourse."
+
+- id: conner2026qanon
+  type: book
+  authors: ["Conner, Christopher T.", "Roscigno, Saverio", "Hannah, Matthew N."]
+  year: 2026
+  title: "QAnon, Capitalism, and the Crisis of Meaning"
+  publisher: "Bloomsbury Publishing"
+  doi: "10.5040/9798881893408"
+  url: "https://doi.org/10.5040/9798881893408"
+  lang: en
+  topics: [politics, discourse]
+  summary_fr: "L'ouvrage interprète QAnon non comme un simple délire mais comme une réponse dévoyée aux conditions économiques du capitalisme néolibéral, de l'austérité et de la précarité. Les auteurs soutiennent que la lutte contre ces théories passe par une réorientation des priorités sociales, politiques et économiques des États-Unis."
+  summary_en: "The book interprets QAnon not as mere delusion but as a misguided response to the economic conditions of neoliberal capitalism, austerity and precarity. The authors argue that countering such theories requires a realignment of US social, political and economic priorities."
+
+- id: austin2023qanon
+  type: book
+  editors: ["Austin, Michael W.", "Bock, Gregory L."]
+  year: 2023
+  title: "QAnon, Chaos, and the Cross: Christianity and Conspiracy Theories"
+  publisher: "Eerdmans"
+  url: "https://www.eerdmans.com/9780802882653/qanon-chaos-and-the-cross/"
+  lang: en
+  topics: [religion]
+  summary_fr: "Recueil d'essais de spécialistes de la religion, de l'éthique et de la vie publique sur l'attrait des théories du complot (QAnon, « Big Lie », anti-vaccins) dans les communautés chrétiennes. Il aborde notamment la panique satanique, les chambres d'écho et la rhétorique religieuse de QAnon, et propose un guide de raisonnement destiné aux croyants."
+  summary_en: "An essay collection by scholars of religion, ethics and public life on the appeal of conspiracy theories (QAnon, the Big Lie, anti-vaccine theories) within Christian communities. Topics include the Satanic Panic, echo chambers and QAnon's religious rhetoric, with a reasoning guide aimed at believers."
+
+- id: conner2024conspiracy
+  type: book
+  editors: ["Conner, Christopher T.", "Hannah, Matthew N.", "MacMurray, Nicholas J."]
+  year: 2024
+  title: "Conspiracy Theories and Extremism in New Times"
+  publisher: "Lexington Books"
+  doi: "10.5771/9781666933093"
+  url: "https://doi.org/10.5771/9781666933093"
+  lang: en
+  topics: [extremism, religion, platforms]
+  summary_fr: "Ouvrage collectif inspiré de la théorie critique de l'École de Francfort sur les groupes d'extrême droite, les théories du complot et les savoirs stigmatisés à l'ère des réseaux sociaux. Deux chapitres portent sur QAnon : l'un comme résurgence de la panique satanique (ch. 10), l'autre sur l'usage de la religion et des récits audiovisuels (ch. 12)."
+  summary_en: "An edited volume drawing on Frankfurt School critical theory to examine far-right groups, conspiracy theories and stigmatized knowledge in the social media era. Two chapters deal with QAnon: one as a reemergence of the Satanic Panic (ch. 10), the other on its use of religion and on-screen storytelling (ch. 12)."
+
+- id: donovan2022meme
+  type: book
+  authors: ["Donovan, Joan", "Dreyfuss, Emily", "Friedberg, Brian"]
+  year: 2022
+  title: "Meme Wars: The Untold Story of the Online Battles Upending Democracy in America"
+  publisher: "Bloomsbury Publishing"
+  url: "https://openlibrary.org/works/OL34172011W"
+  lang: en
+  topics: [platforms, media, politics]
+  summary_fr: "Ouvrage de chercheurs en désinformation retraçant une décennie de campagnes de mèmes en ligne et leur passage des forums marginaux à la politique américaine. QAnon y figure parmi les mouvements nés en ligne étudiés jusqu'à l'assaut du Capitole."
+  summary_en: "A book by disinformation researchers tracing a decade of online meme campaigns and their move from fringe forums into American politics. QAnon is among the online-born movements followed up to the Capitol attack."
+
+- id: badham2022qanon
+  type: book
+  authors: ["Badham, Van"]
+  year: 2022
+  title: "QAnon and On: A Short and Shocking History of Internet Conspiracy Cults"
+  publisher: "Hardie Grant Publishing"
+  url: "https://openlibrary.org/works/OL26762903W"
+  lang: en
+  topics: [origins, international]
+  summary_fr: "Essai journalistique d'une chroniqueuse australienne retraçant l'histoire de QAnon et des « cultes » complotistes d'Internet. Il s'adresse au grand public et inclut la diffusion du mouvement hors des États-Unis."
+  summary_en: "A journalistic essay by an Australian columnist tracing the history of QAnon and internet conspiracy 'cults'. It is aimed at a general audience and covers the movement's spread beyond the United States."
+
+- id: herradon2022gran
+  type: book
+  authors: ["Herradón, Óscar"]
+  year: 2022
+  title: "La gran conspiración de QAnon: Y otras teorías delirantes de la era Trump"
+  publisher: "Editorial Edaf"
+  url: "https://openlibrary.org/works/OL34836800W"
+  lang: es
+  topics: [origins, international]
+  summary_fr: "Ouvrage de vulgarisation en espagnol consacré à QAnon et à d'autres théories du complot de l'ère Trump. Il offre un point d'entrée hispanophone sur le phénomène."
+  summary_en: "A Spanish-language popular book on QAnon and other conspiracy theories of the Trump era. It provides a Spanish-language entry point to the phenomenon."
+
+- id: wwg1wga2019qanon
+  type: primary
+  authors: ["WWG1WGA"]
+  year: 2019
+  title: "QAnon: An Invitation to The Great Awakening"
+  publisher: "Relentlessly Creative Books"
+  url: "https://openlibrary.org/works/OL19093516W"
+  lang: en
+  topics: [discourse, origins]
+  summary_fr: "Livre collectif publié en février 2019 par des partisans de QAnon sous le nom collectif WWG1WGA, présentant le mouvement de l'intérieur. Source primaire, il illustre l'entrée de la mouvance dans l'édition grand public."
+  summary_en: "A collective book published in February 2019 by QAnon supporters under the collective name WWG1WGA, presenting the movement from the inside. A primary source, it illustrates the movement's entry into mainstream publishing."
+
+- id: tangherlini2023qanon
+  type: chapter
+  authors: ["Tangherlini, Timothy R.", "Shahsavari, Shadi", "Holur, Pavan", "Roychowdhury, Vwani"]
+  editors: ["Miller, Monica K."]
+  year: 2023
+  title: "QAnon, Folklore, and Conspiratorial Consensus: A Case Study in the Computational Analysis of Conspiracy Theory Narratives"
+  container: "The Social Science of QAnon"
+  publisher: "Cambridge University Press"
+  pages: "234-251"
+  doi: "10.1017/9781009052061.019"
+  url: "https://doi.org/10.1017/9781009052061.019"
+  lang: en
+  topics: [methods, discourse]
+  summary_fr: "Chapitre appliquant des méthodes computationnelles d'analyse narrative au récit QAnon, envisagé comme un objet folklorique. Il examine comment un consensus conspirationniste se forme à partir de contributions multiples."
+  summary_en: "A chapter applying computational narrative analysis to the QAnon story, treated as a folkloric object. It examines how a conspiratorial consensus emerges from many contributions."
+
+- id: bromley2023qanon
+  type: chapter
+  authors: ["Bromley, David G.", "Richardson, James T."]
+  editors: ["Miller, Monica K."]
+  year: 2023
+  title: "The QAnon Conspiracy Narrative: Understanding the Social Construction of Danger"
+  container: "The Social Science of QAnon"
+  publisher: "Cambridge University Press"
+  pages: "159-175"
+  doi: "10.1017/9781009052061.014"
+  url: "https://doi.org/10.1017/9781009052061.014"
+  lang: en
+  topics: [discourse, religion]
+  summary_fr: "Deux sociologues des nouveaux mouvements religieux analysent le récit conspirationniste de QAnon. Le chapitre l'aborde sous l'angle de la construction sociale de la menace."
+  summary_en: "Two sociologists of new religious movements analyse the QAnon conspiracy narrative. The chapter approaches it through the social construction of danger."
+
+- id: kaplan2023qanon
+  type: chapter
+  authors: ["Kaplan, Tatyana"]
+  editors: ["Miller, Monica K."]
+  year: 2023
+  title: "QAnon and Social Media"
+  container: "The Social Science of QAnon"
+  publisher: "Cambridge University Press"
+  pages: "195-215"
+  doi: "10.1017/9781009052061.017"
+  url: "https://doi.org/10.1017/9781009052061.017"
+  lang: en
+  topics: [platforms, moderation]
+  summary_fr: "Chapitre consacré au rôle des réseaux sociaux dans la diffusion de QAnon. Il s'inscrit dans le premier volume universitaire collectif entièrement consacré au mouvement."
+  summary_en: "A chapter on the role of social media in the spread of QAnon. It is part of the first edited academic volume devoted entirely to the movement."
+
+- id: wright2023future
+  type: chapter
+  authors: ["Wright, Jared M.", "Wright, Stuart A."]
+  editors: ["Miller, Monica K."]
+  year: 2023
+  title: "The Future of QAnon: Emergent Patterns of Social Movement Adaptation and Change"
+  container: "The Social Science of QAnon"
+  publisher: "Cambridge University Press"
+  pages: "291-307"
+  doi: "10.1017/9781009052061.023"
+  url: "https://doi.org/10.1017/9781009052061.023"
+  lang: en
+  topics: [predictions, extremism]
+  summary_fr: "Chapitre analysant QAnon comme mouvement social et les schémas d'adaptation qu'il présente après ses échecs. Il envisage les trajectoires possibles du mouvement après 2020."
+  summary_en: "A chapter analysing QAnon as a social movement and the adaptation patterns it displays after its setbacks. It considers the movement's possible trajectories after 2020."
+
+- id: bodner2025qanon
+  type: chapter
+  authors: ["Bodner, John"]
+  editors: ["Fivecoate, Jesse A.", "Kitta, Andrea"]
+  year: 2025
+  title: "QAnon in Four Pieces: Toward a Folkloric Understanding of a Superconspiracy"
+  container: "Whispers in the Echo Chamber: Folklore and the Role of Conspiracy Theory in Contemporary Society"
+  publisher: "University of Wisconsin Press"
+  pages: "90-118"
+  doi: "10.2307/jj.23440248.9"
+  url: "https://doi.org/10.2307/jj.23440248.9"
+  lang: en
+  topics: [discourse, origins]
+  summary_fr: "Chapitre de folkloristique qui décompose QAnon en quatre éléments pour en faire comprendre le fonctionnement comme « superconspiration ». Il paraît dans un volume consacré au folklore et aux théories du complot."
+  summary_en: "A folkloristic chapter that breaks QAnon into four components to explain how it works as a 'superconspiracy'. It appears in a volume on folklore and conspiracy theories."
+
+- id: ellis2025what
+  type: chapter
+  authors: ["Ellis, Bill"]
+  editors: ["Fivecoate, Jesse A.", "Kitta, Andrea"]
+  year: 2025
+  title: "What History Tells Us about QAnon"
+  container: "Whispers in the Echo Chamber: Folklore and the Role of Conspiracy Theory in Contemporary Society"
+  publisher: "University of Wisconsin Press"
+  pages: "23-49"
+  doi: "10.2307/jj.23440248.6"
+  url: "https://doi.org/10.2307/jj.23440248.6"
+  lang: en
+  topics: [origins, discourse]
+  summary_fr: "Un folkloriste, spécialiste des paniques morales et de la panique satanique, replace QAnon dans une perspective historique. Le chapitre met en regard le mouvement et des récits complotistes antérieurs."
+  summary_en: "A folklorist known for work on moral panics and the Satanic Panic places QAnon in historical perspective. The chapter compares the movement with earlier conspiracy narratives."
+
+- id: murru2022qanon
+  type: chapter
+  authors: ["Murru, Maria Francesca"]
+  editors: ["Eslen-Ziya, Hande", "Giorgi, Alberta"]
+  year: 2022
+  title: "QAnon and Its Conspiracy Milieu: The Italian Case"
+  container: "Populism and Science in Europe"
+  publisher: "Springer International Publishing"
+  pages: "163-184"
+  doi: "10.1007/978-3-030-97535-7_8"
+  url: "https://doi.org/10.1007/978-3-030-97535-7_8"
+  lang: en
+  topics: [international, health]
+  summary_fr: "Étude de cas sur la réception de QAnon en Italie et le milieu complotiste dans lequel il s'insère. Le chapitre figure dans un volume sur le populisme et la science en Europe."
+  summary_en: "A case study of QAnon's reception in Italy and the conspiracy milieu it joined. The chapter is part of a volume on populism and science in Europe."
+
+- id: turgeon2026influence
+  type: chapter
+  authors: ["Turgeon, Alexandre"]
+  editors: ["Gagnon, Frédérick", "Kirkey, Christopher", "Paquin, Stéphane"]
+  year: 2026
+  title: "L'influence de QAnon au Québec, d'Alexis Cossette-Trudel à Éric Duhaime: Signes d'une américanisation de la culture politique québécoise?"
+  container: "La relation Québec-États-Unis"
+  publisher: "Presses de l'Université Laval"
+  pages: "389-408"
+  doi: "10.2307/jj.38401867.21"
+  url: "https://doi.org/10.2307/jj.38401867.21"
+  lang: fr
+  topics: [international, politics]
+  summary_fr: "Chapitre d'historien sur la diffusion de QAnon au Québec, de l'influenceur Alexis Cossette-Trudel jusqu'à la scène politique provinciale. Il interroge ce que cette diffusion révèle d'une éventuelle américanisation de la culture politique québécoise."
+  summary_en: "A historian's chapter on the spread of QAnon in Quebec, from the influencer Alexis Cossette-Trudel to provincial politics. It asks what this spread reveals about a possible Americanisation of Quebec political culture."
+
+- id: gruszko2025qanon
+  type: chapter
+  authors: ["Gruszko, Katarzyna", "Gajewski, Tomasz"]
+  year: 2025
+  title: "The QAnon theory and its international impact"
+  container: "Conspiracy Theories in International Relations"
+  publisher: "Routledge"
+  pages: "99-120"
+  doi: "10.4324/9781003565604-7"
+  url: "https://doi.org/10.4324/9781003565604-7"
+  lang: en
+  topics: [international]
+  summary_fr: "Chapitre d'un ouvrage sur les théories du complot en relations internationales, consacré à QAnon. Il examine la portée du mouvement au-delà des États-Unis."
+  summary_en: "A chapter of a book on conspiracy theories in international relations, devoted to QAnon. It examines the movement's reach beyond the United States."
+
+- id: lukito2025how
+  type: chapter
+  authors: ["Lukito, Josephine", "Yang, Yunkang", "Kim, Sang Jung"]
+  editors: ["Livingston, Steven", "Miller, Michael"]
+  year: 2025
+  title: "How QAnon Developed from a Fringe Group to a Digital Surrogate for the GOP"
+  container: "Connective Action and the Rise of the Far-Right"
+  publisher: "Oxford University Press"
+  pages: "62-89"
+  doi: "10.1093/oso/9780197794937.003.0003"
+  url: "https://doi.org/10.1093/oso/9780197794937.003.0003"
+  open_access: true
+  lang: en
+  topics: [politics, elections, platforms]
+  summary_fr: "À partir d'un vaste corpus de contenus QAnon issus de plusieurs plateformes, le chapitre suit le passage du mouvement d'une communauté marginale à une composante du Parti républicain en quatre phases (démarrage, croissance, opportunité politique, transformation). Il décrit une relation mutuellement avantageuse : légitimité pour QAnon, bloc électoral pour le parti."
+  summary_en: "Drawing on a large multi-platform collection of QAnon content, the chapter traces the movement's shift from fringe community to Republican Party constituency in four stages (start, growth, political opportunity, transformation). It describes a mutually beneficial relationship: legitimacy for QAnon, a voting bloc for the party."
+
+- id: argentino2026explaining
+  type: chapter
+  authors: ["Argentino, Marc-André"]
+  editors: ["Peels, Rik", "Dawson, Lorne L."]
+  year: 2026
+  title: "Explaining QAnon as Lived Religion"
+  container: "Explaining Extreme Belief and Behavior"
+  publisher: "Oxford University Press"
+  pages: "287-308"
+  doi: "10.1093/9780197768914.003.0014"
+  url: "https://doi.org/10.1093/9780197768914.003.0014"
+  lang: en
+  topics: [religion, origins, authorship]
+  summary_fr: "Le chapitre aborde QAnon comme une religion vécue et en retrace l'évolution au gré du contexte sociopolitique et des différents utilisateurs probablement derrière le compte Q. Il distingue trois phases : proto-QAnon, QAnon canonique et QAnon apocryphe."
+  summary_en: "The chapter frames QAnon as a lived religion and traces its evolution with the sociopolitical context and the multiple users likely behind the Q account. It distinguishes three phases: proto-QAnon, canonical QAnon and apocryphal QAnon."
+
+- id: moskalenko2026psychology
+  type: chapter
+  authors: ["Moskalenko, Sophia"]
+  editors: ["McCauley, Clark R.", "Moskalenko, Sophia", "Scott Ligon, Gina"]
+  year: 2026
+  title: "The Psychology of QAnon and Its Role in Radicalization to Political Violence"
+  container: "De Gruyter Handbook of the Psychology of Terrorism"
+  publisher: "De Gruyter"
+  pages: "499-512"
+  doi: "10.1515/9783111444529-043"
+  url: "https://doi.org/10.1515/9783111444529-043"
+  lang: en
+  topics: [psychology, violence, extremism]
+  summary_fr: "Chapitre de manuel de référence sur la psychologie des adeptes de QAnon. Il examine le rôle du mouvement dans la radicalisation vers la violence politique."
+  summary_en: "A handbook chapter on the psychology of QAnon followers. It examines the movement's role in radicalization to political violence."
+
+- id: vint2026political
+  type: chapter
+  authors: ["Vint, Sherryl"]
+  editors: ["Banerjee, Anindita", "Vint, Sherryl", "Higgins, David M.", "Carroll, Jordan S."]
+  year: 2026
+  title: "Political Cosplay: QAnon, White Squall, and Narrative Politics"
+  container: "Reactionary Worldbuilding"
+  publisher: "The MIT Press"
+  pages: "193-224"
+  doi: "10.7551/mitpress/17000.003.0013"
+  url: "https://doi.org/10.7551/mitpress/17000.003.0013"
+  open_access: true
+  lang: en
+  topics: [discourse, extremism]
+  summary_fr: "Chapitre d'études culturelles qui analyse QAnon comme une forme de « cosplay politique » et de construction de monde narrative. Il paraît dans un volume consacré aux mondes fictionnels réactionnaires."
+  summary_en: "A cultural studies chapter analysing QAnon as a form of 'political cosplay' and narrative worldbuilding. It appears in a volume on reactionary worldbuilding."
+
+- id: sayers2025do
+  type: chapter
+  authors: ["Sayers, Addie", "Passmore, Ellie J.", "Egerland, Hanson"]
+  editors: ["Vásquez, Camilla", "Chovanec, Jan"]
+  year: 2025
+  title: "\"Do You Believe in Coincidences?\": Digital Breadcrumbing in QAnon Forum Posts"
+  container: "Experiencing Digital Discourses"
+  publisher: "Springer Nature Switzerland"
+  pages: "287-317"
+  doi: "10.1007/978-3-031-77460-7_10"
+  url: "https://doi.org/10.1007/978-3-031-77460-7_10"
+  lang: en
+  topics: [discourse, methods]
+  summary_fr: "Analyse linguistique de messages de forum QAnon centrée sur le procédé des « miettes de pain » (breadcrumbs), indices que les lecteurs sont invités à relier. Le chapitre s'inscrit dans un volume d'analyse du discours numérique."
+  summary_en: "A linguistic analysis of QAnon forum posts focused on 'breadcrumbing', clues that readers are invited to connect. The chapter is part of a volume on digital discourse analysis."
+
+- id: toler2024saviour
+  type: chapter
+  authors: ["Toler, Aric"]
+  year: 2024
+  title: "Saviour or Menace? Crowdsourcing Open Source Research and the Rise of QAnon"
+  container: "Open Source Investigations in the Age of Google"
+  publisher: "World Scientific (Europe)"
+  pages: "152-170"
+  doi: "10.1142/9781800614079_0008"
+  url: "https://doi.org/10.1142/9781800614079_0008"
+  lang: en
+  topics: [methods, platforms]
+  summary_fr: "Un enquêteur en sources ouvertes examine la parenté entre l'enquête participative en ligne et les « recherches » collectives des adeptes de QAnon. Le chapitre interroge les risques de l'investigation amateur."
+  summary_en: "An open-source investigator examines the kinship between online crowdsourced research and the collective 'research' of QAnon followers. The chapter questions the risks of amateur investigation."
+
+- id: uca2026reading
+  type: thesis
+  authors: ["Uca, Eda Ruhiye"]
+  year: 2026
+  title: "Reading the Bible with QAnon: Truth and Conspiracy in American Evangelicalism"
+  publisher: "Northwestern University"
+  doi: "10.21985/n2-et5x-pa31"
+  url: "https://doi.org/10.21985/n2-et5x-pa31"
+  lang: en
+  topics: [religion, discourse]
+  summary_fr: "Thèse de doctorat sur les rapports entre QAnon et l'évangélisme américain à travers la lecture de la Bible. Elle examine les conceptions de la vérité et du complot au sein de ce milieu."
+  summary_en: "A doctoral dissertation on the relationship between QAnon and American evangelicalism through Bible reading. It examines notions of truth and conspiracy within that milieu."
+
+- id: ippolito2025red
+  type: thesis
+  authors: ["Ippolito, Heidi"]
+  year: 2025
+  title: "Red Pills, Rambo Jesus, and Righteous Digital Soldiers: The Relationship Between Memes, Religion, and On-Screen Storytelling in QAnon Communities"
+  publisher: "University of Denver"
+  doi: "10.56902/etdcrp.2025.131"
+  url: "https://digitalcommons.du.edu/etd/2576/"
+  lang: en
+  topics: [religion, discourse, gender]
+  summary_fr: "Thèse de doctorat en humanités numériques analysant plus de 4 800 mèmes liés à QAnon recueillis surtout sur Telegram, Truth Social et Twitter/X (2020-2025). Elle montre comment ils prolongent le nationalisme chrétien en mêlant références cinématographiques (Matrix, héros d'action, monstres) et imagerie évangélique."
+  summary_en: "A digital humanities PhD dissertation analysing over 4,800 QAnon-related memes collected mainly from Telegram, Truth Social and Twitter/X (2020-2025). It shows how they extend Christian nationalism by blending film references (The Matrix, action heroes, monsters) with evangelical imagery."
+
+- id: mimizuka2025communities
+  type: thesis
+  authors: ["Mimizuka, Kayo"]
+  year: 2025
+  title: "Communities of misinformation: Japanese QAnon conspiracy theorists and their online \"Watchers\""
+  publisher: "The University of Texas at Austin"
+  doi: "10.26153/tsw/62868"
+  url: "https://repositories.lib.utexas.edu/handle/2152/135548"
+  lang: en
+  topics: [international, platforms, deradicalization]
+  summary_fr: "Thèse de doctorat sur les adeptes japonais de QAnon et les internautes qui les observent et leur répondent en ligne. Elle soutient que la désinformation se diffuse selon une logique militante de communauté et d'appartenance, à laquelle des interventions communautaires peuvent répondre."
+  summary_en: "A doctoral dissertation on Japanese QAnon followers and the online users who watch and respond to them. It argues that misinformation spreads through an activist logic of community and belonging, which community-based interventions can counter."
+
+- id: andrade2023qamoms
+  type: thesis
+  authors: ["Andrade, Teresa M."]
+  year: 2023
+  title: "QAMOMS: Understanding How Women Shaped the QAnon Movement in the United States of America"
+  publisher: "Naval Postgraduate School"
+  url: "https://hdl.handle.net/10945/72316"
+  open_access: true
+  lang: en
+  topics: [gender, platforms]
+  summary_fr: "Mémoire de master sur le rôle des femmes, en particulier des mères, dans l'essor de QAnon. Il décrit comment elles ont fait passer le mouvement des espaces en ligne à dominante masculine comme 4chan vers les réseaux sociaux grand public."
+  summary_en: "A master's thesis on the role of women, particularly mothers, in QAnon's growth. It describes how they carried the movement from male-dominated online spaces such as 4chan into mainstream social media."
+
+- id: sandy2023sacred
+  type: thesis
+  authors: ["Sandy, Brianna Nicole"]
+  year: 2023
+  title: "Sacred Bodies: Gendered Experiences within the QAnon Mythology"
+  publisher: "Univerzita Karlova"
+  url: "http://www.nusl.cz/ntk/nusl-538813"
+  lang: en
+  topics: [gender, religion, discourse]
+  summary_fr: "Mémoire de master (Université Charles, Prague) proposant une analyse thématique des théologies genrées sur lesquelles s'appuie et que produit QAnon. Il examine le « canon » des Q drops de 2017 à 2022 dans une perspective féministe."
+  summary_en: "A master's thesis (Charles University, Prague) offering a thematic analysis of the gendered theologies QAnon draws on and creates. It examines the 'canon' of Q drops from 2017 to 2022 through a feminist lens."
+
+- id: miotto2022stand
+  type: thesis
+  authors: ["Miotto, Nicolò"]
+  year: 2022
+  title: "Stand against the wiles of the devil. Interpreting QAnon as a Christian extremist movement"
+  publisher: "Univerzita Karlova"
+  url: "http://www.nusl.cz/ntk/nusl-512150"
+  lang: en
+  topics: [religion, extremism, violence]
+  summary_fr: "Mémoire de master (Université Charles, Prague) qui interprète QAnon comme un mouvement extrémiste chrétien. Il part de la participation d'adeptes à l'assaut du Capitole et aux convois de la liberté canadiens de 2022 pour examiner le rôle des croyances religieuses dans la radicalisation."
+  summary_en: "A master's thesis (Charles University, Prague) interpreting QAnon as a Christian extremist movement. It starts from followers' involvement in the Capitol attack and the 2022 Canadian Freedom Convoys to examine the role of religious beliefs in radicalisation."
+
+- id: aubry2024qanon
+  type: thesis
+  authors: ["Aubry, Odessa"]
+  year: 2024
+  title: "QAnon en France : étude des perceptions et analyse des mécanismes de diffusion et d'adhésion aux théories conspirationnistes"
+  publisher: "Université Paul-Valéry - Montpellier 3"
+  url: "https://dumas.ccsd.cnrs.fr/dumas-05058228v1"
+  open_access: true
+  lang: fr
+  topics: [international, media, belief-surveys]
+  summary_fr: "Mémoire de master sur QAnon en France, fondé sur l'analyse des perceptions individuelles des mécanismes de diffusion et d'adhésion aux théories du complot. Il souligne le rôle de la défiance envers les médias traditionnels et de la désinformation sur les réseaux sociaux."
+  summary_en: "A master's thesis on QAnon in France, based on an analysis of individuals' perceptions of how conspiracy theories spread and gain adherents. It highlights the role of distrust in traditional media and of social media disinformation."
+
+- id: festinger1956when
+  type: book
+  authors: ["Festinger, Leon", "Riecken, Henry W.", "Schachter, Stanley"]
+  year: 1956
+  title: "When Prophecy Fails: A Social and Psychological Study of a Modern Group That Predicted the Destruction of the World"
+  publisher: "University of Minnesota Press"
+  url: "https://openlibrary.org/works/OL4788695W"
+  lang: en
+  topics: [background, predictions, psychology]
+  summary_fr: "Ouvrage de référence (antérieur à QAnon) : étude d'un petit groupe ayant annoncé la fin du monde, à l'origine de la théorie de la dissonance cognitive. Il est constamment cité pour expliquer la persistance des adeptes de QAnon après l'échec des prédictions de Q."
+  summary_en: "Background work (predating QAnon): a study of a small group that predicted the end of the world, foundational to cognitive dissonance theory. It is routinely cited to explain QAnon followers' persistence after Q's failed predictions."
+
+- id: barkun2013culture
+  type: book
+  authors: ["Barkun, Michael"]
+  year: 2013
+  title: "A Culture of Conspiracy: Apocalyptic Visions in Contemporary America"
+  publisher: "University of California Press"
+  doi: "10.1525/9780520956520"
+  url: "https://doi.org/10.1525/9780520956520"
+  lang: en
+  topics: [background, religion, origins]
+  summary_fr: "Ouvrage de référence (antérieur à QAnon, 2e édition) sur les visions apocalyptiques et les « superconspirations » qui agrègent de multiples récits complotistes dans l'Amérique contemporaine. Son concept de superconspiration et de « savoir stigmatisé » est largement repris pour analyser QAnon."
+  summary_en: "Background work (predating QAnon, 2nd edition) on apocalyptic visions and the 'superconspiracies' that fuse multiple conspiracy narratives in contemporary America. Its concepts of superconspiracy and 'stigmatized knowledge' are widely used to analyse QAnon."
+
+- id: uscinski2018conspiracy
+  type: book
+  editors: ["Uscinski, Joseph E."]
+  year: 2018
+  title: "Conspiracy Theories and the People Who Believe Them"
+  publisher: "Oxford University Press"
+  doi: "10.1093/oso/9780190844073.001.0001"
+  url: "https://doi.org/10.1093/oso/9780190844073.001.0001"
+  lang: en
+  topics: [background, belief-surveys, psychology]
+  summary_fr: "Ouvrage collectif de référence (contexte général) réunissant des chercheurs de plusieurs disciplines sur les causes et les effets politiques de la croyance aux théories du complot. Il fournit le cadre conceptuel de nombreuses enquêtes ultérieures sur les partisans de QAnon."
+  summary_en: "A reference edited volume (general background) bringing together scholars from several disciplines on the causes and political effects of conspiracy beliefs. It provides the conceptual framework for many later surveys of QAnon supporters."
+
+- id: butter2020routledge
+  type: book
+  editors: ["Butter, Michael", "Knight, Peter"]
+  year: 2020
+  title: "Routledge Handbook of Conspiracy Theories"
+  publisher: "Routledge"
+  doi: "10.4324/9780429452734"
+  url: "https://doi.org/10.4324/9780429452734"
+  lang: en
+  topics: [background, methods]
+  summary_fr: "Manuel de référence (contexte général) issu du réseau européen COMPACT, couvrant les définitions, approches disciplinaires, effets et histoire régionale des théories du complot. Il sert de cadre pour situer QAnon dans l'étude comparative du complotisme."
+  summary_en: "A reference handbook (general background) from the European COMPACT network covering definitions, disciplinary approaches, effects and regional histories of conspiracy theories. It serves as a framework for placing QAnon within comparative conspiracy research."
+
+# ---------------------------------------------------------------- rapports, sondages, documents officiels, etudes computationnelles
+
+- id: prri2022beliefs
+  type: report
+  authors: ["PRRI Staff"]
+  year: 2022
+  date: 2022-06-24
+  title: "QAnon Beliefs Have Increased Since 2021 as Americans Are Less Likely to Reject Conspiracies"
+  container: "PRRI Spotlight Analysis"
+  publisher: "PRRI"
+  url: "https://prri.org/spotlight/qanon-beliefs-have-increased-since-2021-as-americans-are-less-likely-to-reject-conspiracies/"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, politics]
+  summary_fr: "Analyse de l'indicateur composite de PRRI fondé sur trois affirmations QAnon (cabale pédo-sataniste, « tempête » imminente, violence patriotique) suivies depuis mars 2021. La part de « croyants » passe de 14 % en mars 2021 à 18 % en mars 2022, tandis que celle des personnes rejetant entièrement ces affirmations recule de 40 % à 30 %."
+  summary_en: "Analysis of PRRI's composite measure built on three QAnon statements (Satan-worshipping paedophile cabal, coming 'storm', patriotic violence) tracked since March 2021. The share of 'believers' rose from 14% in March 2021 to 18% in March 2022, while those completely rejecting the statements fell from 40% to 30%."
+
+- id: prri2023threats
+  type: report
+  authors: ["PRRI"]
+  year: 2023
+  date: 2023-10-25
+  title: "Threats to American Democracy Ahead of an Unprecedented Presidential Election"
+  container: "American Values Survey 2023"
+  publisher: "PRRI"
+  url: "https://www.prri.org/research/threats-to-american-democracy-ahead-of-an-unprecedented-presidential-election/"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, politics, violence]
+  summary_fr: "Enquête American Values Survey menée en ligne du 25 au 30 août 2023 auprès de 2 525 adultes du KnowledgePanel d'Ipsos, reprenant les trois affirmations QAnon suivies par PRRI. La part de « croyants » QAnon atteint 23 % (contre 14 % en mars 2021) et celle des « rejeteurs » tombe de 40 % à 29 %."
+  summary_en: "American Values Survey fielded online on 25-30 August 2023 among 2,525 adults from Ipsos's KnowledgePanel, repeating PRRI's three QAnon statements. QAnon 'believers' reached 23% (up from 14% in March 2021) and 'rejecters' fell from 40% to 29%."
+  organisation: "['PRRI']"
+
+- id: prri2024rise
+  type: report
+  authors: ["PRRI Staff"]
+  year: 2024
+  date: 2024-11-04
+  title: "The Rise and Impact of Q: The 2024 Election from the View of QAnon Believers"
+  container: "PRRI Spotlight Analysis"
+  publisher: "PRRI"
+  url: "https://prri.org/spotlight/the-rise-and-impact-of-q-the-2024-election-from-the-view-of-qanon-believers/"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, elections, religion, media]
+  summary_fr: "Analyse des données PRRI 2024 à partir de l'indicateur composite QAnon, croisé avec le parti, les sources d'information et l'appartenance religieuse. 19 % des Américains sont classés « croyants » (14 % en 2021), avec 28 % chez les républicains, 16 % chez les indépendants et 9 % chez les démocrates, et 31 % parmi ceux qui s'informent sur YouTube."
+  summary_en: "Analysis of PRRI's 2024 data using the composite QAnon measure, broken down by party, news sources and religious affiliation. 19% of Americans qualify as 'believers' (14% in 2021): 28% of Republicans, 16% of independents and 9% of Democrats, and 31% of those who get political information from YouTube."
+
+- id: ipsos2020more
+  type: report
+  authors: ["Ipsos"]
+  year: 2020
+  date: 2020-12-30
+  title: "More than 1 in 3 Americans believe a 'deep state' is working to undermine Trump"
+  publisher: "Ipsos"
+  url: "https://www.ipsos.com/en-us/news-polls/npr-misinformation-123020"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, politics]
+  summary_fr: "Sondage NPR/Ipsos réalisé en ligne les 21 et 22 décembre 2020 auprès de 1 115 adultes américains, avec un « test de connaissances » de dix affirmations vraies ou fausses. 39 % estiment qu'un « État profond » œuvre contre Trump ; 17 % jugent vraie l'affirmation QAnon selon laquelle des élites sataniques pédocriminelles contrôlent la politique et les médias, et 37 % se disent incertains."
+  summary_en: "NPR/Ipsos online poll of 1,115 US adults conducted on 21-22 December 2020, including a ten-item true/false 'knowledge test'. 39% agree a 'deep state' is working to undermine Trump; 17% believe the QAnon claim that Satan-worshipping elites running a child sex ring control politics and media, and 37% are unsure."
+  organisation: "['Ipsos', 'NPR']"
+
+- id: pew2020most
+  type: report
+  authors: ["Mitchell, Amy", "Jurkowitz, Mark", "Oliphant, J. Baxter", "Shearer, Elisa"]
+  year: 2020
+  date: 2020-09-16
+  title: "Most Americans who have heard of QAnon conspiracy theories say they are bad for the country and that Trump seems to support people who promote them"
+  container: "Political Divides, Conspiracy Theories and Divergent News Sources Heading Into 2020 Election"
+  publisher: "Pew Research Center"
+  url: "https://www.pewresearch.org/journalism/2020/09/16/most-americans-who-have-heard-of-qanon-conspiracy-theories-say-they-are-bad-for-the-country-and-that-trump-seems-to-support-people-who-promote-them/"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, media, politics]
+  summary_fr: "Chapitre d'un rapport fondé sur une enquête auprès de 9 220 adultes du panel American Trends Panel (31 août-7 septembre 2020). 47 % des Américains ont entendu parler de QAnon (contre 23 % début mars 2020) ; parmi eux, 74 % jugent le mouvement mauvais pour le pays et 60 % estiment que Trump semble soutenir ceux qui le promeuvent."
+  summary_en: "Chapter of a report based on a survey of 9,220 American Trends Panel adults (31 August-7 September 2020). 47% of Americans had heard of QAnon (up from 23% in early March 2020); of these, 74% say it is bad for the country and 60% say Trump seems to support people who promote it."
+
+- id: schaffner2020qanon
+  type: report
+  authors: ["Schaffner, Brian F."]
+  year: 2020
+  date: 2020-10-06
+  title: "QAnon and Conspiracy Beliefs"
+  publisher: "Institute for Strategic Dialogue"
+  url: "https://www.isdglobal.org/publication/qanon-and-conspiracy-beliefs-3/"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, psychology]
+  summary_fr: "Enquête auprès de 4 057 adultes américains mesurant la notoriété de quatre théories issues de QAnon et la croyance dans huit théories du complot. Seuls 7 % ont une opinion favorable de QAnon, mais environ un Américain sur cinq connaît et croit au moins une des quatre affirmations nées de QAnon, et 41 % au moins une des huit théories testées."
+  summary_en: "Survey of 4,057 American adults measuring awareness of four QAnon-originated theories and belief in eight conspiracy theories. Only 7% view QAnon favourably, yet about one in five Americans recognised and believed at least one of the four QAnon claims, and 41% at least one of the eight theories tested."
+
+- id: isd2020boom
+  type: report
+  authors: ["Institute for Strategic Dialogue", "NewsGuard"]
+  year: 2020
+  date: 2020-12-18
+  title: "The Boom Before the Ban: QAnon and Facebook"
+  publisher: "Institute for Strategic Dialogue; NewsGuard"
+  url: "https://www.isdglobal.org/wp-content/uploads/2020/12/20201218-ISDG-NewsGuard-QAnon-and-Facebook.pdf"
+  open_access: true
+  lang: en
+  topics: [platforms, moderation, health]
+  summary_fr: "Analyse quantitative et qualitative des publications Facebook liées à QAnon dans les mois précédant l'interdiction d'octobre 2020, avec une analyse des domaines d'information cités. Des termes associés à QAnon (« WWG1WGA », « pedogate ») apparaissent plus de 1 000 fois par jour en moyenne d'avril à septembre 2020, sur fond de convergence avec la désinformation sur la COVID-19 et en plus de 16 langues."
+  summary_en: "Quantitative and qualitative analysis of QAnon-related Facebook posts in the months before the October 2020 ban, including an analysis of the news domains shared. QAnon-associated terms ('WWG1WGA', 'pedogate') appeared over 1,000 times a day on average from April to September 2020, converging with COVID-19 misinformation and in more than 16 languages."
+  organisation: "['Institute for Strategic Dialogue', 'NewsGuard']"
+
+- id: gallagher2022she
+  type: report
+  authors: ["Gallagher, Aoife", "Argentino, Marc-André", "Raja, Adnan"]
+  year: 2022
+  date: 2022-10-10
+  title: "She Drops: How QAnon Conspiracy Theories Legitimize Coordinated and Targeted Gender Based Violence"
+  publisher: "Institute for Strategic Dialogue"
+  url: "https://www.isdglobal.org/publication/she-drops-how-qanon-conspiracy-theories-legitimize-coordinated-and-targeted-gender-based-violence/"
+  open_access: true
+  lang: en
+  topics: [gender, platforms, violence]
+  summary_fr: "Analyse, conduite début 2021, de plus de 9 millions de publications et mentions sur Facebook, Instagram et Twitter visant six célébrités au cœur des récits QAnon entre fin 2019 et fin 2020. La forme de harcèlement dominante est le « brigading » de cibles individuelles au moyen d'accusations diffamatoires de pédocriminalité, avec une dimension genrée de ces violences."
+  summary_en: "Analysis, conducted in early 2021, of over 9 million posts and mentions on Facebook, Instagram and Twitter targeting six celebrities central to QAnon narratives between late 2019 and late 2020. The dominant form of harassment was brigading of individual targets with defamatory accusations of paedophilia, with a gendered dimension to this abuse."
+
+- id: meta2020update
+  type: primary
+  authors: ["Meta"]
+  year: 2020
+  date: 2020-08-19
+  title: "An Update to How We Address Movements and Organizations Tied to Violence"
+  publisher: "Meta Newsroom"
+  url: "https://about.fb.com/news/2020/08/addressing-movements-and-organizations-tied-to-violence/"
+  open_access: true
+  lang: en
+  topics: [moderation, platforms]
+  summary_fr: "Annonce de Facebook élargissant sa politique sur les individus et organisations dangereux aux « mouvements sociaux militarisés » et réseaux conspirationnistes incitant à la violence comme QAnon, mise à jour le 6 octobre 2020 pour supprimer toute page, groupe ou compte Instagram « représentant » QAnon, même sans contenu violent. La mise à jour du 17 octobre 2022 fait état d'environ 4 200 pages, 12 000 groupes, 67 200 profils Facebook et 38 800 comptes Instagram supprimés au titre de la politique QAnon."
+  summary_en: "Facebook announcement extending its Dangerous Individuals and Organizations policy to 'militarized social movements' and violence-inducing conspiracy networks such as QAnon, updated on 6 October 2020 to remove any Page, Group or Instagram account 'representing' QAnon even without violent content. The 17 October 2022 update reports about 4,200 Pages, 12,000 groups, 67,200 Facebook profiles and 38,800 Instagram accounts removed under the QAnon policy."
+  organisation: "['Meta (Facebook)']"
+
+- id: youtube2020managing
+  type: primary
+  authors: ["YouTube"]
+  year: 2020
+  date: 2020-10-15
+  title: "Managing harmful conspiracy theories on YouTube"
+  publisher: "YouTube Official Blog"
+  url: "https://blog.youtube/news-and-events/harmful-conspiracy-theories-youtube"
+  open_access: true
+  lang: en
+  topics: [moderation, platforms]
+  summary_fr: "Annonce par YouTube de l'extension de ses règles contre la haine et le harcèlement aux contenus conspirationnistes, dont QAnon et Pizzagate, qui ciblent des individus ou groupes et servent à justifier la violence. YouTube indique avoir déjà supprimé des dizaines de milliers de vidéos QAnon et des centaines de chaînes, et que les vues issues des recommandations non abonnées vers les principales chaînes « Q » ont chuté de plus de 80 % depuis janvier 2019."
+  summary_en: "YouTube announcement extending its hate and harassment policies to conspiracy content, including QAnon and Pizzagate, that targets individuals or groups and is used to justify real-world violence. YouTube states it had already removed tens of thousands of QAnon videos and hundreds of channels, and that views from non-subscribed recommendations to prominent Q-related channels had dropped by over 80% since January 2019."
+  organisation: "['The YouTube Team']"
+
+- id: twitter2021update
+  type: primary
+  authors: ["Twitter"]
+  year: 2021
+  date: 2021-01-12
+  title: "An update following the riots in Washington, DC"
+  publisher: "Twitter Blog"
+  url: "https://blog.twitter.com/en_us/topics/company/2021/protecting--the-conversation-following-the-riots-in-washington--"
+  lang: en
+  topics: [moderation, platforms]
+  summary_fr: "Billet de Twitter détaillant les mesures prises après l'assaut du Capitole du 6 janvier 2021, dont la suspension définitive, à partir du 8 janvier, de comptes principalement consacrés au partage de contenus QAnon. Plus de 70 000 comptes ont été suspendus, souvent plusieurs par individu ; les comptes partageant ponctuellement ces contenus voient leur visibilité limitée."
+  summary_en: "Twitter post detailing the measures taken after the 6 January 2021 Capitol attack, including the permanent suspension, from 8 January, of accounts primarily dedicated to sharing QAnon content. More than 70,000 accounts were suspended, often several per individual; accounts sharing such content occasionally faced reduced visibility."
+  organisation: "['Twitter']"
+
+- id: house2022final
+  type: primary
+  authors: ["Select Committee to Investigate the January 6th Attack on the United States Capitol"]
+  year: 2022
+  date: 2022-12-22
+  title: "Final Report of the Select Committee to Investigate the January 6th Attack on the United States Capitol"
+  container: "H. Rept. 117-663, 117th Congress, 2nd Session"
+  publisher: "U.S. Government Publishing Office"
+  url: "https://www.govinfo.gov/app/details/GPO-J6-REPORT"
+  open_access: true
+  lang: en
+  topics: [politics, violence, elections]
+  summary_fr: "Rapport final de la commission d'enquête de la Chambre des représentants sur l'attaque du 6 janvier 2021, articulé en huit chapitres narratifs, des recommandations et des annexes. Le chapitre 6 consacre une section (6.9) à QAnon et à l'appel « Operation Occupy the Capitol », et le chapitre 8 décrit la présence d'adeptes de QAnon en première ligne de l'assaut."
+  summary_en: "Final report of the House select committee investigating the 6 January 2021 attack, organised in eight narrative chapters, recommendations and appendices. Chapter 6 devotes a section (6.9) to QAnon and the 'Operation Occupy the Capitol' call, and chapter 8 describes QAnon adherents among those on the front lines of the assault."
+  organisation: "['Select Committee to Investigate the January 6th Attack on the United States Capitol']"
+
+- id: mcaweeney2020qtips
+  type: report
+  authors: ["McAweeney, Erin"]
+  year: 2020
+  date: 2020-09-02
+  title: "Q-Tips: Measuring the Mainstreaming of QAnon During the Pandemic"
+  publisher: "Graphika"
+  url: "https://www.graphika.com/blogs/q-tips-measuring-the-mainstreaming-of-qanon-during-the-pandemic"
+  open_access: true
+  lang: en
+  topics: [methods, platforms, health]
+  summary_fr: "Note méthodologique de Graphika combinant analyse de réseau, modélisation thématique et « pont culturel » pour repérer contenus, comptes, thèmes et hashtags reliant des communautés auparavant déconnectées. L'objectif est de mesurer comment QAnon devient une idéologie partagée par des communautés établies pendant la pandémie, au-delà du simple comptage de mots-clés."
+  summary_en: "Graphika methods note combining network analysis, topic modelling and 'cultural bridging' to identify content, accounts, topics and hashtags linking otherwise disconnected communities. The aim is to measure how QAnon became a shared ideology across established communities during the pandemic, beyond simple keyword counts."
+
+- id: graphika2021disqualified
+  type: report
+  authors: ["Graphika"]
+  year: 2021
+  date: 2021-01-22
+  title: "DisQualified: Network Impact of Twitter's Latest QAnon Enforcement"
+  publisher: "Graphika"
+  url: "https://www.graphika.com/blogs/disqualified-network-impact-of-twitters-latest-qanon-enforcement"
+  open_access: true
+  lang: en
+  topics: [moderation, platforms, methods]
+  summary_fr: "Réexamen d'une cartographie de réseau Graphika de 13 856 comptes Twitter fortement interconnectés qui utilisaient des hashtags QAnon au printemps 2020. Au 21 janvier 2021, 8 859 d'entre eux (plus de 60 %) ne sont plus actifs, ce que Graphika attribue en majorité à la vague de suspensions post-6 janvier."
+  summary_en: "Re-examination of a Graphika network map of 13,856 highly connected Twitter accounts engaging with QAnon hashtags in spring 2020. As of 21 January 2021, 8,859 of them (over 60%) were inactive, which Graphika attributes mostly to the post-6 January suspension wave."
+  organisation: "['Graphika']"
+
+- id: smith2020house
+  type: report
+  authors: ["Smith, Melanie"]
+  year: 2020
+  date: 2020-10-15
+  title: "House Intelligence Committee Hearing on Misinformation and Conspiracy Theories Online"
+  publisher: "Graphika"
+  url: "https://www.graphika.com/reports/house-intelligence-committee-hearing-on-misinformation-and-conspiracy-theories-online"
+  lang: en
+  topics: [politics, platforms, international]
+  summary_fr: "Déclaration écrite de la responsable de l'analyse de Graphika devant la commission du renseignement de la Chambre des représentants, fondée sur la cartographie de réseaux de l'entreprise. Elle décrit l'évolution de QAnon d'un groupe marginal vers une menace grand public pour la démocratie."
+  summary_en: "Written statement by Graphika's head of analysis to the House Intelligence Committee, drawing on the firm's network mapping. It describes QAnon's evolution from a fringe group into a mainstream threat to democracy."
+
+- id: start2021crimemaps
+  type: dataset
+  authors: ["Jensen, Michael", "Kane, Sheehan"]
+  year: 2021
+  date: 2021-09-24
+  title: "QAnon Crime Maps"
+  publisher: "National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland"
+  url: "https://www.start.umd.edu/data-tools/qanon-crime-maps"
+  open_access: true
+  lang: en
+  topics: [datasets, violence, extremism]
+  summary_fr: "Outil interactif présentant deux cartes : les infractions commises aux États-Unis depuis 2016 par des personnes motivées en tout ou partie par QAnon ou Pizzagate (lieu, motif, issue), et les arrestations d'adeptes de QAnon poursuivis pour l'assaut du 6 janvier 2021. L'inclusion exige une arrestation, une inculpation ou un décès et des sources publiques étayant le lien avec ces théories ; les personnes sont présumées innocentes."
+  summary_en: "Interactive tool with two maps: crimes committed in the United States since 2016 by people motivated wholly or partly by QAnon or Pizzagate (location, motive, outcome), and arrests of QAnon followers charged over the 6 January 2021 Capitol breach. Inclusion requires an arrest, indictment or death and public-source evidence of the link; defendants are presumed innocent."
+
+- id: holnburger2022qvadis
+  type: report
+  authors: ["Holnburger, Josef", "Goedeke Tort, Maheba", "Lamberty, Pia"]
+  year: 2022
+  date: 2022-03-31
+  title: "Q Vadis? The Spread of QAnon in the German-Speaking World"
+  publisher: "CeMAS – Center für Monitoring, Analyse und Strategie"
+  url: "https://cemas.io/en/publications/q-vadis-the-spread-of-qanon-in-the-german-speaking-world"
+  open_access: true
+  lang: en
+  topics: [international, belief-surveys, platforms]
+  summary_fr: "Premières données représentatives sur l'adhésion aux récits QAnon en Allemagne et en Autriche, combinées à l'analyse de 115 canaux et 84 groupes Telegram et de chaînes YouTube. 12,4 % des Allemands et 16,2 % des Autrichiens adhèrent au moins en partie aux récits centraux de QAnon, et 46 % des non-vaccinés."
+  summary_en: "First representative data on agreement with QAnon narratives in Germany and Austria, combined with analysis of 115 Telegram channels, 84 groups and YouTube channels. 12.4% of Germans and 16.2% of Austrians agree at least in part with core QAnon narratives, as do 46% of the unvaccinated."
+
+- id: aas2020qanon
+  type: report
+  authors: ["Amadeu Antonio Stiftung"]
+  year: 2020
+  title: "QAnon in Germany"
+  container: "de:hate report #01"
+  publisher: "Amadeu Antonio Stiftung"
+  url: "https://www.amadeu-antonio-stiftung.de/en/publications/qanon-in-germany/"
+  lang: en
+  topics: [international, platforms, extremism]
+  summary_fr: "Premier rapport du programme de veille de:hate (traduction anglaise de la version allemande), qui analyse les principaux groupes et canaux QAnon germanophones et les processus de radicalisation. Les données d'utilisateurs Telegram et YouTube montrent que la croissance de QAnon en Allemagne depuis le printemps 2020 suit directement la pandémie de COVID-19."
+  summary_en: "First report of the de:hate monitoring project (English translation of the German version), analysing the main German-language QAnon groups and channels and radicalisation processes. Telegram and YouTube user data show that QAnon's growth in Germany since spring 2020 directly tracks the COVID-19 pandemic."
+  organisation: "['Amadeu Antonio Stiftung']"
+
+- id: orphanalytics2022computational
+  type: report
+  authors: ["OrphAnalytics"]
+  year: 2022
+  date: 2022-02-19
+  title: "Computational linguistics sheds new light on QAnon's identity"
+  publisher: "OrphAnalytics SA"
+  url: "https://www.orphanalytics.com/en/news/whitepaper202201"
+  open_access: true
+  lang: en
+  topics: [authorship, methods]
+  summary_fr: "Communiqué et livre blanc présentant une attribution d'auteur par comptage statistique de courtes chaînes de caractères, appliquée au corpus complet des messages de Q et comparée à des textes d'auteurs potentiels cités par les enquêtes journalistiques. L'étude, convergente avec celle menée indépendamment à l'École des chartes, conclut que la période 4chan (octobre-décembre 2017) relève probablement d'une collaboration entre Paul Furber et Ron Watkins, puis que ce dernier apparaît comme l'auteur unique le plus probable ; il s'agit d'une inférence stylométrique, non d'une preuve d'identité."
+  summary_en: "Press release and white paper presenting authorship attribution by statistical counting of short character strings, applied to the full corpus of Q posts and compared with texts by candidate authors named in press investigations. The study, converging with an independent one at the École des chartes, concludes that the 4chan period (October-December 2017) was likely a collaboration between Paul Furber and Ron Watkins, after which the latter appears as the most likely sole author; this is a stylometric inference, not proof of identity."
+  organisation: "['OrphAnalytics']"
+
+- id: orphanalytics2022recent
+  type: report
+  authors: ["OrphAnalytics"]
+  year: 2022
+  date: 2022-10-16
+  title: "Ron Watkins confirmed as the most likely author of recent Q Drops"
+  publisher: "OrphAnalytics SA"
+  url: "https://www.orphanalytics.com/en/news/qanon-in-2022"
+  open_access: true
+  lang: en
+  topics: [authorship, methods]
+  summary_fr: "Application de la même méthode statistique aux cinq messages publiés par « Q » sur 8kun du 24 au 29 juin 2022 (environ 600 caractères), avec un corpus de comparaison enrichi des écrits de campagne récents de Ron Watkins. Malgré la brièveté du corpus, l'entreprise estime obtenir un signal robuste désignant Watkins comme l'auteur le plus probable."
+  summary_en: "Application of the same statistical method to the five posts published by 'Q' on 8kun on 24-29 June 2022 (about 600 characters), with a comparison corpus augmented by Ron Watkins's recent campaign writings. Despite the brevity of the corpus, the company reports a robust signal pointing to Watkins as the most likely author."
+  organisation: "['OrphAnalytics']"
+
+- id: phadke2021social
+  type: article
+  authors: ["Phadke, Shruti", "Samory, Mattia", "Mitra, Tanushree"]
+  year: 2021
+  date: 2021-10-13
+  title: "Characterizing Social Imaginaries and Self-Disclosures of Dissonance in Online Conspiracy Discussion Communities"
+  container: "Proceedings of the ACM on Human-Computer Interaction"
+  publisher: "Association for Computing Machinery (ACM)"
+  volume: "5"
+  issue: "CSCW2"
+  doi: "10.1145/3479855"
+  url: "https://doi.org/10.1145/3479855"
+  lang: en
+  topics: [discourse, deradicalization, methods, platforms]
+  summary_fr: "Méthodes mixtes sur 2 000 messages de 4chan et 8chan et 1,2 million de messages et commentaires de 12 subreddits QAnon pour décrire les « imaginaires sociaux » du mouvement, puis cadre computationnel distinguant croyance, dissonance et discussion générale. Les aveux de dissonance sont corrélés à une baisse significative des contributions puis au départ de la communauté."
+  summary_en: "Mixed methods on 2K posts from 4chan and 8chan and 1.2M posts and comments from 12 QAnon subreddits to describe the movement's 'social imaginaries', followed by a computational framework separating belief, dissonance and general discussion. Self-disclosures of dissonance correlate with a significant drop in contributions and eventual departure from the community."
+
+- id: hanley2023golden
+  type: article
+  authors: ["Hanley, Hans W. A.", "Kumar, Deepak", "Durumeric, Zakir"]
+  year: 2023
+  date: 2023-09-28
+  title: "A Golden Age: Conspiracy Theories' Relationship with Misinformation Outlets, News Media, and the Wider Internet"
+  container: "Proceedings of the ACM on Human-Computer Interaction"
+  publisher: "Association for Computing Machinery (ACM)"
+  volume: "7"
+  issue: "CSCW2"
+  doi: "10.1145/3610043"
+  url: "https://doi.org/10.1145/3610043"
+  lang: en
+  topics: [datasets, media, methods]
+  summary_fr: "Constitution et publication d'un ensemble de 755 sites consacrés à cinq théories du complot (QAnon, COVID, ovnis, 11-Septembre, Terre plate) et analyse de leurs hyperliens avec les médias fiables et de désinformation. Les sites QAnon et COVID partagent le plus de connexions externes, et les liens des sites de désinformation vers ces sites augmentent fortement entre 2018 et 2021."
+  summary_en: "Construction and release of a set of 755 websites devoted to five conspiracy theories (QAnon, COVID, UFOs, 9/11, flat Earth) and analysis of their hyperlinks with authentic and misinformation news outlets. QAnon and COVID sites share the most external connections, and hyperlinking from misinformation outlets to these sites rose sharply between 2018 and 2021."
+
+- id: monti2023online
+  type: article
+  authors: ["Monti, Corrado", "Cinelli, Matteo", "Valensise, Carlo", "Quattrociocchi, Walter", "Starnini, Michele"]
+  year: 2023
+  date: 2023-09-29
+  title: "Online conspiracy communities are more resilient to deplatforming"
+  container: "PNAS Nexus"
+  publisher: "Oxford University Press (OUP)"
+  volume: "2"
+  issue: "10"
+  doi: "10.1093/pnasnexus/pgad324"
+  url: "https://doi.org/10.1093/pnasnexus/pgad324"
+  open_access: true
+  lang: en
+  topics: [moderation, platforms]
+  summary_fr: "Comparaison des comportements des utilisateurs après l'interdiction sur Reddit de r/GreatAwakening (QAnon) et de r/FatPeopleHate, toutes deux partiellement migrées vers Voat. Les membres de la communauté complotiste sont bien plus susceptibles de quitter Reddit pour Voat, y maintiennent leur niveau d'activité et y recréent leur réseau social, tandis que la toxicité augmente fortement."
+  summary_en: "Comparison of user behaviour after Reddit banned r/GreatAwakening (QAnon) and r/FatPeopleHate, both of which partially migrated to Voat. Conspiracy community members were much more likely to leave Reddit for Voat, kept a similar activity level there and recreated their social network, while toxicity rose sharply."
+
+- id: vishnuprasad2024tracking
+  type: conference
+  authors: ["Vishnuprasad, Padinjaredath Suresh", "Nogara, Gianluca", "Cardoso, Felipe", "Cresci, Stefano", "Giordano, Silvia", "Luceri, Luca"]
+  year: 2024
+  date: 2024-05-28
+  title: "Tracking Fringe and Coordinated Activity on Twitter Leading Up to the US Capitol Attack"
+  container: "Proceedings of the International AAAI Conference on Web and Social Media"
+  publisher: "Association for the Advancement of Artificial Intelligence (AAAI)"
+  volume: "18"
+  doi: "10.1609/icwsm.v18i1.31409"
+  url: "https://doi.org/10.1609/icwsm.v18i1.31409"
+  lang: en
+  topics: [platforms, elections, methods]
+  summary_fr: "Étude des contenus marginaux et complotistes sur Twitter pendant les sept mois précédant l'assaut du Capitole et de l'activité coordonnée suspecte des comptes qui les partagent. Elle relève des techniques de manipulation (amplification ciblée, consensus fabriqué) et montre la convergence de ces récits vers le thème de l'élection volée (#stopthesteal) aux côtés de récits QAnon."
+  summary_en: "Study of fringe and conspiracy content on Twitter in the seven months before the Capitol attack and of suspicious coordinated activity by accounts sharing it. It finds manipulation techniques (targeted amplification, manufactured consensus) and shows these narratives converging on the stolen-election theme (#stopthesteal) alongside QAnon narratives."
+
+- id: mccabe2024post
+  type: article
+  authors: ["McCabe, Stefan D.", "Ferrari, Diogo", "Green, Jon", "Lazer, David M. J.", "Esterling, Kevin M."]
+  year: 2024
+  date: 2024-06-05
+  title: "Post-January 6th deplatforming reduced the reach of misinformation on Twitter"
+  container: "Nature"
+  publisher: "Springer Science and Business Media LLC"
+  volume: "630"
+  issue: "8015"
+  doi: "10.1038/s41586-024-07524-8"
+  url: "https://doi.org/10.1038/s41586-024-07524-8"
+  lang: en
+  topics: [moderation, platforms, methods]
+  summary_fr: "Évaluation, sur un panel de plus de 500 000 utilisateurs actifs et par des plans quasi expérimentaux, de la suspension soudaine par Twitter de 70 000 comptes diffuseurs de désinformation après le 6 janvier 2021 (vague que Twitter rattachait aux comptes QAnon). L'intervention a réduit la circulation de désinformation par les comptes visés et par leurs abonnés, et de nombreux diffuseurs non suspendus ont quitté la plateforme ; l'ampleur causale ne peut être isolée des événements concomitants."
+  summary_en: "Evaluation, using a panel of over 500,000 active users and natural-experiment designs, of Twitter's sudden deplatforming of 70,000 misinformation traffickers after 6 January 2021 (a wave Twitter tied to QAnon accounts). The intervention reduced misinformation circulation by deplatformed users and their followers, and many non-deplatformed traffickers left the platform; the causal magnitude cannot be separated from concurrent events."
+
+- id: papasavva2020raiders
+  type: dataset
+  authors: ["Papasavva, Antonis", "Zannettou, Savvas", "De Cristofaro, Emiliano", "Stringhini, Gianluca", "Blackburn, Jeremy"]
+  year: 2020
+  date: 2020-05-26
+  title: "Raiders of the Lost Kek: 3.5 Years of Augmented 4chan Posts from the Politically Incorrect Board"
+  container: "Proceedings of the International AAAI Conference on Web and Social Media"
+  publisher: "Association for the Advancement of Artificial Intelligence (AAAI)"
+  volume: "14"
+  doi: "10.1609/icwsm.v14i1.7354"
+  url: "https://doi.org/10.1609/icwsm.v14i1.7354"
+  lang: en
+  topics: [datasets, platforms, origins]
+  summary_fr: "Jeu de données public de plus de 3,3 millions de fils et 134,5 millions de messages du forum /pol/ de 4chan (juin 2016-novembre 2019), période qui couvre l'apparition de « Q » en octobre 2017, enrichi de scores de toxicité et d'entités nommées. Il archive des messages définitivement supprimés de 4chan et autrement inaccessibles."
+  summary_en: "Public dataset of over 3.3M threads and 134.5M posts from 4chan's /pol/ board (June 2016-November 2019), a period covering Q's appearance in October 2017, augmented with toxicity scores and named entities. It preserves posts permanently deleted from 4chan and otherwise inaccessible."
+
+- id: priniski2021rise
+  type: article
+  authors: ["Priniski, J. Hunter", "McClay, Mason", "Holyoak, Keith J."]
+  year: 2021
+  date: 2021-05-10
+  title: "Rise of QAnon: A Mental Model of Good and Evil Stews in an Echochamber"
+  container: "arXiv preprint arXiv:2105.04632"
+  url: "https://arxiv.org/abs/2105.04632"
+  open_access: true
+  lang: en
+  topics: [psychology, platforms, discourse]
+  summary_fr: "Deux études computationnelles de la structure du réseau et du contenu sémantique de plus de 800 000 tweets sur QAnon publiés par environ 100 000 utilisateurs centraux du réseau QAnon naissant, collectés à l'été 2018. La majorité des utilisateurs diffusent plutôt qu'ils ne produisent, formant une chambre d'écho, et semblent partager un modèle mental simpliste opposant forces du Bien et du Mal."
+  summary_en: "Two computational studies of the network structure and semantic content of over 800,000 tweets about QAnon by about 100,000 users central to the early QAnon network, collected in summer 2018. Most users disseminated rather than produced information, forming an echo chamber, and appeared to hold a simplistic Good-versus-Evil mental model."
+
+- id: adams2022knowledge
+  type: conference
+  authors: ["Adams, Clay", "Bozhidarova, Malvina", "Chen, James", "Gao, Andrew", "Liu, Zhengtong", "Priniski, J. Hunter", "Lin, Junyuan", "Sonthalia, Rishi", "Bertozzi, Andrea L.", "Brantingham, P. Jeffrey"]
+  year: 2022
+  date: 2022-12-17
+  title: "Knowledge Graphs of the QAnon Twitter Network"
+  container: "2022 IEEE International Conference on Big Data (Big Data)"
+  publisher: "IEEE"
+  doi: "10.1109/bigdata55660.2022.10021128"
+  url: "https://doi.org/10.1109/bigdata55660.2022.10021128"
+  lang: en
+  topics: [methods, platforms, datasets]
+  summary_fr: "Application de graphes de connaissances à un nouveau jeu de données constitué des historiques de tweets d'utilisateurs ayant discuté de QAnon à l'été 2018, avec une méthode enrichissant les modèles thématiques d'informations relationnelles. Les utilisateurs ne forment pas un réseau de croyance monolithique mais de nombreuses petites communautés interconnectées discutant d'événements politiques précis, comme l'assaut du 6 janvier."
+  summary_en: "Application of knowledge graphs to a new dataset of tweet histories from users who discussed QAnon in summer 2018, with a method that augments topic models with relational information. Users do not form a monolithic belief or social network but many smaller interlinked communities discussing specific political events such as the 6 January riot."
+
+- id: haupt2025examining
+  type: article
+  authors: ["Haupt, Michael Robert", "Larsen, Meng Zhen", "Strayer, Michelle", "Yang, Luning", "Mackey, Tim K."]
+  year: 2025
+  date: 2025-01-28
+  title: "Examining Online Social Support for Countering QAnon Conspiracies"
+  container: "arXiv preprint arXiv:2501.16668"
+  url: "https://arxiv.org/abs/2501.16668"
+  open_access: true
+  lang: en
+  topics: [deradicalization, platforms, health]
+  summary_fr: "Codage thématique et analyse de sentiment de 1 665 messages et 78 171 commentaires du subreddit r/QAnonCasualties, forum de proches de personnes radicalisées par QAnon (juillet 2021-juillet 2022). Les thèmes dominants sont l'exutoire, la recherche de conseils et de validation, et la pression à refuser le vaccin contre la COVID-19 ; 40 % des messages codés désignent un parent et 16,3 % un conjoint comme proche « Q »."
+  summary_en: "Thematic coding and sentiment analysis of 1,665 posts and 78,171 comments from r/QAnonCasualties, a forum for relatives of people radicalised by QAnon (July 2021-July 2022). Venting, advice- and validation-seeking and pressure to refuse the COVID-19 vaccine dominate; 40% of coded posts identify a parent and 16.3% a partner as the 'Q' relation."
+
+- id: doan2026beyond
+  type: article
+  authors: ["Doan, Bich Ngoc", "De Francisci Morales, Gianmarco", "Russo, Giuseppe"]
+  year: 2026
+  date: 2026-01-25
+  title: "Beyond the Rabbit Hole: Mapping the Relational Harms of QAnon Radicalization"
+  container: "arXiv preprint arXiv:2601.17658 (accepted to EMNLP 2026)"
+  url: "https://arxiv.org/abs/2601.17658"
+  open_access: true
+  lang: en
+  topics: [psychology, methods, deradicalization]
+  summary_fr: "Chaîne de traitement computationnelle appliquée à 12 747 récits du forum r/QAnonCasualties : extraction de traits thématiques, regroupement en six « personas » de radicalisation et détection des émotions assistée par LLM. Les personas prédisent des préjudices émotionnels spécifiques : une radicalisation perçue comme choix idéologique délibéré est associée à la colère et au dégoût, un effondrement personnel et cognitif à la peur et à la tristesse."
+  summary_en: "Computational pipeline applied to 12,747 stories from r/QAnonCasualties: extraction of thematic traits, clustering into six radicalisation 'personas' and LLM-assisted emotion detection. Personas predict specific emotional harms: radicalisation perceived as a deliberate ideological choice is associated with anger and disgust, personal and cognitive collapse with fear and sadness."
+
+- id: anwar2021analyzing
+  type: conference
+  authors: ["Anwar, Ahmed", "Ilyas, Haider", "Yaqub, Ussama", "Zaman, Salma"]
+  year: 2021
+  date: 2021-06-09
+  title: "Analyzing QAnon on Twitter in Context of US Elections 2020: Analysis of User Messages and Profiles Using VADER and BERT Topic modeling"
+  container: "DG.O2021: The 22nd Annual International Conference on Digital Government Research"
+  publisher: "ACM"
+  doi: "10.1145/3463677.3463718"
+  url: "https://doi.org/10.1145/3463677.3463718"
+  lang: en
+  topics: [elections, platforms, methods]
+  summary_fr: "Collecte de plus de 12 millions de tweets (1er août-15 septembre 2020) mentionnant Trump, Biden ou Election2020, puis analyse de sentiment VADER et modélisation thématique BERT des profils des utilisateurs mentionnant « QAnon ». Les auteurs contestent l'idée que ces utilisateurs se concentrent dans les États républicains et constatent qu'une écrasante majorité soutient Trump, avec des profils contenant « MAGA », « God », « Patriot » ou « WWG1WGA »."
+  summary_en: "Collection of over 12 million tweets (1 August-15 September 2020) mentioning Trump, Biden or Election2020, followed by VADER sentiment analysis and BERT topic modelling of the profiles of users mentioning 'QAnon'. The authors challenge the notion that these users are concentrated in Republican states and find an overwhelming majority are Trump supporters, with profiles containing 'MAGA', 'God', 'Patriot' or 'WWG1WGA'."
+
+- id: himelboim2023what
+  type: article
+  authors: ["Himelboim, Itai", "Borah, Porismita", "Lee, Danielle Ka Lai", "Lee, Jeonghyun (Janice)", "Su, Yan", "Vishnevskaya, Anastasia", "Xiao, Xizhu"]
+  year: 2023
+  date: 2023-01-04
+  title: "What do 5G networks, Bill Gates, Agenda 21, and QAnon have in common? Sources, distribution, and characteristics"
+  container: "New Media & Society"
+  publisher: "SAGE Publications"
+  volume: "26"
+  issue: "10"
+  doi: "10.1177/14614448221142800"
+  url: "https://doi.org/10.1177/14614448221142800"
+  lang: en
+  topics: [health, discourse, platforms]
+  summary_fr: "Analyse des sources d'information mobilisées sur Twitter pour soutenir cinq théories du complot liées à la COVID-19 et de la relation entre type de contenu et diffusion. Seuls les messages évoquant des intentions malveillantes et des actions secrètes prédisent une plus forte diffusion ; les « méga-théories » comme QAnon et l'Agenda 21 contiennent moins d'énoncés de croyance, QAnon mettant l'accent sur les conspirateurs derrière la pandémie."
+  summary_en: "Analysis of the information sources used on Twitter to support five COVID-19-related conspiracy theories and of the link between content type and distribution. Only malicious-purpose and secretive-action messages predicted wider distribution; 'mega-theories' such as QAnon and Agenda 21 contained fewer belief statements, with QAnon emphasising the conspirators behind the pandemic."
+
+- id: tangherlini2020automated
+  type: article
+  authors: ["Tangherlini, Timothy R.", "Shahsavari, Shadi", "Shahbazi, Behnam", "Ebrahimzadeh, Ehsan", "Roychowdhury, Vwani"]
+  year: 2020
+  date: 2020-06-16
+  title: "An automated pipeline for the discovery of conspiracy and conspiracy theory narrative frameworks: Bridgegate, Pizzagate and storytelling on the web"
+  container: "PLOS ONE"
+  publisher: "Public Library of Science (PLoS)"
+  volume: "15"
+  issue: "6"
+  doi: "10.1371/journal.pone.0233879"
+  url: "https://doi.org/10.1371/journal.pone.0233879"
+  open_access: true
+  lang: en
+  topics: [methods, origins, discourse]
+  summary_fr: "Chaîne automatisée d'apprentissage automatique qui extrait acteurs et relations de messages en ligne et d'articles de presse pour reconstruire le cadre narratif génératif de Pizzagate (2016, théorie précurseur de QAnon) et de Bridgegate (2013, conspiration avérée). Pizzagate relie des domaines autrement disjoints par l'interprétation d'un « savoir caché », alors que Bridgegate reste circonscrit à la politique du New Jersey ; les auteurs font l'hypothèse que le récit complotiste se stabilise plus vite que celui d'une conspiration réelle."
+  summary_en: "Automated machine-learning pipeline that extracts actors and relationships from online posts and news articles to reconstruct the generative narrative framework of Pizzagate (2016, a forerunner of QAnon) and Bridgegate (2013, an actual conspiracy). Pizzagate links otherwise unconnected domains through the interpretation of 'hidden knowledge', whereas Bridgegate stays within New Jersey politics; the authors hypothesise that a conspiracy theory's narrative stabilises faster than that of a real conspiracy."
+
+# ---------------------------------------------------------------- QAnon hors des Etats-Unis : France, Europe, monde
+
+- id: guenoun2021mouvance
+  type: article
+  authors: ["Guénoun, Tamara"]
+  year: 2021
+  title: "La mouvance QAnon : un complexe de facticité du monde moderne"
+  container: "L'Évolution Psychiatrique"
+  publisher: "Elsevier"
+  volume: "86"
+  issue: "2"
+  pages: "307-317"
+  doi: "10.1016/j.evopsy.2021.02.003"
+  url: "https://hal.univ-lyon2.fr/hal-03916603v1"
+  lang: fr
+  topics: [international, psychology]
+  summary_fr: "Article de psychologie clinique publié dans une revue psychiatrique française, qui propose une lecture de la mouvance QAnon comme « complexe de facticité » du monde contemporain. C'est l'une des premières analyses académiques francophones consacrées spécifiquement à QAnon."
+  summary_en: "A clinical-psychology article in a French psychiatric journal that reads the QAnon movement as a 'complex of facticity' of the modern world. It is one of the first French-language academic analyses devoted specifically to QAnon."
+
+- id: fehr2021verschworungsmythen
+  type: article
+  authors: ["Fehr, Charlotte"]
+  year: 2021
+  title: "Verschwörungsmythen am Beispiel von QAnon und Neue Weltordnung – Eine rekonstruktive Metaphernanalyse"
+  container: "Soziologiemagazin"
+  publisher: "Verlag Barbara Budrich"
+  volume: "14"
+  issue: "1-2021"
+  pages: "27-43"
+  doi: "10.3224/soz.v14i1.03"
+  open_access: true
+  lang: de
+  topics: [international, discourse, methods]
+  summary_fr: "L'article applique une analyse reconstructive des métaphores aux récits de QAnon et du « Nouvel ordre mondial » pour reconstituer la manière dont les croyants construisent la réalité sociale. Il soutient qu'une lecture purement pathologisante des adhérents ne suffit pas à rendre compte des fonctions sociales de ces récits."
+  summary_en: "The article applies reconstructive metaphor analysis to QAnon and 'New World Order' narratives to reconstruct how believers construct social reality. It argues that purely pathologising accounts of adherents cannot explain the social functions these narratives fulfil."
+
+- id: robie2022new
+  type: article
+  authors: ["Robie, David"]
+  year: 2022
+  title: "FRONTLINE 1: New Zealand’s 23-day Parliament siege: QAnon and how social media disinformation manufactured an ‘alternate reality’"
+  container: "Pacific Journalism Review : Te Koakoa"
+  publisher: "Auckland University of Technology (AUT) Library"
+  volume: "28"
+  issue: "1 & 2"
+  pages: "105-113"
+  doi: "10.24135/pjr.v28i1and2.1265"
+  open_access: true
+  lang: en
+  topics: [international, media, health]
+  summary_fr: "Article de journalisme d'investigation sur l'occupation pendant 23 jours des abords du Parlement néo-zélandais contre l'obligation vaccinale (février-mars 2022), achevée par des affrontements. Il analyse le rôle de médias militants conspirationnistes et de récits inspirés de QAnon dans la construction d'une « réalité alternative »."
+  summary_en: "A journalism-research piece on the 23-day anti-vaccine-mandate occupation of New Zealand's Parliament grounds (February-March 2022), which ended in clashes. It examines how conspiracist activist media and QAnon-inspired narratives built an 'alternate reality'."
+
+- id: gomez2022desinformacao
+  type: chapter
+  authors: ["Gómez, Michelle Pacheco", "Lubisco, Nídia Maria Lienert"]
+  year: 2022
+  title: "DESINFORMAÇÃO NA INTERNET: FAKE NEWS DO QANON COMO REGIME DE INFORMAÇÃO"
+  container: "Ciências sociais aplicadas: Estado, organizações e desenvolvimento regional 3"
+  publisher: "Atena Editora"
+  pages: "103-113"
+  doi: "10.22533/at.ed.6592212129"
+  lang: pt
+  topics: [international, discourse]
+  summary_fr: "Chapitre brésilien de sciences de l'information qui analyse les fausses informations de QAnon à l'aide du concept de « régime d'information ». Il est issu d'une recherche de master menée au Brésil sur QAnon."
+  summary_en: "A Brazilian information-science chapter analysing QAnon fake news through the concept of an 'information regime'. It stems from master's research on QAnon conducted in Brazil."
+
+- id: kohnert2023qanon
+  type: article
+  authors: ["Kohnert, Dirk"]
+  year: 2023
+  title: "QAnon and Other Conspiracy Ideologies’ Impact on Sub-Saharan Africa in the Age of Global Capitalism"
+  container: "International Journal of African Studies"
+  publisher: "SvedbergOpen"
+  volume: "3"
+  issue: "2"
+  pages: "74-89"
+  doi: "10.51483/ijafrs.3.2.2023.74-89"
+  lang: en
+  topics: [international, politics]
+  summary_fr: "L'article examine l'influence de QAnon et d'autres idéologies complotistes venues des États-Unis sur l'Afrique subsaharienne. Il replace leur diffusion dans le contexte du capitalisme mondialisé et des représentations de l'Afrique dans le discours conspirationniste américain."
+  summary_en: "The article examines the influence of QAnon and other US-born conspiracy ideologies on sub-Saharan Africa. It situates their spread within global capitalism and within representations of Africa in American conspiracist discourse."
+
+- id: hermanova2023fringe
+  type: conference
+  authors: ["Hermanova, Marie"]
+  year: 2023
+  title: "FROM FRINGE TO MAINSTREAM: QANON NARRATIVES IN CENTRAL EUROPEAN DIGITAL SPACES"
+  container: "AoIR Selected Papers of Internet Research"
+  publisher: "University of Illinois Libraries"
+  doi: "10.5210/spir.v2022i0.13020"
+  lang: en
+  topics: [international, platforms, health]
+  summary_fr: "Communication sur la circulation de récits proches de QAnon dans les espaces numériques tchèques et slovaques, en particulier chez des influenceurs TikTok et Instagram, à partir de deux récits sur le Covid-19 et les vaccins. Elle propose un modèle en cinq étapes du passage des contenus de l'anglais vers d'autres langues et des marges vers les plateformes grand public."
+  summary_en: "A conference paper on the circulation of QAnon-adjacent narratives in Czech and Slovak digital spaces, focusing on TikTok and Instagram influencers, through two COVID-19 and vaccine narratives. It proposes a five-step model of how content moves from English into other languages and from fringe to mainstream platforms."
+
+- id: langer2023zusammenhange
+  type: chapter
+  authors: ["Langer, Armin"]
+  year: 2023
+  title: "Zusammenhänge zwischen antisemitischer Hundepfeifenpolitik und rechtsextremer Gewalt: Das Beispiel der George-Soros-Verschwörungstheorien und des QAnon-Kollektivs"
+  container: "Rechter Terrorismus: international – digital – analog"
+  publisher: "Springer Fachmedien Wiesbaden"
+  pages: "231-252"
+  doi: "10.1007/978-3-658-40396-6_9"
+  lang: de
+  topics: [international, extremism, violence]
+  summary_fr: "Chapitre d'un ouvrage allemand sur le terrorisme d'extrême droite, qui étudie le lien entre la politique antisémite « à mots couverts » (dog whistle) et la violence d'extrême droite. Il prend pour exemples les théories du complot visant George Soros et le collectif QAnon."
+  summary_en: "A chapter in a German volume on right-wing terrorism examining the link between antisemitic 'dog-whistle' politics and far-right violence. Its case studies are the George Soros conspiracy theories and the QAnon collective."
+
+- id: celestini2023reviving
+  type: article
+  authors: ["Celestini, Carmen", "Amarasingam, Amarnath"]
+  year: 2023
+  title: "Reviving the violet flame: The new age conspiratorial journey of Canada’s Queen Romana Didulo"
+  container: "Studies in Religion/Sciences Religieuses"
+  publisher: "SAGE Publications"
+  volume: "53"
+  issue: "3"
+  pages: "366-389"
+  doi: "10.1177/00084298231209700"
+  open_access: true
+  lang: en
+  topics: [international, religion, deradicalization]
+  summary_fr: "L'article retrace le parcours de Romana Didulo, autoproclamée « reine du Canada », devenue influenceuse dans la mouvance QAnon en profitant de la pandémie et du silence de Q. Il montre comment son mouvement puise dans un courant théosophique des années 1930-1940, le mouvement I AM."
+  summary_en: "The article traces the trajectory of Romana Didulo, the self-proclaimed 'Queen of Canada', who became an influencer within the QAnon movement by exploiting the pandemic and Q's silence. It shows how her movement draws on a 1930s-1940s theosophical current, the I AM movement."
+
+- id: levstock2024qanon
+  type: article
+  authors: ["Levstock, Laura"]
+  year: 2024
+  title: "QAnon in den sozialen Medien: Zur Reproduktion antisemitischer Topoi auf Facebook"
+  container: "ELAD-SILDA"
+  publisher: "Université Jean Moulin Lyon 3"
+  issue: "9"
+  doi: "10.35562/elad-silda.1423"
+  lang: de
+  topics: [international, discourse, platforms]
+  summary_fr: "L'article examine la reproduction de topoï antisémites dans la mouvance QAnon, non chez ses figures de proue mais chez de simples commentateurs sur Facebook. Il s'appuie sur une analyse linguistique de commentaires publiés sous des contributions de cette mouvance."
+  summary_en: "The article examines how antisemitic topoi are reproduced within the QAnon milieu, not among its leading figures but among ordinary commenters on Facebook. It relies on a linguistic analysis of comments posted under contributions from this milieu."
+
+- id: mimizuka2024fly
+  type: article
+  authors: ["Mimizuka, Kayo", "Rodarte, André K", "Arif, Ahmer"]
+  year: 2024
+  title: "On the fly: How Japanese social media “watchers” improvise to counter problematic information"
+  container: "New Media & Society"
+  publisher: "SAGE Publications"
+  volume: "28"
+  issue: "2"
+  pages: "720-738"
+  doi: "10.1177/14614448241302311"
+  open_access: true
+  lang: en
+  topics: [international, moderation, platforms]
+  summary_fr: "À partir d'entretiens avec douze « watchers », l'étude analyse comment des internautes japonais ont surveillé et contré YamatoQ, un groupe conspirationniste japonais favorable à QAnon. Elle montre que des émotions positives et la participation collective peuvent aussi servir à limiter la diffusion d'informations problématiques."
+  summary_en: "Based on interviews with twelve 'watchers', the study analyses how Japanese social media users monitored and countered YamatoQ, a pro-QAnon Japanese conspiracy group. It shows that positive emotions and collective participation can also help limit the spread of problematic information."
+
+- id: bozalka2026ethnographie
+  type: article
+  authors: ["Bozalka, Dusan"]
+  year: 2026
+  title: "Une ethnographie en ligne computationnelle des influenceurs complotistes : Identifier les pratiques des Anons européens"
+  container: "Questions de communication"
+  publisher: "OpenEdition"
+  volume: "49"
+  pages: "357-384"
+  doi: "10.4000/16eby"
+  lang: fr
+  topics: [international, methods, platforms]
+  summary_fr: "L'article étudie les pratiques de trois influenceurs ou collectifs d'influenceurs complotistes européens appartenant au contre-public formé par Q et les « Anons ». Il combine une ethnographie en ligne à distance et des mesures quantitatives issues de collectes multiplateformes pour identifier ces influenceurs et analyser leur production."
+  summary_en: "The article studies the practices of three European conspiracist influencers or influencer collectives belonging to the networked counter-public formed by Q and the 'Anons'. It combines distant online ethnography with quantitative measures from multi-platform data collection to identify these influencers and analyse their output."
+
+- id: thomas2021german
+  type: dataset
+  authors: ["Thomas, W.F."]
+  year: 2021
+  title: "German QAnon Telegram Dataset"
+  publisher: "figshare"
+  doi: "10.6084/m9.figshare.16879513"
+  url: "https://figshare.com/articles/dataset/German_QAnon_Telegram_Dataset/16879513"
+  lang: en
+  topics: [international, datasets, platforms]
+  summary_fr: "Jeu de données de canaux Telegram publics consacrés aux discussions germanophones sur QAnon, de la création de chaque canal au 1er juillet 2021. Les canaux ont été sélectionnés par rebonds successifs à partir de trois canaux initiaux, en retenant les sources les plus fréquemment transférées."
+  summary_en: "A dataset of public Telegram channels devoted to German-language QAnon discussions, from each channel's creation to 1 July 2021. Channels were selected by snowballing from three seed channels, keeping the most frequently forwarded-from sources."
+
+- id: newsguard2020special
+  type: report
+  authors: ["NewsGuard"]
+  year: 2020
+  title: "Special Report: QAnon in Europe"
+  publisher: "NewsGuard"
+  url: "https://www.newsguardtech.com/special-report-qanon/"
+  lang: en
+  topics: [international, platforms, health]
+  summary_fr: "Rapport spécial de NewsGuard publié fin juillet 2020 sur l'implantation de QAnon au Royaume-Uni, en Allemagne, en France et en Italie, et sur les comptes et groupes spécifiques au mouvement. Il décrit la fusion des récits QAnon avec des théories du complot européennes préexistantes pendant la pandémie."
+  summary_en: "A NewsGuard special report published in late July 2020 on QAnon's foothold in the United Kingdom, Germany, France and Italy, and on QAnon-specific accounts and groups there. It describes how QAnon narratives merged with pre-existing European conspiracy theories during the pandemic."
+
+- id: hopenothate2020qanon
+  type: report
+  authors: ["HOPE not hate"]
+  year: 2020
+  title: "QAnon in the UK"
+  publisher: "HOPE not hate Charitable Trust"
+  url: "https://www.hopenothate.org.uk/qanon-in-the-uk/"
+  lang: en
+  topics: [international, belief-surveys, extremism]
+  summary_fr: "Rapport sur la diffusion de QAnon au Royaume-Uni et en Europe, comprenant un sondage sur la notoriété et le soutien au mouvement, une analyse des réseaux sociaux et des liens avec l'extrême droite. Il note que les adeptes britanniques et européens ont délaissé une partie du jargon américain au profit de slogans comme « Save Our Children »."
+  summary_en: "A report on the spread of QAnon in the United Kingdom and Europe, including polling on awareness of and support for the movement, an analysis of social media and links with the far right. It notes that British and European adherents dropped much American jargon in favour of slogans such as 'Save Our Children'."
+
+- id: kleinenvonkonigslow2021verschworungstheorien
+  type: article
+  authors: ["Kleinen-von Königslöw, Katharina", "von Nordheim, Gerret"]
+  year: 2021
+  title: "Verschwörungstheorien in sozialen Netzwerken am Beispiel von QAnon"
+  container: "Aus Politik und Zeitgeschichte"
+  publisher: "Bundeszentrale für politische Bildung"
+  url: "https://www.bpb.de/apuz/verschwoerungstheorien-2021/339281/verschwoerungstheorien-in-sozialen-netzwerken-am-beispiel-von-qanon"
+  open_access: true
+  lang: de
+  topics: [international, platforms, discourse]
+  summary_fr: "Article de vulgarisation scientifique publié par l'Agence fédérale allemande pour l'éducation civique, qui présente QAnon comme une « omni-conspiration » agrégeant des motifs complotistes anciens. Il analyse le rôle des réseaux sociaux dans sa diffusion et sa présence en Allemagne, notamment chez les Reichsbürger et les Querdenker."
+  summary_en: "A research-based article published by Germany's Federal Agency for Civic Education presenting QAnon as an 'omni-conspiracy' that aggregates older conspiracy motifs. It analyses the role of social networks in its spread and its presence in Germany, notably among the Reichsbürger and Querdenker."
+
+- id: ross2020why
+  type: journalism
+  authors: ["Ross, Kaz"]
+  year: 2020
+  date: 2020-08-24
+  title: "Why QAnon is attracting so many followers in Australia — and how it can be countered"
+  container: "The Conversation"
+  publisher: "The Conversation Media Group Ltd"
+  doi: "10.64628/aa.d3vt63v9h"
+  lang: en
+  topics: [international, deradicalization]
+  summary_fr: "Article d'analyse d'une chercheuse australienne sur l'audience de QAnon en Australie. Il propose aussi des pistes pour contrer sa diffusion."
+  summary_en: "An analysis piece by an Australian researcher on QAnon's following in Australia. It also suggests ways to counter its spread."
+
+- id: nalon2020como
+  type: journalism
+  authors: ["Nalon, Tai"]
+  year: 2020
+  date: 2020-09-08
+  title: "Como a narrativa QAnon pode moldar o discurso político no Brasil"
+  container: "Aos Fatos"
+  url: "https://www.aosfatos.org/noticias/como-narrativa-qanon-pode-moldar-o-discurso-politico-no-brasil/"
+  lang: pt
+  topics: [international, politics, elections]
+  summary_fr: "Analyse du site brésilien de vérification Aos Fatos sur la présence de relais de QAnon dans l'écosystème politique brésilien, y compris des comptes suivis par le président de l'époque. Elle s'interroge sur l'effet de ce récit sur le discours politique et les campagnes électorales."
+  summary_en: "An analysis by Brazilian fact-checking outlet Aos Fatos of QAnon relays within Brazil's political ecosystem, including accounts followed by the then-president. It considers how the narrative could shape political discourse and election campaigns."
+
+- id: afp2020mouvance
+  type: journalism
+  authors: ["AFP"]
+  year: 2020
+  date: 2020-09-14
+  title: "La mouvance QAnon, née dans les milieux pro-Trump, est en train de se répandre en Europe: \"Des signaux inquiétants\""
+  container: "La Libre"
+  url: "https://www.lalibre.be/international/europe/la-mouvance-qanon-nee-dans-les-milieux-pro-trump-est-en-train-de-se-repandre-en-europe-des-signaux-inquietants-5f5f52a49978e2322ffa3000"
+  lang: fr
+  topics: [international, platforms]
+  summary_fr: "Dépêche AFP reprise par le quotidien belge La Libre sur l'arrivée de QAnon en Europe à la faveur de la pandémie. Elle décrit l'adaptation des récits aux contextes nationaux, notamment en Allemagne et en France, et cite des chercheurs et des sources institutionnelles françaises."
+  summary_en: "An AFP dispatch republished by Belgian daily La Libre on QAnon's arrival in Europe during the pandemic. It describes how the narratives adapted to national contexts, notably in Germany and France, quoting researchers and French institutional sources."
+
+- id: pezet2020france
+  type: journalism
+  authors: ["Pezet, Jacques", "Nass, Claire-Line"]
+  year: 2020
+  date: 2020-10-10
+  title: "En France aussi, la chasse à QAnon est ouverte"
+  container: "Libération"
+  url: "https://www.liberation.fr/france/2020/10/10/en-france-aussi-la-chasse-a-qanon-est-ouverte_1801907"
+  lang: fr
+  topics: [international, moderation, platforms]
+  summary_fr: "Article de Libération sur la décision de Facebook et Instagram de supprimer toute propagande se réclamant de QAnon, même non violente. Il examine ses effets sur la mouvance qui commençait à s'implanter en France."
+  summary_en: "A Libération article on Facebook and Instagram's decision to remove all QAnon propaganda, even non-violent. It examines the effects on the movement, which had begun to take root in France."
+
+- id: leloup2020france
+  type: journalism
+  authors: ["Leloup, Damien", "Brandy, Grégor"]
+  year: 2020
+  date: 2020-10-14
+  title: "En France, la mouvance conspirationniste QAnon gagne des adeptes"
+  container: "Le Monde"
+  url: "https://www.lemonde.fr/pixels/article/2020/10/14/en-france-la-mouvance-conspirationniste-qanon-gagne-des-adeptes_6055916_4408996.html"
+  lang: fr
+  topics: [international, platforms]
+  summary_fr: "Article de la rubrique Pixels du Monde sur la progression de la mouvance QAnon en France à l'automne 2020. Il a paru le même jour que l'article de fond du Monde sur les racines américaines de la mouvance."
+  summary_en: "An article by Le Monde's Pixels desk on the growth of the QAnon movement in France in autumn 2020. It appeared the same day as Le Monde's long read on the movement's American roots."
+
+- id: kovac2020how
+  type: journalism
+  authors: ["Kovac, Adam"]
+  year: 2020
+  date: 2020-11-03
+  title: "How Canada became one of the world's biggest hubs for QAnon conspiracy theories"
+  container: "CTV News Montreal"
+  url: "https://www.ctvnews.ca/montreal/article/how-canada-became-one-of-the-worlds-biggest-hubs-for-qanon-conspiracy-theories/"
+  lang: en
+  topics: [international, platforms]
+  summary_fr: "Article sur la place du Canada, et en particulier du Québec, parmi les principaux foyers de QAnon hors des États-Unis. Il montre l'adaptation des récits à des figures politiques et sanitaires locales et le rayonnement de contenus québécois en Europe francophone."
+  summary_en: "An article on Canada's place, and Québec's in particular, among QAnon's main hubs outside the United States. It shows how the narratives were adapted to local political and public-health figures and how Québec content reached French-speaking Europe."
+
+- id: nos2020twitter
+  type: journalism
+  authors: ["NOS"]
+  year: 2020
+  date: 2020-11-03
+  title: "Twitter verwijdert negentig Nederlandse QAnon-accounts"
+  container: "NOS"
+  url: "https://nos.nl/artikel/2355035-twitter-verwijdert-negentig-nederlandse-qanon-accounts"
+  lang: nl
+  topics: [international, moderation]
+  summary_fr: "Article du radiodiffuseur public néerlandais sur la suppression par Twitter d'environ quatre-vingt-dix comptes néerlandais liés à QAnon. Il donne un ordre de grandeur de la présence de la mouvance aux Pays-Bas."
+  summary_en: "An article by the Dutch public broadcaster on Twitter's removal of about ninety Dutch QAnon-linked accounts. It gives an order of magnitude for the movement's presence in the Netherlands."
+
+- id: argentino2020qanon
+  type: journalism
+  authors: ["Argentino, Marc-André"]
+  year: 2020
+  date: 2020-10-20
+  title: "QAnon est banni de Facebook, mais la bataille contre les théories du complot n'est pas gagnée"
+  container: "The Conversation"
+  publisher: "The Conversation Media Group Ltd"
+  doi: "10.64628/aap.q36qxhduk"
+  lang: fr
+  topics: [international, moderation]
+  summary_fr: "Article de l'édition francophone (Canada) de The Conversation, signé par un chercheur canadien spécialiste de QAnon, sur l'interdiction des contenus QAnon par Facebook en octobre 2020. Il soutient que cette mesure ne suffit pas à endiguer les théories du complot."
+  summary_en: "A piece in The Conversation's French-language (Canada) edition by a Canadian QAnon researcher on Facebook's October 2020 ban on QAnon content. It argues that the ban is not enough to contain conspiracy theories."
+
+- id: conspiracywatch2021qanon
+  type: journalism
+  authors: ["Conspiracy Watch"]
+  year: 2021
+  date: 2021-01-16
+  title: "QAnon dans le collimateur d'une mission sur les dérives sectaires"
+  container: "Conspiracy Watch"
+  url: "https://www.conspiracywatch.info/qanon-dans-le-collimateur-dune-mission-sur-les-derives-sectaires.html"
+  lang: fr
+  topics: [international, religion, politics]
+  summary_fr: "Article de l'Observatoire du conspirationnisme sur la mission d'inspection commandée par la ministre déléguée à la Citoyenneté, Marlène Schiappa, au sujet des nouveaux groupes sectaires en France. Le mouvement QAnon y figure parmi les cibles de l'attention gouvernementale."
+  summary_en: "An article by the French Conspiracy Watch observatory on the inspection mission on new sectarian groups in France commissioned by Marlène Schiappa, minister delegate for citizenship. The QAnon movement is among the targets of government attention."
+
+- id: wild2021toy
+  type: journalism
+  authors: ["Wild, Johanna"]
+  year: 2021
+  date: 2021-11-24
+  title: "Toy Rabbits, Chemtrails and German QAnon Fanatics: How Not to Conduct Open Source Investigations"
+  container: "Bellingcat"
+  url: "https://www.bellingcat.com/news/2021/11/24/toy-rabbits-chemtrails-and-german-qanon-fanatics-how-not-to-conduct-open-source-investigations/"
+  lang: en
+  topics: [international, methods]
+  summary_fr: "Bellingcat analyse comment des adeptes germanophones de QAnon s'approprient les outils d'enquête en sources ouvertes pour « valider » leurs théories. Les résultats de ces « recherches » sont trompeurs et confus."
+  summary_en: "Bellingcat analyses how German-speaking QAnon adherents adopt open-source investigation tools to 'validate' their theories. The results of this 'research' are misleading and confused."
+
+- id: beigang2022qanon
+  type: journalism
+  authors: ["Beigang, Maxi"]
+  year: 2022
+  date: 2022-04-01
+  title: "QAnon in Deutschland: Jeder Zehnte glaubt an die Verschwörungsideologie"
+  container: "Berliner Zeitung"
+  url: "https://www.berliner-zeitung.de/article/220171"
+  lang: de
+  topics: [international, belief-surveys]
+  summary_fr: "Article de la Berliner Zeitung présentant les résultats de l'étude du CeMAS sur l'adhésion aux récits de QAnon en Allemagne. Il souligne que la mouvance y est plus étendue qu'on ne le pensait."
+  summary_en: "A Berliner Zeitung article presenting the findings of the CeMAS study on agreement with QAnon narratives in Germany. It stresses that the milieu there is larger than previously thought."
+
+- id: lighthouse2022tracking
+  type: journalism
+  authors: ["Lighthouse Reports", "Bellingcat"]
+  year: 2022
+  date: 2022-10-05
+  title: "Tracking QAnon in Europe"
+  container: "Lighthouse Reports"
+  url: "https://www.lighthousereports.com/investigation/qanon-in-europe-tracing-a-viral-conspiracy/"
+  lang: en
+  topics: [international, datasets, platforms]
+  summary_fr: "Enquête de données d'un an menée par Lighthouse Reports et Bellingcat, avec une base de messages de canaux associés à QAnon dans douze pays d'Europe et d'Amérique du Nord, copubliée notamment avec Der Spiegel, Il Manifesto, Le Monde et Trouw. Elle montre que les récits QAnon se transforment selon les pays : commercialisation en Allemagne, porte d'entrée Covid en Italie, rumeur des « biolabs » en France, conflit agricole aux Pays-Bas."
+  summary_en: "A year-long data investigation by Lighthouse Reports and Bellingcat, built on a database of posts from QAnon-associated channels in twelve European and North American countries and co-published with outlets including Der Spiegel, Il Manifesto, Le Monde and Trouw. It shows how QAnon narratives shift by country: monetisation in Germany, a COVID entry point in Italy, the 'biolabs' rumour in France, a farming dispute in the Netherlands."
+
+- id: reynaud2022comment
+  type: journalism
+  authors: ["Reynaud, Florian", "Brandy, Grégor"]
+  year: 2022
+  date: 2022-10-13
+  title: "Comment les théories conspirationnistes de QAnon se déversent sur l’Europe"
+  container: "Le Monde"
+  url: "https://www.lemonde.fr/pixels/article/2022/10/13/comment-les-theories-conspirationnistes-de-qanon-se-deversent-sur-l-europe_6145699_4408996.html"
+  lang: fr
+  topics: [international, platforms]
+  summary_fr: "Volet du Monde de l'enquête européenne menée avec Lighthouse Reports et Bellingcat sur les canaux associés à QAnon. Il décrit comment les récits de la mouvance se propagent et se transforment d'un pays européen à l'autre."
+  summary_en: "Le Monde's instalment of the European investigation conducted with Lighthouse Reports and Bellingcat into QAnon-associated channels. It describes how the movement's narratives spread and change from one European country to another."
+
+- id: yeung2022qanon
+  type: journalism
+  authors: ["Yeung, Jessie", "Sukegawa, Tetsu"]
+  year: 2022
+  date: 2022-12-23
+  title: "QAnon members in Japan sentenced for breaking into Covid vaccination centers"
+  container: "CNN"
+  url: "https://edition.cnn.com/2022/12/23/asia/japan-qanon-yamatoq-sentenced-intl-hnk/index.html"
+  lang: en
+  topics: [international, violence, health]
+  summary_fr: "CNN rend compte de la condamnation par un tribunal de Tokyo de membres de YamatoQ, une ramification japonaise de QAnon, pour s'être introduits dans des centres de vaccination contre le Covid-19. L'article replace l'affaire dans l'émergence de plusieurs groupes QAnon au Japon."
+  summary_en: "CNN reports on a Tokyo court sentencing members of YamatoQ, a Japanese QAnon offshoot, for breaking into COVID-19 vaccination centres. The article places the case within the emergence of several QAnon groups in Japan."
+
+- id: coromines2023mariage
+  type: journalism
+  authors: ["Coromines, Laure"]
+  year: 2023
+  date: 2023-11-24
+  title: "Le mariage entre New Age et QAnon va (toujours) bien, merci pour lui"
+  container: "L'ADN"
+  url: "https://www.ladn.eu/nouveaux-usages/le-mariage-entre-new-age-et-qanon-va-toujours-bien-merci-pour-lui/"
+  lang: fr
+  topics: [international, religion, gender]
+  summary_fr: "Article de synthèse du média français L'ADN sur la convergence entre spiritualités New Age et QAnon depuis la pandémie, souvent appelée « QAnon pastel ». Il fait le point sur la persistance de ce phénomène en 2023."
+  summary_en: "A review piece by French outlet L'ADN on the convergence between New Age spiritualities and QAnon since the pandemic, often called 'pastel QAnon'. It takes stock of the phenomenon's persistence in 2023."

@@ -1,6 +1,7 @@
 """Verification des predictions : verdicts editoriaux (data/verification/*.yaml),
 etablis un par un avec sources, joints aux predictions extraites."""
 import json
+import math
 from collections import Counter
 
 import yaml
@@ -13,13 +14,25 @@ from .common import write
 VERDICTS = ["fulfilled", "partial", "not_fulfilled", "unverifiable", "not_a_prediction"]
 
 
+def wilson(k, n, z=1.96):
+    """Intervalle de confiance de Wilson (1927) a 95 % pour une proportion k/n."""
+    if not n:
+        return None, None
+    p = k / n
+    centre = (p + z * z / (2 * n)) / (1 + z * z / n)
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / (1 + z * z / n)
+    return round(max(0.0, centre - half), 4), round(min(1.0, centre + half), 4)
+
+
 def rate(items):
     """Taux de realisation parmi les predictions verifiables (partielles comptees a part)."""
     c = Counter(x["verdict"] for x in items)
     checkable = c["fulfilled"] + c["partial"] + c["not_fulfilled"]
     return {"n": len(items), **{v: c[v] for v in VERDICTS}, "checkable": checkable,
             "rate": round(c["fulfilled"] / checkable, 4) if checkable else None,
-            "rate_with_partial": round((c["fulfilled"] + c["partial"]) / checkable, 4) if checkable else None}
+            "rate_with_partial": round((c["fulfilled"] + c["partial"]) / checkable, 4) if checkable else None,
+            "rate_ci": wilson(c["fulfilled"], checkable),
+            "rate_with_partial_ci": wilson(c["fulfilled"] + c["partial"], checkable)}
 
 
 def run(ctx):

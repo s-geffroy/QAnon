@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup
 
 from .. import db
 from ..analysis.common import load_yaml
@@ -19,8 +20,8 @@ HERE = Path(__file__).resolve().parent
 UPDATED = "@@UPDATED@@"
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
-    ("analyses", ["index", "activity", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
-    ("resources", ["glossary", "bibliography", "data", "method", "cite"]),
+    ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
+    ("resources", ["research", "glossary", "bibliography", "data", "method", "cite"]),
 ]
 PAGES = [p for _, group in NAV for p in group]
 
@@ -44,12 +45,26 @@ def _iso_num():
     return {c.alpha_3: int(c.numeric) for c in pycountry.countries}
 
 
+def script_json(v):
+    """JSON a inserer dans un <script> : le navigateur n'y decode pas les entites
+    HTML, donc pas d'echappement HTML (Markup), et chaque "<" ecrit \\u003c pour
+    ne jamais fermer la balise."""
+    return Markup(json.dumps(v, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c"))
+
+
+def make_env():
+    env = Environment(loader=FileSystemLoader(HERE / "templates"), autoescape=select_autoescape(["html"]))
+    env.filters["tojson_compact"] = script_json
+    env.filters["size"] = lambda b: f"{b / 1024:.0f} Ko" if b < 1024 ** 2 else f"{b / 1024 ** 2:.1f} Mo"
+    return env
+
+
 class Site:
     def __init__(self, state, conn):
         self.state = state
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
-                                                "llm_eval", "predictions", "verification")}
+                                                "llm_eval", "predictions", "verification", "stats")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
 
@@ -98,6 +113,16 @@ class Site:
                 c=n(ve["overall"]["checkable"]), rate=p(ve["overall"]["rate"] or 0, 0),
                 rate_nt=p(ve["nontrivial"]["rate"] or 0, 0),
                 legal=n(sum(x["checkable"] for x in legal)), legal_ok=n(sum(x["fulfilled"] for x in legal))))
+        st = self.r["stats"]
+        if st:
+            r = st["rhythm"]
+            extra.append(t["f_rhythm"].format(w5=p(r["share_within_5min"], 0), b=n(r["burstiness"], 2),
+                                              ns=n(r["n_sessions"])))
+            press = st["domains"]["top_press"]
+            if press:
+                extra.append(t["f_domains"].format(first=press[0]["site"], fn=n(press[0]["drops"]),
+                                                   second=press[1]["site"], sn=n(press[1]["drops"]),
+                                                   ahead=t["ahead_far" if press[0]["drops"] >= 2 * press[1]["drops"] else "ahead"]))
         if inter and inter["events"]:
             e = inter["events"][0]
             extra.append(t["f_interest"].format(label=e[f"label_{lang}"], ratio=n(e["ratio"], 1)))
@@ -118,6 +143,67 @@ class Site:
             "gaps": [{"days": c["n"](g["days"], 1), "from": d(g["from"]), "to": d(g["to"])} for g in desc["gaps"]],
             "charts": {"yearly": charts.yearly(desc, lang), "heatmap": charts.heatmap(desc, lang)},
         }
+
+    def page_stats(self, lang, c):
+        t, st, n, p, d = c["t"], self.r["stats"], c["n"], c["p"], c["date"]
+        if not st:
+            return {"is_pending": True}
+        r, dm, rf, rel, lx = st["rhythm"], st["domains"], st["references"], st["religion"], st["lexicon"]
+        mins = lambda m: _duration(lang, m) if m >= 1 else f"{n(m * 60)} s"
+        press = dm["top_press"]
+        out = {
+            "lead": t["stats_lead"].format(n=n(self.r["descriptive"]["n"])),
+            "rhythm": t["rhythm_text"].format(med=mins(r["gap_median_min"]), q25=mins(r["gap_q25_min"]),
+                                              q75=mins(r["gap_q75_min"]), w5=p(r["share_within_5min"], 0),
+                                              w1h=p(r["share_within_1h"], 0), b=n(r["burstiness"], 2),
+                                              m=n(r["memory"], 2), ml=n(r["memory_log"], 2)),
+            "sessions": t["sessions_text"].format(gap=n(r["session_gap_min"]), ns=n(r["n_sessions"]),
+                                                  multi=p(r["share_drops_in_multi"], 0),
+                                                  med=n(r["session_size_median"]),
+                                                  span=n(r["session_span_median_min"]), max=n(r["session_size_max"])),
+            "rhythm_method": t["rhythm_method"].format(sens=" ; ".join(
+                t["sens_item"].format(gap=n(x["gap_min"]), ns=n(x["n_sessions"]), multi=p(x["share_drops_in_multi"], 0))
+                for x in r.get("session_sensitivity", []))),
+            "regimes_note": t["regimes_note"].format(phi=n(st["changepoints"]["phi"], 1),
+                                                     w=n(st["changepoints"]["min_weeks"])),
+            "segments": [{"from": d(s["start"]), "to": d(s["end"]), "weeks": n(s["weeks"]),
+                          "mean": n(s["mean_per_week"], 1), "total": n(s["total"]),
+                          "event": (f"{s['event'][f'label_{lang}']} ({d(s['event']['date'])})" if s.get("event") else "—")}
+                         for s in st["changepoints"]["segments"]],
+            "boards": [{"board": b["board"], "n": n(b["n"]), "days": n(b["active_days"]),
+                        "per_day": n(b["per_active_day"], 1), "words": n(b["words_median"]),
+                        "links": p(b["share_links"], 0), "images": p(b["share_images"], 0),
+                        "questions": p(b["share_questions"], 0), "refs": p(b["share_refs"], 0),
+                        "first": d(b["first"]), "last": d(b["last"])} for b in st["boards"]],
+            "domains": t["domains_text"].format(nl=n(dm["n_links"]), ns=n(dm["n_sites"]), nd=n(dm["n_drops_with_links"]),
+                                                first=press[0]["site"], fn=n(press[0]["drops"]),
+                                                next=", ".join(f"{x['site']} ({n(x['drops'])})" for x in press[1:5])),
+            "refs": t["refs_text"].format(share=p(rf["share_with_refs"], 0), anon=p(rf["share_anon"], 0),
+                                          self_=p(rf["share_self"], 0), n_self=n(rf["n_self"])),
+            "refs_rows": [{"year": x["year"], "n": n(x["drops"]), "all": p(x["with_refs"], 0),
+                           "anon": p(x["with_anon"], 0), "self": p(x["with_self"], 0)} for x in rf["by_year"]],
+            "religion": t["religion_text"].format(faith=p(rel["share_faith"], 1), god=p(rel["share_god"], 1),
+                                                  nv=n(rel["n_verse"]),
+                                                  first=rel["first_verse"]["id"] if rel["first_verse"] else "—",
+                                                  date=d(rel["first_verse"]["date"]) if rel["first_verse"] else "—",
+                                                  books=", ".join(f"{b} ({k})" for b, k in rel["books"][:4])),
+            "lexicon": t["lexicon_text"].format(f=n(lx["flesch_all"], 0), wps=n(lx["words_per_sentence_all"], 1),
+                                                types=n(lx["types"]), tokens=n(lx["tokens"]), hapax=n(lx["hapax"]),
+                                                z=n(lx["zipf_exponent"], 2), h=n(lx["heaps_beta"], 2),
+                                                mattr=n(lx["mattr_all"], 2)),
+            "charts": {"gaps": charts.gaps_hist(st, lang), "sessions": charts.session_sizes(st, lang),
+                       "regimes": charts.regimes(st, self.r["descriptive"], lang),
+                       "domains": charts.top_domains(st, lang), "domain_years": charts.domain_years(st, lang),
+                       "religion": charts.religion(st, lang), "flesch": charts.readability(st, lang),
+                       "mattr": charts.richness(st, lang)},
+        }
+        pr = self.r["predictions"]
+        if pr and pr.get("horizon", {}).get("n"):
+            h = pr["horizon"]
+            out["horizon"] = t["horizon_text"].format(n=n(h["n"]), med=n(h["median_days"]), s7=p(h["share_7d"], 0),
+                                                      s30=p(h["share_30d"], 0))
+            out["charts"]["horizon"] = charts.horizon(pr, lang)
+        return out
 
     def page_trump(self, lang, c):
         t, trump, n, p = c["t"], self.r["trump"], c["n"], c["p"]
@@ -280,7 +366,9 @@ class Site:
                 return {"label": label, "n": n(r["n"]), "f": n(r["fulfilled"]), "pa": n(r["partial"]),
                         "nf": n(r["not_fulfilled"]), "u": n(r["unverifiable"]),
                         "rate": "—" if r["rate"] is None else p(r["rate"], 0),
-                        "rate2": "—" if r["rate_with_partial"] is None else p(r["rate_with_partial"], 0)}
+                        "rate2": "—" if r["rate_with_partial"] is None else p(r["rate_with_partial"], 0),
+                        "ci": "—" if not r.get("rate_ci") or r["rate_ci"][0] is None
+                              else f"{p(r['rate_ci'][0], 0)}–{p(r['rate_ci'][1], 0)}"}
             o, nt = ve["overall"], ve["nontrivial"]
             out["ve"] = {
                 "lead": t["ve_result"].format(n=n(o["n"]), c=n(o["checkable"]), f=n(o["fulfilled"]), pa=n(o["partial"]),
@@ -329,6 +417,41 @@ class Site:
                          "first_id": s.get("first_id")})
         return {"terms": rows}
 
+    def _prose(self, text, lang):
+        """Paragraphes avec appels [@a; @b] (bibliographie) et renvois [[page]] (site)."""
+        from markupsafe import Markup, escape
+        t = T[lang]
+        def one(par):
+            out, pos = [], 0
+            for m in re.finditer(r"\[(@[^\]]+)\]|\[\[([a-z]+)\]\]", par):
+                out.append(str(escape(par[pos:m.start()])))
+                if m.group(1):
+                    out.append(str(self.cite(*[x.strip().lstrip("@") for x in m.group(1).split(";")])))
+                else:
+                    page = m.group(2)
+                    if page not in PAGES:
+                        raise KeyError(f"page inconnue dans un renvoi : {page}")
+                    out.append(f'<a href="{page}.html">{escape(t[f"nav_{page}" if page != "index" else "nav_home"])}</a>')
+                pos = m.end()
+            out.append(str(escape(par[pos:])))
+            return Markup("".join(out))
+        return [one(p) for p in text.strip().split("\n") if p.strip()]
+
+    def page_research(self, lang, c):
+        data = load_yaml("research", "sections")
+        import yaml
+        start = yaml.safe_load((APP_DIR / "data" / "research.yaml").read_text())["start_here"]
+        by_id = {r["id"]: r for r in self.refs}
+        cited = set()
+        sections = []
+        for s_ in data:
+            body = s_[f"body_{lang}"]
+            cited |= {x.strip().lstrip("@") for g in re.findall(r"\[(@[^\]]+)\]", body) for x in g.split(";")}
+            sections.append({"id": s_["id"], "title": s_[f"title_{lang}"], "paras": self._prose(body, lang)})
+        return {"sections": sections, "n_cited": c["n"](len(cited)),
+                "start": [{"id": i, "cit": biblio.citation(by_id[i], lang), "title": by_id[i]["title"],
+                           "summary": by_id[i].get(f"summary_{lang}")} for i in start]}
+
     def page_bibliography(self, lang, c):
         t = c["t"]
         entries = []
@@ -357,6 +480,20 @@ class Site:
                 "cite_bibtex": "@misc{geffroy_qdrops,\n  author = {Geffroy, Sylvain},\n"
                                f"  title = {{{t['site_title']}}},\n  year = {{{year}}},\n"
                                f"  version = {{{VERSION}}},\n  url = {{https://s-geffroy.github.io/QAnon/}}\n}}"}
+
+    def cite(self, *ids, pre=""):
+        """Appel de reference auteur-date, lie a la bibliographie : cite("a", "b") -> (A, 2020 ; B, 2021)."""
+        from markupsafe import Markup, escape
+        by_id = {r["id"]: r for r in self.refs}
+        parts = []
+        for i in ids:
+            r = by_id.get(i)
+            if r is None:
+                raise KeyError(f"reference inconnue dans un gabarit : {i}")
+            names = [a.split(",")[0].strip() for a in r.get("authors", [])] or [r.get("container") or r["title"]]
+            who = names[0] if len(names) == 1 else (f"{names[0]} & {names[1]}" if len(names) == 2 else f"{names[0]} et al.")
+            parts.append(f'<a href="bibliography.html#{escape(i)}">{escape(who)}, {escape(str(r.get("year") or "s.d."))}</a>')
+        return Markup(f'<span class="cite">({escape(pre)}{" ; ".join(parts)})</span>')
 
     # -- export des donnees derivees
     def export(self, out):
@@ -426,6 +563,22 @@ class Site:
             shutil.copy(APP_DIR / "data" / "verification" / "README.md", d / "verification-README.md")
             add("verification-README.md", "Protocole de vérification (verdicts, horizon, citations, historique des corrections).",
                 "Verification protocol (verdicts, horizon, quotes, correction history).")
+        if r["stats"]:
+            st = r["stats"]
+            pd.DataFrame(st["changepoints"]["segments"]).assign(
+                event=lambda x: x.get("event", pd.Series(dtype=object)).map(lambda e: e["id"] if isinstance(e, dict) else "")) \
+                .to_csv(d / "regimes.csv", index=False)
+            add("regimes.csv", "Régimes d'activité (ruptures du volume hebdomadaire) et événement le plus proche.",
+                "Activity regimes (breaks in weekly volume) and nearest event.")
+            pd.DataFrame(st["boards"]).to_csv(d / "boards.csv", index=False)
+            add("boards.csv", "Indicateurs par forum (plateforme).", "Indicators per board (platform).")
+            pd.DataFrame(st["domains"]["top"]).to_csv(d / "cited_sites.csv", index=False)
+            add("cited_sites.csv", "Sites cités dans les liens des drops (nombre de drops, type de site).",
+                "Sites linked in drops (number of drops, type of site).")
+            pd.DataFrame(st["lexicon"]["quarterly"]).merge(pd.DataFrame(st["religion"]["quarterly"]), on="q", how="outer") \
+                .to_csv(d / "lexicon_quarterly.csv", index=False)
+            add("lexicon_quarterly.csv", "Par trimestre : lisibilité (Flesch), MATTR, vocabulaire religieux, versets.",
+                "Per quarter: readability (Flesch), MATTR, religious vocabulary, verses.")
         if r["interest"]:
             pd.DataFrame(r["interest"]["weekly"]).to_csv(d / "wikipedia_weekly.csv", index=False)
             add("wikipedia_weekly.csv", "Pages vues Wikipédia par semaine et article.", "Weekly Wikipedia page views per article.")
@@ -458,9 +611,8 @@ class Site:
         self.files = files
 
     def render(self, out):
-        env = Environment(loader=FileSystemLoader(HERE / "templates"), autoescape=select_autoescape(["html"]))
-        env.filters["tojson_compact"] = lambda v: json.dumps(v, ensure_ascii=False, separators=(",", ":"))
-        env.filters["size"] = lambda b: f"{b / 1024:.0f} Ko" if b < 1024 ** 2 else f"{b / 1024 ** 2:.1f} Mo"
+        env = make_env()
+        env.globals["cite"] = self.cite
         if out.exists():
             shutil.rmtree(out)
         shutil.copytree(HERE / "static", out / "static")
