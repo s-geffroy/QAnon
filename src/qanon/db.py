@@ -152,3 +152,10 @@ CREATE TABLE IF NOT EXISTS biblio_watch (
     container TEXT, url TEXT, type TEXT, abstract TEXT, first_seen TEXT, last_seen TEXT
 );
 """
+
+SCHEMA += """
+-- Verification hebdomadaire des liens (une passe par semaine ; voir sources/links.py).
+CREATE TABLE IF NOT EXISTS link_check (
+    url TEXT PRIMARY KEY, origin TEXT, state TEXT, code INTEGER, archive TEXT, checked_at INTEGER, pass TEXT
+);
+"""

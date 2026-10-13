@@ -418,7 +418,7 @@ class Site:
                 "list": [{"key": x["key"], "drop": x["drop_id"], "date": c["date"](x["date"]), "verdict": x["verdict"],
                            "verdict_label": t[f"vd_{x['verdict']}"], "trivial": x["trivial"],
                            "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"],
-                           "explanation": x.get(f"explanation_{lang}") or "", "sources": x["sources"]}
+                           "explanation": x.get(f"explanation_{lang}") or "", "sources": [self.src(u) for u in x["sources"]]}
                           for x in ve["items"]],
             }
         ho = self.r.get("horoscope")
@@ -484,7 +484,8 @@ class Site:
             label, title = source_label(e)
             out.append({"date": c["date"](e["date"]), "iso": e["date"], "cat": e["category"],
                         "cat_label": t[f"cat_{e['category']}"], "label": e[f"label_{lang}"],
-                        "source": e["source"], "source_label": label, "source_title": title})
+                        "source": e["source"], "source_label": label, "source_title": title,
+                        "source_archive": self.src(e["source"])["archive"] if e["source"] else None})
         return {"events": out}
 
     def page_glossary(self, lang, c):
@@ -738,18 +739,45 @@ class Site:
                 "start": [{"id": i, "cit": biblio.citation(by_id[i], lang), "title": by_id[i]["title"],
                            "summary": by_id[i].get(f"summary_{lang}")} for i in start]}
 
+    def links(self):
+        """Etat des liens (verification hebdomadaire) : url -> ligne de link_check."""
+        if not hasattr(self, "_links"):
+            import sqlite3
+            try:
+                self._links = {r["url"]: dict(r) for r in self.conn.execute("SELECT * FROM link_check")}
+            except sqlite3.OperationalError:
+                self._links = {}
+        return self._links
+
+    def src(self, url):
+        """Source citee : adresse et, si le lien est mort, sa copie archivee."""
+        st = self.link_state(url) or {}
+        return {"url": url, "dead": st.get("state") == "dead", "archive": st.get("archive") if st.get("state") == "dead" else None}
+
+    def link_state(self, url=None, doi=None):
+        return self.links().get(f"doi:{doi.lower()}" if doi else url)
+
     def page_bibliography(self, lang, c):
         t = c["t"]
         entries = []
+        L = self.links()
+        if L:
+            cnt = {k: sum(v["state"] == k for v in L.values()) for k in ("ok", "blocked", "dead", "error")}
+            last = max(v["checked_at"] for v in L.values())
+            links_note = t["links_note"].format(n=c["n"](len(L)), date=c["date"](time.strftime("%Y-%m-%d", time.gmtime(last))),
+                                                ok=c["n"](cnt["ok"]), blocked=c["n"](cnt["blocked"]),
+                                                dead=c["n"](cnt["dead"]), error=c["n"](cnt["error"]))
+        else:
+            links_note = None
         for r in self.refs:
             cit = biblio.citation(r, lang)
-            entries.append({**r, "cit": cit, "summary": r.get(f"summary_{lang}"), "type_label": t.get(f"type_{r['type']}", r["type"]),
+            entries.append({**r, "cit": cit, "link": self.link_state(r.get("url"), r.get("doi")), "summary": r.get(f"summary_{lang}"), "type_label": t.get(f"type_{r['type']}", r["type"]),
                             "bibtex": biblio.bibtex(r), "search": " ".join(
                                 [r["title"], " ".join(r.get("authors", [])), r.get("container") or "",
                                  " ".join(r.get("topics", [])), str(r.get("year", ""))]).lower()})
         types = [(ty, t.get(f"type_{ty}", ty)) for ty in biblio.TYPE_ORDER if any(r["type"] == ty for r in self.refs)]
         topics = sorted({tp for r in self.refs for tp in r.get("topics", [])})
-        return {"entries": entries, "types": types, "topics": topics,
+        return {"entries": entries, "types": types, "topics": topics, "links_note": links_note,
                 "lead": t["bib_lead"].format(n=c["n"](len(self.refs)))}
 
     def page_data(self, lang, c):

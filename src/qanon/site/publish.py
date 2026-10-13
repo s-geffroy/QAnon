@@ -33,12 +33,35 @@ def head_commit():
     return r.json()["sha"][:7]
 
 
+WARN_DAYS = 30
+
+
+def token_expiry(token):
+    """Date d'expiration du jeton, lue dans l'en-tete que GitHub renvoie a chaque appel authentifie."""
+    import datetime as dt
+    r = requests.get(f"https://api.github.com/repos/{REPO}", timeout=30,
+                     headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"})
+    if r.status_code == 401:
+        raise RuntimeError("jeton github_token refuse par GitHub (401) : expire, revoque ou mal copie")
+    raw = r.headers.get("github-authentication-token-expiration")
+    if not raw:
+        return None
+    return dt.datetime.strptime(raw.replace(" UTC", " +0000"), "%Y-%m-%d %H:%M:%S %z")
+
+
 def run(ctx):
     token = read_secret("github_token")
     if not token:
         ctx.set_output("manuel")
         log("publication automatique desactivee (secret github_token absent)")
         return True
+    import datetime as dt
+    exp = token_expiry(token)
+    if exp:
+        days = (exp - dt.datetime.now(dt.timezone.utc)).days
+        if days <= WARN_DAYS:
+            log(f"ATTENTION : le jeton github_token expire dans {days} jours ({exp.date()}) : le renouveler "
+                "(voir README, section publication)")
     version = head_commit()
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "site"
@@ -64,5 +87,5 @@ def run(ctx):
             raise RuntimeError(f"publication gh-pages en echec : {msg}") from None
     site_fp = ctx.conn.execute("SELECT fingerprint FROM stages WHERE name = 'build_site'").fetchone()
     ctx.set_output(db.sha(version, site_fp[0] if site_fp else ""))
-    log(f"site publie sur gh-pages (version {version})")
+    log(f"site publie sur gh-pages (version {version})" + (f" ; jeton valable jusqu'au {exp.date()}" if exp else ""))
     return True

@@ -151,3 +151,4 @@ table.narrow { width: auto; }
 .sheet h3 { margin-top: 1rem; }
 .caution { background: var(--surface-2); padding: .6rem .8rem; border-radius: 6px; font-size: .92rem; }
 ul.plain { padding-left: 1.1rem; }
+.tag.dead { --c: var(--series-2); }

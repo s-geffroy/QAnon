@@ -3,6 +3,7 @@
 {% block content %}
 <h1>{{ t.bib_title }}</h1>
 <p class="lead">{{ lead }}</p>
+{% if links_note %}<p class="note">{{ links_note }}</p>{% endif %}
 <p class="note">{{ t.bib_start }} <a href="research.html">{{ t.nav_research }}</a>.</p>
 <p class="note">{{ t.bib_download }}<a href="../data/bibliography.bib">BibTeX</a> · <a href="../data/bibliography.json">CSL-JSON</a> · <a href="../data/bibliography.yaml">YAML</a></p>
 <div class="filters">
@@ -15,7 +16,7 @@
 {% for r in entries %}
   <li class="ref" id="{{ r.id }}" data-type="{{ r.type }}" data-topics="{{ r.topics|join(' ') }}" data-search="{{ r.search }}">
     <p class="cit">{% if r.cit.authors %}{{ r.cit.authors }} {% endif %}({{ r.cit.year }}). {% if r.type in ["book", "report", "thesis", "documentary", "dataset"] %}<em>{{ r.title }}</em>{% else %}{{ r.title }}{% endif %}.{% if r.cit.container %} {% if r.type in ["article", "conference", "chapter"] %}<em>{{ r.cit.container }}</em>{% else %}{{ r.cit.container }}{% endif %}{% if r.cit.loc %}, {{ r.cit.loc }}{% endif %}.{% endif %}{% if r.cit.publisher and r.cit.publisher != r.cit.container %} {{ r.cit.publisher }}.{% endif %}
-      {% if r.doi %}<a href="https://doi.org/{{ r.doi }}">doi:{{ r.doi }}</a>{% elif r.url %}<a href="{{ r.url }}">{{ r.url|truncate(70, True, '…') }}</a>{% endif %}</p>
+      {% if r.doi %}<a href="https://doi.org/{{ r.doi }}">doi:{{ r.doi }}</a>{% elif r.url %}<a href="{{ r.url }}">{{ r.url|truncate(70, True, '…') }}</a>{% endif %}{% if r.link and r.link.state == "dead" %} <span class="tag dead">{{ t.link_dead }}</span>{% if r.link.archive %} <a href="{{ r.link.archive }}">{{ t.link_archive }}</a>{% endif %}{% endif %}</p>
     <p class="tags"><span class="tag">{{ r.type_label }}</span>{% if r.open_access %} <span class="tag oa">{{ t.open_access }}</span>{% endif %} <span class="tag">{{ r.lang }}</span>{% for tp in r.topics %} <span class="topic">{{ t.get("topic_" ~ tp, tp) }}</span>{% endfor %}</p>
     {% if r.summary %}<p class="summary">{{ r.summary }}</p>{% endif %}
     <details><summary>{{ t.bibtex }}</summary><pre>{{ r.bibtex }}</pre></details>

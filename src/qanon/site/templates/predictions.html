@@ -50,7 +50,7 @@
     <li class="ref ve-item" data-verdict="{{ x.verdict }}" data-search="{{ (x.claim ~ ' ' ~ x.explanation)|lower }}">
       <p class="tags"><span class="tag vd vd-{{ x.verdict }}">{{ x.verdict_label }}</span>{% if x.trivial %} <span class="tag">{{ t.ve_trivial }}</span>{% endif %} <span class="tag">{{ x.type }}</span> <span class="topic">{{ x.date }} · <a href="corpus.html#d{{ x.drop }}">{{ t.drop_no }}{{ x.drop }}</a></span></p>
       <p class="cit">{{ x.claim }}</p>
-      <p class="summary">{{ x.explanation }}{% for u in x.sources %} <a href="{{ u }}">[{{ loop.index }}]</a>{% endfor %}</p>
+      <p class="summary">{{ x.explanation }}{% for u in x.sources %} <a href="{{ u.url }}">[{{ loop.index }}]</a>{% if u.archive %}<a href="{{ u.archive }}" title="{{ t.link_dead }}">({{ t.link_archive }})</a>{% endif %}{% endfor %}</p>
     </li>
   {% endfor %}
   </ol>
