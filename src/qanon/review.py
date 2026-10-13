@@ -53,7 +53,11 @@ DOCS = {
 def plain(html):
     """Texte brut ; les figures (SVG) sont retirees, leurs legendes gardees."""
     h = re.sub(r"<svg.*?</svg>", " ", str(html), flags=re.S)
-    return unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", h))).strip()
+    # Les blocs (paragraphes, titres, listes, tableaux) restent separes : la relecture juge aussi la structure.
+    h = re.sub(r"</(p|h[1-6]|li|tr|caption|figcaption|table|ul|ol)>|<br\s*/?>", "\n\n", h)
+    t = unescape(re.sub(r"<[^>]+>", " ", h))
+    t = re.sub(r"[ \t]+", " ", t)
+    return re.sub(r"\s*\n\s*(\n\s*)+", "\n\n", t).strip()
 
 
 def texts(site):

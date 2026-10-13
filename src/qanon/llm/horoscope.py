@@ -172,7 +172,14 @@ def analyse(qs, rows, d):
             b["n"] += 1
             b["true"] += a["choice"] == r["truth"]
             b["random"] += a["choice"] not in (r["truth"], "none")
+    # Ecart passe / avenir parmi les cas tranches : test exact de Fisher.
+    diff = None
+    if "past" in res and "future" in res:
+        from scipy.stats import fisher_exact
+        t = [[res["past"]["chose_true"], res["past"]["chose_random"]], [res["future"]["chose_true"], res["future"]["chose_random"]]]
+        diff = {"table": t, "p_value": float(fisher_exact(t).pvalue)}
     return {"model": MODEL, "n_sample": len({k[0] for k in qs}), "n_items": N_ITEMS, "kinds": res, "by_year": by_year,
+            "past_vs_future": diff,
             "windows": {k: {"from": a, "to": b} for k, (a, b) in KINDS.items()}}
 
 

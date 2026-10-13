@@ -520,8 +520,9 @@ class Site:
                 "result": t["horo_result"].format(
                     past=p(pa.get("share_true_decided") or 0, 0), future=p(f.get("share_true_decided") or 0, 0),
                     none=p(f["none"] / f["n"], 0) if f.get("n") else "—", barnum=p(f.get("share_random_ge5") or 0, 0)),
-                "reading": t["horo_reading" if (f.get("share_true_decided") or 0) <= (pa.get("share_true_decided") or 0)
-                             else "horo_reading_alt"].format(none=p(f["none"] / f["n"], 0) if f.get("n") else "—"),
+                "reading": t["horo_reading"].format(
+                    none=p(f["none"] / f["n"], 0) if f.get("n") else "—",
+                    pdiff=n((ho.get("past_vs_future") or {}).get("p_value") or 1, 2)),
                 "examples": [{**e, "reason": self.tr(f"horo:future:{e['drop_id']}", e["reason"], lang)}
                              for e in f.get("examples", [])[:5]],
                 "robust": (lambda rb: t["horo_robust"].format(
