@@ -173,3 +173,11 @@ CREATE TABLE IF NOT EXISTS llm_horoscope_check (
     PRIMARY KEY (drop_id, kind, model)
 );
 """
+
+SCHEMA += """
+-- Relectures editoriales (API Editorial Reviewer) : une ligne par revue soumise ; voir review.py.
+CREATE TABLE IF NOT EXISTS editorial_review (
+    doc TEXT, text_sha TEXT, job_id TEXT PRIMARY KEY, status TEXT, profile TEXT, words INTEGER,
+    est_cost REAL, audit TEXT, submitted_at INTEGER, finished_at INTEGER, n_issues INTEGER, counts TEXT, failure TEXT
+);
+"""

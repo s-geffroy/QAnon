@@ -62,6 +62,10 @@ ensemble. Ne bricole jamais les labels a la main.
 - Travaille uniquement dans /srv/apps/qanon.
 - Ne touche jamais a /opt/infra.
 - Ne tente jamais d'acceder aux autres applications du VPS.
+  Exception autorisee par le proprietaire (13/10/2026) : l'API Editorial Reviewer
+  (`https://app.reviewer.vps.internal/api/v1`, tailnet), appelee par l'etape
+  `editorial_review` (profil `balanced`, plafond `REVIEW_BUDGET_USD`). Chaque
+  revue est payante : ne jamais en lancer en boucle ni « pour voir ».
 
 ## Interdictions (appctl les refuse)
 

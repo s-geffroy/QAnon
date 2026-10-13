@@ -56,7 +56,8 @@ def check_doi(doi):
 def check_url(url):
     try:
         r = requests.head(url, headers=UA, timeout=30, allow_redirects=True)
-        if r.status_code in (405, 400, 403, 501) or r.status_code >= 500:
+        # Certains sites (Kaggle...) refusent HEAD mais servent la page en GET : tout echec est reverifie en GET.
+        if r.status_code >= 400:
             r = requests.get(url, headers=UA, timeout=30, allow_redirects=True, stream=True)
             r.close()
     except requests.exceptions.ConnectionError as exc:

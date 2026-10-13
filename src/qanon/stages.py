@@ -7,6 +7,7 @@ from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
 from .llm import translate
+from . import review
 from .pipeline import Stage
 from .site import build, publish
 from .sources import biblio_watch, gdelt, links, pageviews, qdrops, timeline, tweets, wikinews
@@ -58,9 +59,14 @@ STAGES += [
 ]
 STAGES += [
     # Chaque semaine : liens morts, bloques aux robots, copies archivees proposees (~15 min, par lots).
-    Stage("check_links", links.run, refresh=WEEK),
+    Stage("check_links", links.run, refresh=WEEK, code=True),
 ]
 STAGES += [
     # Payant (~0,10 $) : seules les paraphrases nouvelles ou modifiees sont traduites.
     Stage("llm_translate", translate.run, inputs=("analyze_predictions",), optional=("llm_horoscope",), code=True),
+]
+STAGES += [
+    # Payant (API Editorial Reviewer, ~0,20 $ / 1 500 mots) : un texte modifie est relu au plus une fois
+    # par semaine, sous plafond REVIEW_BUDGET_USD sur 30 jours ; les rapports vont dans /state/reviews.
+    Stage("editorial_review", review.run, inputs=("build_site",), code=True),
 ]
