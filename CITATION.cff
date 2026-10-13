@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Pour citer ce travail / If you use this work, please cite it as below."
+title: "Les drops de Q à l'épreuve des faits : étude statistique des messages de « Q » (2017-2022)"
+type: software
+authors:
+  - family-names: Geffroy
+    given-names: Sylvain
+license: CC-BY-4.0
+repository-code: "https://github.com/s-geffroy/QAnon"
+url: "https://s-geffroy.github.io/QAnon/"
+keywords: [QAnon, conspiracy theories, computational social science, GDELT, text analysis]

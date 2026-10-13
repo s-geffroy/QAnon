@@ -18,10 +18,11 @@ from .i18n import REFS, REPO, T
 
 HERE = Path(__file__).resolve().parent
 UPDATED = "@@UPDATED@@"
+SITE_URL = "https://s-geffroy.github.io/QAnon/"
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
     ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
-    ("resources", ["research", "glossary", "bibliography", "data", "method", "cite"]),
+    ("resources", ["research", "figures", "faq", "glossary", "bibliography", "data", "method", "cite"]),
 ]
 PAGES = [p for _, group in NAV for p in group]
 
@@ -67,6 +68,7 @@ class Site:
                                                 "llm_eval", "predictions", "verification", "stats")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
+        self._figures = {}
 
     # -- contexte commun a toutes les pages
     def base(self, lang):
@@ -423,9 +425,11 @@ class Site:
         t = T[lang]
         def one(par):
             out, pos = [], 0
-            for m in re.finditer(r"\[(@[^\]]+)\]|\[\[([a-z]+)\]\]", par):
+            for m in re.finditer(r"\[(@[^\]]+)\]|\[\[([a-z]+)\]\]|\{fig:([a-z0-9-]+)\}", par):
                 out.append(str(escape(par[pos:m.start()])))
-                if m.group(1):
+                if m.group(3):
+                    out.append(str(self.fig(lang, m.group(3))))
+                elif m.group(1):
                     out.append(str(self.cite(*[x.strip().lstrip("@") for x in m.group(1).split(";")])))
                 else:
                     page = m.group(2)
@@ -436,6 +440,104 @@ class Site:
             out.append(str(escape(par[pos:])))
             return Markup("".join(out))
         return [one(p) for p in text.strip().split("\n") if p.strip()]
+
+    # -- chiffres cles : chacun a une ancre stable et une citation propre
+    def figures(self, lang):
+        if lang in self._figures:
+            return self._figures[lang]
+        t, r = T[lang], self.r
+        c = self.base(lang)
+        n, p, d = c["n"], c["p"], c["date"]
+        F = []
+        def add(fid, page, key, **kw):
+            F.append({"id": fid, "page": page, "text": t[f"fig_{key}"].format(**kw)})
+        desc = r["descriptive"]
+        add("drops", "activity", "drops", n=n(desc["n"]), first=d(desc["first"]), last=d(desc["last"]))
+        add("jours-actifs", "activity", "active", n=n(desc["active_days"]), span=n(desc["span_days"]))
+        add("record", "activity", "record", n=n(desc["max_day"]["n"]), date=d(desc["max_day"]["date"]))
+        g = desc["gaps"][0]
+        add("silence", "activity", "silence", days=n(g["days"]), from_=d(g["from"]), to=d(g["to"]))
+        add("questions", "discourse", "questions", q=n(desc["questions_per_drop"], 2), share=p(desc["share_questions"], 0))
+        tr = r["trump"]
+        t5 = next(x for x in tr["tests"] if x["window_s"] == 300 and x["direction"] == "tweet_after_drop" and x["null"] == "local")
+        add("deltas", "trump", "deltas" if t5["p_value"] >= 0.05 else "deltas_sig", obs=p(t5["observed"]), exp=p(t5["expected"]), pv=n(t5["p_value"], 3))
+        add("tweets-cites", "trump", "quotes", n=n(tr["quotes"]["n_drops"]), lag=_duration(lang, tr["quotes"]["median_lag_min"]))
+        if r["discourse"] and r["discourse"].get("stylometry"):
+            split = pd.Timestamp(r["discourse"]["stylometry"]["split"]["date"])
+            on8 = any(pl["site"] == "8ch" and abs((pd.Timestamp(pl["first"]).tz_convert(None).normalize() - split).days) <= 3
+                      for pl in desc["platforms"])
+            add("stylometrie", "discourse", "stylo" if on8 else "stylo_plain", date=d(split.date().isoformat()))
+        if r["actors"] and r["actors"]["actors"]:
+            top = r["actors"]["actors"][:3]
+            add("acteurs", "actors", "actors", top=", ".join(f"{a['name']} ({n(a['n'])})" for a in top),
+                share=p(r["actors"]["share_with_actor"], 0))
+        if r["news"]:
+            ranked = sorted([a for a in r["news"]["actors"] if a.get("overrep") and a["q"] >= 30], key=lambda a: -a["overrep"])
+            add("surrepresentation", "news", "overrep",
+                top=", ".join(f"{a['name']} (×{n(a['overrep'], 1)})" for a in ranked[:3]))
+            add("pays", "news", "countries", rho=n(r["news"]["country_rho"] or 0, 2))
+        if r["interest"] and r["interest"]["events"]:
+            e = r["interest"]["events"][0]
+            add("curiosite", "interest", "interest", label=e[f"label_{lang}"], ratio=n(e["ratio"], 1))
+        pr = r["predictions"]
+        if pr and pr["n_predictions"]:
+            spec = dict(pr["by_specificity"])
+            add("predictions", "predictions", "preds", share=p(pr["share_pred_drops"], 0), k=n(pr["n_pred_drops"]),
+                m=n(pr["n_predictions"]), spec=n(spec.get("specific", 0)))
+            h = pr.get("horizon") or {}
+            if h.get("n"):
+                add("horizon", "stats", "horizon", med=n(h["median_days"]), s7=p(h["share_7d"], 0), n=n(h["n"]))
+        ve = r["verification"]
+        if ve and ve.get("items"):
+            o, nt = ve["overall"], ve["nontrivial"]
+            ci = lambda x: f"{p(x[0], 0)}–{p(x[1], 0)}"
+            add("realisation", "predictions", "fulfil", rate=p(o["rate"], 0), ci=ci(o["rate_ci"]), c=n(o["checkable"]),
+                f=n(o["fulfilled"]))
+            add("realisation-hors-triviales", "predictions", "fulfil_nt", rate=p(nt["rate"], 0), ci=ci(nt["rate_ci"]),
+                c=n(nt["checkable"]))
+            legal = [ve["by_type"][k] for k in ("arrest", "indictment") if k in ve["by_type"]]
+            add("arrestations", "predictions", "legal", ok=n(sum(x["fulfilled"] for x in legal)),
+                c=n(sum(x["checkable"] for x in legal)))
+        ev = r["llm_eval"]
+        if ev:
+            m = next(x for x in ev["models"] if x["model"] == ev["recommended"])
+            add("modele", "predictions", "model", model=m["model"], f1=n(m["f1"], 2), cost=n(m["corpus_cost_batch_usd"], 2))
+        st = r["stats"]
+        if st:
+            rh = st["rhythm"]
+            add("rafales", "stats", "burst", b=n(rh["burstiness"], 2), w5=p(rh["share_within_5min"], 0),
+                w1h=p(rh["share_within_1h"], 0))
+            add("sessions", "stats", "sessions", ns=n(rh["n_sessions"]), multi=p(rh["share_drops_in_multi"], 0))
+            add("regimes", "stats", "regimes", k=n(len(st["changepoints"]["segments"])))
+            pr_ = st["domains"]["top_press"]
+            add("medias", "stats", "press", nl=n(st["domains"]["n_links"]), ns=n(st["domains"]["n_sites"]),
+                first=pr_[0]["site"], fn=n(pr_[0]["drops"]))
+            add("autocitation", "stats", "selfref", share=p(st["references"]["share_self"], 0),
+                anon=p(st["references"]["share_anon"], 0))
+            add("religion", "stats", "religion", share=p(st["religion"]["share_faith"], 1), nv=n(st["religion"]["n_verse"]))
+            add("lisibilite", "stats", "flesch", f=n(st["lexicon"]["flesch_all"], 0), wps=n(st["lexicon"]["words_per_sentence_all"], 1))
+        year = time.strftime("%Y")
+        for f in F:
+            f["url"] = f"{SITE_URL}{lang}/figures.html#{f['id']}"
+            quoted = f["text"].replace('"', "'") if lang == "en" else f["text"]
+            f["citation"] = t["fig_citation"].format(year=year, text=quoted, version=VERSION, url=f["url"])
+        self._figures[lang] = F
+        return F
+
+    def fig(self, lang, fid):
+        """Lien vers un chiffre cle, pour les textes (FAQ)."""
+        from markupsafe import Markup, escape
+        f = next((x for x in self.figures(lang) if x["id"] == fid), None)
+        if f is None:
+            raise KeyError(f"chiffre inconnu dans un texte : {fid}")
+        return Markup(f'<a class="fig-link" href="figures.html#{escape(fid)}">{escape(f["text"])}</a>')
+
+    def page_figures(self, lang, c):
+        return {"figs": self.figures(lang)}
+
+    def page_faq(self, lang, c):
+        items = load_yaml("faq", "questions")
+        return {"items": [{"id": q["id"], "q": q[f"q_{lang}"], "paras": self._prose(q[f"a_{lang}"], lang)} for q in items]}
 
     def page_research(self, lang, c):
         data = load_yaml("research", "sections")
@@ -601,6 +703,12 @@ class Site:
             shutil.copy(guide, d / "gold_guidelines.md")
             add("gold_guidelines.md", "Consignes d'annotation du jeu de référence (français).",
                 "Annotation guidelines of the reference set (French).")
+        rows = []
+        for lang in T:
+            rows += [{"lang": lang, "id": f["id"], "page": f["page"], "text": f["text"], "url": f["url"]}
+                     for f in self.figures(lang)]
+        pd.DataFrame(rows).to_csv(d / "figures.csv", index=False)
+        add("figures.csv", "Chiffres clés (FR et EN), avec leur adresse citable.", "Key figures (FR and EN), with their citable address.")
         res = d / "results"
         res.mkdir()
         for k, v in r.items():

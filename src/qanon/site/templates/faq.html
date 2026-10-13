@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ t.faq_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.faq_title }}</h1>
+<p class="lead">{{ t.faq_lead }}</p>
+<nav class="toc toc-col" aria-label="{{ t.toc }}"><ol>{% for q in items %}<li><a href="#{{ q.id }}">{{ q.q }}</a></li>{% endfor %}</ol></nav>
+{% for q in items %}
+<section id="{{ q.id }}" class="faq">
+  <h2>{{ q.q }}</h2>
+  {% for p in q.paras %}<p>{{ p }}</p>{% endfor %}
+</section>
+{% endfor %}
+{% endblock %}

@@ -1069,7 +1069,7 @@ references:
   authors: ["Audureau, William"]
   year: 2022
   date: 2022-01-07
-  title: "Un an après l'attaque du Capitole, la communauté QAnon morcelée, mais toujours influente"
+  title: "Un an après l’attaque du Capitole, la communauté QAnon morcelée, mais toujours influente"
   container: "Le Monde"
   url: "https://www.lemonde.fr/les-decodeurs/article/2022/01/07/un-an-apres-l-attaque-du-capitole-la-communaute-qanon-balkanisee-mais-toujours-influente_6108607_4355770.html"
   lang: fr
@@ -2571,13 +2571,14 @@ references:
   authors: ["Aubry, Odessa"]
   year: 2024
   title: "QAnon en France : étude des perceptions et analyse des mécanismes de diffusion et d'adhésion aux théories conspirationnistes"
-  publisher: "Université Paul-Valéry - Montpellier 3"
+  container: "Mémoire de Master 2 Journalisme numérique et nouvelles écritures (dir. Félix Luschka)"
+  publisher: "Université Paul-Valéry Montpellier 3"
   url: "https://dumas.ccsd.cnrs.fr/dumas-05058228v1"
   open_access: true
   lang: fr
-  topics: [international, media, belief-surveys]
-  summary_fr: "Mémoire de master sur QAnon en France, fondé sur l'analyse des perceptions individuelles des mécanismes de diffusion et d'adhésion aux théories du complot. Il souligne le rôle de la défiance envers les médias traditionnels et de la désinformation sur les réseaux sociaux."
-  summary_en: "A master's thesis on QAnon in France, based on an analysis of individuals' perceptions of how conspiracy theories spread and gain adherents. It highlights the role of distrust in traditional media and of social media disinformation."
+  topics: [international, media]
+  summary_fr: "Enquête qualitative exploratoire : dix entretiens semi-directifs d'une vingtaine de minutes avec des adultes recrutés dans l'entourage de l'autrice, et deux entretiens d'experts. Dans ce petit échantillon, QAnon est peu connu et perçu comme un phénomène américain lié à Trump ; ce n'est pas une mesure de l'opinion, et les faits de contexte du mémoire, de seconde main, comportent des erreurs (dont un « message d'adieu » de Q daté du 20 janvier 2021)."
+  summary_en: "Exploratory qualitative study: ten semi-structured interviews of about twenty minutes with adults recruited through the author's acquaintances, plus two expert interviews. In this small sample QAnon is little known and seen as an American, Trump-related phenomenon; it is not a measure of opinion, and the thesis's second-hand background facts contain errors (including a Q 'farewell post' dated 20 January 2021)."
 
 - id: festinger1956when
   type: book
@@ -3553,3 +3554,29 @@ references:
   topics: [international, religion, gender]
   summary_fr: "Article de synthèse du média français L'ADN sur la convergence entre spiritualités New Age et QAnon depuis la pandémie, souvent appelée « QAnon pastel ». Il fait le point sur la persistance de ce phénomène en 2023."
   summary_en: "A review piece by French outlet L'ADN on the convergence between New Age spiritualities and QAnon since the pandemic, often called 'pastel QAnon'. It takes stock of the phenomenon's persistence in 2023."
+
+# ---------------------------------------------------------------- ajouts : origines et relais francophones
+
+- id: thevenet2020fanfiction
+  type: journalism
+  authors: ["Thévenet, Elisa"]
+  year: 2020
+  date: 2020-11-26
+  title: "Et si le mouvement complotiste américain QAnon était une fanfiction ?"
+  container: "Le Monde"
+  url: "https://www.lemonde.fr/livres/article/2020/11/26/et-si-le-mouvement-complotiste-americain-qanon-etait-une-fanfiction_6061172_3260.html"
+  lang: fr
+  topics: [origins, international]
+  summary_fr: "Article de la rubrique Livres du Monde sur l'hypothèse selon laquelle QAnon s'inspirerait du roman « Q » (1999) du collectif italien Luther Blissett, et sur la culture du canular des forums anonymes. L'hypothèse est discutée, non démontrée."
+  summary_en: "Le Monde books-section article on the hypothesis that QAnon was inspired by the 1999 novel 'Q' by the Italian collective Luther Blissett, and on the hoax culture of anonymous boards. The hypothesis is discussed, not demonstrated."
+
+- id: conspiracywatchsojli
+  type: journalism
+  authors: ["Conspiracy Watch"]
+  title: "Léonard Sojli"
+  container: "Conspiracy Watch – L'Observatoire du conspirationnisme"
+  url: "https://www.conspiracywatch.info/notice/leonard-sojli"
+  lang: fr
+  topics: [international, media]
+  summary_fr: "Notice biographique (mise à jour en continu) consacrée au fondateur du média Les DéQodeurs, présenté comme l'une des figures de proue de la mouvance QAnon francophone ; elle retrace son parcours et ses prises de position depuis 2020, sources à l'appui."
+  summary_en: "Continuously updated profile of the founder of the outlet Les DéQodeurs, described as one of the leading figures of French-language QAnon; it traces his trajectory and statements since 2020, with sources."

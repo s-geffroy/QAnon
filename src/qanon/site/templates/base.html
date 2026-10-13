@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}{{ t.site_title }}{% endblock %}</title>
 <meta name="description" content="{{ t.site_sub }}">
+<meta name="author" content="Sylvain Geffroy">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
 <link rel="alternate" hreflang="{{ t.other }}" href="../{{ t.other }}/{{ page }}.html">
 <link rel="stylesheet" href="../static/style.css">
 </head>
@@ -30,12 +32,13 @@
 </main>
 <footer class="wrap foot">
   <p class="disclaimer">{{ t.disclaimer }}</p>
-  <p>{{ t.updated }} {{ updated }} · <a href="cite.html">{{ t.nav_cite }}</a> · <a href="data.html">{{ t.nav_data }}</a> · <a href="{{ repo }}">GitHub</a> · CC BY 4.0</p>
+  <p>{{ t.updated }} {{ updated }} · <a href="cite.html">{{ t.nav_cite }}</a> · <a href="data.html">{{ t.nav_data }}</a> · <a href="{{ repo }}">GitHub</a> · Sylvain Geffroy · <a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">CC BY 4.0</a></p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0/build/vega-lite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"></script>
 <script src="../static/charts.js"></script>
+<script>document.querySelectorAll(".nav-group [aria-current]").forEach(function (a) { a.parentNode.scrollLeft = a.offsetLeft - a.parentNode.offsetLeft - 40; });</script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

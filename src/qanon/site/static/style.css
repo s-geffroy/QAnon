@@ -55,9 +55,13 @@ h3 { font-size: 1rem; margin: 0; }
 .brand-title { font-weight: 700; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
 .brand-sub { color: var(--ink-2); font-size: .95rem; }
 .lang { font-size: .85rem; border: 1px solid var(--rule); border-radius: 999px; padding: .2rem .7rem; text-decoration: none; white-space: nowrap; }
-.nav { display: flex; flex-direction: column; gap: .35rem; padding-block: .75rem; font-size: .92rem; }
-.nav-group { display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; align-items: baseline; }
-.nav-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); min-width: 6.5rem; }
+.nav { display: flex; flex-direction: column; gap: .35rem; padding-block: .75rem; font-size: .86rem; }
+/* Chaque groupe tient sur une ligne ; sur un ecran etroit, il defile horizontalement. */
+.nav-group { display: flex; flex-wrap: nowrap; white-space: nowrap; gap: .9rem; align-items: baseline;
+             overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.nav-group::-webkit-scrollbar { display: none; }
+.nav-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); min-width: 6.2rem; flex: none; }
+.nav a { flex: none; }
 .nav a { color: var(--ink-2); text-decoration: none; padding-bottom: .2rem; border-bottom: 2px solid transparent; }
 .nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
 .lead { font-size: 1.2rem; color: var(--ink); margin: 2rem 0 1.5rem; max-width: 46rem; }
@@ -129,3 +133,14 @@ table.narrow { width: auto; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 0 2rem; }
 .cite { white-space: normal; }
 .cite a { color: var(--ink-2); }
+.figs { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.fig { border-top: 1px solid var(--rule); padding: 1rem 0; scroll-margin-top: 1rem; }
+.fig:target { background: var(--surface-2); padding-inline: .75rem; border-radius: 6px; }
+.fig-text { font-size: 1.05rem; margin: 0 0 .3rem; }
+.fig-meta { font-size: .82rem; color: var(--ink-2); margin: 0 0 .5rem; }
+.fig-cite { display: flex; gap: .6rem; align-items: flex-start; flex-wrap: wrap; }
+.fig-cite code { flex: 1 1 20rem; font-size: .78rem; background: var(--surface-2); padding: .5rem .7rem; border-radius: 6px; overflow-wrap: anywhere; }
+.copy { font: inherit; font-size: .8rem; padding: .35rem .7rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.fig-link { color: inherit; text-decoration-style: dotted; }
+.toc-col ol { flex-direction: column; gap: .25rem; }
+.faq h2 { scroll-margin-top: 1rem; }

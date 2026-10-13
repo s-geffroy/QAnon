@@ -635,3 +635,84 @@ T["en"].update({
 T["fr"]["sens_item"] = "{gap} min : {ns} sessions, {multi} des drops en session multiple"
 T["en"]["sens_item"] = "{gap} min: {ns} sessions, {multi} of drops in multi-drop sessions"
 T["fr"]["col_active_days"], T["en"]["col_active_days"] = "Jours actifs", "Active days"
+
+# --- Chiffres cles (citables un par un) et FAQ
+T["fr"].update({
+  "nav_figures": "Chiffres clés", "figures_title": "Chiffres clés",
+  "figures_lead": "Les principaux résultats de l'étude, chacun avec une adresse stable et une citation prête à copier. Les chiffres sont recalculés à chaque version du site : citez la version consultée.",
+  "fig_copy": "Copier la citation", "fig_copied": "Copié", "fig_source": "Détail et méthode",
+  "fig_citation": "Geffroy, S. ({year}). « {text} » Dans Les drops de Q à l'épreuve des faits [site web, version {version}]. {url}",
+  "fig_drops": "Le corpus compte {n} drops de « Q », publiés entre le {first} et le {last}.",
+  "fig_active": "Q a publié au moins un drop sur {n} jours, sur une période de {span} jours.",
+  "fig_record": "Le record est de {n} drops en une journée, le {date}.",
+  "fig_silence": "Le plus long silence de Q a duré {days} jours, du {from_} au {to}.",
+  "fig_questions": "Un drop contient en moyenne {q} points d'interrogation ; {share} des drops en contiennent au moins un.",
+  "fig_deltas": "Un tweet de Trump suit un drop en moins de 5 minutes dans {obs} des cas, contre {exp} attendus par hasard (modèle nul local, p = {pv}) : pas de synchronie démontrée.",
+  "fig_quotes": "{n} drops citent un tweet de Trump, en médiane {lag} après sa publication.",
+  "fig_stylo": "La rupture de style la plus nette du corpus se situe autour du {date}, au passage sur 8chan.",
+  "fig_actors": "Acteurs les plus cités (nombre de drops) : {top} ; {share} des drops nomment au moins un acteur du dictionnaire.",
+  "fig_overrep": "Par rapport à l'actualité mondiale (GDELT), Q sur-représente le plus : {top}.",
+  "fig_countries": "La corrélation de rang entre les pays cités par Q et leur poids dans l'actualité mondiale est de {rho}.",
+  "fig_interest": "L'événement qui a le plus fait monter la curiosité pour QAnon sur Wikipédia : {label} (vues ×{ratio} la semaine suivante).",
+  "fig_preds": "{share} des drops ({k}) contiennent au moins une prédiction, soit {m} prédictions dont {spec} précises.",
+  "fig_horizon": "Pour {n} prédictions à date précise, l'échéance tombe en médiane {med} jours après le drop ; {s7} à moins d'une semaine.",
+  "fig_fulfil": "{f} des {c} prédictions vérifiables se sont réalisées, soit {rate} (IC 95 % : {ci}).",
+  "fig_fulfil_nt": "Hors événements déjà annoncés ou programmés, le taux de réalisation tombe à {rate} (IC 95 % : {ci}, {c} prédictions).",
+  "fig_legal": "Arrestations et inculpations annoncées par Q : {ok} réalisée sur {c} vérifiables.",
+  "fig_model": "Modèle retenu pour annoter le corpus : {model} (F1 = {f1} sur le jeu de référence, coût du corpus ≈ {cost} $).",
+  "fig_burst": "Q publie par rafales : coefficient de rafale B = {b} ; {w5} des drops suivent le précédent de moins de 5 minutes, {w1h} de moins d'une heure.",
+  "fig_sessions": "Les drops se regroupent en {ns} sessions (écart de moins de 30 minutes) ; {multi} appartiennent à une session de plusieurs drops.",
+  "fig_regimes": "Le volume hebdomadaire se découpe en {k} régimes d'activité.",
+  "fig_press": "Les drops contiennent {nl} liens vers {ns} sites ; le média d'information le plus cité est {first} ({fn} drops).",
+  "fig_selfref": "{share} des drops renvoient à un drop antérieur de Q, {anon} à un message d'anonyme.",
+  "fig_religion": "{share} des drops emploient un vocabulaire religieux ou moral ; {nv} citent un verset biblique.",
+  "fig_flesch": "Indice de lisibilité de Flesch : {f}, avec {wps} mots par phrase en moyenne.",
+  "nav_faq": "FAQ", "faq_title": "Questions fréquentes",
+  "faq_lead": "Réponses courtes, sourcées par la bibliographie et par les chiffres de ce site. Chaque chiffre renvoie à sa fiche citable.",
+  "author_line": "Auteur : Sylvain Geffroy",
+  "license": "Le contenu de ce site et du dépôt (textes, graphiques, données dérivées, données éditoriales et code) est publié sous licence Creative Commons Attribution 4.0 International (CC BY 4.0) : vous pouvez le réutiliser, y compris commercialement, à condition de citer l'auteur et la source et d'indiquer les modifications. Les jeux de données sources (drops, tweets, GDELT, Wikimedia) restent soumis à leurs propres conditions.",
+  "license_link": "Texte de la licence",
+})
+T["en"].update({
+  "nav_figures": "Key figures", "figures_title": "Key figures",
+  "figures_lead": "The study's main results, each with a stable address and a ready-to-copy citation. Figures are recomputed with every version of the site: cite the version you consulted.",
+  "fig_copy": "Copy citation", "fig_copied": "Copied", "fig_source": "Details and method",
+  "fig_citation": "Geffroy, S. ({year}). \"{text}\" In Q drops against the facts [website, version {version}]. {url}",
+  "fig_drops": "The corpus contains {n} \"Q\" drops, posted between {first} and {last}.",
+  "fig_active": "Q posted at least one drop on {n} days, over a {span}-day period.",
+  "fig_record": "The record is {n} drops in a single day, on {date}.",
+  "fig_silence": "Q's longest silence lasted {days} days, from {from_} to {to}.",
+  "fig_questions": "A drop contains on average {q} question marks; {share} of drops contain at least one.",
+  "fig_deltas": "A Trump tweet follows a drop within 5 minutes in {obs} of cases, against {exp} expected by chance (local null model, p = {pv}): no synchrony demonstrated.",
+  "fig_quotes": "{n} drops quote a Trump tweet, a median of {lag} after it was posted.",
+  "fig_stylo": "The sharpest stylistic break in the corpus falls around {date}, when Q moved to 8chan.",
+  "fig_actors": "Most cited actors (number of drops): {top}; {share} of drops name at least one actor from the dictionary.",
+  "fig_overrep": "Relative to world news (GDELT), Q most over-represents: {top}.",
+  "fig_countries": "The rank correlation between the countries Q mentions and their weight in world news is {rho}.",
+  "fig_interest": "The event that most raised curiosity about QAnon on Wikipedia: {label} (views ×{ratio} the following week).",
+  "fig_preds": "{share} of drops ({k}) contain at least one prediction, i.e. {m} predictions, {spec} of them specific.",
+  "fig_horizon": "For {n} predictions with a full date, the deadline falls a median of {med} days after the drop; {s7} within a week.",
+  "fig_fulfil": "{f} of the {c} checkable predictions came true, i.e. {rate} (95% CI: {ci}).",
+  "fig_fulfil_nt": "Excluding already announced or scheduled events, the fulfilment rate drops to {rate} (95% CI: {ci}, {c} predictions).",
+  "fig_legal": "Arrests and indictments announced by Q: {ok} came true out of {c} checkable.",
+  "fig_model": "Model chosen to annotate the corpus: {model} (F1 = {f1} on the reference set, corpus cost ≈ ${cost}).",
+  "fig_burst": "Q posts in bursts: burstiness B = {b}; {w5} of drops follow the previous one within 5 minutes, {w1h} within an hour.",
+  "fig_sessions": "Drops group into {ns} sessions (gaps under 30 minutes); {multi} belong to a multi-drop session.",
+  "fig_regimes": "Weekly volume splits into {k} activity regimes.",
+  "fig_press": "Drops contain {nl} links to {ns} sites; the most cited news outlet is {first} ({fn} drops).",
+  "fig_selfref": "{share} of drops reference an earlier Q drop, {anon} an anonymous post.",
+  "fig_religion": "{share} of drops use religious or moral vocabulary; {nv} quote a Bible verse.",
+  "fig_flesch": "Flesch reading ease: {f}, with {wps} words per sentence on average.",
+  "nav_faq": "FAQ", "faq_title": "Frequently asked questions",
+  "faq_lead": "Short answers, sourced from the bibliography and from this site's figures. Each figure links to its citable entry.",
+  "author_line": "Author: Sylvain Geffroy",
+  "license": "The content of this site and repository (texts, charts, derived data, editorial data and code) is published under the Creative Commons Attribution 4.0 International licence (CC BY 4.0): you may reuse it, including commercially, provided you credit the author and the source and indicate changes. Source datasets (drops, tweets, GDELT, Wikimedia) remain subject to their own terms.",
+  "license_link": "Licence text",
+})
+T["fr"]["fig_deltas_sig"] = "Un tweet de Trump suit un drop en moins de 5 minutes dans {obs} des cas, contre {exp} attendus par hasard (modèle nul local, p = {pv})."
+T["en"]["fig_deltas_sig"] = "A Trump tweet follows a drop within 5 minutes in {obs} of cases, against {exp} expected by chance (local null model, p = {pv})."
+T["fr"]["fig_stylo_plain"] = "La rupture de style la plus nette du corpus se situe autour du {date}."
+T["en"]["fig_stylo_plain"] = "The sharpest stylistic break in the corpus falls around {date}."
+T["fr"]["cite_figures"] = "Pour citer un résultat précis, chaque chiffre a sa propre citation :"
+T["en"]["cite_figures"] = "To cite a specific result, each figure has its own citation:"
+T["fr"]["colon"], T["en"]["colon"] = "\u202f: ", ": "

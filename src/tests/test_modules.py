@@ -82,3 +82,10 @@ def test_burstiness_regular_vs_bursty():
     from qanon.analysis.stats import rhythm
     regular = pd.DataFrame({"ts": pd.date_range("2018-01-01", periods=200, freq="h", tz="UTC")})
     assert rhythm(regular)["burstiness"] < -0.9
+
+
+def test_dates_in_new_york_time():
+    from qanon.site import fmt
+    # Dernier drop : 28/11/2022 01:06 UTC = 27/11/2022 a New York.
+    assert fmt.date("en", "2022-11-28T01:06:20+00:00") == "Nov 27, 2022"
+    assert fmt.date("fr", "2017-10-28") == "28 oct. 2017"

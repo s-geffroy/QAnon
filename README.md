@@ -21,9 +21,10 @@ publiee en site bilingue FR/EN sur GitHub Pages
 | `analyze_trump` | test des « deltas » : coincidences drop/tweet contre deux modeles nuls |
 | `analyze_discourse` | themes (NMF), mots distinctifs, formules du glossaire, style, stylometrie |
 | `analyze_actors` | acteurs cites (`src/data/actors.yaml`), co-mentions, pays |
+| `analyze_stats` | rythme et rafales, regimes d'activite, forums, sites cites, renvois, religion, lisibilite |
 | `analyze_interest` | interet public, etude d'evenements, diffusion par langue |
 | `llm_eval` | evaluation des modeles OpenAI sur `src/data/gold.jsonl` (secret `openai_api_key`) |
-| `build_site` | site statique FR/EN dans `/state/site` (13 pages, donnees telechargeables) |
+| `build_site` | site statique FR/EN dans `/state/site` (18 pages, donnees telechargeables) |
 | `fetch_gdelt` | GDELT 1.0, un fichier par jour 2017-10 → 2021-01, agrege et reprenable (~1 h) |
 | `analyze_news` | Q contre l'actualite : surrepresentation, correlations decalees, Granger |
 
@@ -34,7 +35,8 @@ conteneur) : `scripts/publish-pages.sh`, lance depuis l'hote, extrait
 branch* → `gh-pages` / `(root)`.
 
 Donnees editoriales versionnees dans `src/data/` : chronologie, acteurs,
-glossaire, bibliographie, jeu d'annotation de reference et ses consignes.
+glossaire, bibliographie, etat de la recherche (`research.yaml`), FAQ (`faq.yaml`),
+jeu d'annotation de reference et ses consignes.
 
 Une etape est relancee quand ses entrees changent (donnees amont, code,
 periode de rafraichissement) ; sinon le worker dort. Base : `/state/qanon.db`
@@ -129,3 +131,11 @@ secrets:
 `0444` et non `0400` : le mode est reporte tel quel dans le conteneur, ou le
 worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
 (0700 root) qui protege le secret.
+
+## Licence et citation
+
+Tout le contenu du depot et du site (code, textes, donnees editoriales et
+derivees) est sous licence CC BY 4.0 (`LICENSE`), auteur Sylvain Geffroy.
+`CITATION.cff` donne la reference ; chaque chiffre cle du site a sa propre
+citation (page « Chiffres cles »). Les jeux de donnees sources gardent leurs
+propres conditions.

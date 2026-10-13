@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ t.figures_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.figures_title }}</h1>
+<p class="lead">{{ t.figures_lead }}</p>
+<p class="note"><a href="../data/figures.csv">CSV</a> · <a href="cite.html">{{ t.nav_cite }}</a></p>
+<ol class="figs">
+{% for f in figs %}
+  <li class="fig" id="{{ f.id }}">
+    <p class="fig-text">{{ f.text }}</p>
+    <p class="fig-meta"><a href="{{ f.page }}.html">{{ t.fig_source }}{{ t.colon }}{{ t["nav_" ~ ("home" if f.page == "index" else f.page)] }}</a> · <a href="#{{ f.id }}">#{{ f.id }}</a></p>
+    <div class="fig-cite"><code>{{ f.citation }}</code><button type="button" class="copy" data-copied="{{ t.fig_copied }}">{{ t.fig_copy }}</button></div>
+  </li>
+{% endfor %}
+</ol>
+{% endblock %}
+{% block scripts %}
+<script>
+document.querySelectorAll(".fig-cite .copy").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var text = b.previousElementSibling.textContent, label = b.textContent;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () {
+      b.textContent = b.dataset.copied;
+      setTimeout(function () { b.textContent = label; }, 1500);
+    }, function () {
+      var r = document.createRange(); r.selectNodeContents(b.previousElementSibling);
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    });
+  });
+});
+</script>
+{% endblock %}

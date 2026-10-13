@@ -1,0 +1,116 @@
+# Questions frequentes. Appels de reference [@id], renvois de page [[page]],
+# chiffres cles {fig:id} (texte et lien generes a partir des resultats : un
+# chiffre ne peut pas diverger de l'analyse qui le produit).
+questions:
+
+- id: quoi
+  q_fr: "Qu'est-ce que QAnon ?"
+  q_en: "What is QAnon?"
+  a_fr: |
+    Une théorie du complot née en octobre 2017 sur le forum anonyme 4chan. Un auteur signant « Q », présenté comme un initié du gouvernement américain, y annonçait qu'une « cabale » d'élites pédocriminelles allait être démantelée par Donald Trump lors d'une « tempête ». Aucun de ces faits n'est avéré. Le récit agrège des théories plus anciennes, dont le « Pizzagate » [@tuters2018posttruth; @barkun2013culture], et s'est diffusé d'une plateforme à l'autre jusqu'à devenir un mouvement politique [@dezeeuw2020tracing; @rothschild2021storm; @sommer2023trust].
+  a_en: |
+    A conspiracy theory born in October 2017 on the anonymous board 4chan. An author signing "Q", presented as a U.S. government insider, announced that a "cabal" of paedophile elites would be brought down by Donald Trump in a "storm". None of this is true. The narrative pulls together older theories, including "Pizzagate" [@tuters2018posttruth; @barkun2013culture], and spread from platform to platform until it became a political movement [@dezeeuw2020tracing; @rothschild2021storm; @sommer2023trust].
+
+- id: drops
+  q_fr: "Qu'est-ce qu'un « drop », et combien y en a-t-il ?"
+  q_en: "What is a \"drop\", and how many are there?"
+  a_fr: |
+    Un message publié par Q. {fig:drops} {fig:jours-actifs} Il n'existe pas de corpus officiel : les collections divergent à la marge [@papasavva2022gospel]. Ce site utilise le corpus JSON-QAnon [@kingsman2021qanon] ([[data]]).
+  a_en: |
+    A post published by Q. {fig:drops} {fig:jours-actifs} There is no official corpus: collections differ at the margins [@papasavva2022gospel]. This site uses the JSON-QAnon corpus [@kingsman2021qanon] ([[data]]).
+
+- id: qui
+  q_fr: "Qui est « Q » ?"
+  q_en: "Who is \"Q\"?"
+  a_fr: |
+    On ne le sait pas avec certitude. Les études stylométriques concluent à au moins deux plumes successives et proposent des noms, que les intéressés démentent ; leurs auteurs les présentent comme des hypothèses [@cafiero2023who; @orphanalytics2022computational; @kirkpatrick2022who; @storchan2022comment]. {fig:stylometrie} Ce site ne permet pas de distinguer un changement d'auteur d'un changement de plateforme et n'identifie personne ([[discourse]]).
+  a_en: |
+    Nobody knows for certain. Stylometric studies conclude there were at least two successive writers and put forward names, which those concerned deny; their authors present them as hypotheses [@cafiero2023who; @orphanalytics2022computational; @kirkpatrick2022who; @storchan2022comment]. {fig:stylometrie} This site cannot tell a change of author from a change of platform and identifies no one ([[discourse]]).
+
+- id: ou
+  q_fr: "Où et à quel rythme Q publiait-il ?"
+  q_en: "Where and how often did Q post?"
+  a_fr: |
+    Sur 4chan, puis 8chan et, après la fermeture de ce dernier en 2019, 8kun. {fig:rafales} {fig:record} {fig:silence} ([[activity]], [[stats]])
+  a_en: |
+    On 4chan, then 8chan and, after the latter closed in 2019, 8kun. {fig:rafales} {fig:record} {fig:silence} ([[activity]], [[stats]])
+
+- id: predictions
+  q_fr: "Les prédictions de Q se sont-elles réalisées ?"
+  q_en: "Did Q's predictions come true?"
+  a_fr: |
+    Rarement. {fig:predictions} Les prédictions précises ou datées ont été vérifiées une à une, avec sources. {fig:realisation} {fig:realisation-hors-triviales} {fig:arrestations} Ces échecs répétés n'ont pas suffi à dissoudre le mouvement, un phénomène décrit depuis longtemps pour les groupes prophétiques [@festinger1956when; @westmark2022identifying] ([[predictions]]).
+  a_en: |
+    Rarely. {fig:predictions} Specific or dated predictions were checked one by one, with sources. {fig:realisation} {fig:realisation-hors-triviales} {fig:arrestations} These repeated failures were not enough to dissolve the movement, a phenomenon long described for prophetic groups [@festinger1956when; @westmark2022identifying] ([[predictions]]).
+
+- id: trump
+  q_fr: "Trump répondait-il à Q par ses tweets ?"
+  q_en: "Did Trump answer Q through his tweets?"
+  a_fr: |
+    C'est ce qu'affirmait Q (les « deltas »), mais les chiffres ne le montrent pas. {fig:deltas} En sens inverse, Q réagissait souvent à Trump : {fig:tweets-cites} ([[trump]])
+  a_en: |
+    Q claimed so (the "deltas"), but the figures do not show it. {fig:deltas} The other way round, Q often reacted to Trump: {fig:tweets-cites} ([[trump]])
+
+- id: actualite
+  q_fr: "De qui et de quoi Q parlait-il ?"
+  q_en: "Whom and what did Q talk about?"
+  a_fr: |
+    {fig:acteurs} Comparé au volume de l'actualité mondiale, ce choix est très sélectif. {fig:surrepresentation} Q renvoyait aussi à la presse : {fig:medias} ([[actors]], [[news]], [[stats]])
+  a_en: |
+    {fig:acteurs} Compared with the volume of world news, this choice is highly selective. {fig:surrepresentation} Q also linked to the press: {fig:medias} ([[actors]], [[news]], [[stats]])
+
+- id: combien
+  q_fr: "Combien de personnes croient à QAnon ?"
+  q_en: "How many people believe in QAnon?"
+  a_fr: |
+    Cela dépend de la question posée. Aux États-Unis, le soutien déclaré au mouvement reste de l'ordre de 5 à 8 % [@enders2022who; @uscinski2023qanon], mais l'accord avec ses énoncés centraux concerne 14 % des adultes en 2021, 23 % en 2023 et 19 % en 2024 [@prri2021understanding; @prri2023threats; @prri2024rise]. En Allemagne, 12 % de la population adhère au moins en partie à ses récits [@holnburger2022qvadis]. Ce site ne mesure pas l'adhésion : ses données Wikipédia mesurent la curiosité ([[interest]]).
+  a_en: |
+    It depends on the question asked. In the United States, declared support for the movement stays around 5 to 8% [@enders2022who; @uscinski2023qanon], but agreement with its core statements reaches 14% of adults in 2021, 23% in 2023 and 19% in 2024 [@prri2021understanding; @prri2023threats; @prri2024rise]. In Germany, 12% of the population agrees at least in part with its narratives [@holnburger2022qvadis]. This site does not measure support: its Wikipedia data measure curiosity ([[interest]]).
+
+- id: danger
+  q_fr: "QAnon est-il dangereux ?"
+  q_en: "Is QAnon dangerous?"
+  a_fr: |
+    Dès 2019, le FBI estimait que ces théories motivaient certains extrémistes [@fbi2019antigovernment]. Une centaine d'adeptes ont été poursuivis pour des infractions motivées par QAnon aux États-Unis jusqu'en 2021, dont une majorité pour l'assaut du Capitole [@jensen2021qanon; @jensen2024qanon]. Les chercheurs y voient une menace réelle mais différente d'un groupe terroriste organisé [@amarasingam2020qanon]. Le mouvement pèse aussi sur les familles des adeptes [@moskalenko2023secondhand; @jordan2023aliens].
+  a_en: |
+    As early as 2019 the FBI assessed that these theories motivated some extremists [@fbi2019antigovernment]. About a hundred followers were charged with QAnon-motivated offences in the United States up to 2021, most of them over the Capitol attack [@jensen2021qanon; @jensen2024qanon]. Researchers see a real threat but one unlike an organised terrorist group [@amarasingam2020qanon]. The movement also weighs on followers' families [@moskalenko2023secondhand; @jordan2023aliens].
+
+- id: france
+  q_fr: "QAnon existe-t-il en France ?"
+  q_en: "Does QAnon exist in France?"
+  a_fr: |
+    Oui, surtout depuis la pandémie de 2020, avec des relais francophones comme Les DéQodeurs et des thèmes centrés sur la santé et les vaccins [@mace2021qanons; @conspiracywatchsojli; @leloup2020france]. Le gouvernement a commandé une mission sur les nouvelles dérives sectaires [@wheeldon2021stakes; @conspiracywatch2021qanon], et le Conseil national du numérique a analysé les risques pour les élections [@harfoush2021qanon]. Dans le grand public, le mouvement semble peu connu, d'après une petite enquête qualitative [@aubry2024qanon]. Voir aussi [[research]].
+  a_en: |
+    Yes, especially since the 2020 pandemic, with French-language relays such as Les DéQodeurs and themes centred on health and vaccines [@mace2021qanons; @conspiracywatchsojli; @leloup2020france]. The government ordered an inquiry into new cult-like movements [@wheeldon2021stakes; @conspiracywatch2021qanon], and the Conseil national du numérique analysed the risks for elections [@harfoush2021qanon]. Among the general public the movement seems little known, according to a small qualitative study [@aubry2024qanon]. See also [[research]].
+
+- id: encore
+  q_fr: "QAnon existe-t-il encore ?"
+  q_en: "Does QAnon still exist?"
+  a_fr: |
+    Q s'est tu après le 8 décembre 2020, puis a publié une poignée de messages en 2022 [@adl2022after]. Après les bannissements de 2020-2021, le mouvement s'est fragmenté sur de plus petites plateformes [@holt2021qanon; @audureau2022an], mais ses thèmes se sont banalisés dans la droite américaine, et la part de la population qui adhère à ses énoncés n'a pas reculé [@prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
+  a_en: |
+    Q fell silent after 8 December 2020, then posted a handful of messages in 2022 [@adl2022after]. After the 2020-2021 bans the movement fragmented onto smaller platforms [@holt2021qanon; @audureau2022an], but its themes became mainstream on the American right, and the share of the population agreeing with its statements has not declined [@prri2024rise; @peterkabenton2025conspiracy] ([[timeline]]).
+
+- id: fiabilite
+  q_fr: "Les chiffres de ce site sont-ils fiables ?"
+  q_en: "Are this site's figures reliable?"
+  a_fr: |
+    Ils sont reproductibles : code, données dérivées et choix de méthode sont publiés ([[method]], [[data]]). Leurs limites sont connues : corpus non canonique, annotation automatique des prédictions mesurée sur un jeu de référence, vérification éditoriale des prédictions, corrélations qui ne prouvent pas de causalité. {fig:modele} Chaque page indique ses précautions.
+  a_en: |
+    They are reproducible: code, derived data and methodological choices are published ([[method]], [[data]]). Their limits are known: non-canonical corpus, automatic annotation of predictions measured on a reference set, editorial verification of predictions, correlations that do not prove causation. {fig:modele} Every page states its caveats.
+
+- id: pourquoi
+  q_fr: "Pourquoi étudier et citer les messages d'une théorie du complot ?"
+  q_en: "Why study and quote the posts of a conspiracy theory?"
+  a_fr: |
+    Pour mesurer ce que le mouvement a réellement dit et annoncé, face à ce qui s'est passé. Les messages sont cités comme objets d'étude, jamais comme des faits, et les accusations visant des personnes privées ne sont pas reproduites. Les questions éthiques de ce type de recherche sont discutées par [@cera2023digital].
+  a_en: |
+    To measure what the movement actually said and announced, against what happened. Posts are quoted as objects of study, never as facts, and accusations against private individuals are not reproduced. The ethical questions of this kind of research are discussed by [@cera2023digital].
+
+- id: reutiliser
+  q_fr: "Puis-je réutiliser les données et citer ce site ?"
+  q_en: "Can I reuse the data and cite this site?"
+  a_fr: |
+    Oui, sous licence CC BY 4.0, en citant l'auteur et la source. Les données sont téléchargeables ([[data]]), chaque résultat a sa propre citation ([[figures]]) et la page [[cite]] donne la référence du site et son BibTeX.
+  a_en: |
+    Yes, under the CC BY 4.0 licence, crediting the author and the source. Data are downloadable ([[data]]), every result has its own citation ([[figures]]) and the [[cite]] page gives the site's reference and BibTeX.
