@@ -28,6 +28,9 @@ from ..log import log
 from ..secrets import read_secret
 
 MODEL = os.environ.get("LLM_MODEL", "gpt-5.6-luna")
+# Robustesse : un second modele, plus cher, repose les memes questions a un sous-echantillon.
+CHECK_MODEL = "gpt-6.1-sol"
+CHECK_EVERY = 3            # un drop sur trois de l'echantillon (100 drops)
 N_SAMPLE = 300
 N_ITEMS = 40
 SEED = 20171028
@@ -107,9 +110,9 @@ def questions(d, news):
     return out
 
 
-def call(client, msg):
+def call(client, msg, model=None):
     r = client.chat.completions.create(
-        model=MODEL, messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": msg}],
+        model=model or MODEL, messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": msg}],
         response_format={"type": "json_schema", "json_schema": SCHEMA}, max_completion_tokens=2000,
         reasoning_effort="low")
     return r.choices[0].message.content, r.usage.prompt_tokens, r.usage.completion_tokens
@@ -173,6 +176,38 @@ def analyse(qs, rows, d):
             "windows": {k: {"from": a, "to": b} for k, (a, b) in KINDS.items()}}
 
 
+def kappa(pairs):
+    """Kappa de Cohen pour deux annotateurs (listes de categories)."""
+    if not pairs:
+        return None
+    cats = sorted({c for p in pairs for c in p})
+    n = len(pairs)
+    po = sum(a == b for a, b in pairs) / n
+    pe = sum((sum(a == c for a, _ in pairs) / n) * (sum(b == c for _, b in pairs) / n) for c in cats)
+    return round((po - pe) / (1 - pe), 3) if pe < 1 else 1.0
+
+
+def robustness(qs, main, check):
+    """Accord entre les deux modeles et resultat du second modele sur le sous-echantillon."""
+    out = {"model": CHECK_MODEL, "n_drops": len({k[0] for k in check})}
+    # Choix exprime relativement a la verite : vraie periode, hasard, aucune.
+    rel = lambda a, t: "true" if a["choice"] == t else ("none" if a["choice"] == "none" else "random")
+    for kind in KINDS:
+        keys = [k for k in check if k[1] == kind and k in main and main[k]["response"] and check[k]["response"]]
+        pairs = [(rel(json.loads(main[k]["response"]), main[k]["truth"]), rel(json.loads(check[k]["response"]), check[k]["truth"]))
+                 for k in keys]
+        res = {"n": len(pairs), "agreement": round(sum(a == b for a, b in pairs) / len(pairs), 4) if pairs else None,
+               "kappa": kappa(pairs)}
+        for who, idx in (("main", 0), ("check", 1)):
+            t_ = sum(p[idx] == "true" for p in pairs)
+            r_ = sum(p[idx] == "random" for p in pairs)
+            res[who] = {"true": t_, "random": r_, "none": sum(p[idx] == "none" for p in pairs),
+                        "share_true_decided": round(t_ / (t_ + r_), 4) if t_ + r_ else None,
+                        "ci": wilson(t_, t_ + r_), "p_value": binom_p(t_, t_ + r_)}
+        out[kind] = res
+    return out
+
+
 def run(ctx):
     d = load_drops(ctx.conn)
     d = d[d["text"].str.strip() != ""].reset_index(drop=True)
@@ -206,7 +241,33 @@ def run(ctx):
             n += 1
         return False
     rows = {k: done[k] for k in qs if k in done}
+    # Second modele sur un sous-echantillon fixe.
+    sample_ids = sorted({k[0] for k in qs})[::CHECK_EVERY]
+    cq = {k: q for k, q in qs.items() if k[0] in sample_ids}
+    cdone = {(r["drop_id"], r["kind"]): r for r in ctx.conn.execute(
+        "SELECT * FROM llm_horoscope_check WHERE model = ?", (CHECK_MODEL,))}
+    ctodo = [k for k, q in cq.items() if k not in cdone or cdone[k]["prompt_sha"] != sha(q["msg"])
+             or (cdone[k]["error"] and not cdone[k]["response"])]
+    if ctodo:
+        from openai import OpenAI
+        client = OpenAI(api_key=read_secret("openai_api_key"), max_retries=3, timeout=180)
+        for i, k in enumerate(ctodo):
+            if ctx.should_yield():
+                log(f"horoscope, second modele : {len(cq) - len(ctodo) + i}/{len(cq)} questions posees")
+                return False
+            try:
+                content, tin, tout = call(client, cq[k]["msg"], CHECK_MODEL)
+                json.loads(content)
+                err = None
+            except Exception as exc:
+                content, tin, tout, err = None, None, None, f"{type(exc).__name__}: {exc}"[:500]
+            ctx.conn.execute("INSERT OR REPLACE INTO llm_horoscope_check VALUES (?,?,?,?,?,?,?,?,?,?)",
+                             (k[0], k[1], CHECK_MODEL, sha(cq[k]["msg"]), cq[k]["truth"], content, err, tin, tout,
+                              int(time.time())))
+            ctx.conn.commit()
+        return False
     out = analyse(qs, rows, d)
+    out["robustness"] = robustness(qs, rows, {k: cdone[k] for k in cq if k in cdone})
     tok = ctx.conn.execute("SELECT sum(in_tok), sum(out_tok) FROM llm_horoscope").fetchone()
     out["tokens_in"], out["tokens_out"] = tok[0], tok[1]
     ctx.set_output(db.sha(write(ctx, "horoscope", out)))

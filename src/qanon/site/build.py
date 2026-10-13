@@ -448,6 +448,14 @@ class Site:
                              else "horo_reading_alt"].format(none=p(f["none"] / f["n"], 0) if f.get("n") else "—"),
                 "examples": [{**e, "reason": self.tr(f"horo:future:{e['drop_id']}", e["reason"], lang)}
                              for e in f.get("examples", [])[:5]],
+                "robust": (lambda rb: t["horo_robust"].format(
+                    model=rb["model"], n=n(rb["n_drops"]),
+                    agree=p(rb["future"]["agreement"] or 0, 0), kappa=n(rb["future"]["kappa"] or 0, 2),
+                    agree_p=p(rb["past"]["agreement"] or 0, 0),
+                    fc=p(rb["future"]["check"]["share_true_decided"] or 0, 0), fm=p(rb["future"]["main"]["share_true_decided"] or 0, 0),
+                    pc=p(rb["past"]["check"]["share_true_decided"] or 0, 0), pm=p(rb["past"]["main"]["share_true_decided"] or 0, 0),
+                    fpv=n(rb["future"]["check"]["p_value"] or 1, 3))
+                    if rb and rb.get("future", {}).get("n") else None)(ho.get("robustness")),
                 "method": t["horo_method"].format(n=n(ho["n_sample"]), items=n(ho["n_items"]), model=ho["model"]),
             }
             out.setdefault("charts", {})["horo"] = charts.horoscope(ho, lang)

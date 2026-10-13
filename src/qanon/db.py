@@ -164,3 +164,12 @@ SCHEMA += """
 -- Traductions francaises des paraphrases anglaises (predictions, justifications) ; voir llm/translate.py.
 CREATE TABLE IF NOT EXISTS llm_translate (key TEXT PRIMARY KEY, src_sha TEXT, fr TEXT, model TEXT, created_at INTEGER);
 """
+
+SCHEMA += """
+-- Test de l'horoscope : reponses d'un second modele (robustesse), meme format que llm_horoscope.
+CREATE TABLE IF NOT EXISTS llm_horoscope_check (
+    drop_id INTEGER, kind TEXT, model TEXT, prompt_sha TEXT, truth TEXT, response TEXT, error TEXT,
+    in_tok INTEGER, out_tok INTEGER, created_at INTEGER,
+    PRIMARY KEY (drop_id, kind, model)
+);
+"""
