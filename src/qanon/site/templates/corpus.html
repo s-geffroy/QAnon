@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ t.corpus_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.corpus_title }}</h1>
+<p class="lead">{{ t.corpus_lead.format(n=n) }}</p>
+<p class="pending">{{ t.corpus_warning }}</p>
+<div class="filters" id="c-filters">
+  <input type="search" id="c-q" placeholder="{{ t.bib_search }}" aria-label="{{ t.bib_search }}">
+  <select id="c-year" aria-label="{{ t.col_year }}"><option value="">{{ t.col_year }} : {{ t.bib_all }}</option>{% for y in [2017, 2018, 2019, 2020, 2022] %}<option>{{ y }}</option>{% endfor %}</select>
+  <select id="c-board" aria-label="{{ t.col_board }}"><option value="">{{ t.col_board }} : {{ t.bib_all }}</option></select>
+  <select id="c-actor" aria-label="{{ t.corpus_actor }}"><option value="">{{ t.corpus_actor }} : {{ t.bib_all }}</option></select>
+  <select id="c-verdict" aria-label="verdict"><option value="">{{ t.corpus_pred }} : {{ t.bib_all }}</option><option value="pred">{{ t.corpus_with_pred }}</option>{% for v in ["fulfilled", "partial", "not_fulfilled", "unverifiable", "not_a_prediction"] %}<option value="{{ v }}">{{ t["vd_" ~ v] }}</option>{% endfor %}</select>
+  <span class="note"><span id="c-n">…</span> {{ t.corpus_count }}</span>
+</div>
+<p id="c-single" hidden><a href="#" id="c-all">{{ t.corpus_show_all }}</a></p>
+<ol class="drops" id="c-list" aria-live="polite"></ol>
+<p><button type="button" class="copy" id="c-more" hidden>{{ t.corpus_more }}</button></p>
+<p class="note">{{ t.corpus_source }} <a href="../data/corpus.json">corpus.json</a> · <a href="data.html">{{ t.nav_data }}</a></p>
+<script type="application/json" id="c-labels">{{ {"drop": t.drop_no, "pred": t.corpus_npred, "images": t.corpus_images, "verdicts": {"fulfilled": t.vd_fulfilled, "partial": t.vd_partial, "not_fulfilled": t.vd_not_fulfilled, "unverifiable": t.vd_unverifiable, "not_a_prediction": t.vd_not_a_prediction}, "empty": t.corpus_empty, "lang": lang} | tojson_compact }}</script>
+{% endblock %}
+{% block scripts %}
+<script src="../static/corpus.js"></script>
+{% endblock %}

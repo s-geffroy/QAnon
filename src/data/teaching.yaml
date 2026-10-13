@@ -1,0 +1,278 @@
+# Kit pedagogique. Renvois de page [[page]], chiffres cles {fig:id} (texte et
+# lien generes a partir des resultats : un chiffre ne peut pas diverger de
+# l'analyse qui le produit), references [@id] (ancres de bibliography.html).
+# Un {fig:id} se developpe en une phrase complete : l'employer comme phrase.
+intro_fr: "Six fiches d'activité pour la classe, du lycée (EMI, SES, histoire-géographie, HGGSP) à la première année d'université. Chacune part d'une question de méthode — vérifier, comparer à une référence, lire une mesure — et s'appuie sur les pages, les chiffres clés et les données téléchargeables de ce site. Le sujet n'est pas QAnon pour lui-même : c'est un terrain où l'on apprend à distinguer une affirmation d'un fait. Les messages de Q y sont toujours traités comme des objets d'étude, jamais comme des informations. Les éléments de correction renvoient aux chiffres clés, recalculés à chaque version du site : citez la version consultée ([[cite]])."
+intro_en: "Six classroom activity sheets, from upper secondary school (media and information literacy, social sciences, history and geography) to first-year university. Each starts from a question of method (checking, comparing against a baseline, reading a measure) and draws on this site's pages, key figures and downloadable data. The subject is not QAnon for its own sake: it is a ground on which to learn to tell a claim from a fact. Q's posts are always treated as objects of study, never as information. The answer keys point to the key figures, which are recomputed with every version of the site: cite the version you used ([[cite]])."
+
+sheets:
+
+- id: verifier-une-prediction
+  level_fr: "Lycée (1re-Tle), licence 1"
+  level_en: "Upper secondary, first-year university"
+  duration_fr: "1 h 30 à 2 h"
+  duration_en: "1.5 to 2 hours"
+  title_fr: "Vérifier une prédiction soi-même"
+  title_en: "Checking a prediction yourself"
+  goals_fr:
+  - "Transformer une annonce en énoncé vérifiable : qui, quoi, pour quand."
+  - "Chercher, recouper et citer des sources pour établir un verdict."
+  - "Comprendre pourquoi une annonce vague ou déjà programmée ne compte pas comme une prédiction réussie."
+  - "Lire un taux et son intervalle de confiance."
+  goals_en:
+  - "Turn an announcement into a checkable statement: who, what, by when."
+  - "Search, cross-check and cite sources to reach a verdict."
+  - "Understand why a vague announcement, or one about an already scheduled event, does not count as a successful prediction."
+  - "Read a rate and its confidence interval."
+  materials_fr: "La page [[predictions]] : tableau des verdicts, méthode et liste détaillée, prédiction par prédiction, avec filtres (réalisée, partielle, non réalisée, invérifiable, pas une prédiction). Le fichier verification.csv (une ligne par prédiction : date, échéance, type, verdict, caractère trivial, explication, sources) et le protocole verification-README.md, tous deux dans [[data]]. Un tableur et un accès à internet, un poste pour deux ou trois élèves."
+  materials_en: "The [[predictions]] page: verdict table, method and the detailed list, prediction by prediction, with filters (came true, partly, did not happen, unverifiable, not a prediction). The verification.csv file (one row per prediction: date, deadline, type, verdict, triviality, explanation, sources) and the verification-README.md protocol, both in [[data]]. A spreadsheet and internet access, one computer for two or three students."
+  steps_fr:
+  - "Préparation (enseignant) : choisir dans verification.csv six à huit prédictions de types variés, dont au moins une « réalisée », une « non réalisée », une « invérifiable » et une « pas une prédiction ». Ne distribuer que la colonne claim (la paraphrase en anglais, à traduire si besoin), la date du drop et l'échéance ; masquer verdict, explication et sources."
+  - "Reformuler (15 min) : pour chaque annonce, les groupes écrivent l'énoncé vérifiable correspondant (qui, quoi, pour quand). Règle du site : l'horizon est l'échéance énoncée, sinon douze mois après le drop. Si l'énoncé ne peut pas être écrit, la prédiction est candidate au verdict « invérifiable »."
+  - "Enquêter (30 min) : chercher au moins une source fiable par annonce (presse de référence, documents officiels, encyclopédie avec ses propres références), noter l'URL et la date de consultation. Se demander aussi si l'événement était déjà annoncé ou programmé publiquement à la date du drop (élection, audition, voyage officiel) : c'est le critère « triviale »."
+  - "Trancher (15 min) : attribuer un verdict parmi les cinq catégories du protocole et justifier en une phrase, source à l'appui."
+  - "Confronter (20 min) : dévoiler les verdicts et les sources du site, discuter les désaccords. Le site indique que sa vérification est « à relire » : un désaccord argumenté est un résultat, pas une faute."
+  - "Généraliser (10 min) : calculer le taux de la classe (réalisées ÷ réalisées + partielles + non réalisées), puis le comparer aux résultats du site sur l'ensemble des prédictions vérifiées."
+  steps_en:
+  - "Preparation (teacher): pick six to eight predictions of different types from verification.csv, including at least one \"came true\", one \"did not happen\", one \"unverifiable\" and one \"not a prediction\". Hand out only the claim column (the English paraphrase), the drop date and the deadline; hide the verdict, explanation and sources."
+  - "Rephrase (15 min): for each announcement, groups write the matching checkable statement (who, what, by when). The site's rule: the horizon is the stated deadline, otherwise twelve months after the drop. If no such statement can be written, the prediction is a candidate for \"unverifiable\"."
+  - "Investigate (30 min): find at least one reliable source per announcement (quality press, official documents, an encyclopaedia with its own references), noting the URL and date accessed. Also ask whether the event had already been publicly announced or scheduled when Q posted (an election, a hearing, an official trip): that is the \"trivial\" criterion."
+  - "Decide (15 min): give one of the protocol's five verdicts and justify it in one sentence, with a source."
+  - "Compare (20 min): reveal the site's verdicts and sources and discuss the disagreements. The site says its verification is \"to be reviewed\": a well-argued disagreement is a result, not a mistake."
+  - "Generalise (10 min): compute the class's rate (came true ÷ came true + partly + did not happen), then compare it with the site's results over all checked predictions."
+  questions_fr:
+  - "Pourquoi une annonce invérifiable ne peut-elle compter ni comme un succès ni comme un échec ? Où la place-t-on dans le calcul du taux ?"
+  - "Pourquoi le site calcule-t-il un second taux « hors triviales » ? Que mesure-t-on en retirant les événements déjà programmés ?"
+  - "Le taux de réalisation est donné avec un intervalle de confiance à 95 %. Que dit cet intervalle, et pourquoi est-il plus large pour une seule année que pour l'ensemble ?"
+  - "Un taux de réalisation de quelques dizaines de pour cent signifie-t-il que Q « savait » quelque chose ? Quelle référence faudrait-il pour en juger ?"
+  questions_en:
+  - "Why can an unverifiable announcement count neither as a success nor as a failure? Where does it go in the rate calculation?"
+  - "Why does the site compute a second, \"non-trivial\" rate? What is measured once already scheduled events are removed?"
+  - "The fulfilment rate comes with a 95% confidence interval. What does the interval say, and why is it wider for a single year than for the whole set?"
+  - "Does a fulfilment rate of a few tens of percent mean that Q \"knew\" something? What baseline would be needed to judge?"
+  answers_fr: "Éléments de correction. {fig:predictions} Seules les prédictions précises ou datées ont été vérifiées une à une. {fig:realisation} Les invérifiables (110 sur la page Prédictions) sont exclues du dénominateur : on ne peut pas les compter comme réalisées, et ce flou fait partie du problème, puisqu'une annonce sans objet observable ne peut jamais être démentie. {fig:realisation-hors-triviales} Annoncer une élection ou une audition déjà au calendrier ne demande aucune information particulière : le second taux mesure ce que les annonces apportaient vraiment. {fig:arrestations} Ce sont pourtant ces annonces qui forment le cœur du récit (« The Storm », voir [[glossary]]). L'intervalle de confiance traduit l'incertitude liée au nombre de prédictions : moins il y en a (une seule année), plus il est large [@wilson1927probable]. Enfin, un taux ne s'interprète que comparé à une référence : quelqu'un qui annonce sans rien savoir des démissions ou des décisions de justice, sur des sujets alors très présents dans l'actualité, réussit aussi une partie du temps. Pour la persistance des croyances malgré les échecs, voir [@festinger1956when] et [@westmark2022identifying]."
+  answers_en: "Answer key. {fig:predictions} Only specific or dated predictions were checked one by one. {fig:realisation} Unverifiable ones (110 on the Predictions page) are left out of the denominator: they cannot be counted as fulfilled, and that vagueness is part of the problem, since an announcement with no observable object can never be proved wrong. {fig:realisation-hors-triviales} Announcing an election or a hearing that is already on the calendar requires no special knowledge: the second rate measures what the announcements actually added. {fig:arrestations} Yet these announcements are the core of the narrative (\"The Storm\", see [[glossary]]). The confidence interval reflects the uncertainty due to the number of predictions: the fewer there are (a single year), the wider it is [@wilson1927probable]. Finally, a rate only means something against a baseline: someone with no inside knowledge who announces resignations or court rulings on topics then dominating the news will also be right some of the time. On why beliefs persist despite failures, see [@festinger1956when] and [@westmark2022identifying]."
+  caution_fr: "Les paraphrases de verification.csv reprennent des accusations visant des personnalités publiques : précisez avant de distribuer qu'il s'agit d'annonces non avérées, étudiées pour être vérifiées. Écartez les prédictions qui détaillent des accusations de crimes sexuels ou violents, et celles qui citent des personnes privées. Pour les recherches en ligne, orientez les élèves vers des sources identifiées : une recherche libre sur une annonce de Q peut mener vers des sites qui la présentent comme vraie. Évitez toute moquerie envers les personnes qui y ont cru : l'objectif est la méthode de vérification, applicable à n'importe quelle annonce."
+  caution_en: "The paraphrases in verification.csv repeat accusations against public figures: before handing them out, make clear that these are unfounded announcements, studied in order to be checked. Leave out predictions that detail accusations of sexual or violent crimes, and any that mention private individuals. For online searches, steer students towards identified sources: an open search on a Q announcement can lead to sites that present it as true. Avoid mocking the people who believed it: the goal is the verification method, which applies to any announcement."
+
+- id: coincidence-pas-preuve
+  level_fr: "Lycée (2de-Tle, notamment SES et mathématiques), licence 1"
+  level_en: "Upper secondary (social sciences, mathematics), first-year university"
+  duration_fr: "1 h à 1 h 30"
+  duration_en: "1 to 1.5 hours"
+  title_fr: "Une coïncidence n'est pas une preuve"
+  title_en: "A coincidence is not proof"
+  goals_fr:
+  - "Comprendre qu'une coïncidence ne s'évalue qu'en la comparant à ce que le hasard produit."
+  - "Expliquer simplement ce que mesure une p-value, et ce qu'elle ne mesure pas."
+  - "Voir qu'une mauvaise référence peut fabriquer un effet « significatif »."
+  - "Repérer le problème des comparaisons multiples."
+  goals_en:
+  - "Understand that a coincidence can only be assessed against what chance produces."
+  - "Explain simply what a p-value measures, and what it does not."
+  - "See how a poor baseline can manufacture a \"significant\" effect."
+  - "Spot the multiple-comparisons problem."
+  materials_fr: "La page [[trump]] (graphique des écarts drop-tweet, tableau des tests et méthode) ; le terme « Deltas » du [[glossary]] ; le fichier trump_tests.csv dans [[data]]. Facultatif : des dés ou un tableur pour simuler des décalages au hasard."
+  materials_en: "The [[trump]] page (chart of drop-to-tweet gaps, table of tests and method); the \"Deltas\" entry in the [[glossary]]; the trump_tests.csv file in [[data]]. Optional: dice or a spreadsheet to simulate random shifts."
+  steps_fr:
+  - "Accroche (10 min) : présenter la revendication, sans la valider. Q et ses lecteurs affirmaient que certains tweets de Trump, publiés quelques minutes après un drop, en prouvaient l'authenticité (les « deltas »). Demander : « Si l'on publie un message à un moment quelconque, quelle est la chance qu'un tweet de Trump suive dans les cinq minutes ? » Donner l'indice de la page : Trump tweetait environ 13 fois par jour. Recueillir les estimations sans corriger."
+  - "Construire le hasard (20 min) : expliquer la méthode du site. On décale chaque drop au hasard, on recompte combien sont suivis d'un tweet, et l'on recommence 1 000 fois. Avec un tableur, les élèves peuvent le faire à petite échelle : une liste d'heures de publication fictives, décalées par tirage aléatoire, comparée à une liste d'heures de tweets."
+  - "Comparer (15 min) : lire la ligne « 5 min, tweet après le drop » du témoin local : part observée, part attendue par hasard, p-value. La p-value est la part des tirages au hasard qui produisent au moins autant de coïncidences que la réalité. Plus elle est grande, plus la réalité ressemble au hasard."
+  - "Changer de référence (15 min) : lire les mêmes lignes avec le témoin « jours ». L'écart y devient « significatif », et dans les deux sens, y compris quand le tweet précède le drop. Faire chercher pourquoi : les jours de forte actualité, Q comme Trump publient davantage. Seul le témoin local, qui conserve l'activité des heures voisines, juge la revendication."
+  - "Retourner la question (10 min) : qui suit qui ? Lire la section « Q cite Trump »."
+  steps_en:
+  - "Hook (10 min): present the claim without endorsing it. Q and its readers claimed that some Trump tweets, posted minutes after a drop, proved its authenticity (the \"deltas\"). Ask: \"If you post a message at any moment, what is the chance a Trump tweet follows within five minutes?\" Give the page's clue: Trump tweeted about 13 times a day. Collect guesses without correcting them."
+  - "Build chance (20 min): explain the site's method. Each drop is shifted at random, the drops followed by a tweet are counted again, and this is repeated 1,000 times. With a spreadsheet, students can do it on a small scale: a list of made-up posting times, shifted by random draws, compared with a list of tweet times."
+  - "Compare (15 min): read the \"5 min, tweet after the drop\" row for the local baseline: observed share, share expected by chance, p-value. The p-value is the share of random draws that produce at least as many coincidences as reality. The larger it is, the more reality looks like chance."
+  - "Change the baseline (15 min): read the same rows for the \"days\" baseline. The gap becomes \"significant\" there, and in both directions, including when the tweet comes before the drop. Have students work out why: on heavy news days, both Q and Trump post more. Only the local baseline, which keeps the activity of neighbouring hours, can judge the claim."
+  - "Turn the question around (10 min): who follows whom? Read the \"Q quotes Trump\" section."
+  questions_fr:
+  - "Pourquoi des coïncidences entre drops et tweets étaient-elles inévitables, même sans aucune coordination ?"
+  - "Que signifie une p-value de 0,227 ? Est-ce « la probabilité que Q et Trump soient coordonnés » ?"
+  - "Avec le témoin « jours », l'excès de coïncidences apparaît aussi quand le tweet précède le drop. Pourquoi cela affaiblit-il l'idée d'un signal envoyé par Trump ?"
+  - "Le tableau compte vingt tests ; quelques lignes passent sous 0,05. Pourquoi faut-il s'attendre à en trouver quelques-unes même si rien ne se passe ?"
+  - "Quand Q cite un tweet de Trump, qui réagit à qui ?"
+  questions_en:
+  - "Why were coincidences between drops and tweets unavoidable, even without any coordination?"
+  - "What does a p-value of 0.227 mean? Is it \"the probability that Q and Trump were coordinated\"?"
+  - "With the \"days\" baseline, the excess of coincidences also appears when the tweet comes before the drop. Why does that weaken the idea of a signal sent by Trump?"
+  - "The table has twenty tests; a few rows fall below 0.05. Why should we expect a few even if nothing is going on?"
+  - "When Q quotes a Trump tweet, who is reacting to whom?"
+  answers_fr: "Éléments de correction. {fig:deltas} Avec environ 13 tweets par jour, il y a mécaniquement des tweets quelques minutes après certains drops : ce n'est pas l'existence de coïncidences qui compte, mais leur nombre comparé au hasard. Une p-value n'est pas la probabilité qu'une hypothèse soit vraie : c'est la fréquence, parmi les tirages au hasard, d'un résultat au moins aussi frappant que l'observation ; elle n'est jamais nulle quand on l'estime par tirages [@phipson2010permutation]. Le témoin « jours » donne des p-values de 0,001 dans les deux sens : un excès qui existe aussi avant le drop ne peut pas être une réponse au drop ; il reflète la co-activité des jours chargés. Au seuil de 0,05, environ un test sur vingt passe sous le seuil par simple hasard ; le tableau en compte vingt, quelques résultats « significatifs » sont donc attendus même sans aucun lien : dans le témoin local, la seule ligne sous ce seuil (60 min, tweet avant le drop, p = 0,041) va dans le sens opposé à la revendication. Le site précise que ces seuils sont « sans correction pour comparaisons multiples ». {fig:tweets-cites} C'est Q qui réagit aux tweets de Trump, bien plus qu'il ne les annonce."
+  answers_en: "Answer key. {fig:deltas} With about 13 tweets a day, some tweets will inevitably land a few minutes after some drops: what matters is not that coincidences exist, but how many there are compared with chance. A p-value is not the probability that a hypothesis is true: it is how often, among random draws, a result at least as striking as the observed one turns up; estimated by random draws, it is never zero [@phipson2010permutation]. The \"days\" baseline gives p-values of 0.001 in both directions: an excess that also exists before the drop cannot be a response to the drop; it reflects the co-activity of busy days. At the 0.05 threshold, about one test in twenty falls below it by chance alone; the table has twenty, so a few \"significant\" results are expected even with no link at all: in the local baseline, the only row below the threshold (60 min, tweet before the drop, p = 0.041) runs opposite to the claim. The site notes that these thresholds are \"uncorrected for multiple comparisons\". {fig:tweets-cites} It is Q who reacts to Trump's tweets, far more than it announces them."
+  caution_fr: "Ne présentez pas les « deltas » comme une hypothèse sérieuse à départager à égalité : ils sont étudiés comme une revendication à tester. Rappelez que l'intuition des coïncidences est universelle (anniversaires communs, « signes ») : le but n'est pas de se moquer de ceux qui y ont vu une preuve, mais de montrer que tout le monde a besoin d'une référence pour juger. Pour les élèves les plus à l'aise, un résultat « non significatif » ne prouve pas non plus l'absence totale de lien : il montre qu'aucun lien n'est démontré par ces données."
+  caution_en: "Do not present the \"deltas\" as a serious hypothesis to be weighed on equal terms: they are studied as a claim to be tested. Remind students that the intuition of coincidence is universal (shared birthdays, \"signs\"): the aim is not to mock those who saw it as proof, but to show that everyone needs a baseline to judge. For stronger students: a \"non-significant\" result does not prove there is no link at all either; it shows that these data demonstrate none."
+
+- id: ecriture-qui-fait-travailler
+  level_fr: "Lycée (EMI, français, HGGSP), licence 1"
+  level_en: "Upper secondary (media literacy, language, politics), first-year university"
+  duration_fr: "1 h"
+  duration_en: "1 hour"
+  title_fr: "Une écriture qui fait travailler le lecteur"
+  title_en: "Writing that puts the reader to work"
+  goals_fr:
+  - "Repérer les procédés d'une écriture cryptique : questions rhétoriques, formules vagues, injonctions."
+  - "Comprendre comment certaines formules rendent un récit impossible à réfuter."
+  - "Relier des mesures de style à une stratégie de discours."
+  goals_en:
+  - "Spot the devices of cryptic writing: rhetorical questions, vague formulas, injunctions."
+  - "Understand how some formulas make a narrative impossible to refute."
+  - "Connect style measurements to a discourse strategy."
+  materials_fr: "Le [[glossary]] (définition, nombre de drops et première occurrence de chaque formule) ; la page [[discourse]] (thèmes, formules rituelles) ; les sections « Renvois : Q répond, Q se cite » et « Lisibilité et richesse lexicale » de [[stats]] ; le fichier glossary_counts.csv dans [[data]]. Le site ne republie pas le texte des drops : l'activité porte sur les formules et les mesures, ce qui évite de faire lire des messages entiers."
+  materials_en: "The [[glossary]] (definition, number of drops and first occurrence of each formula); the [[discourse]] page (topics, ritual formulas); the \"References: Q replies, Q quotes Q\" and \"Readability and lexical richness\" sections of [[stats]]; the glossary_counts.csv file in [[data]]. The site does not republish the text of the drops: the activity works on formulas and measurements, which avoids having students read whole posts."
+  steps_fr:
+  - "Tri (15 min) : distribuer une sélection de formules du glossaire, par exemple « Do you believe in coincidences? », « Expand your thinking », « Future proves past », « Trust the plan », « Disinformation is necessary », « Enjoy the show », « WWG1WGA ». Les groupes les classent : question qui suggère, injonction à chercher, formule qui diffère la preuve, formule qui excuse l'échec, formule d'appartenance."
+  - "Analyse (15 min) : pour « Future proves past » et « Disinformation is necessary », se demander quel événement pourrait démentir l'annonce. Conclure : si un succès confirme et qu'un échec est « voulu », plus rien ne peut réfuter le récit."
+  - "Mesure (15 min) : confronter ces observations aux chiffres du site sur les questions, les renvois et la lisibilité. Une écriture simple, en phrases courtes et en questions, laisse au lecteur le soin de conclure."
+  - "Réécriture (15 min) : prendre deux formules vagues et tenter d'en écrire une version vérifiable (qui, quoi, quand). Constater ce qui disparaît : le mystère, la place laissée au lecteur, l'impossibilité d'être démenti."
+  steps_en:
+  - "Sort (15 min): hand out a selection of glossary formulas, for example \"Do you believe in coincidences?\", \"Expand your thinking\", \"Future proves past\", \"Trust the plan\", \"Disinformation is necessary\", \"Enjoy the show\", \"WWG1WGA\". Groups sort them: a question that insinuates, an order to go and search, a formula that postpones proof, a formula that excuses failure, a formula of belonging."
+  - "Analyse (15 min): for \"Future proves past\" and \"Disinformation is necessary\", ask what event could prove the announcement wrong. Conclude: if success confirms and failure is \"deliberate\", nothing can refute the narrative any more."
+  - "Measure (15 min): compare these observations with the site's figures on questions, cross-references and readability. Simple writing, in short sentences and questions, leaves readers to draw the conclusion themselves."
+  - "Rewrite (15 min): take two vague formulas and try to write a checkable version (who, what, when). Note what disappears: the mystery, the room left to the reader, the impossibility of being proved wrong."
+  questions_fr:
+  - "Pourquoi une question rhétorique est-elle plus difficile à contredire qu'une affirmation ?"
+  - "Que fait « Future proves past » à la vérification d'une annonce ?"
+  - "Les échéances annoncées par Q sont souvent très proches. Comment cette urgence s'accorde-t-elle avec des formules qui repoussent la preuve à plus tard ?"
+  - "Pourquoi un texte qui « laisse chercher » peut-il donner au lecteur le sentiment de découvrir la vérité par lui-même ?"
+  questions_en:
+  - "Why is a rhetorical question harder to contradict than a statement?"
+  - "What does \"Future proves past\" do to the checking of an announcement?"
+  - "Q's announced deadlines are often very close. How does that urgency fit with formulas that push proof back to later?"
+  - "Why can a text that \"lets you search\" give readers the feeling of discovering the truth by themselves?"
+  answers_fr: "Éléments de correction. {fig:questions} Une question n'affirme rien : elle suggère un lien que le lecteur établit lui-même, et dont il ne peut tenir l'auteur pour responsable. Le glossaire définit « Future proves past » comme une formule qui « permet de différer indéfiniment la vérification », et « Disinformation is necessary » comme une justification des prédictions erronées, qui illustre le caractère « auto-immunisé » de la théorie. {fig:autocitation} L'autocitation sert à faire « confirmer » une annonce passée par l'actualité. {fig:horizon} L'urgence entretient l'attente ; la formule qui diffère la preuve absorbe l'échec quand l'échéance passe. {fig:lisibilite} Les chercheurs décrivent cette écriture comme une délégation de l'interprétation aux lecteurs, qui y trouvent un rôle actif [@mcintosh2022sinister; @linvill2021mapping], et leurs « recherches » comme une imitation des formes du savoir [@marwick2024constructing]."
+  answers_en: "Answer key. {fig:questions} A question asserts nothing: it suggests a link that readers make themselves, and for which they cannot hold the author responsible. The glossary defines \"Future proves past\" as a catchphrase that \"allows verification of claims to be deferred indefinitely\", and \"Disinformation is necessary\" as a justification for failed predictions, illustrating the theory's \"self-sealing\" quality. {fig:autocitation} Self-quotation serves to have the news \"confirm\" a past announcement. {fig:horizon} Urgency keeps expectation alive; the formula that postpones proof absorbs the failure when the deadline passes. {fig:lisibilite} Researchers describe this writing as handing interpretation over to readers, who find an active role in it [@mcintosh2022sinister; @linvill2021mapping], and describe their \"research\" as an imitation of the forms of scholarship [@marwick2024constructing]."
+  caution_fr: "Choisissez les formules : plusieurs entrées du glossaire (par exemple « Adrenochrome » ou « Frazzledrip ») décrivent des accusations de crimes contre des enfants, à ne pas distribuer sans nécessité. Ne transformez pas la séance en jeu de décodage : ce serait reproduire le mécanisme étudié. Si des élèves connaissent ces formules par les réseaux sociaux, accueillez-le sans jugement et ramenez la discussion sur le procédé d'écriture."
+  caution_en: "Choose the formulas: several glossary entries (for example \"Adrenochrome\" or \"Frazzledrip\") describe accusations of crimes against children and should not be handed out without need. Do not turn the session into a decoding game: that would reproduce the very mechanism being studied. If students know these formulas from social media, take it without judgement and bring the discussion back to the writing device."
+
+- id: qui-parle-de-qui
+  level_fr: "Lycée (SES, HGGSP, EMI), licence 1"
+  level_en: "Upper secondary (social sciences, politics, media literacy), first-year university"
+  duration_fr: "1 h 30"
+  duration_en: "1.5 hours"
+  title_fr: "Qui parle de qui ? La sur-représentation par rapport à l'actualité"
+  title_en: "Who talks about whom? Over-representation relative to the news"
+  goals_fr:
+  - "Comprendre qu'un nombre brut de mentions ne dit rien sans point de comparaison."
+  - "Calculer et interpréter un rapport de sur-représentation."
+  - "Identifier les limites d'une mesure automatique de l'actualité (GDELT) et d'un dictionnaire d'acteurs."
+  goals_en:
+  - "Understand that a raw count of mentions says nothing without a point of comparison."
+  - "Compute and interpret an over-representation ratio."
+  - "Identify the limits of an automatic measure of the news (GDELT) and of an actor dictionary."
+  materials_fr: "Les pages [[actors]] et [[news]] ; les fichiers news_actors.csv et news_countries.csv dans [[data]] ; la section « Actualité (GDELT) » de [[method]]. Un tableur."
+  materials_en: "The [[actors]] and [[news]] pages; the news_actors.csv and news_countries.csv files in [[data]]; the \"News (GDELT)\" section of [[method]]. A spreadsheet."
+  steps_fr:
+  - "Hypothèses (10 min) : « De qui Q parle-t-il le plus ? » Les élèves proposent une liste ; dévoiler ensuite les acteurs les plus cités."
+  - "Le piège du nombre brut (10 min) : un président en exercice est nommé partout. Être très cité ne dit pas si Q en parle plus que la presse. Il faut une référence : ici, le volume d'événements que GDELT, base mondiale tirée de la presse, attribue au même acteur."
+  - "Calcul (25 min) : avec news_actors.csv, calculer pour quelques acteurs la part dans les mentions de Q et la part dans GDELT, puis leur rapport (définition de la page Actualité : 1 = autant de place chez Q que dans l'actualité). Comparer avec la colonne de sur-représentation du fichier."
+  - "Lecture (20 min) : repérer les acteurs sur-représentés et sous-représentés (par exemple le Congrès américain), puis faire la même chose pour les pays. Que révèle l'écart entre la place d'un acteur dans l'actualité et sa place dans le récit de Q ?"
+  - "Limites (15 min) : lister ce que la mesure ne dit pas : GDELT mesure l'attention médiatique, pas l'importance des faits ; un dictionnaire de motifs peut se tromper ; une corrélation ne dit pas qui influence qui."
+  steps_en:
+  - "Hypotheses (10 min): \"Who does Q talk about most?\" Students suggest a list; then reveal the most cited actors."
+  - "The raw-count trap (10 min): a sitting president is named everywhere. Being cited a lot does not tell whether Q talks about someone more than the press does. A baseline is needed: here, the volume of events that GDELT, a worldwide database drawn from the press, assigns to the same actor."
+  - "Compute (25 min): using news_actors.csv, compute for a few actors their share of Q's mentions and their share of GDELT, then the ratio (definition on the News page: 1 = as much room in Q as in the news). Compare with the file's over-representation column."
+  - "Read (20 min): find over- and under-represented actors (for example the U.S. Congress), then do the same for countries. What does the gap between an actor's place in the news and its place in Q's narrative reveal?"
+  - "Limits (15 min): list what the measure does not say: GDELT measures media attention, not the importance of events; a pattern dictionary can be wrong; a correlation does not say who influences whom."
+  questions_fr:
+  - "Que signifie concrètement « ×15,8 » ? Et un rapport inférieur à 1 ?"
+  - "Pourquoi la sur-représentation se calcule-t-elle « sur le même ensemble d'acteurs » ?"
+  - "La corrélation de rang entre pays est assez élevée. Qu'est-ce que cela dit de la géographie de Q, malgré ses quelques exceptions très marquées ?"
+  - "Être nommé souvent par Q dit-il quelque chose des personnes nommées ?"
+  questions_en:
+  - "What does \"×15.8\" concretely mean? And a ratio below 1?"
+  - "Why is over-representation computed \"over the same set of actors\"?"
+  - "The rank correlation between countries is fairly high. What does that say about Q's geography, despite a few very marked exceptions?"
+  - "Does being named often by Q say anything about the people named?"
+  answers_fr: "Éléments de correction. {fig:acteurs} {fig:surrepresentation} « ×15,8 » signifie que la part de cet acteur dans les mentions de Q est 15,8 fois sa part dans le volume d'actualité ; sous 1, Q en parle moins que la presse (le Congrès américain est à 0,20). Comparer des parts sur le même ensemble d'acteurs neutralise la différence de taille entre un corpus de quelques milliers de messages et une base de millions d'événements. {fig:pays} Les pays cités suivent donc en gros l'actualité mondiale ; les écarts les plus nets (Haïti, Corée du Nord, Arabie saoudite) signalent des sujets propres au récit de Q. Les personnes les plus sur-représentées sont des cibles désignées du récit : les études relient le soutien à QAnon à l'antisémitisme [@levin2022validating], et la page Acteurs le rappelle : « Être nommé par Q ne dit rien des personnes : Q accuse sans preuve. » GDELT mesure l'attention médiatique [@gdeltproject] ; les tests de Granger de la page Actualité, présentés sans correction pour comparaisons multiples, se lisent avec prudence : une corrélation ne dit pas qui influence qui."
+  answers_en: "Answer key. {fig:acteurs} {fig:surrepresentation} \"×15.8\" means that this actor's share of Q's mentions is 15.8 times its share of the news volume; below 1, Q talks about it less than the press does (the U.S. Congress stands at 0.20). Comparing shares over the same set of actors cancels out the difference in size between a corpus of a few thousand posts and a database of millions of events. {fig:pays} The countries cited therefore broadly follow world news; the sharpest gaps (Haiti, North Korea, Saudi Arabia) point to subjects specific to Q's narrative. The most over-represented people are designated targets of the narrative: studies link support for QAnon to antisemitism [@levin2022validating], and the Actors page says it plainly: \"Being named by Q says nothing about people: Q accuses without evidence.\" GDELT measures media attention [@gdeltproject]; the Granger tests on the News page, reported without correction for multiple comparisons, should be read with care: a correlation does not say who influences whom."
+  caution_fr: "Les acteurs sur-représentés sont précisément ceux que le récit accuse : nommez-les comme cibles, jamais en reprenant les accusations, et rappelez que celles-ci sont infondées. La figure de George Soros est un ressort récurrent de récits antisémites : si la question surgit, traitez-la comme telle plutôt que de la laisser en suspens. Restez sur les acteurs publics du dictionnaire ; ne cherchez pas de personnes privées dans les drops."
+  caution_en: "The over-represented actors are precisely those the narrative accuses: name them as targets, never by repeating the accusations, and remind students that these are unfounded. George Soros is a recurring figure in antisemitic narratives: if the question comes up, address it as such rather than leaving it hanging. Stick to the public actors in the dictionary; do not look for private individuals in the drops."
+
+- id: lire-un-sondage
+  level_fr: "Lycée (SES, EMI, HGGSP), licence 1"
+  level_en: "Upper secondary (social sciences, media literacy, politics), first-year university"
+  duration_fr: "1 h"
+  duration_en: "1 hour"
+  title_fr: "Lire un sondage sur les croyances complotistes"
+  title_en: "Reading a poll on conspiracy beliefs"
+  goals_fr:
+  - "Comprendre qu'un chiffre d'enquête dépend de la question posée."
+  - "Distinguer soutien à un mouvement, accord avec des énoncés, notoriété et curiosité."
+  - "Rédiger un titre de presse fidèle à ce que mesure un sondage."
+  goals_en:
+  - "Understand that a survey figure depends on the question asked."
+  - "Tell apart support for a movement, agreement with statements, name recognition and curiosity."
+  - "Write a press headline faithful to what a poll measures."
+  materials_fr: "La section « Combien d'adeptes ? » de [[research]], avec ses références ; la question « Combien de personnes croient à QAnon ? » de la [[faq]] ; la page [[interest]] (vues Wikipédia). Facultatif : les rapports d'enquête originaux, liés depuis la [[bibliography]]."
+  materials_en: "The \"How many followers?\" section of [[research]], with its references; the \"How many people believe in QAnon?\" question in the [[faq]]; the [[interest]] page (Wikipedia views). Optional: the original survey reports, linked from the [[bibliography]]."
+  steps_fr:
+  - "Estimation (5 min) : « Selon vous, quelle part des Américains croit à QAnon ? » Noter les réponses au tableau."
+  - "Trois mesures (20 min) : répartir trois groupes de documents. Groupe 1 : le soutien déclaré au mouvement, de l'ordre de 5 à 8 % entre 2018 et 2021 [@enders2022who; @uscinski2023qanon]. Groupe 2 : l'accord avec des énoncés de la théorie, de 14 % en mars 2021 à 23 % en août 2023 [@prri2021understanding; @prri2023threats]. Groupe 3 : fin 2020, 17 % jugeaient vraie l'affirmation centrale sur une élite pédocriminelle [@ipsos2020more], tandis que 7 % seulement voyaient le mouvement d'un bon œil [@schaffner2020qanon]. Chaque groupe formule ce que mesure exactement son chiffre."
+  - "Mise en commun (15 min) : pourquoi ces chiffres diffèrent-ils sans se contredire ? Pistes : la formulation, le fait de répondre à un énoncé sans connaître le mouvement, l'agrégation de plusieurs énoncés, l'option « au moins en partie »."
+  - "Mesure et médias (10 min) : la couverture médiatique de 2020 a souvent surestimé la taille du mouvement [@uscinski2022getting]. Et les vues Wikipédia de la page Intérêt public : que mesurent-elles ?"
+  - "Rédaction (10 min) : écrire un titre exact pour l'un des chiffres, puis un titre trompeur, et expliquer la différence."
+  steps_en:
+  - "Estimate (5 min): \"In your view, what share of Americans believe in QAnon?\" Write the answers on the board."
+  - "Three measures (20 min): give three groups different documents. Group 1: declared support for the movement, around 5 to 8% between 2018 and 2021 [@enders2022who; @uscinski2023qanon]. Group 2: agreement with the theory's statements, from 14% in March 2021 to 23% in August 2023 [@prri2021understanding; @prri2023threats]. Group 3: in late 2020, 17% judged the core claim about a paedophile elite to be true [@ipsos2020more], while only 7% viewed the movement favourably [@schaffner2020qanon]. Each group states exactly what its figure measures."
+  - "Pool (15 min): why do these figures differ without contradicting each other? Leads: wording, answering a statement without knowing the movement, combining several statements, the \"at least partly\" option."
+  - "Measurement and media (10 min): 2020 media coverage often overstated the movement's size [@uscinski2022getting]. And the Wikipedia views on the Public interest page: what do they measure?"
+  - "Write (10 min): write an accurate headline for one of the figures, then a misleading one, and explain the difference."
+  questions_fr:
+  - "Comment le même pays peut-il compter à la fois 5 à 8 % et 23 % de « croyants » ?"
+  - "Pourquoi un énoncé formulé sans le mot « QAnon » peut-il recueillir plus d'accord que le mouvement lui-même ?"
+  - "Une forte hausse des vues de l'article « QAnon » sur Wikipédia signifie-t-elle une hausse des adeptes ?"
+  - "Quelles informations doit donner un article de presse pour qu'on puisse juger un chiffre de sondage ?"
+  questions_en:
+  - "How can the same country have both 5 to 8% and 23% \"believers\"?"
+  - "Why can a statement worded without the word \"QAnon\" gather more agreement than the movement itself?"
+  - "Does a sharp rise in views of the \"QAnon\" Wikipedia article mean a rise in followers?"
+  - "What information should a news article give so that readers can judge a poll figure?"
+  answers_fr: "Éléments de correction. Les chiffres ne mesurent pas la même chose. Le soutien déclaré au « mouvement » reste faible et stable ; l'accord avec des énoncés de la théorie donne davantage, parce qu'on peut approuver une affirmation (« une élite pédocriminelle… ») sans connaître QAnon ni s'en réclamer, et parce que l'agrégation de plusieurs énoncés et l'option « au moins en partie » élargissent la catégorie (en Allemagne, 12 % adhèrent « au moins en partie » à ses récits [@holnburger2022qvadis]). Les deux mesures sont utiles, à condition de dire laquelle on cite. Les vues Wikipédia mesurent la curiosité, pas l'adhésion : {fig:curiosite} Un article doit indiquer l'institut, la date, la population, l'effectif et surtout la formulation exacte de la question. L'adhésion est liée à l'extrémité plutôt qu'au sens des opinions politiques et aux visions conspirationnistes du monde [@enders2022who]."
+  answers_en: "Answer key. The figures do not measure the same thing. Declared support for the \"movement\" stays low and stable; agreement with the theory's statements gives more, because one can endorse a claim (\"a paedophile elite…\") without knowing QAnon or identifying with it, and because combining several statements and the \"at least partly\" option widen the category (in Germany, 12% subscribe \"at least partly\" to its narratives [@holnburger2022qvadis]). Both measures are useful, as long as one says which is being quoted. Wikipedia views measure curiosity, not support: {fig:curiosite} An article should give the polling organisation, the date, the population, the sample size and above all the exact wording of the question. Support relates to the extremity rather than the direction of political views, and to conspiratorial worldviews [@enders2022who]."
+  caution_fr: "Ne faites pas répondre la classe à des énoncés complotistes, même anonymement : cela diffuserait les accusations et recueillerait des opinions sensibles sur des mineurs. Si vous voulez illustrer l'effet de formulation, faites-le sur un sujet neutre (deux formulations d'une même question sur la cantine ou les transports). Les chiffres présentés concernent surtout les États-Unis ; la réception en France reste peu étudiée [@aubry2024qanon]. Évitez d'en déduire le profil d'élèves ou de familles."
+  caution_en: "Do not have the class answer conspiracy statements, even anonymously: that would spread the accusations and collect sensitive opinions from minors. To illustrate wording effects, use a neutral subject (two wordings of the same question about the canteen or transport). The figures presented mostly concern the United States; reception in France remains little studied [@aubry2024qanon]. Avoid inferring anything about the profile of students or families."
+
+- id: corpus-sans-auteur
+  level_fr: "Terminale (HGGSP, spécialité humanités), licence 1"
+  level_en: "Final year of upper secondary, first-year university"
+  duration_fr: "1 h 30"
+  duration_en: "1.5 hours"
+  title_fr: "Un corpus sans auteur certain : la stylométrie, des hypothèses et non des preuves"
+  title_en: "A corpus with no certain author: stylometry gives hypotheses, not proof"
+  goals_fr:
+  - "Découvrir le principe de la stylométrie : les mots-outils comme empreinte de style."
+  - "Distinguer une rupture de style d'un changement d'auteur."
+  - "Comprendre pourquoi une attribution d'auteur reste une hypothèse, et ce qu'implique le fait de nommer quelqu'un."
+  goals_en:
+  - "Discover the principle of stylometry: function words as a stylistic fingerprint."
+  - "Tell a stylistic break from a change of author."
+  - "Understand why an authorship attribution remains a hypothesis, and what naming someone implies."
+  materials_fr: "La section « Stylométrie exploratoire » de [[discourse]] ; la partie « Qui écrivait ? Corpus canonique et attribution d'auteur » de [[research]] ; la question « Qui est Q ? » de la [[faq]] ; le tableau des forums dans [[stats]]. Pour l'atelier, deux courts extraits (environ 300 mots chacun) de deux auteurs du domaine public, choisis par l'enseignant, et un troisième extrait anonymisé de l'un des deux."
+  materials_en: "The \"Exploratory stylometry\" section of [[discourse]]; the \"Who wrote it?\" part of [[research]]; the \"Who is Q?\" question in the [[faq]]; the forum table in [[stats]]. For the workshop, two short excerpts (about 300 words each) by two public-domain authors chosen by the teacher, and a third, anonymised excerpt by one of them."
+  steps_fr:
+  - "Atelier « à la main » (25 min) : dans chacun des trois extraits, compter quelques mots-outils (le, de, et, que, mais, ne…) et calculer leur fréquence. Le troisième extrait ressemble-t-il davantage au premier ou au deuxième ? Pourquoi ces petits mots, peu contrôlés par l'auteur, trahissent-ils un style ?"
+  - "La méthode du site (15 min) : drops regroupés en blocs d'environ 1 500 mots, fréquences des 150 mots les plus fréquents, distance Delta de Burrows [@burrows2002delta], recherche de la date qui sépare le mieux les blocs."
+  - "Lire le résultat (20 min) : la meilleure date de coupure, puis les cinq meilleures dates avec leurs scores. Les écarts sont minimes : la date exacte est fragile. Croiser avec le tableau des forums : la coupure coïncide avec l'arrivée sur un nouveau forum."
+  - "Ce que disent les chercheurs (20 min) : plusieurs études concluent à au moins deux plumes successives [@papasavva2022gospel; @cafiero2023who; @orphanalytics2022computational] ; leurs auteurs présentent leurs attributions comme des hypothèses [@storchan2022comment], les intéressés démentent [@kirkpatrick2022who] et des linguistes en discutent les limites [@authier2022qui]."
+  - "Débat (10 min) : que faudrait-il pour passer d'une hypothèse à une preuve ? Qu'est-ce que cela implique de publier le nom d'un auteur supposé ?"
+  steps_en:
+  - "Hands-on workshop (25 min): in each of the three excerpts, count a few function words (the, of, and, that, but, not…) and compute their frequency. Does the third excerpt look more like the first or the second? Why do these small words, which authors hardly control, give a style away?"
+  - "The site's method (15 min): drops grouped into chunks of about 1,500 words, frequencies of the 150 most frequent words, Burrows's Delta distance [@burrows2002delta], search for the date that best separates the chunks."
+  - "Read the result (20 min): the best split date, then the five best dates and their scores. The differences are tiny: the exact date is fragile. Cross-check with the forum table: the split coincides with the move to a new forum."
+  - "What researchers say (20 min): several studies conclude there were at least two successive writers [@papasavva2022gospel; @cafiero2023who; @orphanalytics2022computational]; their authors present the attributions as hypotheses [@storchan2022comment], those concerned deny them [@kirkpatrick2022who] and linguists discuss the limits [@authier2022qui]."
+  - "Debate (10 min): what would it take to go from a hypothesis to proof? What does it mean to publish the name of a presumed author?"
+  questions_fr:
+  - "Pourquoi la stylométrie s'intéresse-t-elle aux mots-outils plutôt qu'aux mots de sens (noms, verbes) ?"
+  - "Le site observe une rupture de style au moment d'un changement de forum. Citez au moins trois explications possibles autres qu'un changement d'auteur."
+  - "Pourquoi l'analyse du site ne peut-elle désigner aucun auteur, alors que d'autres études avancent des noms ?"
+  - "Le corpus lui-même n'est pas « officiel ». En quoi est-ce un problème pour attribuer un texte ?"
+  questions_en:
+  - "Why does stylometry look at function words rather than content words (nouns, verbs)?"
+  - "The site sees a stylistic break when Q changed forum. Give at least three possible explanations other than a change of author."
+  - "Why can the site's analysis name no author, whereas other studies put forward names?"
+  - "The corpus itself is not \"official\". Why is that a problem for attributing a text?"
+  answers_fr: "Éléments de correction. Les mots-outils sont fréquents, peu liés au sujet et employés sans y penser : leur fréquence varie peu chez un même auteur et distingue mieux deux plumes que le vocabulaire, qui change avec le thème. {fig:stylometrie} Autres explications : la plateforme (format, longueur, liens et images varient d'un forum à l'autre, voir [[stats]]), le sujet, le type de messages (listes de liens, réponses courtes), la longueur très faible des textes. Le site le dit : « changement de plume et changement de plateforme sont ici indiscernables ». Il ne compare le corpus à aucun texte d'auteur candidat : il peut repérer une rupture, pas désigner une personne. Les études qui avancent des noms comparent les drops aux textes de suspects ; même ainsi, leurs auteurs parlent d'hypothèses plausibles. Enfin, les sites agrégateurs divergent sur les drops retenus [@papasavva2022gospel] : attribuer un corpus dont les limites sont incertaines ajoute une incertitude de plus."
+  answers_en: "Answer key. Function words are frequent, little tied to the topic and used without thinking: their frequency varies little within one author and separates two writers better than vocabulary, which changes with the subject. {fig:stylometrie} Other explanations: the platform (format, length, links and images vary from one forum to another, see [[stats]]), the topic, the type of posts (lists of links, short replies), the very short length of the texts. The site says so: \"a change of author and a change of platform cannot be told apart here\". It compares the corpus with no texts by candidate authors: it can detect a break, not name a person. The studies that put forward names compare the drops with texts by suspects; even then, their authors speak of plausible hypotheses. Finally, aggregator sites disagree on which drops to include [@papasavva2022gospel]: attributing a corpus whose boundaries are uncertain adds yet another uncertainty."
+  caution_fr: "Ne nommez pas en classe les personnes soupçonnées, et ne laissez pas l'activité devenir une enquête sur l'identité de Q : ces attributions sont des hypothèses de recherche contestées par les intéressés, et désigner quelqu'un comme auteur d'un discours qui a inspiré des violences n'est pas anodin. Pour l'atelier, n'utilisez jamais de textes d'élèves ou de personnes de l'entourage : seulement des auteurs publiés du domaine public."
+  caution_en: "Do not name the suspected individuals in class, and do not let the activity turn into an investigation of Q's identity: these attributions are research hypotheses disputed by those concerned, and pointing to someone as the author of a discourse that inspired violence is not a trivial act. For the workshop, never use texts by students or people they know: only published, public-domain authors."

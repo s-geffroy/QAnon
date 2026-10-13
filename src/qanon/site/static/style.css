@@ -144,3 +144,10 @@ table.narrow { width: auto; }
 .fig-link { color: inherit; text-decoration-style: dotted; }
 .toc-col ol { flex-direction: column; gap: .25rem; }
 .faq h2 { scroll-margin-top: 1rem; }
+.drops { list-style: none; padding: 0; }
+.drop { border-top: 1px solid var(--rule); padding: .8rem 0; scroll-margin-top: 1rem; }
+.drop-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: .85rem; margin: .4rem 0; }
+.w-new { --c: var(--series-4); } .w-in { --c: var(--series-3); } .w-rejected { --c: var(--ink-3); }
+.sheet h3 { margin-top: 1rem; }
+.caution { background: var(--surface-2); padding: .6rem .8rem; border-radius: 6px; font-size: .92rem; }
+ul.plain { padding-left: 1.1rem; }

@@ -134,3 +134,21 @@ CREATE TABLE IF NOT EXISTS llm_class (
     in_tok INTEGER, out_tok INTEGER, source TEXT, created_at INTEGER
 );
 """
+
+SCHEMA += """
+-- Actualite quotidienne (portail Current events de Wikipedia) : items en texte brut, un par ligne.
+CREATE TABLE IF NOT EXISTS wikinews (day TEXT PRIMARY KEY, text TEXT);
+
+-- Test de l'horoscope : une reponse par (drop, comparaison).
+CREATE TABLE IF NOT EXISTS llm_horoscope (
+    drop_id INTEGER, kind TEXT, model TEXT, prompt_sha TEXT, truth TEXT, response TEXT, error TEXT,
+    in_tok INTEGER, out_tok INTEGER, created_at INTEGER,
+    PRIMARY KEY (drop_id, kind)
+);
+
+-- Veille bibliographique : publications reperees automatiquement (Crossref, OpenAlex).
+CREATE TABLE IF NOT EXISTS biblio_watch (
+    key TEXT PRIMARY KEY, source TEXT, doi TEXT, title TEXT, authors TEXT, year INTEGER, date TEXT,
+    container TEXT, url TEXT, type TEXT, abstract TEXT, first_seen TEXT, last_seen TEXT
+);
+"""

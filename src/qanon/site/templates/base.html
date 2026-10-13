@@ -7,7 +7,19 @@
 <meta name="description" content="{{ t.site_sub }}">
 <meta name="author" content="Sylvain Geffroy">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
-<link rel="alternate" hreflang="{{ t.other }}" href="../{{ t.other }}/{{ page }}.html">
+<link rel="canonical" href="{{ site_url }}{{ lang }}/{{ page }}.html">
+<link rel="alternate" hreflang="{{ lang }}" href="{{ site_url }}{{ lang }}/{{ page }}.html">
+<link rel="alternate" hreflang="{{ t.other }}" href="{{ site_url }}{{ t.other }}/{{ page }}.html">
+<link rel="alternate" type="application/rss+xml" title="{{ t.site_title }}" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ t.site_title }}">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ t.site_sub }}">
+<meta property="og:url" content="{{ site_url }}{{ lang }}/{{ page }}.html">
+<meta property="og:image" content="{{ site_url }}static/og.png">
+<meta property="og:locale" content="{{ 'fr_FR' if lang == 'fr' else 'en_US' }}">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{ jsonld | tojson_compact }}</script>
 <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>

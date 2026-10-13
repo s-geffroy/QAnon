@@ -1,0 +1,13 @@
+{
+  "title": "Les drops de Q à l'épreuve des faits : étude statistique des messages de « Q » (2017-2022) / Q drops against the facts",
+  "upload_type": "software",
+  "description": "<p>Pipeline and bilingual (FR/EN) website for a statistical study of the 4,966 \"Q\" drops (QAnon, 2017-2022): activity, discourse, actors, Trump tweets, world news (GDELT), public interest, automatically extracted and individually verified predictions, horoscope test, bibliography of verified references.</p><p>Website: https://s-geffroy.github.io/QAnon/</p>",
+  "creators": [{"name": "Geffroy, Sylvain"}],
+  "keywords": ["QAnon", "conspiracy theories", "computational social science", "text analysis", "GDELT", "prediction verification"],
+  "license": "MIT",
+  "language": "fra",
+  "related_identifiers": [
+    {"identifier": "https://s-geffroy.github.io/QAnon/", "relation": "isDocumentedBy", "resource_type": "publication-other"}
+  ],
+  "notes": "Code: MIT licence. Texts, editorial and derived data, and the generated website: CC BY 4.0 (see LICENSE-CC-BY-4.0)."
+}

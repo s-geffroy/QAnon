@@ -22,7 +22,7 @@ SITE_URL = "https://s-geffroy.github.io/QAnon/"
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
     ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
-    ("resources", ["research", "figures", "faq", "glossary", "bibliography", "data", "method", "cite"]),
+    ("resources", ["research", "figures", "faq", "corpus", "watch", "teaching", "glossary", "bibliography", "data", "method", "cite"]),
 ]
 PAGES = [p for _, group in NAV for p in group]
 
@@ -46,6 +46,27 @@ def _iso_num():
     return {c.alpha_3: int(c.numeric) for c in pycountry.countries}
 
 
+def dt_rfc(day):
+    import email.utils
+    import datetime as _dt
+    return email.utils.format_datetime(_dt.datetime.fromisoformat(day[:10]).replace(hour=12, tzinfo=_dt.timezone.utc))
+
+
+def og_image(path):
+    """Vignette de partage 1200x630 (OpenGraph), sans police externe."""
+    from PIL import Image, ImageDraw, ImageFont
+    img = Image.new("RGB", (1200, 630), "#fbfaf7")
+    d = ImageDraw.Draw(img)
+    big, mid = ImageFont.load_default(size=64), ImageFont.load_default(size=34)
+    d.rectangle([0, 0, 1200, 14], fill="#2a78d6")
+    d.text((80, 170), "Les drops de Q", fill="#0b0b0b", font=big)
+    d.text((80, 250), "à l'épreuve des faits", fill="#0b0b0b", font=big)
+    d.text((80, 370), "Étude statistique des messages de « Q » (2017-2022)", fill="#52514e", font=mid)
+    d.text((80, 420), "Q drops against the facts — FR / EN", fill="#52514e", font=mid)
+    d.text((80, 540), "s-geffroy.github.io/QAnon", fill="#2a78d6", font=mid)
+    img.save(path, optimize=True)
+
+
 def script_json(v):
     """JSON a inserer dans un <script> : le navigateur n'y decode pas les entites
     HTML, donc pas d'echappement HTML (Markup), et chaque "<" ecrit \\u003c pour
@@ -65,7 +86,8 @@ class Site:
         self.state = state
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
-                                                "llm_eval", "predictions", "verification", "stats")}
+                                                "llm_eval", "predictions", "verification", "stats",
+                                                "horoscope", "prophecies")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
         self._figures = {}
@@ -75,7 +97,12 @@ class Site:
         t = T[lang]
         desc = self.r["descriptive"]
         n = lambda x, d=0: fmt.num(lang, x, d)
+        jsonld = {"@context": "https://schema.org", "@type": "WebSite", "name": t["site_title"],
+                  "description": t["site_sub"], "url": f"{SITE_URL}{lang}/index.html", "inLanguage": lang,
+                  "author": {"@type": "Person", "name": "Sylvain Geffroy"},
+                  "license": "https://creativecommons.org/licenses/by/4.0/"}
         return {"lang": lang, "t": t, "repo": REPO, "refs": REFS, "updated": UPDATED, "version": VERSION,
+                "site_url": SITE_URL, "jsonld": jsonld,
                 "nav": NAV, "n": n, "p": lambda x, d=1: fmt.pct(lang, x, d), "date": lambda v: fmt.date(lang, v),
                 "desc": desc}
 
@@ -387,6 +414,51 @@ class Site:
                            "explanation": x.get(f"explanation_{lang}") or "", "sources": x["sources"]}
                           for x in ve["items"]],
             }
+        ho = self.r.get("horoscope")
+        if ho and ho.get("kinds"):
+            rows = []
+            for kind in ("past", "future"):
+                k = ho["kinds"].get(kind)
+                if not k:
+                    continue
+                ci = k["ci_true_decided"]
+                rows.append({"label": t[f"horo_{kind}"], "n": n(k["n"]), "true": n(k["chose_true"]),
+                             "random": n(k["chose_random"]), "none": n(k["none"]),
+                             "share": p(k["share_true_decided"], 0) if k["share_true_decided"] is not None else "—",
+                             "ci": f"{p(ci[0], 0)}–{p(ci[1], 0)}" if ci[0] is not None else "—",
+                             "p": "—" if k["p_value"] is None else (f"< {n(0.001, 3)}" if k["p_value"] < 0.001 else n(k["p_value"], 3)),
+                             "sig": (k["p_value"] or 1) < 0.05,
+                             "mt": n(k["mean_true"], 1), "mr": n(k["mean_random"], 1), "barnum": p(k["share_random_ge5"], 0)})
+            f, pa = ho["kinds"].get("future", {}), ho["kinds"].get("past", {})
+            out["horo"] = {
+                "rows": rows,
+                "result": t["horo_result"].format(
+                    past=p(pa.get("share_true_decided") or 0, 0), future=p(f.get("share_true_decided") or 0, 0),
+                    none=p(f["none"] / f["n"], 0) if f.get("n") else "—", barnum=p(f.get("share_random_ge5") or 0, 0)),
+                "examples": f.get("examples", [])[:5],
+                "method": t["horo_method"].format(n=n(ho["n_sample"]), items=n(ho["n_items"]), model=ho["model"]),
+            }
+            out.setdefault("charts", {})["horo"] = charts.horoscope(ho, lang)
+        pp = self.r.get("prophecies")
+        if pp:
+            rc, fp = pp["recycled"], pp["fpp"]
+            names = {a["id"]: a["name"] for a in load_yaml("actors", "actors")}
+            vlab = lambda vs: ", ".join(f"{t['vd_' + k]} {v}" for k, v in sorted(vs.items(), key=lambda kv: -kv[1]))
+            out["recy"] = {
+                "lead": t["recy_lead"].format(g=n(rc["n_groups"]), k=n(rc["n_in_groups"]), share=p(rc["share_in_groups"], 0),
+                                              m=n(rc["min_months"]), after=n(rc["n_after_failure"]),
+                                              ga=n(rc["n_groups_after_failure"])),
+                "groups": [{"subject": f"{t.get('et_' + g['event_type'], g['event_type'])} — {names.get(g['actor'], g['actor'])}",
+                            "n": n(g["n"]), "months": n(g["months"]), "first": c["date"](g["first"]),
+                            "last": c["date"](g["last"]), "after": n(g["after_failure"]),
+                            "verdicts": vlab(g["verdicts"]) or "—", "claim": g["claim"]} for g in rc["groups"]],
+            }
+            out.setdefault("charts", {})["recy"] = charts.recycled(rc, names, lang)
+            if fp.get("n"):
+                out["fpp"] = {"lead": t["fpp_lead"].format(
+                    n=n(fp["n"]), same=p(fp["share_same_day"], 0), late=n(fp["n_late"]),
+                    pred=p(fp["share_cited_pred_late"] or 0, 0), txt=n(fp["n_fpp_text"]), fref=n(fp["fpp_refs"]))}
+                out["charts"]["fpp"] = charts.fpp(fp, lang)
         return out
 
     def page_timeline(self, lang, c):
@@ -539,6 +611,89 @@ class Site:
         items = load_yaml("faq", "questions")
         return {"items": [{"id": q["id"], "q": q[f"q_{lang}"], "paras": self._prose(q[f"a_{lang}"], lang)} for q in items]}
 
+    # -- veille bibliographique : etat de chaque publication reperee dans notre bibliographie
+    def watch_items(self):
+        if hasattr(self, "_watch"):
+            return self._watch
+        from ..sources.biblio_watch import norm_title
+        import yaml
+        import sqlite3
+        try:
+            rows = [dict(r) for r in self.conn.execute("SELECT * FROM biblio_watch")]
+        except sqlite3.OperationalError:  # base anterieure a la veille
+            rows = []
+        by_doi = {r["doi"].lower(): r for r in self.refs if r.get("doi")}
+        by_title = {norm_title(r["title"]): r for r in self.refs}
+        path = APP_DIR / "data" / "biblio_watch_review.yaml"
+        review = {x["key"].lower(): x for x in (yaml.safe_load(path.read_text()) or {}).get("reviewed") or []} \
+            if path.exists() else {}
+        out = []
+        for r in rows:
+            ref = by_doi.get((r["doi"] or "").lower()) or by_title.get(norm_title(r["title"]))
+            rv = review.get(r["key"].lower()) or (review.get(r["doi"].lower()) if r["doi"] else None)
+            status = "in" if ref else ("rejected" if rv and rv.get("decision") == "rejected" else "new")
+            out.append({**r, "status": status, "ref_id": ref["id"] if ref else None, "review": rv})
+        out.sort(key=lambda x: (x["date"] or str(x["year"] or "")), reverse=True)
+        self._watch = out
+        return out
+
+    def page_watch(self, lang, c):
+        t = T[lang]
+        items = self.watch_items()
+        cnt = {k: sum(x["status"] == k for x in items) for k in ("in", "rejected", "new")}
+        from ..sources.biblio_watch import SINCE
+        last = max((x["last_seen"] for x in items), default=None)
+        return {"items": [{**x, "date_label": c["date"](x["date"]) if x["date"] and len(x["date"]) == 10 else (x["date"] or x["year"] or "—"),
+                           "status_label": t[f"watch_{x['status']}"],
+                           "reason": (x["review"] or {}).get(f"reason_{lang}")} for x in items],
+                "lead": t["watch_lead"].format(n=c["n"](len(items)), since=c["date"](SINCE),
+                                               last=c["date"](last) if last else "—",
+                                               inn=c["n"](cnt["in"]), new=c["n"](cnt["new"]), rej=c["n"](cnt["rejected"]))}
+
+    def page_corpus(self, lang, c):
+        return {"n": c["n"](self.r["descriptive"]["n"])}
+
+    def page_teaching(self, lang, c):
+        import yaml
+        path = APP_DIR / "data" / "teaching.yaml"
+        if not path.exists():
+            return {"is_pending": True}
+        data = yaml.safe_load(path.read_text())
+        pr = lambda txt: self._prose(txt, lang)
+        one = lambda txt: pr(txt)[0] if txt and pr(txt) else ""
+        sheets = []
+        for sh in data["sheets"]:
+            sheets.append({"id": sh["id"], "title": sh[f"title_{lang}"], "level": sh[f"level_{lang}"],
+                           "duration": sh[f"duration_{lang}"], "goals": [one(x) for x in sh[f"goals_{lang}"]],
+                           "materials": pr(sh[f"materials_{lang}"]), "steps": [one(x) for x in sh[f"steps_{lang}"]],
+                           "questions": [one(x) for x in sh[f"questions_{lang}"]], "answers": pr(sh[f"answers_{lang}"]),
+                           "caution": pr(sh[f"caution_{lang}"])})
+        return {"intro": pr(data[f"intro_{lang}"]), "sheets": sheets}
+
+    def export_corpus(self, d):
+        """data/corpus.json, lu par l'explorateur (une ligne par drop, champs courts)."""
+        from ..analysis.actors import mentions
+        from ..analysis.common import load_drops
+        drops = load_drops(self.conn)
+        actors = load_yaml("actors", "actors")
+        M = mentions(drops, actors)
+        names = [a["name"] for a in actors]
+        allp = (_load(self.state, "predictions_all") or {}).get("predictions", [])
+        npred = {}
+        for x in allp:
+            npred[x["drop_id"]] = npred.get(x["drop_id"], 0) + 1
+        verdicts = {}
+        for x in (self.r["verification"] or {}).get("items", []):
+            verdicts.setdefault(x["drop_id"], []).append(x["verdict"])
+        rows = []
+        for i, r in drops.iterrows():
+            hit = [k for k, v in enumerate(M.loc[i].to_numpy()) if v]
+            rows.append([int(r["id"]), r["et"].strftime("%Y-%m-%d %H:%M"), f"{r['site']} {r['board']}", r["text"] or "",
+                         hit, npred.get(int(r["id"]), 0), verdicts.get(int(r["id"]), []), int(r["n_images"] or 0)])
+        (d / "corpus.json").write_text(json.dumps({"fields": ["id", "date_et", "board", "text", "actors", "n_predictions",
+                                                             "verdicts", "n_images"],
+                                                  "actors": names, "drops": rows}, ensure_ascii=False, separators=(",", ":")))
+
     def page_research(self, lang, c):
         data = load_yaml("research", "sections")
         import yaml
@@ -569,7 +724,18 @@ class Site:
                 "lead": t["bib_lead"].format(n=c["n"](len(self.refs)))}
 
     def page_data(self, lang, c):
-        return {"files": self.files}
+        t = T[lang]
+        ds = {"@context": "https://schema.org", "@type": "Dataset", "name": t["dataset_name"],
+              "description": t["dataset_desc"], "url": f"{SITE_URL}{lang}/data.html", "inLanguage": ["fr", "en"],
+              "creator": {"@type": "Person", "name": "Sylvain Geffroy"},
+              "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": True,
+              "keywords": ["QAnon", "Q drops", "conspiracy theories", "GDELT", "computational social science"],
+              "temporalCoverage": "2017-10-28/2022-11-27", "version": VERSION,
+              "distribution": [{"@type": "DataDownload", "contentUrl": f"{SITE_URL}data/{f['name']}",
+                                "encodingFormat": "text/csv" if f["name"].endswith(".csv") else
+                                ("application/json" if f["name"].endswith(".json") else "text/plain")}
+                               for f in self.files if "*" not in f["name"]]}
+        return {"files": self.files, "jsonld": ds}
 
     def page_method(self, lang, c):
         return {"src_drops": c["t"]["src_drops"].format(n=c["n"](self.r["descriptive"]["n"]))}
@@ -703,6 +869,9 @@ class Site:
             shutil.copy(guide, d / "gold_guidelines.md")
             add("gold_guidelines.md", "Consignes d'annotation du jeu de référence (français).",
                 "Annotation guidelines of the reference set (French).")
+        self.export_corpus(d)
+        add("corpus.json", "Corpus complet pour l'explorateur : texte de chaque drop, date (New York), forum, acteurs, prédictions et verdicts.",
+            "Full corpus for the explorer: text of each drop, date (New York), board, actors, predictions and verdicts.")
         rows = []
         for lang in T:
             rows += [{"lang": lang, "id": f["id"], "page": f["page"], "text": f["text"], "url": f["url"]}
@@ -734,6 +903,44 @@ class Site:
                 html = env.get_template(f"{page}.html").render(**ctx)
                 (out / lang / f"{page}.html").write_text(html)
         (out / "index.html").write_text(env.get_template("root.html").render())
+        self.write_seo(out)
+
+    # -- referencement : plan du site, robots, flux RSS, vignette de partage
+    def write_seo(self, out):
+        from xml.sax.saxutils import escape as x
+        today = time.strftime("%Y-%m-%d")
+        urls = [f"{SITE_URL}{lang}/{p}.html" for lang in T for p in PAGES]
+        (out / "sitemap.xml").write_text(
+            '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "".join(
+                f"<url><loc>{x(u)}</loc><lastmod>{today}</lastmod>"
+                + "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{x(u.replace(f"/{u.split("/")[-2]}/", f"/{l}/"))}"/>'
+                          for l in T) + "</url>\n" for u in urls) + "</urlset>\n")
+        (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
+        import yaml
+        log_ = yaml.safe_load((APP_DIR / "data" / "changelog.yaml").read_text())["entries"]
+        watch = [w for w in self.watch_items() if w["status"] in ("in", "new")][:40]
+        for lang in T:
+            t = T[lang]
+            items = []
+            for e in log_:
+                d = dt_rfc(str(e["date"]))
+                items.append((str(e["date"]), f"<item><title>{x(t['feed_update'])} — {x(fmt.date(lang, str(e['date'])))}</title>"
+                              f"<link>{SITE_URL}{lang}/index.html</link><guid isPermaLink=\"false\">update-{e['date']}-{db.sha(e['fr'])[:8]}</guid>"
+                              f"<pubDate>{d}</pubDate><description>{x(e[lang])}</description></item>"))
+            for w in watch:
+                seen = w["first_seen"] or today
+                items.append((seen, f"<item><title>{x(t['feed_watch'])} : {x(w['title'])}</title><link>{x(w['url'])}</link>"
+                              f"<guid isPermaLink=\"false\">watch-{x(w['key'])}</guid><pubDate>{dt_rfc(seen)}</pubDate>"
+                              f"<description>{x(t['watch_' + w['status']])}{(' — ' + x(w['authors'])) if w['authors'] else ''}</description></item>"))
+            items.sort(key=lambda z: z[0], reverse=True)
+            (out / lang / "feed.xml").write_text(
+                '<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
+                f"<title>{x(t['site_title'])}</title><link>{SITE_URL}{lang}/index.html</link>"
+                f'<atom:link href="{SITE_URL}{lang}/feed.xml" rel="self" type="application/rss+xml"/>'
+                f"<description>{x(t['site_sub'])}</description><language>{lang}</language>"
+                + "".join(i for _, i in items[:60]) + "</channel></rss>\n")
+        og_image(out / "static" / "og.png")
 
 
 def run(ctx):

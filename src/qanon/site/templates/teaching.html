@@ -1,0 +1,22 @@
+{% extends "base.html" %}{% from "macros.html" import pending %}
+{% block title %}{{ t.teaching_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.teaching_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+{% for p in intro %}<p{% if loop.first %} class="lead"{% endif %}>{{ p }}</p>{% endfor %}
+<nav class="toc toc-col" aria-label="{{ t.toc }}"><ol>{% for s in sheets %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ol></nav>
+{% for s in sheets %}
+<section id="{{ s.id }}" class="sheet">
+  <h2>{{ loop.index }}. {{ s.title }}</h2>
+  <p class="note">{{ t.teach_level }}{{ t.colon }}{{ s.level }} · {{ t.teach_duration }}{{ t.colon }}{{ s.duration }}</p>
+  <h3>{{ t.teach_goals }}</h3><ul>{% for g in s.goals %}<li>{{ g }}</li>{% endfor %}</ul>
+  <h3>{{ t.teach_materials }}</h3>{% for p in s.materials %}<p>{{ p }}</p>{% endfor %}
+  <h3>{{ t.teach_steps }}</h3><ol>{% for g in s.steps %}<li>{{ g }}</li>{% endfor %}</ol>
+  <h3>{{ t.teach_questions }}</h3><ol>{% for g in s.questions %}<li>{{ g }}</li>{% endfor %}</ol>
+  <details><summary>{{ t.teach_answers }}</summary>{% for p in s.answers %}<p>{{ p }}</p>{% endfor %}</details>
+  <p class="caution"><strong>{{ t.teach_caution }}</strong>{{ t.colon }}{% for p in s.caution %}{{ p }} {% endfor %}</p>
+</section>
+{% endfor %}
+<p class="note">{{ t.teach_license }}</p>
+{% endif %}
+{% endblock %}

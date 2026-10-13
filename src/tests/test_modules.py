@@ -89,3 +89,16 @@ def test_dates_in_new_york_time():
     # Dernier drop : 28/11/2022 01:06 UTC = 27/11/2022 a New York.
     assert fmt.date("en", "2022-11-28T01:06:20+00:00") == "Nov 27, 2022"
     assert fmt.date("fr", "2017-10-28") == "28 oct. 2017"
+
+
+def test_wikinews_items():
+    from qanon.sources.wikinews import items
+    wt = (";Law and crime\n*[[Poisoning of Sergei and Yulia Skripal]]\n"
+          "**Former [[Secret Intelligence Service]] (MI6) spy [[Sergei Skripal]] and his daughter are taken to hospital. "
+          "[https://www.bbc.com/news/x (BBC)]\n")
+    assert items(wt) == ["Former Secret Intelligence Service (MI6) spy Sergei Skripal and his daughter are taken to hospital."]
+
+
+def test_watch_status_matches_bibliography():
+    from qanon.sources.biblio_watch import norm_title
+    assert norm_title("QAnon: A Study!") == norm_title("qanon a study")

@@ -553,3 +553,51 @@ def horizon(pred, lang):
                         "axis": {"labelAngle": 0}},
                   "y": {"field": "n", "type": "quantitative", "title": t["pred_n"]},
                   "tooltip": [{"field": "label", "title": t["horizon_axis"]}, {"field": "n", "title": t["pred_n"]}]})
+
+
+# --- Predictions a l'epreuve : horoscope, recyclage, « Future proves past »
+def horoscope(ho, lang):
+    t = T[lang]
+    k = ho["kinds"].get("future") or next(iter(ho["kinds"].values()))
+    s1, s2 = t["horo_series_true"], t["horo_series_random"]
+    data = [x for h in k["hist"] for x in ({"score": h["score"], "series": s1, "n": h["true"]},
+                                           {"score": h["score"], "series": s2, "n": h["random"]})]
+    return _spec(
+        height=200, data={"values": data},
+        mark={"type": "bar", "cornerRadiusEnd": 3, "stroke": "@surface", "strokeWidth": 2},
+        encoding={"x": {"field": "score", "type": "ordinal", "title": t["horo_score_axis"], "axis": {"labelAngle": 0}},
+                  "xOffset": {"field": "series", "sort": [s1, s2]},
+                  "y": {"field": "n", "type": "quantitative", "title": t["horo_n"]},
+                  "color": {"field": "series", "type": "nominal", "title": None, "legend": {"orient": "top"},
+                            "scale": {"domain": [s1, s2], "range": ["@series1", "@series2"]}},
+                  "tooltip": [{"field": "series", "title": " "}, {"field": "score", "title": t["horo_score_axis"]},
+                              {"field": "n", "title": t["horo_n"]}]})
+
+
+def recycled(rc, names, lang):
+    t = T[lang]
+    data = [{"subject": f"{t.get('et_' + g['event_type'], g['event_type'])} — {names.get(g['actor'], g['actor'])}",
+             "date": dte, "drop": did} for g in rc["groups"][:15] for dte, did in zip(g["dates"], g["drop_ids"])]
+    order = [f"{t.get('et_' + g['event_type'], g['event_type'])} — {names.get(g['actor'], g['actor'])}" for g in rc["groups"][:15]]
+    return _spec(
+        height=22 * len(order) + 30, data={"values": data},
+        mark={"type": "point", "filled": True, "size": 70, "color": "@series1", "opacity": 0.8,
+              "stroke": "@surface", "strokeWidth": 1.5},
+        encoding={"x": {"field": "date", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+                  "y": {"field": "subject", "type": "nominal", "sort": order, "title": None},
+                  "tooltip": [{"field": "subject", "title": " "},
+                              {"field": "date", "type": "temporal", "format": "%d/%m/%Y", "title": "date"},
+                              {"field": "drop", "title": t["drop_no"]}]})
+
+
+def fpp(fp, lang):
+    t = T[lang]
+    labels = t["fpp_bins"]
+    data = [{"label": labels[i], "o": i, "n": b["n"]} for i, b in enumerate(fp["lag_bins"])]
+    return _spec(
+        height=180, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 3},
+        encoding={"x": {"field": "label", "type": "ordinal", "sort": {"field": "o"}, "title": t["fpp_axis"],
+                        "axis": {"labelAngle": 0}},
+                  "y": {"field": "n", "type": "quantitative", "scale": {"type": "symlog"}, "title": t["fpp_n"]},
+                  "tooltip": [{"field": "label", "title": t["fpp_axis"]}, {"field": "n", "title": t["fpp_n"]}]})

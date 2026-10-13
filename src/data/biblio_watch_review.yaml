@@ -1,0 +1,9 @@
+# Veille bibliographique : decisions editoriales sur les publications reperees
+# automatiquement. Une publication absente d'ici et de bibliography.yaml est
+# affichee « reperee, non verifiee ». Cle = DOI en minuscules (ou titre normalise).
+# Exemple :
+# - key: 10.1234/abcd
+#   decision: rejected
+#   reason_fr: "QAnon n'y est mentionne qu'en passant."
+#   reason_en: "QAnon is only mentioned in passing."
+reviewed: []

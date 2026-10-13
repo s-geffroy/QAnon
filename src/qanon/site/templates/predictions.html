@@ -22,8 +22,9 @@
 {% block content %}
 <h1>{{ t.pred_title }}</h1>
 <p class="lead">{{ t.pred_lead }}</p>
+<nav class="toc" aria-label="{{ t.toc }}"><ol>{% if ve %}<li><a href="#verification">{{ t.ve_title }}</a></li>{% endif %}{% if horo %}<li><a href="#horoscope">{{ t.horo_title }}</a></li>{% endif %}{% if recy %}<li><a href="#recyclage">{{ t.recy_title }}</a></li>{% endif %}{% if fpp %}<li><a href="#future-proves-past">{{ t.fpp_title }}</a></li>{% endif %}</ol></nav>
 {% if ve %}
-<section>
+<section id="verification">
   <h2>{{ t.ve_title }}</h2>
   <p class="lead">{{ ve.lead }}</p>
   <p class="note">{{ t.ve_method }}</p>
@@ -47,12 +48,47 @@
   <ol class="bib verif">
   {% for x in ve.list %}
     <li class="ref ve-item" data-verdict="{{ x.verdict }}" data-search="{{ (x.claim ~ ' ' ~ x.explanation)|lower }}">
-      <p class="tags"><span class="tag vd vd-{{ x.verdict }}">{{ x.verdict_label }}</span>{% if x.trivial %} <span class="tag">{{ t.ve_trivial }}</span>{% endif %} <span class="tag">{{ x.type }}</span> <span class="topic">{{ x.date }} · {{ t.drop_no }}{{ x.drop }}</span></p>
+      <p class="tags"><span class="tag vd vd-{{ x.verdict }}">{{ x.verdict_label }}</span>{% if x.trivial %} <span class="tag">{{ t.ve_trivial }}</span>{% endif %} <span class="tag">{{ x.type }}</span> <span class="topic">{{ x.date }} · <a href="corpus.html#d{{ x.drop }}">{{ t.drop_no }}{{ x.drop }}</a></span></p>
       <p class="cit">{{ x.claim }}</p>
       <p class="summary">{{ x.explanation }}{% for u in x.sources %} <a href="{{ u }}">[{{ loop.index }}]</a>{% endfor %}</p>
     </li>
   {% endfor %}
   </ol>
+</section>
+{% endif %}
+{% if horo %}
+<section id="horoscope">
+  <h2>{{ t.horo_title }}</h2>
+  <p>{{ t.horo_lead }}</p>
+  <p><strong>{{ horo.result }}</strong></p>
+  <div class="table-wrap"><table>
+    <thead><tr><th></th><th class="r">{{ t.horo_n }}</th><th class="r">{{ t.horo_true }}</th><th class="r">{{ t.horo_random }}</th><th class="r">{{ t.horo_none }}</th><th class="r">{{ t.horo_share }}</th><th class="r">{{ t.ve_ci }}</th><th class="r">p</th><th class="r">{{ t.horo_mean_true }}</th><th class="r">{{ t.horo_mean_random }}</th><th class="r">{{ t.horo_barnum }}</th></tr></thead>
+    <tbody>{% for r in horo.rows %}<tr{% if r.sig %} class="sig"{% endif %}><th>{{ r.label }}</th><td class="r">{{ r.n }}</td><td class="r">{{ r.true }}</td><td class="r">{{ r.random }}</td><td class="r">{{ r.none }}</td><td class="r">{{ r.share }}</td><td class="r">{{ r.ci }}</td><td class="r">{{ r.p }}</td><td class="r">{{ r.mt }}</td><td class="r">{{ r.mr }}</td><td class="r">{{ r.barnum }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  {{ chart("horo", charts.horo, t.horo_chart, t.horo_chart_note) }}
+  {% if horo.examples %}<h3>{{ t.horo_examples }}</h3>
+  <ul class="plain">{% for e in horo.examples %}<li><a href="corpus.html#d{{ e.drop_id }}">{{ t.drop_no }}{{ e.drop_id }}</a> — {{ t.horo_score }} {{ e.score }}/10 : « {{ e.reason }} »</li>{% endfor %}</ul>{% endif %}
+  <p class="note">{{ horo.method }}</p>
+</section>
+{% endif %}
+{% if recy %}
+<section id="recyclage">
+  <h2>{{ t.recy_title }}</h2>
+  <p>{{ recy.lead }}</p>
+  {{ chart("recy", charts.recy, t.recy_chart, t.recy_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.recy_subject }}</th><th class="r">{{ t.recy_n }}</th><th class="r">{{ t.recy_months }}</th><th>{{ t.col_first }}</th><th>{{ t.col_last }}</th><th class="r">{{ t.recy_after }}</th><th>{{ t.recy_verdicts }}</th><th>{{ t.recy_example }}</th></tr></thead>
+    <tbody>{% for g in recy.groups %}<tr><th>{{ g.subject }}</th><td class="r">{{ g.n }}</td><td class="r">{{ g.months }}</td><td>{{ g.first }}</td><td>{{ g.last }}</td><td class="r">{{ g.after }}</td><td>{{ g.verdicts }}</td><td>{{ g.claim }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.recy_method }}</p>
+</section>
+{% endif %}
+{% if fpp %}
+<section id="future-proves-past">
+  <h2>{{ t.fpp_title }}</h2>
+  <p>{{ fpp.lead }}</p>
+  {{ chart("fpp", charts.fpp, t.fpp_chart) }}
+  <p class="note">{{ t.fpp_caveat }}</p>
 </section>
 {% endif %}
 {% if pr %}

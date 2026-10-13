@@ -2,12 +2,13 @@
 
 Les etapes longues et incrementales (GDELT) viennent en dernier : chaque cycle a
 un budget de temps, et les etapes rapides doivent passer avant."""
-from .analysis import actors, descriptive, discourse, interest, news, predictions, stats, trump, verification
+from .analysis import actors, descriptive, discourse, interest, news, predictions, prophecies, stats, trump, verification
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
+from .llm import horoscope
 from .pipeline import Stage
 from .site import build
-from .sources import gdelt, pageviews, qdrops, timeline, tweets
+from .sources import biblio_watch, gdelt, pageviews, qdrops, timeline, tweets, wikinews
 
 WEEK = 7 * 86400
 
@@ -16,6 +17,8 @@ STAGES = [
     Stage("fetch_tweets", tweets.run, refresh=WEEK),
     Stage("load_timeline", timeline.run, code=True),
     Stage("fetch_pageviews", pageviews.run),
+    # Chaque semaine : publications nouvelles sur QAnon (Crossref, OpenAlex), publiees avec leur etat.
+    Stage("watch_biblio", biblio_watch.run, refresh=WEEK, code=True),
     Stage("analyze_descriptive", descriptive.run, inputs=("fetch_qdrops", "load_timeline"), code=True),
     Stage("analyze_trump", trump.run, inputs=("fetch_qdrops", "fetch_tweets"), code=True),
     Stage("analyze_discourse", discourse.run, inputs=("fetch_qdrops",), code=True),
@@ -27,7 +30,8 @@ STAGES = [
     Stage("build_site", build.run, code=True,
           inputs=("fetch_qdrops", "analyze_descriptive", "analyze_trump", "analyze_discourse", "analyze_actors",
                   "analyze_interest", "analyze_stats"),
-          optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification")),
+          optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification", "analyze_prophecies",
+                    "llm_horoscope", "watch_biblio")),
     # Plusieurs heures au premier passage : reprend au dernier jour traite.
     Stage("fetch_gdelt", gdelt.run, keep_cursor=True),
     Stage("analyze_news", news.run, inputs=("fetch_qdrops", "fetch_gdelt"), code=True),
@@ -37,4 +41,11 @@ STAGES = [
     Stage("analyze_predictions", predictions.run, inputs=("llm_classify",), code=True),
     # Verdicts editoriaux versionnes dans data/verification/ (inclus dans l'empreinte du code).
     Stage("analyze_verification", verification.run, inputs=("analyze_predictions",), code=True),
+]
+STAGES += [
+    Stage("analyze_prophecies", prophecies.run, inputs=("analyze_predictions", "analyze_verification"), code=True),
+    # Actualite quotidienne (portail Current events), ~1 200 pages, reprenable jour par jour.
+    Stage("fetch_wikinews", wikinews.run, keep_cursor=True),
+    # Payant (~0,60 $) : seules les questions sans reponse sont posees.
+    Stage("llm_horoscope", horoscope.run, inputs=("fetch_qdrops", "fetch_wikinews"), code=True),
 ]
