@@ -114,8 +114,18 @@ def run(ctx):
         h = sha(text)
         row = conn.execute("SELECT * FROM editorial_review WHERE doc = ? ORDER BY submitted_at DESC LIMIT 1", (doc,)).fetchone()
         # 1. Travail en cours : on le suit, on ne le resoumet jamais.
-        if row and row["status"] in ("queued", "started"):
+        # « expired » de moins de 24 h : peut-etre un faux 404 (liste d'IP), on reprend le suivi.
+        if row and (row["status"] in ("queued", "started")
+                    or (row["status"] == "expired" and time.time() - row["submitted_at"] < 86400)):
             r = s.get(f"{API}/reviews/{row['job_id']}", timeout=60)
+            if r.status_code == 404 and s.get(f"{API}/health", timeout=30).status_code != 200:
+                # La liste d'IP de Traefik repond 404 a tout : ce n'est pas le travail qui manque.
+                raise RuntimeError("API Editorial Reviewer inaccessible (404 sur /health : adresse refusee par la "
+                                   "liste d'IP) ; travaux en cours conserves")
+            if r.status_code == 404 and time.time() - row["submitted_at"] < 86400:
+                pending += 1
+                log(f"relecture {doc} : travail {row['job_id']} introuvable pour l'instant, nouveau suivi au cycle suivant")
+                continue
             if r.status_code == 404:
                 conn.execute("UPDATE editorial_review SET status = 'expired' WHERE job_id = ?", (row["job_id"],))
                 log(f"relecture {doc} : travail {row['job_id']} introuvable (expire ?)")
