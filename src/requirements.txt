@@ -11,3 +11,6 @@ openai==1.82.0
 pytest==8.3.5
 pycountry==24.6.1
 pillow==11.1.0
+markdown==3.7
+weasyprint==63.1
+matplotlib==3.10.0

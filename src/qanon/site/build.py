@@ -25,7 +25,7 @@ ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
     ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
-    ("resources", ["research", "figures", "faq", "corpus", "watch", "teaching", "glossary", "bibliography", "data", "method", "cite"]),
+    ("resources", ["research", "paper", "figures", "faq", "corpus", "watch", "teaching", "glossary", "bibliography", "data", "method", "cite"]),
 ]
 PAGES = [p for _, group in NAV for p in group]
 
@@ -47,6 +47,82 @@ def _duration(lang, minutes):
 def _iso_num():
     import pycountry
     return {c.alpha_3: int(c.numeric) for c in pycountry.countries}
+
+
+def paper_block(site, kind, name):
+    """Tableaux et figures du document de travail, calcules a partir des resultats."""
+    from markupsafe import escape
+    r, n, p = site.r, (lambda x, d=0: fmt.num("fr", x, d)), (lambda x, d=0: fmt.pct("fr", x, d))
+    T_ = T["fr"]
+    if kind == "table" and name == "trump":
+        rows = [x for x in r["trump"]["tests"] if x["null"] == "local"]
+        body = "".join(f"<tr><td>{n(x['window_s'] / 60)} min</td><td>{'tweet après le drop' if x['direction'] == 'tweet_after_drop' else 'tweet avant le drop'}</td>"
+                       f"<td class='r'>{p(x['observed'], 1)}</td><td class='r'>{p(x['expected'], 1)}</td><td class='r'>{n(x['p_value'], 3)}</td></tr>"
+                       for x in rows)
+        return ("<table class='paper-table'><caption>Tableau 1. Tweets de Trump à proximité des drops, modèle nul local "
+                f"({n(r['trump']['n_perm'])} permutations).</caption><thead><tr><th>Fenêtre</th><th>Sens</th><th class='r'>Observé</th>"
+                f"<th class='r'>Attendu</th><th class='r'>p</th></tr></thead><tbody>{body}</tbody></table>")
+    if kind == "table" and name == "verif_types":
+        bt = r["verification"]["by_type"]
+        rows = sorted(bt.items(), key=lambda kv: -kv[1]["checkable"])
+        body = "".join(f"<tr><td>{escape(T_.get('et_' + k, k))}</td><td class='r'>{n(v['checkable'])}</td><td class='r'>{n(v['fulfilled'])}</td>"
+                       f"<td class='r'>{n(v['partial'])}</td><td class='r'>{n(v['not_fulfilled'])}</td>"
+                       f"<td class='r'>{p(v['rate'], 0) if v['rate'] is not None else '—'}</td></tr>" for k, v in rows if v["checkable"])
+        o = r["verification"]["overall"]
+        body += (f"<tr class='tot'><td>Ensemble</td><td class='r'>{n(o['checkable'])}</td><td class='r'>{n(o['fulfilled'])}</td>"
+                 f"<td class='r'>{n(o['partial'])}</td><td class='r'>{n(o['not_fulfilled'])}</td><td class='r'>{p(o['rate'], 0)}</td></tr>")
+        return ("<table class='paper-table'><caption>Tableau 2. Prédictions vérifiables par type d'événement annoncé.</caption>"
+                "<thead><tr><th>Type</th><th class='r'>Vérifiables</th><th class='r'>Réalisées</th><th class='r'>Partielles</th>"
+                f"<th class='r'>Non réalisées</th><th class='r'>Taux</th></tr></thead><tbody>{body}</tbody></table>")
+    if kind == "figure":
+        return paper_figure(site, name)
+    raise KeyError(f"bloc inconnu dans le document : {kind}:{name}")
+
+
+def paper_figure(site, name):
+    import io
+    import matplotlib
+    matplotlib.use("svg")
+    import matplotlib.pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "axes.spines.top": False, "axes.spines.right": False,
+                         "svg.fonttype": "none"})
+    r = site.r
+    fig, ax = plt.subplots(figsize=(6.3, 2.3))
+    if name == "weekly":
+        w = pd.DataFrame(r["descriptive"]["weekly"])
+        w["week"] = pd.to_datetime(w["week"])
+        ax.fill_between(w["week"], w["n"], step="post", color="#9cc3ef", lw=0)
+        for sg in r["stats"]["changepoints"]["segments"]:
+            ax.hlines(sg["mean_per_week"], pd.Timestamp(sg["start"]), pd.Timestamp(sg["end"]), color="#c0392b", lw=1.6)
+        ax.set_ylabel("drops par semaine")
+        cap = "Figure 1. Drops par semaine (heure de New York) et moyenne de chacun des régimes d'activité détectés."
+    elif name == "horoscope":
+        k = r["horoscope"]["kinds"]["future"]["hist"]
+        import numpy as np
+        x = np.arange(len(k))
+        ax.bar(x - .2, [h["true"] for h in k], .4, color="#2a78d6", label="30 jours après le drop")
+        ax.bar(x + .2, [h["random"] for h in k], .4, color="#eb6834", label="30 jours au hasard")
+        ax.set_xticks(x)
+        ax.set_xlabel("note de lien attribuée par le modèle (0 = aucun lien précis)")
+        ax.set_ylabel("comparaisons")
+        ax.legend(frameon=False)
+        cap = "Figure 2. Test de l'horoscope : notes de lien pour la vraie période « avenir » et pour une période tirée au hasard."
+    elif name == "overrep":
+        a = sorted([x for x in r["news"]["actors"] if x.get("overrep")], key=lambda x: x["overrep"])
+        ax.barh([x["name"] for x in a], [x["overrep"] for x in a], color="#2a78d6")
+        ax.axvline(1, color="#555", lw=.8, ls="--")
+        ax.set_xscale("log")
+        ax.set_xlabel("sur-représentation dans les drops par rapport à GDELT (échelle log, 1 = même place)")
+        fig.set_size_inches(6.3, 3.2)
+        cap = "Figure 3. Place des principaux acteurs dans les drops rapportée à leur place dans l'actualité mondiale."
+    else:
+        raise KeyError(f"figure inconnue : {name}")
+    fig.tight_layout()
+    buf = io.StringIO()
+    fig.savefig(buf, format="svg")
+    plt.close(fig)
+    svg = re.sub(r"^.*?(<svg)", r"\1", buf.getvalue(), flags=re.S)
+    return f"<figure class='paper-fig'>{svg}<figcaption>{cap}</figcaption></figure>"
 
 
 def dt_rfc(day):
@@ -650,6 +726,20 @@ class Site:
             if ranked:
                 v["top_overrep"] = "×" + n(ranked[0]["overrep"], 1)
                 v["top_overrep_raw"] = n(ranked[0]["overrep"], 1)
+        ho = r.get("horoscope") or {}
+        rb = ho.get("robustness") or {}
+        if rb.get("future", {}).get("n"):
+            f_ = rb["future"]
+            v["horo_robust_sentence"] = (
+                f"Un second modèle ({rb['model']}), interrogé sur {n(rb['n_drops'])} drops, fait le même choix que le modèle "
+                f"principal dans {fmt.pct(lang, f_['agreement'], 0)} des comparaisons « avenir » (kappa de Cohen "
+                f"{n(f_['kappa'], 2)}) et y reconnaît la vraie période dans {fmt.pct(lang, f_['check']['share_true_decided'] or 0, 0)} "
+                f"des cas tranchés, contre {fmt.pct(lang, f_['main']['share_true_decided'] or 0, 0)} pour le modèle principal sur ce "
+                f"sous-échantillon." if lang == "fr" else
+                f"A second model ({rb['model']}), queried on {n(rb['n_drops'])} drops, makes the same choice as the main model in "
+                f"{fmt.pct(lang, f_['agreement'], 0)} of \"future\" comparisons (Cohen's kappa {n(f_['kappa'], 2)}).")
+        else:
+            v["horo_robust_sentence"] = ""
         if r["verification"] and r["verification"].get("overall"):
             v["n_unverifiable"] = n(r["verification"]["overall"]["unverifiable"])
         return v
@@ -690,6 +780,8 @@ class Site:
             ref = by_doi.get((r["doi"] or "").lower()) or by_title.get(norm_title(r["title"])) \
                 or next((x for x in self.refs if same_title(x["title"], r["title"])), None)
             rv = review.get(r["key"].lower()) or (review.get(r["doi"].lower()) if r["doi"] else None)
+            if not ref and rv and rv.get("decision") == "included":
+                ref = next((x for x in self.refs if x["id"] == rv.get("ref")), None)
             status = "in" if ref else ("rejected" if rv and rv.get("decision") == "rejected" else "new")
             today = time.strftime("%Y-%m-%d")
             # Date future (fin d'annee fictive de certaines notices) : on ne garde que l'annee.
@@ -758,6 +850,52 @@ class Site:
         (d / "corpus.json").write_text(json.dumps({"fields": ["id", "date_et", "board", "text", "actors", "n_predictions",
                                                              "verdicts", "n_images"],
                                                   "actors": names, "drops": rows}, ensure_ascii=False, separators=(",", ":")))
+
+    # -- document de travail : Markdown (data/paper/paper-fr.md) -> page HTML et PDF
+    def paper(self):
+        if hasattr(self, "_paper"):
+            return self._paper
+        import markdown
+        import yaml
+        from markupsafe import Markup
+        path = APP_DIR / "data" / "paper" / "paper-fr.md"
+        if not path.exists():
+            self._paper = None
+            return None
+        raw = path.read_text()
+        _, front, body = raw.split("---", 2)
+        meta = yaml.safe_load(front)
+        cited = []
+        def cite_md(m):
+            ids = [x.strip().lstrip("@") for x in m.group(1).split(";")]
+            for i in ids:
+                if i not in cited:
+                    cited.append(i)
+            return str(self.cite(*ids))
+        body = re.sub(r"\{val:([a-z0-9_]+)\}", lambda m: self.values("fr").get(m.group(1), ""), body)
+        body = re.sub(r"\{(table|figure):([a-z0-9_]+)\}", lambda m: "\n\n" + paper_block(self, m.group(1), m.group(2)) + "\n\n", body)
+        body = re.sub(r"\[(@[^\]]+)\]", cite_md, body)
+        html = markdown.markdown(body, extensions=["extra", "sane_lists"])
+        html = re.sub(r'href="bibliography.html#', 'href="#ref-', html)
+        by_id = {r["id"]: r for r in self.refs}
+        refs = sorted((by_id[i] for i in cited), key=lambda r: ((r.get("authors") or [r["title"]])[0].lower(), r.get("year") or 0))
+        self._paper = {"meta": meta, "html": Markup(html), "refs": [{"id": r["id"], "cit": biblio.citation(r, "fr"), **r} for r in refs]}
+        return self._paper
+
+    def page_paper(self, lang, c):
+        pp = self.paper()
+        if not pp:
+            return {"is_pending": True}
+        return {"pp": pp}
+
+    def write_paper_pdf(self, env, out):
+        pp = self.paper()
+        if not pp:
+            return
+        from weasyprint import HTML
+        html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=VERSION, site_url=SITE_URL,
+                                                          doi=ZENODO_CONCEPT)
+        HTML(string=html, base_url=str(out)).write_pdf(out / "data" / "working-paper-fr.pdf")
 
     def page_research(self, lang, c):
         data = load_yaml("research", "sections")
@@ -1004,6 +1142,7 @@ class Site:
                 html = env.get_template(f"{page}.html").render(**ctx)
                 (out / lang / f"{page}.html").write_text(html)
         (out / "index.html").write_text(env.get_template("root.html").render())
+        self.write_paper_pdf(env, out)
         self.write_seo(out)
 
     # -- referencement : plan du site, robots, flux RSS, vignette de partage

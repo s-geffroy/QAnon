@@ -6,4 +6,734 @@
 #   decision: rejected
 #   reason_fr: "QAnon n'y est mentionne qu'en passant."
 #   reason_en: "QAnon is only mentioned in passing."
-reviewed: []
+reviewed:
+- key: "10.1037/rel0000624.supp"
+  decision: rejected
+  reason_fr: "Matériel supplémentaire d'un article traité séparément (10.1037/rel0000624)."
+  reason_en: "Supplemental material of an article handled separately (10.1037/rel0000624)."
+- key: "10.1108/978-1-83797-787-120261012"
+  decision: rejected
+  reason_fr: "Chapitre d'une monographie des mêmes auteurs traitée séparément (10.1108/978-1-83797-787-1)."
+  reason_en: "Chapter of a monograph by the same authors handled separately (10.1108/978-1-83797-787-1)."
+- key: "10.2139/ssrn.5583521"
+  decision: rejected
+  reason_fr: "Prépublication SSRN d'une étude publiée ensuite dans Technology in Society (10.1016/j.techsoc.2026.103296)."
+  reason_en: "SSRN preprint of a study later published in Technology in Society (10.1016/j.techsoc.2026.103296)."
+- key: "10.34740/kaggle/dsv/13984989"
+  decision: rejected
+  reason_fr: "Doublon de kingsman2021qanon (autre DOI / version)."
+  reason_en: "Duplicate of kingsman2021qanon (other DOI / version)."
+- key: "10.37189/kwi-blog/20260112-0818"
+  decision: rejected
+  reason_fr: "Billet de blog, pas un travail de recherche ; contenu invérifiable (page protégée)."
+  reason_en: "Blog post, not a research work; content unverifiable (protected page)."
+- key: "10.4324/9781032704920-2"
+  decision: rejected
+  reason_fr: "Chapitre d'un ouvrage déjà présent (argentino2025qanon)."
+  reason_en: "Chapter of a book already in the bibliography (argentino2025qanon)."
+- key: "10.4324/9781032704920-7"
+  decision: rejected
+  reason_fr: "Chapitre d'un ouvrage déjà présent (argentino2025qanon)."
+  reason_en: "Chapter of a book already in the bibliography (argentino2025qanon)."
+- key: "10.5040/9798216425601.ch-003"
+  decision: rejected
+  reason_fr: "Chapitre d'une monographie des mêmes autrices traitée séparément (10.5040/9798216425601)."
+  reason_en: "Chapter of a monograph by the same authors handled separately (10.5040/9798216425601)."
+- key: "10.52768/3065-0011/1079"
+  decision: rejected
+  reason_fr: "Revue d'apparence prédatrice ; métadonnées défaillantes (auteur remplacé par une adresse)."
+  reason_en: "Predatory-looking venue; faulty metadata (author replaced by an address)."
+- key: "10.5771/9781666933093-251"
+  decision: rejected
+  reason_fr: "Auteurs du chapitre invérifiables ; l'ouvrage figure déjà dans la bibliographie (conner2024conspiracy)."
+  reason_en: "Chapter authors unverifiable; the book is already in the bibliography (conner2024conspiracy)."
+- key: "10.64628/aai.nh7vsy5n4"
+  decision: rejected
+  reason_fr: "Article de vulgarisation (The Conversation), pas un travail de recherche."
+  reason_en: "Popular article (The Conversation), not a research work."
+- key: "t:didacticroleofchangandqanoninstrumentsinuzbekistanmusicalheritage"
+  decision: rejected
+  reason_fr: "Hors sujet : « qanon » désigne ici un instrument de musique."
+  reason_en: "Off topic: 'qanon' here is a musical instrument."
+- key: "t:qanonimaginedinteractions"
+  decision: rejected
+  reason_fr: "Matériel supplémentaire déposé sur OSF, pas une publication."
+  reason_en: "Supplemental materials deposited on OSF, not a publication."
+- key: "10.1017/s1049096524001173"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi plusieurs mouvements extrémistes ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of plusieurs mouvements extrémistes cases; it is not the central subject."
+- key: "10.1080/0020174x.2024.2375770"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1080/1462317x.2024.2366579"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un exemple dans un essai d'éthique sur les algorithmes."
+  reason_en: "QAnon is only an example in an ethics essay on algorithms."
+- key: "10.1080/17467586.2026.2633142"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi quatre groupes apocalyptiques ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of quatre groupes apocalyptiques cases; it is not the central subject."
+- key: "10.1080/20445911.2025.2563541"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'une des croyances mesurées ; l'objet est le complotisme en général."
+  reason_en: "QAnon is only one of the beliefs measured; the subject is conspiracy belief in general."
+- key: "10.1086/739620"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1093/ahr/rhae056"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1093/oso/9780197794937.001.0001"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1111/polp.70059"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1145/3795766.3799784"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi cinq groupes de canaux Telegram ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of cinq groupes de canaux Telegram cases; it is not the central subject."
+- key: "10.1177/14407833241231756"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un exemple parmi les communautés marginales étudiées."
+  reason_en: "QAnon is only one example among the fringe communities studied."
+- key: "10.1201/9781003520320-4"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1332/policypress/9781529235906.003.0006"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1353/abr.2024.a929656"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1353/sor.2025.a981025"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.14325/mississippi/9781496850928.003.0008"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.14422/pen.v80.i309.y2024.003"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1515/9781531511890"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1515/fabula-2025-0005"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi plusieurs récits eschatologiques ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of plusieurs récits eschatologiques cases; it is not the central subject."
+- key: "10.17605/osf.io/628vp"
+  decision: rejected
+  reason_fr: "Enregistrement d'étude sur OSF ; QAnon n'y est qu'une question secondaire."
+  reason_en: "OSF study registration; QAnon is only a secondary question."
+- key: "10.17721/1728-2292.2025/2-61/156-161"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.2196/50021"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.31235/osf.io/fzc8x_v1"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.3389/fcomm.2026.1818179"
+  decision: rejected
+  reason_fr: "Éditorial."
+  reason_en: "Editorial."
+- key: "10.34079/2518-1521-2025-15-43-127-134"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.3898/newf:112.03.2024"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003299721-51"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003357353-13"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003474784-7"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003592662-1"
+  decision: rejected
+  reason_fr: "Notice biographique / entretien, pas un travail de recherche sur QAnon."
+  reason_en: "Biographical note / interview, not a research work on QAnon."
+- key: "10.4324/9781032672663-8"
+  decision: rejected
+  reason_fr: "Reprise probable de cera2023digital (même autrice, même objet : éthique de l'ethnographie numérique à partir de QAnon)."
+  reason_en: "Probable reworking of cera2023digital (same author, same subject: digital ethnography ethics through QAnon)."
+- key: "10.4324/9781042005017-7"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.48550/arxiv.2408.06900"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.5040/9798216275794"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.51685/jqd.2024.003"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.52058/3041-1793-2024-4(4)-75-80"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.5281/zenodo.18568369"
+  decision: rejected
+  reason_fr: "Dépôt non scientifique ; métadonnées invérifiables."
+  reason_en: "Non-scholarly deposit; unverifiable metadata."
+- key: "10.53483/xcqz3584"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.55535/gmr.2025.3.28"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi cinq mouvements extrémistes ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of cinq mouvements extrémistes cases; it is not the central subject."
+- key: "10.5565/rev/tdevorado.235"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.58668/matr/09.1"
+  decision: rejected
+  reason_fr: "L'objet principal est l'affaire Epstein sur Telegram ; QAnon n'y est qu'un aspect."
+  reason_en: "The main subject is the Epstein affair on Telegram; QAnon is only one aspect."
+- key: "10.6084/m9.figshare.31072939"
+  decision: rejected
+  reason_fr: "Code logiciel ; QAnon n'est qu'un des thèmes du jeu de données."
+  reason_en: "Software code; QAnon is only one of the dataset's topics."
+- key: "10.7551/mitpress/14531.001.0001"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.7767/9783205221722.9"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "t:rhetoricalmimicryandpoliticalescalationelitediscourseandthediffusionofextremistnarratives"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas parmi quatre mouvements ; il n'est pas le sujet central."
+  reason_en: "QAnon is only one of quatre mouvements cases; it is not the central subject."
+- key: "10.1007/978-3-031-76113-3_16"
+  decision: rejected
+  reason_fr: "Doublon de turgeon2026influence (version anglaise du même chapitre, autre DOI)."
+  reason_en: "Duplicate of turgeon2026influence (English version of the same chapter, other DOI)."
+- key: "10.1111/rsr.17298"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1177/13678779251322904"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît que dans une citation du titre ; l'objet est la sous-culture « Gaylor » autour de Taylor Swift."
+  reason_en: "QAnon only appears in a quotation in the title; the subject is the 'Gaylor' subculture around Taylor Swift."
+- key: "10.1353/nvr.2025.a949128"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.34740/kaggle/dsv/13985312"
+  decision: rejected
+  reason_fr: "Doublon de kingsman2021qanon (DOI Kaggle du même jeu de données)."
+  reason_en: "Duplicate of kingsman2021qanon (Kaggle DOI of the same dataset)."
+- key: "10.4135/9781529687323"
+  decision: rejected
+  reason_fr: "Vidéo pédagogique sans auteur identifiable ; métadonnées invérifiables."
+  reason_en: "Educational video with no identifiable author; unverifiable metadata."
+- key: "10.4324/9781032704920-4"
+  decision: rejected
+  reason_fr: "Chapitre de argentino2025qanon, déjà couvert par l'entrée de l'ouvrage."
+  reason_en: "Chapter of argentino2025qanon, already covered by the book entry."
+- key: "10.5040/9798216432029.ch-010"
+  decision: rejected
+  reason_fr: "Chapitre 10 de conner2024conspiracy, déjà couvert par l'entrée de l'ouvrage."
+  reason_en: "Chapter 10 of conner2024conspiracy, already covered by the book entry."
+- key: "10.5281/zenodo.20829139"
+  decision: rejected
+  reason_fr: "Dépôt Zenodo sans évaluation par les pairs, de qualité scientifique invérifiable."
+  reason_en: "Non-peer-reviewed Zenodo deposit of unverifiable scholarly quality."
+- key: "10.6000/2817-2310.2024.03.10"
+  decision: rejected
+  reason_fr: "Revue d'apparence prédatrice (Lifescience Global)."
+  reason_en: "Predatory-looking venue (Lifescience Global)."
+- key: "10.60848/13811"
+  decision: rejected
+  reason_fr: "QAnon ne figure que dans le titre ; l'objet est la mentalité complotiste en général."
+  reason_en: "QAnon only appears in the title; the subject is conspiracy mentality in general."
+- key: "t:qanoncommunicationcomplexityandnewreligiousmovements"
+  decision: rejected
+  reason_fr: "Doublon de fisher2026qanon (notice de catalogue du même ouvrage)."
+  reason_en: "Duplicate of fisher2026qanon (catalogue record of the same book)."
+- key: "10.1007/s10978-024-09393-6"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1017/9781009554732.016"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1057/s41296-025-00758-9"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1080/02604027.2025.2569012"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1080/1472586x.2026.2638805"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1080/21670811.2024.2329648"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un des trois cas étudiés (une chaîne pro-QAnon), au second plan."
+  reason_en: "QAnon is only one of three cases (a pro-QAnon channel), in a secondary role."
+- key: "10.1093/9780197760222.003.0021"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1093/oso/9780197678121.003.0004"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1093/oso/9780197794937.002.0006"
+  decision: rejected
+  reason_fr: "Avant-propos."
+  reason_en: "Foreword."
+- key: "10.1093/poq/nfae049"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1108/978-1-83608-482-220251002"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1111/rsr.16998"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1177/01634437241254729"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1177/14614448251336431"
+  decision: rejected
+  reason_fr: "QAnon n'y est qu'une référence voisine ; l'objet est une théorie du complot danoise visant une émission pour enfants."
+  reason_en: "QAnon is only an adjacent reference; the subject is a Danish conspiracy theory targeting a children's TV show."
+- key: "10.1215/00318108-12240880"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1332/policypress/9781529242881.003.0008"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1353/nvr.0.a929484"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.14295/jmphc.v16.1416"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.14321/jstudradi.18.1.0209"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.14361/9783839479322-029"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1515/9780691189888"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1515/9783111386034"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1525/ch.2025.102.1.79"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.17605/osf.io/kt6rb"
+  decision: rejected
+  reason_fr: "Protocole de préenregistrement (OSF), QAnon n'est cité qu'en passant."
+  reason_en: "OSF preregistration protocol; QAnon is only mentioned in passing."
+- key: "10.17763/t9n3z7w5f"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.24908/iqurcp21689"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.31538/adlh.v9i2.6169"
+  decision: rejected
+  reason_fr: "Hors sujet (« Qanon » désigne ici les qanun, règlements de la province d'Aceh)."
+  reason_en: "Off topic ('Qanon' here refers to qanun, Aceh provincial regulations)."
+- key: "10.3389/fcomm.2024.1384363"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.3389/feduc.2026.1805769"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.36190/2024.08"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003215202"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003329992-7"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003342229"
+  decision: rejected
+  reason_fr: "Ouvrage collectif où QAnon n'est qu'un exemple parmi d'autres."
+  reason_en: "Edited volume in which QAnon is only one example among others."
+- key: "10.4324/9781003472476-5"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003530718-4"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003597247-3"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003665441-3"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781032688503"
+  decision: rejected
+  reason_fr: "Ouvrage collectif où QAnon n'est central que dans un chapitre non identifié."
+  reason_en: "Edited volume in which QAnon is central only to one unidentified chapter."
+- key: "10.4324/9781032704920-1"
+  decision: rejected
+  reason_fr: "Introduction de argentino2025qanon, déjà couvert par l'entrée de l'ouvrage."
+  reason_en: "Introduction of argentino2025qanon, already covered by the book entry."
+- key: "10.46692/9781529242904.008"
+  decision: rejected
+  reason_fr: "Doublon (autre DOI) d'un chapitre où QAnon n'est cité qu'en passant."
+  reason_en: "Duplicate (other DOI) of a chapter in which QAnon is only mentioned in passing."
+- key: "10.5040/9781350399532"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.5040/9798216425601"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.51952/9781529242904.ch007"
+  decision: rejected
+  reason_fr: "Doublon (autre DOI) d'un chapitre où QAnon n'est cité qu'en passant."
+  reason_en: "Duplicate (other DOI) of a chapter in which QAnon is only mentioned in passing."
+- key: "10.5281/zenodo.18805155"
+  decision: rejected
+  reason_fr: "Prépublication Zenodo sans évaluation par les pairs ; QAnon n'est qu'un point de comparaison."
+  reason_en: "Non-peer-reviewed Zenodo preprint; QAnon is only a point of comparison."
+- key: "10.5406/21568030.13.1.14"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.55535/rmt.2025.3.28"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un des nombreux courants passés en revue."
+  reason_en: "QAnon is only one of many currents surveyed."
+- key: "10.59236/emro.v26i3a8194"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.71781/23125"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.7551/mitpress/14609.003.0005"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.7551/mitpress/16008.001.0001"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "t:connectiveactionandtheriseofthefarright"
+  decision: rejected
+  reason_fr: "Ouvrage collectif dont seul un chapitre porte sur QAnon (déjà présent : lukito2025how)."
+  reason_en: "Edited volume of which only one chapter deals with QAnon (already listed: lukito2025how)."
+- key: "t:thebrazilianantiscientificdiscourseontwittersecosystemduringthecovid19pandemicreflectionsinlightofdiscourseanalysis"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1111/rsr.17592"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.13140/rg.2.2.14509.65763"
+  decision: rejected
+  reason_fr: "Dépôt ResearchGate non publié (projet de recherche) ; métadonnées invérifiables."
+  reason_en: "Unpublished ResearchGate upload (research proposal); unverifiable metadata."
+- key: "10.2139/ssrn.5124237"
+  decision: rejected
+  reason_fr: "Prépublication SSRN ; une version publiée de cette recherche existe (Technology in Society, 2026, 10.1016/j.techsoc.2026.103296)."
+  reason_en: "SSRN preprint; a published version of this research exists (Technology in Society, 2026, 10.1016/j.techsoc.2026.103296)."
+- key: "10.4135/9781529687330"
+  decision: rejected
+  reason_fr: "Vidéo pédagogique SAGE sans auteur ni description vérifiables."
+  reason_en: "SAGE educational video with no verifiable author or description."
+- key: "10.4324/9781032704920-6"
+  decision: rejected
+  reason_fr: "Chapitre de argentino2025qanon, déjà dans la bibliographie."
+  reason_en: "Chapter of argentino2025qanon, already in the bibliography."
+- key: "10.5040/9798216420897.ch-4"
+  decision: rejected
+  reason_fr: "Chapitre de lundskow2023qanon, déjà dans la bibliographie."
+  reason_en: "Chapter of lundskow2023qanon, already in the bibliography."
+- key: "10.5040/9798881893408.0008"
+  decision: rejected
+  reason_fr: "Chapitre de conner2026qanon, déjà dans la bibliographie."
+  reason_en: "Chapter of conner2026qanon, already in the bibliography."
+- key: "10.5771/9781666933093-209"
+  decision: rejected
+  reason_fr: "Chapitre de conner2024conspiracy (déjà dans la bibliographie) ; auteurs et résumé invérifiables."
+  reason_en: "Chapter of conner2024conspiracy (already in the bibliography); authors and abstract unverifiable."
+- key: "10.64628/aai.g3hdm96sg"
+  decision: rejected
+  reason_fr: "Article de vulgarisation sur le « savoir stigmatisé » en général ; QAnon n'en est qu'un point de départ."
+  reason_en: "General-audience piece on 'stigmatized knowledge' in general; QAnon is only a starting point."
+- key: "t:christiannationalismfundamentalismtraditionalmasculinitybeliefsandauthoritarianaggressiondotheseauthorityandordervariabl"
+  decision: rejected
+  reason_fr: "Doublon de exline2026christian (projet OSF de données du même article)."
+  reason_en: "Duplicate of exline2026christian (OSF data project for the same article)."
+- key: "t:qanoncrosswordsandknowledgebasedvideogamestheaestheticsofinquiry"
+  decision: rejected
+  reason_fr: "Billet de blog (blog de l'APA), contenu invérifiable."
+  reason_en: "Blog post (APA blog), content unverifiable."
+- key: "t:reviewofthequietdamageqanonandthedestructionoftheamericanfamily"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "t:whattheqdropcorpussusageofrhetoricalquestionstorefertoindependentinformationretrieval"
+  decision: rejected
+  reason_fr: "Poster de conférence uniquement."
+  reason_en: "Conference poster only."
+- key: "10.1007/s42001-025-00439-y"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un des jeux de données d'une étude méthodologique."
+  reason_en: "QAnon is only one of the datasets in a methods study."
+- key: "10.1080/15456870.2024.2380841"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1080/19434472.2024.2409185"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'une influence parmi d'autres ; le sujet est un groupe Telegram irlandais d'extrême droite."
+  reason_en: "QAnon is only one influence among others; the subject is an Irish far-right Telegram group."
+- key: "10.1080/26438941.2025.2536398"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1093/9780198953067.003.0007"
+  decision: rejected
+  reason_fr: "QAnon ne sert que d'illustration à une analyse générale des réseaux sociaux et du complotisme."
+  reason_en: "QAnon serves only as an illustration of a general analysis of social media and conspiracism."
+- key: "10.1093/oso/9780197758526.003.0011"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un élément d'une analyse du 6 janvier 2021."
+  reason_en: "QAnon is only one element of an analysis of 6 January 2021."
+- key: "10.1093/oso/9780197794937.002.0007"
+  decision: rejected
+  reason_fr: "Préface (matériel liminaire)."
+  reason_en: "Preface (front matter)."
+- key: "10.1093/sf/soaf155"
+  decision: rejected
+  reason_fr: "Compte rendu d'ouvrage."
+  reason_en: "Book review."
+- key: "10.1111/gequ.12442"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.1145/3717867.3717895"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un des jeux de données d'une étude de simulation."
+  reason_en: "QAnon is only one of the datasets in a simulation study."
+- key: "10.1177/1329878x241270526"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1186/s40621-025-00633-6"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.1215/10642684-11636323"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1353/abr.2024.a929653"
+  decision: rejected
+  reason_fr: "Introduction de numéro ; QAnon n'est cité qu'en passant."
+  reason_en: "Issue introduction; QAnon is only mentioned in passing."
+- key: "10.14321/jstudradi.18.1.000v"
+  decision: rejected
+  reason_fr: "Introduction des éditeurs (éditorial)."
+  reason_en: "Editors' introduction (editorial)."
+- key: "10.14321/rhetpublaffa.27.2.0160"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.14361/9783839479735-247"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.1515/9780691258546"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un mouvement parmi d'autres étudiés."
+  reason_en: "QAnon is only one of several movements studied."
+- key: "10.1515/9783111422619-011"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.1558/isbn.9781800505087"
+  decision: rejected
+  reason_fr: "Volume d'hommage ; QAnon n'est évoqué que dans un chapitre parmi d'autres."
+  reason_en: "Tribute volume; QAnon is only discussed in one chapter among others."
+- key: "10.17613/c70ww-kgv91"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.17918/00011176"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.30845/ijhss.v14p39"
+  decision: rejected
+  reason_fr: "Essai général ; QAnon n'y est que brièvement présenté."
+  reason_en: "General essay; QAnon is only briefly introduced."
+- key: "10.33182/joph.v4i3.3291"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.3389/fcomm.2024.1477887"
+  decision: rejected
+  reason_fr: "Éditorial."
+  reason_en: "Editorial."
+- key: "10.3390/philosophies9040102"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.36227/techrxiv.174059950.03385147/v1"
+  decision: rejected
+  reason_fr: "Prépublication TechRxiv générale ; QAnon n'est qu'un cas illustratif."
+  reason_en: "General TechRxiv preprint; QAnon is only an illustrative case."
+- key: "10.4324/9781003263609"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.4324/9781003335115-3"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003440833-3"
+  decision: rejected
+  reason_fr: "La familiarité avec QAnon n'est qu'une variable parmi d'autres."
+  reason_en: "Familiarity with QAnon is only one variable among others."
+- key: "10.4324/9781003472476-6"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003492542"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003592198-13"
+  decision: rejected
+  reason_fr: "Les croyants QAnon ne sont qu'une catégorie parmi d'autres."
+  reason_en: "QAnon believers are only one category among others."
+- key: "10.4324/9781003622123-1"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.4324/9781003752400-7"
+  decision: rejected
+  reason_fr: "Chapitre de manuel ; QAnon n'est qu'une étude de cas illustrative."
+  reason_en: "Textbook chapter; QAnon is only an illustrative case study."
+- key: "10.4324/9781032704920-8"
+  decision: rejected
+  reason_fr: "Chapitre de conclusion de argentino2025qanon, déjà dans la bibliographie."
+  reason_en: "Concluding chapter of argentino2025qanon, already in the bibliography."
+- key: "10.5040/9798216171072"
+  decision: rejected
+  reason_fr: "Ouvrage général sur les théories du complot ; QAnon n'est qu'un cas parmi d'autres."
+  reason_en: "General book on conspiracy theories; QAnon is only one case among others."
+- key: "10.5204/mcj.3183"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "10.5281/zenodo.17566811"
+  decision: rejected
+  reason_fr: "Jeu de données sur les LLM et les théories du complot ; QAnon n'est pas central."
+  reason_en: "Dataset on LLMs and conspiracy theories; QAnon is not central."
+- key: "10.5325/studamershorstor.5.1.v"
+  decision: rejected
+  reason_fr: "Note de l'éditeur."
+  reason_en: "Editor's note."
+- key: "10.54208/1000/0009/006"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un cas illustratif d'un modèle conceptuel général."
+  reason_en: "QAnon is only an illustrative case of a general conceptual model."
+- key: "10.55609/yenimedya.1771512"
+  decision: rejected
+  reason_fr: "QAnon n'est qu'un exemple parmi d'autres."
+  reason_en: "QAnon is only one example among others."
+- key: "10.6084/m9.figshare.30713072"
+  decision: rejected
+  reason_fr: "Dépôt figshare non évalué ; QAnon n'est qu'un exemple parmi d'autres."
+  reason_en: "Non-peer-reviewed figshare upload; QAnon is only one example among others."
+- key: "10.7202/1113425ar"
+  decision: rejected
+  reason_fr: "QAnon n'est cité qu'en passant."
+  reason_en: "QAnon is only mentioned in passing."
+- key: "10.7551/mitpress/14609.003.0020"
+  decision: rejected
+  reason_fr: "QAnon n'apparaît pas dans le titre ni le résumé ; sujet distinct."
+  reason_en: "QAnon does not appear in the title or abstract; different subject."
+- key: "t:theimpactoftheqanonconspiracytheoryonuselectionsandpoliticalevents"
+  decision: included
+  ref: pachman2024vliv
+  reason_fr: "Titre original tchèque dans la bibliographie."
+  reason_en: "Original Czech title in the bibliography."
+- key: "10.5840/jrv20251027102"
+  decision: included
+  ref: king2025behold
+  reason_fr: "Version « en avance de publication » de l'article retenu (king2025behold)."
+  reason_en: "Online-first version of the included article (king2025behold)."

@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% from "macros.html" import pending %}
+{% block title %}{{ t.paper_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+{% if is_pending %}<h1>{{ t.paper_title }}</h1>{{ pending(t) }}{% else %}
+<article class="paper">
+  <p class="note">{{ pp.meta.version }} · {{ pp.meta.date }}</p>
+  <h1>{{ pp.meta.title }}</h1>
+  <p class="lead">{{ pp.meta.subtitle }}</p>
+  <p>{{ pp.meta.author }} · <a href="../data/working-paper-fr.pdf">PDF</a> · <a href="https://doi.org/{{ t.paper_doi }}">doi:{{ t.paper_doi }}</a></p>
+  {% if lang == "en" %}
+  <h2>Abstract</h2>
+  <p>{{ pp.meta.abstract_en }}</p>
+  <p class="note">{{ t.paper_fr_only }}</p>
+  {% else %}
+  <details><summary>Abstract (English)</summary><p>{{ pp.meta.abstract_en }}</p></details>
+  {{ pp.html }}
+  <h2>Références</h2>
+  <ol class="bib paper-refs">{% for r in pp.refs %}
+    <li id="ref-{{ r.id }}">{% if r.cit.authors %}{{ r.cit.authors }} {% endif %}({{ r.cit.year }}). {% if r.type in ["book", "report", "thesis", "documentary", "dataset"] %}<em>{{ r.title }}</em>{% else %}{{ r.title }}{% endif %}.{% if r.cit.container %} <em>{{ r.cit.container }}</em>{% if r.cit.loc %}, {{ r.cit.loc }}{% endif %}.{% endif %} {% if r.doi %}<a href="https://doi.org/{{ r.doi }}">doi:{{ r.doi }}</a>{% elif r.url %}<a href="{{ r.url }}">{{ r.url }}</a>{% endif %}</li>{% endfor %}
+  </ol>
+  {% endif %}
+</article>
+{% endif %}
+{% endblock %}

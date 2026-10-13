@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>{{ pp.meta.title }}</title>
+<style>
+@page { size: A4; margin: 22mm 20mm 24mm; @bottom-center { content: counter(page); font: 9pt "DejaVu Sans", sans-serif; color: #666; } }
+body { font: 10.5pt/1.5 "Liberation Serif", "DejaVu Serif", serif; color: #111; hyphens: auto; text-align: justify; }
+h1 { font: bold 20pt/1.2 "DejaVu Sans", sans-serif; margin: 0 0 4pt; text-align: left; }
+h2 { font: bold 12.5pt "DejaVu Sans", sans-serif; margin: 16pt 0 6pt; text-align: left; }
+h3 { font: bold 11pt "DejaVu Sans", sans-serif; margin: 12pt 0 4pt; text-align: left; }
+.sub { font: 12pt "DejaVu Sans", sans-serif; color: #444; margin: 0 0 10pt; text-align: left; }
+.meta { font: 9.5pt "DejaVu Sans", sans-serif; color: #444; margin-bottom: 14pt; text-align: left; }
+.abstract { border-top: .6pt solid #999; border-bottom: .6pt solid #999; padding: 6pt 0; margin: 10pt 0 14pt; font-size: 9.8pt; }
+a { color: #1d4f91; text-decoration: none; }
+.cite a { color: #111; }
+table.paper-table { border-collapse: collapse; width: 100%; font: 8.5pt "DejaVu Sans", sans-serif; margin: 8pt 0 12pt; }
+.paper-table caption { caption-side: top; text-align: left; font-weight: bold; margin-bottom: 4pt; }
+.paper-table th, .paper-table td { border-bottom: .4pt solid #bbb; padding: 2pt 4pt; text-align: left; }
+.paper-table .r { text-align: right; } .paper-table tr.tot td { font-weight: bold; border-top: .8pt solid #555; }
+figure.paper-fig { margin: 8pt 0 12pt; break-inside: avoid; } figure.paper-fig svg { width: 100%; height: auto; }
+figure.paper-fig figcaption { font: 8.5pt "DejaVu Sans", sans-serif; color: #333; }
+ol.refs { padding-left: 0; list-style: none; font-size: 9pt; text-align: left; }
+ol.refs li { margin: 0 0 4pt; padding-left: 14pt; text-indent: -14pt; }
+</style></head><body>
+<p class="meta">{{ pp.meta.version }} · {{ pp.meta.date }} · version du site {{ version }}</p>
+<h1>{{ pp.meta.title }}</h1>
+<p class="sub">{{ pp.meta.subtitle }}</p>
+<p class="meta"><strong>{{ pp.meta.author }}</strong><br>{{ site_url }} · doi:{{ doi }} · Licence CC BY 4.0</p>
+<div class="abstract"><strong>Abstract.</strong> {{ pp.meta.abstract_en }}</div>
+{{ pp.html }}
+<h2>Références</h2>
+<ol class="refs">{% for r in pp.refs %}
+  <li id="ref-{{ r.id }}">{% if r.cit.authors %}{{ r.cit.authors }} {% endif %}({{ r.cit.year }}). {% if r.type in ["book", "report", "thesis", "documentary", "dataset"] %}<em>{{ r.title }}</em>{% else %}{{ r.title }}{% endif %}.{% if r.cit.container %} <em>{{ r.cit.container }}</em>{% if r.cit.loc %}, {{ r.cit.loc }}{% endif %}.{% endif %}{% if r.cit.publisher and r.cit.publisher != r.cit.container %} {{ r.cit.publisher }}.{% endif %} {% if r.doi %}doi:{{ r.doi }}{% elif r.url %}{{ r.url }}{% endif %}</li>{% endfor %}
+</ol>
+</body></html>

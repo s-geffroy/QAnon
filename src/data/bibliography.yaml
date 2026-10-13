@@ -3963,3 +3963,1104 @@ references:
   topics: [international]
   summary_fr: "Article d'un universitaire britannique spécialiste du renseignement sur l'extension de QAnon hors des États-Unis. Il examine ce que cette diffusion pourrait impliquer."
   summary_en: "A piece by a British intelligence scholar on QAnon's spread beyond the United States. It considers what this spread could mean."
+
+# ---------------------------------------------------------------- veille bibliographique : publications 2024-2026 retenues apres tri
+
+- id: fisher2026qanon
+  type: book
+  authors: ["Fisher, Matthew Zaro"]
+  year: 2026
+  title: "QAnon: Communication Complexity and New Religious Movements"
+  publisher: "Cambridge University Press"
+  doi: "10.1017/9781009705158"
+  url: "https://doi.org/10.1017/9781009705158"
+  lang: en
+  topics: [religion, origins, platforms]
+  summary_fr: "Cet ouvrage de la série Elements retrace l'histoire, les croyances et les pratiques du mouvement QAnon, des imageboards anonymes de l'automne 2017 à son essor pendant les confinements liés au COVID-19. Il s'appuie sur cette trace en ligne observable en temps réel pour éclairer le lien entre théorie du complot et religion et la façon dont naissent aujourd'hui de nouveaux mouvements religieux."
+  summary_en: "This Element traces the history, beliefs and practices of the QAnon movement, from anonymous image boards in autumn 2017 to its growth during the COVID-19 lockdowns. It uses this observable, real-time online record to shed light on the relationship between conspiracy theory and religion and on how new religious movements emerge today."
+
+- id: conner2025expressions
+  type: article
+  authors: ["Conner, Christopher T.", "Hannah, Matthew N."]
+  year: 2025
+  title: "Expressions of Belief in the QAnon Conspiracy Movement"
+  container: "Deviant Behavior"
+  pages: "1-19"
+  doi: "10.1080/01639625.2025.2556939"
+  url: "https://doi.org/10.1080/01639625.2025.2556939"
+  lang: en
+  topics: [origins, discourse, platforms]
+  summary_fr: "Analyse de contenu de 3 251 commentaires publiés en réponse aux messages de Q entre le 3 et le 5 novembre 2017, au moment où QAnon prenait forme. Les participants se répartissent en trois catégories (croyants, sceptiques et joueurs de « LARP »), ce qui invite à ne pas traiter le mouvement comme un système de croyance monolithique."
+  summary_en: "Content analysis of 3,251 comments posted in response to Q's messages between 3 and 5 November 2017, as QAnon was taking shape. Participants fall into three categories (believers, sceptics and LARPers), which cautions against treating the movement as a monolithic belief system."
+
+- id: barkun2024qanon
+  type: chapter
+  authors: ["Barkun, Michael"]
+  year: 2024
+  title: "QAnon, Conspiracies, and Religion"
+  container: "Oxford Research Encyclopedia of Religion"
+  publisher: "Oxford University Press"
+  doi: "10.1093/acrefore/9780199340378.013.1239"
+  url: "https://doi.org/10.1093/acrefore/9780199340378.013.1239"
+  lang: en
+  topics: [religion, origins]
+  summary_fr: "Article d'encyclopédie qui décrit la transformation de QAnon, théorie du complot politique apparue fin 2017, en mouvement religieux sans organisation formelle ni direction désignée. Il présente le récit d'une cabale de « l'État profond » et l'eschatologie qui l'accompagne, ainsi que la cessation des messages de Q fin 2020."
+  summary_en: "Encyclopedia article describing how QAnon, a political conspiracy theory that emerged in late 2017, turned into a religious movement with no formal organisation or designated leadership. It sets out the narrative of a 'deep state' cabal and its accompanying eschatology, and the end of Q's posts in late 2020."
+
+- id: atkinson2024toward
+  type: article
+  authors: ["Atkinson, Joshua D.", "Dorr, Matthew", "Pedasanaganti, Vamsi Chaitanya", "Sharma, Shudipta"]
+  year: 2024
+  title: "Toward an Understanding of Centralized Intertextual Fortification: The Case of Commercially Oriented Qanon Content Creators"
+  container: "Journal of Communication Inquiry"
+  volume: "49"
+  issue: "1"
+  pages: "44-62"
+  doi: "10.1177/01968599241231281"
+  url: "https://doi.org/10.1177/01968599241231281"
+  open_access: true
+  lang: en
+  topics: [platforms, media, discourse]
+  summary_fr: "« Cyber-archéologie » des médias interactifs utilisés par des créateurs de contenus QAnon, pour la plupart engagés dans une activité commerciale. Les auteurs identifient une stratégie qu'ils nomment « fortification intertextuelle centralisée », où curateurs et accumulateurs se promeuvent mutuellement tandis que les abonnés ne participent pas à la production des contenus."
+  summary_en: "A 'cyber-archaeology' of the interactive media used by QAnon content creators, most of them engaged in commercial ventures. The authors identify a strategy they call 'centralized intertextual fortification', in which curators and accumulators boost one another while followers take no part in producing the content."
+
+- id: heering2025asthetik
+  type: chapter
+  authors: ["Heering, David"]
+  year: 2025
+  title: "4. Die Ästhetik von QAnon"
+  container: "Im Sog der Fiktionen: Zur Philosophie von Verschwörungstheorien"
+  publisher: "transcript Verlag"
+  pages: "180-192"
+  doi: "10.14361/9783839475140-036"
+  url: "https://doi.org/10.14361/9783839475140-036"
+  open_access: true
+  lang: de
+  topics: [discourse, psychology]
+  summary_fr: "Chapitre d'une monographie de philosophie qui soutient que les théories du complot sont des récits reçus comme des fictions plutôt que des théories réellement crues. Ce chapitre est consacré à l'esthétique de QAnon."
+  summary_en: "A chapter of a philosophy monograph arguing that conspiracy theories are narratives received as fictions rather than theories that are genuinely believed. This chapter is devoted to the aesthetics of QAnon."
+
+- id: wendling2024qanon
+  type: chapter
+  authors: ["Wendling, Mike"]
+  year: 2024
+  title: "QAnon lives on and on"
+  container: "Day of Reckoning: How the Far Right Declared War on Democracy"
+  publisher: "Pluto Press"
+  pages: "48-58"
+  doi: "10.2307/jj.13286159.6"
+  url: "https://doi.org/10.2307/jj.13286159.6"
+  lang: en
+  topics: [politics, extremism]
+  summary_fr: "Chapitre d'un ouvrage de Mike Wendling sur la manière dont l'extrême droite a déclaré la guerre à la démocratie. Il est consacré à la persistance du mouvement QAnon."
+  summary_en: "A chapter of Mike Wendling's book on how the far right declared war on democracy. It is devoted to the persistence of the QAnon movement."
+
+- id: young2025qanon
+  type: chapter
+  authors: ["Young, Helen"]
+  year: 2025
+  title: "QAnon: Dark Fantasy and the Authoritarian Personality"
+  container: "Critical Theory and the Authoritarian Personality"
+  publisher: "Edinburgh University Press"
+  pages: "34-64"
+  doi: "10.3366/edinburgh/9781399519458.003.0002"
+  url: "https://doi.org/10.3366/edinburgh/9781399519458.003.0002"
+  lang: en
+  topics: [psychology, politics, discourse]
+  summary_fr: "Le chapitre présente le mouvement QAnon et les explications qu'en donnent la science politique et la psychologie sociale, puis en propose une lecture psychanalytique lacanienne. Il soutient que QAnon exprime, sous la forme déguisée d'une théorie du complot sur les abus sexuels, des préjugés et des attitudes autoritaires, et un fantasme politique de fermeture totalitaire et de violence punitive."
+  summary_en: "The chapter presents the QAnon movement and the explanations offered by political science and social psychology, then proposes a Lacanian psychoanalytic reading. It argues that QAnon expresses, in the disguised form of a conspiracy theory about sexual abuse, prejudice and authoritarian attitudes, and a political fantasy of totalitarian closure and retributive violence."
+
+- id: coduto2024interpersonal
+  type: chapter
+  authors: ["Coduto, Kathryn D."]
+  year: 2024
+  title: "Interpersonal Relationships and Online Social Support in the QAnon Age"
+  container: "American Conspiracism"
+  publisher: "Routledge"
+  pages: "101-116"
+  doi: "10.4324/9781003459255-8"
+  url: "https://doi.org/10.4324/9781003459255-8"
+  lang: en
+  topics: [psychology, platforms]
+  summary_fr: "Le chapitre examine comment des personnes ont vécu la rupture de relations après l'adhésion d'un proche à QAnon, et l'évolution des schémas de communication qui en résulte. Il étudie aussi le recours à Internet pour trouver du soutien social, tant chez les adeptes que chez leurs proches."
+  summary_en: "The chapter examines how people have experienced the breakdown of relationships after a loved one joined QAnon, and the resulting changes in communication patterns. It also looks at how both believers and their loved ones turn to the internet for social support."
+
+- id: ai2024what
+  type: article
+  authors: ["Ai, Lin", "Chen, Yu-Wen", "Yu, Yuwen", "Kweon, Seoyoung", "Hirschberg, Julia", "Levitan, Sarah Ita"]
+  year: 2024
+  title: "What Makes A Video Radicalizing? Identifying Sources of Influence in QAnon Videos"
+  container: "arXiv preprint arXiv:2404.14616"
+  doi: "10.48550/arxiv.2404.14616"
+  url: "https://arxiv.org/abs/2404.14616"
+  open_access: true
+  lang: en
+  topics: [platforms, psychology, extremism]
+  summary_fr: "Prépublication qui s'appuie sur un questionnaire détaillé pour comprendre comment des spectateurs perçoivent des vidéos QAnon. Elle décrit les profils de spectateurs auxquels ces vidéos plaisent le plus et les facteurs qui influencent leur perception."
+  summary_en: "A preprint using a detailed questionnaire to understand how viewers perceive QAnon videos. It outlines the viewer traits to which these videos are most appealing and the factors that shape their perception."
+
+- id: pates2025humanity
+  type: chapter
+  authors: ["Pates, Harrison"]
+  editors: ["Tebaldi, Catherine", "Plum, Alistair", "Purschke, Christoph"]
+  year: 2025
+  title: "“For Humanity—Fight—Learn”: History in the QAnon Conspiracy"
+  container: "Conspiracy as Genre: Narrative, Power, and Circulation"
+  publisher: "Bloomsbury Publishing Plc"
+  pages: "53-72"
+  doi: "10.5040/9781350467903.ch-004"
+  url: "https://doi.org/10.5040/9781350467903.ch-004"
+  lang: en
+  topics: [discourse]
+  summary_fr: "Chapitre d'un volume collectif qui aborde le complot comme genre narratif. Il porte sur la place de l'histoire dans le récit complotiste de QAnon."
+  summary_en: "A chapter of an edited volume approaching conspiracy as a narrative genre. It deals with the place of history in the QAnon conspiracy narrative."
+
+- id: jipson2025how
+  type: journalism
+  authors: ["Jipson, Art"]
+  year: 2025
+  title: "How the QAnon movement entered mainstream politics – and why the silence on Epstein files matters"
+  container: "The Conversation"
+  doi: "10.64628/aai.v9qmyruwu"
+  url: "https://theconversation.com/how-the-qanon-movement-entered-mainstream-politics-and-why-the-silence-on-epstein-files-matters-261316"
+  lang: en
+  topics: [politics, origins]
+  summary_fr: "Article de vulgarisation d'un chercheur spécialiste de l'extrémisme, publié en juillet 2025, qui retrace le passage de QAnon du Pizzagate à la politique dominante. Il explique pourquoi la non-publication intégrale des dossiers Epstein trouble des adeptes qui voient en Donald Trump la figure héroïque de leur récit."
+  summary_en: "A popular article by a scholar of extremism, published in July 2025, tracing QAnon's path from Pizzagate to mainstream politics. It explains why the incomplete release of the Epstein files unsettles followers who see Donald Trump as the heroic figure of their narrative."
+
+- id: ebner2026case
+  type: chapter
+  authors: ["Ebner, Julia"]
+  year: 2026
+  title: "15. Case Study: QAnon Groups"
+  container: "The Language of Terrorists: Distinguishing Trolls from Violent Extremists"
+  publisher: "Columbia University Press"
+  pages: "115-130"
+  doi: "10.7312/ebne21440-019"
+  url: "https://doi.org/10.7312/ebne21440-019"
+  lang: en
+  topics: [extremism, discourse, violence]
+  summary_fr: "Chapitre d'étude de cas consacré aux groupes QAnon, dans un ouvrage sur le langage des terroristes et la distinction entre trolls et extrémistes violents."
+  summary_en: "A case-study chapter on QAnon groups in a book on the language of terrorists and how to distinguish trolls from violent extremists."
+
+- id: vestergaard2024fringe
+  type: thesis
+  authors: ["Vestergaard, Mads"]
+  year: 2024
+  title: "From the Fringe to the Mainstream: The Impact of QAnon and Its Conspiratorial Narratives on Politics and Security in the United States"
+  publisher: "Univerzita Karlova"
+  url: "http://www.nusl.cz/ntk/nusl-678545"
+  lang: en
+  topics: [politics, extremism]
+  summary_fr: "Mémoire de master (département d'études de sécurité, faculté des sciences sociales de l'université Charles, Prague). Il porte sur l'effet de QAnon et de ses récits complotistes sur la politique et la sécurité aux États-Unis."
+  summary_en: "A master's thesis (Department of Security Studies, Faculty of Social Sciences, Charles University, Prague). It deals with the impact of QAnon and its conspiratorial narratives on politics and security in the United States."
+
+- id: speakman2025start
+  type: article
+  authors: ["Speakman, Philip"]
+  year: 2025
+  title: "“It May Start Out as a Game But It Ends up a Whole World”: Creepypasta, QAnon, and the Anomalous Tales of the Internet"
+  container: "Contemporary Legend"
+  volume: "3"
+  url: "https://scholarworks.iu.edu/journals/index.php/cl/article/view/41601"
+  lang: en
+  topics: [origins, platforms, discourse]
+  summary_fr: "L'article rapproche QAnon des creepypastas, récits d'horreur collaboratifs d'Internet, en les analysant comme des « récits de l'anomal » apparentés aux légendes. Il souligne le caractère participatif de ces récits, leurs mécanismes proches des jeux en réalité alternée et la façon dont les plateformes brouillent la frontière entre fait et fiction."
+  summary_en: "The article compares QAnon with creepypasta, the internet's collaborative horror stories, analysing both as legend-like 'tales of the anomalous'. It highlights their participatory nature, their mechanics akin to alternate reality games and the way platforms blur the boundary between fact and fiction."
+
+- id: soderlund2026qanon
+  type: thesis
+  authors: ["Söderlund, Johanna", "Steinsvik, Smilla"]
+  year: 2026
+  title: "QAnon spelar schack - Brädet är ditt huvud: En kvalitativ undersökning av hur QAnon rörelsen använder sig av visuell politisk kommunikation, i form av ett meme-inlägg, för att sprida en Pro-Trump ideologi"
+  publisher: "Lund University"
+  url: "https://lup.lub.lu.se/student-papers/record/9218507"
+  open_access: true
+  lang: sv
+  topics: [discourse, media]
+  summary_fr: "Mémoire de licence en sciences des médias et de la communication (université de Lund) qui analyse un mème publié sur Instagram en 2024 comparant Donald Trump à Joe Biden, à l'aide de la théorie du cadrage, de définitions du populisme et de la sémiotique visuelle. Il relève des thèmes récurrents (force et faiblesse, représentation du leadership politique, humour)."
+  summary_en: "A bachelor's paper in media and communication studies (Lund University) analysing a meme posted on Instagram in 2024 comparing Donald Trump with Joe Biden, using framing theory, definitions of populism and visual semiotics. It identifies recurring themes (strength and weakness, framing of political leadership, humour)."
+
+- id: pachman2024vliv
+  type: thesis
+  authors: ["Pachman, Vilém"]
+  year: 2024
+  title: "Vliv konspirační teorie QAnon na volby a politické dění v USA"
+  publisher: "Univerzita Karlova"
+  url: "http://www.nusl.cz/ntk/nusl-651519"
+  lang: cs
+  topics: [politics, elections, violence]
+  summary_fr: "Mémoire de licence (faculté des sciences sociales de l'université Charles, Prague) qui étudie par la méthode du traçage de processus le rôle de QAnon dans l'attaque du Capitole du 6 janvier 2021 et dans les élections de 2022. Il conclut que QAnon a mobilisé un nombre important de personnes vers l'action violente et contribué à transformer le discours politique."
+  summary_en: "A bachelor's thesis (Faculty of Social Sciences, Charles University, Prague) using process tracing to study QAnon's role in the 6 January 2021 Capitol attack and the 2022 elections. It concludes that QAnon mobilised a significant number of people to violent action and helped transform political discourse."
+
+- id: moskalenko2024mere
+  type: article
+  authors: ["Moskalenko, Sophia", "Pavlović, Tomislav", "Romanova, Ekaterina"]
+  year: 2024
+  title: "Mere exposure to conspiracy theories: effects on radical intentions among believers and nonbelievers"
+  container: "Behavioral Sciences of Terrorism and Political Aggression"
+  volume: "18"
+  issue: "2"
+  pages: "163-187"
+  doi: "10.1080/19434472.2024.2396282"
+  url: "https://doi.org/10.1080/19434472.2024.2396282"
+  lang: en
+  topics: [psychology, extremism, violence]
+  summary_fr: "Expérience menée auprès de 1 736 participants américains exposés à quatre théories du complot issues de QAnon et de la propagande russe, avant ou après des questions sur leurs intentions militantes et radicales. L'exposition augmente significativement les intentions radicales, davantage chez ceux qui adhéraient déjà à ces récits."
+  summary_en: "An experiment with 1,736 US participants exposed to four conspiracy theories drawn from QAnon and Russian propaganda, before or after questions on their activist and radical intentions. Exposure significantly increased radical intentions, more so among those who already believed the narratives."
+
+- id: argentino2025silence
+  type: chapter
+  authors: ["Argentino, Marc-André", "Celestini, Carmen", "Amarasingam, Amarnath"]
+  year: 2025
+  title: "The Silence of Q"
+  container: "Contemporary Far-Right Culture: The Art, Music, and Everyday Practices of Violent Extremism"
+  publisher: "Routledge"
+  pages: "1-18"
+  doi: "10.4324/9781003425816-1"
+  url: "https://doi.org/10.4324/9781003425816-1"
+  lang: en
+  topics: [platforms, predictions, extremism]
+  summary_fr: "Le chapitre examine la persistance de QAnon malgré la disparition de « Q » et la défaite électorale de Donald Trump, à partir d'exemples comme le collectif « We The Media », Romana Didulo et la théorie de la « Devolution ». Il montre que des influenceurs des réseaux sociaux entretiennent les croyances et la communauté, assurent la continuité quand les prophéties échouent et façonnent de nouvelles ramifications."
+  summary_en: "The chapter examines QAnon's persistence despite the disappearance of 'Q' and Donald Trump's electoral defeat, drawing on examples such as the 'We The Media' collective, Romana Didulo and the 'Devolution' theory. It shows how social media influencers sustain beliefs and community, provide continuity when prophecies fail and shape new offshoots."
+
+- id: thorpe2026pandemic
+  type: chapter
+  authors: ["Thorpe, Chelsea", "Winston, David"]
+  year: 2026
+  title: "Pandemic pressure"
+  container: "The Routledge International Handbook on Social Exclusion and Radicalisation"
+  publisher: "Routledge"
+  pages: "59-67"
+  doi: "10.4324/9781003488521-7"
+  url: "https://doi.org/10.4324/9781003488521-7"
+  lang: en
+  topics: [international, extremism, health, violence]
+  summary_fr: "Le chapitre compare en Allemagne, pendant la pandémie de COVID-19, les mouvements QAnon et Reichsbürger, qui ont évolué vers la violence jusqu'à des projets de coup d'État, avec la communauté Anastasia, qui s'est repliée sur elle-même. Il conclut que la pandémie a amplifié et accéléré des tendances idéologiques préexistantes plutôt qu'elle n'a directement causé l'extrémisme violent."
+  summary_en: "The chapter compares, in Germany during the COVID-19 pandemic, the QAnon and Reichsbürger movements, which escalated towards violence up to attempted coup plans, with the Anastasia community, which withdrew socially. It concludes that the pandemic amplified and accelerated pre-existing ideological tendencies rather than directly causing violent extremism."
+
+- id: whittaker2025smuggling
+  type: article
+  authors: ["Whittaker, Mimi"]
+  year: 2025
+  title: "Smuggling Conspiracies"
+  container: "Columbia Journal of Race and Law"
+  volume: "15"
+  issue: "1"
+  doi: "10.52214/cjrl.v15i1.14110"
+  url: "https://doi.org/10.52214/cjrl.v15i1.14110"
+  open_access: true
+  lang: en
+  topics: [politics]
+  summary_fr: "À partir de l'histoire législative des réformes sur la traite des êtres humains adoptées en Floride au printemps 2023, l'article soutient que ces initiatives puisent dans des théories popularisées par QAnon. Il y voit la reprise de récits raciaux anciens servant à justifier l'extension des pouvoirs de l'État en matière d'immigration."
+  summary_en: "Drawing on the legislative history of the human-trafficking reforms passed in Florida in spring 2023, the article argues that these initiatives tap into theories popularised by QAnon. It sees in them a revival of long-standing racial narratives used to justify expanding the state's immigration enforcement powers."
+
+- id: king2025behold
+  type: article
+  authors: ["King, Shelby"]
+  year: 2025
+  title: "Behold—the Storm Cometh!: Prophecy, Revelation, and QAnon’s Great Disappointment"
+  container: "Journal of Religion and Violence"
+  volume: "10"
+  issue: "2"
+  pages: "140-168"
+  doi: "10.5840/jrv2025102/35"
+  url: "https://doi.org/10.5840/jrv2025102/35"
+  lang: en
+  topics: [religion, predictions, violence]
+  summary_fr: "L'essai compare la résilience de QAnon après ses prophéties manquées et le 6 janvier 2021 à celle des millérites après la « Grande Déception » de 1844. Il soutient que l'expérience de la révélation, entretenue par le décodage personnel des prophéties, est la clé de la mobilisation des adeptes, y compris vers la violence."
+  summary_en: "The essay compares QAnon's resilience after its failed prophecies and 6 January 2021 with that of the Millerites after the 1844 'Great Disappointment'. It argues that the experience of revelation, sustained by followers' personal decoding of prophecies, is key to their mobilisation, including towards violence."
+
+- id: westerman2026algorithm
+  type: article
+  authors: ["Westerman, Joshua"]
+  year: 2026
+  title: "What the Algorithm Wants: Amalia Ulman, Pastel QAnon, and the Structure of Digital Truth"
+  container: "The International Journal of the Arts in Society: Annual Review"
+  doi: "10.18848/1833-1866/cgp/a909"
+  url: "https://doi.org/10.18848/1833-1866/cgp/a909"
+  open_access: true
+  lang: en
+  topics: [platforms, media, gender]
+  summary_fr: "L'article mobilise la théorie des systèmes dynamiques pour étudier comment des motifs visuels et affectifs façonnent les croyances, à travers l'œuvre Excellences & Perfections d'Amalia Ulman et le phénomène du « Pastel QAnon ». Il soutient que l'art peut modéliser puis détourner ces architectures d'influence par des contre-esthétiques et la mise au jour des biais algorithmiques."
+  summary_en: "The article uses dynamical systems theory to study how visual and affective patterns shape belief, through Amalia Ulman's Excellences & Perfections and the 'Pastel QAnon' phenomenon. It argues that art can model and then reroute these architectures of influence through counter-aesthetics and by exposing algorithmic biases."
+
+- id: lal2024qanon
+  type: chapter
+  authors: ["Lal, Rollie"]
+  editors: ["Chasdi, Richard J.", "Sharan, Yair"]
+  year: 2024
+  title: "QAnon Extremist Propaganda: Using the Internet to Spread Hate"
+  container: "Issues of Terrorism in the Post-Coronavirus Era"
+  publisher: "Springer Nature Switzerland"
+  pages: "187-199"
+  doi: "10.1007/978-3-031-68542-2_11"
+  url: "https://doi.org/10.1007/978-3-031-68542-2_11"
+  lang: en
+  topics: [extremism, platforms]
+  summary_fr: "Chapitre d'un ouvrage collectif sur le terrorisme après la pandémie de COVID-19, consacré à la propagande extrémiste de QAnon et à l'usage d'Internet pour diffuser la haine. Les métadonnées de l'éditeur ne comportent pas de résumé."
+  summary_en: "Chapter in an edited volume on terrorism after the COVID-19 pandemic, devoted to QAnon's extremist propaganda and its use of the internet to spread hate. The publisher's metadata include no abstract."
+
+- id: campisi2026hashtag
+  type: article
+  authors: ["Campisi, Francesco C.", "Fortin, Francis"]
+  year: 2026
+  title: "QAnon's hashtag hijacking strategies and engagement dynamics across discursive themes on Twitter: Negative Binomial models of online visibility"
+  container: "Technology in Society"
+  volume: "86"
+  pages: "103296"
+  doi: "10.1016/j.techsoc.2026.103296"
+  url: "https://doi.org/10.1016/j.techsoc.2026.103296"
+  open_access: true
+  lang: en
+  topics: [platforms, methods, discourse]
+  summary_fr: "Analyse de contenus liés à QAnon sur Twitter entre janvier 2020 et janvier 2021 par tests du khi-deux, modèles binomiaux négatifs et LDA, pour mesurer le détournement de hashtags et son effet sur l'engagement. Le détournement seul n'accroît pas significativement l'engagement, mais les hashtags détournés gagnent en portée lorsqu'ils sont associés à certains récits, comme l'élection américaine de 2020."
+  summary_en: "Analysis of QAnon-related content on Twitter between January 2020 and January 2021 using chi-squared tests, negative binomial models and LDA to measure hashtag hijacking and its effect on engagement. Hijacking alone did not significantly increase engagement, but hijacked hashtags achieved greater reach when paired with specific narratives such as the 2020 US election."
+
+- id: trollinger2025creationism
+  type: article
+  authors: ["Trollinger, Susan", "Trollinger, William Vance"]
+  year: 2025
+  title: "From Creationism to QAnon: Answers in Genesis and the Culture Wars"
+  container: "Isis"
+  volume: "116"
+  issue: "2"
+  pages: "350-354"
+  doi: "10.1086/735722"
+  url: "https://doi.org/10.1086/735722"
+  lang: en
+  topics: [religion, background]
+  summary_fr: "Court article de la revue d'histoire des sciences Isis sur l'organisation créationniste Answers in Genesis, du créationnisme jusqu'à QAnon, dans le contexte des guerres culturelles américaines. Aucun résumé n'est disponible dans les métadonnées."
+  summary_en: "Short article in the history-of-science journal Isis on the creationist organisation Answers in Genesis, from creationism to QAnon, in the context of the American culture wars. No abstract is available in the metadata."
+
+- id: conner2026conspirituality
+  type: article
+  authors: ["Conner, Christopher T."]
+  year: 2026
+  title: "Conspirituality in Sport: How QAnon, White Supremacist Ideology, and Other Nonscientific-Based Ideas Came to Infiltrate the Sports World"
+  container: "Sociology of Sport Journal"
+  volume: "43"
+  issue: "1"
+  pages: "91-102"
+  doi: "10.1123/ssj.2024-0216"
+  url: "https://doi.org/10.1123/ssj.2024-0216"
+  lang: en
+  topics: [media, health, gender]
+  summary_fr: "Étude netnographique de la pénétration de QAnon dans le sport professionnel pendant la pandémie de COVID-19, où des athlètes célèbres ont servi de vecteurs à des discours antivaccins et antisémites. S'appuyant sur Adorno et l'école de Francfort, l'auteur montre comment QAnon exploite les structures autoritaires et genrées du sport commercialisé."
+  summary_en: "Netnographic study of QAnon's infiltration of professional sports during the COVID-19 pandemic, in which celebrity athletes served as vectors for anti-vaccine and antisemitic narratives. Drawing on Adorno and the Frankfurt School, the author shows how QAnon exploits the authoritarian and gendered structures of commercialised sport."
+
+- id: miotto2024stand
+  type: article
+  authors: ["Miotto, Nicolò", "Droogan, Julian"]
+  year: 2024
+  title: "‘Stand Against the Wiles of the Devil’: Interpreting QAnon as a Pseudo-Christian Extremist Movement"
+  container: "Critical Sociology"
+  volume: "51"
+  issue: "3"
+  pages: "503-526"
+  doi: "10.1177/08969205241228744"
+  url: "https://doi.org/10.1177/08969205241228744"
+  open_access: true
+  lang: en
+  topics: [religion, extremism, platforms]
+  summary_fr: "Analyse sémiotique et herméneutique de 121 images religieuses tirées de canaux Telegram QAnon sur 18 mois, classées en types tous marqués par des thèmes théologiques chrétiens. Les auteurs rapprochent cette imagerie de l'évangélisme américain et des théologies de la libération, ce qui éclaire les liens entre QAnon, contestation antigouvernementale et violence."
+  summary_en: "Semiotic and hermeneutic analysis of 121 religious images from QAnon Telegram channels over 18 months, sorted into types all shaped by Christian theological themes. The authors relate this imagery to US evangelicalism and liberation theology, shedding light on links between QAnon, anti-government protest and violence."
+
+- id: alber2025disruptive
+  type: article
+  authors: ["Alber, Jan"]
+  year: 2025
+  title: "Disruptive Stories, Narrative Literacy, and the Case of QAnon"
+  container: "Journal of Narrative Theory"
+  volume: "55"
+  issue: "1"
+  pages: "81-102"
+  doi: "10.1353/jnt.2025.a961005"
+  url: "https://doi.org/10.1353/jnt.2025.a961005"
+  lang: en
+  topics: [discourse]
+  summary_fr: "Article de théorie narrative qui prend QAnon comme cas d'étude des récits « disruptifs » et de la littératie narrative. Aucun résumé n'est disponible dans les métadonnées."
+  summary_en: "Narrative-theory article taking QAnon as a case study of 'disruptive' stories and narrative literacy. No abstract is available in the metadata."
+
+- id: perezcaballero2026inspirar
+  type: article
+  authors: ["Pérez Caballero, Jesús"]
+  year: 2026
+  title: "Inspirar y conspirar: Iconicidad, tecnologías y religiosidad de QAnon"
+  container: "Andamios, Revista de Investigación Social"
+  volume: "23"
+  issue: "60"
+  pages: "291-321"
+  doi: "10.29092/uacm.v23i60.1258"
+  url: "https://doi.org/10.29092/uacm.v23i60.1258"
+  open_access: true
+  lang: es
+  topics: [religion, discourse]
+  summary_fr: "À partir de sources primaires, l'article analyse le rôle de l'iconicité dans la diffusion du message de QAnon, sa perception de la technologie et sa structure décentralisée, aux fins politiques d'extrême droite et au noyau religieux. Il relie QAnon à des traditions occidentales (pédagogie catéchétique, prière, cadre eschatologique) reformulées par les adeptes."
+  summary_en: "Drawing on primary sources, the article analyses the role of iconicity in spreading QAnon's message, its perception of technology and its decentralised structure, with far-right political aims and a religious core. It links QAnon to Western traditions (catechetical pedagogy, prayer, an eschatological frame) reworked by adherents."
+
+- id: russell2024qanon
+  type: chapter
+  authors: ["Russell, Francis"]
+  year: 2024
+  title: "QAnon"
+  container: "Digital Media as Ambient Therapy: The Ecological Self between Resonance and Alienation"
+  publisher: "Routledge"
+  pages: "78-101"
+  doi: "10.4324/9781003215202-5"
+  url: "https://doi.org/10.4324/9781003215202-5"
+  lang: en
+  topics: [media, psychology]
+  summary_fr: "Chapitre qui analyse la culture complotiste de QAnon comme tentative de millions de personnes de surmonter l'aliénation par les médias « ambiants », au prix de violences et de troubles politiques. Il s'en sert pour discuter l'idéal d'une relation non aliénée théorisé par Hartmut Rosa."
+  summary_en: "Chapter analysing QAnon's conspiracy culture as an attempt by millions to overcome alienation through ambient media, at the cost of violence and political turmoil. It uses the case to problematise the ideal of unalienated relationality theorised by Hartmut Rosa."
+
+- id: giroux2024fascism
+  type: chapter
+  authors: ["Giroux, Henry A.", "DiMaggio, Anthony R."]
+  year: 2024
+  title: "Fascism, White Christian Nationalism, and QAnon Rising"
+  container: "Fascism on Trial: Education and the Possibility of Democracy"
+  publisher: "Bloomsbury Publishing"
+  pages: "117-126"
+  doi: "10.5040/9781350421721.ch-8"
+  url: "https://doi.org/10.5040/9781350421721.ch-8"
+  lang: en
+  topics: [politics, religion, extremism]
+  summary_fr: "Chapitre d'un essai sur le fascisme et l'éducation démocratique, consacré aux liens entre fascisme, nationalisme chrétien blanc et essor de QAnon. Aucun résumé n'est disponible dans les métadonnées."
+  summary_en: "Chapter of a book on fascism and democratic education, devoted to the links between fascism, white Christian nationalism and the rise of QAnon. No abstract is available in the metadata."
+
+- id: loertscher2025visions
+  type: thesis
+  authors: ["Loertscher, Pierre"]
+  year: 2025
+  title: "Visions of Politics: Mapping Ideological Resonance in QAnon's Global Diffusion"
+  publisher: "University of Chicago"
+  doi: "10.6082/t4ww3-f4482"
+  url: "https://doi.org/10.6082/t4ww3-f4482"
+  open_access: true
+  lang: en
+  topics: [international, platforms, methods]
+  summary_fr: "Mémoire appliquant une analyse de réseaux socio-symboliques (reconnaissance d'entités nommées, motifs sémantiques, ACP) à 28,4 millions de messages Telegram de communautés QAnon américaines et allemandes (2019-2022). Il montre une forte convergence des visions du monde, avec des adaptations locales : moindre place des figures religieuses côté allemand et intégration des institutions européennes parmi les adversaires."
+  summary_en: "Thesis applying socio-symbolic network analysis (named entity recognition, semantic motifs, PCA) to 28.4 million Telegram posts from US and German QAnon communities (2019-2022). It finds strong alignment between the two worldviews, with local adaptations: a smaller role for religious figures in German discourse and European institutions added to the antagonist coalition."
+
+- id: demuru2025qanons
+  type: article
+  authors: ["Demuru, Paolo"]
+  year: 2025
+  title: "QAnons, antivacinas e influenciadores de bem-estar: uma perspectiva semiótico-discursiva sobre os vínculos entre teorias da conspiração, espiritualidade e wellness"
+  container: "Ephemera: Revista do Programa de Pós-Graduação em Artes Cênicas da Universidade Federal de Ouro Preto"
+  volume: "8"
+  issue: "15"
+  doi: "10.70446/ephemera.v8i15.8034"
+  url: "https://doi.org/10.70446/ephemera.v8i15.8034"
+  open_access: true
+  lang: pt
+  topics: [discourse, health, media]
+  summary_fr: "Analyse sémiotique (Lotman, Greimas) des recoupements entre théories du complot liées à QAnon et aux vaccins, spiritualité New Age et bien-être pendant la pandémie, centrée sur la page Facebook d'une influenceuse de santé alternative. L'auteur soutient que ce lien repose sur la traduction de cinq éléments culturels : trames narratives, thèmes et rôles, figures, traits plastiques et passions collectives."
+  summary_en: "Semiotic analysis (Lotman, Greimas) of the overlap between QAnon and anti-vaccine conspiracy theories, New Age spirituality and wellness during the pandemic, focusing on the Facebook page of an alternative-health influencer. The author argues the link rests on the translation of five cultural elements: narrative plots, themes and roles, figures, plastic features and collective passions."
+
+- id: mcaulay2024storm
+  type: article
+  authors: ["McAulay, J."]
+  year: 2024
+  title: "Into the Storm: QAnon and the Appeal of Conspiracist Millennialism in Far-Right and Fascist Political Movements"
+  container: "St Antony's International Review"
+  volume: "20"
+  issue: "1"
+  pages: "56-76"
+  url: "https://openaccess.city.ac.uk/id/eprint/38374/"
+  lang: en
+  topics: [politics, extremism, predictions]
+  summary_fr: "Étude de cas de QAnon visant à comprendre le rôle des mouvements complotistes et millénaristes dans les succès de l'extrême droite. L'article situe QAnon dans la relation historique entre partis fascistes ou d'extrême droite et mouvements millénaristes, et le distingue des mouvements complotistes fascistes d'avant et d'après-guerre."
+  summary_en: "Case study of QAnon examining the role of conspiracist and millennialist movements in the success of far-right parties. The article places QAnon within the historical relationship between far-right or fascist parties and millennialist movements, and distinguishes it from pre- and post-war fascist conspiracist movements."
+
+- id: conoscenti2024ockham
+  type: article
+  authors: ["Conoscenti, Michelangelo"]
+  year: 2024
+  title: "Ockham's Razor Overturned: QAnon Null Interaction on Telegram. A Comparative Study."
+  container: "Textus"
+  volume: "XXXVII"
+  issue: "1"
+  pages: "35-60"
+  url: "https://hdl.handle.net/2318/1973691"
+  lang: en
+  topics: [platforms, discourse, international]
+  summary_fr: "Analyse quantitative et qualitative d'un corpus de messages de canaux Telegram QAnon, par analyse positive du discours, netnographie et techniques OSINT. Elle compare les canaux Qlobal-Change USA et Qlobal-Change Italia en dégageant thèmes récurrents et champs sémantiques."
+  summary_en: "Quantitative and qualitative analysis of a corpus of QAnon Telegram channel posts using positive discourse analysis, netnography and OSINT techniques. It compares the Qlobal-Change USA and Qlobal-Change Italia channels, identifying recurring themes and semantic areas."
+
+- id: lindblom2024deep
+  type: thesis
+  authors: ["Lindblom, Vera"]
+  year: 2024
+  title: "The deep state and the COVID-19 hoax : The influence of the American conspiracy theory movement QAnon in Finnish online discussions"
+  publisher: "University of Helsinki"
+  url: "http://hdl.handle.net/10138/572111"
+  open_access: true
+  lang: fi
+  topics: [international, discourse]
+  summary_fr: "Mémoire de master qui compare, par analyse qualitative de contenu, les discussions en ligne américaines et finlandaises faisant référence à QAnon. Pandémie de COVID-19, guerre en Ukraine et élite supposée dirigeant le monde y sont des thèmes communs aux deux pays."
+  summary_en: "Master's thesis comparing US and Finnish online discussions referencing QAnon through qualitative content analysis. The COVID-19 pandemic, the war in Ukraine and a supposed world-ruling elite are themes common to both countries."
+
+- id: barbesino2024white
+  type: thesis
+  authors: ["Barbesino, Nicola"]
+  year: 2024
+  title: "'White, God, and Country': Exploring the eschatological origins of QAnon in American history and its violent extremist nature."
+  publisher: "Univerzita Karlova, Fakulta sociálních věd"
+  url: "http://hdl.handle.net/20.500.11956/197714"
+  lang: en
+  topics: [religion, origins, violence]
+  summary_fr: "Mémoire de master (département des études de sécurité, Université Charles) sur les origines eschatologiques de QAnon dans l'histoire américaine et sur sa dimension d'extrémisme violent. Aucun résumé n'est disponible dans les métadonnées du dépôt."
+  summary_en: "Master's thesis (Department of Security Studies, Charles University) on the eschatological origins of QAnon in American history and its violent extremist nature. No abstract is available in the repository metadata."
+
+- id: burnett2025do
+  type: chapter
+  authors: ["Burnett, Gary", "Williams, Shannon"]
+  year: 2025
+  title: "“Do Your Own Research”: Everyday Misinformation and Conspiracy in Online Information Worlds"
+  container: "Governing Misinformation in Everyday Knowledge Commons"
+  publisher: "Cambridge University Press"
+  pages: "188-213"
+  doi: "10.1017/9781009255165.009"
+  url: "https://doi.org/10.1017/9781009255165.009"
+  open_access: true
+  lang: en
+  topics: [platforms, discourse, methods]
+  summary_fr: "Étude des schémas de désinformation dans des « mondes informationnels » complotistes comme QAnon, à partir de pages Facebook publiques : expertise et autorité, mésinterprétations, « relier les points » et lecture symbolique de gestes, logos ou photos de célébrités. Les auteurs y voient une activité quotidienne persistante et décentrée, mêlant interprétation sérieuse, jeu et production de sens."
+  summary_en: "Study of misinformation patterns in conspiracy 'information worlds' such as QAnon, based on public Facebook pages: expertise and authority, misreading, 'connecting the dots' and symbolic readings of gestures, logos or celebrity photos. The authors see it as a persistent, decentred everyday activity blending serious interpretation, gaming and sense-making."
+
+- id: kreiss2025democratic
+  type: chapter
+  authors: ["Kreiss, Daniel", "Sugarman, Aaron"]
+  editors: ["Livingston, Steven", "Miller, Michael"]
+  year: 2025
+  title: "The Democratic Decay Within: The US Republican Party and QAnon as a Digital Surrogate"
+  container: "Connective Action and the Rise of the Far-Right"
+  publisher: "Oxford University Press"
+  pages: "90-121"
+  doi: "10.1093/oso/9780197794937.003.0004"
+  url: "https://doi.org/10.1093/oso/9780197794937.003.0004"
+  open_access: true
+  lang: en
+  topics: [politics, elections, discourse]
+  summary_fr: "Analyse de l'usage de symboles et récits QAnon par des candidats républicains lors des élections de 2020 : 45 symboles distincts, organisés autour de six thèmes (christianisme, anti-élites, hostilité aux minorités, nationalisme, révolution, scepticisme corrosif). Les auteurs décrivent QAnon comme une « organisation de substitution » numérique du Parti républicain."
+  summary_en: "Analysis of Republican candidates' use of QAnon symbols and narratives in their 2020 campaigns: 45 discrete symbols organised around six themes (Christianity, anti-elitism, opposition to marginalised groups, nationalism, revolution, corrosive scepticism). The authors describe QAnon as a digital surrogate organisation for the Republican Party."
+
+- id: demelius2024yamatoq
+  type: article
+  authors: ["Demelius, Yoko", "Szczepanska, Kamila"]
+  year: 2024
+  title: "Conspiracy theories and the COVID-19 pandemic in Japan: the rise, radicalization, and fall (?) of YamatoQ-kai"
+  container: "Social Science Japan Journal"
+  volume: "27"
+  issue: "2"
+  pages: "149-168"
+  doi: "10.1093/ssjj/jyae003"
+  url: "https://doi.org/10.1093/ssjj/jyae003"
+  open_access: true
+  lang: en
+  topics: [international, health, religion]
+  summary_fr: "Étude de cas, fondée sur les théories des mouvements sociaux, de YamatoQ-kai, organisation japonaise issue d'influenceurs complotistes et active contre la vaccination pendant la pandémie. À partir de ses publications en ligne et de la presse, elle montre comment le groupe a adopté la rhétorique de QAnon sous une forme japonisée et créé des expériences de solidarité pour ses adeptes."
+  summary_en: "Case study, drawing on social movement theory, of YamatoQ-kai, a Japanese organisation born from conspiracy influencers and active against vaccination during the pandemic. Using its online posts and press reports, it shows how the group adopted QAnon's rhetoric in a Japanised form and created experiences of solidarity for followers."
+
+- id: bose2024new
+  type: article
+  authors: ["Bose, Feler"]
+  year: 2024
+  title: "Does the New World Order Worship Satan?"
+  container: "Journal for the Study of Radicalism"
+  volume: "18"
+  issue: "1"
+  pages: "149-180"
+  doi: "10.14321/jstudradi.18.1.0149"
+  url: "https://doi.org/10.14321/jstudradi.18.1.0149"
+  lang: en
+  topics: [religion, origins]
+  summary_fr: "L'article applique l'économie et la sociologie des Églises et des sectes à QAnon : le modèle « sacrifice et stigmate » d'Iannaccone pour la théorie de Q sur les élites et ses précédents historiques, et le modèle Église-secte pour la structure sociale des Anons. Il explique ainsi comment des individus rationnels s'engagent dans ces réseaux complotistes."
+  summary_en: "The article applies the economics and sociology of churches and sects to QAnon: Iannaccone's 'sacrifice and stigma' model for Q's theory of elites and its historical precedents, and the church-sect model for the Anons' social structure. It thereby explains how rational individuals join these conspiratorial networks."
+
+- id: benasher2024sexual
+  type: chapter
+  authors: ["Ben-Asher, Noa"]
+  editors: ["Fischel, Joseph J.", "Cossman, Brenda"]
+  year: 2024
+  title: "Sexual Innocence in Crisis-Justice Movements: A Political Theology"
+  container: "Enticements: Queer Legal Studies"
+  publisher: "New York University Press"
+  pages: "320-342"
+  doi: "10.18574/nyu/9781479807635.003.0016"
+  url: "https://doi.org/10.18574/nyu/9781479807635.003.0016"
+  lang: en
+  topics: [gender, religion]
+  summary_fr: "Chapitre qui met en regard les images publiques de Greta Thunberg et de QAnon, apparues dans la presse en septembre 2020. L'autrice soutient que ces mouvements de « justice de crise », de gauche comme de droite, reposent sur la théologie chrétienne et sur des mythes relatifs à la sexualité et à l'innocence."
+  summary_en: "Chapter contrasting the public images of Greta Thunberg and QAnon as they appeared in the press in September 2020. The author argues that these left- and right-wing 'crisis-justice' movements rely on Christian theology and on myths about sexuality and innocence."
+
+- id: greer2024when
+  type: article
+  authors: ["Greer, Katie", "Beene, Stephanie"]
+  year: 2024
+  title: "When belief becomes research: conspiracist communities on the social web"
+  container: "Frontiers in Communication"
+  volume: "9"
+  doi: "10.3389/fcomm.2024.1345973"
+  url: "https://doi.org/10.3389/fcomm.2024.1345973"
+  open_access: true
+  lang: en
+  topics: [platforms, religion, deradicalization]
+  summary_fr: "Étude de deux sous-groupes QAnon apparus après la phase initiale du mouvement, sous l'angle de la littératie informationnelle. Les auteures y relèvent une religiosité croissante, des états affectifs favorables au complotisme et des lacunes de littératie, et proposent des pistes aux bibliothécaires et aux enseignants."
+  summary_en: "Study of two QAnon subgroups that emerged after the movement's initial phase, through the lens of information literacy. The authors identify growing religiosity, affective states conducive to conspiracy ideation and literacy gaps, and suggest approaches for librarians and educators."
+
+- id: baker2024future
+  type: chapter
+  authors: ["Baker, Stephanie Alice", "McLaughlin, Eugene", "Rojek, Chris"]
+  year: 2024
+  title: "The Future of Cults"
+  container: "Cults"
+  publisher: "Routledge"
+  pages: "141-149"
+  doi: "10.4324/9781003335115-9"
+  url: "https://doi.org/10.4324/9781003335115-9"
+  lang: en
+  topics: [religion, predictions, psychology]
+  summary_fr: "Chapitre qui s'appuie sur le cas de QAnon et sur When Prophecy Fails de Festinger et al. pour examiner l'évolution de la notion de secte au XXIe siècle. Les auteurs proposent la distinction entre sectes « épaisses » et « minces » et soulignent les fonctions sociales et psychologiques que ces groupes remplissent pour leurs membres."
+  summary_en: "Chapter drawing on the QAnon case and Festinger et al.'s When Prophecy Fails to examine how the notion of a cult is shifting in the twenty-first century. The authors introduce a distinction between 'thick' and 'thin' cults and stress the social and psychological functions these groups serve for members."
+
+- id: martin2024borders
+  type: chapter
+  authors: ["Martin, Joshua D."]
+  year: 2024
+  title: "Of Borders and Disorders"
+  container: "American Conspiracism: An Interdisciplinary Exploration"
+  publisher: "Routledge"
+  pages: "234-254"
+  doi: "10.4324/9781003459255-16"
+  url: "https://doi.org/10.4324/9781003459255-16"
+  lang: en
+  topics: [discourse, politics, gender]
+  summary_fr: "Chapitre sur le rôle de la frontière américano-mexicaine dans la théorie du « Grand Remplacement » et dans la variante frontalière de QAnon. L'auteur montre que toutes deux articulent espace, race et genre pour nourrir une panique morale anti-immigrés, QAnon présentant les Américains ordinaires en sauveurs de la nation."
+  summary_en: "Chapter on the role of the US-Mexico border in the Great Replacement theory and in the border variant of QAnon. The author shows that both combine space, race and gender to fuel an anti-immigrant moral panic, with QAnon casting ordinary Americans as the nation's saviours."
+
+- id: vanrijn2026game
+  type: chapter
+  authors: ["van Rijn, Nick"]
+  year: 2026
+  title: "This is not a game, learn to play the game"
+  container: "Playing Politics in Digital Spaces"
+  publisher: "Routledge"
+  pages: "139-151"
+  doi: "10.4324/9781003629542-11"
+  url: "https://doi.org/10.4324/9781003629542-11"
+  lang: en
+  topics: [violence, discourse]
+  summary_fr: "Chapitre qui relit l'Homo Ludens de Huizinga à travers QAnon, dont les règles invitent les adeptes à participer activement à la construction d'un monde. L'auteur soutient que la négation de la dimension ludique, adossée à une vision manichéenne, a servi à justifier des violences comme l'assaut du Capitole du 6 janvier 2021."
+  summary_en: "Chapter rereading Huizinga's Homo Ludens through QAnon, whose rules invite adherents to take an active part in world-making. The author argues that denying the play element, backed by a Manichean worldview, helped justify violence such as the 6 January 2021 attack on the US Capitol."
+
+- id: tarzia2024satan
+  type: chapter
+  authors: ["Tarzia, Fabio"]
+  year: 2024
+  title: "Satan's ways are endless"
+  container: "Conspiracy Theories in Contemporary Italy: Cultural Production and Political Uses"
+  publisher: "Routledge"
+  pages: "120-140"
+  doi: "10.4324/9781032704494-7"
+  url: "https://doi.org/10.4324/9781032704494-7"
+  lang: en
+  topics: [religion, international]
+  summary_fr: "Chapitre sur la convergence entre QAnon et des courants catholiques « traditionalistes » hostiles au pape François, par l'analyse de documents officiels et d'un échantillon de groupes Facebook traditionalistes. L'interprétation des métaphores et de l'imagerie met en évidence une convergence entre évangéliques américains et catholiques, et la réutilisation idéologique de QAnon par ces derniers."
+  summary_en: "Chapter on the convergence between QAnon and 'traditionalist' Catholic currents hostile to Pope Francis, analysing official documents and a sample of traditionalist Facebook groups. Interpreting metaphors and imagery, it highlights a convergence between US evangelicals and Catholics and the latter's ideological reuse of QAnon."
+
+- id: pearce2024game
+  type: chapter
+  authors: ["Pearce, Celia"]
+  year: 2024
+  title: "“This Is Not a Game”: Alternate Reality, Alternative Facts, and the January 6 Insurrection"
+  container: "Playframes: How Do We Know We Are Playing?"
+  publisher: "The MIT Press"
+  pages: "217-252"
+  doi: "10.7551/mitpress/15344.003.0020"
+  url: "https://doi.org/10.7551/mitpress/15344.003.0020"
+  open_access: true
+  lang: en
+  topics: [platforms, violence]
+  summary_fr: "Chapitre d'un ouvrage sur le cadre du jeu, consacré aux jeux en réalité alternée, aux « faits alternatifs » et à l'insurrection du 6 janvier 2021, et ouvert sur la formule « QAnon was a game that played people ». Aucun résumé n'est disponible dans les métadonnées."
+  summary_en: "Chapter of a book on play frames, devoted to alternate reality games, 'alternative facts' and the 6 January 2021 insurrection, opening with the line 'QAnon was a game that played people'. No abstract is available in the metadata."
+
+- id: becktel2025believing
+  type: article
+  authors: ["Becktel, Kalyca Lynn", "Sweetser, Kaye D."]
+  year: 2025
+  title: "Believing in belonging: Rethinking organization–public relationships through the QAnon movement"
+  container: "Public Relations Review"
+  volume: "51"
+  issue: "5"
+  pages: "102621"
+  doi: "10.1016/j.pubrev.2025.102621"
+  url: "https://doi.org/10.1016/j.pubrev.2025.102621"
+  open_access: true
+  lang: en
+  topics: [psychology, belief-surveys]
+  summary_fr: "Étude qui applique les théories des relations publiques (crédibilité de la source, implication, gestion de la relation) au lien entre QAnon, entité sans direction formelle, et ses adeptes, à partir d'une enquête en ligne (N = 579). Les croyants et les non-croyants autodéclarés diffèrent nettement sur ces dimensions, et le sentiment d'appartenance ressort comme un moteur central de l'engagement."
+  summary_en: "A study applying public relations theory (source credibility, issue involvement, relationship management) to the bond between QAnon, an entity without formal leadership, and its adherents, using an online survey (N = 579). Self-identified believers and non-believers differ markedly on these dimensions, and belonging emerges as a key driver of sustained engagement."
+
+- id: exline2026christian
+  type: article
+  authors: ["Exline, Julie J.", "Pait, Kathleen C.", "Keller, Yehudis", "Wilt, Joshua A."]
+  year: 2026
+  title: "Christian nationalism, fundamentalism, traditional masculinity beliefs, and authoritarian aggression: Do these “authority and order” variables predict QAnon belief?"
+  container: "Psychology of Religion and Spirituality"
+  doi: "10.1037/rel0000624"
+  url: "https://doi.org/10.1037/rel0000624"
+  lang: en
+  topics: [psychology, religion, belief-surveys]
+  summary_fr: "Article de psychologie de la religion qui examine si quatre variables d'« autorité et d'ordre » (nationalisme chrétien, fondamentalisme, croyances de masculinité traditionnelle, agression autoritaire) prédisent la croyance en QAnon. Les données de l'étude sont déposées sur OSF ; aucun résumé n'était accessible lors de la vérification."
+  summary_en: "A psychology-of-religion article testing whether four 'authority and order' variables (Christian nationalism, fundamentalism, traditional masculinity beliefs, authoritarian aggression) predict QAnon belief. The study's data are deposited on OSF; no abstract was available at the time of verification."
+
+- id: burdick2025eventually
+  type: article
+  authors: ["Burdick, Jake"]
+  year: 2025
+  title: "Eventually we’ll take the stars: The QAnon Shaman, coloniality, and the conspiritual desire of the other"
+  container: "Review of Education, Pedagogy, and Cultural Studies"
+  volume: "47"
+  issue: "5"
+  pages: "759-769"
+  doi: "10.1080/10714413.2025.2577571"
+  url: "https://doi.org/10.1080/10714413.2025.2577571"
+  open_access: true
+  lang: en
+  topics: [religion, discourse]
+  summary_fr: "Essai théorique sur Jacob Chansley, dit le « QAnon Shaman », dont l'appropriation de l'iconographie et du discours autochtones est lue, à partir de Fanon et de Possamai, comme l'aboutissement colonial de la « conspiritualité ». L'auteur soutient que cette forme de conspiritualité vise à coloniser un espace spirituel autant que physique."
+  summary_en: "A theoretical essay on Jacob Chansley, the so-called 'QAnon Shaman', whose appropriation of Indigenous iconography and discourse is read, through Fanon and Possamai, as the colonial end point of 'conspirituality'. The author argues that this conspirituality seeks to colonise spiritual as well as physical space."
+
+- id: mulcahy2026relational
+  type: book
+  authors: ["Mulcahy, Rian", "Simpson, Jessica"]
+  year: 2026
+  title: "A Relational Approach to the QAnon Movement: The Hidden Pandemic"
+  publisher: "Emerald Publishing Limited"
+  doi: "10.1108/978-1-83797-787-1"
+  url: "https://doi.org/10.1108/978-1-83797-787-1"
+  lang: en
+  topics: [psychology, gender, platforms]
+  summary_fr: "Monographie fondée sur une ethnographie numérique du forum Reddit r/QAnonCasualties, qui analyse dans une perspective féministe et relationnelle l'expérience des proches (famille, conjoints, amis) des adeptes de QAnon. Elle décrit les conséquences sociales et relationnelles de la croyance et les facteurs d'attraction et de répulsion observés par l'entourage."
+  summary_en: "A monograph based on a digital ethnography of the r/QAnonCasualties subreddit, analysing through a feminist, relational lens the experiences of QAnon believers' families, partners and friends. It describes the social and relational consequences of belief and the push and pull factors observed by those close to believers."
+
+- id: coduto2025imagined
+  type: article
+  authors: ["Coduto, Kathryn D.", "Frampton, Jessica R."]
+  year: 2025
+  title: "Imagined Interactions and Intrapsychic Relational Dissolution Processes among QAnon Nonbelievers"
+  container: "Imagination, Cognition and Personality"
+  volume: "45"
+  issue: "4"
+  pages: "402-423"
+  doi: "10.1177/02762366251369890"
+  url: "https://doi.org/10.1177/02762366251369890"
+  lang: en
+  topics: [psychology]
+  summary_fr: "Analyse de contenu qualitative d'interactions imaginées rédigées par des participants dont un proche croit à QAnon. Les thèmes dégagés incluent des scénarios idéaux, la justification de la rupture, l'expression de frustrations et l'évitement de l'interaction imaginée."
+  summary_en: "A qualitative content analysis of imagined interactions written by participants who have a loved one who believes in QAnon. Emerging themes include ideal scenarios, justifying relational termination, venting frustrations and avoiding imagining the interaction."
+
+- id: sweetser2025battle
+  type: article
+  authors: ["Sweetser, Kaye D.", "Becktel, Kalyca Lynn"]
+  year: 2025
+  title: "Battle cry to “Do the research”: Vulnerability to QAnon, Alt Media, and low news media literacy"
+  container: "Journal of Media Literacy Education"
+  volume: "17"
+  issue: "2"
+  pages: "19-36"
+  doi: "10.23860/jmle-2025-17-2-2"
+  url: "https://doi.org/10.23860/jmle-2025-17-2-2"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, media, platforms]
+  summary_fr: "Enquête (N = 579) sur l'éducation aux médias d'information chez les personnes susceptibles de croire aux théories de QAnon. La vulnérabilité à QAnon est prédite par un régime de médias alternatifs (dont 4chan et Snapchat) et par la croyance à d'autres théories du complot, et s'accompagne de scores plus faibles d'éducation aux médias."
+  summary_en: "A survey (N = 579) of news media literacy among people likely to believe QAnon conspiracy theories. Vulnerability to QAnon is predicted by an alternative-media diet (including 4chan and Snapchat) and by belief in other conspiracy theories, and goes with lower news media literacy scores."
+
+- id: corman2024pageantry
+  type: article
+  authors: ["Corman, Lauren"]
+  year: 2024
+  title: "“Pageantry of aggression”: QAnon, animality, and the violent pursuit of whiteness"
+  container: "Frontiers in Communication"
+  volume: "9"
+  pages: "1461250"
+  doi: "10.3389/fcomm.2024.1461250"
+  url: "https://doi.org/10.3389/fcomm.2024.1461250"
+  open_access: true
+  lang: en
+  topics: [discourse, violence]
+  summary_fr: "Article qui analyse, à partir de comptes rendus de presse, la tenue animalisée de Jacob Chansley, dit le « QAnon Shaman », lors de l'assaut du Capitole du 6 janvier 2021. À la croisée de la théorie critique de la race et des études animales critiques, il y voit une mise en scène de la suprématie blanche."
+  summary_en: "An article analysing, through mainstream news accounts, the animal-themed attire of Jacob Chansley, the so-called 'QAnon Shaman', at the 6 January 2021 Capitol riot. Drawing on critical race theory and critical animal studies, it reads it as an enactment of white supremacy."
+
+- id: nelson2025almost
+  type: article
+  authors: ["Nelson, Melissa"]
+  year: 2025
+  title: "Almost, Beyond, or Alongside Fandom? An Alternative Frame for QAnon"
+  container: "Proceedings from the Document Academy"
+  volume: "12"
+  issue: "1"
+  doi: "10.35492/docam/12/1/4"
+  url: "https://doi.org/10.35492/docam/12/1/4"
+  open_access: true
+  lang: en
+  topics: [media, discourse]
+  summary_fr: "Article conceptuel qui passe en revue les études de la désinformation en sciences de l'information et en études de fans, dont les travaux sur les « fans » de QAnon. Il propose la notion de « parafandom » comme cadre pour les formes fanatiques de désinformation."
+  summary_en: "A conceptual paper reviewing research on disinformation in library and information science and in fan studies, including work on QAnon 'fans'. It proposes 'parafandom' as a framework for fannish forms of disinformation."
+
+- id: silva2024new
+  type: article
+  authors: ["Silva, Ergon Cugler de Moraes"]
+  year: 2024
+  title: "New world order, globalism and QAnon communities on Brazilian Telegram: how conspiracism opens doors to more harmful groups"
+  container: "arXiv preprint arXiv:2409.12983"
+  doi: "10.48550/arxiv.2409.12983"
+  url: "https://arxiv.org/abs/2409.12983"
+  open_access: true
+  lang: en
+  topics: [international, platforms]
+  summary_fr: "Prépublication, issue d'une série de sept études à méthode identique, qui caractérise les communautés complotistes brésiliennes de Telegram consacrées au « Nouvel Ordre mondial », au globalisme et à QAnon. QAnon y apparaît comme un récit pivot reliant ces thèmes, dont les mentions augmentent en période de crise."
+  summary_en: "A preprint, part of a series of seven studies using a mirrored method, characterising Brazilian conspiracy communities on Telegram devoted to the 'New World Order', globalism and QAnon. QAnon appears as a hub narrative connecting these themes, whose mentions rise during crises."
+
+- id: matthews2024descartes
+  type: journalism
+  authors: ["Matthews, Taylor"]
+  year: 2024
+  title: "Descartes and the deep state: what 17th-century philosophy reveals about Trump and QAnon"
+  container: "The Conversation"
+  doi: "10.64628/ab.s4wc4d3ve"
+  url: "https://theconversation.com/descartes-and-the-deep-state-what-17th-century-philosophy-reveals-about-trump-and-qanon-229675"
+  lang: en
+  topics: [background, discourse]
+  summary_fr: "Article de vulgarisation qui rapproche la doctrine de l'« État profond » de QAnon du doute radical de Descartes et de son hypothèse d'un « malin génie » trompeur. L'auteur s'appuie sur cette comparaison pour éclairer la quête de certitude des adeptes."
+  summary_en: "A general-audience article comparing QAnon's 'deep state' doctrine with Descartes's radical doubt and his hypothesis of a deceiving 'evil genius'. The author uses the comparison to shed light on adherents' quest for certainty."
+
+- id: janousek2024interconnection
+  type: thesis
+  authors: ["Janoušek, Hynek"]
+  year: 2024
+  title: "Interconnection between the Republican party in the USA and the disinformation movement QAnon"
+  publisher: "Univerzita Karlova"
+  url: "http://www.nusl.cz/ntk/nusl-621273"
+  lang: cs
+  topics: [politics, elections]
+  summary_fr: "Mémoire de master en tchèque (Université Charles, Prague ; titre original : « Propojování Republikánské strany v USA a dezinformačního hnutí QAnon ») sur les liens entre QAnon et le Parti républicain. Il décrit la popularité de QAnon selon l'affiliation partisane, son ciblage des électeurs républicains et son influence sur les élus et l'orientation du parti."
+  summary_en: "A master's thesis in Czech (Charles University, Prague; original title 'Propojování Republikánské strany v USA a dezinformačního hnutí QAnon') on the links between QAnon and the Republican Party. It describes QAnon's popularity by party affiliation, its targeting of Republican supporters and its influence on Republican politicians and the party's direction."
+
+- id: gatenheim2024national
+  type: thesis
+  authors: ["Gatenheim, Cecilia"]
+  year: 2024
+  title: "National Heroes, Digital Soldiers, Vulnerable Children and all the Others: A Critical Discourse Analysis of Videos Communicating the QAnon Conspiracy Theory"
+  publisher: "University of Gothenburg"
+  url: "https://hdl.handle.net/2077/80059"
+  lang: en
+  topics: [discourse, gender]
+  summary_fr: "Mémoire de niveau master (Université de Göteborg, département des sciences culturelles) qui applique l'analyse critique multimodale du discours et la théorie des émotions de Sara Ahmed à des vidéos diffusant la théorie QAnon. Il montre comment ces vidéos opposent un « nous » populaire à une élite « Cabale », hiérarchisent la communauté des adeptes et altérisent les corps migrants, queers ou non conformes."
+  summary_en: "A master's-level thesis (University of Gothenburg, Department of Cultural Sciences) applying multimodal critical discourse analysis and Sara Ahmed's cultural theory of emotions to videos spreading the QAnon theory. It shows how the videos set a popular 'Us' against a 'Cabal' elite, rank the community of adherents and other migrant, queer or non-conforming bodies."
+
+- id: rasoulikolamaki2026multimodal
+  type: article
+  authors: ["Rasoulikolamaki, Sahar", "Mat Isa, Noor Aqsa Nabila", "Zhdanava, Alena", "Hardy, John"]
+  year: 2026
+  title: "Multimodal stance-taking and ideological alignment in online far-right anti-immigration discourse"
+  container: "Language in Society"
+  pages: "1-23"
+  doi: "10.1017/s0047404526102346"
+  url: "https://doi.org/10.1017/s0047404526102346"
+  open_access: true
+  lang: en
+  topics: [discourse, platforms, extremism]
+  summary_fr: "Analyse multimodale critique de la prise de position dans les messages et commentaires anti-immigration du canal Telegram « QAnon+ » (janvier 2021-octobre 2022). Les marqueurs d'attitude, les intensifs et les émojis dominent au détriment de la modalisation, ce qui traduit une intensité affective et une fermeture idéologique."
+  summary_en: "A critical multimodal analysis of stance-taking in anti-immigration posts and comments on the 'QAnon+' Telegram channel (January 2021–October 2022). Attitude markers, boosters and emojis dominate while hedging is scarce, reflecting affective intensity and ideological closure."
+
+- id: hawkins2026fertile
+  type: article
+  authors: ["Hawkins, Ian", "Mede, Niels G.", "Chinn, Sedona"]
+  year: 2026
+  title: "Fertile ground to problematic views? How dark and mainstream social media relate to conspiracy beliefs and fake news"
+  container: "Humanities and Social Sciences Communications"
+  volume: "13"
+  issue: "1"
+  pages: "953"
+  doi: "10.1057/s41599-026-07147-6"
+  url: "https://doi.org/10.1057/s41599-026-07147-6"
+  open_access: true
+  lang: en
+  topics: [belief-surveys, platforms]
+  summary_fr: "Enquête transversale auprès de sympathisants de l'alt-right et de démocrates et républicains américains sur les liens entre identité politique, usage des réseaux sociaux grand public et « sombres », partage de fausses nouvelles et croyance à deux théories du complot (QAnon, 5G et COVID-19). L'usage des deux types de plateformes est associé à davantage de partage et de croyance chez les sympathisants de l'alt-right que dans les autres groupes."
+  summary_en: "A cross-sectional survey of Alt-Right supporters and US Democrats and Republicans on how political identity and use of mainstream and dark social media relate to fake news sharing and belief in two conspiracy theories (QAnon, 5G causing COVID-19). Use of both platform types is associated with more sharing and belief among Alt-Right supporters than in the other groups."
+
+- id: conway2024repressive
+  type: article
+  authors: ["Conway, Philip R."]
+  year: 2024
+  title: "Repressive suspicion, or: the problem with conspiracy theories"
+  container: "Cultural Studies"
+  volume: "39"
+  issue: "4"
+  pages: "514-545"
+  doi: "10.1080/09502386.2024.2364260"
+  url: "https://doi.org/10.1080/09502386.2024.2364260"
+  open_access: true
+  lang: en
+  topics: [discourse, politics]
+  summary_fr: "Article qui forge le concept de « soupçon répressif » à partir d'une étude de réception de QAnon retraçant comment l'un des participants les plus visibles de l'assaut du Capitole du 6 janvier 2021 s'est engagé dans la culture « Q ». Le concept est ensuite développé avec Marcuse, puis Gramsci, Stuart Hall et Nancy Fraser, QAnon étant lu comme un microcosme de la crise d'hégémonie contemporaine."
+  summary_en: "An article coining the concept of 'repressive suspicion' through a reception study of QAnon that traces how one of the most prominent participants in the 6 January 2021 Capitol attack became wrapped up in 'Q' culture. The concept is then developed with Marcuse and with Gramsci, Stuart Hall and Nancy Fraser, reading QAnon as a microcosm of the contemporary crisis of hegemony."
+
+- id: fountain2025presencing
+  type: article
+  authors: ["Fountain, T. Kenny", "Jennings, Chandler"]
+  year: 2025
+  title: "Presencing, Immersion, and Community: How Conspiracy Theory Belief Is Kindled Online"
+  container: "Nova Religio"
+  volume: "28"
+  issue: "3"
+  pages: "79-103"
+  doi: "10.1353/nvr.2025.a949121"
+  url: "https://doi.org/10.1353/nvr.2025.a949121"
+  lang: en
+  topics: [religion, psychology, platforms]
+  summary_fr: "Article qui mobilise les études religieuses, la psychologie et la rhétorique, notamment le modèle de Tanya Luhrmann sur la formation de la croyance, pour soutenir que les expériences d'absorption et d'immersion nourrissent la croyance complotiste en ligne. Des données d'ethnographie numérique illustrent ces mécanismes dans la vie en ligne de QAnon, théorie du complot à coloration religieuse."
+  summary_en: "An article drawing on religious studies, psychology and rhetoric, notably Tanya Luhrmann's model of how belief is formed, to argue that absorption and immersion experiences foster conspiracy belief online. Digital ethnographic data illustrate these mechanisms in the online life of QAnon as a religiously inflected conspiracy theory."
+
+- id: carmichael2024domestic
+  type: report
+  authors: ["Carmichael, Camden", "Buxton, Brooke", "Hughes, Seamus", "Braun, Clara"]
+  year: 2024
+  title: "Domestic Terrorism: How the US Legal System is Falling Short"
+  publisher: "International Centre for Counter Terrorism"
+  doi: "10.19165/2024.3813"
+  url: "https://doi.org/10.19165/2024.3813"
+  open_access: true
+  lang: en
+  topics: [violence, extremism]
+  summary_fr: "Rapport qui examine, à partir de 26 affaires liées à QAnon et 18 affaires incel poursuivies au niveau fédéral, comment le système judiciaire américain recourt à des chefs d'accusation non terroristes face à l'extrémisme violent intérieur. Il propose un cadre juridique élargi reconnaissant notamment l'extrémisme violent motivé par des théories du complot comme catégorie de menace."
+  summary_en: "A report examining, through 26 QAnon-related and 18 incel federal prosecutions, how the US prosecutorial system uses non-terrorism charges against domestic violent extremism. It proposes a broader legal framework recognising, among others, conspiracy-theory-motivated violent extremism as a threat category."
+
+- id: hughes2024first
+  type: chapter
+  authors: ["Hughes, Brian"]
+  year: 2024
+  title: "First Thoughts on a Second Qoming"
+  container: "Selling the Sacred"
+  publisher: "Routledge"
+  pages: "122-136"
+  doi: "10.4324/9781003342229-10"
+  url: "https://doi.org/10.4324/9781003342229-10"
+  lang: en
+  topics: [religion, discourse]
+  summary_fr: "Chapitre qui explore, avec le modèle d'« économie occulte » des Comaroff, les rapports de la sous-culture QAnon à la magie et à la sorcellerie d'une part, aux marchés et à la finance d'autre part. Il décrit comment QAnon interprète la richesse comme le produit de forces occultes, avec une valence positive ou, à l'inverse, accusatrice et violente."
+  summary_en: "A chapter using the Comaroffs' 'occult economy' model to explore the QAnon subculture's relationship with magic and witchcraft on the one hand, and markets and finance on the other. It describes how QAnon interprets wealth as the outcome of occult forces, with either a positive valence or an accusatory, even violent one."
+
+- id: finlayson2024save
+  type: chapter
+  authors: ["Finlayson, Alan", "Topinka, Robert"]
+  year: 2024
+  title: "‘We Have to Save the Children’"
+  container: "Ethos, Technology, and AI in Contemporary Society"
+  publisher: "Routledge"
+  pages: "205-228"
+  doi: "10.4324/9781032688503-11"
+  url: "https://doi.org/10.4324/9781032688503-11"
+  lang: en
+  topics: [discourse, platforms]
+  summary_fr: "Chapitre de théorie rhétorique sur l'« ethos » de la « politique numérique réactionnaire », compris comme l'effet de la relation participative entre orateur et public façonnée par les plateformes. Deux études de cas tirées de QAnon montrent comment l'identification à un ethos de participation héroïque est inscrite dans les procédures mêmes de création et de circulation des contenus."
+  summary_en: "A rhetorical-theory chapter on the ethos of 'Reactionary Digital Politics', understood as an effect of the participatory speaker–audience relationship shaped by platform affordances. Two case studies from QAnon show how identification with an ethos of heroic participation is embedded in the very procedures for creating and circulating content."
+
+- id: gomez2024frohmann
+  type: article
+  authors: ["Pacheco Gómez, Michelle", "Freire, Isa Maria", "Lienert Lubisco, Nídia Maria"]
+  year: 2024
+  title: "Frohmann ou González de Gómez: fique com os dois!"
+  container: "Revista Conhecimento em Ação"
+  volume: "9"
+  pages: "e62838"
+  doi: "10.47681/rca.v9i.62838"
+  url: "https://doi.org/10.47681/rca.v9i.62838"
+  open_access: true
+  lang: pt
+  topics: [international, discourse]
+  summary_fr: "Article de sciences de l'information qui applique les théories du « régime d'information » de Frohmann et de González de Gómez aux données d'une recherche sur QAnon, menée par analyse documentaire et observation non participante. Il décrit les acteurs, dispositifs et artefacts par lesquels le réseau QAnon exerce son emprise sur ses utilisateurs."
+  summary_en: "An information-science article applying Frohmann's and González de Gómez's theories of the 'information regime' to data from research on QAnon conducted through documentary analysis and non-participant observation. It describes the actors, devices and artefacts through which the QAnon network exerts its hold over its users."
+
+- id: wilt2025forms
+  type: article
+  authors: ["Wilt, Caitlyn"]
+  year: 2025
+  title: "Forms of Social Solidarity in American Politics"
+  container: "Berkeley Undergraduate Journal"
+  volume: "39"
+  issue: "1"
+  doi: "10.5070/b3.50664"
+  url: "https://doi.org/10.5070/b3.50664"
+  open_access: true
+  lang: en
+  topics: [politics, background]
+  summary_fr: "Article d'une revue étudiante de premier cycle qui interroge l'essor de QAnon à l'aide de la théorie de la solidarité sociale d'Émile Durkheim. L'autrice conclut que QAnon constitue une poche de solidarité mécanique au sein de deux sociétés à solidarité organique, les États-Unis et l'internet."
+  summary_en: "An undergraduate-journal article examining QAnon's rise through Émile Durkheim's theory of social solidarity. The author concludes that QAnon forms a pocket of mechanical solidarity within two organic societies, the United States and the internet at large."
+
+- id: haiven2026derivative
+  type: chapter
+  authors: ["Haiven, Max"]
+  year: 2026
+  title: "Derivative Fascisms and Conspiracy Play"
+  container: "The Player and the Played"
+  publisher: "The MIT Press"
+  pages: "63-92"
+  doi: "10.7551/mitpress/16008.003.0005"
+  url: "https://doi.org/10.7551/mitpress/16008.003.0005"
+  open_access: true
+  lang: en
+  topics: [discourse, extremism]
+  summary_fr: "Chapitre d'une monographie sur le fascisme « gamifié » et la financiarisation, qui part du cas de QAnon, de ses messages codés et de sa diffusion internationale par une sorte de « franchise » complotiste produite par les utilisateurs. L'auteur soutient que les principes fondamentaux de QAnon se sont largement diffusés malgré le déclin du mouvement après le 6 janvier 2021."
+  summary_en: "A chapter of a monograph on 'gamified' fascism and financialisation, starting from the case of QAnon, its coded messages and its international spread as a kind of user-generated conspiracy franchise. The author argues that QAnon's core tenets have spread widely despite the movement's decline after 6 January 2021."
+
+- id: appleby2025trust
+  type: thesis
+  authors: ["Appleby, Margaret Fannon"]
+  year: 2025
+  title: "Trust the Game: Gamification and the Rise of Online Conspiracy Theories"
+  publisher: "Virginia Tech"
+  url: "https://hdl.handle.net/10919/124213"
+  open_access: true
+  lang: en
+  topics: [psychology, methods, politics]
+  summary_fr: "Thèse de doctorat qui examine comment la gamification a contribué à faire passer QAnon des marges d'internet au discours politique dominant. Deux expériences par questionnaire (sur une théorie concernant Tupac et sur l'élection « volée » de 2020) donnent des résultats significatifs pour la première et mitigés pour la seconde quant à l'effet persuasif de la gamification."
+  summary_en: "A doctoral dissertation examining how gamification helped QAnon move from the fringes of the internet into mainstream political discourse. Two survey experiments (on a Tupac conspiracy theory and on the 'stolen' 2020 election) yield significant evidence of gamification's persuasive effect in the first and mixed evidence in the second."
+
+- id: heyes2024praying
+  type: chapter
+  authors: ["Heyes, Michael E."]
+  year: 2024
+  title: "Praying on Fear"
+  container: "Demons in the USA"
+  publisher: "Routledge"
+  pages: "183-221"
+  doi: "10.4324/9781003492542-7"
+  url: "https://doi.org/10.4324/9781003492542-7"
+  lang: en
+  topics: [religion, origins]
+  summary_fr: "Chapitre qui lit QAnon comme une continuation de la panique sataniste et d'un courant anti-spirite, à partir du vocabulaire de sainteté et de guerre spirituelle des messages d'« Anons ». Il retrace les filiations historiques que ces messages établissent entre les deux mouvements et leurs sources (écrits et entretiens de Malachi Martin, entre autres)."
+  summary_en: "Chapter reading QAnon as a continuation of the Satanic Panic and of an anti-Spiritualist current, based on the language of sanctity and spiritual warfare in Anons' posts. It traces the historical lines these posts draw between the two movements and their sources (Malachi Martin's writings and interviews, among others)."
+
+# ---------------------------------------------------------------- veille bibliographique (suite)
+
+- id: ruffini2025qanon
+  type: chapter
+  authors: ["Ruffini, Joseph A.", "Ruffini, Patricia A."]
+  year: 2025
+  title: "QAnon"
+  container: "U.S. Domestic and Transnational Terrorism"
+  publisher: "CRC Press"
+  pages: "257-261"
+  doi: "10.4324/9781003627821-24"
+  url: "https://doi.org/10.4324/9781003627821-24"
+  lang: en
+  topics: [background, extremism]
+  summary_fr: "Courte notice d'un ouvrage de référence sur le terrorisme intérieur et transnational aux États-Unis, présentant le mouvement QAnon, ses origines sur 4chan et sa diffusion sur les grands réseaux sociaux. Elle passe en revue ses théories sur la COVID-19, Hillary Clinton, les machines de vote de 2020, la mort de John F. Kennedy Jr. et l'« État profond »."
+  summary_en: "A short entry in a reference work on US domestic and transnational terrorism, presenting the QAnon movement, its origins on 4chan and its spread to major social media platforms. It reviews its theories about COVID-19, Hillary Clinton, 2020 voting machines, John F. Kennedy Jr.'s death and the 'deep state'."

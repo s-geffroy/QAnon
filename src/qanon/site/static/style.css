@@ -152,3 +152,11 @@ table.narrow { width: auto; }
 .caution { background: var(--surface-2); padding: .6rem .8rem; border-radius: 6px; font-size: .92rem; }
 ul.plain { padding-left: 1.1rem; }
 .tag.dead { --c: var(--series-2); }
+.paper { max-width: 46rem; }
+.paper p { text-align: justify; hyphens: auto; }
+.paper-refs li { font-size: .9rem; }
+.paper-table { width: 100%; font-size: .85rem; margin: 1rem 0; }
+.paper-table caption { text-align: left; font-weight: 600; margin-bottom: .4rem; }
+.paper-fig svg { width: 100%; height: auto; }
+.paper-fig figcaption { font-size: .85rem; color: var(--ink-2); }
+@media (prefers-color-scheme: dark) { .paper-fig svg { background: #fbfaf7; border-radius: 6px; } }

@@ -1,8 +1,10 @@
 FROM python:3.13-slim
 
-# git : publication du site sur la branche gh-pages.
+# git : publication du site sur la branche gh-pages. Pango et polices : PDF du
+# document de travail (WeasyPrint).
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git ca-certificates \
+      libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 fonts-dejavu-core fonts-liberation \
  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

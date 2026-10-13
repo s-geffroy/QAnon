@@ -861,3 +861,7 @@ T["fr"]["pred_caveat"] += " Les paraphrases, produites en anglais par le modèle
 T["fr"]["horo_examples"] = "Quand le hasard « confirme » Q : listes tirées au hasard jugées liées (justification du modèle, traduite)"
 T["fr"]["horo_robust"] = "Robustesse : un second modèle, {model}, a repris les mêmes questions pour {n} drops. Les deux modèles font le même choix dans {agree} des comparaisons « avenir » (kappa de Cohen {kappa}) et {agree_p} des comparaisons « passé ». Sur ce sous-échantillon, la vraie période « avenir » est choisie dans {fc} des cas tranchés par le second modèle (p = {fpv}) contre {fm} par le modèle principal ; pour le passé, {pc} contre {pm}."
 T["en"]["horo_robust"] = "Robustness: a second model, {model}, answered the same questions for {n} drops. The two models make the same choice in {agree} of \"future\" comparisons (Cohen's kappa {kappa}) and {agree_p} of \"past\" comparisons. On this subsample, the real \"future\" period is chosen in {fc} of the second model's decided cases (p = {fpv}) against {fm} for the main model; for the past, {pc} against {pm}."
+T["fr"].update({"nav_paper": "Article", "paper_title": "Document de travail", "paper_doi": "10.5281/zenodo.23338131",
+  "paper_fr_only": ""})
+T["en"].update({"nav_paper": "Paper", "paper_title": "Working paper", "paper_doi": "10.5281/zenodo.23338131",
+  "paper_fr_only": "The full text is in French (HTML on the French page, PDF above); this English abstract summarises it."})
