@@ -90,7 +90,7 @@ class Site:
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
                                                 "llm_eval", "predictions", "verification", "stats",
-                                                "horoscope", "prophecies")}
+                                                "horoscope", "prophecies", "translations")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
         self._figures = {}
@@ -388,10 +388,12 @@ class Site:
                                                 spec=n(spec.get("specific", 0)), vague=n(spec.get("vague", 0))),
                 "explicit": [{"drop": x["drop_id"], "date": c["date"](x["date"]), "deadline": c["date"](x["deadline"])
                               if re.match(r"\d{4}-\d{2}-\d{2}$", str(x["deadline"])) else x["deadline"],
-                              "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"]}
+                              "type": t.get(f"et_{x['event_type']}", x["event_type"]),
+                              "claim": self.tr(f"{x['drop_id']}-{x.get('k', 0)}", x["claim"], lang)}
                              for x in pr["explicit"]],
                 "specific": [{"drop": x["drop_id"], "date": c["date"](x["date"]),
-                              "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"]}
+                              "type": t.get(f"et_{x['event_type']}", x["event_type"]),
+                              "claim": self.tr(f"{x['drop_id']}-{x.get('k', 0)}", x["claim"], lang)}
                              for x in pr["specific"]],
                 "charts": {"monthly": charts.pred_monthly(pr, lang), "types": charts.pred_types(pr, lang),
                            "actors": charts.pred_actors(pr, lang)},
@@ -417,8 +419,8 @@ class Site:
                           sorted(ve["by_type"].items(), key=lambda kv: -kv[1]["n"])],
                 "list": [{"key": x["key"], "drop": x["drop_id"], "date": c["date"](x["date"]), "verdict": x["verdict"],
                            "verdict_label": t[f"vd_{x['verdict']}"], "trivial": x["trivial"],
-                           "type": t.get(f"et_{x['event_type']}", x["event_type"]), "claim": x["claim"],
-                           "explanation": x.get(f"explanation_{lang}") or "", "sources": [self.src(u) for u in x["sources"]]}
+                           "type": t.get(f"et_{x['event_type']}", x["event_type"]),
+                           "claim": self.tr(x["key"], x["claim"], lang), "explanation": x.get(f"explanation_{lang}") or "", "sources": [self.src(u) for u in x["sources"]]}
                           for x in ve["items"]],
             }
         ho = self.r.get("horoscope")
@@ -444,7 +446,8 @@ class Site:
                     none=p(f["none"] / f["n"], 0) if f.get("n") else "—", barnum=p(f.get("share_random_ge5") or 0, 0)),
                 "reading": t["horo_reading" if (f.get("share_true_decided") or 0) <= (pa.get("share_true_decided") or 0)
                              else "horo_reading_alt"].format(none=p(f["none"] / f["n"], 0) if f.get("n") else "—"),
-                "examples": f.get("examples", [])[:5],
+                "examples": [{**e, "reason": self.tr(f"horo:future:{e['drop_id']}", e["reason"], lang)}
+                             for e in f.get("examples", [])[:5]],
                 "method": t["horo_method"].format(n=n(ho["n_sample"]), items=n(ho["n_items"]), model=ho["model"]),
             }
             out.setdefault("charts", {})["horo"] = charts.horoscope(ho, lang)
@@ -460,7 +463,8 @@ class Site:
                 "groups": [{"subject": f"{t.get('et_' + g['event_type'], g['event_type'])} — {names.get(g['actor'], g['actor'])}",
                             "n": n(g["n"]), "months": n(g["months"]), "first": c["date"](g["first"]),
                             "last": c["date"](g["last"]), "after": n(g["after_failure"]),
-                            "verdicts": vlab(g["verdicts"]) or "—", "claim": g["claim"]} for g in rc["groups"]],
+                            "verdicts": vlab(g["verdicts"]) or "—",
+                            "claim": self.tr(g.get("claim_key", ""), g["claim"], lang)} for g in rc["groups"]],
             }
             out.setdefault("charts", {})["recy"] = charts.recycled(rc, names, lang)
             if fp.get("n"):
@@ -748,6 +752,12 @@ class Site:
             except sqlite3.OperationalError:
                 self._links = {}
         return self._links
+
+    def tr(self, key, text, lang):
+        """Paraphrase dans la langue de la page : traduction francaise si elle existe."""
+        if lang != "fr":
+            return text
+        return ((self.r.get("translations") or {}).get("fr") or {}).get(key) or text
 
     def src(self, url):
         """Source citee : adresse et, si le lien est mort, sa copie archivee."""

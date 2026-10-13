@@ -159,3 +159,8 @@ CREATE TABLE IF NOT EXISTS link_check (
     url TEXT PRIMARY KEY, origin TEXT, state TEXT, code INTEGER, archive TEXT, checked_at INTEGER, pass TEXT
 );
 """
+
+SCHEMA += """
+-- Traductions francaises des paraphrases anglaises (predictions, justifications) ; voir llm/translate.py.
+CREATE TABLE IF NOT EXISTS llm_translate (key TEXT PRIMARY KEY, src_sha TEXT, fr TEXT, model TEXT, created_at INTEGER);
+"""

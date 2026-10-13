@@ -51,7 +51,7 @@ def recycled(preds, verdicts):
             "event_type": et, "actor": actor, "n": len(g), "n_drops": int(g["drop_id"].nunique()),
             "first": g["date"].iloc[0], "last": g["date"].iloc[-1],
             "span_days": int((pd.Timestamp(g["date"].iloc[-1]) - pd.Timestamp(g["date"].iloc[0])).days),
-            "months": int(g["month"].nunique()), "claim": g["claim"].iloc[centre],
+            "months": int(g["month"].nunique()), "claim": g["claim"].iloc[centre], "claim_key": g["key"].iloc[centre],
             "n_deadlines": int(g["deadline"].notna().sum()),
             "verdicts": dict(Counter(v for v in g["verdict"] if v)),
             "first_failed_deadline": first_fail, "after_failure": after,

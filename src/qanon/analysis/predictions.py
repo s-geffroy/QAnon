@@ -77,9 +77,9 @@ def run(ctx):
         "by_year": (P.assign(year=P["date"].str[:4]).groupby(["year", "specificity"]).size()
                     .reset_index(name="n").to_dict("records")) if len(P) else [],
         "actors": [{"id": a, "name": names.get(a, a), "n": n} for a, n in actor_counts.most_common(40)],
-        "explicit": explicit[["drop_id", "date", "deadline", "event_type", "specificity", "claim", "subjects"]]
+        "explicit": explicit[["drop_id", "k", "date", "deadline", "event_type", "specificity", "claim", "subjects"]]
                     .to_dict("records") if len(P) else [],
-        "specific": P[P["specificity"] == "specific"][["drop_id", "date", "deadline", "deadline_type", "event_type",
+        "specific": P[P["specificity"] == "specific"][["drop_id", "k", "date", "deadline", "deadline_type", "event_type",
                                                        "claim", "subjects"]].to_dict("records") if len(P) else [],
     }
     write(ctx, "predictions_all", {"predictions": preds})

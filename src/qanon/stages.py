@@ -6,6 +6,7 @@ from .analysis import actors, descriptive, discourse, interest, news, prediction
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
+from .llm import translate
 from .pipeline import Stage
 from .site import build, publish
 from .sources import biblio_watch, gdelt, links, pageviews, qdrops, timeline, tweets, wikinews
@@ -31,7 +32,7 @@ STAGES = [
           inputs=("fetch_qdrops", "analyze_descriptive", "analyze_trump", "analyze_discourse", "analyze_actors",
                   "analyze_interest", "analyze_stats"),
           optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification", "analyze_prophecies",
-                    "llm_horoscope", "watch_biblio", "check_links")),
+                    "llm_horoscope", "watch_biblio", "check_links", "llm_translate")),
     # Plusieurs heures au premier passage : reprend au dernier jour traite.
     Stage("fetch_gdelt", gdelt.run, keep_cursor=True),
     Stage("analyze_news", news.run, inputs=("fetch_qdrops", "fetch_gdelt"), code=True),
@@ -58,4 +59,8 @@ STAGES += [
 STAGES += [
     # Chaque semaine : liens morts, bloques aux robots, copies archivees proposees (~15 min, par lots).
     Stage("check_links", links.run, refresh=WEEK),
+]
+STAGES += [
+    # Payant (~0,10 $) : seules les paraphrases nouvelles ou modifiees sont traduites.
+    Stage("llm_translate", translate.run, inputs=("analyze_predictions",), optional=("llm_horoscope",), code=True),
 ]
