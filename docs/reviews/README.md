@@ -15,4 +15,7 @@ Suites donnees (13/10/2026) :
 - FAQ : serie PRRI decrite exactement, « Q citait parfois Trump », redite retiree.
 - kit pedagogique : autocitations conformes a la mesure, taux de classe presente
   comme illustration, « une etude » (Levin) au lieu de « les etudes ».
-- etat de la recherche : revue en echec cote API (AbandonedJobError), non relancee.
+- etat de la recherche : premiere revue en echec cote API (AbandonedJobError) ; resoumise a la demande du
+  proprietaire : generalisation « la plupart des etudes » ramenee a la bibliographie du site (« a notre
+  connaissance »), « citoyens souverains » et « expertise populiste » definis ; remarques de structure et de
+  style laissees a la decision de l'auteur.
