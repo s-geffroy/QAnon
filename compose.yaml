@@ -23,6 +23,8 @@ services:
     # l'hote : le worker tourne en utilisateur non privilegie.
     secrets:
       - openai_api_key
+      # Jeton GitHub limite au depot (Contents: read/write) : publication automatique de gh-pages.
+      - github_token
     deploy:
       resources:
         limits:
@@ -47,6 +49,8 @@ services:
 secrets:
   openai_api_key:
     file: /etc/app-secrets/qanon/openai_api_key
+  github_token:
+    file: /etc/app-secrets/qanon/github_token
 
 networks:
   internal:

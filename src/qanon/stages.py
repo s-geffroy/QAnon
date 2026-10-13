@@ -7,7 +7,7 @@ from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
 from .pipeline import Stage
-from .site import build
+from .site import build, publish
 from .sources import biblio_watch, gdelt, pageviews, qdrops, timeline, tweets, wikinews
 
 WEEK = 7 * 86400
@@ -49,4 +49,9 @@ STAGES += [
     Stage("fetch_wikinews_raw", wikinews.run, keep_cursor=True),
     # Payant (~0,60 $) : seules les questions sans reponse sont posees.
     Stage("llm_horoscope", horoscope.run, inputs=("fetch_qdrops", "fetch_wikinews_raw"), code=True),
+]
+STAGES += [
+    # Apres chaque reconstruction du site (dont la veille hebdomadaire) : push gh-pages, si le secret
+    # github_token est monte ; sinon publication manuelle (scripts/publish-pages.sh).
+    Stage("publish_pages", publish.run, inputs=("build_site",), code=True),
 ]

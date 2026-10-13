@@ -26,13 +26,16 @@ publiee en site bilingue FR/EN sur GitHub Pages
 | `llm_eval` | evaluation des modeles OpenAI sur `src/data/gold.jsonl` (secret `openai_api_key`) |
 | `build_site` | site statique FR/EN dans `/state/site` (18 pages, donnees telechargeables) |
 | `fetch_gdelt` | GDELT 1.0, un fichier par jour 2017-10 → 2021-01, agrege et reprenable (~1 h) |
+| `publish_pages` | push de `gh-pages` apres chaque reconstruction (secret `github_token`) |
 | `analyze_news` | Q contre l'actualite : surrepresentation, correlations decalees, Granger |
 
-La publication ne passe pas par le worker (aucun jeton GitHub dans le
-conteneur) : `scripts/publish-pages.sh`, lance depuis l'hote, extrait
-`/state/site` via `appctl run` et le pousse en SSH sur la branche `gh-pages`
-(un seul commit, force-push). GitHub : Settings → Pages → *Deploy from a
-branch* → `gh-pages` / `(root)`.
+Publication : apres chaque reconstruction du site, l'etape `publish_pages`
+pousse `/state/site` sur la branche `gh-pages` (un seul commit, force-push) en
+HTTPS, avec un jeton GitHub « fine-grained » limite au depot (droit Contents:
+Read and write) lu dans le secret `github_token`
+(`/etc/app-secrets/qanon/github_token`, 0444). Le jeton n'apparait ni dans les
+logs ni dans l'URL. A renouveler a son expiration ; en cas de fuite, le revoquer
+sur GitHub. En secours, `scripts/publish-pages.sh` publie en SSH depuis l'hote.
 
 Donnees editoriales versionnees dans `src/data/` : chronologie, acteurs,
 glossaire, bibliographie, etat de la recherche (`research.yaml`), FAQ (`faq.yaml`),
