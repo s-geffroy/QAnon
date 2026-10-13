@@ -7,6 +7,7 @@ reperee mais non verifiee), calcule au rendu contre bibliography.yaml et
 data/biblio_watch_review.yaml."""
 import datetime as dt
 import re
+import time
 
 import requests
 
@@ -56,6 +57,7 @@ def crossref():
         cursor = msg.get("next-cursor")
         if not msg["items"] or not cursor:
             break
+        time.sleep(2)  # politesse : l'API publique limite le debit
     return out
 
 
@@ -83,6 +85,7 @@ def openalex():
         cursor = js["meta"].get("next_cursor")
         if not js["results"] or not cursor:
             break
+        time.sleep(1)
     return out
 
 

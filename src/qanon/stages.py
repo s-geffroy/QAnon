@@ -19,7 +19,7 @@ STAGES = [
     Stage("load_timeline", timeline.run, code=True),
     Stage("fetch_pageviews", pageviews.run),
     # Chaque semaine : publications nouvelles sur QAnon (Crossref, OpenAlex), publiees avec leur etat.
-    Stage("watch_biblio", biblio_watch.run, refresh=WEEK, code=True),
+    Stage("watch_biblio", biblio_watch.run, refresh=WEEK),
     Stage("analyze_descriptive", descriptive.run, inputs=("fetch_qdrops", "load_timeline"), code=True),
     Stage("analyze_trump", trump.run, inputs=("fetch_qdrops", "fetch_tweets"), code=True),
     Stage("analyze_discourse", discourse.run, inputs=("fetch_qdrops",), code=True),
