@@ -519,9 +519,14 @@ class Site:
         t = T[lang]
         def one(par):
             out, pos = [], 0
-            for m in re.finditer(r"\[(@[^\]]+)\]|\[\[([a-z]+)\]\]|\{fig:([a-z0-9-]+)\}", par):
+            for m in re.finditer(r"\[(@[^\]]+)\]|\[\[([a-z]+)\]\]|\{fig:([a-z0-9-]+)\}|\{val:([a-z0-9_]+)\}", par):
                 out.append(str(escape(par[pos:m.start()])))
-                if m.group(3):
+                if m.group(4):
+                    vals = self.values(lang)
+                    if m.group(4) not in vals:
+                        raise KeyError(f"valeur inconnue dans un texte : {m.group(4)}")
+                    out.append(str(escape(vals[m.group(4)])))
+                elif m.group(3):
                     out.append(str(self.fig(lang, m.group(3))))
                 elif m.group(1):
                     out.append(str(self.cite(*[x.strip().lstrip("@") for x in m.group(1).split(";")])))
@@ -630,6 +635,24 @@ class Site:
             f["citation"] = t["fig_citation"].format(year=year, text=quoted, version=VERSION, url=f["url"])
         self._figures[lang] = F
         return F
+
+    def values(self, lang):
+        """Valeurs isolees citees dans les textes ({val:cle}), recalculees a chaque rendu."""
+        c = self.base(lang)
+        n = c["n"]
+        r = self.r
+        tr = r["trump"]
+        t5 = next(x for x in tr["tests"] if x["window_s"] == 300 and x["direction"] == "tweet_after_drop" and x["null"] == "local")
+        v = {"tweets_per_day": n(tr["tweets_per_day"]), "p_deltas": n(t5["p_value"], 3), "n_trump_tests": n(len(tr["tests"])),
+             "n_perm": n(tr["n_perm"])}
+        if r["news"]:
+            ranked = sorted([a for a in r["news"]["actors"] if a.get("overrep") and a["q"] >= 30], key=lambda a: -a["overrep"])
+            if ranked:
+                v["top_overrep"] = "×" + n(ranked[0]["overrep"], 1)
+                v["top_overrep_raw"] = n(ranked[0]["overrep"], 1)
+        if r["verification"] and r["verification"].get("overall"):
+            v["n_unverifiable"] = n(r["verification"]["overall"]["unverifiable"])
+        return v
 
     def fig(self, lang, fid):
         """Lien vers un chiffre cle, pour les textes (FAQ)."""

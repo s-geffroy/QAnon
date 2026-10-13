@@ -71,6 +71,7 @@ Puis, apres modification :
 
 ```bash
 tests/test_smoke.sh      # dans un conteneur jetable : cycle, battement, arret propre, pytest
+tests/test_site.sh       # site genere depuis l'etat reel : graphes, JSON-LD, renvois, liens et ancres
 sudo appctl validate
 sudo appctl rebuild
 sudo appctl status       # le conteneur doit passer 'healthy'
