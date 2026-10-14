@@ -20,18 +20,43 @@ def make_archive(path, threads):
     path.write_bytes(zstandard.ZstdCompressor().compress(raw.getvalue()))
 
 
-def post(no, t, com, sub=None):
-    p = {"no": str(no), "time": str(t), "com": com, "entities": "[]", "perspectives": "{'TOXICITY': 0.5}"}
+def post(no, t, com, sub=None, trip=None):
+    """Post au format reel de l'archive (verifie sur le fichier Zenodo) : no et time entiers,
+    entites en liste de dicts, parfois sous la cle mal orthographiee « entitites »,
+    perspectives en dict ou [] quand elles manquent, tripcode dans « trip »."""
+    p = {"no": no, "time": t, "com": com, "perspectives": [] if no % 10 == 3 else {"TOXICITY": 0.5}}
+    p["entitites" if no % 4 == 3 else "entities"] = [
+        {"entity_text": "Soros", "entity_start": 0, "entity_end": 5, "entity_label": "PERSON"}]
     if sub:
         p = {"sub": sub, **p}
+    if trip:
+        p["trip"] = trip
     return p
 
 
 def test_text_of_and_thread_time():
     assert pol.text_of('Calm<br>before &gt;&gt;123 <span class="quote">&gt;the storm</span>') == \
         "Calm\nbefore >>123 >the storm"
-    line = json.dumps({"posts": [post(1, 1509200000, "x")]}).encode()
+    line = json.dumps({"posts": [{"archived_on": 1509300000, "no": 1, "time": 1509200000, "tim": 1509200000123}]}).encode()
     assert pol.thread_time(line) == 1509200000
+    assert pol.thread_time(b'{"posts": [{"no": "1", "time": "1509200000"}]}') == 1509200000
+
+
+def test_fields_of_real_archive():
+    assert pol.entities_of({"entitites": [{"entity_text": "Q", "entity_label": "PERSON"}]}) == [("Q", "PERSON")]
+    assert pol.entities_of({"entities": "[{'entity_text': 'Q', 'entity_start': 0, 'entity_label': 'ORG'}]"}) == [("Q", "ORG")]
+    assert pol.entities_of({}) == []
+    assert pol.perspectives_of({"perspectives": {"TOXICITY": 0.25}}) == [("TOXICITY", 0.25)]
+    assert pol.perspectives_of({"perspectives": []}) == []
+
+
+def test_q_tripcode_enters_qcorpus():
+    from qanon import lexicon
+    terms = lexicon.load()
+    acc = pol.Scan()
+    posts = [post(10, 1509200000, "nothing here"), post(11, 1509200060, "plain words", trip="!ITPb.qbhqo")]
+    pol.process_thread(posts, terms, lexicon.Matcher(terms), set(), set(), acc, {"!ITPb.qbhqo"})
+    assert [(r[1], r[6]) for r in acc.qcorpus] == [("11", "post:q_trip")]
 
 
 class Ctx:
@@ -57,6 +82,7 @@ def test_calibration_resumes(tmp_path):
     threads.append([post(99999, 1515000000, "after")] )
     make_archive(tmp_path / "cache" / "pol" / "pol.tar.zst", threads)
     ctx = Ctx(tmp_path)
+    ctx.conn = db.connect(tmp_path / "t.db")
     for _ in range(500):
         pol._streams.clear() if ctx.n % 7 == 0 else None    # redemarrages simules
         if pol.run_calibrate(ctx) is True:
@@ -110,6 +136,7 @@ def _scan_all(tmp_path, monkeypatch, restarts):
             "q": q("SELECT count(*), count(DISTINCT reason) FROM pol_qcorpus"),
             "sample": q("SELECT count(*) FROM pol_sample"),
             "tox": q("SELECT scope, sum(n) FROM pol_tox_day GROUP BY scope ORDER BY scope"),
+            "ent": q("SELECT sum(n) FROM pol_entity_month"),
             "first": q("SELECT term, ts FROM pol_first ORDER BY term")}
 
 
@@ -122,4 +149,5 @@ def test_scan_layers_identical_with_restarts(tmp_path, monkeypatch):
     assert terms["gl:wwg1wga"] == 1000 and terms["actor:soros"] == 2000
     assert dict(a["uni"])["reply"] == 9000
     assert a["sample"] == [(len([n for n in range(30000) if n % 100 == 0 and n % 10 < 4]),)]
-    assert dict(a["tox"])["all"] == 12000
+    assert dict(a["tox"])["all"] == 9000          # les 3000 posts sans perspectives ([]) ne comptent pas
+    assert a["ent"] == [(12000,)]

@@ -107,7 +107,8 @@ import re
 
 _TAG = re.compile(r"<br\s*/?>|</?(?:wbr)>", re.I)
 _ANY_TAG = re.compile(r"<[^>]+>")
-_TIME = re.compile(rb'"time": "(\d+)"')
+# Dans l'archive, "time" est un entier ; la forme chaine est toleree.
+_TIME = re.compile(rb'"time": "?(\d+)')
 
 
 def text_of(com):
@@ -178,6 +179,7 @@ def stream(ctx, name, path, n_done):
 # ------------------------------------------------------------------ calibration
 Q_BIRTH = (1509148800, 1512086400)    # 2017-10-28 -> 2017-12-01 UTC
 CAL_END = 1514764800                  # premier fil ouvert apres le 01/01/2018 : fin de la calibration
+CAL_V = 2                             # version de l'etat (2 : dates entieres, tripcodes) ; un etat plus ancien est recalcule
 CAL_SAMPLE = 20                       # un fil sur 20 hors de la naissance de Q
 N_EX = 5
 
@@ -197,14 +199,17 @@ def run_calibrate(ctx):
     fp = lexicon.fingerprint(terms)
     path = calib_path(ctx.state)
     state = json.loads(path.read_text()) if path.exists() else None
-    if not state or state.get("fingerprint") != fp:
-        state = {"fingerprint": fp, "lines": 0, "done": False, "posts": {"birth": 0, "sample": 0},
+    if not state or state.get("fingerprint") != fp or state.get("v") != CAL_V:
+        ctx.save_cursor("0")
+        state = {"v": CAL_V, "fingerprint": fp, "lines": 0, "done": False, "q_trip_posts": 0,
+                 "posts": {"birth": 0, "sample": 0},
                  "threads": {"birth": 0, "sample": 0}, "months": {},
                  "terms": {t.id: {"birth": 0, "sample": 0, "ex": [], "seen": 0} for t in terms}}
     if state["done"]:
         ctx.set_output(db.sha(fp, "calibre"))
         return True
     m = lexicon.Matcher(terms)
+    q_trips = _q_trips(ctx.conn)
     rng = random.Random(state["lines"])
     s = stream(ctx, "calibrate", final, state["lines"])
     if s is None:
@@ -227,6 +232,7 @@ def run_calibrate(ctx):
                 if p.get("sub"):
                     txt = f"{html.unescape(p['sub'])}\n{txt}"
                 state["posts"][where] += 1
+                state["q_trip_posts"] += p.get("trip") in q_trips
                 mo = time.strftime("%Y-%m", time.gmtime(int(p.get("time", t0))))
                 state["months"][mo] = state["months"].get(mo, 0) + 1
                 for i in m.hits(txt):
@@ -304,6 +310,31 @@ class Scan:
         return store.setdefault(month, Counter())
 
 
+def entities_of(p):
+    """Entites spaCy d'un post : liste de dicts dans l'archive (cle parfois ecrite
+    « entitites »), ou repr Python en chaine (forme toleree)."""
+    v = p.get("entities") or p.get("entitites") or []
+    if isinstance(v, str):
+        return [(e.replace("\\'", "'"), lab) for e, lab in _ENT.findall(v)]
+    return [(str(e["entity_text"])[:80], str(e.get("entity_label") or "")) for e in v
+            if isinstance(e, dict) and e.get("entity_text")]
+
+
+def perspectives_of(p):
+    """Scores Perspective d'un post : dict dans l'archive, [] quand ils manquent."""
+    v = p.get("perspectives")
+    if isinstance(v, dict):
+        return [(k, float(x)) for k, x in v.items() if isinstance(x, (int, float))]
+    if isinstance(v, str):
+        return [(k, float(x)) for k, x in _PERSP.findall(v)]
+    return []
+
+
+def _q_trips(conn):
+    """Tripcodes de Q (table drops) : ses propres posts sur /pol/ portent le tripcode dans le champ « trip »."""
+    return {r[0] for r in conn.execute("SELECT DISTINCT tripcode FROM drops WHERE tripcode IS NOT NULL")}
+
+
 def _drop_posts(conn):
     rows = conn.execute("SELECT post_id FROM drops WHERE site = '4ch' AND board LIKE '%pol%'").fetchall()
     return {str(r[0]) for r in rows if r[0]}
@@ -367,7 +398,7 @@ def _prune(acc):
 _scan = {"acc": None, "ckpt": None}
 
 
-def process_thread(posts, terms, m, qids, drop_posts, acc):
+def process_thread(posts, terms, m, qids, drop_posts, acc, q_trips=frozenset()):
     """Applique toutes les couches a un fil (liste de posts du dataset)."""
     op = posts[0]
     op_txt = f"{html.unescape(op.get('sub') or '')}\n{text_of(op.get('com'))}"
@@ -389,7 +420,7 @@ def process_thread(posts, terms, m, qids, drop_posts, acc):
         tot = acc.total.get(hour, (0, 0))
         acc.total[hour] = (tot[0] + 1, tot[1])
         hits = m.hits(txt)
-        post_reason = reason
+        post_reason = reason or ("post:q_trip" if p.get("trip") in q_trips else None)
         for i in hits:
             tid = terms[i].id
             acc.hour[(hour, tid)] = acc.hour.get((hour, tid), 0) + 1
@@ -406,13 +437,10 @@ def process_thread(posts, terms, m, qids, drop_posts, acc):
             acc.sample.append((no, thread_no, ts, txt, country))
         cu = acc.month_counter(acc.uni, month)
         cu.update(_TOKEN.findall(txt.lower()))
-        ents = p.get("entities") or ""
-        if ents and ents != "[]":
-            ce = acc.month_counter(acc.ent, month)
-            ce.update((e.replace("\\'", "'"), lab) for e, lab in _ENT.findall(ents))
-        persp = p.get("perspectives") or ""
-        for attr, val in _PERSP.findall(persp):
-            v = float(val)
+        ents = entities_of(p)
+        if ents:
+            acc.month_counter(acc.ent, month).update(ents)
+        for attr, v in perspectives_of(p):
             for scope in (("all", "q") if post_reason else ("all",)):
                 k = (day, scope, attr)
                 a = acc.tox.get(k, (0.0, 0, 0))
@@ -455,6 +483,7 @@ def run_scan(ctx):
     m = lexicon.Matcher(terms)
     qids = {i for i, t in enumerate(terms) if t.family in Q_FAMILIES and not t.ambiguous}
     drop_posts = _drop_posts(ctx.conn)
+    q_trips = _q_trips(ctx.conn)
     stop = time.monotonic() + SCAN_SHARE
     finished = False
     while True:
@@ -467,7 +496,7 @@ def run_scan(ctx):
         except ValueError:
             continue
         if posts:
-            process_thread(posts, terms, m, qids, drop_posts, acc)
+            process_thread(posts, terms, m, qids, drop_posts, acc, q_trips)
         if s.n % CHECKPOINT == 0:
             t = thread_time(line) or 0
             closed = time.strftime("%Y-%m", time.gmtime(t - 45 * 86400))   # mois clos : plus de 45 jours avant le fil courant
