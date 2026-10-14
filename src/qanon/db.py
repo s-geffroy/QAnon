@@ -121,6 +121,37 @@ CREATE TABLE IF NOT EXISTS pageviews (
 SCHEMA += GDELT_SCHEMA
 
 SCHEMA += """
+-- Pages vues des articles de la scene complotiste (data/scene.yaml), a part :
+-- la table pageviews reste celle de l'analyse d'interet publiee.
+CREATE TABLE IF NOT EXISTS pageviews_scene (
+    project TEXT, article TEXT, day TEXT, views INTEGER,
+    PRIMARY KEY (project, article, day)
+);
+
+-- Reddit (Arctic Shift) : volumes exacts, echantillon systematique, comptage du lexique.
+CREATE TABLE IF NOT EXISTS reddit_volume (
+    sub TEXT, kind TEXT, day TEXT, n INTEGER,     -- kind : posts | comments ; jour UTC
+    PRIMARY KEY (sub, kind, day)
+);
+CREATE TABLE IF NOT EXISTS reddit_sample (
+    sub TEXT, kind TEXT, id TEXT, ts INTEGER, text TEXT,   -- sans auteur
+    PRIMARY KEY (sub, kind, id)
+);
+CREATE TABLE IF NOT EXISTS reddit_sample_day (
+    sub TEXT, kind TEXT, day TEXT,
+    n_sampled INTEGER,   -- elements gardes (ni supprimes, ni robots)
+    n_gone INTEGER,      -- [deleted] / [removed]
+    n_bots INTEGER,      -- AutoModerator
+    complete INTEGER,    -- 1 si les trois creneaux ont ete lus en entier
+    PRIMARY KEY (sub, kind, day)
+);
+CREATE TABLE IF NOT EXISTS reddit_term_day (
+    sub TEXT, kind TEXT, day TEXT, term TEXT, n INTEGER,   -- elements echantillonnes contenant le terme
+    PRIMARY KEY (sub, kind, day, term)
+);
+"""
+
+SCHEMA += """
 -- Evaluation des modeles OpenAI : une reponse par (modele, drop du jeu d'or).
 CREATE TABLE IF NOT EXISTS llm_eval (
     model TEXT, drop_id INTEGER, response TEXT, error TEXT,

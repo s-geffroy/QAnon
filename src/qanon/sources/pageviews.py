@@ -23,12 +23,12 @@ ARTICLES = [
 ]
 
 
-def run(ctx):
+def fetch(ctx, table, articles):
     start = int(ctx.cursor or 0)
-    for i in range(start, len(ARTICLES)):
-        if ctx.should_yield():
+    for i in range(start, len(articles)):
+        if i > start and ctx.should_yield():
             return False
-        project, article = ARTICLES[i]
+        project, article = articles[i]
         resp = requests.get(API.format(project=project, article=requests.utils.quote(article, safe=""),
                                        start=START, end=END), headers=UA, timeout=60)
         if resp.status_code == 404:
@@ -37,12 +37,22 @@ def run(ctx):
         else:
             resp.raise_for_status()
             items = resp.json()["items"]
-        ctx.conn.execute("DELETE FROM pageviews WHERE project = ? AND article = ?", (project, article))
-        ctx.conn.executemany("INSERT INTO pageviews VALUES (?,?,?,?)", [
+        ctx.conn.execute(f"DELETE FROM {table} WHERE project = ? AND article = ?", (project, article))
+        ctx.conn.executemany(f"INSERT INTO {table} VALUES (?,?,?,?)", [
             (project, article, f"{x['timestamp'][:4]}-{x['timestamp'][4:6]}-{x['timestamp'][6:8]}", x["views"])
             for x in items])
         ctx.save_cursor(str(i + 1))
-    n = ctx.conn.execute("SELECT count(*), sum(views) FROM pageviews").fetchone()
+    n = ctx.conn.execute(f"SELECT count(*), sum(views) FROM {table}").fetchone()
     ctx.set_output(db.sha(n[0], n[1]))
-    log(f"pages vues : {len(ARTICLES)} articles, {n[0]} jours-articles, {n[1]} vues")
+    log(f"pages vues ({table}) : {len(articles)} articles, {n[0]} jours-articles, {n[1]} vues")
     return True
+
+
+def run(ctx):
+    return fetch(ctx, "pageviews", ARTICLES)
+
+
+def run_scene(ctx):
+    """Articles de la scene complotiste (data/scene.yaml), en anglais."""
+    from ..analysis.common import load_yaml
+    return fetch(ctx, "pageviews_scene", [("en.wikipedia", a) for a in load_yaml("scene", "wikipedia_articles")])

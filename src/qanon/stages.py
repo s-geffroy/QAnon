@@ -11,7 +11,7 @@ from .llm import translate
 from . import review
 from .pipeline import Stage
 from .site import build, publish
-from .sources import biblio_watch, gdelt, links, pageviews, qdrops, timeline, tweets, wikinews
+from .sources import biblio_watch, gdelt, links, pageviews, qdrops, reddit, timeline, tweets, wikinews
 
 WEEK = 7 * 86400
 
@@ -76,4 +76,13 @@ STAGES += [
     # (Hawkes, DFA, avalanches, phases). Decoupes en parties d'une dizaine de secondes.
     Stage("analyze_markov", markov.run, inputs=("fetch_qdrops", "fetch_tweets", "analyze_stats"), code=True),
     Stage("analyze_physics", physics.run, inputs=("fetch_qdrops", "fetch_tweets", "analyze_stats"), code=True),
+]
+STAGES += [
+    # Scene complotiste : pages vues d'articles connexes (table a part), Reddit via Arctic Shift.
+    Stage("fetch_pageviews_scene", pageviews.run_scene, code=True),
+    Stage("fetch_reddit_volume", reddit.run_volume, code=True),
+    # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
+    Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
+    # Rejoue toutes les heures sur les nouveaux elements ; un lexique modifie recompte tout.
+    Stage("scan_reddit", reddit.run_scan, refresh=3600, keep_cursor=True, code=True),
 ]
