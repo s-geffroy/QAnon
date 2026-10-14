@@ -9,9 +9,11 @@ from .llm import eval as llm_eval
 from .llm import horoscope
 from .llm import translate
 from . import review
+from . import db
+from .analysis.common import load_yaml
 from .pipeline import Stage
 from .site import build, publish
-from .sources import biblio_watch, gdelt, links, pageviews, qdrops, reddit, timeline, tweets, wikinews
+from .sources import biblio_watch, gdelt, links, pageviews, qdrops, reddit, timeline, trends, tweets, wikinews
 
 WEEK = 7 * 86400
 
@@ -79,8 +81,12 @@ STAGES += [
 ]
 STAGES += [
     # Scene complotiste : pages vues d'articles connexes (table a part), Reddit via Arctic Shift.
-    Stage("fetch_pageviews_scene", pageviews.run_scene, code=True),
-    Stage("fetch_reddit_volume", reddit.run_volume, code=True),
+    # Ces collectes dependent de leurs listes (scene.yaml), pas de tout le code : un
+    # deploiement ne les relance pas.
+    Stage("fetch_pageviews_scene", pageviews.run_scene, version=db.sha(*load_yaml("scene", "wikipedia_articles"))),
+    Stage("fetch_reddit_volume", reddit.run_volume, version=db.sha(*reddit.subreddits(), reddit.START_YEAR, reddit.END_YEAR)),
+    # Google Trends : API non officielle, fragile ; en option pour l'analyse de la scene.
+    Stage("fetch_trends", trends.run, version=db.sha(*trends.queries(), *trends.WINDOWS, trends.ANCHOR, trends.GEO)),
     # Rejoue toutes les heures sur les nouveaux elements ; un lexique modifie recompte tout.
     Stage("scan_reddit", reddit.run_scan, refresh=3600, keep_cursor=True, code=True),
 ]
@@ -90,7 +96,7 @@ STAGES += [
     Stage("analyze_scene", scene.run, code=True,
           inputs=("fetch_qdrops", "fetch_tweets", "load_timeline", "fetch_pageviews", "fetch_pageviews_scene",
                   "fetch_reddit_volume"),
-          optional=("scan_reddit", "fetch_reddit_hour", "fetch_gdelt")),
+          optional=("scan_reddit", "fetch_reddit_hour", "fetch_gdelt", "fetch_trends")),
 ]
 STAGES += [
     # Collectes longues en dernier : elles prennent le budget restant du cycle (sinon les

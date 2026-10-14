@@ -253,6 +253,51 @@ def daily_series(conn, d, tweets, est):
     return pd.DataFrame(S, index=idx)
 
 
+def trends_series(conn):
+    """Google Trends : par requete, serie hebdomadaire (jour = lundi de la semaine)
+    et serie mensuelle, en multiples de la moyenne de l'ancre sur la fenetre ; les
+    deux fenetres hebdomadaires sont recollees sur leur recouvrement 2019-2020."""
+    from ..sources.trends import ANCHOR, WINDOWS
+    try:
+        raw = pd.read_sql_query("SELECT * FROM trends_raw", conn)
+    except Exception:
+        return {}, {}
+    if raw.empty:
+        return {}, {}
+    weekly_out, monthly_out = {}, {}
+    for (batch, window), g in raw.groupby(["batch", "window"]):
+        wide = g.pivot(index="date", columns="query", values="value").sort_index()
+        if ANCHOR not in wide or wide[ANCHOR].mean() == 0:
+            continue
+        rel = wide.drop(columns=ANCHOR) / wide[ANCHOR].mean()
+        for q in rel.columns:
+            if window == WINDOWS[2]:
+                monthly_out[q] = rel[q]
+            else:
+                weekly_out.setdefault(q, {})[window] = rel[q]
+    stitched = {}
+    for q, w in weekly_out.items():
+        a, b = w.get(WINDOWS[0]), w.get(WINDOWS[1])
+        if a is None or b is None:
+            continue
+        ov = a.index.intersection(b.index)
+        ov = ov[(ov >= "2019-01-01") & (ov <= "2020-12-31")]
+        k = a[ov].sum() / b[ov].sum() if b[ov].sum() > 0 else 1.0
+        s = pd.concat([a[a.index < "2020-07-01"], b[b.index >= "2020-07-01"] * k])
+        s.index = (pd.to_datetime(s.index) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        stitched[q] = s
+    return stitched, monthly_out
+
+
+def trends_summary(conn):
+    weekly_s, monthly_s = trends_series(conn)
+    out = []
+    for q, m in monthly_s.items():
+        out.append({"query": q, "peak_month": m.idxmax()[:7], "peak_rel": round(float(m.max()), 3),
+                    "monthly": [{"month": d[:7], "rel": round(float(v), 4)} for d, v in m.items()]})
+    return sorted(out, key=lambda r: -r["peak_rel"])
+
+
 # ------------------------------------------------------------------ S1
 def te_nodes(S):
     W = S[(S.index >= Q_START) & (S.index <= Q_END)]
@@ -316,6 +361,7 @@ def syncretism(conn, d, H, terms, est, seed=SEED, n_surr=300):
     day = d["ts"].dt.strftime("%Y-%m-%d")
     days_c = sampled_days(conn).get("conspiracy", set())
     wv = pd.read_sql_query("SELECT article, day, sum(views) v FROM wiki_scene_views GROUP BY 1, 2", conn)
+    tr_weekly, _ = trends_series(conn)
     idx = _day_index(Q_START, Q_END)
     q_week_n = weekly(day.value_counts().reindex(idx, fill_value=0).astype(float))
     rows, tests = [], []
@@ -337,6 +383,9 @@ def syncretism(conn, d, H, terms, est, seed=SEED, n_surr=300):
         art = theme_wiki.get(t.id)
         if art and not wv.empty:
             measures[f"wiki:{art}"] = weekly(wv[wv["article"] == art].set_index("day")["v"].reindex(idx).astype(float))
+        tq = t.trends_query or t.label_en
+        if t.trends and tq in tr_weekly:
+            measures[f"trends:{tq}"] = weekly(tr_weekly[tq].reindex(idx).astype(float))
         for name, m in measures.items():
             pair = pd.concat([q_share, np.log1p(m)], axis=1).dropna()
             if len(pair) < 52 or pair.iloc[:, 1].std() == 0:
@@ -491,7 +540,8 @@ def run(ctx):
     parts += [("syncretism", lambda: syncretism(ctx.conn, d, H, terms, est)),
              ("response", lambda: response_function(ctx.conn, d)),
              ("peaks", lambda: attention_peaks(S, ctx.conn, d)),
-             ("diffusion", lambda: diffusion(ctx.conn, d, H, terms, est))]
+             ("diffusion", lambda: diffusion(ctx.conn, d, H, terms, est)),
+             ("trends", lambda: trends_summary(ctx.conn))]
     acc = run_parts(ctx, "scene", parts)
     if acc is None:
         return False

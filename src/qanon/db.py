@@ -147,6 +147,11 @@ CREATE TABLE IF NOT EXISTS reddit_sample_day (
     complete INTEGER,    -- 1 si les trois creneaux ont ete lus en entier
     PRIMARY KEY (sub, kind, day)
 );
+-- Google Trends : valeurs brutes (0-100, normalisees par lot et fenetre), ancre comprise.
+CREATE TABLE IF NOT EXISTS trends_raw (
+    batch TEXT, window TEXT, query TEXT, date TEXT, value INTEGER, partial INTEGER,
+    PRIMARY KEY (batch, window, query, date)
+);
 CREATE TABLE IF NOT EXISTS reddit_hour (
     sub TEXT, hour INTEGER, n INTEGER,            -- debut de l'heure (epoque UTC), commentaires
     PRIMARY KEY (sub, hour)

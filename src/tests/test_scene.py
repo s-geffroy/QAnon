@@ -80,3 +80,21 @@ def test_weekly_rhythm_alone_gives_no_transfer():
 def test_endo_exo_level_shift():
     v = np.concatenate([np.full(200, 100.0), [3000.0], np.full(199, 2500.0)])
     assert scene.endo_exo(v, 200)["class"] == "palier"
+
+
+def test_trends_stitching(tmp_path):
+    from qanon import db
+    from qanon.sources.trends import ANCHOR, WINDOWS
+    conn = db.connect(tmp_path / "t.db")
+    rows = []
+    w1 = __import__("pandas").date_range("2016-01-03", "2020-12-27", freq="7D").strftime("%Y-%m-%d")
+    w2 = __import__("pandas").date_range("2018-12-30", "2023-12-31", freq="7D").strftime("%Y-%m-%d")
+    for d in w1:
+        rows += [("b", WINDOWS[0], "x", d, 20, 0), ("b", WINDOWS[0], ANCHOR, d, 10, 0)]
+    for d in w2:   # meme interet, mais Google a renormalise : tout est double
+        rows += [("b", WINDOWS[1], "x", d, 40, 0), ("b", WINDOWS[1], ANCHOR, d, 20, 0)]
+    conn.executemany("INSERT INTO trends_raw VALUES (?,?,?,?,?,?)", rows)
+    weekly_s, monthly_s = scene.trends_series(conn)
+    s = weekly_s["x"]
+    assert np.allclose(s.to_numpy(), 2.0)          # 20 / 10, et 40 / 20 apres recollage
+    assert s.index[0] == "2016-01-04"              # dimanche -> lundi
