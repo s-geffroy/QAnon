@@ -106,6 +106,9 @@ STAGES += [
     Stage("fetch_reddit_hour", reddit.run_hour, inputs=("fetch_reddit_volume",), keep_cursor=True),
     # 4chan /pol/ : 24 Go, reprenable (le fichier partiel fait foi), puis md5.
     Stage("fetch_pol", pol.run_fetch, version=pol.MD5),
+    # Lexique applique a /pol/ jusqu'a fin 2017 (rapport hors des resultats publies), avant
+    # l'approbation du lexique pour le balayage complet.
+    Stage("calibrate_pol", pol.run_calibrate, inputs=("fetch_pol",), code=True, keep_cursor=True),
     # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
     Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
 ]
