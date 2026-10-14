@@ -17,7 +17,7 @@
 #
 # lexicon_approved : empreinte du lexique approuve pour le balayage de /pol/
 # (qanon.lexicon.fingerprint). Le balayage attend tant qu'elle ne correspond pas.
-lexicon_approved: null
+lexicon_approved: "2034a54cb55b6cec"   # approuve le 14/10/2026 apres calibration (Sylvain Geffroy)
 
 families:
   q_core: {fr: "Noyau Q", en: "Q core"}
