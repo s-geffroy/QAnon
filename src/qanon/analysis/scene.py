@@ -254,48 +254,59 @@ def daily_series(conn, d, tweets, est):
 
 
 def trends_series(conn):
-    """Google Trends : par requete, serie hebdomadaire (jour = lundi de la semaine)
-    et serie mensuelle, en multiples de la moyenne de l'ancre sur la fenetre ; les
-    deux fenetres hebdomadaires sont recollees sur leur recouvrement 2019-2020."""
+    """Google Trends, par requete : serie hebdomadaire (jour = lundi de la semaine) et
+    serie mensuelle. Forme : requete seule (fenetres hebdomadaires recollees sur
+    2019-2020) ; niveau : multiple de la moyenne de l'ancre, d'apres la requete
+    mensuelle avec l'ancre. Niveau non mesurable (terme trop rare face a l'ancre) :
+    forme seule, ramenee a un maximum de 1, et requete signalee."""
     from ..sources.trends import ANCHOR, WINDOWS
     try:
         raw = pd.read_sql_query("SELECT * FROM trends_raw", conn)
     except Exception:
-        return {}, {}
+        return {}, {}, set()
     if raw.empty:
-        return {}, {}
-    weekly_out, monthly_out = {}, {}
-    for (batch, window), g in raw.groupby(["batch", "window"]):
-        wide = g.pivot(index="date", columns="query", values="value").sort_index()
-        if ANCHOR not in wide or wide[ANCHOR].mean() == 0:
-            continue
-        rel = wide.drop(columns=ANCHOR) / wide[ANCHOR].mean()
-        for q in rel.columns:
-            if window == WINDOWS[2]:
-                monthly_out[q] = rel[q]
-            else:
-                weekly_out.setdefault(q, {})[window] = rel[q]
-    stitched = {}
-    for q, w in weekly_out.items():
-        a, b = w.get(WINDOWS[0]), w.get(WINDOWS[1])
-        if a is None or b is None:
+        return {}, {}, set()
+    solo = {(k[5:], w): g.set_index("date")["value"].astype(float)
+            for (k, w), g in raw[raw["batch"].str.startswith("solo:")].groupby(["batch", "window"])}
+    weekly_out, monthly_out, no_level = {}, {}, set()
+    for q in {k[0] for k in solo}:
+        a, b, m = solo.get((q, WINDOWS[0])), solo.get((q, WINDOWS[1])), solo.get((q, WINDOWS[2]))
+        if a is None or b is None or m is None:
             continue
         ov = a.index.intersection(b.index)
         ov = ov[(ov >= "2019-01-01") & (ov <= "2020-12-31")]
         k = a[ov].sum() / b[ov].sum() if b[ov].sum() > 0 else 1.0
-        s = pd.concat([a[a.index < "2020-07-01"], b[b.index >= "2020-07-01"] * k])
-        s.index = (pd.to_datetime(s.index) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
-        stitched[q] = s
-    return stitched, monthly_out
+        w = pd.concat([a[a.index < "2020-07-01"], b[b.index >= "2020-07-01"] * k])
+        # Niveau : rapport (terme / moyenne de l'ancre) de la requete ancree, en mois.
+        anc = raw[(raw["batch"] == f"anchor:{q}")].pivot(index="date", columns="query", values="value")
+        level = None
+        if not anc.empty and ANCHOR in anc and anc[ANCHOR].mean() > 0 and anc[q].sum() > 0 and m.sum() > 0:
+            rel_m = anc[q] / anc[ANCHOR].mean()
+            level = float(rel_m.sum() / m.sum())
+        if level is None:
+            no_level.add(q)
+            scale_m, scale_w = 1 / max(m.max(), 1e-9), 1 / max(w.max(), 1e-9)
+        else:
+            scale_m = level
+            # Hebdomadaire : meme total mensuel que la serie mensuelle mise a niveau.
+            wm = w.groupby(pd.Index(w.index).str[:7]).mean()
+            mm = (m * level).groupby(pd.Index(m.index).str[:7]).mean()
+            common = wm.index.intersection(mm.index)
+            scale_w = float(mm[common].sum() / wm[common].sum()) if wm[common].sum() > 0 else level
+        w = w * scale_w
+        w.index = (pd.to_datetime(w.index) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
+        weekly_out[q], monthly_out[q] = w, m * scale_m
+    return weekly_out, monthly_out, no_level
 
 
 def trends_summary(conn):
-    weekly_s, monthly_s = trends_series(conn)
+    weekly_s, monthly_s, no_level = trends_series(conn)
     out = []
     for q, m in monthly_s.items():
-        out.append({"query": q, "peak_month": m.idxmax()[:7], "peak_rel": round(float(m.max()), 3),
-                    "monthly": [{"month": d[:7], "rel": round(float(v), 4)} for d, v in m.items()]})
-    return sorted(out, key=lambda r: -r["peak_rel"])
+        out.append({"query": q, "level_measured": q not in no_level, "peak_month": m.idxmax()[:7],
+                    "peak_rel": round(float(m.max()), 4),
+                    "monthly": [{"month": d[:7], "rel": round(float(v), 5)} for d, v in m.items()]})
+    return sorted(out, key=lambda r: (not r["level_measured"], -r["peak_rel"]))
 
 
 # ------------------------------------------------------------------ S1
@@ -361,7 +372,7 @@ def syncretism(conn, d, H, terms, est, seed=SEED, n_surr=300):
     day = d["ts"].dt.strftime("%Y-%m-%d")
     days_c = sampled_days(conn).get("conspiracy", set())
     wv = pd.read_sql_query("SELECT article, day, sum(views) v FROM wiki_scene_views GROUP BY 1, 2", conn)
-    tr_weekly, _ = trends_series(conn)
+    tr_weekly, _, _ = trends_series(conn)
     idx = _day_index(Q_START, Q_END)
     q_week_n = weekly(day.value_counts().reindex(idx, fill_value=0).astype(float))
     rows, tests = [], []

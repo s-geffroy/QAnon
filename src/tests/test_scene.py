@@ -83,21 +83,26 @@ def test_endo_exo_level_shift():
 
 
 def test_trends_stitching(tmp_path):
+    import pandas as pd
     from qanon import db
     from qanon.sources.trends import ANCHOR, WINDOWS
     conn = db.connect(tmp_path / "t.db")
-    rows = []
-    w1 = __import__("pandas").date_range("2016-01-03", "2020-12-27", freq="7D").strftime("%Y-%m-%d")
-    w2 = __import__("pandas").date_range("2018-12-30", "2023-12-31", freq="7D").strftime("%Y-%m-%d")
-    for d in w1:
-        rows += [("b", WINDOWS[0], "x", d, 20, 0), ("b", WINDOWS[0], ANCHOR, d, 10, 0)]
-    for d in w2:   # meme interet, mais Google a renormalise : tout est double
-        rows += [("b", WINDOWS[1], "x", d, 40, 0), ("b", WINDOWS[1], ANCHOR, d, 20, 0)]
+    w1 = pd.date_range("2016-01-03", "2020-12-27", freq="7D").strftime("%Y-%m-%d")
+    w2 = pd.date_range("2018-12-30", "2023-12-31", freq="7D").strftime("%Y-%m-%d")
+    mo = pd.date_range("2016-01-01", "2023-12-01", freq="MS").strftime("%Y-%m-%d")
+    rows = [("solo:x", WINDOWS[0], "x", d, 50, 0) for d in w1]
+    rows += [("solo:x", WINDOWS[1], "x", d, 100, 0) for d in w2]          # renormalise par Google
+    rows += [("solo:x", WINDOWS[2], "x", d, 80, 0) for d in mo]
+    rows += [("anchor:x", WINDOWS[2], q, d, v, 0) for d in mo for q, v in (("x", 5), (ANCHOR, 50))]
+    rows += [("solo:rare", w, "rare", d, 100 if i == 3 else 0, 0)
+             for w, ds in ((WINDOWS[0], w1), (WINDOWS[1], w2), (WINDOWS[2], mo)) for i, d in enumerate(ds)]
+    rows += [("anchor:rare", WINDOWS[2], q, d, v, 0) for d in mo for q, v in (("rare", 0), (ANCHOR, 50))]
     conn.executemany("INSERT INTO trends_raw VALUES (?,?,?,?,?,?)", rows)
-    weekly_s, monthly_s = scene.trends_series(conn)
-    s = weekly_s["x"]
-    assert np.allclose(s.to_numpy(), 2.0)          # 20 / 10, et 40 / 20 apres recollage
-    assert s.index[0] == "2016-01-04"              # dimanche -> lundi
+    weekly_s, monthly_s, no_level = scene.trends_series(conn)
+    assert np.allclose(monthly_s["x"].to_numpy(), 0.1)          # 5 / 50 : niveau de l'ancre
+    assert np.allclose(weekly_s["x"].to_numpy(), 0.1)           # recolle puis mis au meme niveau
+    assert weekly_s["x"].index[0] == "2016-01-04"               # dimanche -> lundi
+    assert no_level == {"rare"} and monthly_s["rare"].max() == 1.0
 
 
 def test_trends_resumes_from_data_and_backs_off(tmp_path, monkeypatch):
@@ -114,7 +119,7 @@ def test_trends_resumes_from_data_and_backs_off(tmp_path, monkeypatch):
         def set_output(self, v):
             self.out = v
 
-    monkeypatch.setattr(trends, "queries", lambda: ["a", "b", "c", "d", "e"])
+    monkeypatch.setattr(trends, "queries", lambda: ["a", "b"])
     monkeypatch.setattr(trends, "PAUSE", 0)
     calls = []
 
@@ -122,9 +127,9 @@ def test_trends_resumes_from_data_and_backs_off(tmp_path, monkeypatch):
         calls.append((tuple(batch), window))
         if len(calls) == 3:
             raise RuntimeError("429")
-        return pd.DataFrame({q: [10] for q in batch + [trends.ANCHOR]}, index=pd.to_datetime(["2018-01-07"]))
+        return pd.DataFrame({q: [10] for q in batch}, index=pd.to_datetime(["2018-01-07"]))
     monkeypatch.setattr(trends, "fetch", fake)
     assert trends.run(Ctx()) is None and len(calls) == 3          # 2 lots acquis, puis refus
     assert trends.run(Ctx()) is None and len(calls) == 3          # suspendu : aucune requete
     db.set_meta(conn, "trends_blocked_until", 0)
-    assert trends.run(Ctx()) is True and len(calls) == 3 + 4      # reprend aux 4 lots manquants
+    assert trends.run(Ctx()) is True and len(calls) == 3 + 6      # 8 lots : reprend aux 6 manquants

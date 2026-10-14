@@ -1,12 +1,14 @@
 """Google Trends (API non officielle, pytrends), Etats-Unis, 2016-2023.
 
-Google normalise chaque requete a son propre maximum (0-100) : chaque lot de
-quatre termes contient donc une meme ancre stable ('conspiracy theory', non
-nulle avant Q), ce qui rend les lots comparables (terme / ancre). Trois
-fenetres par lot : semaines 2016-2020 et 2019-2023 (recollees sur leur
-recouvrement par l'analyse), mois 2016-2023. Une requete par appel, pause
-entre deux ; un refus (429) remet au cycle suivant. Etape fragile par nature :
-elle ne bloque pas le site."""
+Google normalise chaque requete a son propre maximum (0-100), en entiers : un
+terme rare place a cote d'un terme frequent tombe a 0 ou 1. On mesure donc
+separement :
+- la FORME : chaque terme interroge seul, trois fenetres (semaines 2016-2020 et
+  2019-2023, recollees par l'analyse ; mois 2016-2023), a pleine resolution ;
+- le NIVEAU : chaque terme interroge avec une ancre stable ('conspiracy theory',
+  non nulle avant Q), en mois 2016-2023 ; il rend les termes comparables entre eux.
+Une requete par appel, pause entre deux ; un refus (429) suspend la collecte.
+Etape fragile par nature : elle ne bloque pas le site."""
 import time
 
 from .. import db, lexicon
@@ -31,16 +33,19 @@ def queries():
 
 
 def jobs():
-    qs = queries()
-    batches = [qs[i:i + PER_BATCH] for i in range(0, len(qs), PER_BATCH)]
-    return [(b, w) for b in batches for w in WINDOWS]
+    """(cle de lot, requetes, fenetre) : forme seule sur trois fenetres, niveau avec l'ancre en mois."""
+    out = []
+    for q in queries():
+        out += [(f"solo:{q}", [q], w) for w in WINDOWS]
+        out.append((f"anchor:{q}", [q, ANCHOR], WINDOWS[2]))
+    return out
 
 
 def fetch(batch, window):
     from pytrends.request import TrendReq
     # Sans relances internes : pytrends 4.9.2 les passe a urllib3 sous un nom retire en 2.x.
     p = TrendReq(hl="en-US", tz=0, timeout=(10, 30))
-    p.build_payload(batch + [ANCHOR], timeframe=window, geo=GEO)
+    p.build_payload(batch, timeframe=window, geo=GEO)
     return p.interest_over_time()
 
 
@@ -54,8 +59,8 @@ def run(ctx):
         return None
     J = jobs()
     have = {(r[0], r[1]) for r in ctx.conn.execute("SELECT DISTINCT batch, window FROM trends_raw")}
-    todo = [(b, w) for b, w in J if ("|".join(b), w) not in have]
-    for k, (batch, window) in enumerate(todo):
+    todo = [(key, b, w) for key, b, w in J if (key, w) not in have]
+    for k, (key, batch, window) in enumerate(todo):
         if k:
             if ctx.should_yield():
                 return False
@@ -70,15 +75,14 @@ def run(ctx):
             log(f"trends : {len(J) - len(todo) + k}/{len(J)} lots acquis ; refus ({exc!r:.100}), "
                 f"nouvel essai dans {wait / 60:.0f} min")
             return None
-        key = "|".join(batch)
         ctx.conn.execute("DELETE FROM trends_raw WHERE batch = ? AND window = ?", (key, window))
         rows = [(key, window, q, d.strftime("%Y-%m-%d"), int(r[q]), int(bool(r.get("isPartial", False))))
-                for d, r in df.iterrows() for q in batch + [ANCHOR] if q in df.columns]
+                for d, r in df.iterrows() for q in batch if q in df.columns]
         ctx.conn.executemany("INSERT INTO trends_raw VALUES (?,?,?,?,?,?)", rows)
         db.set_meta(ctx.conn, "trends_backoff", 450)
         ctx.conn.commit()
     # Lots d'une liste anterieure de requetes : retires.
-    keys = {("|".join(b), w) for b, w in J}
+    keys = {(key, w) for key, _, w in J}
     for b, w in have - keys:
         ctx.conn.execute("DELETE FROM trends_raw WHERE batch = ? AND window = ?", (b, w))
     n = ctx.conn.execute("SELECT count(DISTINCT query), count(*), sum(value) FROM trends_raw").fetchone()

@@ -86,7 +86,9 @@ STAGES += [
     Stage("fetch_pageviews_scene", pageviews.run_scene, version=db.sha(*load_yaml("scene", "wikipedia_articles"))),
     Stage("fetch_reddit_volume", reddit.run_volume, version=db.sha(*reddit.subreddits(), reddit.START_YEAR, reddit.END_YEAR)),
     # Google Trends : API non officielle, fragile ; en option pour l'analyse de la scene.
-    Stage("fetch_trends", trends.run, version=db.sha(*trends.queries(), *trends.WINDOWS, trends.ANCHOR, trends.GEO)),
+    # Version : liste des requetes et schema de collecte (forme seule + niveau ancre).
+    Stage("fetch_trends", trends.run, version=db.sha("forme+niveau", *trends.queries(), *trends.WINDOWS,
+                                                      trends.ANCHOR, trends.GEO)),
     # Rejoue toutes les heures sur les nouveaux elements ; un lexique modifie recompte tout.
     Stage("scan_reddit", reddit.run_scan, refresh=3600, keep_cursor=True, code=True),
 ]
