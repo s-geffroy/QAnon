@@ -66,3 +66,60 @@ def test_calibration_resumes(tmp_path):
     assert st["terms"]["gl:wwg1wga"]["birth"] == 150
     assert st["terms"]["cbts"]["birth"] == 1
     assert 1 <= len(st["terms"]["gl:wwg1wga"]["ex"]) <= pol.N_EX
+
+
+def _threads(n_threads=3000):
+    out = []
+    for i in range(n_threads):
+        t = 1490000000 + i * 3600 * 7          # ~2,4 ans, presque chronologique
+        posts = [post(i * 10, t, "WWG1WGA trust the plan, the storm is coming" if i % 3 == 0 else "Soros owns the banks",
+                      sub="CBTS general" if i % 500 == 0 else None)]
+        posts += [post(i * 10 + k, t + k * 60, f"reply {k} about the deep state") for k in range(1, 4)]
+        out.append(posts)
+    return out
+
+
+def _scan_all(tmp_path, monkeypatch, restarts):
+    from qanon import lexicon
+    monkeypatch.setattr(pol, "approved", lambda terms: True)
+    monkeypatch.setattr(pol, "CHECKPOINT", 400)
+    archive = tmp_path / "cache" / "pol" / "pol.tar.zst"
+    make_archive(archive, _threads())
+    conn = db.connect(tmp_path / "t.db")
+
+    class C(Ctx):
+        def __init__(self):
+            super().__init__(tmp_path)
+            self.conn = conn
+        def save_cursor(self, v):
+            self.cursor = v
+            conn.commit()
+    ctx = C()
+    pol._streams.clear()
+    pol._scan.update(acc=None, ckpt=None)
+    for k in range(3000):
+        if restarts and k % 5 == 4:          # redemarrage : memoire perdue
+            pol._streams.clear()
+            pol._scan.update(acc=None, ckpt=None)
+        if pol.run_scan(ctx) is True:
+            break
+    q = lambda sql: [tuple(r) for r in conn.execute(sql).fetchall()]
+    return {"total": q("SELECT sum(posts), sum(threads) FROM pol_hour_total"),
+            "terms": q("SELECT term, sum(n) FROM pol_hour GROUP BY term ORDER BY term"),
+            "uni": q("SELECT token, sum(n) FROM pol_unigram_month GROUP BY token ORDER BY token"),
+            "q": q("SELECT count(*), count(DISTINCT reason) FROM pol_qcorpus"),
+            "sample": q("SELECT count(*) FROM pol_sample"),
+            "tox": q("SELECT scope, sum(n) FROM pol_tox_day GROUP BY scope ORDER BY scope"),
+            "first": q("SELECT term, ts FROM pol_first ORDER BY term")}
+
+
+def test_scan_layers_identical_with_restarts(tmp_path, monkeypatch):
+    a = _scan_all(tmp_path / "a", monkeypatch, restarts=False)
+    b = _scan_all(tmp_path / "b", monkeypatch, restarts=True)
+    assert a == b
+    assert a["total"] == [(12000, 3000)]
+    terms = dict(a["terms"])
+    assert terms["gl:wwg1wga"] == 1000 and terms["actor:soros"] == 2000
+    assert dict(a["uni"])["reply"] == 9000
+    assert a["sample"] == [(len([n for n in range(30000) if n % 100 == 0 and n % 10 < 4]),)]
+    assert dict(a["tox"])["all"] == 12000

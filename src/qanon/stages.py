@@ -109,6 +109,9 @@ STAGES += [
     # Lexique applique a /pol/ jusqu'a fin 2017 (rapport hors des resultats publies), avant
     # l'approbation du lexique pour le balayage complet.
     Stage("calibrate_pol", pol.run_calibrate, inputs=("fetch_pol",), code=True, keep_cursor=True),
+    # Balayage complet (~6 h de calcul, 30 s par cycle) : attend l'approbation du lexique.
+    # Le curseur porte l'empreinte du lexique ; un autre lexique recommence tout.
+    Stage("scan_pol", pol.run_scan, inputs=("calibrate_pol",), keep_cursor=True),
     # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
     Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
 ]

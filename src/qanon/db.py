@@ -147,6 +147,24 @@ CREATE TABLE IF NOT EXISTS reddit_sample_day (
     complete INTEGER,    -- 1 si les trois creneaux ont ete lus en entier
     PRIMARY KEY (sub, kind, day)
 );
+-- 4chan /pol/ (Zenodo 3606810), lu une fois : voir qanon/sources/pol.py.
+CREATE TABLE IF NOT EXISTS pol_hour (hour INTEGER, term TEXT, n INTEGER, PRIMARY KEY (hour, term));
+CREATE TABLE IF NOT EXISTS pol_hour_total (hour INTEGER PRIMARY KEY, posts INTEGER, threads INTEGER);
+CREATE TABLE IF NOT EXISTS pol_first (term TEXT PRIMARY KEY, ts INTEGER, post TEXT);
+CREATE TABLE IF NOT EXISTS pol_qcorpus (
+    thread TEXT, post TEXT, ts INTEGER, subject TEXT, text TEXT, country TEXT, reason TEXT,
+    PRIMARY KEY (post)
+);
+CREATE TABLE IF NOT EXISTS pol_sample (post TEXT PRIMARY KEY, thread TEXT, ts INTEGER, text TEXT, country TEXT);
+CREATE TABLE IF NOT EXISTS pol_unigram_month (month TEXT, token TEXT, n INTEGER, PRIMARY KEY (month, token));
+CREATE TABLE IF NOT EXISTS pol_entity_month (month TEXT, entity TEXT, label TEXT, n INTEGER, PRIMARY KEY (month, entity, label));
+CREATE TABLE IF NOT EXISTS pol_unigram_stage (month TEXT, token TEXT, n INTEGER);
+CREATE TABLE IF NOT EXISTS pol_entity_stage (month TEXT, entity TEXT, label TEXT, n INTEGER);
+CREATE TABLE IF NOT EXISTS pol_tox_day (
+    day TEXT, scope TEXT, attr TEXT, total REAL, n INTEGER, n_high INTEGER,   -- moyenne = total / n ; n_high : score > 0,8
+    PRIMARY KEY (day, scope, attr)
+);
+
 -- Google Trends : valeurs brutes (0-100, normalisees par lot et fenetre), ancre comprise.
 CREATE TABLE IF NOT EXISTS trends_raw (
     batch TEXT, window TEXT, query TEXT, date TEXT, value INTEGER, partial INTEGER,
