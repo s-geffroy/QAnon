@@ -1,0 +1,1290 @@
+# Lexique de la scene complotiste americaine : Reddit (Arctic Shift), 4chan /pol/
+# (Zenodo, lu une seule fois), Google Trends.
+#
+# Il reprend PAR REFERENCE le glossaire (glossary.yaml) et les acteurs
+# (actors.yaml) : voir qanon/lexicon.py. Pour les acteurs, seuls les motifs de
+# noms sont repris hors du corpus Q : les codes courts propres a Q (JC, SA, AM,
+# NK, RR...) seraient du bruit ailleurs.
+#
+# Une entree : id (slug unique), family, pattern (regex Python ; '(?i)' en tete
+# = insensible a la casse), label_fr, label_en, pos / neg (exemples qui doivent /
+# ne doivent pas correspondre : ce sont des tests), et en option :
+#   ambiguous: true  -> compte, mais exclu des analyses principales ;
+#   sensitive: true  -> publie seulement en agregats (codes de haine) ;
+#   trends: true     -> interroge aussi dans Google Trends (requete = trends_query ou label_en) ;
+#   note             -> choix de desambiguisation ;
+#   anchors          -> mots-cles du crible, quand on ne sait pas les deriver du motif.
+#
+# lexicon_approved : empreinte du lexique approuve pour le balayage de /pol/
+# (qanon.lexicon.fingerprint). Le balayage attend tant qu'elle ne correspond pas.
+lexicon_approved: null
+
+families:
+  q_core: {fr: "Noyau Q", en: "Q core"}
+  q_mythos: {fr: "Mythologie Q tardive", en: "Late Q mythology"}
+  larp: {fr: "Pseudo-initiés d'avant Q", en: "Pre-Q insider LARPs"}
+  promoter: {fr: "Promoteurs et relais", en: "Promoters and amplifiers"}
+  platform: {fr: "Plateformes", en: "Platforms"}
+  classic: {fr: "Complots classiques", en: "Classic conspiracies"}
+  spiritual: {fr: "Registre religieux et apocalyptique", en: "Religious and apocalyptic register"}
+  health: {fr: "Santé et COVID", en: "Health and COVID"}
+  election: {fr: "Élections", en: "Elections"}
+  militia: {fr: "Milices et violence", en: "Militias and violence"}
+  hate: {fr: "Codes de haine", en: "Hate codes"}
+
+# Formules du glossaire trop courantes hors du corpus Q : comptees, mais marquees
+# ambigues (exclues des analyses principales) sur Reddit et /pol/.
+glossary_ambiguous: [the-plan, drops, crumbs, anons, bakers-bread, deltas, patriots-digital-soldiers,
+                     military-intelligence, comms, boom, gitmo, tick-tock, coincidences, deep-state,
+                     the-storm, red-october, godspeed, clowns, save-the-children, castle-rock, mockingbird, kraken]
+
+# Motifs d'acteurs (forme nue, sans \b ni contexte) trop ambigus hors du corpus Q.
+actor_codes_excluded: [MIL, Rice, SIS, Kim, Paki, PAKI, Fox, Rome]
+
+subreddits:
+  - {name: conspiracy, note: "Forum complotiste generaliste, actif sur toute la periode"}
+  - {name: greatawakening, banned: "2018-09-12"}
+  - {name: CBTS_Stream, banned: "2018-03-14"}
+  - {name: The_Donald, banned: "2020-06-29"}
+  - {name: QAnonCasualties, note: "Proches de croyants (ouvert en 2019)"}
+  - {name: conspiracytheories}
+
+terms:
+  # ================================================================ noyau Q
+  - id: qanon
+    family: q_core
+    pattern: '(?i)\bq[ -]?anons?\b|\bqanoners?\b|#qanon\b'
+    label_fr: "QAnon"
+    label_en: "QAnon"
+    trends: true
+    pos: ["QAnon is a hoax", "the q-anon crowd", "#QAnon", "qanoners again"]
+    neg: ["Q and A", "quanon"]
+  - id: q_attribution
+    family: q_core
+    pattern: '\bQ(?:''s|’s)? (?:said|says|posted|posts|dropped|drops|told|predicted|warned|team|clearance|proofs?|posters?|followers|believers|crowd|research)\b|\bQ (?:is|was) (?:right|real|a larp|a LARP|legit|fake)\b|\bwhat Q (?:said|meant)\b'
+    label_fr: "« Q a dit… » (attributions à Q)"
+    label_en: "'Q said...' (attributions to Q)"
+    note: "Sensible a la casse : 'Q' majuscule suivi d'un verbe ou d'un nom typique ; evite 'Q1', 'Q&A'."
+    pos: ["Q said this would happen", "Q's proofs are solid", "Q is a LARP", "Q team knows"]
+    neg: ["Q1 earnings", "q said", "Q&A session"]
+  - id: q_drop_term
+    family: q_core
+    pattern: '(?i)\bq[ -]?(?:drops?|posts?|proofs?|maps?|research)\b|\bqmap\.pub\b|\bqanon\.pub\b|\bqntmpkts\b'
+    label_fr: "Q drop / Q post / qmap"
+    label_en: "Q drop / Q post / qmap"
+    pos: ["new Q drop", "check qmap.pub", "q proofs", "QResearch"]
+    neg: ["the queue drops"]
+  - id: cbts
+    family: q_core
+    pattern: '(?i)\bCBTS\b|\bcalm before (?:and during )?the storm\b'
+    label_fr: "CBTS / « calme avant la tempête »"
+    label_en: "CBTS / 'calm before the storm'"
+    pos: ["CBTS general #12", "Calm Before The Storm thread"]
+    neg: ["storm chasers"]
+  - id: qresearch
+    family: q_core
+    pattern: '(?i)/qresearch/?|\bqresearch\b|/greatawakening/|/patriotsfight/|/projectdcomms/|/thestorm/|/cbts/'
+    label_fr: "Tableaux de Q sur 8chan/8kun"
+    label_en: "Q's 8chan/8kun boards"
+    pos: ["over on /qresearch/", "/patriotsfight/ is Q only"]
+    neg: ["research shows"]
+  - id: tripcodes
+    family: q_core
+    pattern: '!ITPb\.qbhqo|!UW\.yye1fxo|!xowAT4Z3VQ|!2jsTvXXmXs|!4pRcUA0lBE|!CbboFOtcZs|!A6yxsPKia\.|!!mG7VJxZNCI|!!Hs1Jq13jV6'
+    label_fr: "Tripcodes de Q"
+    label_en: "Q's tripcodes"
+    note: "Les neuf tripcodes du corpus de drops (table drops)."
+    pos: ["Q !ITPb.qbhqo", "Q !!mG7VJxZNCI ID: 1234"]
+    neg: ["!ITPb.qbhq0"]
+  - id: q_army
+    family: q_core
+    pattern: '(?i)\bQ[ -]?army\b|\bQ[ -]?patriots?\b|\bQ[ -]?followers?\b|\bQ[ -]?believers?\b|\bQ[ -]?people\b|\bQ[ -]?tards?\b|\bQ[ -]?tips?\b'
+    label_fr: "Armée Q / adeptes de Q"
+    label_en: "Q army / Q followers"
+    note: "Inclut les termes moqueurs (Qtards, Qtips), utiles pour mesurer la reception hostile."
+    pos: ["the Q army is growing", "Qtards are at it again", "Q followers"]
+    neg: ["queue tips"]
+  - id: wwg1wga_variants
+    family: q_core
+    pattern: '(?i)\bWWG1WGA\b|\bWWG1GWA\b|\bWWGOWGA\b|where we go (?:1|one),? we go all|#WWG1WGA'
+    label_fr: "WWG1WGA (et variantes)"
+    label_en: "WWG1WGA (and variants)"
+    trends: true
+    trends_query: "WWG1WGA"
+    pos: ["WWG1WGA!", "where we go 1 we go all"]
+    neg: ["we go all the way"]
+  - id: black_hats
+    family: q_core
+    pattern: '(?i)\bblack[ -]?hats\b'
+    label_fr: "Black hats"
+    label_en: "Black hats"
+    ambiguous: true
+    pos: ["black hats inside the FBI"]
+    neg: ["blackhat conference"]
+  - id: autists
+    family: q_core
+    pattern: '(?i)\b(?:weaponized |based )?autists?\b'
+    label_fr: "Autists (« chercheurs » des chans)"
+    label_en: "Autists (chan 'researchers')"
+    ambiguous: true
+    note: "Auto-designation des chercheurs des chans ; aussi insulte generique sur /pol/."
+    pos: ["weaponized autists found it"]
+    neg: ["autism research"]
+  - id: dig
+    family: q_core
+    pattern: '(?i)\bdig(?:gers|ging)? (?:call|thread|team|deeper)\b|\bdiggers?\b|\bdig call\b'
+    label_fr: "Dig / diggers (« creuser »)"
+    label_en: "Dig / diggers"
+    pos: ["dig call on Clinton", "diggers needed", "digging deeper"]
+    neg: ["dig in the garden"]
+  - id: normies
+    family: q_core
+    pattern: '(?i)\bnormies?\b|\bnormiefags?\b|\bsheeple\b'
+    label_fr: "Normies / sheeple"
+    label_en: "Normies / sheeple"
+    ambiguous: true
+    pos: ["the normies won't get it", "wake up sheeple"]
+    neg: ["normal people"]
+  - id: panic_in_dc
+    family: q_core
+    pattern: '(?i)\bpanic in (?:DC|D\.C\.|washington)\b'
+    label_fr: "« Panique à DC »"
+    label_en: "'Panic in DC'"
+    pos: ["Panic in DC!"]
+    neg: ["panic attack"]
+  - id: these_people_are_sick
+    family: q_core
+    pattern: '(?i)\bthese people are (?:sick|stupid|evil)\b'
+    label_fr: "« These people are sick/stupid »"
+    label_en: "'These people are sick/stupid'"
+    pos: ["These people are stupid!", "these people are SICK"]
+    neg: ["these people are nice"]
+  - id: world_is_watching
+    family: q_core
+    pattern: '(?i)\bthe (?:whole )?world is watching\b'
+    label_fr: "« Le monde regarde »"
+    label_en: "'The world is watching'"
+    ambiguous: true
+    pos: ["The world is watching."]
+    neg: ["the world was watched"]
+  - id: ebs
+    family: q_core
+    pattern: '(?i)\bEBS\b|\bemergency broadcast system\b|\bemergency alert system\b'
+    label_fr: "EBS (système d'alerte d'urgence)"
+    label_en: "EBS (Emergency Broadcast System)"
+    pos: ["EBS activation soon", "the emergency broadcast system"]
+    neg: ["ebsco"]
+  - id: military_tribunals
+    family: q_core
+    pattern: '(?i)\bmilitary (?:tribunals?|trials?|courts?|arrests?)\b|\btribunals at gitmo\b'
+    label_fr: "Tribunaux militaires"
+    label_en: "Military tribunals"
+    trends: true
+    trends_query: "military tribunals"
+    pos: ["military tribunals are coming", "mass military arrests"]
+    neg: ["military parade"]
+  - id: mass_arrests
+    family: q_core
+    pattern: '(?i)\bmass arrests?\b|\barrests? (?:are )?coming\b|\bsealed indictments? (?:unsealed|count)\b'
+    label_fr: "Arrestations de masse"
+    label_en: "Mass arrests"
+    pos: ["mass arrests next week", "arrests are coming"]
+    neg: ["arrested development"]
+  - id: trust_x
+    family: q_core
+    pattern: '(?i)\btrust (?:sessions|huber|wray|horowitz|durham|barr|kek|the military|the generals|POTUS|Trump)\b'
+    label_fr: "« Trust Sessions / Huber / Wray… »"
+    label_en: "'Trust Sessions / Huber / Wray...'"
+    pos: ["Trust Sessions", "trust Huber", "TRUST THE MILITARY"]
+    neg: ["trust fund"]
+  - id: boom_week
+    family: q_core
+    pattern: '(?i)\bboom week\b|\bBOOM BOOM BOOM\b|\bboom(?:x\d+|\s?\[\d+\])'
+    label_fr: "« Boom week » / BOOM x N"
+    label_en: "'Boom week' / BOOM x N"
+    pos: ["boom week is here", "BOOM BOOM BOOM", "BOOMx10"]
+    neg: ["boomer"]
+  - id: q_dates
+    family: q_core
+    pattern: '\b11\.3\b|\b11/3\b(?!\d)|\[\d{1,2}\](?= ?(?:days?|delta))|\b10 days of darkness\b'
+    anchors: ["11.3", "11/3", "day", "delta"]
+    label_fr: "Dates et comptes à rebours de Q (11.3, [10], 10 days of darkness)"
+    label_en: "Q dates and countdowns (11.3, [10], 10 days of darkness)"
+    ambiguous: true
+    pos: ["11.3 is the day", "[10] days", "10 days of darkness"]
+    neg: ["version 11.30"]
+  - id: q_bracket_codes
+    family: q_core
+    pattern: '\[RR\]|\[HUSSEIN\]|\[CLAS\]|\[DS\]|\[C\]|\[D\]|\[\]|\[NO NAME\]|\[JC\]|\[-\d+\]'
+    anchors: ["[rr]", "[hussein]", "[clas]", "[ds]", "[c]", "[d]", "[]", "[no name]", "[jc]", "[-"]
+    note: "Mots-cles explicites : le parseur factorise le '[' commun aux alternatives."
+    label_fr: "Codes entre crochets ([RR], [HUSSEIN], [DS], [-35]…)"
+    label_en: "Bracket codes ([RR], [HUSSEIN], [DS], [-35]...)"
+    pos: ["[RR] next", "[-35] in Q's count", "[DS] panic"]
+    neg: ["[1] reference"]
+  - id: godfather_iii
+    family: q_core
+    pattern: '(?i)\bgodfather (?:III|3)\b'
+    label_fr: "« Godfather III »"
+    label_en: "'Godfather III'"
+    pos: ["Godfather III"]
+    neg: ["the godfather"]
+  - id: q_proof_delta
+    family: q_core
+    pattern: '(?i)\b(?:\d+|one|two|five|ten)[ -]?min(?:ute)? deltas?\b|\bdelta(?:s)? (?:proof|match)\b|\bQ[ -]?(?:Trump|POTUS) deltas?\b'
+    label_fr: "Deltas (« preuves » Q-Trump)"
+    label_en: "Deltas ('Q-Trump proofs')"
+    pos: ["1 min delta!", "Q-POTUS delta proof", "five minute delta"]
+    neg: ["delta airlines"]
+  - id: plan_to_save
+    family: q_core
+    pattern: '(?i)\bplan to save the world\b|\bfall of the cabal\b|\bthe storm is (?:coming|here|upon us)\b'
+    label_fr: "« The Plan to Save the World » / « Fall of the Cabal »"
+    label_en: "'The Plan to Save the World' / 'Fall of the Cabal'"
+    pos: ["watch The Plan to Save the World", "Fall of the Cabal part 3", "the storm is coming"]
+    neg: ["save the world cup"]
+  - id: great_awakening_book
+    family: q_core
+    pattern: '(?i)\bQAnon: An Invitation to (?:the|a) Great Awakening\b|\binvitation to the great awakening\b'
+    label_fr: "Livre « An Invitation to the Great Awakening »"
+    label_en: "Book 'An Invitation to the Great Awakening'"
+    pos: ["QAnon: An Invitation to the Great Awakening"]
+    neg: ["the great awakening"]
+  - id: digital_soldiers_oath
+    family: q_core
+    pattern: '(?i)\bdigital soldiers? oath\b|\btake the oath\b|#TakeTheOath\b'
+    label_fr: "Serment des « digital soldiers »"
+    label_en: "Digital soldiers' oath"
+    pos: ["#TakeTheOath", "the digital soldier oath"]
+    neg: ["oath of office"]
+  - id: kek
+    family: q_core
+    pattern: '(?i)\bkek\b|\bpraise kek\b|\bmeme magic\b'
+    label_fr: "Kek / meme magic"
+    label_en: "Kek / meme magic"
+    ambiguous: true
+    note: "Argot chan generique : sert de temoin (activite chan)."
+    pos: ["kek", "praise kek", "meme magic is real"]
+    neg: ["kekistan"]
+  - id: great_meme_war
+    family: q_core
+    pattern: '(?i)\bmeme war(?:s|fare)?\b|\bgreat meme war\b|\bmemetic warfare\b'
+    label_fr: "Guerre des mèmes"
+    label_en: "Meme war"
+    pos: ["the great meme war", "memetic warfare"]
+    neg: ["memes are funny"]
+  - id: pain_coming
+    family: q_core
+    pattern: '(?i)\bpain (?:is )?coming\b|\bPAIN\b(?= ?\[?\d)|\bthe pain\b(?= is)'
+    label_fr: "« Pain is coming »"
+    label_en: "'Pain is coming'"
+    pos: ["PAIN is coming", "PAIN [10]"]
+    neg: ["painting"]
+  - id: q_sent_me
+    family: q_core
+    pattern: '(?i)\bQ sent me\b|#QSentMe\b'
+    label_fr: "« Q sent me »"
+    label_en: "'Q sent me'"
+    pos: ["#QSentMe", "Q sent me"]
+    neg: ["he sent me"]
+  - id: white_rabbit
+    family: q_core
+    pattern: '(?i)\bfollow the white rabbit\b|\bwhite rabbit\b|\bdown the rabbit hole\b'
+    label_fr: "Lapin blanc / terrier du lapin"
+    label_en: "White rabbit / rabbit hole"
+    ambiguous: true
+    pos: ["follow the white rabbit", "down the rabbit hole"]
+    neg: ["rabbit stew"]
+  - id: qanon_critics
+    family: q_core
+    pattern: '(?i)\bQ[ -]?(?:is a )?(?:psy[ -]?op|larp|LARP)\b|\bQ[ -]?larp\b|\bQ is fake\b|\bQ[ -]?psyop\b|\bplan to keep you (?:passive|waiting)\b'
+    label_fr: "« Q est une psyop / un LARP » (critiques internes)"
+    label_en: "'Q is a psyop / LARP' (internal critics)"
+    pos: ["Q is a psyop", "Q LARP", "it's a plan to keep you passive"]
+    neg: ["psyops in general"]
+
+  # ================================================================ mythologie tardive
+  - id: nesara
+    family: q_mythos
+    pattern: '(?i)\b(?:NESARA|GESARA)\b'
+    label_fr: "NESARA / GESARA"
+    label_en: "NESARA / GESARA"
+    trends: true
+    pos: ["NESARA announcement", "GESARA is here"]
+    neg: ["nesarah"]
+  - id: med_beds
+    family: q_mythos
+    pattern: '(?i)\bmed[ -]?beds?\b'
+    label_fr: "Med beds (lits médicaux miracles)"
+    label_en: "Med beds"
+    trends: true
+    trends_query: "med beds"
+    pos: ["med beds are being released"]
+    neg: ["medical beds shortage"]
+  - id: jfk_jr_alive
+    family: q_mythos
+    pattern: '(?i)\bJFK[ -]?Jr\.?\b|\bJohn F\.? Kennedy,? Jr\.?\b|\bVincent Fusca\b|\bJFK Jr\.? (?:is )?alive\b'
+    label_fr: "JFK Jr. (vivant, « Vincent Fusca »)"
+    label_en: "JFK Jr. (alive, 'Vincent Fusca')"
+    pos: ["JFK Jr is alive", "Vincent Fusca 2020", "John F. Kennedy Jr."]
+    neg: ["JFK airport"]
+  - id: march_4
+    family: q_mythos
+    pattern: '(?i)\bMarch 4(?:th)?\b(?=.{0,60}(?:inaugurat|Trump|return|republic))|\b1871 (?:act|corporation)\b|\bUSA (?:is a )?corporation\b'
+    label_fr: "4 mars / « loi de 1871 » / États-Unis « société »"
+    label_en: "March 4 / '1871 Act' / USA 'corporation'"
+    pos: ["March 4th Trump will be inaugurated", "the 1871 Act", "USA is a corporation"]
+    neg: ["March 4th birthday"]
+  - id: military_takeover
+    family: q_mythos
+    pattern: '(?i)\bmilitary (?:takeover|is in control|government|occupation)\b|\bdevolution\b|\bcontinuity of government\b'
+    label_fr: "Prise de pouvoir militaire / « devolution »"
+    label_en: "Military takeover / 'devolution'"
+    pos: ["the military is in control", "devolution plan", "continuity of government"]
+    neg: ["military budget"]
+  - id: adrenochrome_harvest
+    family: q_mythos
+    pattern: '(?i)\b(?:harvest(?:ing|ed)?|loosh|frazzle)\b(?=.{0,40}(?:children|kids|adrenochrome))|\bchild (?:blood|sacrifice)s?\b'
+    label_fr: "Récolte d'enfants / sacrifices"
+    label_en: "Child harvesting / sacrifice"
+    pos: ["harvesting children for adrenochrome", "child sacrifice rituals"]
+    neg: ["harvest moon"]
+  - id: tunnels_children
+    family: q_mythos
+    pattern: '(?i)\bunderground (?:tunnels?|bases?|DUMBs?)\b|\bDUMBs\b|\bchildren (?:rescued|freed) (?:from|in) tunnels\b'
+    label_fr: "Tunnels / bases souterraines (DUMBs)"
+    label_en: "Tunnels / underground bases (DUMBs)"
+    pos: ["children rescued from tunnels", "the DUMBs under Denver", "underground bases"]
+    neg: ["dumbbells"]
+  - id: wayfair
+    family: q_mythos
+    pattern: '(?i)\bwayfair\b(?=.{0,80}(?:children|traffick|cabinet|kids))|#wayfairgate\b|\bwayfair ?gate\b'
+    label_fr: "Wayfair (trafic d'enfants allégué, 2020)"
+    label_en: "Wayfair (alleged child trafficking, 2020)"
+    pos: ["Wayfair cabinets named after missing children", "#wayfairgate"]
+    neg: ["bought a sofa on wayfair"]
+  - id: q_return_2022
+    family: q_mythos
+    pattern: '(?i)\bQ (?:is )?back\b|\bQ returns\b|\bQ\+? is (?:back|silent)\b|\bQ went (?:silent|dark)\b'
+    label_fr: "« Q is back » / silence de Q"
+    label_en: "'Q is back' / Q's silence"
+    pos: ["Q is back!", "Q went silent in December"]
+    neg: ["queue is back"]
+
+  # ================================================================ pseudo-inities d'avant Q
+  - id: fbianon
+    family: larp
+    pattern: '(?i)\bFBI[ -]?anon\b'
+    label_fr: "FBIanon (2016)"
+    label_en: "FBIanon (2016)"
+    pos: ["FBIanon said", "FBI anon thread"]
+    neg: ["FBI agent"]
+  - id: hlianon
+    family: larp
+    pattern: '(?i)\bHLI[ -]?anon\b|\bhigh[ -]level insider\b'
+    label_fr: "HLIanon (High Level Insider)"
+    label_en: "HLIanon (High Level Insider)"
+    pos: ["HLIanon", "high level insider AMA"]
+    neg: ["insider trading"]
+  - id: ciaanon
+    family: larp
+    pattern: '(?i)\bCIA[ -]?anon\b'
+    label_fr: "CIAanon"
+    label_en: "CIAanon"
+    pos: ["CIAanon is back"]
+    neg: ["CIA analyst"]
+  - id: megaanon
+    family: larp
+    pattern: '(?i)\bmega[ -]?anon\b'
+    label_fr: "MegaAnon"
+    label_en: "MegaAnon"
+    pos: ["MegaAnon on twitter"]
+    neg: ["mega millions"]
+  - id: whinsider
+    family: larp
+    pattern: '(?i)\b(?:WH|white house)[ -]?(?:insider|anon)\b'
+    label_fr: "WH insider anon"
+    label_en: "WH insider anon"
+    pos: ["White House insider anon", "WH anon"]
+    neg: ["white house press"]
+  - id: insider_anon_generic
+    family: larp
+    pattern: '(?i)\b(?:insider|clearance|military|NSA|DOJ|Navy)[ -]?anon\b'
+    label_fr: "Autres « anons initiés »"
+    label_en: "Other 'insider anons'"
+    pos: ["clearance anon", "NSA anon AMA"]
+    neg: ["anonymous source"]
+  - id: hrc_arrest
+    family: larp
+    pattern: '(?i)\b(?:HRC|hillary|clinton)(?:''s)? (?:arrest(?:ed)?|indicted|indictment|extradition|detained)\b|\block her up\b'
+    label_fr: "Arrestation / inculpation d'Hillary Clinton annoncée"
+    label_en: "Announced arrest / indictment of Hillary Clinton"
+    pos: ["HRC extradition already in motion", "Hillary arrested", "lock her up"]
+    neg: ["hillary campaign"]
+
+  # ================================================================ promoteurs
+  - id: alex_jones
+    family: promoter
+    pattern: '(?i)\balex jones\b|\binfo ?wars\b|\bInfowarriors?\b|\bprison ?planet\b'
+    label_fr: "Alex Jones / InfoWars"
+    label_en: "Alex Jones / InfoWars"
+    trends: true
+    trends_query: "Infowars"
+    pos: ["Alex Jones said", "InfoWars", "info wars"]
+    neg: ["jones soda"]
+  - id: corsi
+    family: promoter
+    pattern: '(?i)\b(?:jerome )?corsi\b'
+    label_fr: "Jerome Corsi"
+    label_en: "Jerome Corsi"
+    pos: ["Corsi decoded the drop", "Jerome Corsi"]
+    neg: ["corset"]
+  - id: tracy_diaz
+    family: promoter
+    pattern: '(?i)\btracy (?:beanz|diaz)\b|\btracybeanz\b'
+    label_fr: "Tracy Diaz (TracyBeanz)"
+    label_en: "Tracy Diaz (TracyBeanz)"
+    pos: ["TracyBeanz video", "Tracy Diaz"]
+    neg: ["tracy morgan"]
+  - id: paul_furber
+    family: promoter
+    pattern: '(?i)\bpaul furber\b|\bbaruch the scribe\b'
+    label_fr: "Paul Furber"
+    label_en: "Paul Furber"
+    pos: ["Paul Furber", "Baruch the Scribe"]
+    neg: ["paul ryan"]
+  - id: pamphlet_anon
+    family: promoter
+    pattern: '(?i)\bpamphlet[ -]?anon\b|\bcoleman rogers\b|\bpatriots['' ]? ?soapbox\b'
+    label_fr: "Pamphlet Anon / Patriots' Soapbox"
+    label_en: "Pamphlet Anon / Patriots' Soapbox"
+    pos: ["Pamphlet Anon", "Patriots Soapbox stream", "Coleman Rogers"]
+    neg: ["pamphlet"]
+  - id: christina_urso
+    family: promoter
+    pattern: '(?i)\bchristina urso\b|\bred pill 78\b|\bredpill78\b'
+    label_fr: "Christina Urso (RedPill78)"
+    label_en: "Christina Urso (RedPill78)"
+    pos: ["RedPill78", "Christina Urso"]
+    neg: ["christina aguilera"]
+  - id: praying_medic
+    family: promoter
+    pattern: '(?i)\bpraying ?medic\b'
+    label_fr: "Praying Medic"
+    label_en: "Praying Medic"
+    pos: ["Praying Medic's video"]
+    neg: ["medic praying"]
+  - id: jordan_sather
+    family: promoter
+    pattern: '(?i)\bjordan sather\b|\bdestroying the illusion\b'
+    label_fr: "Jordan Sather"
+    label_en: "Jordan Sather"
+    pos: ["Jordan Sather"]
+    neg: ["jordan peterson"]
+  - id: david_wilcock
+    family: promoter
+    pattern: '(?i)\bdavid wilcock\b|\bcorey goode\b'
+    label_fr: "David Wilcock / Corey Goode"
+    label_en: "David Wilcock / Corey Goode"
+    pos: ["David Wilcock", "Corey Goode"]
+    neg: ["david bowie"]
+  - id: liz_crokin
+    family: promoter
+    pattern: '(?i)\bliz crokin\b'
+    label_fr: "Liz Crokin"
+    label_en: "Liz Crokin"
+    pos: ["Liz Crokin"]
+    neg: ["liz truss"]
+  - id: serialbrain2
+    family: promoter
+    pattern: '(?i)\bserial ?brain ?2\b'
+    label_fr: "SerialBrain2"
+    label_en: "SerialBrain2"
+    pos: ["SerialBrain2 decode"]
+    neg: ["serial killer"]
+  - id: dustin_nemos
+    family: promoter
+    pattern: '(?i)\bdustin nemos\b'
+    label_fr: "Dustin Nemos"
+    label_en: "Dustin Nemos"
+    pos: ["Dustin Nemos"]
+    neg: ["finding nemo"]
+  - id: watkins
+    family: promoter
+    pattern: '(?i)\b(?:jim|ron|ronald|james) watkins\b|\bcode ?monkey\b|\bCM\b(?= (?:said|confirmed|is))|\bcodemonkeyz\b'
+    label_fr: "Jim et Ron Watkins (8chan / 8kun, « CodeMonkey »)"
+    label_en: "Jim and Ron Watkins (8chan / 8kun, 'CodeMonkey')"
+    pos: ["Ron Watkins", "CodeMonkey confirmed", "Jim Watkins owns 8chan"]
+    neg: ["code monkeys at work"]
+    ambiguous: false
+  - id: hotwheels
+    family: promoter
+    pattern: '(?i)\bhotwheels\b|\bfredrick brennan\b|\bfrederick brennan\b'
+    label_fr: "Fredrick Brennan (« Hotwheels »)"
+    label_en: "Fredrick Brennan ('Hotwheels')"
+    pos: ["Hotwheels left 8chan", "Fredrick Brennan"]
+    neg: ["hot wheels cars"]
+  - id: cernovich
+    family: promoter
+    pattern: '(?i)\bcernovich\b'
+    label_fr: "Mike Cernovich"
+    label_en: "Mike Cernovich"
+    pos: ["Cernovich tweeted"]
+    neg: ["chernobyl"]
+  - id: posobiec
+    family: promoter
+    pattern: '(?i)\bposobiec\b'
+    label_fr: "Jack Posobiec"
+    label_en: "Jack Posobiec"
+    pos: ["Jack Posobiec"]
+    neg: ["poso"]
+  - id: gateway_pundit
+    family: promoter
+    pattern: '(?i)\bgateway ?pundit\b|\bjim hoft\b'
+    label_fr: "The Gateway Pundit"
+    label_en: "The Gateway Pundit"
+    pos: ["Gateway Pundit reports", "Jim Hoft"]
+    neg: ["gateway arch"]
+  - id: zerohedge
+    family: promoter
+    pattern: '(?i)\bzero ?hedge\b|\bzh\.com\b'
+    label_fr: "ZeroHedge"
+    label_en: "ZeroHedge"
+    pos: ["zerohedge article", "Zero Hedge"]
+    neg: ["hedge fund"]
+  - id: bill_cooper
+    family: promoter
+    pattern: '(?i)\b(?:bill|milton william|william) cooper\b|\bbehold a pale horse\b'
+    label_fr: "Milton William Cooper (« Behold a Pale Horse »)"
+    label_en: "Milton William Cooper ('Behold a Pale Horse')"
+    pos: ["Bill Cooper predicted", "Behold a Pale Horse"]
+    neg: ["cooper union"]
+  - id: lin_wood
+    family: promoter
+    pattern: '(?i)\blin wood\b|\bL\. Lin Wood\b'
+    label_fr: "Lin Wood"
+    label_en: "Lin Wood"
+    pos: ["Lin Wood says", "L. Lin Wood"]
+    neg: ["linwood avenue"]
+  - id: sidney_powell
+    family: promoter
+    pattern: '(?i)\bsidney powell\b'
+    label_fr: "Sidney Powell"
+    label_en: "Sidney Powell"
+    pos: ["Sidney Powell"]
+    neg: ["colin powell"]
+  - id: qanon_john
+    family: promoter
+    pattern: '(?i)\bqanon john\b|\bjoe m\b(?= ?(?:storm|said))|\bstorm is upon us\b|\bnick noe\b|\bx22 ?report\b|\bdave hayes\b|\bsimon parkes\b|\bcharlie ward\b|\bjuan o.?savin\b|\bscott mckay\b|\bmel k\b|\bgene decode\b|\bmichael jaco\b|\bderek johnson\b'
+    label_fr: "Influenceurs Q (X22 Report, Charlie Ward, Juan O'Savin, Simon Parkes…)"
+    label_en: "Q influencers (X22 Report, Charlie Ward, Juan O'Savin, Simon Parkes...)"
+    pos: ["X22 Report", "Charlie Ward said", "Juan O'Savin", "Simon Parkes", "Gene Decode"]
+    neg: ["charlie brown"]
+  - id: roseanne
+    family: promoter
+    pattern: '(?i)\broseanne\b'
+    label_fr: "Roseanne Barr"
+    label_en: "Roseanne Barr"
+    ambiguous: true
+    pos: ["Roseanne tweeted about Q"]
+    neg: ["rose anne"]
+
+  # ================================================================ plateformes
+  - id: eightchan
+    family: platform
+    pattern: '(?i)\b8[ -]?chan\b|\b8ch\.net\b|\b8kun\b|\b8ch\b|\binfinite ?chan\b|\b∞chan\b'
+    label_fr: "8chan / 8kun"
+    label_en: "8chan / 8kun"
+    trends: true
+    trends_query: "8chan"
+    pos: ["8chan is down", "8kun", "infinitechan"]
+    neg: ["4chan"]
+  - id: voat
+    family: platform
+    pattern: '(?i)\bvoat\b'
+    label_fr: "Voat"
+    label_en: "Voat"
+    pos: ["move to voat"]
+    neg: ["vote"]
+  - id: gab
+    family: platform
+    pattern: '(?i)\bgab\.(?:ai|com)\b|\bon gab\b|\bgab (?:account|post|is)\b|\bandrew torba\b'
+    label_fr: "Gab"
+    label_en: "Gab"
+    pos: ["follow me on gab", "gab.ai/user", "Andrew Torba"]
+    neg: ["gift of the gab"]
+  - id: endchan
+    family: platform
+    pattern: '(?i)\bendchan\b|\bhalfchan\b|\bjulay\.world\b|\bneinchan\b'
+    label_fr: "Chans de repli (endchan, julay…)"
+    label_en: "Fallback chans (endchan, julay...)"
+    pos: ["endchan backup board"]
+    neg: ["endgame"]
+  - id: bitchute
+    family: platform
+    pattern: '(?i)\bbitchute\b|\brumble\.com\b|\bbrighteon\b|\bodysee\b|\bdlive\b'
+    label_fr: "Vidéo alternative (BitChute, Rumble, Brighteon…)"
+    label_en: "Alt video (BitChute, Rumble, Brighteon...)"
+    pos: ["mirror on bitchute", "rumble.com/v12", "Brighteon video"]
+    neg: ["bitcoin"]
+  - id: telegram_parler
+    family: platform
+    pattern: '(?i)\bparler\b|\btelegram (?:channel|group)\b|\bt\.me/\w+|\btruth social\b|\bgettr\b|\bminds\.com\b'
+    label_fr: "Parler / Telegram / Truth Social / Gettr"
+    label_en: "Parler / Telegram / Truth Social / Gettr"
+    pos: ["join my telegram channel", "t.me/qnews", "on Parler", "Truth Social"]
+    neg: ["parlor game"]
+  - id: subreddit_q
+    family: platform
+    pattern: '(?i)\br/(?:greatawakening|CBTS_Stream|The_Donald|qanon)\b|\bthe_donald\b|\bTD\.win\b|\bthedonald\.win\b|\bpatriots\.win\b'
+    label_fr: "Subreddits Q et pro-Trump (et leurs successeurs)"
+    label_en: "Q and pro-Trump subreddits (and successors)"
+    note: "r/conspiracy exclu : capte le pied de page automatique de ce subreddit."
+    pos: ["r/greatawakening got banned", "thedonald.win", "patriots.win"]
+    neg: ["r/aww", "/message/compose/?to=/r/conspiracy"]
+  - id: deplatform
+    family: platform
+    pattern: '(?i)\bdeplatform(?:ed|ing)?\b|\bshadow ?bann?(?:ed|ing)?\b|\bpurge of (?:conservatives|patriots)\b|\bcensored by (?:twitter|facebook|youtube|reddit)\b'
+    label_fr: "Déplateformisation / shadowban"
+    label_en: "Deplatforming / shadowban"
+    pos: ["shadowbanned again", "deplatformed by Twitter", "censored by youtube"]
+    neg: ["platform shoes"]
+
+  # ================================================================ complots classiques
+  - id: jfk
+    family: classic
+    pattern: '(?i)\bJFK (?:assassination|files|shooting|murder)\b|\bkennedy assassination\b|\bgrassy knoll\b|\blee harvey oswald\b|\bmagic bullet\b'
+    label_fr: "Assassinat de JFK"
+    label_en: "JFK assassination"
+    pos: ["the JFK files", "grassy knoll", "Lee Harvey Oswald"]
+    neg: ["JFK airport"]
+  - id: mkultra
+    family: classic
+    pattern: '(?i)\bMK[ -]?ultra\b|\bmonarch (?:programming|mind control)\b|\bmind control (?:program|experiments?)\b'
+    label_fr: "MKUltra / contrôle mental"
+    label_en: "MKUltra / mind control"
+    trends: true
+    trends_query: "MKUltra"
+    pos: ["MK Ultra", "monarch programming", "mind control program"]
+    neg: ["ultra marathon"]
+  - id: moon_hoax
+    family: classic
+    pattern: '(?i)\bmoon landings? (?:hoax|faked?|never happened)\b|\bfake moon landing\b|\bkubrick (?:faked|filmed) the moon\b|\bwe never went to the moon\b'
+    label_fr: "Alunissage truqué"
+    label_en: "Moon landing hoax"
+    pos: ["moon landing hoax", "fake moon landing", "we never went to the moon"]
+    neg: ["moon landing anniversary"]
+  - id: nine_eleven
+    family: classic
+    pattern: '(?i)\b(?:9/11|911|9-11) (?:was an? )?(?:inside job|truth(?:ers?)?|false flag|cover-?up)\b|\bbuilding 7\b|\bWTC ?7\b|\bjet fuel can.?t melt\b|\bdancing israelis\b'
+    label_fr: "11-Septembre (« inside job », WTC 7)"
+    label_en: "9/11 ('inside job', WTC 7)"
+    trends: true
+    trends_query: "9/11 inside job"
+    pos: ["9/11 was an inside job", "Building 7", "jet fuel can't melt steel beams", "911 truthers"]
+    neg: ["call 911"]
+  - id: sandy_hook
+    family: classic
+    pattern: '(?i)\bsandy ?hook\b|\bcrisis actors?\b'
+    label_fr: "Sandy Hook / « acteurs de crise »"
+    label_en: "Sandy Hook / 'crisis actors'"
+    pos: ["Sandy Hook hoax", "crisis actors again"]
+    neg: ["sandy beach"]
+  - id: false_flag
+    family: classic
+    pattern: '(?i)\bfalse[ -]?flags?\b|\bstaged (?:shooting|attack|event)\b'
+    label_fr: "Opération sous faux drapeau"
+    label_en: "False flag"
+    pos: ["another false flag", "staged shooting"]
+    neg: ["flagpole"]
+  - id: chemtrails
+    family: classic
+    pattern: '(?i)\bchem[ -]?trails?\b|\bgeoengineering\b|\bstratospheric aerosol\b'
+    label_fr: "Chemtrails / géo-ingénierie"
+    label_en: "Chemtrails / geoengineering"
+    trends: true
+    trends_query: "chemtrails"
+    pos: ["look at the chemtrails", "geoengineering program"]
+    neg: ["contrail physics"]
+  - id: flat_earth
+    family: classic
+    pattern: '(?i)\bflat[ -]?earth(?:ers?)?\b|\bglobe ?(?:earth )?(?:lie|hoax)\b|\bice wall\b|\bfirmament\b'
+    label_fr: "Terre plate"
+    label_en: "Flat earth"
+    trends: true
+    trends_query: "flat earth"
+    pos: ["flat earth is real", "the ice wall", "flat earthers"]
+    neg: ["earthquake"]
+  - id: haarp
+    family: classic
+    pattern: '(?i)\bHAARP\b|\bweather (?:control|weapons?|manipulation)\b|\bdirected energy weapons?\b|\bDEWs?\b(?= (?:fire|attack|weapon))'
+    label_fr: "HAARP / armes climatiques / DEW"
+    label_en: "HAARP / weather weapons / DEW"
+    pos: ["HAARP caused it", "directed energy weapon fires", "weather control"]
+    neg: ["harp music"]
+  - id: fluoride
+    family: classic
+    pattern: '(?i)\bfluorid(?:e|ated) (?:in (?:the|our) water|poison|calcif)\w*|\bpineal gland\b'
+    label_fr: "Fluor / glande pinéale"
+    label_en: "Fluoride / pineal gland"
+    pos: ["fluoride in the water", "decalcify your pineal gland"]
+    neg: ["fluoride toothpaste"]
+  - id: nwo
+    family: classic
+    pattern: '(?i)\bnew world order\b|\bNWO\b|\bone world government\b|\bglobal(?:ist)? government\b'
+    label_fr: "Nouvel ordre mondial (NWO)"
+    label_en: "New World Order (NWO)"
+    trends: true
+    trends_query: "new world order"
+    pos: ["the New World Order", "NWO agenda", "one world government"]
+    neg: ["world order of magnitude"]
+  - id: globalists
+    family: classic
+    pattern: '(?i)\bglobalists?\b|\bglobalism\b|\bglobal elites?\b'
+    label_fr: "Mondialistes / globalistes"
+    label_en: "Globalists"
+    pos: ["the globalists", "globalist agenda", "global elites"]
+    neg: ["globe"]
+  - id: illuminati
+    family: classic
+    pattern: '(?i)\billuminati\b|\billuminatus\b|\ball[ -]seeing eye\b'
+    label_fr: "Illuminati"
+    label_en: "Illuminati"
+    trends: true
+    pos: ["the Illuminati", "all-seeing eye"]
+    neg: ["illuminate"]
+  - id: freemasons
+    family: classic
+    pattern: '(?i)\b(?:free)?masons?\b(?! jar)|\bfreemasonry\b|\bmasonic\b|\bscottish rite\b|\b33rd degree\b'
+    label_fr: "Francs-maçons"
+    label_en: "Freemasons"
+    pos: ["the freemasons", "masonic symbols", "33rd degree"]
+    neg: ["mason jar"]
+  - id: bilderberg
+    family: classic
+    pattern: '(?i)\bbilderberg(?:ers?)?\b|\btrilateral commission\b|\bcouncil on foreign relations\b|\bCFR\b(?= (?:members?|controls))|\bdavos\b|\bworld economic forum\b|\bWEF\b'
+    label_fr: "Bilderberg / Trilatérale / Davos (WEF)"
+    label_en: "Bilderberg / Trilateral / Davos (WEF)"
+    pos: ["the Bilderberg group", "Trilateral Commission", "WEF agenda", "Davos elites"]
+    neg: ["web form"]
+  - id: great_reset
+    family: classic
+    pattern: '(?i)\bgreat reset\b|\byou will own nothing\b|\bbuild back better\b'
+    label_fr: "Great Reset"
+    label_en: "Great Reset"
+    trends: true
+    trends_query: "great reset"
+    pos: ["the Great Reset", "you will own nothing and be happy"]
+    neg: ["factory reset"]
+  - id: bohemian_grove
+    family: classic
+    pattern: '(?i)\bbohemian grove\b|\bcremation of care\b|\bskull (?:and|&) bones\b'
+    label_fr: "Bohemian Grove / Skull & Bones"
+    label_en: "Bohemian Grove / Skull & Bones"
+    pos: ["Bohemian Grove owl", "Skull and Bones"]
+    neg: ["skull fracture"]
+  - id: agenda21
+    family: classic
+    pattern: '(?i)\bagenda ?(?:21|2030)\b|\bdepopulation (?:agenda|plan)\b|\bgeorgia guidestones\b'
+    label_fr: "Agenda 21/2030 / dépopulation"
+    label_en: "Agenda 21/2030 / depopulation"
+    pos: ["Agenda 21", "depopulation agenda", "Georgia Guidestones"]
+    neg: ["agenda for the meeting"]
+  - id: fema_camps
+    family: classic
+    pattern: '(?i)\bFEMA (?:camps?|coffins|concentration)\b|\bJade Helm\b'
+    label_fr: "Camps de la FEMA / Jade Helm"
+    label_en: "FEMA camps / Jade Helm"
+    pos: ["FEMA camps are ready", "Jade Helm 15"]
+    neg: ["FEMA aid"]
+  - id: area51_aliens
+    family: classic
+    pattern: '(?i)\barea ?51\b|\breptilians?\b|\blizard people\b|\bnephilim\b|\banunnaki\b|\bsecret space program\b'
+    label_fr: "Area 51 / reptiliens / programme spatial secret"
+    label_en: "Area 51 / reptilians / secret space program"
+    pos: ["the reptilians", "Area 51 raid", "secret space program", "nephilim"]
+    neg: ["area 52"]
+  - id: satanic_ritual
+    family: classic
+    pattern: '(?i)\bsatanic (?:ritual|abuse|panic|cult|pedophil\w*|elites?)\b|\bSRA\b|\britual abuse\b'
+    label_fr: "Abus rituels sataniques"
+    label_en: "Satanic ritual abuse"
+    pos: ["satanic ritual abuse", "satanic elites", "SRA survivors"]
+    neg: ["satanic verses"]
+  - id: spirit_cooking
+    family: classic
+    pattern: '(?i)\bspirit ?cooking\b|\bmarina abramovi[cć]\b'
+    label_fr: "Spirit cooking / Marina Abramović"
+    label_en: "Spirit cooking / Marina Abramović"
+    pos: ["spirit cooking dinner", "Marina Abramovic"]
+    neg: ["cooking spirits"]
+  - id: comet_ping_pong
+    family: classic
+    pattern: '(?i)\bcomet ping ?pong\b|\bjames alefantis\b|\bbesta pizza\b|\bcheese pizza\b|\bpizza (?:code|symbols?)\b'
+    label_fr: "Comet Ping Pong / codes « pizza »"
+    label_en: "Comet Ping Pong / 'pizza' codes"
+    pos: ["Comet Ping Pong", "James Alefantis", "cheese pizza code"]
+    neg: ["pizza hut"]
+  - id: pedogate
+    family: classic
+    pattern: '(?i)\bpedo ?gate\b|\bpedowood\b|\bpedo(?:phile)? (?:ring|network|elites?|island)\b|\bpedovore\b|\bhollyweird\b'
+    label_fr: "Pedogate / réseaux pédophiles d'élites"
+    label_en: "Pedogate / elite pedophile rings"
+    pos: ["pedogate", "pedo ring in Hollywood", "Pedowood"]
+    neg: ["pediatrics"]
+  - id: podesta_emails
+    family: classic
+    pattern: '(?i)\bpodesta (?:emails?|art|brothers)\b|\bwikileaks emails?\b|\bdnc (?:leaks?|emails?)\b'
+    label_fr: "Emails de Podesta / DNC"
+    label_en: "Podesta / DNC emails"
+    pos: ["Podesta emails", "the DNC leak", "Podesta art collection"]
+    neg: ["podestà"]
+  - id: seth_rich
+    family: classic
+    pattern: '(?i)\bseth rich\b|#sethrich\b'
+    label_fr: "Seth Rich"
+    label_en: "Seth Rich"
+    trends: true
+    trends_query: "Seth Rich"
+    note: "Personne privee decedee : comptee comme theme de la scene, jamais citee nommement dans les extraits publies."
+    pos: ["Seth Rich murder", "#SethRich"]
+    neg: ["rich people"]
+  - id: clinton_body_count
+    family: classic
+    pattern: '(?i)\bclinton body ?count\b|\barkancide(?:d)?\b|\bvince foster\b|\bsuicided\b'
+    label_fr: "« Clinton body count » / Vince Foster"
+    label_en: "'Clinton body count' / Vince Foster"
+    pos: ["Clinton body count", "he got Arkancided", "Vince Foster"]
+    neg: ["body count of the war"]
+  - id: epstein_island
+    family: classic
+    pattern: '(?i)\blolita express\b|\bepstein(?:''s)? (?:island|list|client list|black book|flight logs?)\b|\blittle st\.? james\b|\bepstein didn.?t kill himself\b|\bEDKH\b'
+    label_fr: "Île d'Epstein / « Epstein didn't kill himself »"
+    label_en: "Epstein island / 'Epstein didn't kill himself'"
+    trends: true
+    trends_query: "Epstein didn't kill himself"
+    pos: ["Lolita Express", "Epstein didn't kill himself", "Epstein's island", "the Epstein client list"]
+    neg: ["einstein"]
+  - id: birther
+    family: classic
+    pattern: '(?i)\bbirthers?\b|\bbirtherism\b|\bobama(?:''s)? (?:birth certificate|kenya)\b|\bborn in kenya\b|\bbig mike\b'
+    label_fr: "Birtherisme / « Big Mike »"
+    label_en: "Birtherism / 'Big Mike'"
+    pos: ["Obama's birth certificate", "born in Kenya", "Big Mike"]
+    neg: ["birthday"]
+  - id: obamagate
+    family: classic
+    pattern: '(?i)\bobama ?gate\b|\bspygate\b|\brussia(?:n)? (?:hoax|collusion hoax)\b|\bcrossfire hurricane\b'
+    label_fr: "Obamagate / Spygate / « canular russe »"
+    label_en: "Obamagate / Spygate / 'Russia hoax'"
+    pos: ["Obamagate", "SPYGATE", "the Russia hoax", "Crossfire Hurricane"]
+    neg: ["watergate"]
+  - id: uranium_awan
+    family: classic
+    pattern: '(?i)\buranium ?one\b|\bU1\b(?= (?:deal|scandal))|\bawan (?:brothers|scandal)\b|\bimran awan\b'
+    label_fr: "Uranium One / affaire Awan"
+    label_en: "Uranium One / Awan affair"
+    pos: ["Uranium One deal", "Imran Awan", "Awan brothers"]
+    neg: ["uranium mine"]
+  - id: federal_reserve
+    family: classic
+    pattern: '(?i)\bfederal reserve\b|\bthe fed\b(?= (?:is|prints|owns))|\bend the fed\b|\bfiat (?:money|currency)\b|\bcentral bankers?\b'
+    label_fr: "Réserve fédérale / banques centrales"
+    label_en: "Federal Reserve / central banks"
+    pos: ["the Federal Reserve", "end the Fed", "central bankers"]
+    neg: ["fed up"]
+  - id: waco_ruby
+    family: classic
+    pattern: '(?i)\bwaco\b|\bruby ridge\b|\bbranch davidians?\b|\bOklahoma City bombing\b'
+    label_fr: "Waco / Ruby Ridge / Oklahoma City"
+    label_en: "Waco / Ruby Ridge / Oklahoma City"
+    pos: ["Waco siege", "Ruby Ridge"]
+    neg: ["wacom tablet"]
+  - id: deep_underground_cabal
+    family: classic
+    pattern: '(?i)\bshadow government\b|\bsecret government\b|\bthe powers that be\b|\bTPTB\b|\bthe elites?\b(?= (?:control|want|are))'
+    label_fr: "Gouvernement de l'ombre / TPTB"
+    label_en: "Shadow government / TPTB"
+    pos: ["the shadow government", "TPTB want", "the elites control"]
+    neg: ["shadow of a doubt"]
+  - id: crisis_mockingbird
+    family: classic
+    pattern: '(?i)\bpresstitutes?\b|\bfake news media\b|\bMSM (?:lies|propaganda)\b|\bsinclair (?:broadcast|script)\b'
+    label_fr: "« Presstitutes » / médias « fake news »"
+    label_en: "'Presstitutes' / 'fake news media'"
+    pos: ["the presstitutes", "MSM lies", "Sinclair script"]
+    neg: ["news media"]
+  - id: q_children_trafficking
+    family: classic
+    pattern: '(?i)\b(?:child|human|sex) traffick(?:ing|ers?)\b|\bsave our children\b|#saveourchildren\b|#savethechildren\b'
+    label_fr: "Trafic d'enfants / #SaveTheChildren"
+    label_en: "Child trafficking / #SaveTheChildren"
+    trends: true
+    trends_query: "save our children"
+    pos: ["child trafficking ring", "#SaveOurChildren", "sex trafficking"]
+    neg: ["traffic jam"]
+  - id: ancient_bloodlines
+    family: classic
+    pattern: '(?i)\b13 (?:bloodlines|families)\b|\bblack nobility\b|\bthe bloodlines\b|\bkhazarian mafia\b'
+    label_fr: "« 13 lignées » / « noblesse noire »"
+    label_en: "'13 bloodlines' / 'black nobility'"
+    sensitive: true
+    note: "Souvent antisemite (Khazarian mafia) : publie en agregats."
+    pos: ["the 13 bloodlines", "Khazarian mafia", "black nobility"]
+    neg: ["bloodline of horses"]
+
+  # ================================================================ registre religieux
+  - id: spiritual_warfare
+    family: spiritual
+    pattern: '(?i)\bspiritual (?:war|warfare|battle)\b|\bgood (?:vs\.?|versus|v\.?) evil\b|\bbiblical (?:times|proportions)\b'
+    label_fr: "Guerre spirituelle / bien contre mal"
+    label_en: "Spiritual warfare / good vs. evil"
+    pos: ["this is spiritual warfare", "good vs evil", "biblical proportions"]
+    neg: ["spiritual retreat"]
+  - id: end_times
+    family: spiritual
+    pattern: '(?i)\bend ?times\b|\brapture\b|\bantichrist\b|\bmark of the beast\b|\btribulation\b|\barmageddon\b|\bbook of revelations?\b'
+    label_fr: "Fin des temps / Antéchrist / marque de la bête"
+    label_en: "End times / Antichrist / mark of the beast"
+    pos: ["the end times", "mark of the beast", "the Antichrist"]
+    neg: ["rapturous applause"]
+  - id: satanists
+    family: spiritual
+    pattern: '(?i)\bsatanists?\b|\bluciferians?\b|\bbaal\b|\bmoloch\b|\bdemonic\b|\bdemon(?:s)? (?:worship|possessed)\b'
+    label_fr: "Satanistes / lucifériens / Moloch"
+    label_en: "Satanists / Luciferians / Moloch"
+    pos: ["luciferian elites", "Moloch worship", "satanists everywhere", "demonic"]
+    neg: ["balloon"]
+  - id: god_wins
+    family: spiritual
+    pattern: '(?i)\bgod wins\b|\bpray(?:ing)? for (?:POTUS|Trump|Q)\b|\barmor of god\b'
+    label_fr: "« God wins » / prières pour Trump"
+    label_en: "'God wins' / praying for Trump"
+    pos: ["GOD WINS", "praying for POTUS", "the armor of God"]
+    neg: ["god of war"]
+
+  # ================================================================ sante / COVID
+  - id: plandemic
+    family: health
+    pattern: '(?i)\bplandemic\b|\bscamdemic\b|\bcovid (?:hoax|scam)\b|\bcorona ?(?:hoax|scam)\b|\bfake pandemic\b'
+    label_fr: "« Plandemic » / COVID canular"
+    label_en: "'Plandemic' / COVID hoax"
+    trends: true
+    trends_query: "plandemic"
+    pos: ["Plandemic documentary", "the covid hoax", "scamdemic"]
+    neg: ["pandemic preparedness"]
+  - id: five_g
+    family: health
+    pattern: '(?i)\b5G\b(?=.{0,60}(?:radiation|covid|virus|towers?|kills?|causes?|health|cancer))|\b5G (?:towers?|radiation)\b'
+    label_fr: "5G (rayonnements, COVID)"
+    label_en: "5G (radiation, COVID)"
+    pos: ["5G towers cause covid", "5G radiation"]
+    neg: ["5G phone plan"]
+  - id: hydroxy
+    family: health
+    pattern: '(?i)\bhydroxy ?chloroquine\b|\bHCQ\b|\bivermectin\b|\bzinc (?:protocol|and HCQ)\b'
+    label_fr: "Hydroxychloroquine / ivermectine"
+    label_en: "Hydroxychloroquine / ivermectin"
+    pos: ["HCQ works", "ivermectin", "hydroxychloroquine"]
+    neg: ["chlorine"]
+  - id: antivax
+    family: health
+    pattern: '(?i)\bvaccines? (?:cause|kill|injur|damage)\w*|\bvax(?:x)?ed\b|\bclot ?shot\b|\bdied suddenly\b|\bkill ?shot\b|\bantivax(?:xers?|ers?)?\b|\banti-vax(?:xers?|ers?)?\b|\bvaccine autism\b|\bautism vaccines?\b|\bmRNA (?:poison|bioweapon)\b'
+    label_fr: "Antivaccin (« clot shot », « died suddenly »…)"
+    label_en: "Anti-vaccine ('clot shot', 'died suddenly'...)"
+    pos: ["vaccines cause autism", "the clot shot", "died suddenly", "antivaxxers"]
+    neg: ["vaccine appointment"]
+  - id: bill_gates
+    family: health
+    pattern: '(?i)\bbill gates\b|\bgates foundation\b|\bevent 201\b'
+    label_fr: "Bill Gates / Event 201"
+    label_en: "Bill Gates / Event 201"
+    pos: ["Bill Gates wants", "Event 201", "the Gates Foundation"]
+    neg: ["gates of hell"]
+  - id: fauci
+    family: health
+    pattern: '(?i)\bfauci\b|\bgain[ -]of[ -]function\b|\bwuhan lab\b|\blab leak\b'
+    label_fr: "Fauci / gain de fonction / fuite de laboratoire"
+    label_en: "Fauci / gain of function / lab leak"
+    pos: ["Fauci lied", "gain-of-function research", "the Wuhan lab"]
+    neg: ["fauxi"]
+  - id: masks_lockdown
+    family: health
+    pattern: '(?i)\bmask (?:mandates?|tyranny)\b|\bmuzzles?\b(?= (?:on|are))|\blockdowns? (?:are|is) (?:tyranny|illegal)\b|\bmedical tyranny\b|\bvaccine passports?\b'
+    label_fr: "Tyrannie sanitaire (masques, confinements, passes)"
+    label_en: "Medical tyranny (masks, lockdowns, passports)"
+    pos: ["mask mandates", "medical tyranny", "vaccine passports"]
+    neg: ["face mask sale"]
+  - id: adrenochrome_variants
+    family: health
+    pattern: '(?i)\badrenochrome\b|\badreno ?chrome\b|\badrenachrome\b'
+    label_fr: "Adrénochrome (variantes orthographiques)"
+    label_en: "Adrenochrome (spelling variants)"
+    trends: true
+    trends_query: "adrenochrome"
+    pos: ["adrenochrome harvesting", "adrenachrome"]
+    neg: ["adrenaline"]
+
+  # ================================================================ elections
+  - id: stop_the_steal
+    family: election
+    pattern: '(?i)\bstop the steal\b|#stopthesteal\b|\bthe big steal\b'
+    label_fr: "Stop the Steal"
+    label_en: "Stop the Steal"
+    trends: true
+    trends_query: "stop the steal"
+    pos: ["Stop the Steal rally", "#StopTheSteal"]
+    neg: ["steel mill"]
+  - id: dominion
+    family: election
+    pattern: '(?i)\bdominion (?:voting|machines?|systems?|software)\b|\bsmartmatic\b|\bscytl\b|\bhammer and scorecard\b'
+    label_fr: "Dominion / Smartmatic / « Hammer & Scorecard »"
+    label_en: "Dominion / Smartmatic / 'Hammer & Scorecard'"
+    pos: ["Dominion voting machines", "Smartmatic", "Hammer and Scorecard"]
+    neg: ["dominion over the earth"]
+  - id: kraken
+    family: election
+    pattern: '(?i)\brelease the kraken\b|\bthe kraken\b(?=.{0,40}(?:powell|lawsuit|election|released))|\bkraken lawsuits?\b'
+    label_fr: "« Release the Kraken »"
+    label_en: "'Release the Kraken'"
+    pos: ["release the kraken", "the Kraken lawsuit"]
+    neg: ["kraken rum"]
+  - id: sharpiegate
+    family: election
+    pattern: '(?i)\bsharpie ?gate\b|\bsharpies?\b(?= (?:ballots?|invalidat))'
+    label_fr: "Sharpiegate"
+    label_en: "Sharpiegate"
+    pos: ["Sharpiegate in Arizona", "sharpies invalidate ballots"]
+    neg: ["sharpie marker"]
+  - id: rigged_election
+    family: election
+    pattern: '(?i)\b(?:rigged|stolen|fraudulent) elections?\b|\belection (?:was )?(?:stolen|rigged)\b|\bvoter fraud\b|\bballot (?:harvesting|dumps?|stuffing)\b|\bdead (?:people|voters) vot\w*|\b2000 mules\b'
+    label_fr: "Élection « volée » / fraude électorale"
+    label_en: "'Stolen' election / voter fraud"
+    trends: true
+    trends_query: "voter fraud"
+    pos: ["the election was stolen", "voter fraud", "ballot harvesting", "2000 Mules"]
+    neg: ["election day"]
+  - id: jan6
+    family: election
+    pattern: '(?i)\bJan(?:uary)?\.? 6(?:th)?\b|\bJ6\b|\bcapitol (?:riot|breach|siege|protest)\b|\bfedsurrection\b|\bray epps\b'
+    label_fr: "6 janvier 2021 (Capitole)"
+    label_en: "January 6, 2021 (Capitol)"
+    pos: ["January 6th", "the capitol riot", "fedsurrection", "J6 prisoners"]
+    neg: ["june 6"]
+  - id: seventeen_seventy_six
+    family: election
+    pattern: '(?i)\b1776\b(?! ?(?:project|commission))|#1776\b'
+    label_fr: "« 1776 » (appel à la révolution)"
+    label_en: "'1776' (call to revolution)"
+    ambiguous: true
+    pos: ["1776 again!", "#1776"]
+    neg: ["the 1776 Commission"]
+  - id: insurrection_act
+    family: election
+    pattern: '(?i)\binsurrection act\b|\bmartial law\b'
+    label_fr: "Insurrection Act / loi martiale"
+    label_en: "Insurrection Act / martial law"
+    pos: ["invoke the Insurrection Act", "martial law"]
+    neg: ["insurance act"]
+
+  # ================================================================ milices et violence
+  - id: oath_keepers
+    family: militia
+    pattern: '(?i)\boath ?keepers?\b|\bstewart rhodes\b'
+    label_fr: "Oath Keepers"
+    label_en: "Oath Keepers"
+    pos: ["Oath Keepers", "Stewart Rhodes"]
+    neg: ["bookkeepers"]
+  - id: three_percenters
+    family: militia
+    pattern: '(?i)\bthree ?percenters?\b|\b3 ?%ers?\b|\bIII ?%|\b3 percenters?\b'
+    label_fr: "Three Percenters"
+    label_en: "Three Percenters"
+    pos: ["Three Percenters", "III%", "3%ers"]
+    neg: ["three percent interest"]
+  - id: proud_boys
+    family: militia
+    pattern: '(?i)\bproud boys?\b|\benrique tarrio\b|\bgavin mcinnes\b'
+    label_fr: "Proud Boys"
+    label_en: "Proud Boys"
+    pos: ["Proud Boys", "Gavin McInnes"]
+    neg: ["proud parents"]
+  - id: boogaloo
+    family: militia
+    pattern: '(?i)(?<!electric )\bboogaloo\b|\bbig igloo\b|\bboog bois?\b|\bhawaiian shirts?\b(?=.{0,40}(?:militia|armed|guns))'
+    label_fr: "Boogaloo"
+    label_en: "Boogaloo"
+    trends: true
+    trends_query: "boogaloo"
+    pos: ["the boogaloo", "big igloo", "boog bois"]
+    neg: ["breakin 2 electric boogaloo dance"]
+    ambiguous: true
+  - id: sovereign_citizen
+    family: militia
+    pattern: '(?i)\bsovereign citizens?\b|\bsovcits?\b|\bstrawman (?:account|theory)\b|\bfreeman on the land\b'
+    label_fr: "Citoyens souverains"
+    label_en: "Sovereign citizens"
+    pos: ["sovereign citizen", "sovcit", "strawman account"]
+    neg: ["sovereign debt"]
+  - id: patriot_front
+    family: militia
+    pattern: '(?i)\bpatriot front\b|\bidentity evropa\b|\bamerican identity movement\b|\batomwaffen\b|\bthe base\b(?= (?:group|militia))'
+    label_fr: "Patriot Front / Identity Evropa / Atomwaffen"
+    label_en: "Patriot Front / Identity Evropa / Atomwaffen"
+    sensitive: true
+    pos: ["Patriot Front march", "Identity Evropa", "Atomwaffen"]
+    neg: ["weather front"]
+  - id: accelerationism
+    family: militia
+    pattern: '(?i)\baccelerationis[mt]s?\b|\bsaint tarrant\b|\bsaints? (?:of|tarrant|roof|bowers)\b|\bhigh score\b(?=.{0,40}(?:shoot|kill))'
+    label_fr: "Accélérationnisme / « saints » terroristes"
+    label_en: "Accelerationism / terrorist 'saints'"
+    sensitive: true
+    pos: ["accelerationism", "Saint Tarrant", "new high score shooting"]
+    neg: ["acceleration of gravity"]
+  - id: mass_shootings_2019
+    family: militia
+    pattern: '(?i)\bchristchurch (?:shoot\w*|mosques?|attacks?|massacre|manifesto|video)\b|\bbrenton tarrant\b|\btarrant(?:''s)? manifesto\b|\bel paso (?:shoot\w*|manifesto|massacre)\b|\bpoway\b|\btree of life (?:synagogue|shooting)\b|\bcharlottesville\b'
+    label_fr: "Attentats (Christchurch, El Paso, Poway, Pittsburgh) / Charlottesville"
+    label_en: "Attacks (Christchurch, El Paso, Poway, Pittsburgh) / Charlottesville"
+    pos: ["Christchurch shooter", "Brenton Tarrant", "El Paso manifesto", "Poway synagogue", "Charlottesville rally"]
+    neg: ["christchurch cathedral tour"]
+    ambiguous: true
+  - id: civil_war
+    family: militia
+    pattern: '(?i)\b(?:second|2nd|next) civil war\b|\bcivil war (?:2|II|is coming)\b|\bCW2\b|\bday of reckoning\b'
+    label_fr: "Seconde guerre civile"
+    label_en: "Second civil war"
+    pos: ["the second civil war", "civil war 2", "CW2 soon"]
+    neg: ["civil war history"]
+
+  # ================================================================ codes de haine (agregats seulement)
+  - id: zog
+    family: hate
+    pattern: '\bZOG\b|(?i:\bzionist occupied government\b)'
+    label_fr: "ZOG (« gouvernement d'occupation sioniste »)"
+    label_en: "ZOG ('Zionist Occupied Government')"
+    sensitive: true
+    pos: ["ZOG controls", "Zionist Occupied Government"]
+    neg: ["zog the dragon"]
+  - id: echoes
+    family: hate
+    pattern: '\(\(\((?!\s*(?:WWG1WGA|Q\b))\s*\w[^()]{0,40}\)\)\)'
+    note: "Q ecrit lui-meme '(((WWG1WGA)))' : exclu."
+    label_fr: "Triples parenthèses (((…)))"
+    label_en: "Triple parentheses (((...)))"
+    sensitive: true
+    pos: ["(((them)))", "(((Soros)))"]
+    neg: ["((double))", "(((WWG1WGA)))"]
+  - id: jq
+    family: hate
+    pattern: '(?i)\bthe JQ\b|\bJewish question\b|\bnaming the jew\b|\bname the jew\b|\b(?:it''?s|its) (?:always )?the jews\b|\bthe jews (?:control|own|run|did)\b'
+    label_fr: "« JQ » / « les Juifs contrôlent »"
+    label_en: "'JQ' / 'the Jews control'"
+    sensitive: true
+    pos: ["the JQ", "name the jew", "the jews control the media"]
+    neg: ["jewish holiday"]
+  - id: kalergi
+    family: hate
+    pattern: '(?i)\bkalergi(?: plan)?\b|\bcoudenhove\b'
+    label_fr: "« Plan Kalergi »"
+    label_en: "'Kalergi plan'"
+    sensitive: true
+    pos: ["the Kalergi plan"]
+    neg: ["allergy"]
+  - id: great_replacement
+    family: hate
+    pattern: '(?i)\bgreat replacement\b|\bwhite genocide\b|\breplacement (?:theory|migration)\b|\bwhite replacement\b'
+    label_fr: "« Grand remplacement » / « génocide blanc »"
+    label_en: "'Great Replacement' / 'white genocide'"
+    sensitive: true
+    trends: true
+    trends_query: "great replacement"
+    pos: ["the great replacement", "white genocide"]
+    neg: ["hip replacement"]
+  - id: cultural_marxism
+    family: hate
+    pattern: '(?i)\bcultural marxis[mt]s?\b|\bfrankfurt school\b|\bglobohomo\b|\bwoke ?ism\b'
+    label_fr: "« Marxisme culturel » / « globohomo »"
+    label_en: "'Cultural Marxism' / 'globohomo'"
+    sensitive: true
+    pos: ["cultural marxism", "globohomo agenda", "Frankfurt School"]
+    neg: ["marxist economics"]
+  - id: fourteen_eighty_eight
+    family: hate
+    pattern: '\b1488\b(?![.,]\d)|\b14/88\b|(?i:\b14 words\b|\bfourteen words\b)|\b(?<![\d.,])88\b(?= ?(?:!|$))'
+    label_fr: "1488 / « 14 words »"
+    label_en: "1488 / '14 words'"
+    sensitive: true
+    pos: ["1488", "the 14 words", "14/88"]
+    neg: ["1488.50 dollars"]
+  - id: day_of_rope
+    family: hate
+    pattern: '(?i)\bday of (?:the )?rope\b|\bDOTR\b|\bhelicopter rides?\b|\bfree helicopter\b'
+    label_fr: "« Day of the rope » / « helicopter rides »"
+    label_en: "'Day of the rope' / 'helicopter rides'"
+    sensitive: true
+    pos: ["day of the rope", "free helicopter rides"]
+    neg: ["helicopter parent"]
+  - id: protocols
+    family: hate
+    pattern: '(?i)\bprotocols of (?:the )?(?:learned )?elders of zion\b|\belders of zion\b|\bblood libel\b|\bkhazars?\b|\bkhazarian\b|\bsynagogue of satan\b|\bTalmud(?:ic)?\b(?= (?:says|teaches|allows))'
+    label_fr: "« Protocoles des Sages de Sion » / Khazars / « synagogue de Satan »"
+    label_en: "'Protocols of the Elders of Zion' / Khazars / 'synagogue of Satan'"
+    sensitive: true
+    pos: ["the Protocols of the Elders of Zion", "Khazarian", "synagogue of satan"]
+    neg: ["protocols of the meeting"]
+  - id: rothschild_soros_code
+    family: hate
+    pattern: '(?i)\brothschilds? (?:own|control|bank|famil\w*)\b|\bsoros (?:funded|paid|puppets?|controls?|owns?)\b|\bsoros[- ]funded\b|\bzionists? (?:control|own)\b'
+    label_fr: "Rothschild / Soros « qui contrôlent »"
+    label_en: "Rothschild / Soros 'in control'"
+    sensitive: true
+    note: "Les simples mentions de Soros et des Rothschild sont comptees par actors.yaml ; ici, les formules de controle."
+    pos: ["the Rothschilds own the banks", "Soros-funded protesters", "zionists control"]
+    neg: ["soros donated to a museum"]
+  - id: holocaust_denial
+    family: hate
+    pattern: '(?i)\bholohoax\b|\bholocaust (?:hoax|denial|never happened|myth)\b|\b6 ?gorillion\b|\b6 million (?:lie|hoax)\b|\bshoah business\b'
+    label_fr: "Négationnisme"
+    label_en: "Holocaust denial"
+    sensitive: true
+    pos: ["the holohoax", "holocaust never happened", "6 gorillion"]
+    neg: ["holocaust museum"]
+  - id: race_slurs_index
+    family: hate
+    pattern: '(?i)\bniggers?\b|\bkikes?\b|\bchinks?\b|\bspics?\b|\bmudslimes?\b|\bsandn\w+\b'
+    label_fr: "Indice d'insultes racistes et antisémites"
+    label_en: "Racist and antisemitic slur index"
+    sensitive: true
+    note: "Indice agrege seulement (aucune citation) : sert de temoin de toxicite pour comparer les fils Q au reste de /pol/."
+    pos: ["kikes", "spics"]
+    neg: ["spice", "kiker"]
+
+wikipedia_articles:
+  - Pizzagate_conspiracy_theory
+  - Alex_Jones
+  - InfoWars
+  - Jeffrey_Epstein
+  - Murder_of_Seth_Rich
+  - Chemtrail_conspiracy_theory
+  - Modern_flat_Earth_beliefs
+  - Plandemic
+  - Stop_the_Steal
+  - Adrenochrome
+  - New_World_Order_conspiracy_theory
+  - Illuminati
+  - Deep_state_in_the_United_States
+  - Sandy_Hook_Elementary_School_shooting_conspiracy_theories
+  - 9/11_conspiracy_theories
+  - Great_Replacement_conspiracy_theory
+  - Satanic_panic
+  - Jade_Helm_15_conspiracy_theories
+  - Barack_Obama_citizenship_conspiracy_theories
+  - Great_Reset
+  - 8chan
+  - 2020_United_States_presidential_election
+  - January_6_United_States_Capitol_attack
+  - COVID-19_misinformation
+  - 5G_misinformation
