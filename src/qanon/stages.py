@@ -2,8 +2,8 @@
 
 Les etapes longues et incrementales (GDELT) viennent en dernier : chaque cycle a
 un budget de temps, et les etapes rapides doivent passer avant."""
-from .analysis import (actors, descriptive, discourse, interest, markov, news, physics, predictions, prophecies, stats,
-                       trump, verification)
+from .analysis import (actors, descriptive, discourse, interest, markov, news, physics, predictions, prophecies, scene,
+                       stats, trump, verification)
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
@@ -81,8 +81,21 @@ STAGES += [
     # Scene complotiste : pages vues d'articles connexes (table a part), Reddit via Arctic Shift.
     Stage("fetch_pageviews_scene", pageviews.run_scene, code=True),
     Stage("fetch_reddit_volume", reddit.run_volume, code=True),
-    # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
-    Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
     # Rejoue toutes les heures sur les nouveaux elements ; un lexique modifie recompte tout.
     Stage("scan_reddit", reddit.run_scan, refresh=3600, keep_cursor=True, code=True),
+]
+STAGES += [
+    # Q et la scene : entropie de transfert, syncretisme, reponse horaire, pics d'attention, diffusion.
+    # Rejoue a chaque nouveau comptage Reddit (toutes les heures pendant la collecte).
+    Stage("analyze_scene", scene.run, code=True,
+          inputs=("fetch_qdrops", "fetch_tweets", "load_timeline", "fetch_pageviews", "fetch_pageviews_scene",
+                  "fetch_reddit_volume"),
+          optional=("scan_reddit", "fetch_reddit_hour", "fetch_gdelt")),
+]
+STAGES += [
+    # Collectes longues en dernier : elles prennent le budget restant du cycle (sinon les
+    # etapes placees apres elles n'auraient jamais leur tour). Heures : 15 s par cycle au plus.
+    Stage("fetch_reddit_hour", reddit.run_hour, inputs=("fetch_reddit_volume",), keep_cursor=True),
+    # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
+    Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
 ]

@@ -67,3 +67,9 @@ def test_retry_then_give_up(monkeypatch):
     with pytest.raises(reddit.Busy):
         reddit.get_retry("/x", lambda s: False)   # budget epuise : pas de nouvel essai
     assert len(calls) == 1
+
+
+def test_hour_bins_shifted_by_one_hour():
+    # Creneau etiquete 23:00 la veille = 00:00-01:00 UTC (verifie sur des comptes bruts).
+    data = [{"created_utc": "2018-03-01T23:00:00.000Z", "count": "19"}]
+    assert reddit.hour_bins(data) == [(1519948800, 19)]

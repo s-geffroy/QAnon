@@ -147,6 +147,11 @@ CREATE TABLE IF NOT EXISTS reddit_sample_day (
     complete INTEGER,    -- 1 si les trois creneaux ont ete lus en entier
     PRIMARY KEY (sub, kind, day)
 );
+CREATE TABLE IF NOT EXISTS reddit_hour (
+    sub TEXT, hour INTEGER, n INTEGER,            -- debut de l'heure (epoque UTC), commentaires
+    PRIMARY KEY (sub, hour)
+);
+CREATE TABLE IF NOT EXISTS reddit_hour_day (sub TEXT, day TEXT, n INTEGER, PRIMARY KEY (sub, day));
 CREATE TABLE IF NOT EXISTS reddit_term_day (
     sub TEXT, kind TEXT, day TEXT, term TEXT, n INTEGER,   -- elements echantillonnes contenant le terme
     PRIMARY KEY (sub, kind, day, term)

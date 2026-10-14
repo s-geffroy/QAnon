@@ -1426,6 +1426,35 @@ terms:
     pos: ["kikes", "spics"]
     neg: ["spice", "kiker"]
 
+# Theme du lexique -> article Wikipedia (attention du public au theme, analyse de syncretisme).
+theme_wiki:
+  gl:pizzagate: Pizzagate_conspiracy_theory
+  gl:adrenochrome: Adrenochrome
+  gl:deep-state: Deep_state_in_the_United_States
+  alex_jones: Alex_Jones
+  epstein_island: Jeffrey_Epstein
+  seth_rich: Murder_of_Seth_Rich
+  chemtrails: Chemtrail_conspiracy_theory
+  flat_earth: Modern_flat_Earth_beliefs
+  plandemic: Plandemic
+  stop_the_steal: Stop_the_Steal
+  nwo: New_World_Order_conspiracy_theory
+  illuminati: Illuminati
+  sandy_hook: Sandy_Hook_Elementary_School_shooting_conspiracy_theories
+  nine_eleven: 9/11_conspiracy_theories
+  great_replacement: Great_Replacement_conspiracy_theory
+  satanic_ritual: Satanic_panic
+  fema_camps: Jade_Helm_15_conspiracy_theories
+  birther: Barack_Obama_citizenship_conspiracy_theories
+  great_reset: Great_Reset
+  eightchan: 8chan
+  rigged_election: 2020_United_States_presidential_election
+  jan6: January_6_United_States_Capitol_attack
+  antivax: COVID-19_misinformation
+  five_g: 5G_misinformation
+  actor:epstein: Jeffrey_Epstein
+  actor:maxwell: Jeffrey_Epstein
+
 wikipedia_articles:
   - Pizzagate_conspiracy_theory
   - Alex_Jones

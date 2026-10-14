@@ -161,6 +161,53 @@ def run_sample(ctx):
     return True
 
 
+# ------------------------------------------------------------------ activite horaire
+HOURLY = ("greatawakening", "CBTS_Stream")
+
+
+def hour_bins(data):
+    """Creneaux horaires de l'agregat Arctic Shift. L'etiquette est decalee d'une heure
+    (verifie le 14/10/2026 : le creneau marque 23:00 contient les commentaires de
+    00:00-01:00 UTC) : on la corrige."""
+    out = []
+    for x in data or []:
+        t = calendar.timegm(time.strptime(x["created_utc"][:19], "%Y-%m-%dT%H:%M:%S")) + 3600
+        out.append((t, int(x["count"])))
+    return out
+
+
+HOUR_SHARE = 15   # secondes par cycle : laisse le reste du budget a l'echantillon
+
+
+def run_hour(ctx):
+    """Commentaires par heure des subreddits Q (fonction de reponse aux drops), jour par jour."""
+    done_any = False
+    stop = time.monotonic() + HOUR_SHARE
+    for sub in HOURLY:
+        todo = [r[0] for r in ctx.conn.execute(
+            "SELECT day FROM reddit_volume v WHERE sub = ? AND kind = 'comments' AND NOT EXISTS ("
+            " SELECT 1 FROM reddit_hour_day d WHERE d.sub = v.sub AND d.day = v.day) ORDER BY day", (sub,))]
+        for day in todo:
+            if done_any and (ctx.should_yield() or time.monotonic() > stop):
+                return False
+            t0 = calendar.timegm(time.strptime(day, "%Y-%m-%d"))
+            try:
+                data = get_retry("/comments/search/aggregate", lambda s: _pause(ctx, s), subreddit=sub,
+                                 aggregate="created_utc", frequency="hour", after=t0, before=t0 + DAY)
+            except Busy as exc:
+                log(f"reddit : heures r/{sub} {day} differees ({exc})")
+                return None
+            rows = [(sub, t, n) for t, n in hour_bins(data) if t0 <= t < t0 + DAY]
+            ctx.conn.executemany("INSERT OR REPLACE INTO reddit_hour VALUES (?,?,?)", rows)
+            ctx.conn.execute("INSERT OR REPLACE INTO reddit_hour_day VALUES (?,?,?)", (sub, day, sum(n for _, n in rows)))
+            ctx.conn.commit()
+            done_any = True
+    n = ctx.conn.execute("SELECT count(*), sum(n) FROM reddit_hour").fetchone()
+    ctx.set_output(db.sha(n[0], n[1]))
+    log(f"reddit : activite horaire de {', '.join(HOURLY)}, {n[0]} heures, {n[1]} commentaires")
+    return True
+
+
 # ------------------------------------------------------------------ comptage
 def run_scan(ctx):
     """Applique le lexique a l'echantillon, par paquets (curseur = empreinte du
