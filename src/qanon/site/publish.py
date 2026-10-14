@@ -50,6 +50,15 @@ def token_expiry(token):
 
 
 def run(ctx):
+    # Suspension volontaire (compose.yaml : PUBLISH_HOLD=1), le temps d'une relecture :
+    # le site est construit dans /state/site, mais pas pousse.
+    if os.environ.get("PUBLISH_HOLD", "") not in ("", "0"):
+        if db.get_meta(ctx.conn, "publish_hold_logged") != "1":
+            db.set_meta(ctx.conn, "publish_hold_logged", "1")
+            ctx.conn.commit()
+            log("publication suspendue (PUBLISH_HOLD) : site construit dans /state/site, non pousse")
+        return None
+    db.set_meta(ctx.conn, "publish_hold_logged", "0")
     token = read_secret("github_token")
     if not token:
         ctx.set_output("manuel")

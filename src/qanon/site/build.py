@@ -24,7 +24,7 @@ ZENODO_CONCEPT = "10.5281/zenodo.23338131"
 ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 NAV = [
-    ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "timeline"]),
+    ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "models", "timeline"]),
     ("resources", ["research", "paper", "figures", "faq", "corpus", "watch", "teaching", "glossary", "bibliography", "data", "method", "cite"]),
 ]
 PAGES = [p for _, group in NAV for p in group]
@@ -166,7 +166,7 @@ class Site:
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
                                                 "llm_eval", "predictions", "verification", "stats",
-                                                "horoscope", "prophecies", "translations")}
+                                                "horoscope", "prophecies", "translations", "markov", "physics", "scene")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
         self._figures = {}
@@ -556,6 +556,152 @@ class Site:
                     n=n(fp["n"]), same=p(fp["share_same_day"], 0), late=n(fp["n_late"]),
                     pred=p(fp["share_cited_pred_late"] or 0, 0), txt=n(fp["n_fpp_text"]), fref=n(fp["fpp_refs"]))}
                 out["charts"]["fpp"] = charts.fpp(fp, lang)
+        return out
+
+    def page_models(self, lang, c):
+        """Modeles : chaines de Markov, analogies physiques, Q dans la scene complotiste."""
+        t, n, p, d = c["t"], c["n"], c["p"], c["date"]
+        mk, ph, sc = self.r["markov"], self.r["physics"], self.r["scene"]
+        if not mk or not ph:
+            return {"is_pending": True}
+        out = {"charts": {}}
+        # -- regimes caches
+        h = mk["hmm"]
+        names = charts.regime_names(h["K"], lang)
+        near = [x["nearest_hmm_switch_days"] for x in h["changepoint_agreement"] if x["nearest_hmm_switch_days"] is not None]
+        top = h["states"][-1]
+        out["hmm"] = t["hmm_text"].format(k=n(h["K"]), sw=n(h["n_switches"]), name=names[-1], rate=n(top["rate_per_day"], 1),
+                                          days=p(top["share_days"], 0), drops=p(top["share_drops"], 0),
+                                          dwell=n(top["mean_dwell_days"], 1), agree=n(sum(x <= 7 for x in near)),
+                                          ncp=n(len(h["changepoint_agreement"])))
+        out["hmm_rows"] = [{"name": names[s["state"]], "rate": n(s["rate_per_day"], 2), "disp": n(s["var_to_mean"], 1),
+                            "dwell": n(s["mean_dwell_days"], 1), "days": p(s["share_days"], 0), "drops": p(s["share_drops"], 0)}
+                           for s in h["states"]]
+        out["hmm_bic"] = ", ".join(f"K = {b['K']} : {n(b['bic'], 0)}" for b in h["bic"])
+        out["charts"]["hmm"] = charts.hmm_regimes(mk, lang)
+        # -- chaine de themes
+        ch = mk["topic_chain"]
+        ns_ = ch["null_session"]
+        out["chain"] = t["chain_text"].format(nd=n(ch["n_drops"]), np_=n(ch["n_pairs"]), ns=n(ch["n_sessions_multi"]),
+                                              h0=n(ch["entropy_iid_bits"], 2), h1=n(ch["entropy_rate_bits"], 2),
+                                              diag=p(ch["diag_share"], 1), null=p(ns_["diag_mean"], 1),
+                                              pv=n(ns_["p_diag"], 3), perm=n(ch["n_perm"]))
+        lab = ch["labels"]
+        out["chain_rows"] = [{"from": lab[x["from"]], "to": lab[x["to"]], "n": n(x["n"]), "exp": n(x["expected"], 1),
+                              "lift": n(x["lift"], 2)} for x in ch["lift"][:8]]
+        # -- compression et derive du style
+        sd, cp = mk["style_drift"], mk["compression"]
+        steps = sorted(sd["steps"], key=lambda x: -x["drift"])
+        out["drift"] = t["drift_text"].format(a=steps[0]["from"].replace("Q ", ""), b=steps[0]["to"].replace("Q ", ""),
+                                              da=n(steps[0]["drift"], 2), c=steps[1]["from"].replace("Q ", ""),
+                                              e=steps[1]["to"].replace("Q ", ""), dc=n(steps[1]["drift"], 2))
+        out["drift_rows"] = [{"from": x["from"].replace("Q ", ""), "to": x["to"].replace("Q ", ""), "bits": n(x["bits"], 2),
+                              "self": n(x["self"], 2), "drift": n(x["drift"], 2)} for x in sd["steps"]]
+        qn = {k: v for k, v in cp["nearest"].items() if k.startswith("Q ")}
+        first = min(qn)
+        out["compression"] = t["compression_text"].format(first=first.replace("Q ", ""), near=qn[first]["name"],
+                                                          dist=n(qn[first]["distance"], 2),
+                                                          trump=n(min(v["distance"] for k, v in cp["nearest"].items()
+                                                                      if k.startswith("Trump")), 2))
+        out["charts"]["style"] = charts.style_matrix(mk, lang)
+        # -- Hawkes
+        hm = ph["hawkes"]["models"]
+        b, up = hm["regimes/omori"], hm.get("constant/omori", {})
+        out["hawkes"] = t["hawkes_text"].format(n=p(b["branching_ratio"], 0), up=p(up.get("branching_ratio") or 0, 0),
+                                                med=n(b["kernel"]["median_delay_hours"] * 60, 0),
+                                                pomori=n(b["kernel"]["omori_p"], 2), ks=n(b["gof"]["ks_D"], 3),
+                                                ks0=n(hm["regimes/poisson"]["gof"]["ks_D"], 2), nreg=n(b["n_regimes"]))
+        label = {"poisson": t["model_poisson"], "exp": t["model_exp"], "omori": t["model_omori"]}
+        out["hawkes_rows"] = [{"base": t[f"base_{k.split('/')[0]}"], "kernel": label[k.split("/")[1]],
+                               "aic": n(m["aic"], 0), "n": p(m["branching_ratio"], 0) if m["branching_ratio"] is not None else "—",
+                               "ks": n(m["gof"]["ks_D"], 3), "best": k == ph["hawkes"]["best"]}
+                              for k, m in sorted(hm.items(), key=lambda kv: (not kv[0].startswith("regimes/"), kv[1]["aic"]))]
+        out["charts"]["qq"] = charts.hawkes_qq(ph, lang)
+        ht = ph["hawkes_trump"]
+        out["hawkes_trump"] = t["hawkes_trump_text"].format(share=p(ht["share_drops_from_cross"], 1),
+                                                            delay=n(ht["cross_kernel"]["mean_delay_hours"], 1),
+                                                            pv=n(ht["p_shift"], 3), ns=n(len(ht["null_shifts"])))
+        # -- DFA
+        dfa = {(x["series"], x["resolution"]): x for x in ph["dfa"]}
+        out["dfa"] = t["dfa_text"].format(q=n(dfa[("Q", "day")]["H"], 2), tr=n(dfa[("Trump", "day")]["H"], 2),
+                                          sh=n(dfa[("Q", "day")]["H_shuffled"], 2), qh=n(dfa[("Q", "hour")]["H"], 2))
+        out["charts"]["dfa"] = charts.dfa_curves(ph, lang)
+        # -- avalanches
+        av = ph["avalanches"]
+        qs, ts_ = av["Q"]["size"], av["Trump"]["size"]
+        out["avalanches"] = t["avalanche_text"].format(a=n(qs["alpha"], 1), xmin=n(qs["xmin"]), tail=n(qs["n_tail"]),
+                                                       n_=n(qs["n"]), gof=n(qs["gof_p"], 2),
+                                                       pexp=n(qs["vs_exponential"]["p"], 2), pln=n(qs["vs_lognormal"]["p"], 2),
+                                                       at=n(ts_["alpha"], 1))
+        out["charts"]["ccdf"] = charts.avalanche_ccdf(ph, lang)
+        # -- phases
+        pz = ph["phases"]
+        sp = pz["phase_split"]
+        def hh(x):
+            h, m = int(x) % 24, int(round((x % 1) * 60)) % 60
+            return f"{h:02d} h {m:02d}" if lang == "fr" else f"{h:02d}:{m:02d}"
+        out["phases"] = t["phases_text"].format(q=hh(pz["day"]["Q"]["peak"]), tr=hh(pz["day"]["Trump"]["peak"]),
+                                                date=d(sp["date"]), before=hh(sp["before_peak"]), after=hh(sp["after_peak"]),
+                                                pv=n(sp["p"], 3), plv=n(pz.get("phase_locking", {}).get("plv", 0), 2),
+                                                lag=n(pz.get("phase_locking", {}).get("mean_lag_hours", 0), 1))
+        out["charts"]["phases"] = charts.phase_months(ph, lang)
+        # -- scene complotiste
+        if sc:
+            extra = self._scene_context(lang, c, sc)
+            out["charts"].update(extra.pop("charts"))
+            out.update(extra)
+        return out
+
+    def _scene_context(self, lang, c, sc):
+        t, n, p, d = c["t"], c["n"], c["p"], c["date"]
+        cov = sc["coverage"]
+        done = sum(v["sampled_days"] for v in cov.values())
+        total = sum(v["active_days"] for v in cov.values())
+        out = {"scene_cov": t["scene_cov"].format(done=n(done), total=n(total), share=p(done / total if total else 0, 0)),
+               "scene_provisional": total and done / total < 0.95, "charts": {}}
+        sy = sc["syncretism"]
+        verdicts = {}
+        for th in sy["themes"]:
+            verdicts[th["verdict"]] = verdicts.get(th["verdict"], 0) + 1
+        out["sync"] = t["sync_text"].format(n=n(len(sy["themes"])), absent=n(verdicts.get("absent_q", 0)),
+                                            rare=n(verdicts.get("rare_q", 0)))
+        rows = []
+        for th in sy["themes"]:
+            for name, m in th["measures"].items():
+                kind, _, what = name.partition(":")
+                rows.append({"theme": th[f"label_{lang}"], "q": n(th["q_drops"]), "measure": f"{t['src_' + kind]} : {what.replace('_', ' ')}",
+                             "lag": n(m["peak_lag_weeks"]), "r": n(m["peak_r"], 2), "p": n(m.get("p_fdr", m["p"]), 3),
+                             "verdict": t["verdict_" + m.get("verdict", "independant")], "sig": m.get("verdict") in ("q_mene", "q_suit", "synchrone")})
+        out["sync_rows"] = sorted(rows, key=lambda r: (not r["sig"], r["theme"]))
+        ab = [x for x in sy["absorption"] if x["drops"]]
+        best = sorted(sorted(ab, key=lambda x: -x["themes"])[:2], key=lambda x: x["quarter"])
+        qlab = lambda q: t["quarter_fmt"].format(q=t["quarter_ord"][int(q[-1]) - 1], y=q[:4])
+        out["absorption"] = t["absorption_text"].format(q1=qlab(best[0]["quarter"]), n1=n(best[0]["themes"]),
+                                                        q2=qlab(best[1]["quarter"]), n2=n(best[1]["themes"]))
+        out["charts"]["absorption"] = charts.absorption(sc, lang)
+        te = sc["te"]
+        sig = [e for e in te["edges"] if e["significant"]]
+        out["te"] = t["te_text"].format(nodes=n(len(te["nodes"])), edges=n(len(te["edges"])), sig=n(len(sig)))
+        out["te_rows"] = [{"src": e["source"], "dst": e["target"], "te": n(e["te_bits"], 3), "lag": n(e["lag_days"]),
+                           "p": n(e["p_fdr"], 3)} for e in sorted(te["edges"], key=lambda e: e["p_fdr"])[:10]]
+        resp = sc.get("response") or {}
+        out["response"] = [{"sub": f"r/{k}", "id": f"resp-{k.lower()}", "spec": charts.response(sc, k, lang),
+                            "text": t["response_text"].format(sub=f"r/{k}", ne=n(v["n_events"]), ex=n(v["excess_6h"], 2),
+                                                              pv=n(v["p_6h"], 3), peak=n(v["peak_h"]))}
+                           for k, v in resp.items()]
+        out["peaks_rows"] = [{"series": x["series"], "day": d(x["day"]), "ratio": n(x["ratio_to_median"], 1),
+                              "pre": p(x["precursor"], 0), "beta": n(x["decay_exponent"], 2) if x["decay_exponent"] is not None else "—",
+                              "cls": t["class_" + x["class"]], "q7": n(x["q_drops_7d_before"]),
+                              "event": "; ".join(e[f"label_{lang}"] for e in x["events"]) or "—"} for x in sc["peaks"]]
+        out["diff_rows"] = [{"term": x[f"label_{lang}"], "q": n(x["q_drops"]), "first_q": d(x["first_q"]),
+                             "first_r": d(x["first_reddit_sample"]) if x.get("first_reddit_sample") else "—",
+                             "lag": n(x["lag_days"]) if x.get("lag_days") is not None else "—",
+                             "qp": n(x["bass"]["q_over_p"], 1) if x.get("bass") else "—",
+                             "peak": n(x["bass"]["peak_months"], 0) if x.get("bass") else "—"} for x in sc["diffusion"]]
+        if sc.get("trends"):
+            out["charts"]["trends"] = charts.trends_waves(sc, lang)
+            out["trends_rows"] = [{"q": r["query"], "peak": r["peak_month"], "rel": n(r["peak_rel"], 2) if r["level_measured"] else "—"}
+                                  for r in sc["trends"]]
         return out
 
     def page_timeline(self, lang, c):

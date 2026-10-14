@@ -472,7 +472,8 @@ def response_function(conn, d, seed=SEED, n_null=500, before=24, after=48):
                                                           "null_hi": round(float(e), 4)} for a, b, c, e in zip(k, obs, lo, hi)],
                     "excess_6h": round(float(obs[post].mean() - null[:, post].mean()), 4),
                     "p_6h": round(float((1 + (null[:, post].mean(axis=1) >= obs[post].mean()).sum()) / (len(null) + 1)), 4),
-                    "peak_h": int(k[before + 1 + int(np.argmax(obs[before + 1:]))])}
+                    # Pic cherche dans les 24 h qui suivent : au-dela, une derive lente n'est pas une reponse.
+                    "peak_h": int(k[before + 1 + int(np.argmax(obs[before + 1:before + 25]))])}
     return out
 
 

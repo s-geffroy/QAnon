@@ -1,0 +1,167 @@
+{% extends "base.html" %}{% from "macros.html" import chart, pending %}
+{% block title %}{{ t.models_title }} — {{ t.site_title }}{% endblock %}
+{% block content %}
+<h1>{{ t.models_title }}</h1>
+{% if is_pending %}{{ pending(t) }}{% else %}
+<p class="lead">{{ t.models_lead }}</p>
+<nav class="toc" aria-label="{{ t.toc }}"><ol>
+  <li><a href="#markov">{{ t.m_markov_title }}</a><ol>
+    <li><a href="#regimes-caches">{{ t.hmm_title }}</a></li><li><a href="#themes">{{ t.chain_title }}</a></li>
+    <li><a href="#style">{{ t.drift_title }}</a></li></ol></li>
+  <li><a href="#physique">{{ t.m_physics_title }}</a><ol>
+    <li><a href="#repliques">{{ t.hawkes_title }}</a></li><li><a href="#memoire">{{ t.dfa_title }}</a></li>
+    <li><a href="#avalanches">{{ t.avalanche_title }}</a></li><li><a href="#phases">{{ t.phases_title }}</a></li></ol></li>
+  {% if scene_cov %}<li><a href="#scene">{{ t.m_scene_title }}</a><ol>
+    <li><a href="#syncretisme">{{ t.sync_title }}</a></li><li><a href="#information">{{ t.te_title }}</a></li>
+    {% if response %}<li><a href="#reponse">{{ t.response_title }}</a></li>{% endif %}
+    <li><a href="#pics">{{ t.peaks_title }}</a></li><li><a href="#diffusion">{{ t.diff_title }}</a></li>
+    {% if trends_rows %}<li><a href="#trends">{{ t.trends_title }}</a></li>{% endif %}
+    <li><a href="#sources-scene">{{ t.sources_title }}</a></li></ol></li>{% endif %}
+</ol></nav>
+
+<h2 id="markov">{{ t.m_markov_title }}</h2>
+
+<section id="regimes-caches">
+  <h3>{{ t.hmm_title }}</h3>
+  <p>{{ hmm }}</p>
+  {{ chart("hmm", charts.hmm, t.hmm_chart, t.hmm_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_regime }}</th><th class="r">{{ t.col_rate }}</th><th class="r">{{ t.col_disp }}</th><th class="r">{{ t.col_dwell }}</th><th class="r">{{ t.col_share_days }}</th><th class="r">{{ t.col_share_drops }}</th></tr></thead>
+    <tbody>{% for s in hmm_rows %}<tr><th>{{ s.name }}</th><td class="r">{{ s.rate }}</td><td class="r">{{ s.disp }}</td><td class="r">{{ s.dwell }}</td><td class="r">{{ s.days }}</td><td class="r">{{ s.drops }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.hmm_method.format(bic=hmm_bic) }} {{ cite("rabiner1989tutorial") }}</p>
+</section>
+
+<section id="themes">
+  <h3>{{ t.chain_title }}</h3>
+  <p>{{ chain }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_from_topic }}</th><th>{{ t.col_to_topic }}</th><th class="r">{{ t.col_count }}</th><th class="r">{{ t.expected }}</th><th class="r">{{ t.col_lift }}</th></tr></thead>
+    <tbody>{% for r in chain_rows %}<tr><td>{{ r.from }}</td><td>{{ r.to }}</td><td class="r">{{ r.n }}</td><td class="r">{{ r.exp }}</td><td class="r">{{ r.lift }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.chain_method }}</p>
+</section>
+
+<section id="style">
+  <h3>{{ t.drift_title }}</h3>
+  <p>{{ drift }}</p>
+  {{ chart("style", charts.style, t.style_chart, t.style_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_from }}</th><th>{{ t.col_to }}</th><th class="r">{{ t.col_bits_cross }}</th><th class="r">{{ t.col_bits_self }}</th><th class="r">{{ t.col_drift }}</th></tr></thead>
+    <tbody>{% for r in drift_rows %}<tr><td>{{ r.from }}</td><td>{{ r.to }}</td><td class="r">{{ r.bits }}</td><td class="r">{{ r.self }}</td><td class="r">{{ r.drift }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p>{{ compression }}</p>
+  <p class="note">{{ t.drift_method }} {{ cite("benedetto2002language") }} {{ t.see_also }} <a href="discourse.html">{{ t.nav_discourse }}</a>.</p>
+</section>
+
+<h2 id="physique">{{ t.m_physics_title }}</h2>
+
+<section id="repliques">
+  <h3>{{ t.hawkes_title }}</h3>
+  <p>{{ hawkes }}</p>
+  {{ chart("qq", charts.qq, t.qq_chart, t.qq_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_base }}</th><th>{{ t.col_kernel }}</th><th class="r">{{ t.col_aic }}</th><th class="r">{{ t.col_branching }}</th><th class="r">{{ t.col_ks }}</th></tr></thead>
+    <tbody>{% for r in hawkes_rows %}<tr><td>{{ r.base }}</td><td>{% if r.best %}<strong>{{ r.kernel }}</strong>{% else %}{{ r.kernel }}{% endif %}</td><td class="r">{{ r.aic }}</td><td class="r">{{ r.n }}</td><td class="r">{{ r.ks }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p>{{ hawkes_trump }}</p>
+  <p class="note">{{ t.hawkes_method }} {{ cite("hawkes1971spectra", "ogata1988statistical", "veen2008estimation") }} {{ t.see_also }} <a href="trump.html">{{ t.nav_trump }}</a>.</p>
+</section>
+
+<section id="memoire">
+  <h3>{{ t.dfa_title }}</h3>
+  <p>{{ dfa }}</p>
+  {{ chart("dfa", charts.dfa, t.dfa_chart, t.dfa_chart_note) }}
+  <p class="note">{{ t.dfa_method }} {{ cite("peng1994mosaic") }}</p>
+</section>
+
+<section id="avalanches">
+  <h3>{{ t.avalanche_title }}</h3>
+  <p>{{ avalanches }}</p>
+  {{ chart("ccdf", charts.ccdf, t.ccdf_chart, t.ccdf_chart_note) }}
+  <p class="note">{{ t.avalanche_method }} {{ cite("clauset2009powerlaw", "vuong1989likelihood") }}</p>
+</section>
+
+<section id="phases">
+  <h3>{{ t.phases_title }}</h3>
+  <p>{{ phases }}</p>
+  {{ chart("phases", charts.phases, t.phases_chart, t.phases_chart_note) }}
+  <p class="note">{{ t.phases_method }} {{ t.see_also }} <a href="discourse.html">{{ t.nav_discourse }}</a>.</p>
+</section>
+
+{% if scene_cov %}
+<h2 id="scene">{{ t.m_scene_title }}</h2>
+<p>{{ t.scene_lead }}</p>
+<p class="{{ 'pending' if scene_provisional else 'note' }}">{{ scene_cov }}{% if scene_provisional %} {{ t.scene_provisional_note }}{% endif %}</p>
+
+<section id="syncretisme">
+  <h3>{{ t.sync_title }}</h3>
+  <p>{{ sync }}</p>
+  <p>{{ absorption }}</p>
+  {{ chart("absorption", charts.absorption, t.absorption_chart, t.absorption_chart_note) }}
+  {% if sync_rows %}<div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_theme }}</th><th class="r">{{ t.col_q_drops }}</th><th>{{ t.col_measure }}</th><th class="r">{{ t.col_lag_weeks }}</th><th class="r">{{ t.col_r }}</th><th class="r">{{ t.col_p_fdr }}</th><th>{{ t.col_verdict }}</th></tr></thead>
+    <tbody>{% for r in sync_rows %}<tr><td>{{ r.theme }}</td><td class="r">{{ r.q }}</td><td>{{ r.measure }}</td><td class="r">{{ r.lag }}</td><td class="r">{{ r.r }}</td><td class="r">{{ r.p }}</td><td>{% if r.sig %}<strong>{{ r.verdict }}</strong>{% else %}{{ r.verdict }}{% endif %}</td></tr>{% endfor %}</tbody>
+  </table></div>{% endif %}
+  <p class="note">{{ t.sync_method }} {{ cite("schreiber2000surrogate", "benjamini1995controlling") }}</p>
+</section>
+
+<section id="information">
+  <h3>{{ t.te_title }}</h3>
+  <p>{{ te }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_source }}</th><th>{{ t.col_target }}</th><th class="r">{{ t.col_te }}</th><th class="r">{{ t.col_lag_days }}</th><th class="r">{{ t.col_p_fdr }}</th></tr></thead>
+    <tbody>{% for r in te_rows %}<tr><td>{{ r.src }}</td><td>{{ r.dst }}</td><td class="r">{{ r.te }}</td><td class="r">{{ r.lag }}</td><td class="r">{{ r.p }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.te_method }} {{ cite("schreiber2000measuring", "schreiber2000surrogate", "benjamini1995controlling") }} {{ t.see_also }} <a href="news.html">{{ t.nav_news }}</a>.</p>
+</section>
+
+{% if response %}
+<section id="reponse">
+  <h3>{{ t.response_title }}</h3>
+  {% for r in response %}<p>{{ r.text }}</p>
+  {{ chart(r.id, r.spec, t.response_chart.format(sub=r.sub), t.response_chart_note) }}{% endfor %}
+  <p class="note">{{ t.response_method }}</p>
+</section>
+{% endif %}
+
+<section id="pics">
+  <h3>{{ t.peaks_title }}</h3>
+  <p>{{ t.peaks_lead }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_series }}</th><th>{{ t.col_day }}</th><th class="r">{{ t.col_ratio }}</th><th class="r">{{ t.col_precursor }}</th><th class="r">{{ t.col_beta }}</th><th>{{ t.col_class }}</th><th class="r">{{ t.col_q7 }}</th><th>{{ t.col_event }}</th></tr></thead>
+    <tbody>{% for r in peaks_rows %}<tr><td>{{ r.series }}</td><td>{{ r.day }}</td><td class="r">{{ r.ratio }}</td><td class="r">{{ r.pre }}</td><td class="r">{{ r.beta }}</td><td>{{ r.cls }}</td><td class="r">{{ r.q7 }}</td><td>{{ r.event }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.peaks_method }} {{ cite("crane2008robust") }}</p>
+</section>
+
+<section id="diffusion">
+  <h3>{{ t.diff_title }}</h3>
+  <p>{{ t.diff_lead }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_term }}</th><th class="r">{{ t.col_q_drops }}</th><th>{{ t.col_first_q }}</th><th>{{ t.col_first_r }}</th><th class="r">{{ t.col_lag_days }}</th><th class="r">{{ t.col_qp }}</th><th class="r">{{ t.col_peak_months }}</th></tr></thead>
+    <tbody>{% for r in diff_rows %}<tr><td>{{ r.term }}</td><td class="r">{{ r.q }}</td><td>{{ r.first_q }}</td><td>{{ r.first_r }}</td><td class="r">{{ r.lag }}</td><td class="r">{{ r.qp }}</td><td class="r">{{ r.peak }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.diff_method }} {{ cite("bass1969new") }}</p>
+</section>
+
+{% if trends_rows %}
+<section id="trends">
+  <h3>{{ t.trends_title }}</h3>
+  <p>{{ t.trends_lead }}</p>
+  {{ chart("trends", charts.trends, t.trends_chart, t.trends_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_query }}</th><th>{{ t.col_peak_month }}</th><th class="r">{{ t.col_peak_rel }}</th></tr></thead>
+    <tbody>{% for r in trends_rows %}<tr><td>{{ r.q }}</td><td>{{ r.peak }}</td><td class="r">{{ r.rel }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.trends_method }}</p>
+</section>
+{% endif %}
+
+<section id="sources-scene">
+  <h3>{{ t.sources_title }}</h3>
+  <p class="note">{{ t.sources_text }} {{ cite("papasavva2020raiders") }}</p>
+</section>
+{% endif %}
+{% endif %}
+{% endblock %}

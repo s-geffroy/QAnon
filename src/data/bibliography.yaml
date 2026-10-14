@@ -1334,6 +1334,215 @@ references:
   summary_fr: "Définit le coefficient de rafale B et le coefficient de mémoire M qui caractérisent les intervalles entre événements d'un système. Ce sont les mesures utilisées ici pour le rythme de publication de Q."
   summary_en: "Defines the burstiness coefficient B and the memory coefficient M characterising inter-event times. These are the measures used here for Q's posting rhythm."
 
+- id: hawkes1971spectra
+  type: article
+  authors: ["Hawkes, Alan G."]
+  year: 1971
+  title: "Spectra of some self-exciting and mutually exciting point processes"
+  container: "Biometrika"
+  volume: "58"
+  issue: "1"
+  pages: "83-90"
+  doi: "10.1093/biomet/58.1.83"
+  url: "https://doi.org/10.1093/biomet/58.1.83"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Introduit les processus ponctuels auto-excités, où chaque événement augmente un temps la probabilité des suivants. C'est le modèle utilisé ici pour mesurer la part des drops « déclenchés » par d'autres drops."
+  summary_en: "Introduces self-exciting point processes, in which each event temporarily raises the probability of further events. It is the model used here to measure the share of drops 'triggered' by earlier drops."
+
+- id: ogata1988statistical
+  type: article
+  authors: ["Ogata, Yosihiko"]
+  year: 1988
+  title: "Statistical Models for Earthquake Occurrences and Residual Analysis for Point Processes"
+  container: "Journal of the American Statistical Association"
+  volume: "83"
+  issue: "401"
+  pages: "9-27"
+  doi: "10.1080/01621459.1988.10478560"
+  url: "https://doi.org/10.1080/01621459.1988.10478560"
+  lang: en
+  topics: [methods, background]
+  summary_fr: "Modèle ETAS des séismes et de leurs répliques (noyau d'Omori), avec l'analyse des résidus par changement de temps. Ce sont l'analogie sismique et le test d'adéquation repris ici."
+  summary_en: "ETAS model of earthquakes and their aftershocks (Omori kernel), with residual analysis by time rescaling. These are the seismic analogy and goodness-of-fit test used here."
+
+- id: veen2008estimation
+  type: article
+  authors: ["Veen, Alejandro", "Schoenberg, Frederic P."]
+  year: 2008
+  title: "Estimation of Space–Time Branching Process Models in Seismology Using an EM–Type Algorithm"
+  container: "Journal of the American Statistical Association"
+  volume: "103"
+  issue: "482"
+  pages: "614-624"
+  doi: "10.1198/016214508000000148"
+  url: "https://doi.org/10.1198/016214508000000148"
+  lang: en
+  topics: [methods]
+  summary_fr: "Estimation des processus de branchement par un algorithme EM fondé sur la filiation probable de chaque événement. C'est la méthode d'estimation des modèles de Hawkes de cette étude."
+  summary_en: "Estimation of branching processes with an EM algorithm based on each event's probable parentage. It is the estimation method for this study's Hawkes models."
+
+- id: crane2008robust
+  type: article
+  authors: ["Crane, Riley", "Sornette, Didier"]
+  year: 2008
+  title: "Robust dynamic classes revealed by measuring the response function of a social system"
+  container: "Proceedings of the National Academy of Sciences"
+  volume: "105"
+  issue: "41"
+  pages: "15649-15653"
+  doi: "10.1073/pnas.0803685105"
+  url: "https://doi.org/10.1073/pnas.0803685105"
+  open_access: true
+  lang: en
+  topics: [methods, media]
+  summary_fr: "Distingue, dans l'attention portée aux vidéos YouTube, les chocs exogènes (montée brusque, relaxation rapide) des chocs endogènes (montée progressive, relaxation lente). La classification est appliquée ici aux pics d'attention de la scène complotiste."
+  summary_en: "Distinguishes, in attention to YouTube videos, exogenous shocks (sudden rise, fast relaxation) from endogenous ones (gradual rise, slow relaxation). The classification is applied here to attention peaks in the conspiracy scene."
+
+- id: schreiber2000measuring
+  type: article
+  authors: ["Schreiber, Thomas"]
+  year: 2000
+  title: "Measuring Information Transfer"
+  container: "Physical Review Letters"
+  volume: "85"
+  issue: "2"
+  pages: "461-464"
+  doi: "10.1103/PhysRevLett.85.461"
+  url: "https://doi.org/10.1103/PhysRevLett.85.461"
+  lang: en
+  topics: [methods]
+  summary_fr: "Définit l'entropie de transfert, mesure orientée et non linéaire de l'information qu'une série apporte sur l'avenir d'une autre. Elle sert ici à chercher qui, de Q ou de la scène, informe l'autre."
+  summary_en: "Defines transfer entropy, a directed, nonlinear measure of the information one series carries about another's future. It is used here to ask whether Q or the scene informs the other."
+
+- id: schreiber2000surrogate
+  type: article
+  authors: ["Schreiber, Thomas", "Schmitz, Andreas"]
+  year: 2000
+  title: "Surrogate time series"
+  container: "Physica D: Nonlinear Phenomena"
+  volume: "142"
+  issue: "3-4"
+  pages: "346-382"
+  doi: "10.1016/S0167-2789(00)00043-9"
+  url: "https://doi.org/10.1016/S0167-2789(00)00043-9"
+  lang: en
+  topics: [methods]
+  summary_fr: "Méthodes de séries de substitution, dont l'IAAFT qui conserve la distribution et le spectre d'une série. Ces substituts servent ici de modèle nul aux tests d'entropie de transfert et de corrélation croisée."
+  summary_en: "Surrogate time series methods, including IAAFT, which preserves a series' distribution and spectrum. These surrogates serve here as the null model for transfer entropy and cross-correlation tests."
+
+- id: benedetto2002language
+  type: article
+  authors: ["Benedetto, Dario", "Caglioti, Emanuele", "Loreto, Vittorio"]
+  year: 2002
+  title: "Language Trees and Zipping"
+  container: "Physical Review Letters"
+  volume: "88"
+  issue: "4"
+  pages: "048702"
+  doi: "10.1103/PhysRevLett.88.048702"
+  url: "https://doi.org/10.1103/PhysRevLett.88.048702"
+  lang: en
+  topics: [methods, authorship]
+  summary_fr: "Estime une distance entre textes par compression : un texte se code mieux après un texte qui lui ressemble. La méthode compare ici Q, semestre par semestre, et les tweets de Trump."
+  summary_en: "Estimates a distance between texts by compression: a text is encoded more efficiently after a similar one. The method is used here to compare Q, semester by semester, with Trump's tweets."
+
+- id: clauset2009powerlaw
+  type: article
+  authors: ["Clauset, Aaron", "Shalizi, Cosma Rohilla", "Newman, M. E. J."]
+  year: 2009
+  title: "Power-Law Distributions in Empirical Data"
+  container: "SIAM Review"
+  volume: "51"
+  issue: "4"
+  pages: "661-703"
+  doi: "10.1137/070710111"
+  url: "https://doi.org/10.1137/070710111"
+  lang: en
+  topics: [methods]
+  summary_fr: "Procédure de référence pour ajuster et tester une loi de puissance (seuil, exposant, test d'adéquation, comparaison aux lois concurrentes). Elle est appliquée ici aux tailles des sessions de Q."
+  summary_en: "Reference procedure to fit and test a power law (threshold, exponent, goodness of fit, comparison with alternative distributions). It is applied here to the sizes of Q's sessions."
+
+- id: bass1969new
+  type: article
+  authors: ["Bass, Frank M."]
+  year: 1969
+  title: "A New Product Growth for Model Consumer Durables"
+  container: "Management Science"
+  volume: "15"
+  issue: "5"
+  pages: "215-227"
+  doi: "10.1287/mnsc.15.5.215"
+  url: "https://doi.org/10.1287/mnsc.15.5.215"
+  lang: en
+  topics: [methods]
+  summary_fr: "Modèle de diffusion qui sépare l'adoption par influence extérieure (p) de l'adoption par imitation (q). Il décrit ici la diffusion des formules forgées par Q sur Reddit."
+  summary_en: "Diffusion model separating adoption through external influence (p) from adoption through imitation (q). It describes here how phrases coined by Q spread on Reddit."
+
+- id: peng1994mosaic
+  type: article
+  authors: ["Peng, C.-K.", "Buldyrev, S. V.", "Havlin, S.", "Simons, M.", "Stanley, H. E.", "Goldberger, A. L."]
+  year: 1994
+  title: "Mosaic organization of DNA nucleotides"
+  container: "Physical Review E"
+  volume: "49"
+  issue: "2"
+  pages: "1685-1689"
+  doi: "10.1103/PhysRevE.49.1685"
+  url: "https://doi.org/10.1103/PhysRevE.49.1685"
+  lang: en
+  topics: [methods]
+  summary_fr: "Introduit l'analyse des fluctuations redressées (DFA), qui mesure la mémoire longue d'une série par son exposant H. Elle est appliquée ici à l'activité de Q et de Trump."
+  summary_en: "Introduces detrended fluctuation analysis (DFA), which measures a series' long-range memory through its exponent H. It is applied here to Q's and Trump's activity."
+
+- id: rabiner1989tutorial
+  type: article
+  authors: ["Rabiner, L. R."]
+  year: 1989
+  title: "A tutorial on hidden Markov models and selected applications in speech recognition"
+  container: "Proceedings of the IEEE"
+  volume: "77"
+  issue: "2"
+  pages: "257-286"
+  doi: "10.1109/5.18626"
+  url: "https://doi.org/10.1109/5.18626"
+  lang: en
+  topics: [methods]
+  summary_fr: "Exposé de référence des modèles de Markov cachés (algorithmes avant-arrière, Baum-Welch, Viterbi). Ils servent ici à découper l'activité de Q en régimes."
+  summary_en: "Reference exposition of hidden Markov models (forward-backward, Baum-Welch and Viterbi algorithms). They are used here to split Q's activity into regimes."
+
+- id: benjamini1995controlling
+  type: article
+  authors: ["Benjamini, Yoav", "Hochberg, Yosef"]
+  year: 1995
+  title: "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+  container: "Journal of the Royal Statistical Society: Series B (Methodological)"
+  volume: "57"
+  issue: "1"
+  pages: "289-300"
+  doi: "10.1111/j.2517-6161.1995.tb02031.x"
+  url: "https://doi.org/10.1111/j.2517-6161.1995.tb02031.x"
+  lang: en
+  topics: [methods]
+  summary_fr: "Correction des tests multiples par le taux de fausses découvertes. Elle s'applique ici à toutes les familles de tests (liens d'information, thèmes)."
+  summary_en: "Multiple-testing correction through the false discovery rate. It is applied here to every family of tests (information links, themes)."
+
+- id: vuong1989likelihood
+  type: article
+  authors: ["Vuong, Quang H."]
+  year: 1989
+  title: "Likelihood Ratio Tests for Model Selection and Non-Nested Hypotheses"
+  container: "Econometrica"
+  volume: "57"
+  issue: "2"
+  pages: "307-333"
+  doi: "10.2307/1912557"
+  url: "https://doi.org/10.2307/1912557"
+  lang: en
+  topics: [methods]
+  summary_fr: "Test du rapport de vraisemblance entre modèles non emboîtés. Il départage ici la loi de puissance, l'exponentielle et la lognormale."
+  summary_en: "Likelihood ratio test between non-nested models. It decides here between the power law, the exponential and the lognormal."
+
 - id: jackson2005optimal
   type: article
   authors: ["Jackson, B.", "Scargle, J. D.", "Barnes, D.", "Arabhi, S.", "Alt, A.", "Gioumousis, P.", "Gwin, E.", "San, P.", "Tan, L.", "Tsai, Tun Tao"]

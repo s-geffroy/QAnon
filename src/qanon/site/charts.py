@@ -601,3 +601,203 @@ def fpp(fp, lang):
                         "axis": {"labelAngle": 0}},
                   "y": {"field": "n", "type": "quantitative", "scale": {"type": "symlog"}, "title": t["fpp_n"]},
                   "tooltip": [{"field": "label", "title": t["fpp_axis"]}, {"field": "n", "title": t["fpp_n"]}]})
+
+
+# ------------------------------------------------------------------ page Modeles
+def _legend(title=None):
+    return {"orient": "top", "title": title, "direction": "horizontal"}
+
+
+def regime_names(K, lang):
+    t = T[lang]
+    return [t[f"regime_{k}"] for k in range(3)] if K == 3 else [t["regime_n"].format(k=k + 1) for k in range(K)]
+
+
+def hmm_regimes(markov, lang):
+    """Drops par jour, colores par regime du HMM (chemin de Viterbi)."""
+    t = T[lang]
+    h = markov["hmm"]
+    names = regime_names(h["K"], lang)
+    data = [{"date": x["date"], "n": x["n"], "regime": names[x["state"]]} for x in h["series"] if x["n"] or x["state"]]
+    return _spec(
+        height=220, data={"values": data},
+        mark={"type": "bar", "width": {"band": 1}},
+        encoding={
+            "x": {"field": "date", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+            "y": {"field": "n", "type": "quantitative", "title": t["drops_per_day"]},
+            "color": {"field": "regime", "type": "nominal", "sort": names, "title": None, "legend": _legend(),
+                      "scale": {"domain": names, "range": ["@ink3", "@series4", "@series1"][:len(names)]}},
+            "tooltip": [{"field": "date", "type": "temporal", "format": "%d/%m/%Y", "title": "date"},
+                        {"field": "n", "title": t["drops"]}, {"field": "regime", "title": t["col_regime"]}]})
+
+
+def style_matrix(markov, lang):
+    """Entropie croisee (bits/caractere) : modele appris sur un semestre (ligne), teste sur un autre (colonne)."""
+    t = T[lang]
+    sd = markov["style_drift"]
+    lab = [x.replace("Q ", "") for x in sd["names"]]
+    data = [{"train": lab[i], "test": lab[j], "bits": v} for i, row in enumerate(sd["matrix"]) for j, v in enumerate(row)]
+    return _spec(
+        height=240, data={"values": data},
+        mark={"type": "rect", "cornerRadius": 2, "stroke": "@surface", "strokeWidth": 2},
+        encoding={
+            "x": {"field": "test", "type": "ordinal", "sort": lab, "title": t["style_test"], "axis": {"labelAngle": 0}},
+            "y": {"field": "train", "type": "ordinal", "sort": lab, "title": t["style_train"]},
+            "color": {"field": "bits", "type": "quantitative", "title": t["bits_per_char"],
+                      "scale": {"range": ["@seqlo", "@seqhi"]}},
+            "tooltip": [{"field": "train", "title": t["style_train"]}, {"field": "test", "title": t["style_test"]},
+                        {"field": "bits", "format": ".2f", "title": t["bits_per_char"]}]})
+
+
+def hawkes_qq(physics, lang):
+    """Quantiles des increments du compensateur contre Exp(1) : la diagonale = modele adequat."""
+    t = T[lang]
+    models = physics["hawkes"]["models"]
+    keys = [("regimes/poisson", t["model_poisson"]), ("regimes/exp", t["model_exp"]), ("regimes/omori", t["model_omori"])]
+    data = [{"model": lab, "theory": q["theory"], "observed": q["observed"]}
+            for k, lab in keys if k in models for q in models[k]["gof"]["qq"]]
+    top = max(max(d["theory"] for d in data), 1)
+    order = [lab for _, lab in keys]
+    return _spec(
+        height=260,
+        layer=[
+            {"data": {"values": [{"x": 0, "y": 0}, {"x": top, "y": top}]},
+             "mark": {"type": "line", "color": "@ink3", "strokeDash": [4, 4], "strokeWidth": 1},
+             "encoding": {"x": {"field": "x", "type": "quantitative"}, "y": {"field": "y", "type": "quantitative"}}},
+            {"data": {"values": data},
+             "mark": {"type": "line", "strokeWidth": 2, "point": {"size": 30, "filled": True}},
+             "encoding": {
+                 "x": {"field": "theory", "type": "quantitative", "title": t["qq_theory"]},
+                 "y": {"field": "observed", "type": "quantitative", "title": t["qq_observed"], "scale": {"domainMax": top * 1.6, "clamp": True}},
+                 "color": {"field": "model", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+                           "scale": {"domain": order, "range": ["@series2", "@series3", "@series1"]}},
+                 "tooltip": [{"field": "model", "title": " "}, {"field": "theory", "format": ".2f", "title": t["qq_theory"]},
+                             {"field": "observed", "format": ".2f", "title": t["qq_observed"]}]}}])
+
+
+def dfa_curves(physics, lang):
+    t = T[lang]
+    data = []
+    for x in physics["dfa"]:
+        if x["resolution"] != "day":
+            continue
+        for c in x["curve"]:
+            data.append({"series": f"{x['series']} (H = {x['H']:.2f})".replace(".", "," if lang == "fr" else "."),
+                         "scale": c["scale"], "F": c["F"]})
+        if x["series"] == "Q":
+            data += [{"series": t["dfa_shuffled"], "scale": c["scale"], "F": c["F_shuffled"]} for c in x["curve"]]
+    order = sorted({d["series"] for d in data}, key=lambda s: (s == t["dfa_shuffled"], s))
+    return _spec(
+        height=240, data={"values": data},
+        mark={"type": "line", "strokeWidth": 2, "point": {"size": 30, "filled": True}},
+        encoding={
+            "x": {"field": "scale", "type": "quantitative", "scale": {"type": "log"}, "title": t["dfa_scale"]},
+            "y": {"field": "F", "type": "quantitative", "scale": {"type": "log"}, "title": t["dfa_F"]},
+            "color": {"field": "series", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+                      "scale": {"domain": order, "range": ["@series1", "@series2", "@ink3"]}},
+            "tooltip": [{"field": "series", "title": " "}, {"field": "scale", "title": t["dfa_scale"]},
+                        {"field": "F", "format": ".3g", "title": "F"}]})
+
+
+def avalanche_ccdf(physics, lang):
+    t = T[lang]
+    data = [{"series": name, "x": c["x"], "p": c["p"]}
+            for name, v in physics["avalanches"].items() if "size" in v for c in v["size"]["ccdf"] if c["p"] > 0]
+    order = ["Q", "Trump"]
+    return _spec(
+        height=240, data={"values": data},
+        mark={"type": "line", "interpolate": "step-after", "strokeWidth": 2},
+        encoding={
+            "x": {"field": "x", "type": "quantitative", "scale": {"type": "log"}, "title": t["session_size"]},
+            "y": {"field": "p", "type": "quantitative", "scale": {"type": "log"}, "title": t["ccdf"]},
+            "color": {"field": "series", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+                      "scale": {"domain": order, "range": ["@series1", "@series2"]}},
+            "tooltip": [{"field": "series", "title": " "}, {"field": "x", "title": t["session_size"]},
+                        {"field": "p", "format": ".3f", "title": t["ccdf"]}]})
+
+
+def phase_months(physics, lang):
+    """Heure de pointe mensuelle (New York) de Q et de Trump ; trait : rupture de phase de Q."""
+    t = T[lang]
+    ph = physics["phases"]
+    data = []
+    for m in ph["monthly"]:
+        data.append({"month": m["month"], "who": "Q", "peak": m["peak"]})
+        if "trump_peak" in m:
+            data.append({"month": m["month"], "who": "Trump", "peak": m["trump_peak"]})
+    sp = ph.get("phase_split") or {}
+    order = ["Q", "Trump"]
+    layers = [{"data": {"values": data},
+               "mark": {"type": "line", "strokeWidth": 2, "point": {"size": 40, "filled": True}},
+               "encoding": {
+                   "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+                   "y": {"field": "peak", "type": "quantitative", "title": t["peak_hour"], "scale": {"domain": [0, 24]},
+                         "axis": {"values": [0, 6, 12, 18, 24]}},
+                   "color": {"field": "who", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+                             "scale": {"domain": order, "range": ["@series1", "@series2"]}},
+                   "tooltip": [{"field": "who", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
+                               {"field": "peak", "format": ".1f", "title": t["peak_hour"]}]}}]
+    if sp.get("date"):
+        layers.append({"data": {"values": [{"date": sp["date"], "label": t["phase_split_mark"]}]},
+                       "mark": {"type": "rule", "color": "@ink3", "strokeDash": [4, 4]},
+                       "encoding": {"x": {"field": "date", "type": "temporal"},
+                                    "tooltip": [{"field": "label", "title": " "},
+                                                {"field": "date", "type": "temporal", "format": "%d/%m/%Y", "title": "date"}]}})
+    return _spec(height=240, layer=layers)
+
+
+def absorption(scene, lang):
+    t = T[lang]
+    data = [x for x in scene["syncretism"]["absorption"] if x["drops"] > 0]
+    return _spec(
+        height=200, data={"values": data},
+        mark={"type": "bar", "color": "@series1", "cornerRadiusEnd": 4},
+        encoding={"x": {"field": "quarter", "type": "ordinal", "title": None, "axis": {"labelAngle": -45}},
+                  "y": {"field": "themes", "type": "quantitative", "title": t["n_themes"]},
+                  "tooltip": [{"field": "quarter", "title": " "}, {"field": "themes", "title": t["n_themes"]},
+                              {"field": "drops", "title": t["drops"]}]})
+
+
+def response(scene, sub, lang):
+    """Activite horaire d'un subreddit autour des debuts de session de Q, contre le modele nul."""
+    t = T[lang]
+    r = scene["response"][sub]
+    band = [{"h": c["h"], "lo": c["null_lo"], "hi": c["null_hi"]} for c in r["curve"]]
+    obs = [{"h": c["h"], "v": c["obs"], "who": t["observed"]} for c in r["curve"]]
+    return _spec(
+        height=220,
+        layer=[
+            {"data": {"values": band}, "mark": {"type": "area", "color": "@ink3", "opacity": 0.25},
+             "encoding": {"x": {"field": "h", "type": "quantitative", "title": t["hours_from_drop"]},
+                          "y": {"field": "lo", "type": "quantitative", "title": t["activity_ratio"]},
+                          "y2": {"field": "hi"},
+                          "tooltip": [{"field": "h", "title": t["hours_from_drop"]},
+                                      {"field": "lo", "format": ".2f", "title": t["null_lo"]},
+                                      {"field": "hi", "format": ".2f", "title": t["null_hi"]}]}},
+            {"data": {"values": [{"h": 0}]}, "mark": {"type": "rule", "color": "@ink3", "strokeDash": [4, 4]},
+             "encoding": {"x": {"field": "h", "type": "quantitative"}}},
+            {"data": {"values": obs}, "mark": {"type": "line", "strokeWidth": 2, "color": "@series1"},
+             "encoding": {"x": {"field": "h", "type": "quantitative"}, "y": {"field": "v", "type": "quantitative"},
+                          "tooltip": [{"field": "h", "title": t["hours_from_drop"]},
+                                      {"field": "v", "format": ".2f", "title": t["observed"]}]}}])
+
+
+def trends_waves(scene, lang, top=14):
+    """Calendrier des vagues Google Trends : chaque requete rapportee a son propre maximum."""
+    t = T[lang]
+    rows = [r for r in scene.get("trends", []) if r["level_measured"]][:top]
+    order = [r["query"] for r in rows]
+    data = []
+    for r in rows:
+        mx = max(x["rel"] for x in r["monthly"]) or 1
+        data += [{"query": r["query"], "month": x["month"], "share": round(x["rel"] / mx, 3)} for x in r["monthly"]]
+    return _spec(
+        height=max(160, 18 * len(order)), data={"values": data},
+        mark={"type": "rect"},
+        encoding={
+            "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+            "y": {"field": "query", "type": "nominal", "sort": order, "title": None},
+            "color": {"field": "share", "type": "quantitative", "title": t["share_of_peak"],
+                      "scale": {"range": ["@seqlo", "@seqhi"], "domain": [0, 1]}},
+            "tooltip": [{"field": "query", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
+                        {"field": "share", "format": ".0%", "title": t["share_of_peak"]}]})
