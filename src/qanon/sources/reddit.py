@@ -199,7 +199,7 @@ def run_hour(ctx):
                 return None
             rows = [(sub, t, n) for t, n in hour_bins(data) if t0 <= t < t0 + DAY]
             ctx.conn.executemany("INSERT OR REPLACE INTO reddit_hour VALUES (?,?,?)", rows)
-            ctx.conn.execute("INSERT OR REPLACE INTO reddit_hour_day VALUES (?,?,?)", (sub, day, sum(n for _, n in rows)))
+            ctx.conn.execute("INSERT OR REPLACE INTO reddit_hour_day VALUES (?,?,?)", (sub, day, sum(r[2] for r in rows)))
             ctx.conn.commit()
             done_any = True
     n = ctx.conn.execute("SELECT count(*), sum(n) FROM reddit_hour").fetchone()

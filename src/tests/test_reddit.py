@@ -111,3 +111,16 @@ def test_pol_download_resumes_and_checks_md5(tmp_path, monkeypatch):
         if pol.run_fetch(ctx) is True:
             break
     assert (tmp_path / "cache" / "pol" / "pol.tar.zst").read_bytes() == payload
+
+
+def test_run_hour(tmp_path, monkeypatch):
+    conn = db.connect(tmp_path / "t.db")
+    conn.execute("INSERT INTO reddit_volume VALUES ('greatawakening', 'comments', '2018-03-02', 100)")
+    conn.commit()
+    data = [{"created_utc": "2018-03-01T23:00:00.000Z", "count": "19"},
+            {"created_utc": "2018-03-02T00:00:00.000Z", "count": "23"}]
+    monkeypatch.setattr(reddit, "get", lambda path, **p: data)
+    ctx = Ctx(conn)
+    assert reddit.run_hour(ctx) is True
+    assert conn.execute("SELECT n FROM reddit_hour_day").fetchone()[0] == 42
+    assert conn.execute("SELECT min(hour) FROM reddit_hour").fetchone()[0] == 1519948800
