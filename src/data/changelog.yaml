@@ -1,5 +1,8 @@
 # Journal des versions du site (flux RSS et page Citer). Le plus recent en premier.
 entries:
+- date: 2026-10-14
+  fr: "Page Modèles : chaînes de Markov (régimes cachés, enchaînement des thèmes, dérive du style), analogies physiques (processus de Hawkes et loi d'Omori, mémoire longue, avalanches, phases) et Q dans la scène complotiste américaine (Reddit, Wikipédia, Google Trends, 4chan /pol/) ; document de travail 1.1 (sections 4.8 et 4.9)."
+  en: "Models page: Markov chains (hidden regimes, topic sequences, style drift), physics analogies (Hawkes process and Omori law, long memory, avalanches, phases) and Q within the American conspiracy scene (Reddit, Wikipedia, Google Trends, 4chan /pol/); working paper 1.1 (sections 4.8 and 4.9)."
 - date: 2026-10-13
   fr: "Version 1.0.0 archivée sur Zenodo (doi:10.5281/zenodo.23338131) ; publication automatique du site par le worker."
   en: "Version 1.0.0 archived on Zenodo (doi:10.5281/zenodo.23338131); the worker now publishes the site automatically."

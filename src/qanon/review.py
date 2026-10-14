@@ -9,7 +9,10 @@ de travail, etat de la recherche, FAQ, kit pedagogique) :
   depuis la derniere revue, au plus une fois par MIN_DAYS jours et par texte, et
   tant que le plafond REVIEW_BUDGET_USD sur 30 jours n'est pas atteint ;
 - le travail est suivi par son job_id sur plusieurs cycles, jamais resoumis ;
-- les rapports sont gardes dans /state/reviews (ils expirent cote API apres 24 h).
+- les rapports sont gardes dans /state/reviews (ils expirent cote API apres 24 h) ;
+- tant que la publication est suspendue (PUBLISH_HOLD), aucun texte nouveau n'est
+  soumis, meme a l'audit : la relecture humaine passe d'abord, la revue payante
+  ensuite, une seule fois, sur le texte final.
 Les revues ne modifient aucun texte : leurs objectifs de revision sont appliques
 ou refuses par un humain."""
 import datetime as dt
@@ -111,7 +114,8 @@ def run(ctx):
     docs = texts(site)
     conn = ctx.conn
     s = requests.Session()
-    pending = 0
+    pending = held = 0
+    hold = os.environ.get("PUBLISH_HOLD", "") not in ("", "0")
     for doc, text in docs.items():
         if ctx.should_yield():
             return False
@@ -158,6 +162,9 @@ def run(ctx):
         # 2. Texte inchange depuis la derniere revue (ou dernier echec sur ce texte) : rien a faire.
         if row and row["text_sha"] == h:
             continue
+        if hold:
+            held += 1
+            continue
         # 3. Audit gratuit du nouveau texte.
         audit = s.post(f"{API}/audit", json={"text": text, "language": "fr"}, timeout=120)
         audit.raise_for_status()
@@ -189,6 +196,13 @@ def run(ctx):
         log(f"relecture {doc} : revue soumise ({words} mots, ~{est} $, profil {PROFILE})")
     if pending:
         return False
+    if held:
+        if db.get_meta(conn, "review_hold_logged") != "1":
+            db.set_meta(conn, "review_hold_logged", "1")
+            conn.commit()
+            log(f"relecture : {held} texte(s) modifie(s) en attente, rien n'est soumis tant que PUBLISH_HOLD est pose")
+        return None
+    db.set_meta(conn, "review_hold_logged", "0")
     rows = conn.execute("SELECT doc, text_sha, status, n_issues FROM editorial_review ORDER BY doc, submitted_at").fetchall()
     ctx.set_output(db.sha(*[tuple(r) for r in rows]))
     return True

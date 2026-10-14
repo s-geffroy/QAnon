@@ -830,6 +830,9 @@ T["fr"].update({
   "m_watch": "Chaque semaine, le worker interroge Crossref et OpenAlex (publications depuis 2024 dont le titre ou le résumé contient « QAnon »). Le site publie ces publications avec leur état : dans la bibliographie (vérifiée), repérée mais non vérifiée, ou écartée après examen. Aucune n'entre dans la bibliographie sans relecture.",
   "src_wikinews": "Actualité quotidienne : portail « Current events » de Wikipédia (anglais), 2017-2021",
   "src_watch": "Veille bibliographique",
+  "src_arctic": "Reddit complotiste (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories) : archive Arctic Shift, subreddits bannis compris",
+  "src_gtrends": "Google Trends : indice d'intérêt de recherche, États-Unis, 2016-2023",
+  "src_pol": "4chan /pol/, juin 2016-novembre 2019 : jeu de données de Papasavva, Zannettou, De Cristofaro, Stringhini et Blackburn (ICWSM 2020), réduit à des agrégats",
 })
 T["en"].update({
   "m_tests_title": "Predictions put to the test",
@@ -838,6 +841,9 @@ T["en"].update({
   "m_watch": "Every week the worker queries Crossref and OpenAlex (publications since 2024 whose title or abstract contains \"QAnon\"). The site lists them with their status: in the bibliography (verified), found but not verified, or rejected after review. None enters the bibliography without review.",
   "src_wikinews": "Daily news: Wikipedia's \"Current events\" portal (English), 2017-2021",
   "src_watch": "Literature watch",
+  "src_arctic": "Conspiracy Reddit (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories): Arctic Shift archive, banned subreddits included",
+  "src_gtrends": "Google Trends: search interest index, United States, 2016-2023",
+  "src_pol": "4chan /pol/, June 2016-November 2019: dataset by Papasavva, Zannettou, De Cristofaro, Stringhini and Blackburn (ICWSM 2020), reduced to aggregates",
 })
 T["fr"].update({"watch_abstract_only": "QAnon dans le résumé seulement", "watch_title_only": "QAnon dans le titre"})
 T["en"].update({"watch_abstract_only": "QAnon in abstract only", "watch_title_only": "QAnon in the title"})

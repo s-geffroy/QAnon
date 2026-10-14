@@ -133,3 +133,31 @@ def test_trends_resumes_from_data_and_backs_off(tmp_path, monkeypatch):
     assert trends.run(Ctx()) is None and len(calls) == 3          # suspendu : aucune requete
     db.set_meta(conn, "trends_blocked_until", 0)
     assert trends.run(Ctx()) is True and len(calls) == 3 + 6      # 8 lots : reprend aux 6 manquants
+
+
+def test_review_holds_while_publication_is_held(tmp_path, monkeypatch):
+    """PUBLISH_HOLD : un texte modifie n'est soumis ni a l'audit ni a la revue payante."""
+    from qanon import db, review
+    from qanon.site import build
+    conn = db.connect(tmp_path / "t.db")
+
+    class Ctx:
+        state, out = tmp_path, None
+        def __init__(self):
+            self.conn = conn
+        def should_yield(self):
+            return False
+        def set_output(self, v):
+            self.out = v
+
+    class NoNetwork:
+        def __getattr__(self, name):
+            raise AssertionError(f"appel reseau pendant la suspension : {name}")
+
+    monkeypatch.setattr(build, "Site", lambda state, conn: None)
+    monkeypatch.setattr(review, "texts", lambda site: {"paper": "texte modifie"})
+    monkeypatch.setattr(review.requests, "Session", NoNetwork)
+    monkeypatch.setenv("PUBLISH_HOLD", "1")
+    assert review.run(Ctx()) is None
+    assert db.get_meta(conn, "review_hold_logged") == "1"
+    assert conn.execute("SELECT count(*) FROM editorial_review").fetchone()[0] == 0

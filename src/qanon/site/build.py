@@ -74,6 +74,20 @@ def paper_block(site, kind, name):
         return ("<table class='paper-table'><caption>Tableau 2. Prédictions vérifiables par type d'événement annoncé.</caption>"
                 "<thead><tr><th>Type</th><th class='r'>Vérifiables</th><th class='r'>Réalisées</th><th class='r'>Partielles</th>"
                 f"<th class='r'>Non réalisées</th><th class='r'>Taux</th></tr></thead><tbody>{body}</tbody></table>")
+    if kind == "table" and name == "diffusion":
+        sc = r["scene"] or {}
+        rows = sorted([x for x in sc.get("diffusion", []) if x["term"].startswith("gl:") and x["q_drops"] >= 8],
+                      key=lambda x: x["first_q"])
+        cov = sc.get("coverage", {})
+        done, total = sum(x["sampled_days"] for x in cov.values()), sum(x["active_days"] for x in cov.values())
+        body = "".join(f"<tr><td>{escape(x['label_fr'])}</td><td class='r'>{n(x['q_drops'])}</td><td>{fmt.date('fr', x['first_q'])}</td>"
+                       f"<td>{fmt.date('fr', x['first_reddit_sample']) if x.get('first_reddit_sample') else '—'}</td>"
+                       f"<td class='r'>{n(x['lag_days']) if x.get('lag_days') is not None else '—'}</td></tr>" for x in rows)
+        return ("<table class='paper-table'><caption>Tableau 3. Formules de Q : premier drop et première occurrence dans "
+                f"l'échantillon quotidien de Reddit ({p(done / total if total else 0)} des jours actifs échantillonnés ; "
+                "un écart négatif signifie que la formule circulait avant Q).</caption><thead><tr><th>Formule</th>"
+                "<th class='r'>Drops</th><th>Premier drop</th><th>Première occurrence sur Reddit</th>"
+                f"<th class='r'>Écart (jours)</th></tr></thead><tbody>{body}</tbody></table>")
     if kind == "figure":
         return paper_figure(site, name)
     raise KeyError(f"bloc inconnu dans le document : {kind}:{name}")
@@ -115,6 +129,30 @@ def paper_figure(site, name):
         ax.set_xlabel("sur-représentation dans les drops par rapport à GDELT (échelle log, 1 = même place)")
         fig.set_size_inches(6.3, 3.2)
         cap = "Figure 3. Place des principaux acteurs dans les drops rapportée à leur place dans l'actualité mondiale."
+    elif name == "models":
+        fig.clf()
+        fig.set_size_inches(6.3, 2.5)
+        a1, a2 = fig.subplots(1, 2, gridspec_kw={"width_ratios": [1.7, 1]})
+        h = pd.DataFrame(r["markov"]["hmm"]["series"])
+        h["date"] = pd.to_datetime(h["date"])
+        top = r["markov"]["hmm"]["K"] - 1
+        a1.bar(h["date"], h["n"], width=1.0, color=["#2a78d6" if s_ == top else "#b9b6ae" for s_ in h["state"]], lw=0)
+        a1.set_ylabel("drops par jour")
+        a1.set_title("a. Régime « actif » du modèle de Markov caché (bleu)", fontsize=8, loc="left")
+        hm = r["physics"]["hawkes"]["models"]
+        for key, col, lab in (("regimes/poisson", "#eb6834", "Poisson"), (r["physics"]["hawkes"]["best"], "#2a78d6", "Hawkes (Omori)")):
+            q = hm[key]["gof"]["qq"]
+            a2.plot([x["theory"] for x in q], [x["observed"] for x in q], color=col, lw=1.6, label=lab)
+        lim = max(x["theory"] for x in hm["regimes/poisson"]["gof"]["qq"])
+        a2.plot([0, lim], [0, lim], color="#555", lw=.8, ls="--")
+        a2.set_xlabel("quantile théorique")
+        a2.set_ylabel("quantile observé")
+        a2.set_title("b. Résidus : adéquation des modèles", fontsize=8, loc="left")
+        a2.legend(frameon=False)
+        cap = ("Figure 4. (a) Drops par jour ; les jours du régime « actif » du modèle de Markov caché sont en bleu. "
+               "(b) Diagramme quantile-quantile des intervalles après changement de temps : un modèle bien ajusté suit la "
+               "diagonale. Le processus de Poisson (même fond par régime et cycle quotidien) s'en écarte, le processus de "
+               "Hawkes s'en approche.")
     else:
         raise KeyError(f"figure inconnue : {name}")
     fig.tight_layout()
@@ -886,6 +924,122 @@ class Site:
             v["n_unverifiable"] = n(r["verification"]["overall"]["unverifiable"])
         return v
 
+    def paper_values(self):
+        """Valeurs du document de travail (francais) : celles des textes, plus les modeles et la scene.
+        Les phrases sur la scene sont construites ici, car leur contenu depend de l'avancement des collectes."""
+        v = dict(self.values("fr"))
+        mk, ph, sc = self.r["markov"], self.r["physics"], self.r["scene"]
+        n, p, d = (lambda x, k=0: fmt.num("fr", x, k)), (lambda x, k=0: fmt.pct("fr", x, k)), (lambda x: fmt.date("fr", x))
+        hh = lambda x: f"{int(x) % 24:02d} h {int(round((x % 1) * 60)) % 60:02d}"
+        if mk:
+            h = mk["hmm"]
+            top = h["states"][-1]
+            near = [x["nearest_hmm_switch_days"] for x in h["changepoint_agreement"] if x["nearest_hmm_switch_days"] is not None]
+            ch, sd = mk["topic_chain"], sorted(mk["style_drift"]["steps"], key=lambda x: -x["drift"])
+            per = lambda x: x.replace("Q ", "").replace("-S", " S")
+            v.update(hmm_k=n(h["K"]), hmm_rate=n(top["rate_per_day"], 1), hmm_mid=n(h["states"][1]["rate_per_day"], 2),
+                     hmm_days=p(top["share_days"]), hmm_drops=p(top["share_drops"]), hmm_dwell=n(top["mean_dwell_days"], 1),
+                     hmm_switches=n(h["n_switches"]), hmm_agree=n(sum(x <= 7 for x in near)), hmm_ncp=n(len(h["changepoint_agreement"])),
+                     chain_k=n(ch["K"]), chain_pairs=n(ch["n_pairs"]), chain_diag=p(ch["diag_share"], 1),
+                     chain_null=p(ch["null_session"]["diag_mean"], 1), chain_p=n(ch["null_session"]["p_diag"], 3),
+                     chain_h0=n(ch["entropy_iid_bits"], 2), chain_h1=n(ch["entropy_rate_bits"], 2),
+                     drift_a=f"{per(sd[0]['from'])} → {per(sd[0]['to'])}", drift_da=n(sd[0]["drift"], 2),
+                     drift_b=f"{per(sd[1]['from'])} → {per(sd[1]['to'])}", drift_db=n(sd[1]["drift"], 2))
+        if ph:
+            hm = ph["hawkes"]["models"]
+            b, ht = hm[ph["hawkes"]["best"]], ph["hawkes_trump"]
+            dfa = {(x["series"], x["resolution"]): x for x in ph["dfa"]}
+            qs, pz = ph["avalanches"]["Q"]["size"], ph["phases"]
+            sp, pl = pz["phase_split"], pz.get("phase_locking") or {}
+            v.update(hk_n=p(b["branching_ratio"]), hk_n_exp=p(hm["regimes/exp"]["branching_ratio"]),
+                     hk_med=n(b["kernel"]["median_delay_hours"] * 60), hk_p=n(b["kernel"]["omori_p"], 1),
+                     hk_ks=n(b["gof"]["ks_D"], 3), hk_ks0=n(hm["regimes/poisson"]["gof"]["ks_D"], 2), hk_nreg=n(b["n_regimes"]),
+                     hk_daic=n(hm["regimes/poisson"]["aic"] - b["aic"]),
+                     ht_share=p(ht["share_drops_from_cross"], 1), ht_p=n(ht["p_shift"], 3), ht_nshift=n(len(ht["null_shifts"])),
+                     dfa_q=n(dfa[("Q", "day")]["H"], 2), dfa_t=n(dfa[("Trump", "day")]["H"], 2),
+                     dfa_sh=n(dfa[("Q", "day")]["H_shuffled"], 2),
+                     av_alpha=n(qs["alpha"], 1), av_xmin=n(qs["xmin"]), av_tail=n(qs["n_tail"]), av_n=n(qs["n"]),
+                     av_pln=n(qs["vs_lognormal"]["p"], 2), av_pexp=n(qs["vs_exponential"]["p"], 2),
+                     ph_q=hh(pz["day"]["Q"]["peak"]), ph_t=hh(pz["day"]["Trump"]["peak"]), ph_date=d(sp["date"]),
+                     ph_before=hh(sp["before_peak"]), ph_after=hh(sp["after_peak"]), ph_p=n(sp["p"], 3),
+                     ph_plv=n(pl.get("plv", 0), 2), ph_lag=n(pl.get("mean_lag_hours", 0)))
+        v.update(self._paper_scene(sc, n, p, d) if sc else {})
+        return v
+
+    def _paper_scene(self, sc, n, p, d):
+        """Phrases de la section 4.9, selon ce qui est deja mesure."""
+        v = {}
+        cov = sc["coverage"]
+        done, total = sum(x["sampled_days"] for x in cov.values()), sum(x["active_days"] for x in cov.values())
+        n_tr = len(sc.get("trends") or [])
+        if total and done / total < 0.95 or not n_tr:
+            v["scene_status"] = (f"Les mesures de cette section sont provisoires : à la date de ce calcul, {n(done)} des "
+                                 f"{n(total)} jours actifs des six subreddits sont échantillonnés ({p(done / total if total else 0)}), "
+                                 + (f"{n(n_tr)} requêtes Google Trends sont collectées" if n_tr else
+                                    "Google Trends limite encore la collecte")
+                                 + " ; elles seront recalculées à la fin des collectes.")
+        sy = sc["syncretism"]
+        cnt = {}
+        for th in sy["themes"]:
+            cnt[th["verdict"]] = cnt.get(th["verdict"], 0) + 1
+        ms = [(th, k, m) for th in sy["themes"] for k, m in th["measures"].items()]
+        sig = [(th, k, m) for th, k, m in ms if m.get("verdict") in ("q_mene", "q_suit", "synchrone")]
+        lead = {"q_mene": "Q précède", "q_suit": "Q suit", "synchrone": "Q et la scène évoluent ensemble pour"}
+        src = {"reddit": "r/conspiracy", "wiki": "Wikipédia", "trends": "Google Trends"}
+        s = (f"Sur {n(len(sy['themes']))} thèmes de la scène suivis, {n(cnt.get('absent_q', 0))} n'apparaissent dans aucun drop "
+             f"et {n(cnt.get('rare_q', 0))} dans moins de dix : Q puise dans un répertoire restreint. ")
+        if not ms:
+            s += "Aucun thème n'a encore assez de mesures de la scène pour être comparé semaine par semaine."
+        elif not sig:
+            s += (f"Pour les {n(len(ms))} comparaisons hebdomadaires possibles, aucune corrélation ne résiste à la correction "
+                  "pour comparaisons multiples : ni meneur ni suiveur.")
+        else:
+            parts = [f"{lead[m['verdict']]} {th['label_fr']} ({src[k.split(':')[0]]}, "
+                     f"{n(abs(m['peak_lag_weeks']))} semaine{'s' if abs(m['peak_lag_weeks']) > 1 else ''}, r = {n(m['peak_r'], 2)}, "
+                     f"p ajustée = {n(m['p_fdr'], 3)})" for th, k, m in sig]
+            s += (f"Sur {n(len(ms))} comparaisons hebdomadaires, {n(len(sig))} résiste{'nt' if len(sig) > 1 else ''} à la correction "
+                  "pour comparaisons multiples : " + " ; ".join(parts) + ".")
+        v["scene_sync"] = s
+        ab = sorted(sorted([x for x in sy["absorption"] if x["drops"]], key=lambda x: -x["themes"])[:2], key=lambda x: x["quarter"])
+        if len(ab) == 2:
+            ql = lambda q: f"{['premier', 'deuxième', 'troisième', 'quatrième'][int(q[-1]) - 1]} trimestre {q[:4]}"
+            v["scene_absorption"] = (f"Le nombre de thèmes distincts abordés par trimestre culmine au {ql(ab[0]['quarter'])} "
+                                     f"({n(ab[0]['themes'])}) et au {ql(ab[1]['quarter'])} ({n(ab[1]['themes'])}).")
+        te = sc["te"]
+        ns = sum(e["significant"] for e in te["edges"])
+        v["scene_te"] = (f"Entre {n(len(te['nodes']))} séries quotidiennes ({n(len(te['edges']))} liens orientés testés), "
+                         + (f"{n(ns)} lien{'s' if ns > 1 else ''} d'information reste{'nt' if ns > 1 else ''} significatif{'s' if ns > 1 else ''}"
+                            if ns else "aucun lien d'information ne reste significatif")
+                         + " une fois retirés les cycles hebdomadaires et corrigées les comparaisons multiples.")
+        resp = sc.get("response") or {}
+        if resp:
+            v["scene_response"] = ("À l'échelle horaire, les forums de Q réagissent à ses drops : dans les six heures qui "
+                                   "suivent une session, leur activité rapportée à la veille dépasse celle d'instants tirés au "
+                                   "hasard de " + " et de ".join(
+                f"{p(x['excess_6h'], 1)} sur r/{k} (p = {n(x['p_6h'], 3)}, {n(x['n_events'])} sessions)"
+                for k, x in resp.items()) + ".")
+        pk = sc["peaks"]
+        cls = {}
+        for x in pk:
+            cls[x["class"]] = cls.get(x["class"], 0) + 1
+        exo = [x for x in pk if x["class"] == "exogene" and x["events"]]
+        v["scene_peaks"] = (f"Parmi les plus grands pics d'attention de chaque série de la scène ({n(len(pk))} en tout), "
+                            f"{n(cls.get('exogene', 0))} ont la forme "
+                            f"d'un choc extérieur et {n(cls.get('endogene', 0))} celle d'une cascade interne"
+                            + (" ; les chocs extérieurs datés coïncident avec des événements de la chronologie ("
+                               + " ; ".join(f"« {e} »" for e in sorted({e['label_fr'] for x in exo for e in x['events']})) + ")"
+                               if exo else "") + ".")
+        dif = [x for x in sc["diffusion"] if x["term"].startswith("gl:") and x.get("lag_days") is not None and x["q_drops"] >= 8]
+        if dif:
+            pos = [x for x in dif if x["lag_days"] > 0]
+            v["scene_diffusion"] = (f"Pour {n(len(pos))} des {n(len(dif))} formules de Q retrouvées dans l'échantillon Reddit, "
+                                    "la première occurrence y est postérieure au premier drop qui l'emploie "
+                                    f"(tableau 3) ; médiane : {n(float(pd.Series([x['lag_days'] for x in dif]).median()))} jours.")
+        v["scene_pol"] = ("Le balayage de /pol/ [@papasavva2020raiders], milieu d'origine de Q, est en cours ; ses résultats "
+                          "(diffusion des formules, toxicité, sous-corpus des fils Q) compléteront cette section."
+                          if not sc.get("pol") else "")
+        return v
+
     def fig(self, lang, fid):
         """Lien vers un chiffre cle, pour les textes (FAQ)."""
         from markupsafe import Markup, escape
@@ -1014,7 +1168,8 @@ class Site:
                 if i not in cited:
                     cited.append(i)
             return str(self.cite(*ids))
-        body = re.sub(r"\{val:([a-z0-9_]+)\}", lambda m: self.values("fr").get(m.group(1), ""), body)
+        vals = self.paper_values()
+        body = re.sub(r"\{val:([a-z0-9_]+)\}", lambda m: vals.get(m.group(1), ""), body)
         body = re.sub(r"\{(table|figure):([a-z0-9_]+)\}", lambda m: "\n\n" + paper_block(self, m.group(1), m.group(2)) + "\n\n", body)
         body = re.sub(r"\[(@[^\]]+)\]", cite_md, body)
         html = markdown.markdown(body, extensions=["extra", "sane_lists"])
