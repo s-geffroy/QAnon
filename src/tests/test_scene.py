@@ -98,3 +98,33 @@ def test_trends_stitching(tmp_path):
     s = weekly_s["x"]
     assert np.allclose(s.to_numpy(), 2.0)          # 20 / 10, et 40 / 20 apres recollage
     assert s.index[0] == "2016-01-04"              # dimanche -> lundi
+
+
+def test_trends_resumes_from_data_and_backs_off(tmp_path, monkeypatch):
+    from qanon import db
+    from qanon.sources import trends
+    import pandas as pd
+    conn = db.connect(tmp_path / "t.db")
+
+    class Ctx:
+        def __init__(self):
+            self.conn, self.out = conn, None
+        def should_yield(self):
+            return False
+        def set_output(self, v):
+            self.out = v
+
+    monkeypatch.setattr(trends, "queries", lambda: ["a", "b", "c", "d", "e"])
+    monkeypatch.setattr(trends, "PAUSE", 0)
+    calls = []
+
+    def fake(batch, window):
+        calls.append((tuple(batch), window))
+        if len(calls) == 3:
+            raise RuntimeError("429")
+        return pd.DataFrame({q: [10] for q in batch + [trends.ANCHOR]}, index=pd.to_datetime(["2018-01-07"]))
+    monkeypatch.setattr(trends, "fetch", fake)
+    assert trends.run(Ctx()) is None and len(calls) == 3          # 2 lots acquis, puis refus
+    assert trends.run(Ctx()) is None and len(calls) == 3          # suspendu : aucune requete
+    db.set_meta(conn, "trends_blocked_until", 0)
+    assert trends.run(Ctx()) is True and len(calls) == 3 + 4      # reprend aux 4 lots manquants
