@@ -36,7 +36,8 @@ STAGES = [
           inputs=("fetch_qdrops", "analyze_descriptive", "analyze_trump", "analyze_discourse", "analyze_actors",
                   "analyze_interest", "analyze_stats"),
           optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification", "analyze_prophecies",
-                    "llm_horoscope", "watch_biblio", "check_links", "llm_translate")),
+                    "llm_horoscope", "watch_biblio", "check_links", "llm_translate",
+                    "analyze_markov", "analyze_physics", "analyze_scene")),
     # Plusieurs heures au premier passage : reprend au dernier jour traite.
     Stage("fetch_gdelt", gdelt.run, keep_cursor=True),
     Stage("analyze_news", news.run, inputs=("fetch_qdrops", "fetch_gdelt"), code=True),
