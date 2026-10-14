@@ -16,19 +16,25 @@ STOP_EXTRA = ["q", "amp", "gt", "lt", "https", "http", "com", "www", "pdf", "jpg
               "twitter", "realdonaldtrump", "youtube", "watch", "anons", "anon"]
 
 
-def topics(texts, months):
+def topic_model(texts):
+    """Modele de themes (TF-IDF + NMF, deterministe) : poids W (drops x themes),
+    composantes et vocabulaire. Partage avec la chaine de Markov des themes."""
     vec = TfidfVectorizer(stop_words=list(_stop()), min_df=5, max_df=0.4,
                           token_pattern=r"(?u)\b[A-Za-z][A-Za-z0-9\-]{2,}\b", ngram_range=(1, 2),
                           sublinear_tf=True, lowercase=True)
     X = vec.fit_transform(texts)
     model = NMF(n_components=N_TOPICS, init="nndsvd", random_state=0, max_iter=400)
     W = model.fit_transform(X)
-    vocab = np.array(vec.get_feature_names_out())
+    return W, model.components_, np.array(vec.get_feature_names_out())
+
+
+def topics(texts, months):
+    W, components, vocab = topic_model(texts)
     out = []
     share = W / np.maximum(W.sum(axis=1, keepdims=True), 1e-12)
     weight = share.sum(axis=0)
     for k in range(N_TOPICS):
-        top = vocab[np.argsort(model.components_[k])[::-1][:12]].tolist()
+        top = vocab[np.argsort(components[k])[::-1][:12]].tolist()
         out.append({"id": k, "terms": top, "share": float(weight[k] / weight.sum())})
     df = pd.DataFrame(share, columns=range(N_TOPICS))
     df["month"] = months.to_numpy()

@@ -2,7 +2,8 @@
 
 Les etapes longues et incrementales (GDELT) viennent en dernier : chaque cycle a
 un budget de temps, et les etapes rapides doivent passer avant."""
-from .analysis import actors, descriptive, discourse, interest, news, predictions, prophecies, stats, trump, verification
+from .analysis import (actors, descriptive, discourse, interest, markov, news, physics, predictions, prophecies, stats,
+                       trump, verification)
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
@@ -69,4 +70,10 @@ STAGES += [
     # Payant (API Editorial Reviewer, ~0,20 $ / 1 500 mots) : un texte modifie est relu au plus une fois
     # par semaine, sous plafond REVIEW_BUDGET_USD sur 30 jours ; les rapports vont dans /state/reviews.
     Stage("editorial_review", review.run, inputs=("build_site",), code=True),
+]
+STAGES += [
+    # Modeles : chaines de Markov (regimes, themes, compression) et analogies physiques
+    # (Hawkes, DFA, avalanches, phases). Decoupes en parties d'une dizaine de secondes.
+    Stage("analyze_markov", markov.run, inputs=("fetch_qdrops", "fetch_tweets", "analyze_stats"), code=True),
+    Stage("analyze_physics", physics.run, inputs=("fetch_qdrops", "fetch_tweets", "analyze_stats"), code=True),
 ]

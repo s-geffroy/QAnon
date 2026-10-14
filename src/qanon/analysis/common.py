@@ -56,3 +56,28 @@ def load_yaml(name, key):
     if not path.exists():
         return []
     return yaml.safe_load(path.read_text())[key]
+
+
+def run_parts(ctx, name, parts):
+    """Analyse longue decoupee en parties : chacune tient dans un cycle (le battement
+    de coeur ne doit pas s'arreter). Les parties faites sont gardees dans
+    /state/results/.<name>.parts.json ; le curseur compte les parties faites et
+    repart de zero quand l'empreinte de l'etape change. Renvoie le dict complet
+    une fois toutes les parties faites, sinon None."""
+    store = ctx.results / f".{name}.parts.json"
+    done = int(ctx.cursor or 0)
+    acc = json.loads(store.read_text()) if done and store.exists() else {}
+    ran = False
+    for i, (key, fn) in enumerate(parts):
+        if i < done:
+            continue
+        # Au moins une partie par appel, puis on rend la main si le budget est epuise.
+        if ran and ctx.should_yield():
+            return None
+        ran = True
+        acc[key] = fn()
+        store.write_text(json.dumps(acc, default=str))
+        done = i + 1
+        ctx.save_cursor(done)
+    store.unlink(missing_ok=True)
+    return acc
