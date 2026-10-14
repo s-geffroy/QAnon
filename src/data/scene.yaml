@@ -303,6 +303,45 @@ terms:
     pos: ["Q is a psyop", "Q LARP", "it's a plan to keep you passive"]
     neg: ["psyops in general"]
 
+  - id: do_your_research
+    family: q_core
+    pattern: '(?i)\bdo (?:your own|the|your) research\b|\bresearch for yoursel(?:f|ves)\b|\bthink for yoursel(?:f|ves)\b'
+    label_fr: "« Do your own research »"
+    label_en: "'Do your own research'"
+    ambiguous: true
+    note: "Cri de ralliement (ADL) ; aussi usage ordinaire."
+    pos: ["Do your own research!", "do the research", "think for yourself"]
+    neg: ["research shows"]
+  - id: fight_like_flynn
+    family: q_core
+    pattern: '(?i)\bfight like a flynn\b|#FightLikeAFlynn\b|\bfree (?:general )?flynn\b|#FreeFlynn\b'
+    label_fr: "« Fight like a Flynn » / « Free Flynn »"
+    label_en: "'Fight like a Flynn' / 'Free Flynn'"
+    pos: ["#FightLikeAFlynn", "Free General Flynn"]
+    neg: ["errol flynn movie"]
+  - id: watch_before_deleted
+    family: q_core
+    pattern: '(?i)\bbefore (?:it|this) (?:is|gets) (?:taken down|deleted|removed|censored)\b|\bthey don.?t want you to (?:see|know)\b'
+    label_fr: "« Regardez avant que ce soit supprimé »"
+    label_en: "'Watch before it is taken down'"
+    pos: ["watch this before it gets deleted", "they don't want you to see this"]
+    neg: ["before it is finished"]
+  - id: maga
+    family: q_core
+    pattern: '\bMAGA\b|(?i:#maga\b|\bmake america great again\b)|\bKAG\b|(?i:\bultra ?maga\b)'
+    label_fr: "MAGA / KAG (témoin pro-Trump)"
+    label_en: "MAGA / KAG (pro-Trump baseline)"
+    ambiguous: true
+    note: "Temoin de l'activite pro-Trump, pas specifique a Q."
+    pos: ["MAGA!", "#maga", "Make America Great Again", "KAG 2020"]
+    neg: ["magazine"]
+  - id: q_plus_truth
+    family: q_core
+    pattern: '(?i)\b(?:Trump|POTUS|DJT) (?:re-?truth(?:ed|s)?|repost(?:ed|s)?|shar(?:ed|es)) (?:a |the )?Q\b|\bQ\+? on truth social\b|\btruth social\b(?=.{0,60}\bQ\b)'
+    label_fr: "Trump relaie Q sur Truth Social (2022)"
+    label_en: "Trump amplifying Q on Truth Social (2022)"
+    pos: ["Trump retruthed a Q drop", "Q+ on Truth Social", "Truth Social post with the Q image"]
+    neg: ["Truth Social stock"]
   # ================================================================ mythologie tardive
   - id: nesara
     family: q_mythos
@@ -371,6 +410,50 @@ terms:
     pos: ["Q is back!", "Q went silent in December"]
     neg: ["queue is back"]
 
+  - id: trump_real_president
+    family: q_mythos
+    pattern: '(?i)\b(?:Trump is (?:still )?(?:the )?(?:real|rightful|actual) president|real president Trump|Trump (?:will be|is being) reinstated|reinstate(?:ment of)? Trump)\b|\bTrump (?:2024|return(?:s|ing)?)\b'
+    label_fr: "Trump « vrai président » / réinstallation / retour 2024"
+    label_en: "Trump 'real president' / reinstatement / 2024 return"
+    pos: ["Trump is still the real president", "Trump will be reinstated in August", "Trump 2024"]
+    neg: ["president Trump said"]
+  - id: body_double
+    family: q_mythos
+    pattern: '(?i)\bbody ?doubles?\b|\bBiden(?:''s)? (?:clone|is dead|was executed|mask|actor)\b|\b(?:clones?|masks?) of Biden\b|\brubber mask\b'
+    label_fr: "Sosies / clones / « Biden est mort »"
+    label_en: "Body doubles / clones / 'Biden is dead'"
+    pos: ["that's a body double", "Biden was executed at Gitmo", "Biden's clone"]
+    neg: ["double body bag"]
+  - id: gitmo_executions
+    family: q_mythos
+    pattern: '(?i)\b(?:executed|hanged|hung|tribunal(?:ed)?) at (?:gitmo|guantanamo)\b|\bgitmo executions?\b|\breal raw news\b|\brealrawnews\b'
+    label_fr: "Exécutions à Guantánamo / Real Raw News"
+    label_en: "Guantánamo executions / Real Raw News"
+    pos: ["executed at Gitmo", "Real Raw News reports", "gitmo executions"]
+    neg: ["gitmo detainees released"]
+  - id: qfs_rv
+    family: q_mythos
+    pattern: '(?i)\bquantum financial system\b|\bQFS\b|\bGCR\b|\bglobal currency reset\b|\b(?:dinar|dong|zim) (?:RV|revalu\w*)\b|\bRV\b(?= (?:is|happens|coming))|\bgold[ -]backed currency\b'
+    label_fr: "Système financier quantique (QFS) / réévaluation des devises (RV/GCR)"
+    label_en: "Quantum financial system (QFS) / currency revaluation (RV/GCR)"
+    trends: true
+    trends_query: "quantum financial system"
+    pos: ["the quantum financial system", "QFS goes live", "dinar RV", "global currency reset"]
+    neg: ["RV park"]
+  - id: dallas_protzman
+    family: q_mythos
+    pattern: '(?i)\bprotzman\b|\bnegative 48\b|\bdealey plaza\b(?=.{0,80}(?:JFK|Kennedy|return))'
+    label_fr: "Groupe de Dallas (Michael Protzman, retour de JFK Jr.)"
+    label_en: "Dallas group (Michael Protzman, JFK Jr.'s return)"
+    pos: ["Protzman's followers", "Negative 48", "gathered at Dealey Plaza waiting for JFK"]
+    neg: ["dealey plaza museum"]
+  - id: mole_children
+    family: q_mythos
+    pattern: '(?i)\bmole children\b|\btunnel children\b|\bchildren in (?:the )?tunnels\b'
+    label_fr: "« Enfants-taupes » / enfants des tunnels"
+    label_en: "'Mole children' / tunnel children"
+    pos: ["the mole children", "children in the tunnels"]
+    neg: ["mole removal"]
   # ================================================================ pseudo-inities d'avant Q
   - id: fbianon
     family: larp
@@ -933,6 +1016,73 @@ terms:
     pos: ["the 13 bloodlines", "Khazarian mafia", "black nobility"]
     neg: ["bloodline of horses"]
 
+  - id: hunter_laptop
+    family: classic
+    pattern: '(?i)\bhunter(?:''s)? laptop\b|\blaptop from hell\b|\bhunter biden(?:''s)? (?:laptop|hard drive|emails)\b|(?:\b10 ?%|\bten percent) (?:for|to) the big guy\b'
+    label_fr: "Portable de Hunter Biden"
+    label_en: "Hunter Biden's laptop"
+    pos: ["Hunter's laptop", "the laptop from hell", "10% for the big guy"]
+    neg: ["laptop repair"]
+  - id: ghislaine_maxwell
+    family: classic
+    pattern: '(?i)\bghislaine\b|\bmaxwell (?:trial|client list|list)\b'
+    label_fr: "Ghislaine Maxwell / « liste des clients »"
+    label_en: "Ghislaine Maxwell / 'client list'"
+    pos: ["Ghislaine Maxwell", "the Maxwell client list"]
+    neg: ["maxwell house coffee"]
+  - id: ukraine_biolabs
+    family: classic
+    pattern: '(?i)\b(?:bio-?labs?|bioweapons? labs?|biological labs?) (?:in )?(?:ukraine|ukrainian)\b|\bukrain(?:e|ian)(?:''s)? bio-?labs?\b|\bbiolabs?\b'
+    label_fr: "« Biolabs » en Ukraine (2022)"
+    label_en: "Ukraine 'biolabs' (2022)"
+    trends: true
+    trends_query: "biolabs"
+    pos: ["biolabs in Ukraine", "Ukraine's biolabs", "the biolabs"]
+    neg: ["biology lab report"]
+  - id: pizzagate_2
+    family: classic
+    pattern: '(?i)\bpizzagate 2\.?0\b|\bsave ?bieber\b|#savebieber\b|\bjustin bieber\b(?=.{0,80}(?:hat|abuse|pedo|signal|help))'
+    label_fr: "« Pizzagate 2.0 » (TikTok 2020, Justin Bieber)"
+    label_en: "'Pizzagate 2.0' (TikTok 2020, Justin Bieber)"
+    pos: ["Pizzagate 2.0 on TikTok", "#SaveBieber", "Justin Bieber touched his hat as a signal"]
+    neg: ["justin bieber concert"]
+  - id: durham
+    family: classic
+    pattern: '(?i)\bdurham (?:report|probe|investigation|indictments?|is coming|will)\b|\bjohn durham\b|\btrust durham\b'
+    label_fr: "Enquête Durham (attendue comme « jour J »)"
+    label_en: "Durham probe (awaited as 'D-day')"
+    pos: ["the Durham report", "John Durham", "Durham indictments are coming"]
+    neg: ["durham university"]
+  - id: sound_of_freedom
+    family: classic
+    pattern: '(?i)\bsound of freedom\b|\btim ballard\b|\boperation underground railroad\b|\bO\.?U\.?R\.? rescue\b'
+    label_fr: "« Sound of Freedom » / Tim Ballard (2023)"
+    label_en: "'Sound of Freedom' / Tim Ballard (2023)"
+    trends: true
+    trends_query: "Sound of Freedom"
+    pos: ["Sound of Freedom movie", "Tim Ballard", "Operation Underground Railroad"]
+    neg: ["freedom of sound"]
+  - id: tartaria
+    family: classic
+    pattern: '(?i)\btartari(?:a|an empire)\b|\bmud ?flood\b|\bstar forts?\b'
+    label_fr: "Tartarie / « mud flood »"
+    label_en: "Tartaria / 'mud flood'"
+    pos: ["the Tartarian empire", "mud flood buildings", "star forts"]
+    neg: ["tartar sauce"]
+  - id: fifteen_minute_cbdc
+    family: classic
+    pattern: '(?i)\b15[ -]minute cit(?:y|ies)\b|\bCBDCs?\b|\bcentral bank digital currenc(?:y|ies)\b|\bsocial credit (?:score|system)\b|\bclimate lockdowns?\b'
+    label_fr: "Villes du quart d'heure / CBDC / crédit social"
+    label_en: "15-minute cities / CBDC / social credit"
+    pos: ["15-minute cities are open-air prisons", "CBDC", "social credit score"]
+    neg: ["15 minutes late"]
+  - id: french_q
+    family: platform
+    pattern: '(?i)\bfrench (?:q|qanon|anons?|patriots?)\b|\bq ?anon (?:france|europe|germany|uk|italia|japan|brasil|brazil|canada)\b|\b(?:german|italian|japanese|dutch|brazilian|canadian) qanon\b|\bQ ?Anon (?:goes|went) global\b|\bqanon\.fr\b|\bQ ?Europe\b'
+    label_fr: "QAnon hors des États-Unis (France, Europe, Japon, Brésil…)"
+    label_en: "QAnon outside the US (France, Europe, Japan, Brazil...)"
+    pos: ["French QAnon", "QAnon Europe", "German QAnon", "QAnon goes global"]
+    neg: ["french fries"]
   # ================================================================ registre religieux
   - id: spiritual_warfare
     family: spiritual
@@ -1025,6 +1175,20 @@ terms:
     pos: ["adrenochrome harvesting", "adrenachrome"]
     neg: ["adrenaline"]
 
+  - id: covid_1984
+    family: health
+    pattern: '(?i)\bcovid[- ]?1984\b|\bcoronavirus[- ]?1984\b'
+    label_fr: "« COVID-1984 »"
+    label_en: "'COVID-1984'"
+    pos: ["covid-1984", "COVID1984"]
+    neg: ["covid-19"]
+  - id: microchip
+    family: health
+    pattern: '(?i)\bmicro-?chip(?:s|ped|ping)?\b(?=.{0,60}(?:vaccin|shot|gates|jab))|\bgraphene oxide\b|\b(?:vaccine )?shedding\b|\bmagnetic (?:arm|vaccine)\b|\bnanobots?\b'
+    label_fr: "Micropuces / oxyde de graphène / « shedding »"
+    label_en: "Microchips / graphene oxide / 'shedding'"
+    pos: ["microchips in the vaccine", "graphene oxide", "vaccine shedding", "nanobots"]
+    neg: ["microchip shortage"]
   # ================================================================ elections
   - id: stop_the_steal
     family: election
