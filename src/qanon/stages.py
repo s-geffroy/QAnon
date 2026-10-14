@@ -13,7 +13,7 @@ from . import db
 from .analysis.common import load_yaml
 from .pipeline import Stage
 from .site import build, publish
-from .sources import biblio_watch, gdelt, links, pageviews, qdrops, reddit, timeline, trends, tweets, wikinews
+from .sources import biblio_watch, gdelt, links, pageviews, pol, qdrops, reddit, timeline, trends, tweets, wikinews
 
 WEEK = 7 * 86400
 
@@ -104,6 +104,8 @@ STAGES += [
     # Collectes longues en dernier : elles prennent le budget restant du cycle (sinon les
     # etapes placees apres elles n'auraient jamais leur tour). Heures : 15 s par cycle au plus.
     Stage("fetch_reddit_hour", reddit.run_hour, inputs=("fetch_reddit_volume",), keep_cursor=True),
+    # 4chan /pol/ : 24 Go, reprenable (le fichier partiel fait foi), puis md5.
+    Stage("fetch_pol", pol.run_fetch, version=pol.MD5),
     # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
     Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
 ]

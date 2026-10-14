@@ -73,3 +73,41 @@ def test_hour_bins_shifted_by_one_hour():
     # Creneau etiquete 23:00 la veille = 00:00-01:00 UTC (verifie sur des comptes bruts).
     data = [{"created_utc": "2018-03-01T23:00:00.000Z", "count": "19"}]
     assert reddit.hour_bins(data) == [(1519948800, 19)]
+
+
+def test_pol_download_resumes_and_checks_md5(tmp_path, monkeypatch):
+    import hashlib
+    from qanon.sources import pol
+    payload = b"x" * 5000
+    monkeypatch.setattr(pol, "SIZE", len(payload))
+    monkeypatch.setattr(pol, "MD5", hashlib.md5(payload).hexdigest())
+    monkeypatch.setattr(pol, "CHUNK", 1000)
+
+    class Resp:
+        def __init__(self, start):
+            self.status_code, self.start = 206, start
+        def __enter__(self):
+            return self
+        def __exit__(self, *a):
+            return False
+        def iter_content(self, n):
+            for i in range(self.start, len(payload), n):
+                yield payload[i:i + n]
+    monkeypatch.setattr(pol.requests, "get", lambda url, headers, **k: Resp(int(headers["Range"][6:-1])))
+
+    class Ctx:
+        state, cursor = tmp_path, None
+        def __init__(self):
+            self.n = 0
+        def should_yield(self):
+            self.n += 1
+            return self.n % 2 == 0          # coupe le flux tous les deux blocs
+        def save_cursor(self, v):
+            self.cursor = v
+        def set_output(self, v):
+            self.out = v
+    ctx = Ctx()
+    for _ in range(50):
+        if pol.run_fetch(ctx) is True:
+            break
+    assert (tmp_path / "cache" / "pol" / "pol.tar.zst").read_bytes() == payload
