@@ -1,8 +1,8 @@
 """4chan /pol/ (Papasavva et al., ICWSM 2020 ; Zenodo 3606810, CC BY 4.0) :
 134,5 M posts, juin 2016 - novembre 2019. Lu une seule fois, puis supprime.
 
-- fetch_pol : telechargement reprenable (requetes partielles, un morceau par
-  cycle ; le curseur est la taille du fichier), puis verification md5.
+- fetch_pol : telechargement reprenable en fil de fond (requetes partielles ;
+  l'etat est la taille du fichier), puis verification md5 par tranches.
 """
 import hashlib
 import time
@@ -16,7 +16,7 @@ URL = "https://zenodo.org/records/3606810/files/pol_0616-1119_labeled.tar.zst?do
 SIZE = 24_039_475_594
 MD5 = "3ad65640bf590d77af0f931045aef2e0"
 CHUNK = 1 << 20
-SHARE = 20   # secondes par cycle : laisse le reste du budget a l'echantillon Reddit
+SHARE = 20   # secondes par cycle pour le md5 : laisse le reste du budget aux autres etapes
 UA = {"User-Agent": "qanon-study/1.0 (+https://github.com/s-geffroy/QAnon)"}
 
 # Hachage md5 en cours (24 Go ne se hachent pas en un cycle) : etat garde en memoire du
@@ -30,34 +30,49 @@ def paths(state):
     return d / "pol.tar.zst.part", d / "pol.tar.zst"
 
 
+def _download(part):
+    """Fil de fond : Zenodo plafonne le debit par adresse (~0,45 Mo/s, 4 connexions n'y
+    changent rien), soit ~15 h pour 24 Go. Le telechargement attend le reseau, pas le
+    processeur : il tourne a cote de la boucle au lieu d'en consommer le budget. L'etat
+    est la taille du fichier partiel ; un arret brutal ne perd que le dernier bloc."""
+    while True:
+        have = part.stat().st_size if part.exists() else 0
+        if have >= SIZE:
+            return
+        try:
+            with requests.get(URL, headers={**UA, "Range": f"bytes={have}-"}, stream=True, timeout=60) as r:
+                if r.status_code != 206:
+                    raise RuntimeError(f"requete partielle refusee : HTTP {r.status_code}")
+                with open(part, "ab") as f:
+                    for block in r.iter_content(CHUNK):
+                        f.write(block)
+                        have += len(block)
+                        if have % 10**9 < len(block):
+                            f.flush()
+                            log(f"pol : {have / 1e9:.0f} / {SIZE / 1e9:.1f} Go")
+        except Exception as exc:
+            log(f"pol : telechargement interrompu a {have / 1e9:.2f} Go ({exc!r:.120}) ; reprise dans 60 s")
+            time.sleep(60)
+
+
+_thread = {"t": None}
+
+
 def run_fetch(ctx):
+    import threading
     part, final = paths(ctx.state)
     if final.exists():
         ctx.set_output(db.sha(MD5))
         return True
     have = part.stat().st_size if part.exists() else 0
     if have < SIZE:
-        try:
-            with requests.get(URL, headers={**UA, "Range": f"bytes={have}-"}, stream=True, timeout=60) as r:
-                if r.status_code != 206:
-                    raise RuntimeError(f"requete partielle refusee : HTTP {r.status_code}")
-                t0, got = time.monotonic(), 0
-                with open(part, "ab") as f:
-                    for block in r.iter_content(CHUNK):
-                        f.write(block)
-                        got += len(block)
-                        if ctx.should_yield() or time.monotonic() - t0 > SHARE:
-                            break
-        except requests.RequestException as exc:
-            log(f"pol : telechargement interrompu a {have / 1e9:.2f} Go ({exc!r:.120}) ; reprise au cycle suivant")
-            return None
-        have = part.stat().st_size
+        t = _thread["t"]
+        if t is None or not t.is_alive():
+            _thread["t"] = threading.Thread(target=_download, args=(part,), daemon=True, name="pol-download")
+            _thread["t"].start()
+            log(f"pol : telechargement en fond depuis {have / 1e9:.2f} Go")
         ctx.save_cursor(str(have))
-        rate = got / max(time.monotonic() - t0, 1e-3) / 1e6
-        # Une ligne par Go environ : le volume de logs est une ressource.
-        if have // 10**9 != (have - got) // 10**9 or have >= SIZE:
-            log(f"pol : {have / 1e9:.1f} / {SIZE / 1e9:.1f} Go ({rate:.0f} Mo/s)")
-        return False
+        return None
     if have > SIZE:
         part.unlink()
         raise RuntimeError("fichier plus grand qu'attendu : supprime, telechargement repris a zero")

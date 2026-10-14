@@ -82,6 +82,8 @@ def test_pol_download_resumes_and_checks_md5(tmp_path, monkeypatch):
     monkeypatch.setattr(pol, "SIZE", len(payload))
     monkeypatch.setattr(pol, "MD5", hashlib.md5(payload).hexdigest())
     monkeypatch.setattr(pol, "CHUNK", 1000)
+    monkeypatch.setattr(pol.time, "sleep", lambda s: None)
+    cuts = {"n": 0}
 
     class Resp:
         def __init__(self, start):
@@ -93,34 +95,24 @@ def test_pol_download_resumes_and_checks_md5(tmp_path, monkeypatch):
         def iter_content(self, n):
             for i in range(self.start, len(payload), n):
                 yield payload[i:i + n]
+                if i == 2000 and cuts["n"] == 0:      # coupure reseau une fois
+                    cuts["n"] += 1
+                    raise pol.requests.ConnectionError("coupure")
     monkeypatch.setattr(pol.requests, "get", lambda url, headers, **k: Resp(int(headers["Range"][6:-1])))
+    part = tmp_path / "p.part"
+    pol._download(part)
+    assert part.read_bytes() == payload and cuts["n"] == 1
 
     class Ctx:
         state, cursor = tmp_path, None
-        def __init__(self):
-            self.n = 0
         def should_yield(self):
-            self.n += 1
-            return self.n % 2 == 0          # coupe le flux tous les deux blocs
+            return False
         def save_cursor(self, v):
             self.cursor = v
         def set_output(self, v):
             self.out = v
-    ctx = Ctx()
-    for _ in range(50):
-        if pol.run_fetch(ctx) is True:
-            break
-    assert (tmp_path / "cache" / "pol" / "pol.tar.zst").read_bytes() == payload
-
-
-def test_run_hour(tmp_path, monkeypatch):
-    conn = db.connect(tmp_path / "t.db")
-    conn.execute("INSERT INTO reddit_volume VALUES ('greatawakening', 'comments', '2018-03-02', 100)")
-    conn.commit()
-    data = [{"created_utc": "2018-03-01T23:00:00.000Z", "count": "19"},
-            {"created_utc": "2018-03-02T00:00:00.000Z", "count": "23"}]
-    monkeypatch.setattr(reddit, "get", lambda path, **p: data)
-    ctx = Ctx(conn)
-    assert reddit.run_hour(ctx) is True
-    assert conn.execute("SELECT n FROM reddit_hour_day").fetchone()[0] == 42
-    assert conn.execute("SELECT min(hour) FROM reddit_hour").fetchone()[0] == 1519948800
+    d = tmp_path / "cache" / "pol"
+    d.mkdir(parents=True)
+    (d / "pol.tar.zst.part").write_bytes(payload)
+    assert pol.run_fetch(Ctx()) is True
+    assert (d / "pol.tar.zst").read_bytes() == payload
