@@ -52,7 +52,46 @@ def run(ctx):
     return fetch(ctx, "pageviews", ARTICLES)
 
 
+REDIRECTS = "https://{project}.org/w/api.php"
+
+
+def titles(project, article):
+    """L'article et toutes ses redirections : un article renomme garde ses vues
+    anterieures sous son ancien titre."""
+    r = requests.get(REDIRECTS.format(project=project), headers=UA, timeout=60, params={
+        "action": "query", "prop": "redirects", "titles": article.replace("_", " "), "rdlimit": "max",
+        "rdnamespace": 0, "format": "json", "formatversion": 2})
+    r.raise_for_status()
+    page = r.json()["query"]["pages"][0]
+    return [article] + [x["title"].replace(" ", "_") for x in page.get("redirects", [])]
+
+
 def run_scene(ctx):
-    """Articles de la scene complotiste (data/scene.yaml), en anglais."""
+    """Articles de la scene complotiste (data/scene.yaml), en anglais, redirections comprises.
+    Curseur : indice de l'article, puis indice du titre ('i:j')."""
     from ..analysis.common import load_yaml
-    return fetch(ctx, "pageviews_scene", [("en.wikipedia", a) for a in load_yaml("scene", "wikipedia_articles")])
+    arts = load_yaml("scene", "wikipedia_articles")
+    i, j = (int(x) for x in (ctx.cursor or "0:0").split(":"))
+    start = (i, j)
+    project = "en.wikipedia"
+    while i < len(arts):
+        names = titles(project, arts[i])
+        while j < len(names):
+            if (i, j) != start and ctx.should_yield():
+                return False
+            resp = requests.get(API.format(project=project, article=requests.utils.quote(names[j], safe=""),
+                                           start=START, end=END), headers=UA, timeout=60)
+            items = [] if resp.status_code == 404 else (resp.raise_for_status() or resp.json()["items"])
+            ctx.conn.execute("DELETE FROM wiki_scene_views WHERE project = ? AND article = ? AND title = ?",
+                             (project, arts[i], names[j]))
+            ctx.conn.executemany("INSERT INTO wiki_scene_views VALUES (?,?,?,?,?)", [
+                (project, arts[i], names[j], f"{x['timestamp'][:4]}-{x['timestamp'][4:6]}-{x['timestamp'][6:8]}",
+                 x["views"]) for x in items])
+            j += 1
+            ctx.save_cursor(f"{i}:{j}")
+        i, j = i + 1, 0
+        ctx.save_cursor(f"{i}:0")
+    n = ctx.conn.execute("SELECT count(DISTINCT title), sum(views) FROM wiki_scene_views").fetchone()
+    ctx.set_output(db.sha(n[0], n[1]))
+    log(f"pages vues de la scene : {len(arts)} articles, {n[0]} titres (redirections comprises), {n[1]} vues")
+    return True

@@ -122,10 +122,12 @@ SCHEMA += GDELT_SCHEMA
 
 SCHEMA += """
 -- Pages vues des articles de la scene complotiste (data/scene.yaml), a part :
--- la table pageviews reste celle de l'analyse d'interet publiee.
-CREATE TABLE IF NOT EXISTS pageviews_scene (
-    project TEXT, article TEXT, day TEXT, views INTEGER,
-    PRIMARY KEY (project, article, day)
+-- la table pageviews reste celle de l'analyse d'interet publiee. Une ligne par
+-- titre : l'article lui-meme et chacune de ses redirections (anciens titres
+-- compris), a additionner par article.
+CREATE TABLE IF NOT EXISTS wiki_scene_views (
+    project TEXT, article TEXT, title TEXT, day TEXT, views INTEGER,
+    PRIMARY KEY (project, article, title, day)
 );
 
 -- Reddit (Arctic Shift) : volumes exacts, echantillon systematique, comptage du lexique.
