@@ -277,10 +277,10 @@ def _snippet(txt, rx, width=90):
 #   pol_unigram_month / pol_entity_month     mots (>= 5 par mois) et entites nommees du dataset, par mois
 #   pol_tox_day                              scores Perspective par jour, tout /pol/ et sous-corpus Q
 # Les pseudonymes et identifiants d'auteurs ne sont jamais gardes.
-CHECKPOINT = 50_000          # fils entre deux points de reprise (~2 M de posts)
+CHECKPOINT = 20_000          # fils entre deux points de reprise (~0,8 M de posts) : borne la memoire
+SCAN_V = 2                   # version du balayage (2 : comptes de mots et d'entites cumules en base) ; dans le curseur
 SCAN_SHARE = 30              # secondes par cycle
 MIN_MONTH = 5                # mots gardes : au moins 5 occurrences dans le mois
-MAX_VOCAB = 2_000_000        # au-dela, les mots vus une seule fois sont elagues (perte documentee)
 Q_FAMILIES = ("q_core", "q_mythos", "larp", "promoter")
 _THREAD_Q = re.compile(r"(?i)\bCBTS\b|calm before the storm|\bQ ?(?:research|general|anon|drops?|posts?)\b|\bqanon\b|"
                        r"\bthe storm\b.{0,20}\bgeneral\b|!ITPb\.qbhqo")
@@ -340,16 +340,8 @@ def _drop_posts(conn):
     return {str(r[0]) for r in rows if r[0]}
 
 
-def _load_staging(conn, acc):
-    from collections import Counter
-    for m, tok, n in conn.execute("SELECT month, token, n FROM pol_unigram_stage"):
-        acc.uni.setdefault(m, Counter())[tok] = n
-    for m, ent, lab, n in conn.execute("SELECT month, entity, label, n FROM pol_entity_stage"):
-        acc.ent.setdefault(m, Counter())[(ent, lab)] = n
-
-
 def _checkpoint(conn, acc, closed_before, cursor_value, cursor_save):
-    """Ecrit tout, mois clos elagues dans les tables finales, mois ouverts en transit."""
+    """Ecrit tout : comptes horaires, sous-corpus, echantillon et toxicite directement ; mots et entites cumules en base."""
     c = conn
     c.executemany("INSERT INTO pol_hour VALUES (?,?,?) ON CONFLICT(hour, term) DO UPDATE SET n = n + excluded.n",
                   [(h, t, n) for (h, t), n in acc.hour.items()])
@@ -363,39 +355,40 @@ def _checkpoint(conn, acc, closed_before, cursor_value, cursor_save):
     c.executemany("INSERT INTO pol_tox_day VALUES (?,?,?,?,?,?) ON CONFLICT(day, scope, attr) DO UPDATE SET "
                   "total = total + excluded.total, n = n + excluded.n, n_high = n_high + excluded.n_high",
                   [(d, s, a, v[0], v[1], v[2]) for (d, s, a), v in acc.tox.items()])
-    c.execute("DELETE FROM pol_unigram_stage")
-    c.execute("DELETE FROM pol_entity_stage")
-    for m in sorted(acc.uni):
-        cu = acc.uni[m]
-        if m < closed_before:
-            c.executemany("INSERT INTO pol_unigram_month VALUES (?,?,?) ON CONFLICT(month, token) DO UPDATE SET n = n + excluded.n",
-                          [(m, k, v) for k, v in cu.items() if v >= MIN_MONTH])
-            del acc.uni[m]
-        else:
-            c.executemany("INSERT INTO pol_unigram_stage VALUES (?,?,?)", [(m, k, v) for k, v in cu.items()])
-    for m in sorted(acc.ent):
-        ce = acc.ent[m]
-        if m < closed_before:
-            c.executemany("INSERT INTO pol_entity_month VALUES (?,?,?,?) ON CONFLICT(month, entity, label) DO UPDATE "
-                          "SET n = n + excluded.n", [(m, e, l, v) for (e, l), v in ce.items() if v >= 2])
-            del acc.ent[m]
-        else:
-            c.executemany("INSERT INTO pol_entity_stage VALUES (?,?,?,?)", [(m, e, l, v) for (e, l), v in ce.items()])
+    # Mots et entites : cumules en base (comptes exacts), memoire videe ; un mois clos passe
+    # dans les tables finales avec ses seuils (mots >= MIN_MONTH, entites >= 2).
+    for m, cu in acc.uni.items():
+        c.executemany("INSERT INTO pol_unigram_acc VALUES (?,?,?) ON CONFLICT(month, token) DO UPDATE SET n = n + excluded.n",
+                      [(m, k, v) for k, v in cu.items()])
+    for m, ce in acc.ent.items():
+        c.executemany("INSERT INTO pol_entity_acc VALUES (?,?,?,?) ON CONFLICT(month, entity, label) DO UPDATE "
+                      "SET n = n + excluded.n", [(m, e, l, v) for (e, l), v in ce.items()])
+    c.execute("INSERT INTO pol_unigram_month SELECT month, token, n FROM pol_unigram_acc WHERE month < ? AND n >= ? "
+              "ON CONFLICT(month, token) DO UPDATE SET n = n + excluded.n", (closed_before, MIN_MONTH))
+    c.execute("DELETE FROM pol_unigram_acc WHERE month < ?", (closed_before,))
+    c.execute("INSERT INTO pol_entity_month SELECT month, entity, label, n FROM pol_entity_acc WHERE month < ? AND n >= 2 "
+              "ON CONFLICT(month, entity, label) DO UPDATE SET n = n + excluded.n", (closed_before,))
+    c.execute("DELETE FROM pol_entity_acc WHERE month < ?", (closed_before,))
+    acc.uni, acc.ent = {}, {}
     acc.hour, acc.total, acc.first, acc.qcorpus, acc.sample, acc.tox = {}, {}, {}, [], [], {}
     cursor_save(cursor_value)    # valide la transaction avec le curseur
 
 
-def _prune(acc):
-    n = sum(len(c) for c in acc.uni.values())
-    if n > MAX_VOCAB:
-        for c in acc.uni.values():
-            for k in [k for k, v in c.items() if v == 1]:
-                del c[k]
-        return n
-    return 0
-
-
 _scan = {"acc": None, "ckpt": None}
+
+
+def _memory():
+    """Memoire du processus (RSS) et du conteneur (cgroup v2 : anonyme / cache de fichiers,
+    ce dernier recuperable : la lecture de l'archive le remplit sans risque)."""
+    out = []
+    try:
+        rss = next(l for l in open("/proc/self/status") if l.startswith("VmRSS:")).split()[1]
+        out.append(f"rss {int(rss) // 1024} Mo")
+        st = dict(l.split() for l in open("/sys/fs/cgroup/memory.stat"))
+        out.append(f"conteneur : anon {int(st['anon']) >> 20} Mo, cache {int(st['file']) >> 20} Mo")
+    except (OSError, StopIteration, KeyError, ValueError):
+        pass
+    return ", ".join(out) or "memoire inconnue"
 
 
 def process_thread(posts, terms, m, qids, drop_posts, acc, q_trips=frozenset()):
@@ -459,18 +452,20 @@ def run_scan(ctx):
         return None
     part, final = paths(ctx.state)
     cur = ctx.cursor or ""
-    if not cur.startswith(fp + ":"):
+    key = f"{fp}/v{SCAN_V}"
+    if not cur.startswith(key + ":"):
         for t in ("pol_hour", "pol_hour_total", "pol_first", "pol_qcorpus", "pol_sample", "pol_unigram_month",
-                  "pol_entity_month", "pol_tox_day", "pol_unigram_stage", "pol_entity_stage"):
+                  "pol_entity_month", "pol_tox_day", "pol_unigram_acc", "pol_entity_acc"):
             ctx.conn.execute(f"DELETE FROM {t}")
-        ctx.save_cursor(f"{fp}:0")
-        cur = f"{fp}:0"
+        for t in ("pol_unigram_stage", "pol_entity_stage"):      # transit de la version 1
+            ctx.conn.execute(f"DROP TABLE IF EXISTS {t}")
+        ctx.save_cursor(f"{key}:0")
+        cur = f"{key}:0"
         _scan["acc"] = None
     ckpt = int(cur.split(":")[1])
     if _scan["acc"] is None or _scan["ckpt"] != ckpt or "scan" not in _streams:
         # Demarrage ou redemarrage : accumulateurs du dernier point de reprise, lecture depuis ce point.
         _scan["acc"], _scan["ckpt"] = Scan(), ckpt
-        _load_staging(ctx.conn, _scan["acc"])
         want = ckpt
     else:
         # Meme processus : on continue ou l'on s'etait arrete, sauf si le saut jusqu'au point
@@ -500,17 +495,16 @@ def run_scan(ctx):
         if s.n % CHECKPOINT == 0:
             t = thread_time(line) or 0
             closed = time.strftime("%Y-%m", time.gmtime(t - 45 * 86400))   # mois clos : plus de 45 jours avant le fil courant
-            pruned = _prune(acc)
-            _checkpoint(ctx.conn, acc, closed, f"{fp}:{s.n}", ctx.save_cursor)
+            _checkpoint(ctx.conn, acc, closed, f"{key}:{s.n}", ctx.save_cursor)
             _scan["ckpt"] = s.n
-            log(f"pol : {s.n} fils balayes ({time.strftime('%Y-%m', time.gmtime(t))})"
-                + (f", vocabulaire elague ({pruned} entrees)" if pruned else ""))
+            if s.n % 100_000 == 0:
+                log(f"pol : {s.n} fils balayes ({time.strftime('%Y-%m', time.gmtime(t))}) ; {_memory()}")
         if s.n % 200 == 0 and (ctx.should_yield() or time.monotonic() > stop):
             break
     # Entre deux points de reprise, le travail en memoire continue au cycle suivant (meme processus).
     if not finished:
         return False
-    _checkpoint(ctx.conn, acc, "9999-99", f"{fp}:{s.n}:fin", ctx.save_cursor)
+    _checkpoint(ctx.conn, acc, "9999-99", f"{key}:{s.n}:fin", ctx.save_cursor)
     _streams.pop("scan").close()
     _scan["acc"] = None
     n = ctx.conn.execute("SELECT sum(posts), sum(threads) FROM pol_hour_total").fetchone()

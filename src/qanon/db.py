@@ -158,8 +158,9 @@ CREATE TABLE IF NOT EXISTS pol_qcorpus (
 CREATE TABLE IF NOT EXISTS pol_sample (post TEXT PRIMARY KEY, thread TEXT, ts INTEGER, text TEXT, country TEXT);
 CREATE TABLE IF NOT EXISTS pol_unigram_month (month TEXT, token TEXT, n INTEGER, PRIMARY KEY (month, token));
 CREATE TABLE IF NOT EXISTS pol_entity_month (month TEXT, entity TEXT, label TEXT, n INTEGER, PRIMARY KEY (month, entity, label));
-CREATE TABLE IF NOT EXISTS pol_unigram_stage (month TEXT, token TEXT, n INTEGER);
-CREATE TABLE IF NOT EXISTS pol_entity_stage (month TEXT, entity TEXT, label TEXT, n INTEGER);
+-- Comptes exacts des mois encore ouverts, cumules a chaque point de reprise (la memoire est videe).
+CREATE TABLE IF NOT EXISTS pol_unigram_acc (month TEXT, token TEXT, n INTEGER, PRIMARY KEY (month, token));
+CREATE TABLE IF NOT EXISTS pol_entity_acc (month TEXT, entity TEXT, label TEXT, n INTEGER, PRIMARY KEY (month, entity, label));
 CREATE TABLE IF NOT EXISTS pol_tox_day (
     day TEXT, scope TEXT, attr TEXT, total REAL, n INTEGER, n_high INTEGER,   -- moyenne = total / n ; n_high : score > 0,8
     PRIMARY KEY (day, scope, attr)
