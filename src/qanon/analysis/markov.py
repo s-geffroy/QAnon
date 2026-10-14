@@ -1,7 +1,9 @@
 """Chaines de Markov sur le corpus.
 
-- Regimes caches de l'activite : HMM de Poisson sur les comptes journaliers
-  (Baum-Welch), nombre d'etats choisi par BIC, chemin de Viterbi.
+- Regimes caches de l'activite : HMM sur les comptes journaliers (Baum-Welch),
+  emissions binomiales negatives (les comptes sont surdisperses : avec des
+  emissions de Poisson, le BIC reclame toujours plus d'etats), nombre d'etats
+  choisi par BIC, chemin de Viterbi.
 - Enchainement des themes : le theme d'un drop predit-il celui du suivant dans
   la meme session ? Matrice de transition, taux d'entropie, deux modeles nuls
   par permutation (melange global, melange au sein de chaque session).
@@ -14,6 +16,7 @@ from collections import Counter
 
 import numpy as np
 import pandas as pd
+from scipy import optimize
 from scipy import stats as sps
 from scipy.cluster.hierarchy import leaves_list, linkage
 from scipy.spatial.distance import squareform
@@ -38,15 +41,23 @@ def daily_counts(ts):
     return c.reindex(pd.date_range(c.index.min(), c.index.max(), freq="D"), fill_value=0)
 
 
-def _emissions(y, lam):
+def _logpmf(y, lam, r=None):
+    """log P(y | moyenne lam, dispersion r) : binomiale negative (variance lam + lam^2 / r),
+    Poisson si r est None."""
+    if r is None:
+        return sps.poisson.logpmf(y, lam)
+    return sps.nbinom.logpmf(y, r, r / (r + lam))
+
+
+def _emissions(y, lam, r=None):
     """log P(y_t | etat k), puis exp normalise par ligne (evite le soupassement)."""
-    logb = sps.poisson.logpmf(y[:, None], lam[None, :])
+    logb = _logpmf(y[:, None], lam[None, :], None if r is None else r[None, :])
     m = logb.max(axis=1, keepdims=True)
     return np.exp(logb - m), m.ravel(), logb
 
 
-def _forward_backward(y, pi, A, lam):
-    B, m, _ = _emissions(y, lam)
+def _forward_backward(y, pi, A, lam, r=None):
+    B, m, _ = _emissions(y, lam, r)
     T, K = B.shape
     alpha, c = np.empty((T, K)), np.empty(T)
     a = pi * B[0]
@@ -64,8 +75,9 @@ def _forward_backward(y, pi, A, lam):
     return alpha, beta, c, B, ll
 
 
-def hmm_fit(y, K, n_iter=300, tol=1e-7, inits=3):
-    """Baum-Welch d'un HMM de Poisson a K etats ; meilleure de plusieurs initialisations."""
+def hmm_fit(y, K, n_iter=300, tol=1e-7, inits=3, dist="nb"):
+    """Baum-Welch d'un HMM a K etats (emissions 'nb' ou 'poisson') ; meilleure de
+    plusieurs initialisations."""
     y = np.asarray(y, dtype=float)
     best = None
     for r in range(inits):
@@ -80,9 +92,10 @@ def hmm_fit(y, K, n_iter=300, tol=1e-7, inits=3):
         A = np.full((K, K), 0.1 / max(K - 1, 1))
         np.fill_diagonal(A, 0.9)
         pi = np.full(K, 1 / K)
+        r = np.full(K, 2.0) if dist == "nb" else None
         prev = -np.inf
         for _ in range(n_iter):
-            alpha, beta, c, B, ll = _forward_backward(y, pi, A, lam)
+            alpha, beta, c, B, ll = _forward_backward(y, pi, A, lam, r)
             gamma = alpha * beta
             gamma /= gamma.sum(axis=1, keepdims=True)
             xi = A * (alpha[:-1].T @ (B[1:] * beta[1:] / c[1:, None]))
@@ -90,22 +103,29 @@ def hmm_fit(y, K, n_iter=300, tol=1e-7, inits=3):
             pi /= pi.sum()
             A = xi / xi.sum(axis=1, keepdims=True)
             lam = np.maximum((gamma * y[:, None]).sum(axis=0) / gamma.sum(axis=0), 1e-6)
+            if r is not None:
+                # Dispersion de chaque etat : vraisemblance ponderee, moyenne fixee (EM generalise).
+                for k in range(K):
+                    f = lambda lr: -(gamma[:, k] * _logpmf(y, lam[k], np.exp(lr))).sum()
+                    r[k] = np.exp(optimize.minimize_scalar(f, bounds=(np.log(0.05), np.log(1e4)),
+                                                           method="bounded").x)
             if ll - prev < tol * abs(ll):
                 break
             prev = ll
         if best is None or ll > best["ll"]:
-            best = {"ll": ll, "pi": pi, "A": A, "lam": lam}
+            best = {"ll": ll, "pi": pi, "A": A, "lam": lam, "r": r}
     # Etats ordonnes par intensite croissante.
     o = np.argsort(best["lam"])
-    best = {"ll": best["ll"], "pi": best["pi"][o], "A": best["A"][np.ix_(o, o)], "lam": best["lam"][o]}
-    n_par = K + K * (K - 1) + (K - 1)
+    best = {"ll": best["ll"], "pi": best["pi"][o], "A": best["A"][np.ix_(o, o)], "lam": best["lam"][o],
+            "r": None if best["r"] is None else best["r"][o], "dist": dist}
+    n_par = K * (2 if dist == "nb" else 1) + K * (K - 1) + (K - 1)
     best["bic"] = -2 * best["ll"] + n_par * np.log(len(y))
     best["K"] = K
     return best
 
 
-def viterbi(y, pi, A, lam):
-    _, _, logb = _emissions(np.asarray(y, dtype=float), lam)
+def viterbi(y, pi, A, lam, r=None):
+    _, _, logb = _emissions(np.asarray(y, dtype=float), lam, r)
     T, K = logb.shape
     la = np.log(A + 1e-300)
     delta = np.log(pi + 1e-300) + logb[0]
@@ -135,7 +155,7 @@ def runs(dates, path):
 def hmm_summary(c, fits, changepoints=None):
     best = min(fits, key=lambda f: f["bic"])
     y = c.to_numpy()
-    path = viterbi(y, best["pi"], best["A"], best["lam"])
+    path = viterbi(y, best["pi"], best["A"], best["lam"], best["r"])
     A = best["A"]
     w, v = np.linalg.eig(A.T)
     stat = np.real(v[:, np.argmin(np.abs(w - 1))])
@@ -150,14 +170,17 @@ def hmm_summary(c, fits, changepoints=None):
     states = []
     for k in range(best["K"]):
         mask = path == k
+        disp = None if best["r"] is None else float(best["r"][k])
         states.append({"state": k, "rate_per_day": round(float(best["lam"][k]), 3),
+                       "dispersion_r": None if disp is None else round(disp, 3),
+                       "var_to_mean": round(1 + float(best["lam"][k]) / disp, 2) if disp else 1.0,
                        "stationary": round(float(stat[k]), 4),
                        "share_days": round(float(mask.mean()), 4),
                        "share_drops": round(float(y[mask].sum() / max(y.sum(), 1)), 4),
                        "mean_dwell_days": round(float(1 / max(1 - A[k, k], 1e-9)), 1)})
     return {
         "n_days": int(len(y)), "start": c.index[0].date().isoformat(), "end": c.index[-1].date().isoformat(),
-        "K": best["K"],
+        "K": best["K"], "emission": best["dist"],
         "bic": [{"K": f["K"], "bic": round(float(f["bic"]), 1), "ll": round(float(f["ll"]), 1)} for f in fits],
         "states": states, "transition": [[round(float(x), 4) for x in row] for row in A],
         "series": [{"date": d.date().isoformat(), "n": int(n), "state": int(s)}

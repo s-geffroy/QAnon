@@ -10,12 +10,25 @@ def test_hmm_recovers_two_regimes():
     states = np.repeat([0, 1, 0, 1, 0], 120)
     y = rng.poisson(np.where(states == 1, 12.0, 0.5))
     fits = [markov.hmm_fit(y, k) for k in (1, 2, 3)]
+    assert markov.hmm_fit(y, 2, dist="poisson")["r"] is None
     best = min(fits, key=lambda f: f["bic"])
     assert best["K"] in (2, 3)
     two = fits[1]
     assert abs(two["lam"][0] - 0.5) < 0.2 and abs(two["lam"][1] - 12) < 1
-    path = markov.viterbi(y, two["pi"], two["A"], two["lam"])
+    path = markov.viterbi(y, two["pi"], two["A"], two["lam"], two["r"])
     assert (path == states).mean() > 0.97
+
+
+def test_nb_hmm_absorbs_overdispersion():
+    """Comptes surdisperses en deux regimes : le HMM binomial negatif s'arrete a 2 etats,
+    le HMM de Poisson en reclame davantage."""
+    rng = np.random.default_rng(8)
+    states = np.repeat([0, 1, 0, 1, 0, 1], 150)
+    mean = np.where(states == 1, 15.0, 1.0)
+    y = rng.negative_binomial(1.5, 1.5 / (1.5 + mean))
+    nb = min((markov.hmm_fit(y, k) for k in (1, 2, 3, 4)), key=lambda f: f["bic"])
+    po = min((markov.hmm_fit(y, k, dist="poisson") for k in (1, 2, 3, 4)), key=lambda f: f["bic"])
+    assert nb["K"] == 2 and po["K"] > 2
 
 
 def test_topic_chain_detects_persistence():
