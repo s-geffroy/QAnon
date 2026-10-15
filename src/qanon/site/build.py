@@ -13,7 +13,7 @@ from .. import db
 from ..analysis.common import load_yaml
 from ..log import log
 from ..pipeline import APP_DIR
-from . import biblio, charts, fmt
+from . import biblio, charts, fmt, latex
 from .i18n import REFS, REPO, T
 
 HERE = Path(__file__).resolve().parent
@@ -114,6 +114,18 @@ def paper_block(site, kind, name):
 
 def paper_figure(site, name):
     import io
+    import matplotlib.pyplot as plt
+    fig, cap = paper_fig(site, name)
+    buf = io.StringIO()
+    fig.savefig(buf, format="svg")
+    plt.close(fig)
+    svg = re.sub(r"^.*?(<svg)", r"\1", buf.getvalue(), flags=re.S)
+    return f"<figure class='paper-fig'>{svg}<figcaption>{cap}</figcaption></figure>"
+
+
+def paper_fig(site, name):
+    """Figure du document de travail (matplotlib) et sa legende ; SVG pour le site et le PDF,
+    PDF vectoriel pour l'export LaTeX."""
     import matplotlib
     matplotlib.use("svg")
     import matplotlib.pyplot as plt
@@ -175,11 +187,7 @@ def paper_figure(site, name):
     else:
         raise KeyError(f"figure inconnue : {name}")
     fig.tight_layout()
-    buf = io.StringIO()
-    fig.savefig(buf, format="svg")
-    plt.close(fig)
-    svg = re.sub(r"^.*?(<svg)", r"\1", buf.getvalue(), flags=re.S)
-    return f"<figure class='paper-fig'>{svg}<figcaption>{cap}</figcaption></figure>"
+    return fig, cap
 
 
 def dt_rfc(day):
@@ -1555,6 +1563,11 @@ class Site:
             biblio.export(d, self.refs)
             add("bibliography.bib", "Bibliographie au format BibTeX.", "Bibliography in BibTeX format.")
             add("bibliography.json", "Bibliographie au format CSL-JSON (Zotero, Pandoc).", "Bibliography in CSL-JSON (Zotero, Pandoc).")
+        if latex.write(self, d):
+            add("working-paper-fr.tex", "Document de travail au format LaTeX (biblatex, avec bibliography.bib).",
+                "Working paper in LaTeX (biblatex, with bibliography.bib).")
+            add("working-paper-fr-latex.zip", "Document de travail, version LaTeX complète : source, bibliographie, figures en PDF.",
+                "Working paper, complete LaTeX version: source, bibliography, PDF figures.")
         gold = APP_DIR / "data" / "gold.jsonl"
         if gold.exists():
             shutil.copy(gold, d / "gold.jsonl")
