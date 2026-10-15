@@ -151,3 +151,32 @@ def test_scan_layers_identical_with_restarts(tmp_path, monkeypatch):
     assert a["sample"] == [(len([n for n in range(30000) if n % 100 == 0 and n % 10 < 4]),)]
     assert dict(a["tox"])["all"] == 9000          # les 3000 posts sans perspectives ([]) ne comptent pas
     assert a["ent"] == [(12000,)]
+
+
+def test_onset_ignores_isolated_hits_and_finds_sustained_rise():
+    """Date d'apparition : une occurrence isolee avant Q (« I got a Q anons ») ne compte pas ;
+    la premiere semaine anormale et durable, si."""
+    import pandas as pd
+    from qanon.analysis import polscene
+    weeks = pd.date_range("2017-01-02", periods=60, freq="W-MON").strftime("%Y-%m-%d")
+    posts = pd.Series(800_000, index=weeks)
+    counts = pd.Series(0, index=weeks)
+    counts.iloc[5] = 1                       # occurrence isolee
+    counts.iloc[50] = 3                      # semaine faible, non confirmee
+    counts.iloc[52:56] = [40, 25, 30, 20]    # naissance durable
+    on, lam = polscene.onset(counts, posts, base_end=weeks[45])
+    assert on == weeks[52]
+    assert polscene.onset(pd.Series(0, index=weeks), posts, base_end=weeks[45])[0] is None
+
+
+def test_keyness_drops_sensitive_and_address_tokens():
+    import sqlite3
+    from qanon import lexicon
+    from qanon.analysis import polscene
+    conn = sqlite3.connect(":memory:")
+    conn.execute("CREATE TABLE pol_unigram_month (month TEXT, token TEXT, n INTEGER)")
+    conn.executemany("INSERT INTO pol_unigram_month VALUES ('2018-01', ?, ?)",
+                     [("the", 10_000_000), ("bread", 2_000), ("http", 500_000), ("zog", 1_000)])
+    tok = {"the": 50_000, "bread": 9_000, "http": 30_000, "zog": 5_000}
+    top = [x["token"] for x in polscene.keyness(conn, tok, lexicon.load())["top"]]
+    assert top[0] == "bread" and "http" not in top and "zog" not in top

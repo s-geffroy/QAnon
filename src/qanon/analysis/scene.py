@@ -432,6 +432,45 @@ def syncretism(conn, d, H, terms, est, seed=SEED, n_surr=300):
     return {"themes": rows, "absorption": absorb, "n_surrogates": n_surr, "lags_weeks": list(range(-8, 9))}
 
 
+def session_starts(d, gap=30 * 60):
+    """Debuts de session de Q (epoque UTC) : drop precede d'au moins 30 min de silence."""
+    t = np.sort(d["time"].to_numpy())
+    return t[np.concatenate([[True], np.diff(t) > gap])]
+
+
+def epoch_response(full, h0, starts, rng, n_null=500, before=24, after=48, min_events=20):
+    """Analyse d'epoque superposee d'une serie horaire (full[0] = heure h0) autour des
+    debuts de session, chaque fenetre rapportee a la moyenne de ses 24 h precedentes,
+    contre des instants tires au hasard (jours uniformes, heure tiree du profil des debuts)."""
+    ev = (starts[(starts >= h0 + before * 3600) & (starts < h0 + (len(full) - after - 1) * 3600)] - h0) // 3600
+    if len(ev) < min_events:
+        return None
+
+    def windows(e):
+        W = np.stack([full[int(i) - before:int(i) + after + 1] for i in e])
+        base = W[:, :before].mean(axis=1, keepdims=True)
+        return W / np.maximum(base, 1.0)
+
+    obs = windows(ev).mean(axis=0)
+    hours = (ev % 24).astype(int)
+    nd = (len(full) - before - after - 48) // 24
+    null = []
+    for _ in range(n_null):
+        e = (rng.integers(2, nd, size=len(ev)) * 24 + rng.choice(hours, size=len(ev)))
+        e = e[(e >= before) & (e < len(full) - after - 1)]
+        null.append(windows(e).mean(axis=0))
+    null = np.array(null)
+    lo, hi = np.quantile(null, [0.025, 0.975], axis=0)
+    k = np.arange(-before, after + 1)
+    post = slice(before + 1, before + 7)
+    return {"n_events": int(len(ev)), "curve": [{"h": int(a), "obs": round(float(b), 4), "null_lo": round(float(c), 4),
+                                                  "null_hi": round(float(e), 4)} for a, b, c, e in zip(k, obs, lo, hi)],
+            "excess_6h": round(float(obs[post].mean() - null[:, post].mean()), 4),
+            "p_6h": round(float((1 + (null[:, post].mean(axis=1) >= obs[post].mean()).sum()) / (len(null) + 1)), 4),
+            # Pic cherche dans les 24 h qui suivent : au-dela, une derive lente n'est pas une reponse.
+            "peak_h": int(k[before + 1 + int(np.argmax(obs[before + 1:before + 25]))])}
+
+
 # ------------------------------------------------------------------ S3
 def response_function(conn, d, seed=SEED, n_null=500, before=24, after=48):
     rng = np.random.default_rng(seed)
@@ -440,40 +479,14 @@ def response_function(conn, d, seed=SEED, n_null=500, before=24, after=48):
         hr = pd.read_sql_query("SELECT * FROM reddit_hour", conn)
     except Exception:   # base anterieure a la collecte horaire
         return out
-    t = np.sort(d["time"].to_numpy())
-    starts = t[np.concatenate([[True], np.diff(t) > 30 * 60])]
+    starts = session_starts(d)
     for sub, g in hr.groupby("sub"):
         s = g.set_index("hour")["n"]
         h0, h1 = int(s.index.min()), int(s.index.max())
         full = s.reindex(np.arange(h0, h1 + 3600, 3600), fill_value=0).to_numpy(dtype=float)
-        ev = (starts[(starts >= h0 + before * 3600) & (starts < h1 - after * 3600)] - h0) // 3600
-        if len(ev) < 20:
-            continue
-
-        def windows(e):
-            W = np.stack([full[int(i) - before:int(i) + after + 1] for i in e])
-            base = W[:, :before].mean(axis=1, keepdims=True)
-            return W / np.maximum(base, 1.0)
-
-        obs = windows(ev).mean(axis=0)
-        # Modele nul : jours tires au hasard, heure de la journee tiree du profil des debuts de session.
-        hours = (ev % 24).astype(int)
-        nd = (len(full) - before - after - 48) // 24
-        null = []
-        for _ in range(n_null):
-            e = (rng.integers(2, nd, size=len(ev)) * 24 + rng.choice(hours, size=len(ev)))
-            e = e[(e >= before) & (e < len(full) - after - 1)]
-            null.append(windows(e).mean(axis=0))
-        null = np.array(null)
-        lo, hi = np.quantile(null, [0.025, 0.975], axis=0)
-        k = np.arange(-before, after + 1)
-        post = slice(before + 1, before + 7)
-        out[sub] = {"n_events": int(len(ev)), "curve": [{"h": int(a), "obs": round(float(b), 4), "null_lo": round(float(c), 4),
-                                                          "null_hi": round(float(e), 4)} for a, b, c, e in zip(k, obs, lo, hi)],
-                    "excess_6h": round(float(obs[post].mean() - null[:, post].mean()), 4),
-                    "p_6h": round(float((1 + (null[:, post].mean(axis=1) >= obs[post].mean()).sum()) / (len(null) + 1)), 4),
-                    # Pic cherche dans les 24 h qui suivent : au-dela, une derive lente n'est pas une reponse.
-                    "peak_h": int(k[before + 1 + int(np.argmax(obs[before + 1:before + 25]))])}
+        r = epoch_response(full, h0, starts, rng, n_null, before, after)
+        if r:
+            out[sub] = r
     return out
 
 

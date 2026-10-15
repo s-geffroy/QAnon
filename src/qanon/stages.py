@@ -2,8 +2,8 @@
 
 Les etapes longues et incrementales (GDELT) viennent en dernier : chaque cycle a
 un budget de temps, et les etapes rapides doivent passer avant."""
-from .analysis import (actors, descriptive, discourse, interest, markov, news, physics, predictions, prophecies, scene,
-                       stats, trump, verification)
+from .analysis import (actors, descriptive, discourse, interest, markov, news, physics, polscene, predictions,
+                       prophecies, scene, stats, trump, verification)
 from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
@@ -37,7 +37,7 @@ STAGES = [
                   "analyze_interest", "analyze_stats"),
           optional=("analyze_news", "llm_eval", "analyze_predictions", "analyze_verification", "analyze_prophecies",
                     "llm_horoscope", "watch_biblio", "check_links", "llm_translate",
-                    "analyze_markov", "analyze_physics", "analyze_scene")),
+                    "analyze_markov", "analyze_physics", "analyze_scene", "analyze_pol")),
     # Plusieurs heures au premier passage : reprend au dernier jour traite.
     Stage("fetch_gdelt", gdelt.run, keep_cursor=True),
     Stage("analyze_news", news.run, inputs=("fetch_qdrops", "fetch_gdelt"), code=True),
@@ -100,6 +100,8 @@ STAGES += [
           inputs=("fetch_qdrops", "fetch_tweets", "load_timeline", "fetch_pageviews", "fetch_pageviews_scene",
                   "fetch_reddit_volume"),
           optional=("scan_reddit", "fetch_reddit_hour", "fetch_gdelt", "fetch_trends")),
+    # Q et /pol/ : lit les couches du balayage (jamais l'archive) ; ~2 min en parties.
+    Stage("analyze_pol", polscene.run, inputs=("fetch_qdrops", "scan_pol"), code=True),
 ]
 STAGES += [
     # Collectes longues en dernier : elles prennent le budget restant du cycle (sinon les

@@ -204,7 +204,7 @@ class Site:
         self.conn = conn
         self.r = {k: _load(state, k) for k in ("descriptive", "trump", "discourse", "actors", "interest", "news",
                                                 "llm_eval", "predictions", "verification", "stats",
-                                                "horoscope", "prophecies", "translations", "markov", "physics", "scene")}
+                                                "horoscope", "prophecies", "translations", "markov", "physics", "scene", "pol")}
         self.glossary = load_yaml("glossary", "terms")
         self.refs = biblio.load()
         self._figures = {}
