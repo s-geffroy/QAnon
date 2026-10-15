@@ -341,6 +341,7 @@ def run(ctx):
            "keyness": keyness(conn, tok, terms, thr), **acc}
     ctx.set_output(db.sha(write(ctx, "pol", out)))
     b = acc["births"]
-    log(f"pol : analyse ecrite ; {sum(r['status'] == 'q_first' for r in b)} formules apparues sur /pol/ apres Q, "
-        f"{sum(r['status'] == 'pol_first' for r in b)} avant, sur {len(b)}")
+    st = collections.Counter(r["status"] for r in b)
+    log(f"pol : analyse ecrite ; {len(b)} formules datees : {st['before_q']} deja la avant Q, {st['about_q']} nees avec Q, "
+        f"{st['pol_first']} sur /pol/ avant Q, {st['q_first']} d'abord chez Q, {st['no_onset']} sans apparition nette")
     return True
