@@ -210,8 +210,31 @@ def toxicity(conn):
     monthly = [{"month": k[0], "scope": k[1], "mean": round(float(x["total"] / x["n"]), 4),
                 "high": round(float(x["n_high"] / x["n"]), 4), "n": int(x["n"])}
                for k, x in m.iterrows() if POL_START[:7] <= k[0] <= POL_END[:7] and x["n"] >= 100]
-    return {"overall": overall, "paired": paired, "monthly": monthly, "split": not r.empty,
+    # Trois periodes : avant Q, sa naissance sur /pol/ (jusqu'a fin 2017), puis 2018-2019.
+    t = df[df["attr"] == "TOXICITY"]
+    per = {"before": t["day"] < BIRTH, "birth": (t["day"] >= BIRTH) & (t["day"] < "2018-01-01"), "after": t["day"] >= "2018-01-01"}
+    periods = {}
+    for k, sel in per.items():
+        for scope, g in t[sel].groupby("scope"):
+            if g["n"].sum():
+                periods.setdefault(scope, {})[k] = {"mean": round(float(g["total"].sum() / g["n"].sum()), 4),
+                                                    "high": round(float(g["n_high"].sum() / g["n"].sum()), 4),
+                                                    "n": int(g["n"].sum())}
+    return {"overall": overall, "paired": paired, "monthly": monthly, "periods": periods, "split": not r.empty,
             "composition": dict(conn.execute("SELECT reason, count(*) FROM pol_qcorpus GROUP BY 1").fetchall())}
+
+
+def promoter_mix(conn, terms):
+    """Part des posts isoles 'promoteurs' qui citent chaque promoteur (un post peut en citer plusieurs)."""
+    ts = [t for t in terms if t.family == "promoter"]
+    m = lexicon.Matcher(ts)
+    cnt, n = collections.Counter(), 0
+    for (txt,) in conn.execute("SELECT text FROM pol_qcorpus WHERE reason = 'post:promoter'"):
+        n += 1
+        cnt.update({ts[i].id for i in m.hits(txt or "")})
+    lab = {t.id: (t.label_fr, t.label_en) for t in ts}
+    return {"n": n, "rows": [{"id": k, "label_fr": lab[k][0], "label_en": lab[k][1], "posts": v, "share": round(v / n, 4)}
+                             for k, v in cnt.most_common()]}
 
 
 # ------------------------------------------------------------------ familles et vocabulaire (par paquets)
@@ -324,6 +347,7 @@ def run(ctx):
              ("niche", lambda: niche(conn)),
              ("response", lambda: response(conn, d)),
              ("toxicity", lambda: toxicity(conn)),
+             ("promoter_mix", lambda: promoter_mix(conn, terms)),
              ("countries", lambda: countries(conn)),
              ("fam:drops", lambda: drops_families(d, terms))]
     parts += [(f"fam:q_threads:{lo}", lambda lo=lo: family_part(conn, "q_threads", lo, lo + CHUNK, terms))

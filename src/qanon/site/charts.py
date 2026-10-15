@@ -826,8 +826,11 @@ def pol_niche(pol, lang):
 def pol_toxicity(pol, lang):
     """Toxicite moyenne (Perspective) par mois : fils et posts Q contre tout /pol/."""
     t = T[lang]
-    names = {"all": t["pol_scope_all"], "q": t["pol_scope_q"]}
-    order = [names["all"], names["q"]]
+    # Apres la ventilation par raison : un trait par groupe (les pseudo-inities, trop peu nombreux, restent au tableau).
+    keys = ("all", "q_threads", "q_posts", "promoter") if pol["toxicity"].get("split") else ("all", "q")
+    names = {k: t["pol_group_" + k] if k != "q" else t["pol_scope_q"] for k in keys}
+    order = [names[k] for k in keys]
+    colors = ["@ink3", "@series1", "@series2", "@series3"][:len(keys)]
     data = [{"month": x["month"], "mean": x["mean"], "scope": names[x["scope"]]} for x in pol["toxicity"]["monthly"]
             if x["scope"] in names]
     return _spec(
@@ -837,6 +840,6 @@ def pol_toxicity(pol, lang):
             "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
             "y": {"field": "mean", "type": "quantitative", "scale": {"zero": False}, "title": t["pol_tox_axis"]},
             "color": {"field": "scope", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
-                      "scale": {"domain": order, "range": ["@ink3", "@series1"]}},
+                      "scale": {"domain": order, "range": colors}},
             "tooltip": [{"field": "scope", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
                         {"field": "mean", "format": ".3f", "title": t["pol_tox_axis"]}]})

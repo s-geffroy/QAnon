@@ -52,6 +52,35 @@ def _iso_num():
 POL_DATA_START = "2016-07-25"   # quatre premieres semaines du jeu de donnees /pol/
 
 
+TOX_GROUP_ORDER = ("all", "q_threads", "q_posts", "promoter", "larp")
+
+
+def tox_groups(pol):
+    """Toxicite (score TOXICITY) par groupe du sous-corpus Q, pour la page et le document ; None avant la
+    ventilation par raison (passe split_pol_tox)."""
+    tx = pol["toxicity"]
+    if not tx.get("split"):
+        return None
+    o, pr, per = tx["overall"]["TOXICITY"], tx["paired"], tx.get("periods", {})
+    out = {}
+    for k in TOX_GROUP_ORDER:
+        if k not in o:
+            continue
+        v = {"n": o[k]["n"], "mean": o[k]["mean"], "high": o[k]["high"],
+             "birth": per.get(k, {}).get("birth", {}).get("mean"), "after": per.get(k, {}).get("after", {}).get("mean")}
+        x = pr.get(k, {}).get("TOXICITY")
+        if x:
+            v.update(days=x["days"], diff=x["median_diff"], days_higher=x["share_days_q_higher"], p=x["p_wilcoxon"],
+                     obscene_days=pr[k].get("OBSCENE", {}).get("share_days_q_higher"))
+        out[k] = v
+    mix = {r["id"]: r["share"] for r in (pol.get("promoter_mix") or {}).get("rows", [])}
+    out_ok = all(k in out and "days" in out[k] for k in ("q_threads", "q_posts", "promoter"))
+    if not out_ok:
+        return None
+    out["alex_jones"] = mix.get("alex_jones", 0)
+    return out
+
+
 def paper_block(site, kind, name):
     """Tableaux et figures du document de travail, calcules a partir des resultats."""
     from markupsafe import escape
@@ -107,6 +136,22 @@ def paper_block(site, kind, name):
                 "taux d'avant Q) et premier drop qui emploie la formule.</caption><thead><tr><th>Formule</th>"
                 "<th class='r'>Posts</th><th class='r'>Avant</th><th class='r'>Après</th><th>Apparition</th>"
                 f"<th>Premier drop</th><th>Lecture</th></tr></thead><tbody>{body}</tbody></table>")
+    if kind == "table" and name == "pol_tox_groups":
+        g = tox_groups(r["pol"]) if r.get("pol") else None
+        if not g:
+            return ""
+        sign = lambda x: ("+" if x > 0 else "") + n(x, 3)
+        body = "".join(f"<tr><td>{escape(T_['pol_group_' + k])}</td><td class='r'>{n(v['n'])}</td><td class='r'>{n(v['mean'], 3)}</td>"
+                       f"<td class='r'>{p(v['high'], 1)}</td><td class='r'>{sign(v['diff']) if v.get('days') else '—'}</td>"
+                       f"<td class='r'>{p(v['days_higher'], 0) if v.get('days') else '—'}</td>"
+                       f"<td class='r'>{n(v['days']) if v.get('days') else '—'}</td></tr>"
+                       for k, v in g.items() if k in TOX_GROUP_ORDER)
+        return ("<table class='paper-table'><caption>Tableau 5. Toxicité (score TOXICITY de Perspective) des posts liés à Q "
+                "sur /pol/, par groupe, juillet 2016 – novembre 2019. Écart médian : moyenne du groupe moins moyenne de tout "
+                "/pol/, jour par jour, sur les jours où le groupe compte au moins 100 posts notés.</caption><thead><tr>"
+                "<th>Groupe</th><th class='r'>Posts notés</th><th class='r'>Moyenne</th><th class='r'>Part &gt; 0,8</th>"
+                "<th class='r'>Écart médian</th><th class='r'>Jours où le groupe dépasse /pol/</th>"
+                f"<th class='r'>Jours comparés</th></tr></thead><tbody>{body}</tbody></table>")
     if kind == "figure":
         return paper_figure(site, name)
     raise KeyError(f"bloc inconnu dans le document : {kind}:{name}")
@@ -773,6 +818,24 @@ class Site:
                 share=p(pr["share_days_q_higher"], 0), diff=n(pr["median_diff"], 3), days=n(pr["days"]),
                 pv=pval(pr["p_wilcoxon"]))
         out["pol_tox"] = text
+        g = tox_groups(pol)
+        out["pol_tox_groups"] = ""
+        out["pol_tox_group_rows"] = []
+        if g:
+            sign = lambda x: ("+" if x > 0 else "") + n(x, 3)
+            out["pol_tox_groups"] = t["pol_tox_groups_text"].format(
+                tn=n(g["q_threads"]["n"]), tm=n(g["q_threads"]["mean"], 3), all=n(g["all"]["mean"], 3),
+                tlow=p(1 - g["q_threads"]["days_higher"], 0), tdays=n(g["q_threads"]["days"]),
+                tbirth=n(g["q_threads"]["birth"], 3), tafter=n(g["q_threads"]["after"], 3), aafter=n(g["all"]["after"], 3),
+                pn=n(g["promoter"]["n"]), aj=p(g["alex_jones"], 0), pshare=p(g["promoter"]["days_higher"], 0),
+                pdays=n(g["promoter"]["days"]), pdiff=sign(g["promoter"]["diff"]), ppv=pval(g["promoter"]["p"]),
+                pobs=p(g["promoter"]["obscene_days"], 0), qn=n(g["q_posts"]["n"]), qdiff=sign(g["q_posts"]["diff"]),
+                qshare=p(g["q_posts"]["days_higher"], 0))
+            out["pol_tox_group_rows"] = [
+                {"group": t["pol_group_" + k], "n": n(v["n"]), "mean": n(v["mean"], 3), "high": p(v["high"], 1),
+                 "diff": sign(v["diff"]) if v.get("days") else "—",
+                 "share": f"{p(v['days_higher'], 0)} ({n(v['days'])})" if v.get("days") else "—"}
+                for k, v in g.items() if k in TOX_GROUP_ORDER]
         pq = tx["paired"].get("q", {})
         out["pol_tox_rows"] = [{"attr": t["tox_" + a.lower()], "q": n(v["q"]["mean"], 3), "all": n(v["all"]["mean"], 3),
                                 "diff": n(pq[a]["median_diff"], 3) if a in pq else "—",
@@ -1193,11 +1256,24 @@ class Site:
               f"{n(o['all']['mean'], 3)})" if o["q"]["mean"] < o["all"]["mean"] else
               f"Les posts liés à Q sont en moyenne plus toxiques que /pol/ (score Perspective {n(o['q']['mean'], 3)} contre "
               f"{n(o['all']['mean'], 3)})")
+        g = tox_groups(pol)
         if pr and (pr["median_diff"] > 0) != (o["q"]["mean"] > o["all"]["mean"]):
-            s2 += (f", mais jour par jour ils le sont davantage {p(pr['share_days_q_higher'], 0)} des jours : l'écart d'ensemble "
-                   "tient aux grands fils de déchiffrement de la naissance, plus calmes (paradoxe de Simpson).")
+            s2 += f", mais jour par jour ils le sont davantage {p(pr['share_days_q_higher'], 0)} des jours."
         else:
             s2 += "."
+        if g:
+            sign = lambda x: ("+" if x > 0 else "") + n(x, 3)
+            pv = lambda x: "p < 0,001" if x < 0.001 else f"p = {n(x, 3)}"
+            s2 += (f" La ventilation par groupe (tableau 5) lève ce paradoxe apparent. Les fils Q sont plus calmes que /pol/ "
+                   f"({n(g['q_threads']['mean'], 3)}) et le sont {p(1 - g['q_threads']['days_higher'], 0)} des jours comparés : "
+                   f"surtout pendant la naissance de Q, consacrée au déchiffrement des drops ({n(g['q_threads']['birth'], 3)} "
+                   f"de fin octobre à décembre 2017), mais encore en 2018-2019 ({n(g['q_threads']['after'], 3)} contre "
+                   f"{n(g['all']['after'], 3)}). Les posts isolés qui citent un promoteur, pour {p(g['alex_jones'], 0)} "
+                   f"d'entre eux Alex Jones ou InfoWars, sont au contraire plus toxiques que /pol/ "
+                   f"{p(g['promoter']['days_higher'], 0)} des jours (écart médian {sign(g['promoter']['diff'])}, "
+                   f"{pv(g['promoter']['p'])}), et les posts isolés au vocabulaire de Q à peine "
+                   f"(écart médian {sign(g['q_posts']['diff'])}). La moyenne d'ensemble est tirée vers le bas par le poids "
+                   "des fils Q, surtout en novembre 2017 ; les jours ordinaires, par les posts isolés.")
         fam = {c: {r["family"]: r["share"] for r in pol["families"][c]["rows"]} for c in pol["families"]}
         s2 += (f" Les codes de haine, surtout antisémites, touchent {p(fam['pol_before'].get('hate', 0), 1)} des posts de /pol/ "
                f"avant Q et {p(fam['pol_after'].get('hate', 0), 1)} après, {p(fam['q_threads'].get('hate', 0), 1)} des posts des "

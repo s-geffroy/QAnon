@@ -206,6 +206,14 @@
     <thead><tr><th>{{ t.col_attr }}</th><th class="r">{{ t.pol_scope_q }}</th><th class="r">{{ t.pol_scope_all }}</th><th class="r">{{ t.col_median_diff }}</th><th class="r">{{ t.col_days_q_higher }}</th></tr></thead>
     <tbody>{% for r in pol_tox_rows %}<tr><td>{{ r.attr }}</td><td class="r">{{ r.q }}</td><td class="r">{{ r.all }}</td><td class="r">{{ r.diff }}</td><td class="r">{{ r.share }}</td></tr>{% endfor %}</tbody>
   </table></div>
+  {% if pol_tox_group_rows %}
+  <h4>{{ t.pol_tox_groups_title }}</h4>
+  <p>{{ pol_tox_groups }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_group }}</th><th class="r">{{ t.col_scored }}</th><th class="r">{{ t.col_tox_mean }}</th><th class="r">{{ t.col_tox_high }}</th><th class="r">{{ t.col_median_diff }}</th><th class="r">{{ t.col_days_group_higher }}</th></tr></thead>
+    <tbody>{% for r in pol_tox_group_rows %}<tr><td>{{ r.group }}</td><td class="r">{{ r.n }}</td><td class="r">{{ r.mean }}</td><td class="r">{{ r.high }}</td><td class="r">{{ r.diff }}</td><td class="r">{{ r.share }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  {% endif %}
   <p class="note">{{ t.pol_tox_method }}</p>
 </section>
 

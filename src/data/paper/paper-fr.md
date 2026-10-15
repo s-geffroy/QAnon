@@ -131,6 +131,8 @@ L'activité quotidienne a une mémoire longue (exposant de Hurst {val:dfa_q}, co
 
 {val:scene_pol2}
 
+{table:pol_tox_groups}
+
 ## 5. Discussion et limites
 
 Ces résultats dessinent un auteur qui réagit à l'actualité, par rafales et sous forme de questions, choisit ses personnages et recycle ses annonces ; aucun ne désigne un initié qui l'anticiperait. Ils confirment, sur tout le corpus et avec des références explicites, ce que les études qualitatives et journalistiques avaient décrit [@rothschild2021storm; @tian2021qanon], et précisent les ordres de grandeur.
