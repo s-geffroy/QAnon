@@ -59,6 +59,14 @@ def citation(r, lang):
     return parts
 
 
+_TEX = {"&": r"\&", "%": r"\%", "#": r"\#", "_": r"\_", "$": r"\$"}
+
+
+def tex(v):
+    """Caracteres speciaux de LaTeX echappes (les URL et DOI restent tels quels)."""
+    return re.sub(r"(?<!\\)[&%#_$]", lambda m: _TEX[m.group(0)], str(v))
+
+
 def bibtex(r):
     t = BIBTEX_TYPE.get(r["type"], "misc")
     f = {"author": " and ".join(r.get("authors", [])), "title": "{" + r["title"] + "}", "year": r.get("year")}
@@ -83,8 +91,21 @@ def bibtex(r):
         f["date"] = r["date"]
     f["langid"] = {"en": "english", "fr": "french", "de": "german", "es": "spanish", "it": "italian", "nl": "dutch",
                  "pt": "portuguese", "ja": "japanese", "cs": "czech"}.get(r.get("lang"), r.get("lang"))
-    body = ",\n".join(f"  {k} = {{{v}}}" for k, v in f.items() if v)
+    if f.get("pages"):
+        f["pages"] = re.sub(r"(?<=\d)\s*[-\u2013]\s*(?=\d)", "--", str(f["pages"]))
+    body = ",\n".join(f"  {k} = {{{v if k in ('url', 'doi') else tex(v)}}}" for k, v in f.items() if v)
     return f"@{t}{{{r['id']},\n{body}\n}}"
+
+
+BIB_HEADER = ("% Bibliographie de l'etude des drops de Q (https://github.com/s-geffroy/QAnon), CC BY 4.0.\n"
+              "% Fichier genere a partir de src/data/bibliography.yaml : ne pas le modifier a la main.\n"
+              "% Regenerer : sudo appctl run worker sh -c 'cd /app && python3 -m qanon.site.biblio' > src/data/bibliography.bib\n")
+
+
+def bibfile(refs=None):
+    """Toutes les references, dans l'ordre des identifiants (diffs lisibles)."""
+    refs = sorted(refs if refs is not None else load(), key=lambda r: r["id"])
+    return BIB_HEADER + f"% {len(refs)} references\n\n" + "\n\n".join(bibtex(r) for r in refs) + "\n"
 
 
 def csl(r):
@@ -105,5 +126,9 @@ def csl(r):
 
 
 def export(out_dir, refs):
-    (out_dir / "bibliography.bib").write_text("\n\n".join(bibtex(r) for r in refs) + "\n")
+    (out_dir / "bibliography.bib").write_text(bibfile(refs))
     (out_dir / "bibliography.json").write_text(json.dumps([csl(r) for r in refs], ensure_ascii=False, indent=1))
+
+
+if __name__ == "__main__":
+    print(bibfile(), end="")

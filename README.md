@@ -43,6 +43,11 @@ Donnees editoriales versionnees dans `src/data/` : chronologie, acteurs,
 glossaire, bibliographie, etat de la recherche (`research.yaml`), FAQ (`faq.yaml`),
 jeu d'annotation de reference et ses consignes.
 
+Bibliographie : la source est `src/data/bibliography.yaml` ; `src/data/bibliography.bib`
+en est l'export BibTeX complet, tenu a jour (un test echoue s'il est en retard).
+Le regenerer apres toute modification :
+`sudo appctl run worker sh -c 'cd /app && python3 -m qanon.site.biblio' > src/data/bibliography.bib`.
+
 Une etape est relancee quand ses entrees changent (donnees amont, code,
 periode de rafraichissement) ; sinon le worker dort. Base : `/state/qanon.db`
 (SQLite), resultats : `/state/results/*.json`. Une etape en echec garde son
