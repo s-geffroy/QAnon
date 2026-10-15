@@ -17,6 +17,11 @@
     <li><a href="#pics">{{ t.peaks_title }}</a></li><li><a href="#diffusion">{{ t.diff_title }}</a></li>
     {% if trends_rows %}<li><a href="#trends">{{ t.trends_title }}</a></li>{% endif %}
     <li><a href="#sources-scene">{{ t.sources_title }}</a></li></ol></li>{% endif %}
+  {% if pol_lead %}<li><a href="#pol">{{ t.m_pol_title }}</a><ol>
+    <li><a href="#pol-niche">{{ t.pol_niche_title }}</a></li><li><a href="#pol-naissances">{{ t.pol_births_title }}</a></li>
+    {% if pol_response %}<li><a href="#pol-reponse">{{ t.pol_response_title }}</a></li>{% endif %}
+    <li><a href="#pol-toxicite">{{ t.pol_tox_title }}</a></li><li><a href="#pol-familles">{{ t.pol_families_title }}</a></li>
+    <li><a href="#pol-vocabulaire">{{ t.pol_keyness_title }}</a></li></ol></li>{% endif %}
 </ol></nav>
 
 <h2 id="markov">{{ t.m_markov_title }}</h2>
@@ -161,6 +166,68 @@
 <section id="sources-scene">
   <h3>{{ t.sources_title }}</h3>
   <p class="note">{{ t.sources_text }} {{ cite("papasavva2020raiders") }}</p>
+</section>
+{% endif %}
+
+{% if pol_lead %}
+<h2 id="pol">{{ t.m_pol_title }}</h2>
+<p>{{ pol_lead }}</p>
+
+<section id="pol-niche">
+  <h3>{{ t.pol_niche_title }}</h3>
+  <p>{{ pol_niche }}</p>
+  {{ chart("pol_niche", charts.pol_niche, t.pol_niche_chart, t.pol_niche_chart_note) }}
+</section>
+
+<section id="pol-naissances">
+  <h3>{{ t.pol_births_title }}</h3>
+  <p>{{ pol_births }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_term }}</th><th class="r">{{ t.col_pol_posts }}</th><th class="r">{{ t.col_rate_before }}</th><th class="r">{{ t.col_rate_after }}</th><th>{{ t.col_onset }}</th><th>{{ t.col_first_q }}</th><th class="r">{{ t.col_lag_days }}</th><th>{{ t.col_status }}</th></tr></thead>
+    <tbody>{% for r in pol_birth_rows %}<tr><td>{{ r.term }}</td><td class="r">{{ r.posts }}</td><td class="r">{{ r.before }}</td><td class="r">{{ r.after }}</td><td>{{ r.onset }}</td><td>{{ r.first_q }}</td><td class="r">{{ r.lag }}</td><td>{{ r.status }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.pol_births_method }}</p>
+</section>
+
+{% if pol_response %}
+<section id="pol-reponse">
+  <h3>{{ t.pol_response_title }}</h3>
+  {% for r in pol_response %}<p>{{ r.text }}</p>
+  {{ chart(r.id, r.spec, t.pol_response_chart.format(period=r.period), t.response_chart_note) }}{% endfor %}
+  <p class="note">{{ t.pol_response_method }}</p>
+</section>
+{% endif %}
+
+<section id="pol-toxicite">
+  <h3>{{ t.pol_tox_title }}</h3>
+  <p>{{ pol_tox }}</p>
+  {{ chart("pol_tox", charts.pol_tox, t.pol_tox_chart, t.pol_tox_chart_note) }}
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_attr }}</th><th class="r">{{ t.pol_scope_q }}</th><th class="r">{{ t.pol_scope_all }}</th><th class="r">{{ t.col_median_diff }}</th><th class="r">{{ t.col_days_q_higher }}</th></tr></thead>
+    <tbody>{% for r in pol_tox_rows %}<tr><td>{{ r.attr }}</td><td class="r">{{ r.q }}</td><td class="r">{{ r.all }}</td><td class="r">{{ r.diff }}</td><td class="r">{{ r.share }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.pol_tox_method }}</p>
+</section>
+
+<section id="pol-familles">
+  <h3>{{ t.pol_families_title }}</h3>
+  <p>{{ pol_families }}</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>{{ t.col_family }}</th><th class="r">{{ t.pol_corpus_drops }} ({{ pol_family_n.drops }})</th><th class="r">{{ t.pol_corpus_q_threads }} ({{ pol_family_n.q_threads }})</th><th class="r">{{ t.pol_corpus_pol_before }} ({{ pol_family_n.pol_before }})</th><th class="r">{{ t.pol_corpus_pol_after }} ({{ pol_family_n.pol_after }})</th></tr></thead>
+    <tbody>{% for r in pol_family_rows %}<tr><td>{{ r.family }}</td><td class="r">{{ r.drops }}</td><td class="r">{{ r.q_threads }}</td><td class="r">{{ r.pol_before }}</td><td class="r">{{ r.pol_after }}</td></tr>{% endfor %}</tbody>
+  </table></div>
+  <p class="note">{{ t.pol_families_method }}</p>
+</section>
+
+<section id="pol-vocabulaire">
+  <h3>{{ t.pol_keyness_title }}</h3>
+  <p>{{ pol_keyness }}</p>
+  <p>{{ pol_countries }}</p>
+  <p class="note">{{ t.pol_keyness_method }} {{ cite("monroe2008fightin") }}</p>
+</section>
+
+<section id="pol-sources">
+  <p class="note">{{ t.pol_source }} {{ cite("papasavva2020raiders") }}</p>
 </section>
 {% endif %}
 {% endif %}

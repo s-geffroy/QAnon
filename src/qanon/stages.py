@@ -100,8 +100,6 @@ STAGES += [
           inputs=("fetch_qdrops", "fetch_tweets", "load_timeline", "fetch_pageviews", "fetch_pageviews_scene",
                   "fetch_reddit_volume"),
           optional=("scan_reddit", "fetch_reddit_hour", "fetch_gdelt", "fetch_trends")),
-    # Q et /pol/ : lit les couches du balayage (jamais l'archive) ; ~2 min en parties.
-    Stage("analyze_pol", polscene.run, inputs=("fetch_qdrops", "scan_pol"), code=True),
 ]
 STAGES += [
     # Collectes longues en dernier : elles prennent le budget restant du cycle (sinon les
@@ -115,6 +113,9 @@ STAGES += [
     # Balayage complet (~6 h de calcul, 30 s par cycle) : attend l'approbation du lexique.
     # Le curseur porte l'empreinte du lexique ; un autre lexique recommence tout.
     Stage("scan_pol", pol.run_scan, inputs=("calibrate_pol",), keep_cursor=True),
+    # Q et /pol/ : lit les couches du balayage (jamais l'archive) ; ~2 min en parties. Apres
+    # scan_pol : une etape n'attend que des entrees placees avant elle dans cette liste.
+    Stage("analyze_pol", polscene.run, inputs=("fetch_qdrops", "scan_pol"), code=True),
     # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
     Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
 ]

@@ -760,8 +760,12 @@ def absorption(scene, lang):
 
 def response(scene, sub, lang):
     """Activite horaire d'un subreddit autour des debuts de session de Q, contre le modele nul."""
+    return response_curve(scene["response"][sub], lang)
+
+
+def response_curve(r, lang):
+    """Courbe d'epoque superposee (observe, bande a 95 % du modele nul)."""
     t = T[lang]
-    r = scene["response"][sub]
     band = [{"h": c["h"], "lo": c["null_lo"], "hi": c["null_hi"]} for c in r["curve"]]
     obs = [{"h": c["h"], "v": c["obs"], "who": t["observed"]} for c in r["curve"]]
     return _spec(
@@ -801,3 +805,37 @@ def trends_waves(scene, lang, top=14):
                       "scale": {"range": ["@seqlo", "@seqhi"], "domain": [0, 1]}},
             "tooltip": [{"field": "query", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
                         {"field": "share", "format": ".0%", "title": t["share_of_peak"]}]})
+
+
+# ------------------------------------------------------------------ /pol/
+def pol_niche(pol, lang):
+    """Part des posts de /pol/ ecrits dans les fils Q, par mois (echelle logarithmique)."""
+    t = T[lang]
+    data = [{"month": x["month"], "share": x["share"]} for x in pol["niche"] if x["share"] > 0]
+    return _spec(
+        height=220, data={"values": data},
+        mark={"type": "line", "strokeWidth": 2, "color": "@series1", "point": {"size": 30, "filled": True}},
+        encoding={
+            "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+            "y": {"field": "share", "type": "quantitative", "scale": {"type": "log"}, "title": t["pol_niche_axis"],
+                  "axis": {"format": ".1~%"}},
+            "tooltip": [{"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
+                        {"field": "share", "format": ".2%", "title": t["pol_niche_axis"]}]})
+
+
+def pol_toxicity(pol, lang):
+    """Toxicite moyenne (Perspective) par mois : fils et posts Q contre tout /pol/."""
+    t = T[lang]
+    names = {"all": t["pol_scope_all"], "q": t["pol_scope_q"]}
+    order = [names["all"], names["q"]]
+    data = [{"month": x["month"], "mean": x["mean"], "scope": names[x["scope"]]} for x in pol["toxicity"]["monthly"]]
+    return _spec(
+        height=220, data={"values": data},
+        mark={"type": "line", "strokeWidth": 2, "point": {"size": 30, "filled": True}},
+        encoding={
+            "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
+            "y": {"field": "mean", "type": "quantitative", "scale": {"zero": False}, "title": t["pol_tox_axis"]},
+            "color": {"field": "scope", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+                      "scale": {"domain": order, "range": ["@ink3", "@series1"]}},
+            "tooltip": [{"field": "scope", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
+                        {"field": "mean", "format": ".3f", "title": t["pol_tox_axis"]}]})

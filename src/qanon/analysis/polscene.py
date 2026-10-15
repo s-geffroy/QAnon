@@ -208,23 +208,28 @@ def family_part(conn, corpus, lo, hi, terms):
     ts = _families(terms)
     m = lexicon.Matcher(ts)
     if corpus == "q_threads":
-        rows = conn.execute("SELECT text FROM pol_qcorpus WHERE rowid >= ? AND rowid < ? AND reason LIKE 'thread:%'",
+        rows = conn.execute("SELECT text, thread FROM pol_qcorpus WHERE rowid >= ? AND rowid < ? AND reason LIKE 'thread:%'",
                             (lo, hi)).fetchall()
     else:
         op = "<" if corpus == "pol_before" else ">="
         cut = int(pd.Timestamp(BIRTH, tz="UTC").timestamp())
-        rows = conn.execute(f"SELECT text FROM pol_sample WHERE rowid >= ? AND rowid < ? AND ts {op} ?",
+        rows = conn.execute(f"SELECT text, thread FROM pol_sample WHERE rowid >= ? AND rowid < ? AND ts {op} ?",
                             (lo, hi, cut)).fetchall()
     fam = collections.Counter()
     tok = collections.Counter()
-    for (txt,) in rows:
+    pairs = set()
+    for txt, thread in rows:
         txt = txt or ""
         fam.update({ts[i].family for i in m.hits(txt)})
         if corpus == "q_threads":
-            tok.update(_TOKEN.findall(txt.lower()))
+            words = _TOKEN.findall(txt.lower())
+            tok.update(words)
+            pairs.update((thread, w) for w in words)
     out = {"n": len(rows), "families": dict(fam)}
     if corpus == "q_threads":
         out["tokens"] = dict(tok)
+        # Fils distincts par mot (un fil a cheval sur deux paquets compte deux fois : borne haute).
+        out["threads"] = dict(collections.Counter(w for _, w in pairs))
     return out
 
 
@@ -247,8 +252,10 @@ def wilson(k, n, z=1.96):
     return (round(float(c - h), 5), round(float(c + h), 5))
 
 
-def keyness(conn, tok, terms, top=30, a0=1e4, min_n=100):
-    """Mots sur-representes dans les fils Q face a /pol/ apres la naissance de Q."""
+def keyness(conn, tok, terms, threads=None, top=30, a0=1e4, min_n=100, min_threads=20):
+    """Mots sur-representes dans les fils Q face a /pol/ apres la naissance de Q. Un mot doit
+    paraitre dans au moins 20 fils : les inondations (copier-coller repete dans un ou deux
+    fils, « CALL OF DOODY ») ne disent rien du vocabulaire."""
     bg = dict(conn.execute("SELECT token, sum(n) FROM pol_unigram_month WHERE month >= ? GROUP BY token",
                            (BIRTH[:7],)).fetchall())
     nb, nq = sum(bg.values()), sum(tok.values())
@@ -256,6 +263,8 @@ def keyness(conn, tok, terms, top=30, a0=1e4, min_n=100):
     rows = []
     for w, yq in tok.items():
         if yq < min_n or not w.isalpha() or len(w) < 3 or w in NOT_WORDS:
+            continue
+        if threads is not None and threads.get(w, 0) < min_threads:
             continue
         yb = bg.get(w, 0)
         a = max(a0 * yb / nb, 0.01)
@@ -309,13 +318,14 @@ def run(ctx):
     if acc is None:
         return False
     fams = {c: {"n": 0, "families": collections.Counter()} for c in CORPORA}
-    tok = collections.Counter()
+    tok, thr = collections.Counter(), collections.Counter()
     for k in [k for k in acc if k.startswith("fam:")]:
         v = acc.pop(k)
         c = k.split(":")[1]
         fams[c]["n"] += v["n"]
         fams[c]["families"].update(v["families"])
         tok.update(v.get("tokens", {}))
+        thr.update(v.get("threads", {}))
     names = sorted({t.family for t in _families(terms)})
     families = {c: {"n": f["n"], "rows": [{"family": nm, "posts": int(f["families"].get(nm, 0)),
                                            "share": round(f["families"].get(nm, 0) / f["n"], 6) if f["n"] else 0,
@@ -328,7 +338,7 @@ def run(ctx):
                                  .fetchone()[0]),
                 "sample": int(conn.execute("SELECT count(*) FROM pol_sample").fetchone()[0])}
     out = {"lexicon": lexicon.fingerprint(terms), "overview": overview, "families": families,
-           "keyness": keyness(conn, tok, terms), **acc}
+           "keyness": keyness(conn, tok, terms, thr), **acc}
     ctx.set_output(db.sha(write(ctx, "pol", out)))
     b = acc["births"]
     log(f"pol : analyse ecrite ; {sum(r['status'] == 'q_first' for r in b)} formules apparues sur /pol/ apres Q, "

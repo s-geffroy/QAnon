@@ -72,3 +72,14 @@ def test_formats():
     assert fmt.pct("en", 0.123) == "12.3%"
     assert fmt.date("fr", "2017-10-28") == "28 oct. 2017"
     assert fmt.date("en", "2020-12-08T10:00:00+00:00") == "Dec 8, 2020"
+
+
+def test_stage_inputs_are_declared_before_the_stage():
+    """Une etape n'attend que des entrees deja passees dans le meme cycle : une entree
+    declaree apres elle la laisserait en attente pour toujours."""
+    from qanon.stages import STAGES
+    seen = set()
+    for s in STAGES:
+        late = [i for i in s.inputs if i not in seen]
+        assert not late, f"{s.name} attend {late}, declare(s) apres elle"
+        seen.add(s.name)

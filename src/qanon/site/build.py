@@ -49,6 +49,9 @@ def _iso_num():
     return {c.alpha_3: int(c.numeric) for c in pycountry.countries}
 
 
+POL_DATA_START = "2016-07-25"   # quatre premieres semaines du jeu de donnees /pol/
+
+
 def paper_block(site, kind, name):
     """Tableaux et figures du document de travail, calcules a partir des resultats."""
     from markupsafe import escape
@@ -88,6 +91,22 @@ def paper_block(site, kind, name):
                 "un écart négatif signifie que la formule circulait avant Q).</caption><thead><tr><th>Formule</th>"
                 "<th class='r'>Drops</th><th>Premier drop</th><th>Première occurrence sur Reddit</th>"
                 f"<th class='r'>Écart (jours)</th></tr></thead><tbody>{body}</tbody></table>")
+    if kind == "table" and name == "pol_births":
+        pol = r.get("pol")
+        if not pol:
+            return ""
+        lab = {"before_q": "déjà là avant Q", "about_q": "naît avec Q", "pol_first": "/pol/ avant Q", "q_first": "Q d'abord"}
+        rows = [x for x in pol["births"] if x["status"] in lab and x["pol_posts"] >= 500]
+        body = "".join(f"<tr><td>{escape(x['label_fr'])}</td><td class='r'>{n(x['pol_posts'])}</td>"
+                       f"<td class='r'>{n(x['rate_before'], 1)}</td><td class='r'>{n(x['rate_after'], 1)}</td>"
+                       f"<td>{'dès le début des données' if x['onset_week'] < POL_DATA_START else fmt.date('fr', x['onset_week'])}</td>"
+                       f"<td>{fmt.date('fr', x['first_q']) if x['first_q'] else '—'}</td>"
+                       f"<td>{lab[x['status']]}</td></tr>" for x in rows)
+        return ("<table class='paper-table'><caption>Tableau 4. Formules liées à Q sur /pol/ (au moins 500 posts) : taux par "
+                "million de posts avant et après le 28 octobre 2017, semaine d'apparition (premier dépassement durable du "
+                "taux d'avant Q) et premier drop qui emploie la formule.</caption><thead><tr><th>Formule</th>"
+                "<th class='r'>Posts</th><th class='r'>Avant</th><th class='r'>Après</th><th>Apparition</th>"
+                f"<th>Premier drop</th><th>Lecture</th></tr></thead><tbody>{body}</tbody></table>")
     if kind == "figure":
         return paper_figure(site, name)
     raise KeyError(f"bloc inconnu dans le document : {kind}:{name}")
@@ -688,6 +707,89 @@ class Site:
             extra = self._scene_context(lang, c, sc)
             out["charts"].update(extra.pop("charts"))
             out.update(extra)
+        if self.r["pol"]:
+            extra = self._pol_context(lang, c, self.r["pol"])
+            out["charts"].update(extra.pop("charts"))
+            out.update(extra)
+        return out
+
+    def _pol_context(self, lang, c, pol):
+        """Q sur /pol/ : chiffres et tableaux de la section, d'apres analyze_pol."""
+        t, n, p, d = c["t"], c["n"], c["p"], c["date"]
+        month = lambda m: f"{fmt.MONTHS[lang][int(m[5:7]) - 1]} {m[:4]}"
+        pval = lambda x: f"< {n(0.001, 3)}" if x < 0.001 else n(x, 3)
+        ov = pol["overview"]
+        out = {"charts": {"pol_niche": charts.pol_niche(pol, lang), "pol_tox": charts.pol_toxicity(pol, lang)}}
+        out["pol_lead"] = t["pol_lead"].format(posts=n(ov["posts"]), threads=n(ov["threads"]), qth=n(ov["q_threads"]),
+                                               qposts=n(sum(v for k, v in ov["q_corpus"].items() if k.startswith("thread:"))))
+        ni = pol["niche"]
+        peak = max(ni, key=lambda x: x["share"])
+        nxt = ni[ni.index(peak) + 1] if ni.index(peak) + 1 < len(ni) else peak
+        later = [x["share"] for x in ni if x["month"] >= "2018-01"]
+        out["pol_niche"] = t["pol_niche_text"].format(month=month(peak["month"]), share=p(peak["share"], 1),
+                                                      next=p(nxt["share"], 2), later=p(float(pd.Series(later).median()) if later else 0, 2))
+        b = pol["births"]
+        # Semaine d'apparition dans le premier mois des donnees : le terme circulait deja.
+        onset = lambda w: t["pol_onset_start"] if w < POL_DATA_START else d(w)
+        cnt = {}
+        for r in b:
+            cnt[r["status"]] = cnt.get(r["status"], 0) + 1
+        out["pol_births"] = t["pol_births_text"].format(n=n(len(b)), **{k: n(cnt.get(k, 0)) for k in
+                                                        ("before_q", "about_q", "pol_first", "q_first", "no_onset")})
+        cb = next((r for r in b if r["term"] == "cbts" and r["status"] == "before_q"), None)
+        if cb and "2017-09-25" <= cb["onset_week"] <= "2017-10-09":
+            out["pol_births"] += " " + t["pol_births_cbts"].format(week=d(cb["onset_week"]))
+        out["pol_birth_rows"] = [{"term": r[f"label_{lang}"], "posts": n(r["pol_posts"]), "before": n(r["rate_before"], 1),
+                                  "after": n(r["rate_after"], 1), "onset": onset(r["onset_week"]),
+                                  "first_q": d(r["first_q"]) if r["first_q"] else "—",
+                                  "lag": n(r["lag_days"]) if r.get("lag_days") is not None else "—",
+                                  "status": t["pol_status_" + r["status"]]} for r in b if r["onset_week"]]
+        rs = pol["response"]
+        out["pol_response"] = []
+        for k in ("on_pol", "exile"):
+            if k in rs:
+                v = rs[k]
+                period = t["pol_period_" + k].format(last=d(rs["last_pol_drop"]) if rs.get("last_pol_drop") else "")
+                out["pol_response"].append({"id": f"pol-resp-{k}", "spec": charts.response_curve(v, lang), "period": period,
+                                            "text": t["pol_response_text"].format(period=period, ne=n(v["n_events"]),
+                                                                                  ex=n(v["excess_6h"], 2), pv=n(v["p_6h"], 3))
+                                            # Un pic a 24 h n'est que le cycle quotidien : on ne le commente pas.
+                                            + (" " + t["pol_response_peak"].format(peak=n(v["peak_h"])) if v["peak_h"] <= 12 else "")})
+        tx = pol["toxicity"]
+        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("TOXICITY")
+        text = t["pol_tox_text"].format(q=n(o["q"]["mean"], 3), all=n(o["all"]["mean"], 3), qh=p(o["q"]["high"], 1),
+                                        ah=p(o["all"]["high"], 1))
+        if pr:
+            simpson = (pr["median_diff"] > 0) != (o["q"]["mean"] > o["all"]["mean"])
+            text += " " + t["pol_tox_paired_simpson" if simpson else "pol_tox_paired"].format(
+                share=p(pr["share_days_q_higher"], 0), diff=n(pr["median_diff"], 3), days=n(pr["days"]),
+                pv=pval(pr["p_wilcoxon"]))
+        out["pol_tox"] = text
+        out["pol_tox_rows"] = [{"attr": t["tox_" + a.lower()], "q": n(v["q"]["mean"], 3), "all": n(v["all"]["mean"], 3),
+                                "diff": n(tx["paired"][a]["median_diff"], 3) if a in tx["paired"] else "—",
+                                "share": p(tx["paired"][a]["share_days_q_higher"], 0) if a in tx["paired"] else "—"}
+                               for a, v in tx["overall"].items() if "q" in v and "all" in v]
+        fl = load_yaml("scene", "families") or {}
+        fam = pol["families"]
+        corpora = ("drops", "q_threads", "pol_before", "pol_after")
+        rows = {}
+        for cpus in corpora:
+            for r in fam[cpus]["rows"]:
+                rows.setdefault(r["family"], {})[cpus] = r["share"]
+        label = lambda f: fl.get(f, {}).get(lang) or t["pol_family_" + f]
+        out["pol_family_rows"] = sorted(({"family": label(f), **{k: p(v.get(k, 0), 1) for k in corpora},
+                                          "_q": v.get("q_threads", 0)} for f, v in rows.items()), key=lambda r: -r["_q"])
+        out["pol_family_n"] = {k: n(fam[k]["n"]) for k in corpora}
+        hate = rows.get("hate", {})
+        cl = rows.get("classic", {})
+        out["pol_families"] = t["pol_families_text"].format(drops=p(hate.get("drops", 0), 1), qt=p(hate.get("q_threads", 0), 1),
+                                                            before=p(hate.get("pol_before", 0), 1), after=p(hate.get("pol_after", 0), 1),
+                                                            cl_drops=p(cl.get("drops", 0), 1), cl_pol=p(cl.get("pol_after", 0), 1))
+        out["pol_keyness"] = t["pol_keyness_text"].format(words=", ".join(f"« {x['token']} »" if lang == "fr" else f"“{x['token']}”"
+                                                                          for x in pol["keyness"]["top"][:30]))
+        co = pol["countries"]
+        us = lambda k: next((x["share"] for x in co[k]["top"] if x["country"] == "US"), 0)
+        out["pol_countries"] = t["pol_countries_text"].format(q=p(us("q_threads"), 0), pol=p(us("pol_after"), 0))
         return out
 
     def _scene_context(self, lang, c, sc):
@@ -1035,9 +1137,65 @@ class Site:
             v["scene_diffusion"] = (f"Pour {n(len(pos))} des {n(len(dif))} formules de Q retrouvées dans l'échantillon Reddit, "
                                     "la première occurrence y est postérieure au premier drop qui l'emploie "
                                     f"(tableau 3) ; médiane : {n(float(pd.Series([x['lag_days'] for x in dif]).median()))} jours.")
-        v["scene_pol"] = ("Le balayage de /pol/ [@papasavva2020raiders], milieu d'origine de Q, est en cours ; ses résultats "
-                          "(diffusion des formules, toxicité, sous-corpus des fils Q) compléteront cette section."
-                          if not sc.get("pol") else "")
+        pol = self.r["pol"]
+        if not pol:
+            v["scene_pol"] = ("Le balayage de /pol/ [@papasavva2020raiders], milieu d'origine de Q, est en cours ; ses résultats "
+                              "(diffusion des formules, toxicité, sous-corpus des fils Q) compléteront cette section.")
+            v["scene_pol2"] = ""
+        else:
+            v.update(self._paper_pol(pol, n, p, d))
+        return v
+
+    def _paper_pol(self, pol, n, p, d):
+        """Phrases de la section 4.10 (/pol/), d'apres analyze_pol."""
+        ov, ni, b = pol["overview"], pol["niche"], pol["births"]
+        peak = max(ni, key=lambda x: x["share"])
+        later = pd.Series([x["share"] for x in ni if x["month"] >= "2018-01"]).median()
+        months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
+                  "novembre", "décembre"]
+        cnt = {}
+        for r in b:
+            cnt[r["status"]] = cnt.get(r["status"], 0) + 1
+        qth = sum(v for k, v in ov["q_corpus"].items() if k.startswith("thread:"))
+        s = (f"Le forum /pol/ de 4chan, où Q est apparu, a été lu en entier [@papasavva2020raiders] : {n(ov['posts'])} posts "
+             f"dans {n(ov['threads'])} fils, dont {n(ov['q_threads'])} fils Q ({n(qth)} posts). En "
+             f"{months[int(peak['month'][5:]) - 1]} {peak['month'][:4]}, {p(peak['share'], 1)} des posts de /pol/ sont écrits dans "
+             f"ces fils ; dès 2018, la part retombe autour de {p(later, 2)} par mois. ")
+        s += (f"Sur {n(len(b))} formules liées à Q assez fréquentes pour être datées, {n(cnt.get('before_q', 0))} étaient déjà en "
+              f"hausse avant le 28 octobre 2017, {n(cnt.get('about_q', 0))} naissent avec Q sans qu'il les emploie, "
+              f"{n(cnt.get('pol_first', 0))} sont employées par /pol/ avant Q et {n(cnt.get('q_first', 0))} d'abord par Q (tableau 4).")
+        cb = next((r for r in b if r["term"] == "cbts" and r["status"] == "before_q"), None)
+        if cb:
+            s += (f" « CBTS » décolle dès la semaine du {d(cb['onset_week'])}, celle du « calme avant la tempête » lancé par "
+                  "Donald Trump le 5 octobre 2017 : Q s'installe dans des fils déjà ouverts.")
+        rs = pol["response"]
+        resp = [(k, rs[k]) for k in ("on_pol", "exile") if k in rs]
+        if resp:
+            last = d(rs["last_pol_drop"]) if rs.get("last_pol_drop") else ""
+            lab = {"on_pol": f"pendant sa période /pol/, jusqu'à son dernier drop sur /pol/ le {last}",
+                   "exile": "après son départ pour 8chan, en 2018-2019"}
+            s += (" Les mentions de Q sur /pol/ augmentent dans les six heures qui suivent ses sessions, "
+                  + " et ".join(f"{lab[k]} (+{n(x['excess_6h'], 2)} par rapport au hasard, p = {n(x['p_6h'], 3)}, "
+                                f"{n(x['n_events'])} sessions)" for k, x in resp) + ".")
+        v = {"scene_pol": s}
+        tx = pol["toxicity"]
+        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("TOXICITY")
+        s2 = (f"Les posts liés à Q sont en moyenne moins toxiques que /pol/ (score Perspective {n(o['q']['mean'], 3)} contre "
+              f"{n(o['all']['mean'], 3)})" if o["q"]["mean"] < o["all"]["mean"] else
+              f"Les posts liés à Q sont en moyenne plus toxiques que /pol/ (score Perspective {n(o['q']['mean'], 3)} contre "
+              f"{n(o['all']['mean'], 3)})")
+        if pr and (pr["median_diff"] > 0) != (o["q"]["mean"] > o["all"]["mean"]):
+            s2 += (f", mais jour par jour ils le sont davantage {p(pr['share_days_q_higher'], 0)} des jours : l'écart d'ensemble "
+                   "tient aux grands fils de déchiffrement de la naissance, plus calmes (paradoxe de Simpson).")
+        else:
+            s2 += "."
+        fam = {c: {r["family"]: r["share"] for r in pol["families"][c]["rows"]} for c in pol["families"]}
+        s2 += (f" Les codes de haine, surtout antisémites, touchent {p(fam['pol_before'].get('hate', 0), 1)} des posts de /pol/ "
+               f"avant Q et {p(fam['pol_after'].get('hate', 0), 1)} après, {p(fam['q_threads'].get('hate', 0), 1)} des posts des "
+               f"fils Q et {p(fam['drops'].get('hate', 0), 1)} des drops. Les mots les plus caractéristiques des fils Q "
+               "[@monroe2008fightin] sont " + ", ".join(f"« {x['token']} »" for x in pol["keyness"]["top"][:10])
+               + " : le lexique d'un atelier de déchiffrement, de ses cibles et d'un soupçon permanent d'imposture.")
+        v["scene_pol2"] = s2
         return v
 
     def fig(self, lang, fid):

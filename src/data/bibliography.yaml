@@ -1636,8 +1636,8 @@ references:
   url: "https://doi.org/10.1093/pan/mpn018"
   lang: en
   topics: [methods, background]
-  summary_fr: "Méthode du log-odds avec a priori de Dirichlet informatif pour repérer les mots distinctifs d'un groupe de textes. Utilisée pour les termes distinctifs de chaque année."
-  summary_en: "Log-odds with an informative Dirichlet prior to identify the words distinguishing a group of texts. Used for each year's distinctive terms."
+  summary_fr: "Méthode du log-odds avec a priori de Dirichlet informatif pour repérer les mots distinctifs d'un groupe de textes. Utilisée pour les termes distinctifs de chaque année et pour le vocabulaire propre aux fils Q de /pol/."
+  summary_en: "Log-odds with an informative Dirichlet prior to identify the words distinguishing a group of texts. Used for each year's distinctive terms and for the vocabulary specific to Q threads on /pol/."
 
 - id: burrows2002delta
   type: article
