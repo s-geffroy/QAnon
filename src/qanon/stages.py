@@ -118,4 +118,7 @@ STAGES += [
     Stage("analyze_pol", polscene.run, inputs=("fetch_qdrops", "scan_pol"), code=True),
     # Un a deux jours au premier passage (~36 000 requetes) : reprend aux jours non echantillonnes.
     Stage("fetch_reddit_sample", reddit.run_sample, inputs=("fetch_reddit_volume",), keep_cursor=True),
+    # Toxicite du sous-corpus Q ventilee par raison (fils Q, promoteurs, noyau Q...) : relit l'archive
+    # (~1 h). Demande du 15/10/2026 : seulement une fois l'echantillon Reddit termine.
+    Stage("split_pol_tox", pol.run_tox_split, inputs=("scan_pol", "fetch_reddit_sample"), keep_cursor=True),
 ]

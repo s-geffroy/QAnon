@@ -129,6 +129,18 @@ def _scan_all(tmp_path, monkeypatch, restarts):
             pol._scan.update(acc=None, ckpt=None)
         if pol.run_scan(ctx) is True:
             break
+    # Ventilation de la toxicite par raison : relit l'archive, avec les memes redemarrages.
+    monkeypatch.setattr(pol, "TOX_CHECKPOINT", 400)
+    ctx.cursor = None
+    pol._tox.clear()
+    pol._tox.update(acc=None, ckpt=None)
+    for k in range(3000):
+        if restarts and k % 5 == 4:
+            pol._streams.clear()
+            pol._tox.clear()
+            pol._tox.update(acc=None, ckpt=None)
+        if pol.run_tox_split(ctx) is True:
+            break
     q = lambda sql: [tuple(r) for r in conn.execute(sql).fetchall()]
     return {"total": q("SELECT sum(posts), sum(threads) FROM pol_hour_total"),
             "terms": q("SELECT term, sum(n) FROM pol_hour GROUP BY term ORDER BY term"),
@@ -137,7 +149,8 @@ def _scan_all(tmp_path, monkeypatch, restarts):
             "sample": q("SELECT count(*) FROM pol_sample"),
             "tox": q("SELECT scope, sum(n) FROM pol_tox_day GROUP BY scope ORDER BY scope"),
             "ent": q("SELECT sum(n) FROM pol_entity_month"),
-            "first": q("SELECT term, ts FROM pol_first ORDER BY term")}
+            "first": q("SELECT term, ts FROM pol_first ORDER BY term"),
+            "split": q("SELECT reason, sum(n), round(sum(total), 6) FROM pol_tox_reason GROUP BY reason ORDER BY reason")}
 
 
 def test_scan_layers_identical_with_restarts(tmp_path, monkeypatch):
@@ -151,6 +164,8 @@ def test_scan_layers_identical_with_restarts(tmp_path, monkeypatch):
     assert a["sample"] == [(len([n for n in range(30000) if n % 100 == 0 and n % 10 < 4]),)]
     assert dict(a["tox"])["all"] == 9000          # les 3000 posts sans perspectives ([]) ne comptent pas
     assert a["ent"] == [(12000,)]
+    # Ventilation : chaque score du sous-corpus Q est range sous sa raison, une seule fois.
+    assert a["split"] and sum(n for _, n, _ in a["split"]) == dict(a["tox"])["q"]
 
 
 def test_onset_ignores_isolated_hits_and_finds_sustained_rise():

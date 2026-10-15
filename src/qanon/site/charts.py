@@ -828,7 +828,8 @@ def pol_toxicity(pol, lang):
     t = T[lang]
     names = {"all": t["pol_scope_all"], "q": t["pol_scope_q"]}
     order = [names["all"], names["q"]]
-    data = [{"month": x["month"], "mean": x["mean"], "scope": names[x["scope"]]} for x in pol["toxicity"]["monthly"]]
+    data = [{"month": x["month"], "mean": x["mean"], "scope": names[x["scope"]]} for x in pol["toxicity"]["monthly"]
+            if x["scope"] in names]
     return _spec(
         height=220, data={"values": data},
         mark={"type": "line", "strokeWidth": 2, "point": {"size": 30, "filled": True}},

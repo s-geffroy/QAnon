@@ -169,33 +169,49 @@ def response(conn, d, seed=SEED, n_null=500):
     return out
 
 
+# Raisons d'entree dans le sous-corpus Q (sources/pol.py), regroupees pour la toxicite.
+TOX_GROUPS = {"thread:cbts": "q_threads", "thread:drop": "q_threads", "post:q_core": "q_posts",
+              "post:q_mythos": "q_posts", "post:q_trip": "q_posts", "post:larp": "larp", "post:promoter": "promoter"}
+
+
 def toxicity(conn):
+    """Toxicite (Perspective) de tout /pol/ ('all'), du sous-corpus Q ('q') et, une fois la passe
+    split_pol_tox faite, de ses groupes : fils Q, posts Q isoles, pseudo-inities, promoteurs."""
     df = pd.read_sql_query("SELECT * FROM pol_tox_day", conn)
+    try:
+        r = pd.read_sql_query("SELECT * FROM pol_tox_reason", conn)
+    except Exception:   # base anterieure a la ventilation
+        r = pd.DataFrame()
+    if not r.empty:
+        r["scope"] = r["reason"].map(TOX_GROUPS).fillna("other")
+        df = pd.concat([df, r.groupby(["day", "scope", "attr"], as_index=False)[["total", "n", "n_high"]].sum()])
     df = df[df["attr"].isin(TOX_ATTRS)]
     overall = {}
     for (scope, attr), g in df.groupby(["scope", "attr"]):
         overall.setdefault(attr, {})[scope] = {"mean": round(float(g["total"].sum() / g["n"].sum()), 4),
                                                "high": round(float(g["n_high"].sum() / g["n"].sum()), 4),
                                                "n": int(g["n"].sum())}
-    # Ecart quotidien (Q - tout /pol/), jours ou le sous-corpus compte au moins 100 posts notes.
+    # Ecart quotidien (groupe - tout /pol/), jours ou le groupe compte au moins 100 posts notes.
     paired = {}
-    for attr, g in df.groupby("attr"):
-        w = g.pivot_table(index="day", columns="scope", values=["total", "n"], aggfunc="sum").dropna()
-        w = w[w[("n", "q")] >= 100]
-        if len(w) < 30:
+    for (scope, attr), g in df[df["scope"] != "all"].groupby(["scope", "attr"]):
+        a = df[(df["scope"] == "all") & (df["attr"] == attr)].set_index("day")
+        g = g.set_index("day")
+        g = g[g["n"] >= 100]
+        days = g.index.intersection(a.index)
+        if len(days) < 30:
             continue
-        diff = w[("total", "q")] / w[("n", "q")] - w[("total", "all")] / w[("n", "all")]
-        paired[attr] = {"days": int(len(diff)), "median_diff": round(float(diff.median()), 4),
-                        "share_days_q_higher": round(float((diff > 0).mean()), 3),
-                        "p_wilcoxon": float(sps.wilcoxon(diff).pvalue)}
+        diff = g.loc[days, "total"] / g.loc[days, "n"] - a.loc[days, "total"] / a.loc[days, "n"]
+        paired.setdefault(scope, {})[attr] = {
+            "days": int(len(diff)), "median_diff": round(float(diff.median()), 4),
+            "share_days_q_higher": round(float((diff > 0).mean()), 3),
+            "p_wilcoxon": float(sps.wilcoxon(diff).pvalue)}
     df["month"] = df["day"].str[:7]
     m = df[df["attr"] == "TOXICITY"].groupby(["month", "scope"])[["total", "n", "n_high"]].sum()
-    monthly = [{"month": k[0], "scope": k[1], "mean": round(float(r["total"] / r["n"]), 4),
-                "high": round(float(r["n_high"] / r["n"]), 4), "n": int(r["n"])}
-               for k, r in m.iterrows() if POL_START[:7] <= k[0] <= POL_END[:7]]
-    return {"overall": overall, "paired": paired, "monthly": monthly,
-            "composition": dict(conn.execute("SELECT substr(reason, 1, instr(reason, ':') - 1), count(*) "
-                                              "FROM pol_qcorpus GROUP BY 1").fetchall())}
+    monthly = [{"month": k[0], "scope": k[1], "mean": round(float(x["total"] / x["n"]), 4),
+                "high": round(float(x["n_high"] / x["n"]), 4), "n": int(x["n"])}
+               for k, x in m.iterrows() if POL_START[:7] <= k[0] <= POL_END[:7] and x["n"] >= 100]
+    return {"overall": overall, "paired": paired, "monthly": monthly, "split": not r.empty,
+            "composition": dict(conn.execute("SELECT reason, count(*) FROM pol_qcorpus GROUP BY 1").fetchall())}
 
 
 # ------------------------------------------------------------------ familles et vocabulaire (par paquets)

@@ -165,6 +165,11 @@ CREATE TABLE IF NOT EXISTS pol_tox_day (
     day TEXT, scope TEXT, attr TEXT, total REAL, n INTEGER, n_high INTEGER,   -- moyenne = total / n ; n_high : score > 0,8
     PRIMARY KEY (day, scope, attr)
 );
+-- Meme mesure, sous-corpus Q ventile par raison d'entree (thread:cbts, post:promoter...) : passe dediee.
+CREATE TABLE IF NOT EXISTS pol_tox_reason (
+    day TEXT, reason TEXT, attr TEXT, total REAL, n INTEGER, n_high INTEGER,
+    PRIMARY KEY (day, reason, attr)
+);
 
 -- Google Trends : valeurs brutes (0-100, normalisees par lot et fenetre), ancre comprise.
 CREATE TABLE IF NOT EXISTS trends_raw (

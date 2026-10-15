@@ -756,7 +756,7 @@ class Site:
                                             # Un pic a 24 h n'est que le cycle quotidien : on ne le commente pas.
                                             + (" " + t["pol_response_peak"].format(peak=n(v["peak_h"])) if v["peak_h"] <= 12 else "")})
         tx = pol["toxicity"]
-        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("TOXICITY")
+        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("q", {}).get("TOXICITY")
         text = t["pol_tox_text"].format(q=n(o["q"]["mean"], 3), all=n(o["all"]["mean"], 3), qh=p(o["q"]["high"], 1),
                                         ah=p(o["all"]["high"], 1))
         if pr:
@@ -765,9 +765,10 @@ class Site:
                 share=p(pr["share_days_q_higher"], 0), diff=n(pr["median_diff"], 3), days=n(pr["days"]),
                 pv=pval(pr["p_wilcoxon"]))
         out["pol_tox"] = text
+        pq = tx["paired"].get("q", {})
         out["pol_tox_rows"] = [{"attr": t["tox_" + a.lower()], "q": n(v["q"]["mean"], 3), "all": n(v["all"]["mean"], 3),
-                                "diff": n(tx["paired"][a]["median_diff"], 3) if a in tx["paired"] else "—",
-                                "share": p(tx["paired"][a]["share_days_q_higher"], 0) if a in tx["paired"] else "—"}
+                                "diff": n(pq[a]["median_diff"], 3) if a in pq else "—",
+                                "share": p(pq[a]["share_days_q_higher"], 0) if a in pq else "—"}
                                for a, v in tx["overall"].items() if "q" in v and "all" in v]
         fl = load_yaml("scene", "families") or {}
         fam = pol["families"]
@@ -1179,7 +1180,7 @@ class Site:
                                 f"{n(x['n_events'])} sessions)" for k, x in resp) + ".")
         v = {"scene_pol": s}
         tx = pol["toxicity"]
-        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("TOXICITY")
+        o, pr = tx["overall"]["TOXICITY"], tx["paired"].get("q", {}).get("TOXICITY")
         s2 = (f"Les posts liés à Q sont en moyenne moins toxiques que /pol/ (score Perspective {n(o['q']['mean'], 3)} contre "
               f"{n(o['all']['mean'], 3)})" if o["q"]["mean"] < o["all"]["mean"] else
               f"Les posts liés à Q sont en moyenne plus toxiques que /pol/ (score Perspective {n(o['q']['mean'], 3)} contre "

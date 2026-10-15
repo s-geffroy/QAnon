@@ -512,3 +512,97 @@ def run_scan(ctx):
     ctx.set_output(db.sha(fp, n[0], n[1], q))
     log(f"pol : balayage termine, {n[1]} fils, {n[0]} posts, sous-corpus Q {q} posts")
     return True
+
+
+# ------------------------------------------------------------------ toxicite par raison d'entree dans le sous-corpus
+# Le balayage a cumule la toxicite de tout le sous-corpus Q (scope 'q') : fils Q et posts isoles
+# (promoteurs, pseudo-inities, noyau Q...) melanges. Cette passe relit l'archive et ventile les
+# scores Perspective selon la raison de chaque post (pol_qcorpus.reason). Seuls les fils qui
+# contiennent un post du sous-corpus sont decodes : le reste n'est que decompresse.
+TOX_V = 1
+TOX_CHECKPOINT = 50_000
+_NO = re.compile(rb'"no": "?(\d+)')
+_tox = {"acc": None, "ckpt": None}
+
+
+def _tox_flush(conn, acc, cursor, save_cursor):
+    conn.executemany("INSERT INTO pol_tox_reason VALUES (?,?,?,?,?,?) ON CONFLICT(day, reason, attr) DO UPDATE SET "
+                     "total = total + excluded.total, n = n + excluded.n, n_high = n_high + excluded.n_high",
+                     [(d, r, a, v[0], v[1], v[2]) for (d, r, a), v in acc.items()])
+    acc.clear()
+    save_cursor(cursor)   # meme transaction que les comptes : une reprise ne compte jamais deux fois
+
+
+def tox_thread(posts, reasons, acc):
+    for p in posts:
+        r = reasons.get(int(p.get("no", 0) or 0))
+        if r is None:
+            continue
+        day = time.strftime("%Y-%m-%d", time.gmtime(int(p.get("time", 0))))
+        for attr, v in perspectives_of(p):
+            k = (day, r, attr)
+            a = acc.get(k, (0.0, 0, 0))
+            acc[k] = (a[0] + v, a[1] + 1, a[2] + (v > 0.8))
+
+
+def run_tox_split(ctx):
+    part, final = paths(ctx.state)
+    if not final.exists():
+        raise RuntimeError("archive /pol/ absente : la ventilation de la toxicite exige de relire l'archive")
+    key = f"v{TOX_V}"
+    cur = ctx.cursor or ""
+    if not cur.startswith(key + ":"):
+        ctx.conn.execute("DELETE FROM pol_tox_reason")
+        ctx.save_cursor(f"{key}:0")
+        cur = f"{key}:0"
+        _tox["acc"] = None
+    if cur.endswith(":fin"):
+        return _tox_done(ctx)
+    ckpt = int(cur.split(":")[1])
+    if _tox["acc"] is None or _tox["ckpt"] != ckpt or "tox" not in _streams:
+        _tox["acc"], _tox["ckpt"] = {}, ckpt
+        want = ckpt
+    else:
+        want = max(_streams["tox"].n, ckpt)
+    s = stream(ctx, "tox", final, want)
+    if s is None:
+        return False
+    if "reasons" not in _tox:
+        _tox["reasons"] = {int(p): r for p, r in ctx.conn.execute("SELECT post, reason FROM pol_qcorpus") if p.isdigit()}
+        _tox["threads"] = {int(t) for (t,) in ctx.conn.execute("SELECT DISTINCT thread FROM pol_qcorpus") if t.isdigit()}
+    reasons, threads, acc = _tox["reasons"], _tox["threads"], _tox["acc"]
+    stop = time.monotonic() + SCAN_SHARE
+    while True:
+        line = s.next()
+        if line is None:
+            break
+        m = _NO.search(line, 0, 2000)
+        if m and int(m.group(1)) in threads:
+            try:
+                tox_thread(json.loads(line)["posts"] or [], reasons, acc)
+            except ValueError:
+                pass
+        if s.n % TOX_CHECKPOINT == 0:
+            _tox_flush(ctx.conn, acc, f"{key}:{s.n}", ctx.save_cursor)
+            _tox["ckpt"] = s.n
+            if s.n % 500_000 == 0:
+                log(f"pol : toxicite ventilee, {s.n} fils relus ; {_memory()}")
+        if s.n % 500 == 0 and (ctx.should_yield() or time.monotonic() > stop):
+            return False
+    _tox_flush(ctx.conn, acc, f"{key}:{s.n}:fin", ctx.save_cursor)
+    _streams.pop("tox").close()
+    _tox.update(acc=None, ckpt=None)
+    _tox.pop("reasons", None)
+    _tox.pop("threads", None)
+    return _tox_done(ctx)
+
+
+def _tox_done(ctx):
+    n = ctx.conn.execute("SELECT count(DISTINCT reason), sum(n) FROM pol_tox_reason").fetchone()
+    q = ctx.conn.execute("SELECT sum(n) FROM pol_tox_day WHERE scope = 'q'").fetchone()[0]
+    ctx.set_output(db.sha(n[0], n[1]))
+    if n[1] != q:
+        log(f"pol : ATTENTION, toxicite ventilee : {n[1]} scores contre {q} dans le balayage (sous-corpus 'q')")
+    else:
+        log(f"pol : toxicite ventilee par raison ({n[0]} raisons, {n[1]} scores, egal au balayage)")
+    return True
