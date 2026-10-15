@@ -30,6 +30,7 @@ class Term:
     sensitive: bool = False
     trends: bool = False
     trends_query: str = ""
+    post_scan: bool = False   # ajoute apres le balayage de /pol/ : hors de son empreinte, mesure sans l'archive
     pos: list = field(default_factory=list)
     neg: list = field(default_factory=list)
     rx: re.Pattern = None
@@ -127,6 +128,11 @@ def load():
         t.rx = re.compile(_scoped(t.pattern))
         t.anchors = tuple(a.lower() for a in t.anchors) or anchors(_scoped(t.pattern))
     return terms
+
+
+def scanned(terms):
+    """Termes du balayage de /pol/ (empreinte approuvee) : sans ceux ajoutes apres coup."""
+    return [t for t in terms if not t.post_scan]
 
 
 def fingerprint(terms):

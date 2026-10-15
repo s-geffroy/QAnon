@@ -18,6 +18,7 @@ Lit les couches produites par le balayage (sources/pol.py), jamais l'archive :
 Aucun texte de /pol/ n'est publie : seulement des comptes et des taux.
 """
 import collections
+import re
 
 import numpy as np
 import pandas as pd
@@ -243,8 +244,9 @@ def _families(terms):
 
 
 def family_part(conn, corpus, lo, hi, terms):
-    """Posts touches par famille, et (fils Q seulement) comptes de mots, pour les rowid [lo, hi)."""
-    ts = _families(terms)
+    """Posts touches par famille, termes ajoutes apres le balayage (ambigus compris : comptes par
+    terme seulement) et (fils Q seulement) comptes de mots, pour les rowid [lo, hi)."""
+    ts = _families(terms) + [t for t in terms if t.post_scan and t.ambiguous]
     m = lexicon.Matcher(ts)
     if corpus == "q_threads":
         rows = conn.execute("SELECT text, thread FROM pol_qcorpus WHERE rowid >= ? AND rowid < ? AND reason LIKE 'thread:%'",
@@ -255,20 +257,46 @@ def family_part(conn, corpus, lo, hi, terms):
         rows = conn.execute(f"SELECT text, thread FROM pol_sample WHERE rowid >= ? AND rowid < ? AND ts {op} ?",
                             (lo, hi, cut)).fetchall()
     fam = collections.Counter()
+    added = collections.Counter()
     tok = collections.Counter()
     pairs = set()
     for txt, thread in rows:
         txt = txt or ""
-        fam.update({ts[i].family for i in m.hits(txt)})
+        hits = m.hits(txt)
+        fam.update({ts[i].family for i in hits if not ts[i].ambiguous})
+        added.update(ts[i].id for i in hits if ts[i].post_scan)
         if corpus == "q_threads":
             words = _TOKEN.findall(txt.lower())
             tok.update(words)
             pairs.update((thread, w) for w in words)
-    out = {"n": len(rows), "families": dict(fam)}
+    out = {"n": len(rows), "families": dict(fam), "added": dict(added)}
     if corpus == "q_threads":
         out["tokens"] = dict(tok)
         # Fils distincts par mot (un fil a cheval sur deux paquets compte deux fois : borne haute).
         out["threads"] = dict(collections.Counter(w for _, w in pairs))
+    return out
+
+
+def added_unigrams(conn, terms):
+    """Termes ajoutes apres le balayage (post_scan) : comptes mensuels exacts sur tout /pol/ des
+    mots isoles que leur motif reconnait en entier (les expressions de plusieurs mots n'y sont pas)."""
+    ts = [t for t in terms if t.post_scan]
+    posts = {r[0]: r[1] for r in conn.execute("SELECT strftime('%Y-%m', hour, 'unixepoch'), sum(posts) FROM pol_hour_total "
+                                              "GROUP BY 1")}
+    vocab = [r[0] for r in conn.execute("SELECT DISTINCT token FROM pol_unigram_month")]
+    out = {}
+    for t in ts:
+        toks = [w for w in vocab if any(a in w for a in t.anchors) and (x := t.rx.search(w)) and x.span() == (0, len(w))]
+        if not toks:
+            continue
+        q = ",".join("?" * len(toks))
+        rows = [tuple(r) for r in conn.execute(f"SELECT month, sum(n) FROM pol_unigram_month WHERE token IN ({q}) "
+                                               "GROUP BY month", toks)]
+        # Motif a plusieurs mots ("snow white") : seules ses formes soudees ("snowwhite") sont comptees.
+        out[t.id] = {"tokens": sorted(toks), "total": int(sum(v for _, v in rows)),
+                     "joined_forms_only": bool(re.search(r" |\\s", t.pattern)),
+                     "monthly": [{"month": m, "n": int(v), "per_m": round(v / posts[m] * 1e6, 2)}
+                                 for m, v in sorted(rows) if posts.get(m) and POL_START[:7] <= m <= POL_END[:7]]}
     return out
 
 
@@ -342,8 +370,10 @@ def run(ctx):
     terms = lexicon.load()
     nq = conn.execute("SELECT max(rowid) FROM pol_qcorpus").fetchone()[0] or 0
     ns = conn.execute("SELECT max(rowid) FROM pol_sample").fetchone()[0] or 0
-    parts = [("births", lambda: births(conn, d, terms)),
-             ("rates", lambda: monthly_rates(conn, terms)),
+    scanned = lexicon.scanned(terms)          # comptes horaires (pol_hour) : termes du balayage seulement
+    parts = [("births", lambda: births(conn, d, scanned)),
+             ("rates", lambda: monthly_rates(conn, scanned)),
+             ("added_unigrams", lambda: added_unigrams(conn, terms)),
              ("niche", lambda: niche(conn)),
              ("response", lambda: response(conn, d)),
              ("toxicity", lambda: toxicity(conn)),
@@ -357,13 +387,14 @@ def run(ctx):
     acc = run_parts(ctx, "pol", parts)
     if acc is None:
         return False
-    fams = {c: {"n": 0, "families": collections.Counter()} for c in CORPORA}
+    fams = {c: {"n": 0, "families": collections.Counter(), "added": collections.Counter()} for c in CORPORA}
     tok, thr = collections.Counter(), collections.Counter()
     for k in [k for k in acc if k.startswith("fam:")]:
         v = acc.pop(k)
         c = k.split(":")[1]
         fams[c]["n"] += v["n"]
         fams[c]["families"].update(v["families"])
+        fams[c]["added"].update(v.get("added", {}))
         tok.update(v.get("tokens", {}))
         thr.update(v.get("threads", {}))
     names = sorted({t.family for t in _families(terms)})
@@ -371,6 +402,20 @@ def run(ctx):
                                            "share": round(f["families"].get(nm, 0) / f["n"], 6) if f["n"] else 0,
                                            "ci": wilson(f["families"].get(nm, 0), f["n"])} for nm in names]}
                 for c, f in fams.items()}
+    # Termes ajoutes apres le balayage : taux par million de posts dans l'echantillon (avant / apres Q)
+    # et dans les fils Q, plus les comptes mensuels exacts des mots isoles.
+    added = []
+    for t in [t for t in terms if t.post_scan]:
+        row = {"term": t.id, "label_fr": t.label_fr, "label_en": t.label_en, "family": t.family,
+               "ambiguous": t.ambiguous, "sensitive": t.sensitive}
+        for c in ("q_threads", "pol_before", "pol_after"):
+            k = fams[c]["added"].get(t.id, 0)
+            row[c] = {"posts": int(k), "per_m": round(k / fams[c]["n"] * 1e6, 1) if fams[c]["n"] else 0}
+        u = acc["added_unigrams"].get(t.id)
+        if u:
+            row["unigrams"] = u
+        added.append(row)
+    acc.pop("added_unigrams")
     tot = conn.execute("SELECT sum(posts), sum(threads) FROM pol_hour_total").fetchone()
     overview = {"posts": int(tot[0]), "threads": int(tot[1]),
                 "q_corpus": dict(conn.execute("SELECT reason, count(*) FROM pol_qcorpus GROUP BY reason").fetchall()),
@@ -378,7 +423,7 @@ def run(ctx):
                                  .fetchone()[0]),
                 "sample": int(conn.execute("SELECT count(*) FROM pol_sample").fetchone()[0])}
     out = {"lexicon": lexicon.fingerprint(terms), "overview": overview, "families": families,
-           "keyness": keyness(conn, tok, terms, thr), **acc}
+           "keyness": keyness(conn, tok, terms, thr), "added_terms": added, **acc}
     ctx.set_output(db.sha(write(ctx, "pol", out)))
     b = acc["births"]
     st = collections.Counter(r["status"] for r in b)

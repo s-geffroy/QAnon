@@ -51,3 +51,12 @@ def test_anchor_derivation():
     assert lexicon.anchors(r"(?i:\bpizza ?gate\b)") == ("pizza",)
     assert set(lexicon.anchors(r"\bfoo\b|\bbarbaz\b")) == {"foo", "barbaz"}
     assert lexicon.anchors(r"\b\w+\b") == ()
+
+
+def test_pol_scan_fingerprint_unchanged():
+    """Un terme ajoute apres le balayage de /pol/ doit porter post_scan : sinon l'empreinte
+    approuvee change, et le balayage attend une nouvelle approbation puis efface ses tables."""
+    import yaml
+    from qanon.pipeline import APP_DIR
+    doc = yaml.safe_load((APP_DIR / "data" / "scene.yaml").read_text())
+    assert lexicon.fingerprint(lexicon.scanned(TERMS)) == doc["lexicon_approved"]

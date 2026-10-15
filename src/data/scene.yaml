@@ -31,6 +31,7 @@ families:
   election: {fr: "Élections", en: "Elections"}
   militia: {fr: "Milices et violence", en: "Militias and violence"}
   hate: {fr: "Codes de haine", en: "Hate codes"}
+  pol_culture: {fr: "Culture de /pol/ (mèmes, argot)", en: "/pol/ culture (memes, slang)"}
 
 # Formules du glossaire trop courantes hors du corpus Q : comptees, mais marquees
 # ambigues (exclues des analyses principales) sur Reddit et /pol/.
@@ -1425,6 +1426,307 @@ terms:
     note: "Indice agrege seulement (aucune citation) : sert de temoin de toxicite pour comparer les fils Q au reste de /pol/."
     pos: ["kikes", "spics"]
     neg: ["spice", "kiker"]
+
+  # ================================================================ ajouts du 15/10/2026
+  # Approuves par Sylvain Geffroy apres le balayage de /pol/ : post_scan, donc hors de l'empreinte
+  # lexicon_approved. Sur /pol/, ils sont mesures dans le sous-corpus Q et l'echantillon a 1 % (et,
+  # pour les mots isoles, dans les comptes mensuels de mots), pas heure par heure sur tout le forum.
+  # ---------------------------------------------------------------- codes de Q (drops)
+  - id: snow_white
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\bsnow ?white\b'
+    label_fr: "Snow White (programme de surveillance, selon Q)"
+    label_en: "Snow White (surveillance program, per Q)"
+    ambiguous: true
+    note: "28 drops ; homonyme Disney"
+    pos: ["SNOW WHITE", "Snow White is real"]
+    neg: ["snowy whites"]
+  - id: iron_eagle
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\biron ?eagle\b'
+    label_fr: "Iron Eagle"
+    label_en: "Iron Eagle"
+    pos: ["IRON EAGLE", "iron eagle"]
+    neg: ["iron eagles game"]
+  - id: keystone
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\bkeystone\b'
+    label_fr: "Keystone (« clé de voûte »)"
+    label_en: "Keystone"
+    ambiguous: true
+    note: "8 drops, 1 414 posts des fils Q ; homonymes (oleoduc, biere)"
+    pos: ["What is a keystone?", "KEYSTONE"]
+    neg: ["keystones"]
+  - id: alice_wonderland
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\balice\b[^.\n]{0,12}\bwonderland\b'
+    label_fr: "Alice & Wonderland"
+    label_en: "Alice & Wonderland"
+    pos: ["Alice & Wonderland", "alice in wonderland"]
+    neg: ["Alice went home"]
+  - id: wizards_warlocks
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\bwizards?\s*(?:&|and|\+)\s*warlocks?\b'
+    label_fr: "Wizards & Warlocks"
+    label_en: "Wizards & Warlocks"
+    pos: ["Wizards & Warlocks", "wizards and warlocks"]
+    neg: ["wizards of the coast"]
+  - id: no_name
+    family: q_core
+    post_scan: true
+    pattern: '\bNO[ -]NAME\b|(?i:\bno ?name\b(?= (?:mccain|is|was|dead|died)))|(?i:\bmccain\b.{0,20}\bno ?name\b)'
+    label_fr: "No Name (McCain, selon Q)"
+    label_en: "No Name (McCain, per Q)"
+    pos: ["NO NAME", "No Name dead", "McCain aka no name"]
+    neg: ["no name brand"]
+  - id: insurance_policy
+    family: q_core
+    post_scan: true
+    pattern: '(?i)\binsurance policy\b'
+    label_fr: "« Insurance policy » (SMS Strzok-Page)"
+    label_en: "\"Insurance policy\" (Strzok-Page texts)"
+    ambiguous: true
+    pos: ["the insurance policy"]
+    neg: ["insurance policies"]
+  # ---------------------------------------------------------------- recits de 2016-2019
+  - id: release_the_memo
+    family: classic
+    post_scan: true
+    pattern: '(?i)#?\brelease ?the ?memo\b|\bnunes memo\b|\bFISA memo\b'
+    label_fr: "#ReleaseTheMemo (mémo Nunes)"
+    label_en: "#ReleaseTheMemo (Nunes memo)"
+    pos: ["#ReleaseTheMemo", "the Nunes memo"]
+    neg: ["release the meme"]
+  - id: russiagate
+    family: classic
+    post_scan: true
+    pattern: '(?i)\bmuh russia\b|\brussia ?gate\b|\brussia hoax\b|\bcollusion hoax\b'
+    label_fr: "« Russiagate » / « muh Russia »"
+    label_en: "\"Russiagate\" / \"muh Russia\""
+    pos: ["muh russia", "Russiagate", "the Russia hoax"]
+    neg: ["Russia gates"]
+  - id: vault7
+    family: classic
+    post_scan: true
+    pattern: '(?i)\bvault ?7\b'
+    label_fr: "Vault 7 (WikiLeaks)"
+    label_en: "Vault 7 (WikiLeaks)"
+    pos: ["Vault 7", "vault7"]
+    neg: ["vault 70"]
+  - id: hillary_health
+    family: classic
+    post_scan: true
+    pattern: '(?i)\bhillary(?:''s)? (?:health|seizures?|parkinson''?s|stroke|coughing fit|collapse)\b|\bhillary(?:''s)? body double\b'
+    label_fr: "Santé d'Hillary Clinton (crises, sosie)"
+    label_en: "Hillary Clinton's health (seizures, body double)"
+    pos: ["Hillary's health", "hillary seizure", "hillary body double"]
+    neg: ["hillary's healthcare plan"]
+  - id: weiner_laptop
+    family: classic
+    post_scan: true
+    pattern: '(?i)\bweiner(?:''s)? laptop\b|\blife ?insurance file\b|\binsurance file\b'
+    label_fr: "Ordinateur d'Anthony Weiner / « insurance file »"
+    label_en: "Anthony Weiner's laptop / \"insurance file\""
+    pos: ["Weiner's laptop", "the insurance file"]
+    neg: ["weiner dog"]
+  - id: migrant_caravan
+    family: classic
+    post_scan: true
+    pattern: '(?i)\b(?:migrant|soros|honduran)[- ]?caravans?\b|\bcaravans?\b.{0,40}\bsoros\b'
+    label_fr: "« Caravane » de migrants financée par Soros"
+    label_en: "Soros-funded migrant \"caravan\""
+    pos: ["migrant caravan", "the caravan is funded by soros"]
+    neg: ["camel caravan"]
+  - id: mossad
+    family: classic
+    post_scan: true
+    pattern: '(?i)\bmossad\b'
+    label_fr: "Mossad"
+    label_en: "Mossad"
+    ambiguous: true
+    note: "136 849 occurrences sur /pol/ ; actualite et complot (« Mossad did 9/11 ») melanges"
+    pos: ["Mossad did it"]
+    neg: ["mossadegh"]
+  - id: lock_her_up
+    family: classic
+    post_scan: true
+    pattern: '(?i)\block her up\b|\bhillary for prison\b'
+    label_fr: "« Lock her up » / « Hillary for prison »"
+    label_en: "\"Lock her up\" / \"Hillary for prison\""
+    pos: ["LOCK HER UP", "Hillary for prison 2016"]
+    neg: ["lock her door"]
+  # ---------------------------------------------------------------- promoteurs
+  - id: george_webb
+    family: promoter
+    post_scan: true
+    pattern: '(?i)\bgeorge webb\b'
+    label_fr: "George Webb (vidéaste, « bombe sale » de Charleston, 2017)"
+    label_en: "George Webb (video blogger, Charleston \"dirty bomb\", 2017)"
+    pos: ["George Webb says"]
+    neg: ["George Webber"]
+  - id: roger_stone
+    family: promoter
+    post_scan: true
+    pattern: '(?i)\broger stone\b'
+    label_fr: "Roger Stone"
+    label_en: "Roger Stone"
+    pos: ["Roger Stone"]
+    neg: ["rogers stone"]
+  - id: bannon
+    family: promoter
+    post_scan: true
+    pattern: '(?i)\bbannon\b'
+    label_fr: "Steve Bannon"
+    label_en: "Steve Bannon"
+    pos: ["Bannon", "Steve Bannon"]
+    neg: ["bannons"]
+  - id: project_veritas
+    family: promoter
+    post_scan: true
+    pattern: '(?i)\bproject veritas\b|\bjames o''?keefe\b'
+    label_fr: "Project Veritas / James O'Keefe"
+    label_en: "Project Veritas / James O'Keefe"
+    pos: ["Project Veritas", "James O'Keefe"]
+    neg: ["veritas"]
+  # ---------------------------------------------------------------- culture de /pol/
+  - id: shills
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bshill(?:s|ed)?\b|\bJIDF\b|\bCTR shills?\b|\bcorrect the record\b'
+    label_fr: "Accusation de « shill » (JIDF, Correct the Record)"
+    label_en: "\"Shill\" accusations (JIDF, Correct the Record)"
+    pos: ["fuck off shill", "JIDF out in force", "CTR shills"]
+    neg: ["shilling coin"]
+  - id: glowies
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bglow(?:s|ing)? in the dark\b|\bglowies?\b|\bglownig+(?:er|a)s?\b|\bfeds? posting\b|\bfedposting\b'
+    label_fr: "« Glowies » (agents fédéraux supposés)"
+    label_en: "\"Glowies\" (supposed federal agents)"
+    sensitive: true
+    pos: ["glowies everywhere", "fedposting", "you glow in the dark"]
+    neg: ["glowing review"]
+  - id: kekistan
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bkekistan\w*|\bshadilay\b|\bmeme magic\b'
+    label_fr: "Kekistan / Shadilay / « meme magic »"
+    label_en: "Kekistan / Shadilay / \"meme magic\""
+    pos: ["Kekistani flag", "SHADILAY", "meme magic is real"]
+    neg: ["kek"]
+  - id: pepe
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bpepes?\b|\brare pepes?\b'
+    label_fr: "Pepe la grenouille"
+    label_en: "Pepe the Frog"
+    ambiguous: true
+    pos: ["rare pepe", "Pepe"]
+    neg: ["pepper"]
+  - id: npc_meme
+    family: pol_culture
+    post_scan: true
+    pattern: '\bNPCs?\b|(?i:\bnpc meme\b)'
+    label_fr: "Mème « NPC » (2018)"
+    label_en: "\"NPC\" meme (2018)"
+    ambiguous: true
+    pos: ["NPCs can't think", "the npc meme"]
+    neg: ["npcomplete"]
+  - id: clown_world
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bclown ?world\b|\bhonk ?honk\b|\bhonkler\w*'
+    label_fr: "« Clown world » / « honk honk » (2019)"
+    label_en: "\"Clown world\" / \"honk honk\" (2019)"
+    pos: ["clown world", "HONK HONK", "honkler"]
+    neg: ["clown car"]
+  - id: groypers
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bgroypers?\b|\bgroyper wars?\b'
+    label_fr: "Groypers (Nick Fuentes, 2019)"
+    label_en: "Groypers (Nick Fuentes, 2019)"
+    pos: ["groyper war", "Groypers"]
+    neg: ["grouper"]
+  - id: ok_to_be_white
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bit''?s ok(?:ay)? to be white\b|\bIOTBW\b'
+    label_fr: "Campagne « It's OK to be white » (nov. 2017)"
+    label_en: "\"It's OK to be white\" campaign (Nov 2017)"
+    pos: ["It's okay to be white", "IOTBW posters"]
+    neg: ["it's ok to be wrong"]
+  - id: cuck
+    family: pol_culture
+    post_scan: true
+    pattern: '(?i)\bcuck(?:s|ed|old|olds|servatives?|ery)?\b'
+    label_fr: "« Cuck » / « cuckservative »"
+    label_en: "\"Cuck\" / \"cuckservative\""
+    sensitive: true
+    pos: ["cuckservative", "cucked", "cucks"]
+    neg: ["cuckoo"]
+  # ---------------------------------------------------------------- haine (agregats seulement)
+  - id: goyim
+    family: hate
+    post_scan: true
+    pattern: '(?i)\bgoy(?:im|s|ish)?\b'
+    label_fr: "« Goy / goyim » (usage antisémite de /pol/)"
+    label_en: "\"Goy / goyim\" (antisemitic /pol/ usage)"
+    sensitive: true
+    pos: ["the goyim know", "good goy"]
+    neg: ["goya"]
+  - id: happy_merchant
+    family: hate
+    post_scan: true
+    pattern: '(?i)\bhappy merchants?\b|\bmerchant memes?\b|\bremove merchant\b'
+    label_fr: "« Happy merchant » (caricature antisémite)"
+    label_en: "\"Happy merchant\" (antisemitic caricature)"
+    sensitive: true
+    pos: ["happy merchant", "the merchant meme", "remove merchant"]
+    neg: ["merchant navy", "the merchant you bought stuff from"]
+  - id: shekels
+    family: hate
+    post_scan: true
+    pattern: '(?i)\bshekels?\b|\boy ?vey\b|\boy gevalt\b'
+    label_fr: "« Shekels », « oy vey » (tropes antisémites)"
+    label_en: "\"Shekels\", \"oy vey\" (antisemitic tropes)"
+    sensitive: true
+    ambiguous: true
+    note: "« shekel » est aussi la monnaie israelienne : ambigu"
+    pos: ["paid shekels", "oy vey"]
+    neg: ["shekelz"]
+  - id: oven_jokes
+    family: hate
+    post_scan: true
+    pattern: '(?i)\b(?:into|to) the ovens?\b|\boven ?dodgers?\b|\bgas (?:the|all) (?:jews|k[i1]kes)\b'
+    label_fr: "Allusions aux chambres à gaz"
+    label_en: "Gas-chamber allusions"
+    sensitive: true
+    pos: ["into the ovens", "oven dodger"]
+    neg: ["in the oven for 20 minutes"]
+  - id: anti_muslim
+    family: hate
+    post_scan: true
+    pattern: '(?i)\bremove kebab\b|\brapefugees?\b|\beurabia\b|\blondonistan\b|\bwhite sharia\b|\bdeus vult\b|\bno[- ]go zones?\b'
+    label_fr: "Codes antimusulmans (remove kebab, rapefugees, Eurabia…)"
+    label_en: "Anti-Muslim codes (remove kebab, rapefugees, Eurabia…)"
+    sensitive: true
+    pos: ["remove kebab", "rapefugees welcome", "DEUS VULT", "no-go zones"]
+    neg: ["kebab shop"]
+  - id: saint_shooters
+    family: militia
+    post_scan: true
+    pattern: '(?i)\bsaint (?:tarrant|breivik|roof|bowers|earnest|crusius|mcveigh)\b|\bhigh ?scores?\b(?=.{0,40}\b(?:shoot|kill|mosque|synagogue))'
+    label_fr: "Glorification des tueurs (« saint Tarrant », « high score »)"
+    label_en: "Shooter glorification (\"saint Tarrant\", \"high score\")"
+    sensitive: true
+    pos: ["Saint Tarrant", "beat his high score at the mosque"]
+    neg: ["high score in tetris"]
 
 # Theme du lexique -> article Wikipedia (attention du public au theme, analyse de syncretisme).
 theme_wiki:

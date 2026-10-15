@@ -195,7 +195,7 @@ def run_calibrate(ctx):
     attend ensuite l'approbation de l'empreinte du lexique (scene.yaml : lexicon_approved)."""
     from .. import lexicon
     part, final = paths(ctx.state)
-    terms = lexicon.load()
+    terms = lexicon.scanned(lexicon.load())
     fp = lexicon.fingerprint(terms)
     path = calib_path(ctx.state)
     state = json.loads(path.read_text()) if path.exists() else None
@@ -442,7 +442,7 @@ def process_thread(posts, terms, m, qids, drop_posts, acc, q_trips=frozenset()):
 
 def run_scan(ctx):
     from .. import lexicon
-    terms = lexicon.load()
+    terms = lexicon.scanned(lexicon.load())
     fp = lexicon.fingerprint(terms)
     if not approved(terms):
         if db.get_meta(ctx.conn, "pol_scan_waiting") != fp:
