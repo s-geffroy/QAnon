@@ -62,10 +62,12 @@ def crossref():
 
 
 def openalex():
-    out, cursor = [], "*"
-    for _ in range(10):
+    # Titre et resume seulement (le filtre QANON ci-dessous n'en regarde pas plus) ; pagination
+    # simple par numero de page : la pagination par curseur exige desormais une cle d'API (401, constate le 15/10/2026).
+    out = []
+    for page in range(1, 11):
         r = requests.get("https://api.openalex.org/works", headers=UA, timeout=60, params={
-            "search": "qanon", "filter": f"from_publication_date:{SINCE}", "per-page": 200, "cursor": cursor})
+            "filter": f"title_and_abstract.search:qanon,from_publication_date:{SINCE}", "per-page": 200, "page": page})
         r.raise_for_status()
         js = r.json()
         for it in js["results"]:
@@ -82,8 +84,7 @@ def openalex():
                         "year": it.get("publication_year"), "date": it.get("publication_date"), "container": src,
                         "url": it.get("doi") or (it.get("primary_location") or {}).get("landing_page_url") or it["id"],
                         "type": it.get("type"), "abstract": abstract[:2000]})
-        cursor = js["meta"].get("next_cursor")
-        if not js["results"] or not cursor:
+        if len(js["results"]) < 200:
             break
         time.sleep(1)
     return out
