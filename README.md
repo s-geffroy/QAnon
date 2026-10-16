@@ -152,6 +152,10 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
 - **Polices** hebergees avec le site (`src/qanon/site/static/fonts/`, fichiers woff2
   variables de Google Fonts, sous-ensembles latin, latin etendu et grec) : Atkinson
   Hyperlegible Next et Source Serif 4, licence SIL OFL 1.1 (fichiers `OFL-*.txt` a cote).
+- **Bibliotheques de graphiques** hebergees avec le site (`src/qanon/site/static/vendor/`) :
+  vega 5.30.0, vega-lite 5.21.0 et vega-embed 6.26.0 (BSD-3-Clause), fond de carte
+  world-atlas 2.0.2 (ISC), copies a l'identique de npm (empreintes verifiees) ; licences
+  `LICENSE-*.txt` a cote. Le site ne fait plus aucune requete vers un tiers.
 
 Auteur : Sylvain Geffroy. Archive Zenodo : doi:10.5281/zenodo.23338131 (toutes
 versions ; v1.0.0 : doi:10.5281/zenodo.23338132). `CITATION.cff` donne la reference ; chaque chiffre

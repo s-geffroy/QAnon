@@ -247,7 +247,7 @@ def world(countries, lang, field="q", title=None):
     t = T[lang]
     data = [{"id": c["num"], "name": c["name"], "v": c[field]} for c in countries
             if c.get("num") is not None and c[field]]
-    geo = {"url": "https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json",
+    geo = {"url": "../static/vendor/world-atlas-2.0.2-countries-110m.json",
            "format": {"type": "topojson", "feature": "countries"}}
     return _spec(
         height=380, projection={"type": "equalEarth"},

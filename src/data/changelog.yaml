@@ -1,8 +1,8 @@
 # Journal des versions du site (flux RSS et page Citer). Le plus recent en premier.
 entries:
 - date: 2026-10-16
-  fr: "Polices hébergées avec le site (Atkinson Hyperlegible Next, Source Serif 4, licence SIL OFL) : plus aucune requête vers Google Fonts."
-  en: "Typefaces now hosted with the site (Atkinson Hyperlegible Next, Source Serif 4, SIL OFL licence): no more requests to Google Fonts."
+  fr: "Polices (Atkinson Hyperlegible Next, Source Serif 4) et bibliothèques de graphiques (Vega, fond de carte) hébergées avec le site : plus aucune requête vers un tiers."
+  en: "Typefaces (Atkinson Hyperlegible Next, Source Serif 4) and chart libraries (Vega, base map) now hosted with the site: no more third-party requests."
 - date: 2026-10-16
   fr: "Nouvelle interface : quatre rubriques par question du lecteur (Ce que Q a écrit, Face aux faits, Modèles, Ressources), menu mobile, accueil qui confronte une annonce de Q aux faits puis regroupe les constats par question, sommaire latéral sur les pages longues, notes de méthode repliables, polices lisibles (Atkinson Hyperlegible Next, Source Serif 4), typographie française (espaces insécables avant la ponctuation haute et dans les guillemets) sur toutes les pages, les graphiques et le PDF."
   en: "New interface: four sections organised by the reader's question (What Q wrote, Against the facts, Models, Resources), mobile menu, a home page that sets one of Q's claims against the facts and groups findings by question, side contents on long pages, collapsible method notes, legible typefaces (Atkinson Hyperlegible Next, Source Serif 4), French typography (non-breaking spaces before high punctuation and inside quotation marks) on every page, chart and the PDF."
