@@ -269,6 +269,17 @@ def script_json(v):
     return Markup(json.dumps(v, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c"))
 
 
+_LONG = dict(zip(fmt.MONTHS["fr"], ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre",
+                                     "octobre", "novembre", "décembre"]))
+
+
+def long_months(text):
+    """Dates du document de travail en toutes lettres (« 2 oct. 2017 » -> « 2 octobre 2017 ») ; les tableaux gardent
+    la forme abregee."""
+    return re.sub(r"(\d{1,2}) (" + "|".join(re.escape(m) for m in _LONG if m.endswith(".")) + r") (\d{4})",
+                  lambda m: f"{m.group(1)} {_LONG[m.group(2)]} {m.group(3)}", text)
+
+
 def unlabel(text):
     """Note de methode sans son prefixe ("Methode : ...") : le bloc replie porte deja ce titre."""
     out = re.sub(r"^\s*(?:Méthode|Method)\s*:\s*", "", str(text))
@@ -1175,7 +1186,7 @@ class Site:
                      ph_before=hh(sp["before_peak"]), ph_after=hh(sp["after_peak"]), ph_p=n(sp["p"], 3),
                      ph_plv=n(pl.get("plv", 0), 2), ph_lag=n(pl.get("mean_lag_hours", 0)))
         v.update(self._paper_scene(sc, n, p, d) if sc else {})
-        return v
+        return {k: long_months(x) if isinstance(x, str) else x for k, x in v.items()}
 
     def _paper_scene(self, sc, n, p, d):
         """Phrases de la section 4.9, selon ce qui est deja mesure."""
@@ -1203,7 +1214,7 @@ class Site:
             s += "Aucun thème n'a encore assez de mesures de la scène pour être comparé semaine par semaine."
         elif not sig:
             s += (f"Pour les {n(len(ms))} comparaisons hebdomadaires possibles, aucune corrélation ne résiste à la correction "
-                  "pour comparaisons multiples : ni meneur ni suiveur.")
+                  "pour comparaisons multiples. Aucune précédence n'est donc détectée, dans un sens ou dans l'autre, aux échelles testées.")
         else:
             parts = [f"{lead[m['verdict']]} {th['label_fr']} ({src[k.split(':')[0]]}, "
                      f"{n(abs(m['peak_lag_weeks']))} semaine{'s' if abs(m['peak_lag_weeks']) > 1 else ''}, r = {n(m['peak_r'], 2)}, "
@@ -1333,7 +1344,9 @@ class Site:
                    "des fils Q, surtout en novembre 2017 ; les jours ordinaires, par les posts isolés.")
         fam = {c: {r["family"]: r["share"] for r in pol["families"][c]["rows"]} for c in pol["families"]}
         shill = next((x for x in pol.get("added_terms", []) if x["term"] == "shills"), None)
-        s2 += (f" Les codes de haine, surtout antisémites, touchent {p(fam['pol_before'].get('hate', 0), 1)} des posts de /pol/ "
+        v["scene_pol2"] = s2
+        # Second paragraphe de la section : vocabulaire (haine, culture du forum, mots propres aux fils Q).
+        s2 = (f"Les codes de haine, surtout antisémites, touchent {p(fam['pol_before'].get('hate', 0), 1)} des posts de /pol/ "
                f"avant Q et {p(fam['pol_after'].get('hate', 0), 1)} après, {p(fam['q_threads'].get('hate', 0), 1)} des posts des "
                f"fils Q et {p(fam['drops'].get('hate', 0), 1)} des drops."
                + (f" La culture du forum (argot, mèmes, accusations de « shills ») est en revanche plus présente dans les "
@@ -1345,7 +1358,7 @@ class Site:
                + " Les mots les plus caractéristiques des fils Q "
                "[@monroe2008fightin] sont " + ", ".join(f"« {x['token']} »" for x in pol["keyness"]["top"][:10])
                + " : le lexique d'un atelier de déchiffrement, de ses cibles et d'un soupçon permanent d'imposture.")
-        v["scene_pol2"] = s2
+        v["scene_pol3"] = s2
         return v
 
     def fig(self, lang, fid):
