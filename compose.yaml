@@ -19,8 +19,9 @@ services:
       OPENAI_BUDGET_USD: "15"
       # Relecture editoriale (API Editorial Reviewer du VPS) : plafond sur 30 jours.
       REVIEW_BUDGET_USD: "3"
-      # Publication sur GitHub Pages suspendue tant que vaut "1" (relecture de la page Modeles).
-      PUBLISH_HOLD: "1"
+      # Publication sur GitHub Pages suspendue tant que vaut "1" (le temps d'une relecture) ;
+      # levee le 16/10/2026 a la demande du proprietaire.
+      PUBLISH_HOLD: "0"
     volumes:
       - state:/state
     # Lus dans /run/secrets/<nom> par qanon/secrets.py. Fichiers en 0444 sur
