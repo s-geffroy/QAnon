@@ -839,7 +839,9 @@ def pol_toxicity(pol, lang):
         encoding={
             "x": {"field": "month", "type": "temporal", "title": None, "axis": {"format": "%Y", "tickCount": "year"}},
             "y": {"field": "mean", "type": "quantitative", "scale": {"zero": False}, "title": t["pol_tox_axis"]},
-            "color": {"field": "scope", "type": "nominal", "sort": order, "title": None, "legend": _legend(),
+            # Libelles longs : une colonne, sans troncature (lisible aussi sur mobile).
+            "color": {"field": "scope", "type": "nominal", "sort": order, "title": None,
+                      "legend": {**_legend(), "columns": 1, "labelLimit": 0},
                       "scale": {"domain": order, "range": colors}},
             "tooltip": [{"field": "scope", "title": " "}, {"field": "month", "type": "temporal", "format": "%m/%Y", "title": "date"},
                         {"field": "mean", "format": ".3f", "title": t["pol_tox_axis"]}]})

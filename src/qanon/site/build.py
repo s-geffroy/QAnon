@@ -1362,6 +1362,11 @@ class Site:
             today = time.strftime("%Y-%m-%d")
             # Date future (fin d'annee fictive de certaines notices) : on ne garde que l'annee.
             shown = r["date"] if r["date"] and r["date"] <= today else (str(r["year"]) if r["year"] else None)
+            # Notices brutes des API : auteur vide ("; Travis, Justin"), entites deja encodees ("&amp;").
+            from html import unescape
+            r["authors"] = "; ".join(a for a in (x.strip() for x in (r["authors"] or "").split(";")) if a)
+            for k in ("title", "container"):
+                r[k] = unescape(unescape(r[k])) if r.get(k) else r.get(k)
             out.append({**r, "status": status, "ref_id": ref["id"] if ref else None, "review": rv,
                         "shown_date": shown, "in_title": bool(QANON.search(r["title"] or ""))})
         out.sort(key=lambda x: (x["shown_date"] or ""), reverse=True)
@@ -1472,7 +1477,7 @@ class Site:
         from weasyprint import HTML
         html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=VERSION, site_url=SITE_URL,
                                                           doi=ZENODO_CONCEPT)
-        HTML(string=html, base_url=str(out)).write_pdf(out / "data" / "working-paper-fr.pdf")
+        HTML(string=fmt.fr_html(html), base_url=str(out)).write_pdf(out / "data" / "working-paper-fr.pdf")
 
     def page_research(self, lang, c):
         data = load_yaml("research", "sections")
@@ -1722,6 +1727,8 @@ class Site:
             for page in PAGES:
                 ctx = {**base, "page": page, **getattr(self, f"page_{page}")(lang, base)}
                 html = env.get_template(f"{page}.html").render(**ctx)
+                if lang == "fr":
+                    html = fmt.fr_html(html)
                 (out / lang / f"{page}.html").write_text(html)
         (out / "index.html").write_text(env.get_template("root.html").render())
         self.write_paper_pdf(env, out)
@@ -1749,7 +1756,7 @@ class Site:
                 d = dt_rfc(str(e["date"]))
                 items.append((str(e["date"]), f"<item><title>{x(t['feed_update'])} — {x(fmt.date(lang, str(e['date'])))}</title>"
                               f"<link>{SITE_URL}{lang}/index.html</link><guid isPermaLink=\"false\">update-{e['date']}-{db.sha(e['fr'])[:8]}</guid>"
-                              f"<pubDate>{d}</pubDate><description>{x(e[lang])}</description></item>"))
+                              f"<pubDate>{d}</pubDate><description>{x(fmt.fr_typo(e[lang]) if lang == 'fr' else e[lang])}</description></item>"))
             for w in watch:
                 seen = w["first_seen"] or today
                 items.append((seen, f"<item><title>{x(t['feed_watch'])} : {x(w['title'])}</title><link>{x(w['url'])}</link>"
