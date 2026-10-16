@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "niaf": {
+      "type": "http",
+      "url": "https://api.no-ia-footprints.vps.internal/mcp",
+      "headers": {
+        "Authorization": "Bearer ${NOFP_TOKEN}"
+      }
+    }
+  }
+}
