@@ -36,7 +36,7 @@ events:
      source_outlet: "Papasavva & Mariconti, arXiv", source_date: 2023-02-02,
      source_title: "Waiting for Q: An Exploration of QAnon Users' Online Migration to Poal in the Wake of Voat's Demise"}
   - {date: 2018-06-15, id: hoover-dam, category: violence,
-     fr: "Barrage Hoover : un homme armé bloque la route en réclamant un rapport cité par Q",
+     fr: "Au barrage Hoover, un homme armé bloque la route en réclamant un rapport cité par Q",
      en: "Hoover Dam: armed man blocks the road demanding a report cited by Q",
      source: "https://www.buzzfeednews.com/article/skbaer/qanon-believer-arrested-hoover-dam",
      source_outlet: "BuzzFeed News", source_date: 2018-06-17,
@@ -84,7 +84,7 @@ events:
      source_outlet: "NPR", source_date: 2019-04-18,
      source_title: "Redacted Mueller Report Released; Congress, Trump React"}
   - {date: 2019-05-30, id: fbi-bulletin, category: justice,
-     fr: "Bulletin du FBI (Phoenix) : QAnon cité comme menace terroriste intérieure",
+     fr: "Un bulletin du FBI (Phoenix) cite QAnon comme menace terroriste intérieure",
      en: "FBI (Phoenix) bulletin cites QAnon as a domestic terrorism threat",
      source: "https://news.yahoo.com/fbi-documents-conspiracy-theories-terrorism-160000507.html",
      source_outlet: "Yahoo News", source_date: 2019-08-01,
@@ -138,7 +138,7 @@ events:
      source_outlet: "Facebook Newsroom", source_date: 2020-10-06,
      source_title: "An Update to How We Address Movements and Organizations Tied to Violence"}
   - {date: 2020-10-15, id: town-hall, category: politics,
-     fr: "Town hall NBC : Trump refuse de désavouer QAnon",
+     fr: "Trump refuse de désavouer QAnon lors d'un town hall de NBC",
      en: "NBC town hall: Trump declines to disavow QAnon",
      source: "https://www.nbcnews.com/politics/2020-election/live-blog/trump-biden-town-halls-start-time-how-watch-live-updates-n1243511/ncrd1243628",
      source_outlet: "NBC News", source_date: 2020-10-15,

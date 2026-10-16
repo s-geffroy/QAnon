@@ -9,7 +9,7 @@
 {% for s in sheets %}
 <section id="{{ s.id }}" class="sheet">
   <h2>{{ loop.index }}. {{ s.title }}</h2>
-  <p class="note">{{ t.teach_level }}{{ t.colon }}{{ s.level }} · {{ t.teach_duration }}{{ t.colon }}{{ s.duration }}</p>
+  <p class="note">{{ t.teach_meta.format(level=s.level, duration=s.duration) }}</p>
   <h3>{{ t.teach_goals }}</h3><ul>{% for g in s.goals %}<li>{{ g }}</li>{% endfor %}</ul>
   <h3>{{ t.teach_materials }}</h3>{% for p in s.materials %}<p>{{ p }}</p>{% endfor %}
   <h3>{{ t.teach_steps }}</h3><ol>{% for g in s.steps %}<li>{{ g }}</li>{% endfor %}</ol>

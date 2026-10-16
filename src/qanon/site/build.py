@@ -1240,12 +1240,32 @@ class Site:
                             + (" ; les chocs extérieurs datés coïncident avec des événements de la chronologie ("
                                + " ; ".join(f"« {e} »" for e in sorted({e['label_fr'] for x in exo for e in x['events']})) + ")"
                                if exo else "") + ".")
+        cov = sc.get("coverage", {})
+        sampled, active = sum(x["sampled_days"] for x in cov.values()), sum(x["active_days"] for x in cov.values())
+        try:
+            msgs = self.conn.execute("SELECT count(*) FROM reddit_sample").fetchone()[0]
+        except Exception:   # base sans echantillon Reddit
+            msgs = 0
+        if active:
+            v["reddit_sample"] = (f"{n(msgs)} messages, {n(sampled)} jours sur {n(active)} jours actifs"
+                                  if sampled < active else f"{n(msgs)} messages, tous les {n(active)} jours actifs")
         dif = [x for x in sc["diffusion"] if x["term"].startswith("gl:") and x.get("lag_days") is not None and x["q_drops"] >= 8]
         if dif:
-            pos = [x for x in dif if x["lag_days"] > 0]
-            v["scene_diffusion"] = (f"Pour {n(len(pos))} des {n(len(dif))} formules de Q retrouvées dans l'échantillon Reddit, "
-                                    "la première occurrence y est postérieure au premier drop qui l'emploie "
-                                    f"(tableau 3) ; médiane : {n(float(pd.Series([x['lag_days'] for x in dif]).median()))} jours.")
+            # Deux cas : les expressions qui circulaient avant Q (souvent de l'anglais ordinaire) et
+            # les formules qui n'apparaissent sur Reddit qu'apres leur premier drop.
+            neg = sorted((x for x in dif if x["lag_days"] < 0), key=lambda x: x["lag_days"])
+            pos = [x for x in dif if x["lag_days"] >= 0]
+            out = []
+            if neg:
+                ex = ", ".join(f"« {x['label_fr']} »" for x in neg[:3])
+                out.append(f"Le tableau 3 sépare deux cas. Sur les {n(len(dif))} formules de Q retrouvées sur Reddit, "
+                           f"{n(len(neg))} y circulaient déjà avant lui, souvent comme expressions ordinaires de l'anglais ({ex}).")
+            if pos:
+                lags = [x["lag_days"] for x in pos]
+                out.append(f"{'Les ' + n(len(pos)) + ' autres' if neg else 'Les ' + n(len(pos)) + ' formules retrouvées'} "
+                           f"n'y apparaissent qu'après le premier drop qui les emploie, de {n(min(lags))} à {n(max(lags))} jours "
+                           f"plus tard (médiane {n(float(pd.Series(lags).median()))} jours).")
+            v["scene_diffusion"] = " ".join(out)
         pol = self.r["pol"]
         if not pol:
             v["scene_pol"] = ("Le balayage de /pol/ [@papasavva2020raiders], milieu d'origine de Q, est en cours ; ses résultats "
@@ -1312,9 +1332,17 @@ class Site:
                    f"(écart médian {sign(g['q_posts']['diff'])}). La moyenne d'ensemble est tirée vers le bas par le poids "
                    "des fils Q, surtout en novembre 2017 ; les jours ordinaires, par les posts isolés.")
         fam = {c: {r["family"]: r["share"] for r in pol["families"][c]["rows"]} for c in pol["families"]}
+        shill = next((x for x in pol.get("added_terms", []) if x["term"] == "shills"), None)
         s2 += (f" Les codes de haine, surtout antisémites, touchent {p(fam['pol_before'].get('hate', 0), 1)} des posts de /pol/ "
                f"avant Q et {p(fam['pol_after'].get('hate', 0), 1)} après, {p(fam['q_threads'].get('hate', 0), 1)} des posts des "
-               f"fils Q et {p(fam['drops'].get('hate', 0), 1)} des drops. Les mots les plus caractéristiques des fils Q "
+               f"fils Q et {p(fam['drops'].get('hate', 0), 1)} des drops."
+               + (f" La culture du forum (argot, mèmes, accusations de « shills ») est en revanche plus présente dans les "
+                  f"fils Q que sur /pol/ lui-même ({p(fam['q_threads']['pol_culture'], 1)} de leurs posts, contre "
+                  f"{p(fam['pol_before']['pol_culture'], 1)} avant Q et {p(fam['pol_after']['pol_culture'], 1)} après)"
+                  + (f", et « shills » y revient {n(shill['q_threads']['per_m'] / shill['pol_after']['per_m'], 1)} fois "
+                     "plus souvent." if shill and shill['pol_after']['per_m'] else ".")
+                  if 'pol_culture' in fam['q_threads'] else "")
+               + " Les mots les plus caractéristiques des fils Q "
                "[@monroe2008fightin] sont " + ", ".join(f"« {x['token']} »" for x in pol["keyness"]["top"][:10])
                + " : le lexique d'un atelier de déchiffrement, de ses cibles et d'un soupçon permanent d'imposture.")
         v["scene_pol2"] = s2

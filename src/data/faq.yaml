@@ -15,7 +15,7 @@ questions:
   q_fr: "Qu'est-ce qu'un « drop », et combien y en a-t-il ?"
   q_en: "What is a \"drop\", and how many are there?"
   a_fr: |
-    Un message publié par Q. {fig:drops} {fig:jours-actifs} Il n'existe pas de corpus officiel : les collections divergent à la marge [@papasavva2022gospel]. Ce site utilise le corpus JSON-QAnon [@kingsman2021qanon] ([[data]]).
+    Un message publié par Q. {fig:drops} {fig:jours-actifs} Il n'existe pas de corpus officiel et les collections divergent à la marge [@papasavva2022gospel]. Ce site utilise le corpus JSON-QAnon [@kingsman2021qanon] ([[data]]).
   a_en: |
     A post published by Q. {fig:drops} {fig:jours-actifs} There is no official corpus: collections differ at the margins [@papasavva2022gospel]. This site uses the JSON-QAnon corpus [@kingsman2021qanon] ([[data]]).
 
@@ -23,7 +23,7 @@ questions:
   q_fr: "Qui est « Q » ?"
   q_en: "Who is \"Q\"?"
   a_fr: |
-    On ne le sait pas avec certitude. Les études stylométriques concluent à au moins deux plumes successives et proposent des noms, que les intéressés démentent ; leurs auteurs les présentent comme des hypothèses [@cafiero2023who; @orphanalytics2022computational; @kirkpatrick2022who; @storchan2022comment]. {fig:stylometrie} Ce site ne permet pas de distinguer un changement d'auteur d'un changement de plateforme et n'identifie personne ([[discourse]]).
+    On ne le sait pas avec certitude. Les études stylométriques concluent à au moins deux plumes successives et proposent des noms, que les intéressés démentent. Leurs auteurs les présentent comme des hypothèses [@cafiero2023who; @orphanalytics2022computational; @kirkpatrick2022who; @storchan2022comment]. {fig:stylometrie} Ce site ne permet pas de distinguer un changement d'auteur d'un changement de plateforme et n'identifie personne ([[discourse]]).
   a_en: |
     Nobody knows for certain. Stylometric studies conclude there were at least two successive writers and put forward names, which those concerned deny; their authors present them as hypotheses [@cafiero2023who; @orphanalytics2022computational; @kirkpatrick2022who; @storchan2022comment]. {fig:stylometrie} This site cannot tell a change of author from a change of platform and identifies no one ([[discourse]]).
 
@@ -63,7 +63,7 @@ questions:
   q_fr: "Combien de personnes croient à QAnon ?"
   q_en: "How many people believe in QAnon?"
   a_fr: |
-    Cela dépend de la question posée. Aux États-Unis, le soutien déclaré au mouvement reste de l'ordre de 5 à 8 % [@enders2022who; @uscinski2023qanon], mais l'accord avec ses énoncés centraux concerne 14 % des adultes en 2021, 23 % en 2023 et 19 % en 2024 [@prri2021understanding; @prri2023threats; @prri2024rise]. En Allemagne, 12 % de la population adhère au moins en partie à ses récits [@holnburger2022qvadis]. Ce site ne mesure pas l'adhésion : ses données Wikipédia mesurent la curiosité ([[interest]]).
+    Cela dépend de la question posée. Aux États-Unis, le soutien déclaré au mouvement reste de l'ordre de 5 à 8 % [@enders2022who; @uscinski2023qanon], mais l'accord avec ses énoncés centraux concerne 14 % des adultes en 2021, 23 % en 2023 et 19 % en 2024 [@prri2021understanding; @prri2023threats; @prri2024rise]. En Allemagne, 12 % de la population adhère au moins en partie à ses récits [@holnburger2022qvadis]. Ce site ne mesure pas l'adhésion. Ses données Wikipédia mesurent la curiosité ([[interest]]).
   a_en: |
     It depends on the question asked. In the United States, declared support for the movement stays around 5 to 8% [@enders2022who; @uscinski2023qanon], but agreement with its core statements reaches 14% of adults in 2021, 23% in 2023 and 19% in 2024 [@prri2021understanding; @prri2023threats; @prri2024rise]. In Germany, 12% of the population agrees at least in part with its narratives [@holnburger2022qvadis]. This site does not measure support: its Wikipedia data measure curiosity ([[interest]]).
 
@@ -95,7 +95,7 @@ questions:
   q_fr: "Les chiffres de ce site sont-ils fiables ?"
   q_en: "Are this site's figures reliable?"
   a_fr: |
-    Ils sont reproductibles : code, données dérivées et choix de méthode sont publiés ([[method]], [[data]]). Leurs limites sont connues : corpus non canonique, annotation automatique des prédictions mesurée sur un jeu de référence, vérification éditoriale des prédictions, corrélations qui ne prouvent pas de causalité. {fig:modele} Chaque page indique ses précautions.
+    Ils sont reproductibles, puisque code, données dérivées et choix de méthode sont publiés ([[method]], [[data]]). Leurs limites sont connues : corpus non canonique, annotation automatique des prédictions mesurée sur un jeu de référence, vérification éditoriale des prédictions, corrélations qui ne prouvent pas de causalité. {fig:modele} Chaque page indique ses précautions.
   a_en: |
     They are reproducible: code, derived data and methodological choices are published ([[method]], [[data]]). Their limits are known: non-canonical corpus, automatic annotation of predictions measured on a reference set, editorial verification of predictions, correlations that do not prove causation. {fig:modele} Every page states its caveats.
 
@@ -111,6 +111,6 @@ questions:
   q_fr: "Puis-je réutiliser les données et citer ce site ?"
   q_en: "Can I reuse the data and cite this site?"
   a_fr: |
-    Oui : les textes et les données sont sous licence CC BY 4.0 (en citant l'auteur et la source), le code sous licence MIT. Les données sont téléchargeables ([[data]]), chaque résultat a sa propre citation ([[figures]]) et la page [[cite]] donne la référence du site et son BibTeX.
+    Oui. Les textes et les données sont sous licence CC BY 4.0 (en citant l'auteur et la source), le code sous licence MIT. Les données sont téléchargeables ([[data]]), chaque résultat a sa propre citation ([[figures]]) et la page [[cite]] donne la référence du site et son BibTeX.
   a_en: |
     Yes: texts and data are under the CC BY 4.0 licence (crediting the author and the source), the code under the MIT licence. Data are downloadable ([[data]]), every result has its own citation ([[figures]]) and the [[cite]] page gives the site's reference and BibTeX.

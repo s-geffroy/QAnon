@@ -104,6 +104,11 @@ def births(conn, d, terms):
         row["status"] = ("no_onset" if on is None else "before_q" if on < BASE_END else "about_q" if fq is None else
                          "pol_first" if row["lag_days"] < -7 else "q_first")
         rows.append(row)
+    # Un terme du glossaire englobe par un terme plus large de la scene (« calm before the storm »
+    # dans CBTS, WWG1WGA dans ses variantes) raconte la meme naissance : on ne le compte qu'une fois.
+    same = lambda r, o: (o is not r and not o["term"].startswith("gl:") and o["onset_week"] == r["onset_week"]
+                         and o["first_q"] == r["first_q"] and o["pol_posts"] >= r["pol_posts"])
+    rows = [r for r in rows if not (r["term"].startswith("gl:") and r["onset_week"] and any(same(r, o) for o in rows))]
     return sorted(rows, key=lambda r: (r["onset_week"] or "9999", -r["pol_posts"]))
 
 

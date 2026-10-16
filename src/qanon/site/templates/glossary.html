@@ -8,7 +8,7 @@
   <div class="term" id="{{ g.id }}">
     <dt>{{ g.term }}{% if g.expansion %} <span class="expansion">{{ g.expansion }}</span>{% endif %}</dt>
     <dd>{{ g.definition }}
-      <p class="meta">{{ t.col_drops }} : {{ g.n }}{% if g.first %} · {{ t.col_first_use }} : {{ g.first }} ({{ t.drop_no }}{{ g.first_id }}){% endif %}{% if g.source %} · <a href="{{ g.source }}">{{ t.source }}</a>{% endif %}</p>
+      <p class="meta">{{ t.gl_meta_n.format(n=g.n) }}{% if g.first %} · {{ t.gl_meta_first.format(date=g.first, id=g.first_id) }}{% endif %}{% if g.source %} · <a href="{{ g.source }}">{{ t.source }}</a>{% endif %}</p>
     </dd>
   </div>
 {% endfor %}

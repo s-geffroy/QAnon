@@ -8,7 +8,7 @@
 {% for f in figs %}
   <li class="fig" id="{{ f.id }}">
     <p class="fig-text">{{ f.text }}</p>
-    <p class="fig-meta"><a href="{{ f.page }}.html">{{ t.fig_source }}{{ t.colon }}{{ t["nav_" ~ ("home" if f.page == "index" else f.page)] }}</a> · <a href="#{{ f.id }}">#{{ f.id }}</a></p>
+    <p class="fig-meta"><a href="{{ f.page }}.html">{{ t.fig_source_page.format(page=t["nav_" ~ ("home" if f.page == "index" else f.page)]) }}</a> · <a href="#{{ f.id }}">#{{ f.id }}</a></p>
     <div class="fig-cite"><code>{{ f.citation }}</code><button type="button" class="copy" data-copied="{{ t.fig_copied }}">{{ t.fig_copy }}</button></div>
   </li>
 {% endfor %}
