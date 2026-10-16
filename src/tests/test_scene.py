@@ -161,3 +161,42 @@ def test_review_holds_while_publication_is_held(tmp_path, monkeypatch):
     assert review.run(Ctx()) is None
     assert db.get_meta(conn, "review_hold_logged") == "1"
     assert conn.execute("SELECT count(*) FROM editorial_review").fetchone()[0] == 0
+
+
+def test_review_waits_while_reviewer_is_stopped(tmp_path, monkeypatch):
+    """Application Reviewer arretee : l'etape attend (None), sans echec ni soumission, journalise
+    l'arret une fois et ne reinterroge /health qu'apres DOWN_RECHECK."""
+    from qanon import db, review
+    from qanon.site import build
+    conn = db.connect(tmp_path / "t.db")
+    calls = []
+
+    class Ctx:
+        state, out = tmp_path, None
+        def __init__(self):
+            self.conn = conn
+        def should_yield(self):
+            return False
+        def set_output(self, v):
+            self.out = v
+
+    class Resp:
+        status_code = 404
+
+    class Down:
+        def get(self, url, **kw):
+            calls.append(url)
+            return Resp()
+        def post(self, url, **kw):
+            raise AssertionError(f"soumission alors que l'API est arretee : {url}")
+
+    monkeypatch.setattr(build, "Site", lambda state, conn: None)
+    monkeypatch.setattr(review, "texts", lambda site: {"paper": "texte modifie"})
+    monkeypatch.setattr(review.requests, "Session", Down)
+    monkeypatch.delenv("PUBLISH_HOLD", raising=False)
+    assert review.run(Ctx()) is None
+    assert db.get_meta(conn, "review_api_down") == "1"
+    assert calls == [f"{review.API}/health"]
+    assert review.run(Ctx()) is None          # dans les 30 min : aucun appel
+    assert len(calls) == 1
+    assert conn.execute("SELECT count(*) FROM editorial_review").fetchone()[0] == 0

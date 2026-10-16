@@ -65,7 +65,9 @@ ensemble. Ne bricole jamais les labels a la main.
   Exception autorisee par le proprietaire (13/10/2026) : l'API Editorial Reviewer
   (`https://app.reviewer.vps.internal/api/v1`, tailnet), appelee par l'etape
   `editorial_review` (profil `balanced`, plafond `REVIEW_BUDGET_USD`). Chaque
-  revue est payante : ne jamais en lancer en boucle ni « pour voir ».
+  revue est payante : ne jamais en lancer en boucle ni « pour voir ». L'application
+  Reviewer est souvent arretee, et c'est normal : l'etape attend alors son retour
+  (log « API Editorial Reviewer arretee »), ce n'est pas une panne a corriger.
 
 ## Interdictions (appctl les refuse)
 

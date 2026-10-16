@@ -12,7 +12,9 @@ de travail, etat de la recherche, FAQ, kit pedagogique) :
 - les rapports sont gardes dans /state/reviews (ils expirent cote API apres 24 h) ;
 - tant que la publication est suspendue (PUBLISH_HOLD), aucun texte nouveau n'est
   soumis, meme a l'audit : la relecture humaine passe d'abord, la revue payante
-  ensuite, une seule fois, sur le texte final.
+  ensuite, une seule fois, sur le texte final ;
+- l'application Reviewer peut etre arretee (c'est normal) : l'etape attend alors son
+  retour (/health interroge au plus toutes les 30 min), sans echec, et reprend seule.
 Les revues ne modifient aucun texte : leurs objectifs de revision sont appliques
 ou refuses par un humain."""
 import datetime as dt
@@ -31,6 +33,7 @@ from .log import log
 API = os.environ.get("REVIEWER_URL", "https://app.reviewer.vps.internal/api/v1")
 PROFILE = "balanced"
 MIN_DAYS = 7
+DOWN_RECHECK = 1800              # API arretee : nouvel essai de /health au plus toutes les 30 min
 BUDGET_USD = float(os.environ.get("REVIEW_BUDGET_USD", "3"))
 COST_PER_1500_WORDS = 0.20       # ordre de grandeur mesure pour « balanced »
 CONSTRAINTS = [
@@ -110,12 +113,42 @@ def save(ctx, doc, row_sha, payload):
 
 def run(ctx):
     from .site.build import Site
+    # API arretee au dernier essai, il y a moins de DOWN_RECHECK : rien a faire, pas meme les textes.
+    if db.get_meta(ctx.conn, "review_api_down") == "1" and \
+            time.time() - float(db.get_meta(ctx.conn, "review_api_checked") or 0) < DOWN_RECHECK:
+        return None
     site = Site(ctx.state, ctx.conn)
     docs = texts(site)
     conn = ctx.conn
     s = requests.Session()
     pending = held = 0
     hold = os.environ.get("PUBLISH_HOLD", "") not in ("", "0")
+    up = {}
+
+    def api_up():
+        """L'application Reviewer peut etre arretee, et c'est normal : on attend qu'elle revienne
+        (une ligne de log a l'arret, une a la reprise), sans echec ni nouvel essai rapproche."""
+        if "ok" not in up:
+            # Arretee au dernier essai : on ne la reinterroge qu'apres DOWN_RECHECK secondes.
+            last = float(db.get_meta(conn, "review_api_checked") or 0)
+            if db.get_meta(conn, "review_api_down") == "1" and time.time() - last < DOWN_RECHECK:
+                up["ok"] = False
+                return False
+            db.set_meta(conn, "review_api_checked", str(int(time.time())))
+            conn.commit()
+            try:
+                up["ok"] = s.get(f"{API}/health", timeout=30).status_code == 200
+            except requests.RequestException:
+                up["ok"] = False
+            was_down = db.get_meta(conn, "review_api_down") == "1"
+            if up["ok"] == was_down:
+                db.set_meta(conn, "review_api_down", "0" if up["ok"] else "1")
+                conn.commit()
+                log("relecture : API Editorial Reviewer de nouveau disponible" if up["ok"] else
+                    "relecture : API Editorial Reviewer arretee (/health ne repond pas) ; revues en attente, "
+                    "reprise automatique a son retour")
+        return up["ok"]
+
     for doc, text in docs.items():
         if ctx.should_yield():
             return False
@@ -125,11 +158,11 @@ def run(ctx):
         # « expired » de moins de 24 h : peut-etre un faux 404 (liste d'IP), on reprend le suivi.
         if row and (row["status"] in ("queued", "started")
                     or (row["status"] == "expired" and time.time() - row["submitted_at"] < 86400)):
+            # API arretee (ou adresse refusee : Traefik repond alors 404 a tout) : le travail en
+            # cours est conserve, son suivi reprendra au retour de l'API.
+            if not api_up():
+                return None
             r = s.get(f"{API}/reviews/{row['job_id']}", timeout=60)
-            if r.status_code == 404 and s.get(f"{API}/health", timeout=30).status_code != 200:
-                # La liste d'IP de Traefik repond 404 a tout : ce n'est pas le travail qui manque.
-                raise RuntimeError("API Editorial Reviewer inaccessible (404 sur /health : adresse refusee par la "
-                                   "liste d'IP) ; travaux en cours conserves")
             if r.status_code == 404 and time.time() - row["submitted_at"] < 86400:
                 pending += 1
                 log(f"relecture {doc} : travail {row['job_id']} introuvable pour l'instant, nouveau suivi au cycle suivant")
@@ -165,6 +198,8 @@ def run(ctx):
         if hold:
             held += 1
             continue
+        if not api_up():
+            return None
         # 3. Audit gratuit du nouveau texte.
         audit = s.post(f"{API}/audit", json={"text": text, "language": "fr"}, timeout=120)
         audit.raise_for_status()
