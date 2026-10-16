@@ -1523,7 +1523,7 @@ class Site:
                   "novembre", "décembre"]
         d, mo, y = m["date"].split()
         iso = f"{y}-{months.index(mo) + 1:02d}-{int(d):02d}"
-        pdf = f"{SITE_URL}data/working-paper-fr.pdf"
+        pdf = f"{SITE_URL}data/{latex.PAPER_FILE}.pdf"
         # Balises lues par Google Scholar (Highwire) et notice schema.org du document
         scholar = {"title": m["title"], "author": m["author"], "publication_date": iso.replace("-", "/"),
                    "pdf_url": pdf, "language": "fr", "doi": ZENODO_CONCEPT, "technical_report_institution": "Zenodo",
@@ -1536,7 +1536,7 @@ class Site:
                    "identifier": f"https://doi.org/{ZENODO_CONCEPT}", "sameAs": f"https://doi.org/{ZENODO_CONCEPT}",
                    "license": "https://creativecommons.org/licenses/by/4.0/"}
         # Une seule page porte les balises Scholar (texte integral francais), pour eviter un doublon.
-        return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article}
+        return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article, "paper_file": latex.PAPER_FILE}
 
     def write_paper_pdf(self, env, out):
         pp = self.paper()
@@ -1545,7 +1545,7 @@ class Site:
         from weasyprint import HTML
         html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=VERSION, site_url=SITE_URL,
                                                           doi=ZENODO_CONCEPT)
-        HTML(string=fmt.fr_html(html), base_url=str(out)).write_pdf(out / "data" / "working-paper-fr.pdf")
+        HTML(string=fmt.fr_html(html), base_url=str(out)).write_pdf(out / "data" / f"{latex.PAPER_FILE}.pdf")
 
     def page_research(self, lang, c):
         data = load_yaml("research", "sections")
@@ -1750,9 +1750,9 @@ class Site:
             add("bibliography.bib", "Bibliographie au format BibTeX.", "Bibliography in BibTeX format.")
             add("bibliography.json", "Bibliographie au format CSL-JSON (Zotero, Pandoc).", "Bibliography in CSL-JSON (Zotero, Pandoc).")
         if latex.write(self, d):
-            add("working-paper-fr.tex", "Document de travail au format LaTeX (biblatex, avec bibliography.bib).",
+            add(f"{latex.PAPER_FILE}.tex", "Document de travail au format LaTeX (biblatex, avec bibliography.bib).",
                 "Working paper in LaTeX (biblatex, with bibliography.bib).")
-            add("working-paper-fr-latex.zip", "Document de travail, version LaTeX complète : source, bibliographie, figures en PDF.",
+            add(f"{latex.PAPER_FILE}-latex.zip", "Document de travail, version LaTeX complète : source, bibliographie, figures en PDF.",
                 "Working paper, complete LaTeX version: source, bibliography, PDF figures.")
         gold = APP_DIR / "data" / "gold.jsonl"
         if gold.exists():

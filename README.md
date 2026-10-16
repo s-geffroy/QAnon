@@ -1,6 +1,29 @@
-# qanon
+# Les drops de Q à l'épreuve des faits / Q drops checked against the facts
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23338131.svg)](https://doi.org/10.5281/zenodo.23338131)
+
+Étude statistique des 4 966 messages de « Q » (2017-2022), à l'origine de QAnon,
+confrontés à l'actualité réelle : prédictions vérifiées une à une, tweets de Trump,
+actualité mondiale (GDELT), intérêt du public, scène complotiste et /pol/.
+
+*A statistical study of the 4,966 "Q" posts (2017–2022) behind QAnon, checked
+against real-world events: predictions verified one by one, Trump's tweets, world
+news (GDELT), public interest, the conspiracy scene and /pol/.*
+
+- **Site (FR/EN)** : [s-geffroy.github.io/QAnon](https://s-geffroy.github.io/QAnon/)
+  ([français](https://s-geffroy.github.io/QAnon/fr/index.html), [English](https://s-geffroy.github.io/QAnon/en/index.html))
+- **Document de travail / working paper** : [en ligne](https://s-geffroy.github.io/QAnon/fr/paper.html),
+  [PDF](https://s-geffroy.github.io/QAnon/data/geffroy-2026-qanon-drops-de-q-epreuve-des-faits.pdf)
+- **Prédictions vérifiées / checked predictions** : [page](https://s-geffroy.github.io/QAnon/fr/predictions.html)
+- **Données ouvertes / open data** : [page](https://s-geffroy.github.io/QAnon/fr/data.html)
+- **Pour enseigner / teaching** : [séances prêtes](https://s-geffroy.github.io/QAnon/fr/teaching.html)
+- **Citer / cite** : Geffroy, S. (2026). *Les drops de Q à l'épreuve des faits.*
+  doi:[10.5281/zenodo.23338131](https://doi.org/10.5281/zenodo.23338131) (voir `CITATION.cff`)
+- **Licences** : code MIT (`LICENSE`), contenus, données et site CC BY 4.0 (`LICENSE-CC-BY-4.0`)
+
+La suite de ce fichier documente le worker qui calcule et publie le site.
+
+## Le worker
 
 Worker heberge sur le VPS multi-applications : du travail de fond, **aucune
 surface HTTP**.

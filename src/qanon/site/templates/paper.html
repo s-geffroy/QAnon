@@ -9,8 +9,8 @@
   <p class="lead">{{ pp.meta.subtitle }}</p>
   <p class="paper-meta">{{ pp.meta.author }}, {{ pp.meta.version | lower }}, {{ pp.meta.date }}</p>
   <ul class="paper-actions">
-    <li><a href="../data/working-paper-fr.pdf">PDF</a></li>
-    <li><a href="../data/working-paper-fr-latex.zip">LaTeX</a></li>
+    <li><a href="../data/{{ paper_file }}.pdf">PDF</a></li>
+    <li><a href="../data/{{ paper_file }}-latex.zip">LaTeX</a></li>
     <li><a href="https://doi.org/{{ t.paper_doi }}">doi:{{ t.paper_doi }}</a></li>
   </ul>
   {% if lang == "en" %}

@@ -3,7 +3,7 @@
 depuis les tableaux HTML de paper_block, pour n'en garder qu'une definition), figures en
 PDF vectoriel, citations biblatex (authoryear) vers bibliography.bib.
 
-Sorties dans data/ : working-paper-fr.tex et working-paper-fr-latex.zip (tex, bib, figures,
+Sorties dans data/ : <PAPER_FILE>.tex et <PAPER_FILE>-latex.zip (tex, bib, figures,
 mode d'emploi). Compilation : pdflatex, biber, pdflatex, pdflatex."""
 import io
 import re
@@ -196,28 +196,31 @@ def build(site):
     return tex, figures
 
 
+# Nom des fichiers du document (PDF, tex, zip) : auteur, annee, sujet, titre.
+PAPER_FILE = "geffroy-2026-qanon-drops-de-q-epreuve-des-faits"
+
 README = """Document de travail « Les drops de Q a l'epreuve des faits » : version LaTeX.
 
 Genere automatiquement a partir de data/paper/paper-fr.md (depot s-geffroy/QAnon) ; les
 chiffres, tableaux et figures sont ceux du dernier calcul. Licence CC BY 4.0.
 
 Compilation (TeX Live ou MiKTeX, avec biber) :
-  pdflatex working-paper-fr
-  biber working-paper-fr
-  pdflatex working-paper-fr
-  pdflatex working-paper-fr
-"""
+  pdflatex {f}
+  biber {f}
+  pdflatex {f}
+  pdflatex {f}
+""".format(f=PAPER_FILE)
 
 
 def write(site, d):
-    """Ecrit data/working-paper-fr.tex et data/working-paper-fr-latex.zip ; vrai si fait."""
+    """Ecrit data/<PAPER_FILE>.tex et data/<PAPER_FILE>-latex.zip ; vrai si fait."""
     res = build(site)
     if not res:
         return False
     tex, figures = res
-    (d / "working-paper-fr.tex").write_text(tex)
-    with zipfile.ZipFile(d / "working-paper-fr-latex.zip", "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("working-paper-fr.tex", tex)
+    (d / f"{PAPER_FILE}.tex").write_text(tex)
+    with zipfile.ZipFile(d / f"{PAPER_FILE}-latex.zip", "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr(f"{PAPER_FILE}.tex", tex)
         z.writestr("bibliography.bib", biblio.bibfile())
         z.writestr("LISEZMOI.txt", README)
         for name, data in figures.items():
