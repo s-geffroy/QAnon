@@ -13,10 +13,10 @@
   </ul>
   {% if lang == "en" %}
   <h2>Abstract</h2>
-  <p>{{ pp.meta.abstract_en }}</p>
+  {% for para in pp.meta.abstract_en.strip().split('\n\n') %}<p>{{ para }}</p>{% endfor %}
   <p class="note">{{ t.paper_fr_only }}</p>
   {% else %}
-  <details><summary>Abstract (English)</summary><p>{{ pp.meta.abstract_en }}</p></details>
+  <details><summary>Abstract (English)</summary>{% for para in pp.meta.abstract_en.strip().split('\n\n') %}<p>{{ para }}</p>{% endfor %}</details>
   {{ pp.html }}
   <h2>Références</h2>
   <ol class="bib paper-refs">{% for r in pp.refs %}

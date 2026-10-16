@@ -189,7 +189,7 @@ def build(site):
         r"\date{" + inline(f"{meta.get('version', '')} · {meta.get('date', '')}") + "}",
         r"\begin{document}", r"\maketitle",
         r"\begin{center}\small " + r"\url{" + SITE_URL + "} · doi:" + esc(ZENODO_CONCEPT) + r" · Licence CC BY 4.0\end{center}",
-        r"\begin{abstract}\begin{otherlanguage}{english}\noindent\textbf{Abstract.} " + inline(meta["abstract_en"].strip())
+        r"\begin{abstract}\begin{otherlanguage}{english}\noindent\textbf{Abstract.} " + "\n\n".join(inline(x) for x in meta["abstract_en"].strip().split("\n\n"))
         + r"\end{otherlanguage}\end{abstract}"])
     tex = head + "\n\n" + "\n\n".join(p for p in parts if p) + "\n\n" + \
         r"\printbibliography[title={Références}]" + "\n" + r"\end{document}" + "\n"

@@ -9,6 +9,7 @@ h3 { font: bold 11pt "DejaVu Sans", sans-serif; margin: 12pt 0 4pt; text-align: 
 .sub { font: 12pt "DejaVu Sans", sans-serif; color: #444; margin: 0 0 10pt; text-align: left; }
 .meta { font: 9.5pt "DejaVu Sans", sans-serif; color: #444; margin-bottom: 14pt; text-align: left; }
 .abstract { border-top: .6pt solid #999; border-bottom: .6pt solid #999; padding: 6pt 0; margin: 10pt 0 14pt; font-size: 9.8pt; }
+.abstract p { margin: 0 0 4pt; } .abstract p:last-child { margin-bottom: 0; }
 a { color: #1d4f91; text-decoration: none; }
 .cite a { color: #111; }
 table.paper-table { border-collapse: collapse; width: 100%; font: 8.5pt "DejaVu Sans", sans-serif; margin: 8pt 0 12pt; }
@@ -24,7 +25,7 @@ ol.refs li { margin: 0 0 4pt; padding-left: 14pt; text-indent: -14pt; }
 <h1>{{ pp.meta.title }}</h1>
 <p class="sub">{{ pp.meta.subtitle }}</p>
 <p class="meta"><strong>{{ pp.meta.author }}</strong><br>{{ site_url }} · doi:{{ doi }} · Licence CC BY 4.0</p>
-<div class="abstract"><strong>Abstract.</strong> {{ pp.meta.abstract_en }}</div>
+<div class="abstract">{% for para in pp.meta.abstract_en.strip().split('\n\n') %}<p>{% if loop.first %}<strong>Abstract.</strong> {% endif %}{{ para }}</p>{% endfor %}</div>
 {{ pp.html }}
 <h2>Références</h2>
 <ol class="refs">{% for r in pp.refs %}
