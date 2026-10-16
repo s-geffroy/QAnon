@@ -77,7 +77,7 @@ main section { scroll-margin-top: 1rem; }
 
 /* ------------------------------------------------------------------ en-tete et menus */
 .site-head { border-bottom: 1px solid var(--rule); background: var(--surface); position: relative; z-index: 5; }
-.head-row { display: flex; align-items: center; gap: 1.5rem; min-height: 3.75rem; }
+.head-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; min-height: 3.75rem; }
 .brand { font-weight: 700; font-size: 1.0625rem; line-height: 1.2; color: var(--ink); text-decoration: none; margin-right: auto; white-space: nowrap; }
 .brand:hover { text-decoration: underline; }
 .site-nav { display: flex; gap: .25rem; align-items: center; }
@@ -107,21 +107,20 @@ main section { scroll-margin-top: 1rem; }
 .menu-btn { font-size: .95rem; font-weight: 600; background: none; color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: .4rem .8rem; cursor: pointer; }
 .menu-btn[aria-expanded="true"] { background: var(--surface-2); }
 
-/* Sous 64rem, les quatre menus ne tiennent plus sur la ligne du titre : bouton Menu. Le lien
-   de langue passe alors dans le panneau, le titre garde toute la ligne. */
-@media (max-width: 64rem) {
-  .head-row { flex-wrap: wrap; gap: .5rem 1rem; padding-block: .6rem; }
-  .brand { flex: 1 1 0; min-width: 0; font-size: clamp(.9rem, 3.4vw, 1.0625rem); overflow: hidden; text-overflow: ellipsis; }
-  .menu-btn { order: 2; }
-  .site-nav { order: 3; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: .5rem; }
-  .site-nav[data-js]:not(.open), .site-nav[data-js]:not(.open) ~ .lang { display: none; }
-  .lang { order: 4; margin: 0 0 .6rem; }
-  .nav-group { border-top: 1px solid var(--rule); }
-  .nav-group > summary { padding: .75rem .1rem; font-size: 1rem; font-weight: 600; color: var(--ink); justify-content: space-between; }
-  .nav-group[data-current] > summary { box-shadow: none; }
-  .nav-group ul { position: static; box-shadow: none; border: 0; padding: 0 0 .5rem; min-width: 0; background: none; }
-  .nav-group li a { padding: .5rem .6rem; }
-}
+/* Barre compacte : quand le titre, les quatre menus et la langue ne tiennent pas sur une ligne
+   (largeur, zoom, police du navigateur), nav.js pose .compact : bouton Menu, lien de langue dans
+   le panneau. Sans JavaScript, la barre passe simplement a la ligne. */
+.site-head.compact .head-row { flex-wrap: wrap; gap: .5rem 1rem; padding-block: .6rem; }
+.site-head.compact .brand { flex: 1 1 0; min-width: 0; font-size: clamp(.9rem, 3.4vw, 1.0625rem); overflow: hidden; text-overflow: ellipsis; }
+.site-head.compact .menu-btn { order: 2; }
+.site-head.compact .site-nav { order: 3; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: .5rem; }
+.site-head.compact .site-nav[data-js]:not(.open), .site-head.compact .site-nav[data-js]:not(.open) ~ .lang { display: none; }
+.site-head.compact .lang { order: 4; margin: 0 0 .6rem; }
+.site-head.compact .nav-group { border-top: 1px solid var(--rule); }
+.site-head.compact .nav-group > summary { padding: .75rem .1rem; font-size: 1rem; font-weight: 600; color: var(--ink); justify-content: space-between; }
+.site-head.compact .nav-group[data-current] > summary { box-shadow: none; }
+.site-head.compact .nav-group ul { position: static; box-shadow: none; border: 0; padding: 0 0 .5rem; min-width: 0; background: none; }
+.site-head.compact .nav-group li a { padding: .5rem .6rem; }
 
 /* ------------------------------------------------------------------ accueil */
 .home > .hero { margin: 2.5rem 0 1rem; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.5rem 3rem; align-items: end; }

@@ -1719,6 +1719,9 @@ class Site:
         if out.exists():
             shutil.rmtree(out)
         shutil.copytree(HERE / "static", out / "static")
+        # Empreinte de chaque fichier dans son adresse (style.css?v=...) : une nouvelle version n'est
+        # jamais masquee par le cache du navigateur (GitHub Pages : max-age=600).
+        env.globals["v"] = {p.name: db.sha(p.read_bytes())[:10] for p in (out / "static").iterdir() if p.is_file()}
         (out / ".nojekyll").write_text("")
         self.export(out)
         for lang in T:

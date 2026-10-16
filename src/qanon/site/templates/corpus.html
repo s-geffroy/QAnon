@@ -19,5 +19,5 @@
 <script type="application/json" id="c-labels">{{ {"drop": t.drop_no, "pred": t.corpus_npred, "images": t.corpus_images, "verdicts": {"fulfilled": t.vd_fulfilled, "partial": t.vd_partial, "not_fulfilled": t.vd_not_fulfilled, "unverifiable": t.vd_unverifiable, "not_a_prediction": t.vd_not_a_prediction}, "empty": t.corpus_empty, "lang": lang} | tojson_compact }}</script>
 {% endblock %}
 {% block scripts %}
-<script src="../static/corpus.js"></script>
+<script src="../static/corpus.js?v={{ v['corpus.js'] }}"></script>
 {% endblock %}
