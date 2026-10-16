@@ -37,13 +37,13 @@ events:
      source_title: "Waiting for Q: An Exploration of QAnon Users' Online Migration to Poal in the Wake of Voat's Demise"}
   - {date: 2018-06-15, id: hoover-dam, category: violence,
      fr: "Au barrage Hoover, un homme armé bloque la route en réclamant un rapport cité par Q",
-     en: "Hoover Dam: armed man blocks the road demanding a report cited by Q",
+     en: "Armed man blocks the road at Hoover Dam, demanding a report cited by Q",
      source: "https://www.buzzfeednews.com/article/skbaer/qanon-believer-arrested-hoover-dam",
      source_outlet: "BuzzFeed News", source_date: 2018-06-17,
      source_title: "An Armed Man Spouting A Bizarre Right-Wing Conspiracy Theory Was Arrested After A Standoff At The Hoover Dam"}
   - {date: 2018-07-31, id: tampa-rally, category: politics,
      fr: "Meeting Trump à Tampa : premières pancartes « Q » très médiatisées",
-     en: "Trump rally in Tampa: first widely covered \"Q\" signs",
+     en: "First widely covered \"Q\" signs at a Trump rally in Tampa",
      source: "https://edition.cnn.com/2018/08/01/us/youtube-qanon-8chan-conspiracy-theory-trnd/index.html",
      source_outlet: "CNN", source_date: 2018-08-01,
      source_title: "From 8chan to YouTube and Trump rallies: how a right-wing conspiracy theory is going mainstream"}
@@ -139,7 +139,7 @@ events:
      source_title: "An Update to How We Address Movements and Organizations Tied to Violence"}
   - {date: 2020-10-15, id: town-hall, category: politics,
      fr: "Trump refuse de désavouer QAnon lors d'un town hall de NBC",
-     en: "NBC town hall: Trump declines to disavow QAnon",
+     en: "Trump declines to disavow QAnon at an NBC town hall",
      source: "https://www.nbcnews.com/politics/2020-election/live-blog/trump-biden-town-halls-start-time-how-watch-live-updates-n1243511/ncrd1243628",
      source_outlet: "NBC News", source_date: 2020-10-15,
      source_title: "Trump dodges QAnon question: 'I know nothing about QAnon'"}

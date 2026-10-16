@@ -23,7 +23,7 @@ terms:
   term: "The Great Awakening"
   pattern: '(?i)\bgreat awakening\b'
   def_fr: "Moment attendu où le public « s'éveillerait » à la vérité sur l'État profond. Le terme désigne aussi la diffusion des informations de Q depuis octobre 2017, que les adeptes voient comme une opération de renseignement destinée à réveiller les Américains."
-  def_en: "The expected moment when the public 'wakes up' to the truth about the Deep State; also refers to Q's dissemination of information since October 2017, seen by followers as an intelligence operation to awaken Americans."
+  def_en: "The expected moment when the public 'wakes up' to the truth about the Deep State. It also refers to Q's dissemination of information since October 2017, seen by followers as an intelligence operation to awaken Americans."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: wwg1wga
@@ -38,7 +38,7 @@ terms:
   term: "Trust the plan"
   pattern: '(?i)\btrust the plan\b'
   def_fr: "Injonction de Q à faire confiance au « plan » secret contre l'État profond, y compris lorsque les événements semblent le contredire. Elle sert à absorber les échecs et les prédictions non réalisées."
-  def_en: "Q's injunction to trust the secret 'plan' against the Deep State even when events seem to contradict it; it serves to absorb setbacks and failed predictions."
+  def_en: "Q's injunction to trust the secret 'plan' against the Deep State even when events seem to contradict it. It serves to absorb setbacks and failed predictions."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: the-plan
@@ -59,14 +59,14 @@ terms:
   term: "Cabal"
   pattern: '(?i)\bcabal\b'
   def_fr: "Groupe occulte d'élites censé contrôler le monde et se livrer à des crimes pédocriminels et sataniques. Le terme est omniprésent chez les adeptes mais absent des drops eux-mêmes."
-  def_en: "Shadowy group of elites said to control the world and commit paedophile and satanic crimes; ubiquitous among followers but absent from the drops themselves."
+  def_en: "Shadowy group of elites said to control the world and commit paedophile and satanic crimes. Ubiquitous among followers, it is absent from the drops themselves."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: drops
   term: "Drops"
   pattern: '(?i)\b(?:Q[ -]?)?drops\b|\bQ[ -]?drop\b'
   def_fr: "Nom donné aux messages publiés par Q sur 4chan, 8chan puis 8kun, ensuite recopiés sur des sites agrégateurs et les réseaux sociaux. Ce sont souvent des questions rhétoriques ou des énoncés cryptiques."
-  def_en: "Name for the posts Q made on 4chan, 8chan and then 8kun, later reposted on aggregator sites and social media; often rhetorical questions or cryptic statements."
+  def_en: "Name for the posts Q made on 4chan, 8chan and then 8kun, later reposted on aggregator sites and social media. They are often rhetorical questions or cryptic statements."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: crumbs
@@ -80,7 +80,7 @@ terms:
   term: "Anons"
   pattern: '(?i)\banons?\b'
   def_fr: "Abréviation d'« anonymous » qui désigne les utilisateurs anonymes des imageboards, puis les adeptes de Q qui dissèquent les drops. Q s'adresse souvent directement à eux."
-  def_en: "Short for 'anonymous': anonymous imageboard users, then Q followers who dissect the drops; Q often addresses them directly."
+  def_en: "Short for 'anonymous': anonymous imageboard users, then Q followers who dissect the drops. Q often addresses them directly."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: bakers-bread
@@ -94,70 +94,70 @@ terms:
   term: "Deltas"
   pattern: '(?i)\bdeltas?\b'
   def_fr: "Écarts de temps entre un drop et un tweet de Trump, que les adeptes interprètent comme la preuve d'une coordination entre Q et Trump. Q emploie lui-même le mot (« Delta relevant », décembre 2017). Aucune coordination n'a été démontrée."
-  def_en: "Time gaps between a drop and a Trump tweet, read by followers as proof that Q and Trump were coordinating; Q itself used the word ('Delta relevant', December 2017). No coordination has been demonstrated."
+  def_en: "Time gaps between a drop and a Trump tweet, read by followers as proof that Q and Trump were coordinating. Q itself used the word ('Delta relevant', December 2017). No coordination has been demonstrated."
   source: "https://www.adl.org/resources/article/after-18-month-hiatus-new-qanon-posts-surface"
 
 - id: future-proves-past
   term: "Future proves past"
   pattern: '(?i)\bfuture (?:will )?proves? (?:the )?past\b'
   def_fr: "Formule de Q selon laquelle les événements futurs confirmeront rétrospectivement les drops, ce qui permet de différer indéfiniment la vérification des affirmations."
-  def_en: "Q catchphrase holding that future events will retroactively confirm the drops; it allows verification of claims to be deferred indefinitely."
+  def_en: "Q catchphrase holding that future events will retroactively confirm the drops, which allows verification of claims to be deferred indefinitely."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: disinformation-is-necessary
   term: "Disinformation is necessary"
   pattern: '(?i)\bdisinformation is (?:necessary|real)\b'
   def_fr: "Justification avancée par Q pour ses prédictions erronées, présentées comme délibérées. Elle illustre le caractère « auto-immunisé » de la théorie, où les démentis deviennent des preuves. Le motif compte aussi la variante « Disinformation is real » (novembre 2017)."
-  def_en: "Q's justification for its failed predictions, presented as deliberate; it illustrates the theory's 'self-sealing' quality, in which counter-evidence becomes evidence. The pattern also counts the variant 'Disinformation is real' (November 2017)."
+  def_en: "Q's justification for its failed predictions, presented as deliberate. It illustrates the theory's 'self-sealing' quality, in which counter-evidence becomes evidence. The pattern also counts the variant 'Disinformation is real' (November 2017)."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: patriots-digital-soldiers
   term: "Patriots / Digital soldiers"
   pattern: '(?i)\bpatriots?\b|\bdigital soldiers?\b'
   def_fr: "Termes par lesquels Q et ses adeptes se désignent ; « digital soldiers » reprend une phrase de Michael Flynn (2016) sur une « armée de soldats numériques » ayant fait élire Trump."
-  def_en: "Terms used by Q and followers for themselves; 'digital soldiers' borrows a 2016 Michael Flynn line about an 'army of digital soldiers' that elected Trump."
+  def_en: "Terms used by Q and followers for themselves. The phrase 'digital soldiers' borrows a 2016 Michael Flynn line about an 'army of digital soldiers' that elected Trump."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: q-plus
   term: "Q+"
   pattern: '(?<![A-Za-z0-9])Q\+(?![A-Za-z0-9+])'
   def_fr: "Signature apparaissant dans certains drops ; une partie des adeptes y voit Donald Trump lui-même, qu'ils surnomment « Q+ »."
-  def_en: "Signature appearing on some drops; some followers take it to be Donald Trump himself, whom they nickname 'Q+'."
+  def_en: "Signature appearing on some drops. Some followers take it to be Donald Trump himself, whom they nickname 'Q+'."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: q-clearance
   term: "Q clearance"
   pattern: '(?i)\bQ[ -]?clearance\b'
   def_fr: "Habilitation de sécurité réelle du département de l'Énergie américain donnant accès à des données nucléaires classifiées. Q s'en réclamait (« Q Clearance Patriot ») pour asseoir sa crédibilité."
-  def_en: "A real U.S. Department of Energy security clearance granting access to classified nuclear data; Q claimed it ('Q Clearance Patriot') to establish credibility."
+  def_en: "A real U.S. Department of Energy security clearance granting access to classified nuclear data. Q claimed it ('Q Clearance Patriot') to establish credibility."
   source: "https://en.wikipedia.org/wiki/Q_clearance"
 
 - id: pizzagate
   term: "Pizzagate"
   pattern: '(?i)\bpizza ?gate\b'
   def_fr: "Théorie du complot de 2016, sans fondement, selon laquelle des démocrates dirigeaient un réseau pédocriminel depuis la pizzeria Comet Ping Pong à Washington ; considérée comme précurseur de QAnon, elle a conduit un homme à y tirer au fusil en décembre 2016."
-  def_en: "Baseless 2016 conspiracy theory claiming Democrats ran a child-trafficking ring out of the Comet Ping Pong pizzeria in Washington; regarded as QAnon's forerunner, it led a man to fire a rifle there in December 2016."
+  def_en: "Baseless 2016 conspiracy theory claiming Democrats ran a child-trafficking ring out of the Comet Ping Pong pizzeria in Washington. Regarded as QAnon's forerunner, it led a man to fire a rifle there in December 2016."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: adrenochrome
   term: "Adrenochrome"
   pattern: '(?i)\badrenochrome\b'
   def_fr: "Composé chimique réel issu de l'oxydation de l'adrénaline ; les adeptes affirment faussement que les élites l'extrairaient d'enfants victimes de trafic pour rester jeunes. Absent des drops, il circule chez les adeptes."
-  def_en: "A real chemical compound formed by the oxidation of adrenaline; followers falsely claim elites harvest it from trafficked children to stay young. Absent from the drops, it circulates among followers."
+  def_en: "A real chemical compound formed by the oxidation of adrenaline. Followers falsely claim elites harvest it from trafficked children to stay young. Absent from the drops, it circulates among followers."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: frazzledrip
   term: "Frazzledrip"
   pattern: '(?i)\bfrazzled?[ .]?(?:drip|rip)\b'
   def_fr: "Rumeur apparue en 2018 d'une prétendue vidéo trouvée sur l'ordinateur d'Anthony Weiner montrant Hillary Clinton et Huma Abedin commettant un meurtre rituel d'enfant. Aucune vidéo de ce type n'existe."
-  def_en: "Rumour that emerged in 2018 of an alleged video found on Anthony Weiner's laptop showing Hillary Clinton and Huma Abedin committing a ritual child murder; no such video exists."
+  def_en: "Rumour that emerged in 2018 of an alleged video found on Anthony Weiner's laptop showing Hillary Clinton and Huma Abedin committing a ritual child murder. No such video exists."
   source: "https://en.wikipedia.org/wiki/Pizzagate_conspiracy_theory#Frazzledrip"
 
 - id: save-the-children
   term: "Save the Children / #SaveOurChildren"
   pattern: '(?i)\bsave ?(?:the|our) ?children\b'
   def_fr: "Hashtag détourné en 2020 d'une campagne légitime contre la traite des enfants. Il a servi de porte d'entrée vers QAnon et compliqué la modération sur les plateformes."
-  def_en: "Hashtag hijacked in 2020 from a legitimate anti-trafficking campaign; it served as a gateway into QAnon and complicated platform moderation."
+  def_en: "Hashtag hijacked in 2020 from a legitimate anti-trafficking campaign. It served as a gateway into QAnon and complicated platform moderation."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: military-intelligence
@@ -199,7 +199,7 @@ terms:
   term: "Dark to light"
   pattern: '(?i)\bdark(?:ness)? to light\b'
   def_fr: "Formule de Q annonçant que les crimes cachés de l'élite seront révélés ; elle fait partie des 13 slogans suivis par le DFRLab pour mesurer la présence de QAnon en ligne."
-  def_en: "Q phrase announcing that the elite's hidden crimes will be revealed; it is one of the 13 slogans tracked by DFRLab to measure QAnon's online presence."
+  def_en: "Q phrase announcing that the elite's hidden crimes will be revealed, one of the 13 slogans tracked by DFRLab to measure QAnon's online presence."
   source: "https://dfrlab.org/2021/05/26/qanons-hallmark-catchphrases-evaporating-from-the-mainstream-internet/"
 
 - id: nothing-can-stop
@@ -248,7 +248,7 @@ terms:
   term: "Tick tock"
   pattern: '(?i)\btick[ ,-]?tock\b'
   def_fr: "Formule de Q signifiant que le temps est compté pour les adversaires visés ; attestée dans quelques drops de décembre 2017 à avril 2018."
-  def_en: "Q phrase signalling that time is running out for targeted opponents; found in a few drops from December 2017 to April 2018."
+  def_en: "Q phrase signalling that time is running out for targeted opponents, found in a few drops from December 2017 to April 2018."
   source: "https://github.com/jkingsman/JSON-QAnon"
 
 - id: red-october
@@ -283,7 +283,7 @@ terms:
   term: "Kraken"
   pattern: '(?i)\b(?:release the )?kraken\b'
   def_fr: "« Release the Kraken » : formule de l'avocate Sidney Powell (tirée du film « Le Choc des Titans ») pour ses recours contestant l'élection de 2020, largement reprise dans les milieux QAnon mais absente des drops."
-  def_en: "'Release the Kraken': lawyer Sidney Powell's catchphrase (from the film 'Clash of the Titans') for her lawsuits contesting the 2020 election, widely picked up in QAnon circles; absent from the drops."
+  def_en: "'Release the Kraken': lawyer Sidney Powell's catchphrase (from the film 'Clash of the Titans') for her lawsuits contesting the 2020 election, widely picked up in QAnon circles but absent from the drops."
   source: "https://en.wikipedia.org/wiki/Sidney_Powell"
 
 - id: jfk-jr
