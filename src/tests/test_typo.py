@@ -56,3 +56,15 @@ def test_publish_skips_when_version_and_site_unchanged(tmp_path, monkeypatch):
     monkeypatch.setattr(publish.shutil, "copytree", no_copy)
     ctx = Ctx()
     assert publish.run(ctx) is True and ctx.out == db.sha("1234567", "abc")
+
+
+def test_code_fingerprint_covers_the_working_paper(tmp_path, monkeypatch):
+    """Une correction du seul document de travail (data/paper/*.md) doit relancer build_site."""
+    from qanon import pipeline
+    (tmp_path / "data" / "paper").mkdir(parents=True)
+    md = tmp_path / "data" / "paper" / "paper-fr.md"
+    md.write_text("v1")
+    monkeypatch.setattr(pipeline, "APP_DIR", tmp_path)
+    before = pipeline.code_fingerprint()
+    md.write_text("v2")
+    assert pipeline.code_fingerprint() != before

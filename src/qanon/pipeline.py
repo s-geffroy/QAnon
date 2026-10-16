@@ -27,7 +27,9 @@ CYCLE_BUDGET = int(os.environ.get("PIPELINE_CYCLE_BUDGET", "45"))
 def code_fingerprint():
     files = sorted(
         p for p in APP_DIR.rglob("*")
-        if p.is_file() and p.suffix in {".py", ".html", ".css", ".js", ".yaml", ".jsonl"}
+        # .md : le document de travail (data/paper) ; sans lui, une correction du seul article ne
+        # relancerait jamais la construction du site.
+        if p.is_file() and p.suffix in {".py", ".html", ".css", ".js", ".yaml", ".jsonl", ".md"}
         and "__pycache__" not in p.parts and "tests" not in p.parts
     )
     return db.sha(*(f"{p.relative_to(APP_DIR)}:{db.sha(p.read_bytes())}" for p in files))
