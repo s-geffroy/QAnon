@@ -3,7 +3,9 @@ dans un conteneur jetable, sur une copie de /state/results ; la base est ouverte
 en lecture seule) :
 - chaque graphe et chaque bloc JSON-LD se relit avec un analyseur JSON ;
 - aucun renvoi non resolu ({fig:..}, {val:..}, [@..], [[..]]) ni gabarit Jinja ;
-- chaque lien interne pointe vers un fichier genere et, s'il a une ancre, vers un id existant."""
+- chaque lien interne pointe vers un fichier genere et, s'il a une ancre, vers un id existant ;
+- referencement : description propre a chaque page, balises Google Scholar sur l'article,
+  une entree de sitemap par page avec sa date de derniere modification."""
 import json
 import re
 import shutil
@@ -75,6 +77,23 @@ def main():
                 ids = pages.get(target).ids if target in pages else set()
                 if u.fragment not in ids:
                     errors.append(f"{p.relative_to(out)} : ancre absente {link}")
+    descs = {}
+    for p in pages:
+        if p.parent.name in build.T:
+            m = re.search(r'<meta name="description" content="([^"]*)">', p.read_text())
+            if not m or len(m.group(1)) > 160:
+                errors.append(f"{p.relative_to(out)} : description absente ou trop longue")
+            elif m.group(1) in descs:
+                errors.append(f"{p.relative_to(out)} : description identique a {descs[m.group(1)]}")
+            else:
+                descs[m.group(1)] = p.name
+    paper = (out / "fr" / "paper.html").read_text()
+    for k in ("title", "author", "publication_date", "pdf_url"):
+        if f'name="citation_{k}"' not in paper:
+            errors.append(f"fr/paper.html : balise Scholar absente citation_{k}")
+    sm = (out / "sitemap.xml").read_text()
+    if sm.count("<lastmod>") != len(build.PAGES) * len(build.T) or "x-default" not in sm:
+        errors.append("sitemap.xml : entrees incompletes")
     print(f"{len(pages)} pages, {charts} graphes, {n_links} liens internes, {len(errors)} erreurs")
     from collections import Counter
     kinds = Counter(re.sub(r" (\S+)$", "", e.split(" : ", 1)[1]) for e in errors)

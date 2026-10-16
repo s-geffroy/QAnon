@@ -20,6 +20,8 @@ from .i18n import REFS, REPO, T
 HERE = Path(__file__).resolve().parent
 UPDATED = "@@UPDATED@@"
 SITE_URL = "https://s-geffroy.github.io/QAnon/"
+# Jeton de la Google Search Console (validation par balise meta sur la racine) : public, pas un secret.
+GOOGLE_SITE_VERIFICATION = ""
 # Archive Zenodo : DOI de concept (toutes versions, toujours la derniere) et DOI par version publiee.
 ZENODO_CONCEPT = "10.5281/zenodo.23338131"
 ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
@@ -1516,7 +1518,25 @@ class Site:
         pp = self.paper()
         if not pp:
             return {"is_pending": True}
-        return {"pp": pp}
+        m = pp["meta"]
+        months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
+                  "novembre", "décembre"]
+        d, mo, y = m["date"].split()
+        iso = f"{y}-{months.index(mo) + 1:02d}-{int(d):02d}"
+        pdf = f"{SITE_URL}data/working-paper-fr.pdf"
+        # Balises lues par Google Scholar (Highwire) et notice schema.org du document
+        scholar = {"title": m["title"], "author": m["author"], "publication_date": iso.replace("-", "/"),
+                   "pdf_url": pdf, "language": "fr", "doi": ZENODO_CONCEPT, "technical_report_institution": "Zenodo",
+                   "fulltext_html_url": f"{SITE_URL}fr/paper.html"}
+        article = {"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": m["title"],
+                   "alternativeHeadline": m["subtitle"], "author": {"@type": "Person", "name": m["author"]},
+                   "datePublished": iso, "inLanguage": "fr", "version": m["version"],
+                   "abstract": m["abstract_en"].strip(), "url": f"{SITE_URL}fr/paper.html", "encoding": {
+                       "@type": "MediaObject", "contentUrl": pdf, "encodingFormat": "application/pdf"},
+                   "identifier": f"https://doi.org/{ZENODO_CONCEPT}", "sameAs": f"https://doi.org/{ZENODO_CONCEPT}",
+                   "license": "https://creativecommons.org/licenses/by/4.0/"}
+        # Une seule page porte les balises Scholar (texte integral francais), pour eviter un doublon.
+        return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article}
 
     def write_paper_pdf(self, env, out):
         pp = self.paper()
@@ -1780,7 +1800,7 @@ class Site:
                 html = env.get_template(f"{page}.html").render(**ctx)
                 html = fmt.fr_html(html) if lang == "fr" else fmt.en_html(html)
                 (out / lang / f"{page}.html").write_text(html)
-        (out / "index.html").write_text(env.get_template("root.html").render())
+        (out / "index.html").write_text(env.get_template("root.html").render(site_url=SITE_URL, google_verification=GOOGLE_SITE_VERIFICATION))
         self.write_paper_pdf(env, out)
         self.write_seo(out)
 
@@ -1788,13 +1808,23 @@ class Site:
     def write_seo(self, out):
         from xml.sax.saxutils import escape as x
         today = time.strftime("%Y-%m-%d")
-        urls = [f"{SITE_URL}{lang}/{p}.html" for lang in T for p in PAGES]
+        # lastmod = derniere date ou la page a reellement change (empreinte gardee dans /state),
+        # sinon les moteurs ignorent une date qui avance a chaque construction.
+        seen_path = self.state / "sitemap_lastmod.json"
+        seen = json.loads(seen_path.read_text()) if seen_path.exists() else {}
+        entries = []
+        for p in PAGES:
+            for lang in T:
+                h = db.sha((out / lang / f"{p}.html").read_bytes())
+                if seen.get(f"{lang}/{p}", {}).get("sha") != h:
+                    seen[f"{lang}/{p}"] = {"sha": h, "date": today}
+                alts = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{SITE_URL}{l}/{p}.html"/>' for l in T)
+                alts += f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE_URL}{"index.html" if p == "index" else f"fr/{p}.html"}"/>'
+                entries.append(f"<url><loc>{SITE_URL}{lang}/{p}.html</loc><lastmod>{seen[f'{lang}/{p}']['date']}</lastmod>{alts}</url>\n")
+        seen_path.write_text(json.dumps(seen, indent=0, sort_keys=True))
         (out / "sitemap.xml").write_text(
             '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "".join(
-                f"<url><loc>{x(u)}</loc><lastmod>{today}</lastmod>"
-                + "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{x(u.replace(f"/{u.split("/")[-2]}/", f"/{l}/"))}"/>'
-                          for l in T) + "</url>\n" for u in urls) + "</urlset>\n")
+            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "".join(entries) + "</urlset>\n")
         (out / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
         import yaml
         log_ = yaml.safe_load((APP_DIR / "data" / "changelog.yaml").read_text())["entries"]

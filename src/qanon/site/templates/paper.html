@@ -1,5 +1,7 @@
 {% extends "base.html" %}{% from "macros.html" import pending %}
 {% block title %}{{ t.paper_title }} — {{ t.site_title }}{% endblock %}
+{% block head %}{% if scholar %}{% for k, val in scholar.items() %}
+<meta name="citation_{{ k }}" content="{{ val }}">{% endfor %}{% endif %}{% endblock %}
 {% block content %}
 {% if is_pending %}<h1>{{ t.paper_title }}</h1>{{ pending(t) }}{% else %}
 <article class="paper">

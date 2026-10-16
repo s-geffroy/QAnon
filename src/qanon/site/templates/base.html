@@ -4,22 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% block title %}{{ t.site_title }}{% endblock %}</title>
-<meta name="description" content="{{ t.site_sub }}">
+{% set meta_desc = t.get("meta_" ~ page, t.site_sub) %}
+<meta name="description" content="{{ meta_desc }}">
 <meta name="author" content="Sylvain Geffroy">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
 <link rel="canonical" href="{{ site_url }}{{ lang }}/{{ page }}.html">
 <link rel="alternate" hreflang="{{ lang }}" href="{{ site_url }}{{ lang }}/{{ page }}.html">
 <link rel="alternate" hreflang="{{ t.other }}" href="{{ site_url }}{{ t.other }}/{{ page }}.html">
+<link rel="alternate" hreflang="x-default" href="{{ site_url }}{{ 'index.html' if page == 'index' else 'fr/' ~ page ~ '.html' }}">
 <link rel="alternate" type="application/rss+xml" title="{{ t.site_title }}" href="feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ t.site_title }}">
 <meta property="og:title" content="{{ self.title() }}">
-<meta property="og:description" content="{{ t.site_sub }}">
+<meta property="og:description" content="{{ meta_desc }}">
 <meta property="og:url" content="{{ site_url }}{{ lang }}/{{ page }}.html">
 <meta property="og:image" content="{{ site_url }}static/og.png">
 <meta property="og:locale" content="{{ 'fr_FR' if lang == 'fr' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{ jsonld | tojson_compact }}</script>
+{% block head %}{% endblock %}
 <link rel="preload" href="../static/fonts/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../static/fonts/atkinson-hyperlegible-next-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../static/style.css?v={{ v['style.css'] }}">
