@@ -20,37 +20,51 @@
 <meta property="og:locale" content="{{ 'fr_FR' if lang == 'fr' else 'en_US' }}">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{ jsonld | tojson_compact }}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-<header class="masthead">
-  <div class="wrap top">
-    <div class="brand">
-      <a href="index.html" class="brand-title">{{ t.site_title }}</a>
-      <span class="brand-sub">{{ t.site_sub }}</span>
-    </div>
+<a class="skip" href="#main">{{ t.skip }}</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a href="index.html" class="brand"{% if page == "index" %} aria-current="page"{% endif %}>{{ t.site_title }}</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" hidden>{{ t.menu }}</button>
+    <nav id="site-nav" class="site-nav" aria-label="{{ t.menu }}">
+      {% for group, items in nav %}
+      <details class="nav-group"{% if group_of.get(page) == group %} data-current{% endif %}>
+        <summary>{{ t["nav_group_" ~ group] }}</summary>
+        <ul>{% for p in items %}
+          <li><a href="{{ p }}.html"{% if p == page %} aria-current="page"{% endif %}><span class="nav-title">{{ t["nav_" ~ p] }}</span><span class="nav-desc">{{ t["desc_" ~ p] }}</span></a></li>{% endfor %}
+        </ul>
+      </details>
+      {% endfor %}
+    </nav>
     <a class="lang" href="../{{ t.other }}/{{ page }}.html" hreflang="{{ t.other }}" lang="{{ t.other }}">{{ t.other_name }}</a>
   </div>
-  <nav class="wrap nav" aria-label="sections">
-    {% for group, items in nav %}
-    <div class="nav-group"><span class="nav-label">{{ t["nav_group_" ~ group] }}</span>
-      {% for p in items %}<a href="{{ p }}.html"{% if p == page %} aria-current="page"{% endif %}>{{ t["nav_" ~ ("home" if p == "index" else p)] }}</a>{% endfor %}
-    </div>
-    {% endfor %}
-  </nav>
 </header>
-<main class="wrap">
+<main id="main" class="wrap{% block mainclass %}{% endblock %}">
 {% block content %}{% endblock %}
 </main>
-<footer class="wrap foot">
-  <p class="disclaimer">{{ t.disclaimer }}</p>
-  <p>{{ t.updated }} {{ updated }} · <a href="cite.html">{{ t.nav_cite }}</a> · <a href="data.html">{{ t.nav_data }}</a> · <a href="{{ repo }}">GitHub</a> · Sylvain Geffroy · <a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">CC BY 4.0</a> · <a href="{{ repo }}/blob/main/LICENSE">MIT</a></p>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="disclaimer">{{ t.disclaimer }}</p>
+    <ul class="foot-links">
+      <li>{{ t.updated }} {{ updated }}</li>
+      <li><a href="cite.html">{{ t.nav_cite }}</a></li>
+      <li><a href="data.html">{{ t.nav_data }}</a></li>
+      <li><a href="{{ repo }}">GitHub</a></li>
+      <li>Sylvain Geffroy</li>
+      <li><a href="https://creativecommons.org/licenses/by/4.0/deed.{{ lang }}" rel="license">CC BY 4.0</a> / <a href="{{ repo }}/blob/main/LICENSE">MIT</a></li>
+    </ul>
+  </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0/build/vega.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0/build/vega-lite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0/build/vega-embed.min.js"></script>
 <script src="../static/charts.js"></script>
-<script>document.querySelectorAll(".nav-group [aria-current]").forEach(function (a) { a.parentNode.scrollLeft = a.offsetLeft - a.parentNode.offsetLeft - 40; });</script>
+<script src="../static/nav.js"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

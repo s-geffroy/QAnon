@@ -4,7 +4,7 @@
 <h1>{{ t.news_title }}</h1>
 {% if is_pending %}{{ pending(t) }}{% else %}
 <p class="lead">{{ lead }}</p>
-<p class="note">{{ t.news_method }}</p>
+<details class="method"><summary>{{ t.method_label }}</summary><p>{{ (t.news_method) | unlabel }}</p></details>
 {{ chart("overrep", charts.overrep, t.overrep_title, t.overrep_note) }}
 {{ chart("series", charts.series, t.series_title, t.series_note) }}
 <section>

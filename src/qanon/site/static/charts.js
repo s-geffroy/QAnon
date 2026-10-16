@@ -19,12 +19,12 @@
     return v;
   }
   function config() {
-    var ink2 = css("--ink-2"), rule = css("--rule"), font = "system-ui, -apple-system, Segoe UI, Roboto, sans-serif";
+    var ink2 = css("--ink-2"), rule = css("--rule"), font = "\"Atkinson Hyperlegible Next\", system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif";
     return {
       font: font, view: { stroke: null },
       axis: { labelColor: ink2, titleColor: ink2, gridColor: rule, domainColor: rule, tickColor: rule,
-              labelFontSize: 11, titleFontSize: 11, titleFontWeight: 500 },
-      axisX: { grid: false }, legend: { labelColor: ink2, titleColor: ink2, labelFontSize: 11 }
+              labelFontSize: 12, titleFontSize: 12, titleFontWeight: 600 },
+      axisX: { grid: false }, legend: { labelColor: ink2, titleColor: ink2, labelFontSize: 12 }
     };
   }
   var FR = document.documentElement.lang === "fr";

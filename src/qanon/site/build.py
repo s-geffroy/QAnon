@@ -1,4 +1,5 @@
 """Generation du site statique bilingue a partir de /state/results."""
+import collections
 import json
 import re
 import shutil
@@ -23,11 +24,16 @@ SITE_URL = "https://s-geffroy.github.io/QAnon/"
 ZENODO_CONCEPT = "10.5281/zenodo.23338131"
 ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
+# Quatre rubriques, par question du lecteur ; l'accueil (index) est le lien du titre.
 NAV = [
-    ("analyses", ["index", "activity", "stats", "discourse", "actors", "predictions", "trump", "news", "interest", "models", "timeline"]),
-    ("resources", ["research", "paper", "figures", "faq", "corpus", "watch", "teaching", "glossary", "bibliography", "data", "method", "cite"]),
+    ("written", ["activity", "discourse", "actors", "timeline", "corpus"]),
+    ("facts", ["predictions", "trump", "news", "interest"]),
+    ("models", ["stats", "models"]),
+    ("resources", ["paper", "figures", "faq", "research", "watch", "teaching", "glossary", "bibliography", "data",
+                   "method", "cite"]),
 ]
-PAGES = [p for _, group in NAV for p in group]
+PAGES = ["index"] + [p for _, group in NAV for p in group]
+GROUP_OF = {p: g for g, group in NAV for p in group}
 
 
 def _load(state, name):
@@ -263,9 +269,17 @@ def script_json(v):
     return Markup(json.dumps(v, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c"))
 
 
+def unlabel(text):
+    """Note de methode sans son prefixe ("Methode : ...") : le bloc replie porte deja ce titre."""
+    out = re.sub(r"^\s*(?:Méthode|Method)\s*:\s*", "", str(text))
+    out = out[:1].upper() + out[1:]
+    return Markup(out) if isinstance(text, Markup) else out
+
+
 def make_env():
     env = Environment(loader=FileSystemLoader(HERE / "templates"), autoescape=select_autoescape(["html"]))
     env.filters["tojson_compact"] = script_json
+    env.filters["unlabel"] = unlabel
     env.filters["size"] = lambda b: f"{b / 1024:.0f} Ko" if b < 1024 ** 2 else f"{b / 1024 ** 2:.1f} Mo"
     return env
 
@@ -292,7 +306,7 @@ class Site:
                   "license": "https://creativecommons.org/licenses/by/4.0/"}
         return {"lang": lang, "t": t, "repo": REPO, "refs": REFS, "updated": UPDATED, "version": VERSION,
                 "site_url": SITE_URL, "jsonld": jsonld,
-                "nav": NAV, "n": n, "p": lambda x, d=1: fmt.pct(lang, x, d), "date": lambda v: fmt.date(lang, v),
+                "nav": NAV, "group_of": GROUP_OF, "n": n, "p": lambda x, d=1: fmt.pct(lang, x, d), "date": lambda v: fmt.date(lang, v),
                 "desc": desc}
 
     def page_index(self, lang, c):
@@ -302,59 +316,82 @@ class Site:
                   and x["null"] == "local")
         verdict = (t["verdict_sig"] if t5["p_value"] < 0.05 else t["verdict_ns"]).format(p=n(t5["p_value"], 3))
         gap = desc["gaps"][0]
-        findings = [
-            t["f_trump"].format(obs=p(t5["observed"]), exp=p(t5["expected"]), verdict=verdict),
-            t["f_gap"].format(days=n(gap["days"]), from_=c["date"](gap["from"]), to=c["date"](gap["to"])),
-            t["f_maxday"].format(n=n(desc["max_day"]["n"]), date=c["date"](desc["max_day"]["date"])),
-            t["f_questions"].format(q=n(desc["questions_per_drop"], 1)),
-        ]
-        extra = []
+        # Constats regroupes par question du lecteur ; chaque groupe renvoie a sa page.
+        q = {k: [] for k in ("right", "trump", "who", "what", "origin")}
+        q["trump"].append(t["f_trump"].format(obs=p(t5["observed"]), exp=p(t5["expected"]), verdict=verdict))
         act, disc, news, inter = self.r["actors"], self.r["discourse"], self.r["news"], self.r["interest"]
-        if act and act["actors"]:
-            top = ", ".join(f"{a['name']} ({n(a['n'])})" for a in act["actors"][:5])
-            extra.append(t["f_actors"].format(top=top))
         if disc and disc.get("stylometry"):
             split = disc["stylometry"]["split"]["date"]
             # La phrase "rejoint les analyses de 2022" n'est vraie que si la
             # coupure tombe dans la fenetre qu'elles decrivent.
             key = "f_stylo" if "2017-11-01" <= split <= "2018-04-30" else "f_stylo_other"
-            extra.append(t[key].format(date=c["date"](split)))
-        if news and news["actors"]:
-            ranked = sorted([a for a in news["actors"] if a.get("overrep") and a["q"] >= 30], key=lambda a: -a["overrep"])
-            if ranked:
-                extra.append(t["f_overrep"].format(names=", ".join(f"{a['name']} (×{n(a['overrep'], 1)})"
-                                                                   for a in ranked[:3])))
-        ve = self.r["verification"]
-        if ve and ve.get("items"):
-            legal = [ve["by_type"].get(k) for k in ("arrest", "indictment") if ve["by_type"].get(k)]
-            extra.insert(0, t["f_verif"].format(
-                c=n(ve["overall"]["checkable"]), rate=p(ve["overall"]["rate"] or 0, 0),
-                rate_nt=p(ve["nontrivial"]["rate"] or 0, 0),
-                legal=n(sum(x["checkable"] for x in legal)), legal_ok=n(sum(x["fulfilled"] for x in legal))))
-        for fid in ("horoscope", "propheties-recyclees"):
-            f = next((x for x in self.figures(lang) if x["id"] == fid), None)
-            if f:
-                extra.append(f["text"])
+            q["who"].append(t[key].format(date=c["date"](split)))
+        q["who"].append(t["f_questions"].format(q=n(desc["questions_per_drop"], 1)))
         st = self.r["stats"]
         if st:
             r = st["rhythm"]
-            extra.append(t["f_rhythm"].format(w5=p(r["share_within_5min"], 0), b=n(r["burstiness"], 2),
-                                              ns=n(r["n_sessions"])))
+            q["who"].append(t["f_rhythm"].format(w5=p(r["share_within_5min"], 0), b=n(r["burstiness"], 2),
+                                                 ns=n(r["n_sessions"])))
+        q["who"].append(t["f_gap"].format(days=n(gap["days"]), from_=c["date"](gap["from"]), to=c["date"](gap["to"])))
+        if act and act["actors"]:
+            top = ", ".join(f"{a['name']} ({n(a['n'])})" for a in act["actors"][:5])
+            q["what"].append(t["f_actors"].format(top=top))
+        if news and news["actors"]:
+            ranked = sorted([a for a in news["actors"] if a.get("overrep") and a["q"] >= 30], key=lambda a: -a["overrep"])
+            if ranked:
+                q["what"].append(t["f_overrep"].format(names=", ".join(f"{a['name']} (×{n(a['overrep'], 1)})"
+                                                                       for a in ranked[:3])))
+        if st and st["domains"]["top_press"]:
             press = st["domains"]["top_press"]
-            if press:
-                extra.append(t["f_domains"].format(first=press[0]["site"], fn=n(press[0]["drops"]),
+            q["what"].append(t["f_domains"].format(first=press[0]["site"], fn=n(press[0]["drops"]),
                                                    second=press[1]["site"], sn=n(press[1]["drops"]),
                                                    ahead=t["ahead_far" if press[0]["drops"] >= 2 * press[1]["drops"] else "ahead"]))
         if inter and inter["events"]:
             e = inter["events"][0]
-            extra.append(t["f_interest"].format(label=e[f"label_{lang}"], ratio=n(e["ratio"], 1)))
-        return {
+            q["trump"].append(t["f_interest"].format(label=e[f"label_{lang}"], ratio=n(e["ratio"], 1)))
+        for fid in ("horoscope", "propheties-recyclees"):
+            f = next((x for x in self.figures(lang) if x["id"] == fid), None)
+            if f:
+                q["right"].append(f["text"])
+        pol = self.r["pol"]
+        if pol:
+            cnt = collections.Counter(b["status"] for b in pol["births"])
+            nov = next((x["share"] for x in pol["niche"] if x["month"] == "2017-11"), None)
+            if nov is not None:
+                q["origin"].append(t["f_pol"].format(q_first=n(cnt.get("q_first", 0)), n=n(len(pol["births"])),
+                                                     before_q=n(cnt.get("before_q", 0)), share=p(nov, 1)))
+        links = {"right": "predictions.html", "trump": "trump.html", "who": "discourse.html", "what": "actors.html",
+                 "origin": "models.html#pol"}
+        go = {"right": "go_predictions", "trump": "go_trump", "who": "go_who", "what": "go_what", "origin": "go_origin"}
+        questions = [{"q": t["q_" + k], "facts": v, "href": links[k], "go": t[go[k]]} for k, v in q.items() if v]
+        out = {
             "lead": t["home_lead"].format(first=c["date"](desc["first"]), last=c["date"](desc["last"]), n=n(desc["n"])),
             "kpis": [(n(desc["n"]), t["kpi_drops"]), (n(desc["active_days"]), t["kpi_days"]),
                      (n(desc["words_total"]), t["kpi_words"]), (p(desc["share_questions"], 0), t["kpi_questions"])],
-            "findings": findings + extra,
+            "questions": questions,
             "charts": {"weekly": charts.weekly(desc, lang)},
         }
+        ve = self.r["verification"]
+        if ve and ve.get("items"):
+            legal = [ve["by_type"].get(k) for k in ("arrest", "indictment") if ve["by_type"].get(k)]
+            fmt_ = dict(c=n(ve["overall"]["checkable"]), rate=p(ve["overall"]["rate"] or 0, 0),
+                        rate_nt=p(ve["nontrivial"]["rate"] or 0, 0),
+                        legal=n(sum(x["checkable"] for x in legal)), legal_ok=n(sum(x["fulfilled"] for x in legal)))
+            out["h1"], out["h1_sub"] = t["home_h1"].format(**fmt_), t["home_h1_sub"].format(**fmt_)
+            # En ouverture : la premiere prediction du premier drop, son texte original et son verdict.
+            first = min((x for x in ve["items"] if x.get("verdict") in ("fulfilled", "partial", "not_fulfilled")),
+                        key=lambda x: (x["drop_id"], x["key"]))
+            row = self.conn.execute("SELECT text FROM drops WHERE id = ?", (first["drop_id"],)).fetchone()
+            if row and row[0]:
+                # Sans les renvois a d'autres posts (">>147005...") qui ouvrent souvent un drop.
+                text = re.sub(r"^(?:>>\d+\s*)+", "", " ".join(row[0].split()))
+                cut = [m.end() for m in re.finditer(r"[.!?](?=\s|$)", text) if m.end() >= 120]
+                out["hero"] = {"text": text[:cut[0]] if cut and cut[0] <= 260 else text[:240].rsplit(" ", 1)[0] + "…",
+                               "source": t["hero_source"].format(date=c["date"](first["date"])),
+                               "drop": first["drop_id"], "fact": first.get(f"explanation_{lang}") or "",
+                               "verdict": first["verdict"], "verdict_label": t["vd_" + first["verdict"]],
+                               "more": t["hero_more"].format(n=n(ve["overall"]["checkable"]))}
+        return out
 
     def page_activity(self, lang, c):
         desc = self.r["descriptive"]

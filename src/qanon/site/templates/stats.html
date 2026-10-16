@@ -1,10 +1,11 @@
 {% extends "base.html" %}{% from "macros.html" import chart, pending %}
 {% block title %}{{ t.stats_title }} — {{ t.site_title }}{% endblock %}
+{% block mainclass %} has-toc{% endblock %}
 {% block content %}
 <h1>{{ t.stats_title }}</h1>
 {% if is_pending %}{{ pending(t) }}{% else %}
 <p class="lead">{{ lead }}</p>
-<nav class="toc" aria-label="{{ t.toc }}"><ol>
+<nav class="toc" aria-label="{{ t.on_this_page }}"><p class="toc-title">{{ t.on_this_page }}</p><ol>
   <li><a href="#rythme">{{ t.rhythm_title }}</a></li><li><a href="#regimes">{{ t.regimes_title }}</a></li>
   <li><a href="#forums">{{ t.boards_title }}</a></li><li><a href="#sources">{{ t.domains_title }}</a></li>
   <li><a href="#renvois">{{ t.refs_title }}</a></li><li><a href="#religion">{{ t.religion_title }}</a></li>
@@ -17,7 +18,7 @@
   {{ chart("gaps", charts.gaps, t.gaps_hist_title, t.gaps_hist_note) }}
   <p>{{ sessions }}</p>
   {{ chart("sessions", charts.sessions, t.sessions_title) }}
-  <p class="note">{{ rhythm_method }} {{ cite("goh2008burstiness") }}</p>
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (rhythm_method) | unlabel }} {{ cite("goh2008burstiness") }}</p></details>
 </section>
 
 <section id="regimes">
@@ -45,7 +46,7 @@
   <p>{{ domains }}</p>
   {{ chart("domains", charts.domains, t.domains_chart, t.domains_chart_note) }}
   {{ chart("domain_years", charts.domain_years, t.domain_years_title) }}
-  <p class="note">{{ t.domains_method }}</p>
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (t.domains_method) | unlabel }}</p></details>
 </section>
 
 <section id="renvois">
@@ -71,7 +72,7 @@
     {{ chart("flesch", charts.flesch, t.flesch_title, t.flesch_note) }}
     {{ chart("mattr", charts.mattr, t.mattr_title, t.mattr_note) }}
   </div>
-  <p class="note">{{ t.lexicon_method }} {{ cite("flesch1948readability", "covington2010mattr") }}</p>
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (t.lexicon_method) | unlabel }} {{ cite("flesch1948readability", "covington2010mattr") }}</p></details>
 </section>
 
 {% if horizon %}

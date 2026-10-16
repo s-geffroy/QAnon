@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block title %}{{ t.research_title }} — {{ t.site_title }}{% endblock %}
+{% block mainclass %} has-toc{% endblock %}
 {% block content %}
 <h1>{{ t.research_title }}</h1>
 <p class="lead">{{ t.research_lead.format(n=n_cited) }}</p>
-<nav class="toc" aria-label="{{ t.toc }}"><ol>
+<nav class="toc" aria-label="{{ t.on_this_page }}"><p class="toc-title">{{ t.on_this_page }}</p><ol>
   <li><a href="#start">{{ t.start_title }}</a></li>
   {% for s in sections %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}
 </ol></nav>

@@ -4,7 +4,7 @@
 <h1>{{ t.actors_title }}</h1>
 {% if is_pending %}{{ pending(t) }}{% else %}
 <p class="lead">{{ lead }}</p>
-<p class="note">{{ t.actors_method }}</p>
+<details class="method"><summary>{{ t.method_label }}</summary><p>{{ (t.actors_method) | unlabel }}</p></details>
 {{ chart("top", charts.top, t.top_actors) }}
 {{ chart("time", charts.time, t.actors_time) }}
 {{ chart("world", charts.world, t.countries_title, t.countries_note) }}

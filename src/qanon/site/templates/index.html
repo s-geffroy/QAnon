@@ -1,13 +1,34 @@
 {% extends "base.html" %}{% from "macros.html" import chart %}
+{% block mainclass %} home{% endblock %}
 {% block content %}
-<p class="lead">{{ lead }}</p>
-<section class="kpis">
-  {% for v, label in kpis %}<div class="kpi"><span class="kpi-v">{{ v }}</span><span class="kpi-l">{{ label }}</span></div>{% endfor %}
+{% if hero %}
+<section class="hero" aria-label="{{ hero.source }}">
+  <figure class="claim">
+    <blockquote lang="en"><p><mark>{{ hero.text }}</mark></p></blockquote>
+    <figcaption><a href="corpus.html#d{{ hero.drop }}">{{ hero.source }}</a></figcaption>
+  </figure>
+  <div class="fact">
+    <p><strong>{{ t.hero_fact }}</strong> {{ hero.fact }}</p>
+    <p class="verdict vd-{{ hero.verdict }}">{{ hero.verdict_label }}</p>
+  </div>
 </section>
-{{ chart("weekly", charts.weekly, t.weekly_title, t.weekly_note) }}
-<section>
-  <h2>{{ t.findings }}</h2>
-  <ul class="findings">{% for f in findings %}<li>{{ f }}</li>{% endfor %}</ul>
-  <p class="note">{{ t.next }}</p>
-</section>
+{% endif %}
+<h1 class="home-title">{{ h1 or t.site_title }}</h1>
+{% if h1_sub %}<p class="lead">{{ h1_sub }} <a href="predictions.html">{{ hero.more if hero else t.nav_predictions }}</a></p>{% endif %}
+<p class="intro">{{ lead }}</p>
+<dl class="kpis">
+  {% for v, label in kpis %}<div class="kpi"><dt>{{ label }}</dt><dd>{{ v }}</dd></div>{% endfor %}
+</dl>
+<div class="questions">
+  {% for q in questions %}
+  <section class="question">
+    <h2>{{ q.q }}</h2>
+    <div>
+      <ul>{% for f in q.facts %}<li>{{ f }}</li>{% endfor %}</ul>
+      <p class="go"><a href="{{ q.href }}">{{ q.go }}</a></p>
+    </div>
+  </section>
+  {% endfor %}
+</div>
+{{ chart("weekly", charts.weekly, t.weekly_home, t.weekly_note) }}
 {% endblock %}

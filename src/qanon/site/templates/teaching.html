@@ -1,10 +1,11 @@
 {% extends "base.html" %}{% from "macros.html" import pending %}
 {% block title %}{{ t.teaching_title }} — {{ t.site_title }}{% endblock %}
+{% block mainclass %} has-toc{% endblock %}
 {% block content %}
 <h1>{{ t.teaching_title }}</h1>
 {% if is_pending %}{{ pending(t) }}{% else %}
 {% for p in intro %}<p{% if loop.first %} class="lead"{% endif %}>{{ p }}</p>{% endfor %}
-<nav class="toc toc-col" aria-label="{{ t.toc }}"><ol>{% for s in sheets %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ol></nav>
+<nav class="toc" aria-label="{{ t.on_this_page }}"><p class="toc-title">{{ t.on_this_page }}</p><ol>{% for s in sheets %}<li><a href="#{{ s.id }}">{{ s.title }}</a></li>{% endfor %}</ol></nav>
 {% for s in sheets %}
 <section id="{{ s.id }}" class="sheet">
   <h2>{{ loop.index }}. {{ s.title }}</h2>

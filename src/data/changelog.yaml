@@ -1,5 +1,8 @@
 # Journal des versions du site (flux RSS et page Citer). Le plus recent en premier.
 entries:
+- date: 2026-10-16
+  fr: "Nouvelle interface : quatre rubriques par question du lecteur (Ce que Q a écrit, Face aux faits, Modèles, Ressources), menu mobile, accueil qui confronte une annonce de Q aux faits puis regroupe les constats par question, sommaire latéral sur les pages longues, notes de méthode repliables, polices lisibles (Atkinson Hyperlegible Next, Source Serif 4)."
+  en: "New interface: four sections organised by the reader's question (What Q wrote, Against the facts, Models, Resources), mobile menu, a home page that sets one of Q's claims against the facts and groups findings by question, side contents on long pages, collapsible method notes, legible typefaces (Atkinson Hyperlegible Next, Source Serif 4)."
 - date: 2026-10-15
   fr: "Lexique de la scène : 34 termes ajoutés (codes de Q, récits de 2016-2019, promoteurs, culture de /pol/, codes de haine) ; sur /pol/, mesurés dans les fils Q et l'échantillon à 1 %, sans nouveau balayage."
   en: "Scene lexicon: 34 terms added (Q codes, 2016-2019 narratives, promoters, /pol/ culture, hate codes); on /pol/, measured in Q threads and the 1% sample, without a new scan."

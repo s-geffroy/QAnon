@@ -29,7 +29,7 @@
   <p><strong>{{ stylo_result }}</strong>{% if stylo_platform %} {{ stylo_platform }}{% endif %}</p>
   <p class="note">{{ t.stylo_candidates }} {{ stylo_candidates }}</p>
   {{ chart("stylo", charts.stylo, t.stylo_chart, t.stylo_chart_note) }}
-  <p class="note">{{ stylo_method }}</p>
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (stylo_method) | unlabel }}</p></details>
   <p class="note">{{ t.stylo_caveat }}</p>
 </section>
 {% endif %}

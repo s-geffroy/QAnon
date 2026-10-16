@@ -3,10 +3,14 @@
 {% block content %}
 {% if is_pending %}<h1>{{ t.paper_title }}</h1>{{ pending(t) }}{% else %}
 <article class="paper">
-  <p class="note">{{ pp.meta.version }} · {{ pp.meta.date }}</p>
   <h1>{{ pp.meta.title }}</h1>
   <p class="lead">{{ pp.meta.subtitle }}</p>
-  <p>{{ pp.meta.author }} · <a href="../data/working-paper-fr.pdf">PDF</a> · <a href="../data/working-paper-fr-latex.zip">LaTeX</a> · <a href="https://doi.org/{{ t.paper_doi }}">doi:{{ t.paper_doi }}</a></p>
+  <p class="paper-meta">{{ pp.meta.author }}, {{ pp.meta.version | lower }}, {{ pp.meta.date }}</p>
+  <ul class="paper-actions">
+    <li><a href="../data/working-paper-fr.pdf">PDF</a></li>
+    <li><a href="../data/working-paper-fr-latex.zip">LaTeX</a></li>
+    <li><a href="https://doi.org/{{ t.paper_doi }}">doi:{{ t.paper_doi }}</a></li>
+  </ul>
   {% if lang == "en" %}
   <h2>Abstract</h2>
   <p>{{ pp.meta.abstract_en }}</p>
