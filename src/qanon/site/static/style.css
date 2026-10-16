@@ -1,5 +1,5 @@
 /* Les drops de Q a l'epreuve des faits : feuille de style.
-   Un seul geste fort : le surligneur (--hl), reserve aux paroles de Q. Le reste est sobre :
+   Les paroles de Q sont citees en grand, guillemets en bleu marine ; le reste est sobre :
    une colonne de lecture alignee a gauche, l'interface en Atkinson Hyperlegible Next,
    les textes longs en Source Serif 4. */
 :root {
@@ -11,8 +11,6 @@
   --ink-3: #868e9c;
   --rule: #dce0e7;
   --accent: #1e3a8a;
-  --hl: #ffe15a;
-  --hl-ink: #171a21;
   --ok: #157a52; --mid: #a86a00; --ko: #c0392b;
   --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100;
   --series-5: #e87ba4; --series-6: #008300; --series-7: #6250d6;
@@ -29,7 +27,7 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
     --surface: #15171c; --surface-2: #20232a; --ink: #eceef2; --ink-2: #b4bac6; --ink-3: #868d9a;
-    --rule: #30343d; --accent: #9db6ff; --hl: #ffe15a; --hl-ink: #15171c;
+    --rule: #30343d; --accent: #9db6ff;
     --ok: #4cc38a; --mid: #e0a43a; --ko: #ff7b6b;
     --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
     --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --seq-lo: #1f2c3d; --seq-hi: #86b6ef;
@@ -41,7 +39,7 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --surface: #15171c; --surface-2: #20232a; --ink: #eceef2; --ink-2: #b4bac6; --ink-3: #868d9a;
-  --rule: #30343d; --accent: #9db6ff; --hl: #ffe15a; --hl-ink: #15171c;
+  --rule: #30343d; --accent: #9db6ff;
   --ok: #4cc38a; --mid: #e0a43a; --ko: #ff7b6b;
   --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
   --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --seq-lo: #1f2c3d; --seq-hi: #86b6ef;
@@ -80,10 +78,10 @@ main section { scroll-margin-top: 1rem; }
 /* ------------------------------------------------------------------ en-tete et menus */
 .site-head { border-bottom: 1px solid var(--rule); background: var(--surface); position: relative; z-index: 5; }
 .head-row { display: flex; align-items: center; gap: 1.5rem; min-height: 3.75rem; }
-.brand { font-weight: 700; font-size: 1.0625rem; line-height: 1.2; color: var(--ink); text-decoration: none; margin-right: auto; max-width: 17rem; }
+.brand { font-weight: 700; font-size: 1.0625rem; line-height: 1.2; color: var(--ink); text-decoration: none; margin-right: auto; white-space: nowrap; }
 .brand:hover { text-decoration: underline; }
 .site-nav { display: flex; gap: .25rem; align-items: center; }
-.nav-group { position: relative; }
+.nav-group { position: relative; margin: 0; font-size: inherit; }
 .nav-group > summary {
   list-style: none; cursor: pointer; padding: .45rem .7rem; border-radius: 6px; font-size: .95rem;
   color: var(--ink-2); white-space: nowrap; display: flex; align-items: center; gap: .35rem;
@@ -109,13 +107,15 @@ main section { scroll-margin-top: 1rem; }
 .menu-btn { font-size: .95rem; font-weight: 600; background: none; color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: .4rem .8rem; cursor: pointer; }
 .menu-btn[aria-expanded="true"] { background: var(--surface-2); }
 
-@media (max-width: 52rem) {
-  .head-row { flex-wrap: wrap; gap: .6rem; padding-block: .6rem; }
-  .brand { max-width: none; flex: 1 1 0; min-width: 0; font-size: 1rem; }
-  .lang { order: 2; }
-  .menu-btn { order: 3; }
-  .site-nav { order: 4; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: .5rem; }
-  .site-nav[data-js]:not(.open) { display: none; }
+/* Sous 64rem, les quatre menus ne tiennent plus sur la ligne du titre : bouton Menu. Le lien
+   de langue passe alors dans le panneau, le titre garde toute la ligne. */
+@media (max-width: 64rem) {
+  .head-row { flex-wrap: wrap; gap: .5rem 1rem; padding-block: .6rem; }
+  .brand { flex: 1 1 0; min-width: 0; font-size: clamp(.9rem, 3.4vw, 1.0625rem); overflow: hidden; text-overflow: ellipsis; }
+  .menu-btn { order: 2; }
+  .site-nav { order: 3; flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: .5rem; }
+  .site-nav[data-js]:not(.open), .site-nav[data-js]:not(.open) ~ .lang { display: none; }
+  .lang { order: 4; margin: 0 0 .6rem; }
   .nav-group { border-top: 1px solid var(--rule); }
   .nav-group > summary { padding: .75rem .1rem; font-size: 1rem; font-weight: 600; color: var(--ink); justify-content: space-between; }
   .nav-group[data-current] > summary { box-shadow: none; }
@@ -128,14 +128,11 @@ main section { scroll-margin-top: 1rem; }
 .claim { margin: 0; }
 .claim blockquote { margin: 0; }
 .claim blockquote p { font-family: var(--text); font-size: clamp(1.45rem, 1.1rem + 1.6vw, 2.15rem); line-height: 1.35; margin: 0; max-width: none; }
-.claim blockquote p::before { content: "« "; }
-.claim blockquote p::after { content: " »"; }
+.claim blockquote p::before, .claim blockquote p::after { color: var(--accent); font-weight: 600; }
+.claim blockquote p::before { content: "«\00a0"; }
+.claim blockquote p::after { content: "\00a0»"; }
 html[lang="en"] .claim blockquote p::before { content: "\201C"; }
 html[lang="en"] .claim blockquote p::after { content: "\201D"; }
-mark, .claim mark {
-  background: linear-gradient(to bottom, transparent .12em, var(--hl) .12em, var(--hl) calc(100% - .06em), transparent calc(100% - .06em));
-  color: var(--hl-ink); padding: 0 .1em; -webkit-box-decoration-break: clone; box-decoration-break: clone;
-}
 .claim figcaption { margin-top: .75rem; font-size: .9rem; color: var(--ink-2); }
 .claim figcaption a { color: inherit; }
 .fact { border-left: 3px solid var(--ink); padding-left: 1.1rem; }

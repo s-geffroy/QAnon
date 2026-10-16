@@ -4,7 +4,7 @@
   var nav = document.getElementById("site-nav"), btn = document.querySelector(".menu-btn");
   if (!nav || !btn) return;
   var groups = [].slice.call(nav.querySelectorAll(".nav-group"));
-  var narrow = window.matchMedia("(max-width: 52rem)");
+  var narrow = window.matchMedia("(max-width: 64rem)");
   nav.setAttribute("data-js", "");
   function closeAll(keep) { groups.forEach(function (g) { if (g !== keep) g.open = false; }); }
   function setOpen(v) { btn.setAttribute("aria-expanded", v ? "true" : "false"); nav.classList.toggle("open", v); }
