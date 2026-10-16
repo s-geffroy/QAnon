@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method, sources and limitations — Q drops against the facts</title>
+
+<meta name="description" content="Method of the Q drops study. Sources, language-model annotation of predictions, statistical tests and limits.">
+<meta name="author" content="Sylvain Geffroy">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="canonical" href="https://s-geffroy.github.io/QAnon/en/method.html">
+<link rel="alternate" hreflang="en" href="https://s-geffroy.github.io/QAnon/en/method.html">
+<link rel="alternate" hreflang="fr" href="https://s-geffroy.github.io/QAnon/fr/method.html">
+<link rel="alternate" hreflang="x-default" href="https://s-geffroy.github.io/QAnon/fr/method.html">
+<link rel="alternate" type="application/rss+xml" title="Q drops against the facts" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Q drops against the facts">
+<meta property="og:title" content="Method, sources and limitations — Q drops against the facts">
+<meta property="og:description" content="Method of the Q drops study. Sources, language-model annotation of predictions, statistical tests and limits.">
+<meta property="og:url" content="https://s-geffroy.github.io/QAnon/en/method.html">
+<meta property="og:image" content="https://s-geffroy.github.io/QAnon/static/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Q drops against the facts","description":"A statistical study of \"Q\" posts (2017–2022) checked against real-world events","url":"https://s-geffroy.github.io/QAnon/en/index.html","inLanguage":"en","author":{"@type":"Person","name":"Sylvain Geffroy"},"license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+
+<link rel="preload" href="../static/fonts/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../static/fonts/atkinson-hyperlegible-next-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../static/style.css?v=ba34825e88">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a href="index.html" class="brand">Q drops against the facts</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Menu">
+      
+      <details class="nav-group">
+        <summary>What Q wrote</summary>
+        <ul>
+          <li><a href="activity.html"><span class="nav-title">Activity</span><span class="nav-desc">When Q posted: days, hours, silences</span></a></li>
+          <li><a href="discourse.html"><span class="nav-title">Discourse</span><span class="nav-desc">Topics, style and changes of hand</span></a></li>
+          <li><a href="actors.html"><span class="nav-title">Actors</span><span class="nav-desc">The people and institutions named</span></a></li>
+          <li><a href="timeline.html"><span class="nav-title">Timeline</span><span class="nav-desc">Key events, 2017 to 2022</span></a></li>
+          <li><a href="corpus.html"><span class="nav-title">Corpus</span><span class="nav-desc">Read and filter every drop</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group">
+        <summary>Against the facts</summary>
+        <ul>
+          <li><a href="predictions.html"><span class="nav-title">Predictions</span><span class="nav-desc">Every claim checked, with sources</span></a></li>
+          <li><a href="trump.html"><span class="nav-title">Q and Trump</span><span class="nav-desc">Did Trump&#39;s tweets follow the drops?</span></a></li>
+          <li><a href="news.html"><span class="nav-title">News</span><span class="nav-desc">What Q picked from world news</span></a></li>
+          <li><a href="interest.html"><span class="nav-title">Public interest</span><span class="nav-desc">When the public searched for QAnon</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group">
+        <summary>Models</summary>
+        <ul>
+          <li><a href="stats.html"><span class="nav-title">Statistics</span><span class="nav-desc">Rhythm, vocabulary, breaks</span></a></li>
+          <li><a href="models.html"><span class="nav-title">Models</span><span class="nav-desc">Markov, physics, conspiracy scene, /pol/</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group" data-current>
+        <summary>Resources</summary>
+        <ul>
+          <li><a href="paper.html"><span class="nav-title">Paper</span><span class="nav-desc">The full working paper</span></a></li>
+          <li><a href="figures.html"><span class="nav-title">Key figures</span><span class="nav-desc">Figures to quote, with their source</span></a></li>
+          <li><a href="faq.html"><span class="nav-title">FAQ</span><span class="nav-desc">Short answers to common questions</span></a></li>
+          <li><a href="research.html"><span class="nav-title">State of research</span><span class="nav-desc">What other studies say</span></a></li>
+          <li><a href="watch.html"><span class="nav-title">Watch</span><span class="nav-desc">New publications on QAnon</span></a></li>
+          <li><a href="teaching.html"><span class="nav-title">Teaching</span><span class="nav-desc">Ready-made classroom sessions</span></a></li>
+          <li><a href="glossary.html"><span class="nav-title">Glossary</span><span class="nav-desc">Q&#39;s vocabulary explained</span></a></li>
+          <li><a href="bibliography.html"><span class="nav-title">Bibliography</span><span class="nav-desc">Every reference</span></a></li>
+          <li><a href="data.html"><span class="nav-title">Data</span><span class="nav-desc">Download the data</span></a></li>
+          <li><a href="method.html" aria-current="page"><span class="nav-title">Method</span><span class="nav-desc">Sources, choices and limits</span></a></li>
+          <li><a href="cite.html"><span class="nav-title">Cite</span><span class="nav-desc">How to cite this study</span></a></li>
+        </ul>
+      </details>
+      
+    </nav>
+    <a class="lang" href="../fr/method.html" hreflang="fr" lang="fr">Français</a>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<h1>Method, sources and limitations</h1>
+
+<section><h2>Corpus</h2><p>Drops come from the Kaggle dataset &#34;QAnon Posts&#34; (jkingsman/qanondrops), itself derived from the qanon.pub aggregator. Each drop has a Unix timestamp, site (4chan, 8chan, 8kun), board, text, images and the posts it replies to. Texts are not republished here.</p></section>
+
+<section><h2>Q and Trump</h2><p>Original @realDonaldTrump tweets (retweets excluded) until the account&#39;s suspension (January 8, 2021), timestamped in UTC (checked against publicly dated tweets). For each window from 1 to 60 minutes, the share of drops followed or preceded by a tweet is compared with 1,000 draws of a null model, with a one-sided empirical p-value.</p></section>
+
+<section><h2>Discourse</h2><p>Cleaning removes links, references (&gt;&gt;123) and signature. Themes rest on TF-IDF (unigrams and bigrams, English stop words removed, document frequency ≥ 5 and ≤ 40%), 12-component NMF, NNDSVD initialisation. Distinctive words use log-odds with informative Dirichlet prior. Formulas come from the glossary regular expressions. Stylometry uses Burrows&#39; Delta on the 150 most frequent words, in chunks of about 1,500 words.</p></section>
+
+<section><h2>Actors</h2><p>Dictionary of public actors built from corpus frequencies, abbreviations checked in context (concordances). A drop &#34;names&#34; an actor if one of its patterns occurs. Associations are measured by normalised PMI over drops.</p></section>
+
+<section><h2>News (GDELT)</h2><p>GDELT 1.0 daily event files (October 2017 – January 2021), aggregated by date added (total volume, by country (place of action, FIPS codes) and by actor name (Actor1Name, Actor2Name)). GDELT automatically codes the world&#39;s press, so its volumes measure media attention, not the real importance of events.</p></section>
+
+<section><h2>Public interest</h2><p>Wikimedia page-view API, human users (automated agents excluded), &#34;QAnon&#34; articles in 11 language editions and related English articles, 2017-2023.</p></section>
+
+<section><h2>Predictions put to the test</h2><p>The horoscope test blindly compares a drop with two news lists (real period, random period), judged by the chosen model under sceptical instructions, then applies a binomial test (Predictions page). For recycled prophecies, predictions are grouped by event type and actor. For &#34;Future proves past&#34;, we measure the delays of Q&#39;s references to his own drops.</p></section>
+
+<section><h2>Literature watch</h2><p>Every week the worker queries Crossref and OpenAlex (publications since 2024 whose title or abstract contains &#34;QAnon&#34;). The site lists them with their status (in the bibliography after verification, found but not verified, or rejected after review). None enters the bibliography without review.</p></section>
+
+<section><h2>Reproducibility</h2><p>All computation is automated. A resumable worker downloads the sources, runs the analyses and generates this site. Code, dictionaries and timeline are versioned in the repository, and raw results are downloadable (Data page).</p></section>
+
+<section><h2>Scene sources and licences</h2>
+  <ul><li>The drops come from the Kaggle dataset &#34;QAnon Posts&#34; (jkingsman/qanondrops), aggregated from qanon.pub (4,966 posts).</li><li>The tweets are the Trump Twitter Archive export (Kaggle codebreaker619/donald-trump-tweets-dataset).</li><li>The timeline is hand-curated, with every date sourced (mostly Wikipedia).</li>
+  <li>GDELT 1.0 Event Database (<a href="https://www.gdeltproject.org/">gdeltproject.org</a>)</li>
+  <li>Wikimedia REST API, pageviews (<a href="https://wikimedia.org/api/rest_v1/">wikimedia.org/api/rest_v1</a>)</li>
+  <li>Daily news, Wikipedia&#39;s &#34;Current events&#34; portal (English), 2017-2021 (<a href="https://en.wikipedia.org/wiki/Portal:Current_events">Portal:Current events</a>)</li>
+  <li>Literature watch (<a href="https://api.crossref.org/">Crossref</a>, <a href="https://openalex.org/">OpenAlex</a>)</li>
+  <li>Conspiracy Reddit (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories), Arctic Shift archive, banned subreddits included (<a href="https://arctic-shift.photon-reddit.com/">arctic-shift.photon-reddit.com</a>)</li>
+  <li>Google Trends, search interest index, United States, 2016-2023 (<a href="https://trends.google.com/">trends.google.com</a>)</li>
+  <li>4chan /pol/, June 2016-November 2019, dataset by Papasavva, Zannettou, De Cristofaro, Stringhini and Blackburn (ICWSM 2020), reduced to aggregates (<a href="https://doi.org/10.5281/zenodo.3606810">doi:10.5281/zenodo.3606810</a>, CC BY 4.0)</li></ul>
+</section>
+<section><h2>Limitations</h2>
+  <ul><li>The corpus is not canonical, since aggregation sites disagree on which drops count (Papasavva et al., ICWSM 2022). The dataset includes early &#34;Anonymous&#34; posts attributed to Q.</li><li>Correlation is not causation, and a significant test across many windows must be read with multiple comparisons in mind.</li><li>Timestamps are those of board archives, converted to New York time for daily rhythms.</li></ul>
+</section>
+<section><h2>References: Q replies, Q quotes Q</h2>
+  <p><a href="bibliography.html">Bibliography</a> · <a href="https://github.com/s-geffroy/QAnon">Source code and computations</a></p>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="disclaimer">QAnon is a conspiracy theory. This site studies its posts critically. The accusations they contain are reproduced as objects of study, never as facts.</p>
+    <ul class="foot-links">
+      <li>Data updated on Oct 16, 2026</li>
+      <li><a href="cite.html">Cite</a></li>
+      <li><a href="data.html">Data</a></li>
+      <li><a href="https://github.com/s-geffroy/QAnon">GitHub</a></li>
+      <li>Sylvain Geffroy</li>
+      <li><a href="https://creativecommons.org/licenses/by/4.0/deed.en" rel="license">CC BY 4.0</a> / <a href="https://github.com/s-geffroy/QAnon/blob/main/LICENSE">MIT</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="../static/vendor/vega-5.30.0.min.js"></script>
+<script src="../static/vendor/vega-lite-5.21.0.min.js"></script>
+<script src="../static/vendor/vega-embed-6.26.0.min.js"></script>
+<script src="../static/charts.js?v=1df88aa20f"></script>
+<script src="../static/nav.js?v=28dda0e03f"></script>
+
+</body>
+</html>
