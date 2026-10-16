@@ -72,6 +72,11 @@ def run(ctx):
             log(f"ATTENTION : le jeton github_token expire dans {days} jours ({exp.date()}) : le renouveler "
                 "(voir README, section publication)")
     version = head_commit()
+    site_fp = ctx.conn.execute("SELECT fingerprint FROM stages WHERE name = 'build_site'").fetchone()
+    published = db.sha(version, site_fp[0] if site_fp else "")
+    if db.get_meta(ctx.conn, "published") == published:
+        ctx.set_output(published)       # deja en ligne : pas de nouveau deploiement de GitHub Pages
+        return True
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / "site"
         shutil.copytree(ctx.state / "site", out)
@@ -94,7 +99,8 @@ def run(ctx):
         except subprocess.CalledProcessError as exc:
             msg = (exc.stderr or "").replace(token, "***").strip()[:300]
             raise RuntimeError(f"publication gh-pages en echec : {msg}") from None
-    site_fp = ctx.conn.execute("SELECT fingerprint FROM stages WHERE name = 'build_site'").fetchone()
-    ctx.set_output(db.sha(version, site_fp[0] if site_fp else ""))
+    db.set_meta(ctx.conn, "published", published)
+    ctx.conn.commit()
+    ctx.set_output(published)
     log(f"site publie sur gh-pages (version {version})" + (f" ; jeton valable jusqu'au {exp.date()}" if exp else ""))
     return True

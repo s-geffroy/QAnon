@@ -29,3 +29,30 @@ def test_fr_typo_operators():
 def test_en_html_no_space_before_semicolon():
     assert fmt.en_html('<p>(Linvill et al., 2021 ; Papasavva, 2022)</p><code>a ; b</code>') == \
         '<p>(Linvill et al., 2021; Papasavva, 2022)</p><code>a ; b</code>'
+
+
+def test_publish_skips_when_version_and_site_unchanged(tmp_path, monkeypatch):
+    """Passage horaire de publish_pages : aucun nouveau deploiement si ni la version de main ni le site
+    n'ont change depuis la derniere publication."""
+    from qanon import db
+    from qanon.site import publish
+    conn = db.connect(tmp_path / "t.db")
+    conn.execute("INSERT INTO stages (name, fingerprint) VALUES ('build_site', 'abc')")
+    monkeypatch.delenv("PUBLISH_HOLD", raising=False)
+    monkeypatch.setattr(publish, "read_secret", lambda name: "token")
+    monkeypatch.setattr(publish, "token_expiry", lambda token: None)
+    monkeypatch.setattr(publish, "head_commit", lambda: "1234567")
+    db.set_meta(conn, "published", db.sha("1234567", "abc"))
+
+    class Ctx:
+        state, out = tmp_path, None
+        def __init__(self):
+            self.conn = conn
+        def set_output(self, v):
+            self.out = v
+
+    def no_copy(*a, **k):
+        raise AssertionError("deploiement alors que rien n'a change")
+    monkeypatch.setattr(publish.shutil, "copytree", no_copy)
+    ctx = Ctx()
+    assert publish.run(ctx) is True and ctx.out == db.sha("1234567", "abc")

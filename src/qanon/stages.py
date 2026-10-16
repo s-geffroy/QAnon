@@ -58,7 +58,9 @@ STAGES += [
 STAGES += [
     # Apres chaque reconstruction du site (dont la veille hebdomadaire) : push gh-pages, si le secret
     # github_token est monte ; sinon publication manuelle (scripts/publish-pages.sh).
-    Stage("publish_pages", publish.run, inputs=("build_site",), code=True),
+    # Passage horaire : rattrape une version de main que l'API GitHub donnait encore en cache au moment du
+    # deploiement ; rien n'est pousse si ni la version ni le site n'ont change.
+    Stage("publish_pages", publish.run, inputs=("build_site",), refresh=3600, code=True),
 ]
 STAGES += [
     # Chaque semaine : liens morts, bloques aux robots, copies archivees proposees (~15 min, par lots).
