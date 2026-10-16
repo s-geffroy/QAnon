@@ -21,7 +21,7 @@ HERE = Path(__file__).resolve().parent
 UPDATED = "@@UPDATED@@"
 SITE_URL = "https://s-geffroy.github.io/QAnon/"
 # Jeton de la Google Search Console (validation par balise meta sur la racine) : public, pas un secret.
-GOOGLE_SITE_VERIFICATION = ""
+GOOGLE_SITE_VERIFICATION = "7ALh-q3iGOwM_Jbvo1u8vcBEhSF8vwxljQ6nR9uh4VA"
 # Archive Zenodo : DOI de concept (toutes versions, toujours la derniere) et DOI par version publiee.
 ZENODO_CONCEPT = "10.5281/zenodo.23338131"
 ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
