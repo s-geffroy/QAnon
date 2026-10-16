@@ -242,7 +242,8 @@ CREATE TABLE IF NOT EXISTS llm_horoscope_check (
 """
 
 SCHEMA += """
--- Relectures editoriales (API Editorial Reviewer) : une ligne par revue soumise ; voir review.py.
+-- Relectures editoriales passees (API Editorial Reviewer, du 13 au 16/10/2026 ; API arretee et etape
+-- retiree depuis) : historique conserve, plus aucune ecriture.
 CREATE TABLE IF NOT EXISTS editorial_review (
     doc TEXT, text_sha TEXT, job_id TEXT PRIMARY KEY, status TEXT, profile TEXT, words INTEGER,
     est_cost REAL, audit TEXT, submitted_at INTEGER, finished_at INTEGER, n_issues INTEGER, counts TEXT, failure TEXT

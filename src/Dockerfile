@@ -7,13 +7,6 @@ RUN apt-get update \
       libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 fonts-dejavu-core fonts-liberation \
  && rm -rf /var/lib/apt/lists/*
 
-# Autorite de certification locale du VPS (publique, contrainte a *.vps.internal) :
-# appels a l'API Editorial Reviewer sur le tailnet. requests et httpx utilisent
-# sinon leur propre magasin (certifi) : on les renvoie vers celui du systeme.
-COPY certs/vps-internal-ca.crt /usr/local/share/ca-certificates/vps-internal-ca.crt
-RUN update-ca-certificates
-ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt

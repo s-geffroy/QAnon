@@ -19,3 +19,6 @@ Suites donnees (13/10/2026) :
   proprietaire : generalisation « la plupart des etudes » ramenee a la bibliographie du site (« a notre
   connaissance »), « citoyens souverains » et « expertise populiste » definis ; remarques de structure et de
   style laissees a la decision de l'auteur.
+
+L'API Editorial Reviewer est definitivement arretee depuis le 16/10/2026 et l'etape
+`editorial_review` a ete retiree du worker : ces rapports (13/10/2026) sont les derniers.

@@ -62,12 +62,9 @@ ensemble. Ne bricole jamais les labels a la main.
 - Travaille uniquement dans /srv/apps/qanon.
 - Ne touche jamais a /opt/infra.
 - Ne tente jamais d'acceder aux autres applications du VPS.
-  Exception autorisee par le proprietaire (13/10/2026) : l'API Editorial Reviewer
-  (`https://app.reviewer.vps.internal/api/v1`, tailnet), appelee par l'etape
-  `editorial_review` (profil `balanced`, plafond `REVIEW_BUDGET_USD`). Chaque
-  revue est payante : ne jamais en lancer en boucle ni « pour voir ». L'application
-  Reviewer est souvent arretee, et c'est normal : l'etape attend alors son retour
-  (log « API Editorial Reviewer arretee »), ce n'est pas une panne a corriger.
+  L'API Editorial Reviewer, un temps autorisee (13/10/2026), est definitivement
+  arretee et va etre supprimee (16/10/2026) : l'etape `editorial_review` a ete
+  retiree. Ne plus l'appeler ; ses anciens rapports restent dans docs/reviews.
 
 ## Interdictions (appctl les refuse)
 

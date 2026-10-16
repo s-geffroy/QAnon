@@ -8,7 +8,6 @@ from .llm import classify as llm_classify
 from .llm import eval as llm_eval
 from .llm import horoscope
 from .llm import translate
-from . import review
 from . import db
 from .analysis.common import load_yaml
 from .pipeline import Stage
@@ -70,9 +69,6 @@ STAGES += [
     Stage("llm_translate", translate.run, inputs=("analyze_predictions",), optional=("llm_horoscope",), code=True),
 ]
 STAGES += [
-    # Payant (API Editorial Reviewer, ~0,20 $ / 1 500 mots) : un texte modifie est relu au plus une fois
-    # par semaine, sous plafond REVIEW_BUDGET_USD sur 30 jours ; les rapports vont dans /state/reviews.
-    Stage("editorial_review", review.run, inputs=("build_site",), code=True),
 ]
 STAGES += [
     # Modeles : chaines de Markov (regimes, themes, compression) et analogies physiques
