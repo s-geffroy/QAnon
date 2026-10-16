@@ -1357,7 +1357,7 @@ class Site:
                   if 'pol_culture' in fam['q_threads'] else "")
                + " Les mots les plus caractéristiques des fils Q "
                "[@monroe2008fightin] sont " + ", ".join(f"« {x['token']} »" for x in pol["keyness"]["top"][:10])
-               + " : le lexique d'un atelier de déchiffrement, de ses cibles et d'un soupçon permanent d'imposture.")
+               + ". Ce vocabulaire est celui du déchiffrement des drops, de ses cibles et d'un soupçon d'imposture qui revient sans cesse.")
         v["scene_pol3"] = s2
         return v
 
