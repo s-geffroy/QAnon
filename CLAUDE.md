@@ -104,3 +104,9 @@ ensemble. Ne bricole jamais les labels a la main.
 5. `sudo appctl logs` -- verifier qu'un cycle passe reellement, pas seulement
    que le conteneur tourne ;
 6. signaler tout echec restant sans le masquer.
+
+## niaf (empreintes LLM, revue editoriale, reecriture)
+- Exception autorisee par le proprietaire (16/10/2026) : service niaf, MCP `niaf` ou https://api.no-ia-footprints.vps.internal/v1 ; mode d emploi : /agent.md.
+- Jeton dans $NOFP_TOKEN (jamais affiche, journalise ni committe) ; jamais -k / verify=False.
+- Rien de payant sans l accord explicite de l utilisateur : estimer (gratuit), montrer cout et max_cost_usd, attendre son oui pour CE run.
+- Le score d humanite est un indice, jamais une preuve. Le worker n appelle pas niaf.
