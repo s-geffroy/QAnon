@@ -149,6 +149,9 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
   `app.yaml`) : licence MIT (`LICENSE`).
 - **Contenu** (textes, donnees editoriales de `src/data/`, donnees derivees,
   graphiques, site genere) : CC BY 4.0 (`LICENSE-CC-BY-4.0`).
+- **Polices** hebergees avec le site (`src/qanon/site/static/fonts/`, fichiers woff2
+  variables de Google Fonts, sous-ensembles latin, latin etendu et grec) : Atkinson
+  Hyperlegible Next et Source Serif 4, licence SIL OFL 1.1 (fichiers `OFL-*.txt` a cote).
 
 Auteur : Sylvain Geffroy. Archive Zenodo : doi:10.5281/zenodo.23338131 (toutes
 versions ; v1.0.0 : doi:10.5281/zenodo.23338132). `CITATION.cff` donne la reference ; chaque chiffre
