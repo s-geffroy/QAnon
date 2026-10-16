@@ -87,3 +87,10 @@ def fr_html(html):
         else:
             out.append(fr_typo(part))
     return "".join(out)
+
+
+def en_html(html):
+    """Pages anglaises : pas d'espace avant ; (« Linvill et al., 2021; Papasavva… »), espace que les
+    separateurs communs aux deux langues inserent a la francaise."""
+    parts = _FR_SKIP.split(html)
+    return "".join(p if i % 2 else re.sub(r"[ \u00a0\u202f]+;", ";", p) for i, p in enumerate(parts))

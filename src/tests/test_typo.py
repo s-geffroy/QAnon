@@ -24,3 +24,8 @@ def test_fr_html_chart_strings():
 def test_fr_typo_operators():
     assert fmt.fr_typo("(p < 0,001, n = 140)") == "(p\u00a0<\u00a00,001, n\u00a0=\u00a0140)"
     assert fmt.fr_html("<p>(p &lt; 0,001)</p>") == "<p>(p\u00a0&lt;\u00a00,001)</p>"
+
+
+def test_en_html_no_space_before_semicolon():
+    assert fmt.en_html('<p>(Linvill et al., 2021 ; Papasavva, 2022)</p><code>a ; b</code>') == \
+        '<p>(Linvill et al., 2021; Papasavva, 2022)</p><code>a ; b</code>'

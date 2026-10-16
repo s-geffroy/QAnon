@@ -1771,8 +1771,7 @@ class Site:
             for page in PAGES:
                 ctx = {**base, "page": page, **getattr(self, f"page_{page}")(lang, base)}
                 html = env.get_template(f"{page}.html").render(**ctx)
-                if lang == "fr":
-                    html = fmt.fr_html(html)
+                html = fmt.fr_html(html) if lang == "fr" else fmt.en_html(html)
                 (out / lang / f"{page}.html").write_text(html)
         (out / "index.html").write_text(env.get_template("root.html").render())
         self.write_paper_pdf(env, out)
