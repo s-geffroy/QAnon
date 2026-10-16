@@ -59,14 +59,14 @@ T = {
   # Methode
   "method_title": "Méthode, sources et limites",
   "sources_title": "Sources",
-  "src_drops": "Drops : dataset Kaggle « QAnon Posts » (jkingsman/qanondrops), agrégé depuis qanon.pub ; {n} messages.",
-  "src_tweets": "Tweets : export du Trump Twitter Archive (Kaggle codebreaker619/donald-trump-tweets-dataset).",
-  "src_timeline": "Chronologie : établie à la main, chaque date sourcée (principalement Wikipédia).",
+  "src_drops": "Les drops viennent du dataset Kaggle « QAnon Posts » (jkingsman/qanondrops), agrégé depuis qanon.pub ({n} messages).",
+  "src_tweets": "Les tweets sont l'export du Trump Twitter Archive (Kaggle codebreaker619/donald-trump-tweets-dataset).",
+  "src_timeline": "La chronologie est établie à la main, chaque date sourcée (principalement Wikipédia).",
   "limits_title": "Limites",
   "lim_canon": "Le corpus n'est pas canonique, car les sites agrégateurs divergent sur les drops retenus (Papasavva et al., ICWSM 2022). Le dataset inclut les premiers messages « Anonymous » attribués à Q.",
   "lim_corr": "Une corrélation n'établit pas de causalité, et un test significatif sur de nombreuses fenêtres doit être lu en tenant compte des comparaisons multiples.",
   "lim_time": "Les horodatages sont ceux des archives des forums, convertis à l'heure de New York pour les rythmes quotidiens.",
-  "code": "Code source et calculs : ",
+  "code": "Code source et calculs",
   "refs_title": "Travaux de référence",
 },
 "en": {
@@ -122,14 +122,14 @@ T = {
   "source": "source",
   "method_title": "Method, sources and limitations",
   "sources_title": "Sources",
-  "src_drops": "Drops: Kaggle dataset \"QAnon Posts\" (jkingsman/qanondrops), aggregated from qanon.pub ({n} posts).",
-  "src_tweets": "Tweets: Trump Twitter Archive export (Kaggle codebreaker619/donald-trump-tweets-dataset).",
-  "src_timeline": "Timeline: hand-curated, every date sourced (mostly Wikipedia).",
+  "src_drops": "The drops come from the Kaggle dataset \"QAnon Posts\" (jkingsman/qanondrops), aggregated from qanon.pub ({n} posts).",
+  "src_tweets": "The tweets are the Trump Twitter Archive export (Kaggle codebreaker619/donald-trump-tweets-dataset).",
+  "src_timeline": "The timeline is hand-curated, with every date sourced (mostly Wikipedia).",
   "limits_title": "Limitations",
   "lim_canon": "The corpus is not canonical, since aggregation sites disagree on which drops count (Papasavva et al., ICWSM 2022). The dataset includes early \"Anonymous\" posts attributed to Q.",
   "lim_corr": "Correlation is not causation, and a significant test across many windows must be read with multiple comparisons in mind.",
   "lim_time": "Timestamps are those of board archives, converted to New York time for daily rhythms.",
-  "code": "Source code and computations: ",
+  "code": "Source code and computations",
   "refs_title": "Reference work",
 },
 }
@@ -143,7 +143,7 @@ REPO = "https://github.com/s-geffroy/QAnon"
 
 # --- Pages ajoutees : discours, acteurs, actualite, interet public, ressources.
 T["fr"].update({
-  "f_actors": "Acteurs les plus nommés (nombre de drops) : {top}.",
+  "f_actors": "Les acteurs les plus nommés sont {top}, en nombre de drops.",
   "f_stylo": "Stylométrie : la rupture de style la plus nette se situe autour du {date}, au moment du passage sur 8chan. Cela rejoint les analyses publiées en 2022 sur un changement de plume, sans permettre de le distinguer d'un changement de plateforme.",
   "f_stylo_other": "Stylométrie : la rupture de style la plus nette se situe autour du {date} (méthode et limites dans Discours).",
   "f_overrep": "Par rapport au volume d'actualité mondiale (GDELT), les acteurs que Q sur-représente le plus sont {names}.",
@@ -155,7 +155,7 @@ T["fr"].update({
   "pending": "Analyse en cours de calcul. Cette section sera complétée automatiquement.",
   # Discours
   "discourse_title": "Le discours de Q",
-  "discourse_lead": "Thèmes, vocabulaire, formules rituelles et style : ce que disent les {n} drops non vides, et comment leur manière de le dire évolue.",
+  "discourse_lead": "Ce que disent les {n} drops non vides (thèmes, vocabulaire, formules rituelles, style), et comment leur manière de le dire évolue.",
   "topics_title": "Thèmes",
   "topics_note": "Factorisation en matrices non négatives (NMF) sur les poids TF-IDF des mots et bigrammes, {k} thèmes. Les thèmes ne sont pas nommés à la main, on donne leurs termes les plus caractéristiques. Part = poids moyen du thème dans le corpus.",
   "col_topic": "Thème", "col_terms": "Termes caractéristiques", "col_share": "Part", "col_examples": "Drops typiques (n°)",
@@ -171,10 +171,10 @@ T["fr"].update({
   "stylo_title": "Stylométrie exploratoire : une ou plusieurs plumes ?",
   "stylo_lead": "En 2022, deux équipes indépendantes (OrphAnalytics, et Florian Cafiero avec Jean-Baptiste Camps) ont conclu par stylométrie que les premiers drops étaient de Paul Furber et les suivants de Ron Watkins, avec une bascule autour de fin 2017 – début 2018. On reproduit ici une version simple et transparente de ce type d'analyse, sans texte de référence d'auteurs candidats.",
   "stylo_method": "Méthode : drops consécutifs regroupés en {n} blocs d'environ {w} mots, puis fréquences des {m} mots les plus fréquents (mots-outils surtout) et distance Delta de Burrows entre blocs. On cherche la date de coupure qui sépare le mieux les blocs (rapport distance entre groupes / distance à l'intérieur des groupes).",
-  "stylo_result": "Coupure la plus nette : {date}. Une seconde coupure, dans la partie postérieure, apparaît autour du {date2}.",
+  "stylo_result": "La coupure la plus nette tombe le {date}. Une seconde coupure, dans la partie postérieure, apparaît autour du {date2}.",
   "stylo_chart": "Position stylistique de chaque bloc",
   "stylo_chart_note": "Une valeur négative signale un bloc plus proche de ceux d'avant la coupure, une valeur positive un bloc plus proche de ceux d'après. Le trait vertical marque la coupure.",
-  "stylo_caveat": "Limites : textes très courts, sujets changeants, citations et listes de liens. Un changement de style peut aussi refléter un changement de plateforme, de sujet ou de format. Cette analyse ne désigne aucun auteur.",
+  "stylo_caveat": "Les limites tiennent aux textes très courts, aux sujets changeants, aux citations et aux listes de liens. Un changement de style peut aussi refléter un changement de plateforme, de sujet ou de format. Cette analyse ne désigne aucun auteur.",
   "position": "position",
   # Acteurs
   "actors_title": "Qui Q nomme-t-il ?",
@@ -229,7 +229,7 @@ T["fr"].update({
   "bib_title": "Bibliographie",
   "bib_lead": "{n} références vérifiées, qui couvrent travaux universitaires, livres, rapports, sources primaires, enquêtes journalistiques, documentaires et jeux de données. Chaque référence est résumée en français et en anglais.",
   "bib_search": "Rechercher (auteur, titre, mot-clé)…", "bib_all": "Tout",
-  "bib_download": "Télécharger : ", "bib_count": "références affichées",
+  "bib_download": "Télécharger en ", "bib_count": "références affichées",
   "type_article": "Articles", "type_conference": "Actes de conférence", "type_book": "Livres", "type_chapter": "Chapitres",
   "type_report": "Rapports", "type_thesis": "Thèses", "type_primary": "Sources primaires", "type_journalism": "Journalisme",
   "type_documentary": "Documentaires", "type_dataset": "Jeux de données",
@@ -239,20 +239,20 @@ T["fr"].update({
   "data_lead": "Toutes les données dérivées de l'étude, en formats ouverts. Elles ne contiennent pas le texte des drops, disponible dans le jeu de données source.",
   "col_file": "Fichier", "col_desc": "Contenu", "col_size": "Taille",
   "license_title": "Licence",
-  "license": "Textes, graphiques et données dérivées : Creative Commons Attribution 4.0 (CC BY 4.0). Pour le code, voir le dépôt. Les données sources restent soumises à leurs propres conditions.",
+  "license": "Textes, graphiques et données dérivées sont sous licence Creative Commons Attribution 4.0 (CC BY 4.0). Pour le code, voir le dépôt. Les données sources restent soumises à leurs propres conditions.",
   # Citer
   "cite_title": "Citer ce site",
   "cite_lead": "Merci de citer la version consultée, car le site est régénéré à chaque évolution de l'étude.",
   "cite_suggested": "Citation suggérée",
   "cite_text": "Geffroy, S. ({year}). Les drops de Q à l'épreuve des faits : étude statistique des messages de « Q » (2017-2022) [site web, version {version}]. https://s-geffroy.github.io/QAnon/",
-  "cite_version": "Version : {version} (commit du dépôt), générée le {updated}.",
+  "cite_version": "Cette page correspond à la version {version} du dépôt, générée le {updated}.",
 })
 
 T["en"].update({
-  "f_actors": "Most-named actors (number of drops): {top}.",
+  "f_actors": "The most-named actors are {top}, by number of drops.",
   "f_stylo": "Stylometry places the sharpest change in style around {date}, when Q moved to 8chan. This is consistent with the 2022 analyses of a change of author, but cannot be told apart from a change of platform.",
   "f_stylo_other": "Stylometry places the sharpest change in style around {date} (method and limitations under Discourse).",
-  "f_overrep": "Compared with world news volume (GDELT), Q most over-represents: {names}.",
+  "f_overrep": "Compared with world news volume (GDELT), the actors Q most over-represents are {names}.",
   "f_interest": "The event that most raised curiosity about QAnon on Wikipedia was {label} (views ×{ratio} the following week).",
   "nav_group_analyses": "Analyses", "nav_group_resources": "Resources",
   "nav_discourse": "Discourse", "nav_actors": "Actors", "nav_news": "News",
@@ -260,7 +260,7 @@ T["en"].update({
   "nav_data": "Data", "nav_cite": "Cite",
   "pending": "Analysis still being computed. This section will be filled in automatically.",
   "discourse_title": "Q's discourse",
-  "discourse_lead": "Themes, vocabulary, ritual formulas and style: what the {n} non-empty drops say, and how the way they say it changes.",
+  "discourse_lead": "What the {n} non-empty drops say (themes, vocabulary, ritual formulas, style), and how the way they say it changes.",
   "topics_title": "Themes",
   "topics_note": "Non-negative matrix factorisation (NMF) on TF-IDF weights of words and bigrams, {k} themes. Themes are not hand-labelled, so their most characteristic terms are shown. Share = average weight of the theme in the corpus.",
   "col_topic": "Theme", "col_terms": "Characteristic terms", "col_share": "Share", "col_examples": "Typical drops (#)",
@@ -279,7 +279,7 @@ T["en"].update({
   "stylo_result": "The sharpest split falls on {date}. A second split, in the later part, appears around {date2}.",
   "stylo_chart": "Stylistic position of each chunk",
   "stylo_chart_note": "Negative values are closer to chunks before the split, positive values closer to those after. The vertical rule marks the split.",
-  "stylo_caveat": "Limitations: very short texts, shifting topics, quotes and link lists. A change in style may also reflect a change of platform, topic or format. This analysis does not identify any author.",
+  "stylo_caveat": "The limits come from very short texts, shifting topics, quotes and link lists. A change in style may also reflect a change of platform, topic or format. This analysis does not identify any author.",
   "position": "position",
   "actors_title": "Whom does Q name?",
   "actors_lead": "{n} actors (public figures, states, institutions, media, platforms) detected in the drops with a pattern dictionary, abbreviations included (HRC, POTUS, BO…). {share} of drops name at least one.",
@@ -317,7 +317,7 @@ T["en"].update({
   "events_note": "Views of the English \"QAnon\" article in the 7 days after the event ÷ the 7 days before.",
   "col_event": "Event", "col_before": "7 d before", "col_after": "7 d after", "col_ratio2": "Ratio",
   "lags_title": "Q and public curiosity",
-  "lags_note": "Rank correlation (Spearman) between weekly drops and English article views, lagged (positive: views follow Q). {n} weeks, 2018-2020.",
+  "lags_note": "Rank correlation (Spearman) between weekly drops and English article views, lagged (a positive lag means views follow Q). {n} weeks, 2018-2020.",
   "col_lag_w": "Lag (weeks)",
   "articles_title": "Tracked articles",
   "col_article": "Article", "col_total": "Total views", "col_peak": "Peak", "col_peak_day": "Peak day",
@@ -327,9 +327,9 @@ T["en"].update({
   "col_term": "Term", "col_def": "Definition", "col_drops": "Drops", "col_first_use": "First occurrence",
   "drop_no": "drop #",
   "bib_title": "Bibliography",
-  "bib_lead": "{n} verified references: academic work, books, reports, primary sources, investigative journalism, documentaries and datasets. Each reference is summarised in French and English.",
+  "bib_lead": "{n} verified references, covering academic work, books, reports, primary sources, investigative journalism, documentaries and datasets. Each reference is summarised in French and English.",
   "bib_search": "Search (author, title, keyword)…", "bib_all": "All",
-  "bib_download": "Download: ", "bib_count": "references shown",
+  "bib_download": "Download as ", "bib_count": "references shown",
   "type_article": "Articles", "type_conference": "Conference papers", "type_book": "Books", "type_chapter": "Chapters",
   "type_report": "Reports", "type_thesis": "Theses", "type_primary": "Primary sources", "type_journalism": "Journalism",
   "type_documentary": "Documentaries", "type_dataset": "Datasets",
@@ -338,12 +338,12 @@ T["en"].update({
   "data_lead": "All data derived from the study, in open formats. They do not contain the text of the drops, which is available in the source dataset.",
   "col_file": "File", "col_desc": "Contents", "col_size": "Size",
   "license_title": "Licence",
-  "license": "Text, charts and derived data: Creative Commons Attribution 4.0 (CC BY 4.0). Code: see the repository. Source data remain subject to their own terms.",
+  "license": "Text, charts and derived data are under Creative Commons Attribution 4.0 (CC BY 4.0). For the code, see the repository. Source data remain subject to their own terms.",
   "cite_title": "Cite this site",
   "cite_lead": "Please cite the version you consulted, since the site is regenerated whenever the study changes.",
   "cite_suggested": "Suggested citation",
   "cite_text": "Geffroy, S. ({year}). Q drops against the facts: a statistical study of \"Q\" posts (2017–2022) [website, version {version}]. https://s-geffroy.github.io/QAnon/",
-  "cite_version": "Version: {version} (repository commit), generated on {updated}.",
+  "cite_version": "This page matches version {version} of the repository, generated on {updated}.",
 })
 
 
@@ -353,7 +353,7 @@ T["fr"].update({
   "m_trump_title": "Q et Trump",
   "m_trump": "Tweets originaux de @realDonaldTrump (hors retweets) jusqu'à la suspension du compte (8 janvier 2021), horodatés en UTC (vérifié sur des tweets datés publiquement). Pour chaque fenêtre de 1 à 60 minutes, la part de drops suivis ou précédés d'un tweet est comparée à 1 000 tirages d'un modèle nul, avec une p-value empirique unilatérale.",
   "m_discourse_title": "Discours",
-  "m_discourse": "Nettoyage : liens, renvois (>>123) et signature retirés. Thèmes : TF-IDF (unigrammes et bigrammes, mots-outils anglais exclus, fréquence documentaire ≥ 5 et ≤ 40 %), NMF à 12 composantes, initialisation NNDSVD. Les mots distinctifs viennent d'un log-odds à a priori de Dirichlet informatif, les formules des expressions régulières du glossaire. La stylométrie utilise le Delta de Burrows sur les 150 mots les plus fréquents, par blocs d'environ 1 500 mots.",
+  "m_discourse": "Le nettoyage retire liens, renvois (>>123) et signature. Les thèmes reposent sur un TF-IDF (unigrammes et bigrammes, mots-outils anglais exclus, fréquence documentaire ≥ 5 et ≤ 40 %), NMF à 12 composantes, initialisation NNDSVD. Les mots distinctifs viennent d'un log-odds à a priori de Dirichlet informatif, les formules des expressions régulières du glossaire. La stylométrie utilise le Delta de Burrows sur les 150 mots les plus fréquents, par blocs d'environ 1 500 mots.",
   "m_actors_title": "Acteurs",
   "m_actors": "Dictionnaire d'acteurs publics construit à partir des fréquences du corpus, abréviations vérifiées en contexte (concordances). Un drop « cite » un acteur si l'un de ses motifs y apparaît. Les associations sont mesurées par le PMI normalisé sur les drops.",
   "m_news_title": "Actualité (GDELT)",
@@ -369,11 +369,11 @@ T["en"].update({
   "m_trump_title": "Q and Trump",
   "m_trump": "Original @realDonaldTrump tweets (retweets excluded) until the account's suspension (January 8, 2021), timestamped in UTC (checked against publicly dated tweets). For each window from 1 to 60 minutes, the share of drops followed or preceded by a tweet is compared with 1,000 draws of a null model, with a one-sided empirical p-value.",
   "m_discourse_title": "Discourse",
-  "m_discourse": "Cleaning removes links, references (>>123) and signature. Themes: TF-IDF (unigrams and bigrams, English stop words removed, document frequency ≥ 5 and ≤ 40%), 12-component NMF, NNDSVD initialisation. Distinctive words use log-odds with informative Dirichlet prior. Formulas come from the glossary regular expressions. Stylometry: Burrows' Delta on the 150 most frequent words, chunks of about 1,500 words.",
+  "m_discourse": "Cleaning removes links, references (>>123) and signature. Themes rest on TF-IDF (unigrams and bigrams, English stop words removed, document frequency ≥ 5 and ≤ 40%), 12-component NMF, NNDSVD initialisation. Distinctive words use log-odds with informative Dirichlet prior. Formulas come from the glossary regular expressions. Stylometry uses Burrows' Delta on the 150 most frequent words, in chunks of about 1,500 words.",
   "m_actors_title": "Actors",
   "m_actors": "Dictionary of public actors built from corpus frequencies, abbreviations checked in context (concordances). A drop \"names\" an actor if one of its patterns occurs. Associations are measured by normalised PMI over drops.",
   "m_news_title": "News (GDELT)",
-  "m_news": "GDELT 1.0 daily event files (October 2017 – January 2021), aggregated by date added: total volume, by country (place of action, FIPS codes) and by actor name (Actor1Name, Actor2Name). GDELT automatically codes the world's press, so its volumes measure media attention, not the real importance of events.",
+  "m_news": "GDELT 1.0 daily event files (October 2017 – January 2021), aggregated by date added (total volume, by country (place of action, FIPS codes) and by actor name (Actor1Name, Actor2Name)). GDELT automatically codes the world's press, so its volumes measure media attention, not the real importance of events.",
   "m_interest_title": "Public interest",
   "m_interest": "Wikimedia page-view API, human users (automated agents excluded), \"QAnon\" articles in 11 language editions and related English articles, 2017-2023.",
   "m_repro_title": "Reproducibility",
@@ -486,7 +486,7 @@ T["fr"].update({
 T["en"].update({
   "ve_title": "Did the predictions come true?",
   "ve_result": "{n} specific or dated predictions checked one by one. Of the {c} checkable ones, {f} came true, {pa} partly and {nf} did not ({u} unverifiable), a fulfilment rate of {rate}. {triv} concerned events already publicly scheduled. Excluding them, the rate is {rate_nt}. {nap} automatic extractions were not real predictions.",
-  "ve_method": "Method: the horizon is the stated deadline, otherwise 12 months after the drop, and every checkable prediction gets a sourced verdict. \"Trivial\" means an event already announced or scheduled when Q posted (election, hearing, official trip). When Q adopts someone else's announcement, the quote counts as Q's prediction (trivial if already public), but a quote made to denounce, or not about the future, does not. Rate = fulfilled ÷ checkable (fulfilled + partial + not fulfilled). Full protocol: verification-README.md (Data). Verification was assisted by research agents, with sources consulted online, and is still to be reviewed.",
+  "ve_method": "Method: the horizon is the stated deadline, otherwise 12 months after the drop, and every checkable prediction gets a sourced verdict. \"Trivial\" means an event already announced or scheduled when Q posted (election, hearing, official trip). When Q adopts someone else's announcement, the quote counts as Q's prediction (trivial if already public), but a quote made to denounce, or not about the future, does not. Rate = fulfilled ÷ checkable (fulfilled + partial + not fulfilled). The full protocol is in verification-README.md (Data). Verification was assisted by research agents, with sources consulted online, and is still to be reviewed.",
   "ve_n": "Predictions", "ve_rate": "Rate", "ve_rate2": "Rate incl. partial",
   "ve_all": "All", "ve_nontrivial": "Non-trivial", "ve_by_type": "By event type",
   "ve_list_title": "Prediction by prediction", "ve_trivial": "trivial",
@@ -509,7 +509,7 @@ T["fr"].update({
   "one_day": "1 jour", "one_week": "1 semaine",
   "sessions_text": "En regroupant les drops séparés de moins de {gap} minutes, on obtient {ns} sessions. {multi} des drops appartiennent à une session de plusieurs drops. Une telle session en compte {med} en médiane et dure {span} minutes, et la plus longue en compte {max}.",
   "sessions_title": "Taille des sessions", "session_size": "drops dans la session", "n_sessions": "sessions",
-  "rhythm_method": "Le seuil de 30 minutes est conventionnel. Sensibilité : {sens}. B et M :",
+  "rhythm_method": "Le seuil de 30 minutes est conventionnel, et le découpage y est peu sensible ({sens}). Les coefficients B et M sont ceux de",
   "regimes_title": "Régimes d'activité",
   "regimes_lead": "Le volume hebdomadaire est découpé en périodes de rythme homogène. Chaque rupture est rapprochée de l'événement de la chronologie le plus proche (à trois semaines près). Une rupture proche d'un événement ne prouve pas qu'il en est la cause.",
   "regimes_chart": "Drops par semaine et moyenne de chaque régime",
@@ -533,12 +533,12 @@ T["fr"].update({
   "refs_text": "{share} des drops renvoient à un autre message du forum (>>), {anon} à un message d'anonyme, auquel Q répond ou qu'il valide, et {self_} à l'un de ses propres drops ({n_self} renvois). Ces autocitations sont presque toutes publiées le jour même. Ce sont des compléments plutôt que des « preuves » après coup (voir « Future proves past », page Prédictions).",
   "col_year": "Année", "col_refs_all": "Avec renvoi", "col_refs_anon": "Vers un anonyme", "col_refs_self": "Vers un drop de Q",
   "religion_title": "Vocabulaire religieux",
-  "religion_text": "{faith} des drops emploient un vocabulaire religieux ou moral (God, Jesus, Lord, pray, evil, armor of God…), {god} le mot God. {nv} drops citent un verset biblique, le premier étant le drop n° {first} ({date}). Livres cités : {books}.",
+  "religion_text": "{faith} des drops emploient un vocabulaire religieux ou moral (God, Jesus, Lord, pray, evil, armor of God…), {god} le mot God. {nv} drops citent un verset biblique, le premier étant le drop n° {first} ({date}). Les livres cités sont {books}.",
   "religion_chart": "Part des drops au vocabulaire religieux, par trimestre", "religion_chart_note": "Trimestres d'au moins 10 drops, jusqu'à fin 2020.",
   "rel_faith": "vocabulaire religieux ou moral", "rel_god": "mot « God »",
   "religion_lit": "La dimension religieuse de QAnon est discutée notamment par",
   "lexicon_title": "Lisibilité et richesse lexicale",
-  "lexicon_text": "Indice de facilité de lecture de Flesch : {f} sur l'ensemble (60 à 70 correspond à un anglais courant), avec {wps} mots par phrase en moyenne. Le vocabulaire compte {types} formes distinctes pour {tokens} mots, dont {hapax} n'apparaissent qu'une fois. Exposant de Zipf {z} (proche de 1 comme dans la plupart des textes), exposant de Heaps {h}, MATTR (fenêtre de 500 mots) {mattr}.",
+  "lexicon_text": "L'indice de facilité de lecture de Flesch vaut {f} sur l'ensemble (60 à 70 correspond à un anglais courant), avec {wps} mots par phrase en moyenne. Le vocabulaire compte {types} formes distinctes pour {tokens} mots, dont {hapax} n'apparaissent qu'une fois. Exposant de Zipf {z} (proche de 1 comme dans la plupart des textes), exposant de Heaps {h}, MATTR (fenêtre de 500 mots) {mattr}.",
   "flesch_title": "Facilité de lecture (Flesch), par trimestre", "flesch_note": "Plus haut = plus facile.", "flesch": "Flesch",
   "mattr_title": "Richesse lexicale (MATTR), par trimestre", "mattr_note": "Part de formes distinctes sur une fenêtre glissante de 500 mots.",
   "lexicon_method": "Texte sans liens, renvois ni signature, syllabes estimées par groupes de voyelles. L'indice de Flesch est conçu pour la prose. Sur des listes et des questions, il reste un repère relatif, utile pour comparer les périodes.",
@@ -549,7 +549,7 @@ T["fr"].update({
 })
 T["en"].update({
   "nav_stats": "Statistics", "stats_title": "Further statistics", "toc": "Contents",
-  "stats_lead": "Indicators computed on the {n} drops: rhythm and bursts, activity regimes, boards, cited sources, references, religious vocabulary, readability. Each section gives its method and references.",
+  "stats_lead": "Indicators computed on the {n} drops (rhythm and bursts, activity regimes, boards, cited sources, references, religious vocabulary, readability). Each section gives its method and references.",
   "rhythm_title": "Rhythm: bursts, not a steady flow",
   "rhythm_text": "The median interval between two drops is {med} (quartiles {q25} and {q75}). {w5} of drops follow the previous one within 5 minutes, {w1h} within an hour. Burstiness B = {b}, on a scale from 0 for random posting (Poisson process) to 1 for highly concentrated activity. Memory M = {m} ({ml} on log intervals), meaning that a short interval is slightly more often followed by another short one.",
   "gaps_hist_title": "Interval between consecutive drops",
@@ -558,7 +558,7 @@ T["en"].update({
   "one_day": "1 day", "one_week": "1 week",
   "sessions_text": "Grouping drops less than {gap} minutes apart gives {ns} sessions. {multi} of drops belong to a multi-drop session. Such a session has a median of {med} drops and lasts {span} minutes, and the longest has {max}.",
   "sessions_title": "Session size", "session_size": "drops in the session", "n_sessions": "sessions",
-  "rhythm_method": "The 30-minute threshold is conventional. Sensitivity: {sens}. B and M:",
+  "rhythm_method": "The 30-minute threshold is conventional, and the split is not very sensitive to it ({sens}). B and M follow",
   "regimes_title": "Activity regimes",
   "regimes_lead": "Weekly volume is split into periods of homogeneous rhythm. Each break is matched with the nearest timeline event (within three weeks). A break close to an event does not prove the event caused it.",
   "regimes_chart": "Drops per week and mean of each regime",
@@ -582,12 +582,12 @@ T["en"].update({
   "refs_text": "{share} of drops reference another post on the board (>>): {anon} an anonymous post, which Q answers or endorses, and {self_} one of Q's own drops ({n_self} references). These self-references are almost all posted the same day, which makes them additions rather than after-the-fact \"proof\" (see \"Future proves past\", Predictions page).",
   "col_year": "Year", "col_refs_all": "With reference", "col_refs_anon": "To an anon", "col_refs_self": "To a Q drop",
   "religion_title": "Religious vocabulary",
-  "religion_text": "{faith} of drops use religious or moral vocabulary (God, Jesus, Lord, pray, evil, armor of God…), {god} the word God. {nv} drops quote a Bible verse, the first being drop #{first} ({date}). Books quoted: {books}.",
+  "religion_text": "{faith} of drops use religious or moral vocabulary (God, Jesus, Lord, pray, evil, armor of God…), {god} the word God. {nv} drops quote a Bible verse, the first being drop #{first} ({date}). The books quoted are {books}.",
   "religion_chart": "Share of drops with religious vocabulary, by quarter", "religion_chart_note": "Quarters with at least 10 drops, up to end 2020.",
   "rel_faith": "religious or moral vocabulary", "rel_god": "word \"God\"",
   "religion_lit": "The religious dimension of QAnon is discussed in particular by",
   "lexicon_title": "Readability and lexical richness",
-  "lexicon_text": "Flesch reading ease: {f} overall (60 to 70 is plain English), with {wps} words per sentence on average. The vocabulary has {types} distinct forms for {tokens} words, {hapax} of which occur only once. Zipf exponent {z} (close to 1 as in most texts), Heaps exponent {h}, MATTR (500-word window) {mattr}.",
+  "lexicon_text": "Flesch reading ease is {f} overall (60 to 70 is plain English), with {wps} words per sentence on average. The vocabulary has {types} distinct forms for {tokens} words, {hapax} of which occur only once. Zipf exponent {z} (close to 1 as in most texts), Heaps exponent {h}, MATTR (500-word window) {mattr}.",
   "flesch_title": "Reading ease (Flesch), by quarter", "flesch_note": "Higher = easier.", "flesch": "Flesch",
   "mattr_title": "Lexical richness (MATTR), by quarter", "mattr_note": "Share of distinct forms over a moving 500-word window.",
   "lexicon_method": "Text without links, references or signature, with syllables estimated from vowel groups. The Flesch score is designed for prose, so on lists and questions it remains a relative marker, useful for comparing periods.",
@@ -623,17 +623,17 @@ T["fr"].update({
   "research_lead": "Ce que la recherche sait de QAnon, question par question, avec {n} références de la bibliographie. Chaque appel renvoie à la notice ; les liens internes mènent aux résultats de ce site.",
   "start_title": "Par où commencer", "start_note": "Une sélection de lectures pour entrer dans le sujet (histoires du mouvement, ouvrage collectif de référence, études de données et de plateformes).",
   "research_caveat": "Synthèse rédigée à partir des résumés et des conclusions publiées des travaux cités. Elle ne remplace pas leur lecture. Les attributions d'auteur citées sont des hypothèses de recherche, contestées par les intéressés.",
-  "bib_start": "Pour commencer : la sélection et la synthèse de la page",
+  "bib_start": "Pour commencer, voir la sélection et la synthèse de la page",
 })
 T["en"].update({
   "nav_research": "State of research", "research_title": "State of research",
   "research_lead": "What research knows about QAnon, question by question, with {n} references from the bibliography. Each citation links to its entry, and internal links lead to this site's results.",
   "start_title": "Where to start", "start_note": "A selection of readings to get into the subject: histories of the movement, the reference edited volume, data and platform studies.",
   "research_caveat": "Synthesis written from the abstracts and published conclusions of the works cited, and does not replace reading them. The authorship attributions cited are research hypotheses, disputed by those concerned.",
-  "bib_start": "To start: the selection and synthesis on the page",
+  "bib_start": "To start, see the selection and synthesis on the page",
 })
-T["fr"]["sens_item"] = "{gap} min : {ns} sessions, {multi} des drops en session multiple"
-T["en"]["sens_item"] = "{gap} min: {ns} sessions, {multi} of drops in multi-drop sessions"
+T["fr"]["sens_item"] = "{ns} sessions à {gap} min, {multi} des drops en session multiple"
+T["en"]["sens_item"] = "{ns} sessions at {gap} min, {multi} of drops in multi-drop sessions"
 T["fr"]["col_active_days"], T["en"]["col_active_days"] = "Jours actifs", "Active days"
 
 # --- Chiffres cles (citables un par un) et FAQ
@@ -650,14 +650,14 @@ T["fr"].update({
   "fig_deltas": "Un tweet de Trump suit un drop en moins de 5 minutes dans {obs} des cas, contre {exp} attendus par hasard (modèle nul local, p = {pv}). Aucune synchronie n'est démontrée.",
   "fig_quotes": "{n} drops citent un tweet de Trump, en médiane {lag} après sa publication.",
   "fig_stylo": "La rupture de style la plus nette du corpus se situe autour du {date}, au passage sur 8chan.",
-  "fig_actors": "Acteurs les plus cités (nombre de drops) : {top}. {share} des drops nomment au moins un acteur du dictionnaire.",
+  "fig_actors": "Les acteurs les plus cités sont {top}, en nombre de drops. {share} des drops nomment au moins un acteur du dictionnaire.",
   "fig_overrep": "Par rapport à l'actualité mondiale (GDELT), les acteurs que Q sur-représente le plus sont {top}.",
   "fig_countries": "La corrélation de rang entre les pays cités par Q et leur poids dans l'actualité mondiale est de {rho}.",
   "fig_interest": "L'événement qui a le plus fait monter la curiosité pour QAnon sur Wikipédia est {label} (vues ×{ratio} la semaine suivante).",
   "fig_preds": "{share} des drops ({k}) contiennent au moins une prédiction, soit {m} prédictions dont {spec} précises.",
   "fig_horizon": "Pour {n} prédictions à date précise, l'échéance tombe en médiane {med} jours après le drop, et {s7} à moins d'une semaine.",
-  "fig_fulfil": "{f} des {c} prédictions vérifiables se sont réalisées, soit {rate} (IC 95 % : {ci}).",
-  "fig_fulfil_nt": "Hors événements déjà annoncés ou programmés, le taux de réalisation tombe à {rate} (IC 95 % : {ci}, {c} prédictions).",
+  "fig_fulfil": "{f} des {c} prédictions vérifiables se sont réalisées, soit {rate} (IC 95 % {ci}).",
+  "fig_fulfil_nt": "Hors événements déjà annoncés ou programmés, le taux de réalisation tombe à {rate} (IC 95 % {ci}, {c} prédictions).",
   "fig_legal": "Sur les {c} arrestations et inculpations annoncées par Q et vérifiables, {ok} réalisée.",
   "fig_model": "Modèle retenu pour annoter le corpus : {model} (F1 = {f1} sur le jeu de référence, coût du corpus ≈ {cost} $).",
   "fig_burst": "Q publie par rafales, avec un coefficient de rafale B = {b}. {w5} des drops suivent le précédent de moins de 5 minutes, {w1h} de moins d'une heure.",
@@ -669,7 +669,7 @@ T["fr"].update({
   "fig_flesch": "L'indice de lisibilité de Flesch vaut {f}, avec {wps} mots par phrase en moyenne.",
   "nav_faq": "FAQ", "faq_title": "Questions fréquentes",
   "faq_lead": "Réponses courtes, sourcées par la bibliographie et par les chiffres de ce site. Chaque chiffre renvoie à sa fiche citable.",
-  "author_line": "Auteur : Sylvain Geffroy",
+  "author_line": "Étude conduite et rédigée par Sylvain Geffroy.",
   "license": "Textes, graphiques, données éditoriales et données dérivées sont sous licence Creative Commons Attribution 4.0 International (CC BY 4.0). Vous pouvez les réutiliser, y compris commercialement, à condition de citer l'auteur et la source et d'indiquer les modifications. Le code est sous licence MIT. Les jeux de données sources (drops, tweets, GDELT, Wikimedia) restent soumis à leurs propres conditions.",
   "license_link": "Texte de la licence",
 })
@@ -686,14 +686,14 @@ T["en"].update({
   "fig_deltas": "A Trump tweet follows a drop within 5 minutes in {obs} of cases, against {exp} expected by chance (local null model, p = {pv}), so no synchrony is demonstrated.",
   "fig_quotes": "{n} drops quote a Trump tweet, a median of {lag} after it was posted.",
   "fig_stylo": "The sharpest stylistic break in the corpus falls around {date}, when Q moved to 8chan.",
-  "fig_actors": "Most cited actors (number of drops): {top}. {share} of drops name at least one actor from the dictionary.",
-  "fig_overrep": "Relative to world news (GDELT), Q most over-represents: {top}.",
+  "fig_actors": "The most cited actors are {top}, by number of drops. {share} of drops name at least one actor from the dictionary.",
+  "fig_overrep": "Relative to world news (GDELT), the actors Q most over-represents are {top}.",
   "fig_countries": "The rank correlation between the countries Q mentions and their weight in world news is {rho}.",
   "fig_interest": "The event that most raised curiosity about QAnon on Wikipedia was {label} (views ×{ratio} the following week).",
   "fig_preds": "{share} of drops ({k}) contain at least one prediction, i.e. {m} predictions, {spec} of them specific.",
   "fig_horizon": "For {n} predictions with a full date, the deadline falls a median of {med} days after the drop, {s7} within a week.",
-  "fig_fulfil": "{f} of the {c} checkable predictions came true, i.e. {rate} (95% CI: {ci}).",
-  "fig_fulfil_nt": "Excluding already announced or scheduled events, the fulfilment rate drops to {rate} (95% CI: {ci}, {c} predictions).",
+  "fig_fulfil": "{f} of the {c} checkable predictions came true, i.e. {rate} (95% CI {ci}).",
+  "fig_fulfil_nt": "Excluding already announced or scheduled events, the fulfilment rate drops to {rate} (95% CI {ci}, {c} predictions).",
   "fig_legal": "Of the {c} checkable arrests and indictments announced by Q, {ok} came true.",
   "fig_model": "The model chosen to annotate the corpus is {model} (F1 = {f1} on the reference set, corpus cost ≈ ${cost}).",
   "fig_burst": "Q posts in bursts (burstiness B = {b}). {w5} of drops follow the previous one within 5 minutes, {w1h} within an hour.",
@@ -702,19 +702,19 @@ T["en"].update({
   "fig_press": "Drops contain {nl} links to {ns} sites, and the most cited news outlet is {first} ({fn} drops).",
   "fig_selfref": "{share} of drops reference an earlier Q drop, {anon} an anonymous post.",
   "fig_religion": "{share} of drops use religious or moral vocabulary and {nv} quote a Bible verse.",
-  "fig_flesch": "Flesch reading ease: {f}, with {wps} words per sentence on average.",
+  "fig_flesch": "Flesch reading ease is {f}, with {wps} words per sentence on average.",
   "nav_faq": "FAQ", "faq_title": "Frequently asked questions",
   "faq_lead": "Short answers, sourced from the bibliography and from this site's figures. Each figure links to its citable entry.",
-  "author_line": "Author: Sylvain Geffroy",
-  "license": "Texts, charts, editorial data and derived data: Creative Commons Attribution 4.0 International licence (CC BY 4.0). You may reuse them, including commercially, provided you credit the author and the source and indicate changes. Code: MIT licence. Source datasets (drops, tweets, GDELT, Wikimedia) remain subject to their own terms.",
+  "author_line": "Study conducted and written by Sylvain Geffroy.",
+  "license": "Texts, charts, editorial data and derived data are under the Creative Commons Attribution 4.0 International licence (CC BY 4.0). You may reuse them, including commercially, provided you credit the author and the source and indicate changes. The code is under the MIT licence. Source datasets (drops, tweets, GDELT, Wikimedia) remain subject to their own terms.",
   "license_link": "Licence text",
 })
 T["fr"]["fig_deltas_sig"] = "Un tweet de Trump suit un drop en moins de 5 minutes dans {obs} des cas, contre {exp} attendus par hasard (modèle nul local, p = {pv})."
 T["en"]["fig_deltas_sig"] = "A Trump tweet follows a drop within 5 minutes in {obs} of cases, against {exp} expected by chance (local null model, p = {pv})."
 T["fr"]["fig_stylo_plain"] = "La rupture de style la plus nette du corpus se situe autour du {date}."
 T["en"]["fig_stylo_plain"] = "The sharpest stylistic break in the corpus falls around {date}."
-T["fr"]["cite_figures"] = "Pour citer un résultat précis, chaque chiffre a sa propre citation :"
-T["en"]["cite_figures"] = "To cite a specific result, each figure has its own citation:"
+T["fr"]["cite_figures"] = "Pour citer un résultat précis, chaque chiffre a sa propre citation sur la page"
+T["en"]["cite_figures"] = "To cite a specific result, each figure has its own citation on the page"
 T["fr"]["colon"], T["en"]["colon"] = "\u202f: ", ": "
 T["fr"]["license_code"], T["en"]["license_code"] = "Licence du code (MIT)", "Code licence (MIT)"
 
@@ -781,7 +781,7 @@ T["fr"].update({
   "corpus_actor": "Acteur", "corpus_pred": "Prédictions", "corpus_with_pred": "Avec au moins une prédiction",
   "corpus_count": "drops", "corpus_more": "Afficher la suite", "corpus_show_all": "Afficher tout le corpus",
   "corpus_npred": "prédictions :", "corpus_images": "images :", "corpus_empty": "Aucun drop ne correspond.",
-  "corpus_source": "Texte : corpus JSON-QAnon (CC BY 4.0). Fichier :",
+  "corpus_source": "Le texte vient du corpus JSON-QAnon (CC BY 4.0)",
   "nav_teaching": "Enseigner", "teaching_title": "Kit pédagogique",
   "teach_level": "Niveau", "teach_duration": "Durée", "teach_goals": "Objectifs", "teach_materials": "Ressources",
   "teach_steps": "Déroulé", "teach_questions": "Questions aux élèves", "teach_answers": "Éléments de correction (enseignant)",
@@ -790,7 +790,7 @@ T["fr"].update({
 })
 T["en"].update({
   "nav_watch": "Watch", "watch_title": "Literature watch",
-  "watch_lead": "{n} publications on QAnon found automatically since {since} in Crossref and OpenAlex (last run: {last}). Each shows its status in our bibliography. {inn} are already in it after verification, {new} have been found but not yet verified, {rej} were rejected after review.",
+  "watch_lead": "{n} publications on QAnon found automatically since {since} in Crossref and OpenAlex (last run on {last}). Each shows its status in our bibliography. {inn} are already in it after verification, {new} have been found but not yet verified, {rej} were rejected after review.",
   "watch_note": "The search runs again every week (title or abstract containing \"QAnon\"). A listed publication is not a recommendation. Only those marked \"in the bibliography\" have been verified and summarised.",
   "watch_in": "In the bibliography (verified)", "watch_new": "Found, not yet verified", "watch_rejected": "Rejected after review",
   "watch_see_ref": "See the verified entry",
@@ -800,7 +800,7 @@ T["en"].update({
   "corpus_actor": "Actor", "corpus_pred": "Predictions", "corpus_with_pred": "With at least one prediction",
   "corpus_count": "drops", "corpus_more": "Show more", "corpus_show_all": "Show the whole corpus",
   "corpus_npred": "predictions:", "corpus_images": "images:", "corpus_empty": "No drop matches.",
-  "corpus_source": "Text: JSON-QAnon corpus (CC BY 4.0). File:",
+  "corpus_source": "The text comes from the JSON-QAnon corpus (CC BY 4.0)",
   "nav_teaching": "Teaching", "teaching_title": "Teaching kit",
   "teach_level": "Level", "teach_duration": "Duration", "teach_goals": "Goals", "teach_materials": "Resources",
   "teach_steps": "Steps", "teach_questions": "Questions for students", "teach_answers": "Answer key (teacher)",
@@ -825,35 +825,35 @@ T["en"].update({
 })
 T["fr"].update({
   "m_tests_title": "Prédictions à l'épreuve",
-  "m_tests": "Test de l'horoscope : comparaisons à l'aveugle entre un drop et deux listes d'actualité (vraie période, période au hasard), jugées par le modèle retenu avec une consigne sceptique, puis test binomial (page Prédictions). Pour les prophéties recyclées, les prédictions sont regroupées par type d'événement et acteur. Pour « Future proves past », on mesure les délais des renvois de Q vers ses propres drops.",
+  "m_tests": "Le test de l'horoscope compare à l'aveugle un drop et deux listes d'actualité (vraie période, période au hasard), jugées par le modèle retenu avec une consigne sceptique, puis test binomial (page Prédictions). Pour les prophéties recyclées, les prédictions sont regroupées par type d'événement et acteur. Pour « Future proves past », on mesure les délais des renvois de Q vers ses propres drops.",
   "m_watch_title": "Veille bibliographique",
   "m_watch": "Chaque semaine, le worker interroge Crossref et OpenAlex (publications depuis 2024 dont le titre ou le résumé contient « QAnon »). Le site publie ces publications avec leur état (dans la bibliographie et vérifiée, repérée mais non vérifiée, ou écartée après examen). Aucune n'entre dans la bibliographie sans relecture.",
-  "src_wikinews": "Actualité quotidienne : portail « Current events » de Wikipédia (anglais), 2017-2021",
+  "src_wikinews": "Actualité quotidienne, portail « Current events » de Wikipédia (anglais), 2017-2021",
   "src_watch": "Veille bibliographique",
-  "src_arctic": "Reddit complotiste (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories) : archive Arctic Shift, subreddits bannis compris",
-  "src_gtrends": "Google Trends : indice d'intérêt de recherche, États-Unis, 2016-2023",
-  "src_pol": "4chan /pol/, juin 2016-novembre 2019 : jeu de données de Papasavva, Zannettou, De Cristofaro, Stringhini et Blackburn (ICWSM 2020), réduit à des agrégats",
+  "src_arctic": "Reddit complotiste (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories), archive Arctic Shift, subreddits bannis compris",
+  "src_gtrends": "Google Trends, indice d'intérêt de recherche, États-Unis, 2016-2023",
+  "src_pol": "4chan /pol/, juin 2016-novembre 2019, jeu de données de Papasavva, Zannettou, De Cristofaro, Stringhini et Blackburn (ICWSM 2020), réduit à des agrégats",
 })
 T["en"].update({
   "m_tests_title": "Predictions put to the test",
-  "m_tests": "Horoscope test: blind comparisons between a drop and two news lists (real period, random period), judged by the chosen model under sceptical instructions, binomial test (Predictions page). For recycled prophecies, predictions are grouped by event type and actor. \"Future proves past\": delays of Q's references to his own drops.",
+  "m_tests": "The horoscope test blindly compares a drop with two news lists (real period, random period), judged by the chosen model under sceptical instructions, then applies a binomial test (Predictions page). For recycled prophecies, predictions are grouped by event type and actor. For \"Future proves past\", we measure the delays of Q's references to his own drops.",
   "m_watch_title": "Literature watch",
-  "m_watch": "Every week the worker queries Crossref and OpenAlex (publications since 2024 whose title or abstract contains \"QAnon\"). The site lists them with their status: in the bibliography (verified), found but not verified, or rejected after review. None enters the bibliography without review.",
-  "src_wikinews": "Daily news: Wikipedia's \"Current events\" portal (English), 2017-2021",
+  "m_watch": "Every week the worker queries Crossref and OpenAlex (publications since 2024 whose title or abstract contains \"QAnon\"). The site lists them with their status (in the bibliography after verification, found but not verified, or rejected after review). None enters the bibliography without review.",
+  "src_wikinews": "Daily news, Wikipedia's \"Current events\" portal (English), 2017-2021",
   "src_watch": "Literature watch",
-  "src_arctic": "Conspiracy Reddit (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories): Arctic Shift archive, banned subreddits included",
-  "src_gtrends": "Google Trends: search interest index, United States, 2016-2023",
-  "src_pol": "4chan /pol/, June 2016-November 2019: dataset by Papasavva, Zannettou, De Cristofaro, Stringhini and Blackburn (ICWSM 2020), reduced to aggregates",
+  "src_arctic": "Conspiracy Reddit (r/conspiracy, r/The_Donald, r/greatawakening, r/CBTS_Stream, r/QAnonCasualties, r/conspiracytheories), Arctic Shift archive, banned subreddits included",
+  "src_gtrends": "Google Trends, search interest index, United States, 2016-2023",
+  "src_pol": "4chan /pol/, June 2016-November 2019, dataset by Papasavva, Zannettou, De Cristofaro, Stringhini and Blackburn (ICWSM 2020), reduced to aggregates",
 })
 T["fr"].update({"watch_abstract_only": "QAnon dans le résumé seulement", "watch_title_only": "QAnon dans le titre"})
 T["en"].update({"watch_abstract_only": "QAnon in abstract only", "watch_title_only": "QAnon in the title"})
 T["fr"].update({
-  "horo_reading": "Lecture : dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte, mais moins nettement pour le mois qui suit que pour la semaine qui précède. Les drops commentent l'actualité plus qu'ils ne l'annoncent, et l'avantage de « l'avenir » s'explique en partie par la continuité des sujets d'une semaine à l'autre. Une période tirée au hasard peut d'ailleurs sembler « correspondre ». Les exemples ci-dessous le montrent, soit parce que le drop est assez vague pour coller à un événement survenu des années plus tard, soit parce qu'il évoque un fait plus ancien qui figure dans la liste.",
-  "horo_reading_alt": "Lecture : dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte un peu plus nettement pour le mois qui suit que pour la semaine qui précède. La continuité des sujets d'une semaine à l'autre en explique une partie, et les exemples ci-dessous montrent qu'une période tirée au hasard peut aussi sembler « correspondre ».",
+  "horo_reading": "Dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte, mais moins nettement pour le mois qui suit que pour la semaine qui précède. Les drops commentent l'actualité plus qu'ils ne l'annoncent, et l'avantage de « l'avenir » s'explique en partie par la continuité des sujets d'une semaine à l'autre. Une période tirée au hasard peut d'ailleurs sembler « correspondre ». Les exemples ci-dessous le montrent, soit parce que le drop est assez vague pour coller à un événement survenu des années plus tard, soit parce qu'il évoque un fait plus ancien qui figure dans la liste.",
+  "horo_reading_alt": "Dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte un peu plus nettement pour le mois qui suit que pour la semaine qui précède. La continuité des sujets d'une semaine à l'autre en explique une partie, et les exemples ci-dessous montrent qu'une période tirée au hasard peut aussi sembler « correspondre ».",
 })
 T["en"].update({
-  "horo_reading": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, but less clearly for the following month than for the preceding week. The drops comment on the news more than they announce it, and the \"future\" advantage is partly explained by stories continuing from one week to the next. A randomly drawn period can also seem to \"match\", as the examples below show, either because the drop is vague enough to fit an event that happened years later, or because it mentions an earlier fact that appears in the list.",
-  "horo_reading_alt": "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins slightly more clearly for the following month than for the preceding week. Stories continuing from week to week explain part of this, and the examples below show that a randomly drawn period can also seem to \"match\".",
+  "horo_reading": "In {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, but less clearly for the following month than for the preceding week. The drops comment on the news more than they announce it, and the \"future\" advantage is partly explained by stories continuing from one week to the next. A randomly drawn period can also seem to \"match\", as the examples below show, either because the drop is vague enough to fit an event that happened years later, or because it mentions an earlier fact that appears in the list.",
+  "horo_reading_alt": "In {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins slightly more clearly for the following month than for the preceding week. Stories continuing from week to week explain part of this, and the examples below show that a randomly drawn period can also seem to \"match\".",
 })
 T["fr"].update({"doi_concept": "DOI de l'étude (toutes versions)", "doi_version": "Version",
   "doi_note": "Archivé sur Zenodo. Le DOI de l'étude pointe toujours vers la dernière version. Pour une citation exacte, utilisez le DOI de la version consultée."})
@@ -865,16 +865,16 @@ T["en"].update({"link_dead": "dead link", "link_archive": "archived copy",
   "links_note": "Links checked automatically on {date} ({n} addresses from the bibliography, timeline, glossary and verdicts). {ok} respond, {blocked} refuse robots (pages probably online), {dead} are dead, {error} temporarily failing. For a dead link, an archived copy is offered when one exists."})
 T["fr"]["pred_caveat"] += " Les paraphrases, produites en anglais par le modèle, sont traduites automatiquement en français."
 T["fr"]["horo_examples"] = "Quand le hasard « confirme » Q. Listes tirées au hasard jugées liées (justification du modèle, traduite)"
-T["fr"]["horo_robust"] = "Robustesse : un second modèle, {model}, a repris les mêmes questions pour {n} drops. Les deux modèles font le même choix dans {agree} des comparaisons « avenir » (kappa de Cohen {kappa}) et {agree_p} des comparaisons « passé ». Sur ce sous-échantillon, la vraie période « avenir » est choisie dans {fc} des cas tranchés par le second modèle (p = {fpv}) contre {fm} par le modèle principal. Pour le passé, c'est {pc} contre {pm}."
-T["en"]["horo_robust"] = "Robustness: a second model, {model}, answered the same questions for {n} drops. The two models make the same choice in {agree} of \"future\" comparisons (Cohen's kappa {kappa}) and {agree_p} of \"past\" comparisons. On this subsample, the real \"future\" period is chosen in {fc} of the second model's decided cases (p = {fpv}) against {fm} for the main model. For the past, it is {pc} against {pm}."
+T["fr"]["horo_robust"] = "Pour tester la robustesse, un second modèle, {model}, a repris les mêmes questions pour {n} drops. Les deux modèles font le même choix dans {agree} des comparaisons « avenir » (kappa de Cohen {kappa}) et {agree_p} des comparaisons « passé ». Sur ce sous-échantillon, la vraie période « avenir » est choisie dans {fc} des cas tranchés par le second modèle (p = {fpv}) contre {fm} par le modèle principal. Pour le passé, c'est {pc} contre {pm}."
+T["en"]["horo_robust"] = "As a robustness check, a second model, {model}, answered the same questions for {n} drops. The two models make the same choice in {agree} of \"future\" comparisons (Cohen's kappa {kappa}) and {agree_p} of \"past\" comparisons. On this subsample, the real \"future\" period is chosen in {fc} of the second model's decided cases (p = {fpv}) against {fm} for the main model. For the past, it is {pc} against {pm}."
 T["fr"].update({"nav_paper": "Article", "paper_title": "Document de travail", "paper_doi": "10.5281/zenodo.23338131",
   "paper_fr_only": ""})
 T["en"].update({"nav_paper": "Paper", "paper_title": "Working paper", "paper_doi": "10.5281/zenodo.23338131",
   "paper_fr_only": "The full text is in French (HTML on the French page, PDF above), and this English abstract summarises it."})
-T["fr"]["horo_robust"] = "Robustesse : un second modèle, plus puissant ({model}), a repris les mêmes questions pour {n} drops. Il est bien plus sceptique. Il ne voit aucun lien précis dans {none_c} des {nf} comparaisons « avenir », contre {none_m} pour le modèle principal sur les mêmes drops, et ne tranche que {dec_c} fois ({true_c} en faveur de la vraie période). Les deux modèles font le même choix dans {agree} des cas, mais leur accord au-delà du hasard reste modeste (kappa de Cohen {kappa}). Les rares « correspondances » dépendent donc du lecteur. C'est une limite de la mesure plus qu'une preuve supplémentaire, et elle interdit d'y voir une anticipation reconnaissable."
-T["en"]["horo_robust"] = "Robustness: a second, more capable model ({model}) answered the same questions for {n} drops. It is far more sceptical. It sees no specific link in {none_c} of the {nf} \"future\" comparisons, against {none_m} for the main model on the same drops, and decides only {dec_c} times ({true_c} in favour of the real period). The two models make the same choice in {agree} of cases, but their agreement beyond chance is modest (Cohen's kappa {kappa}), so the few \"matches\" depend on the reader. This is a limit of the measurement rather than further evidence, and it rules out reading them as recognisable foresight."
-T["fr"]["horo_reading"] = "Lecture : dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte, pour le passé comme pour l'avenir, et les deux taux ne diffèrent pas significativement (test exact de Fisher, p = {pdiff}). Le signal « avenir » ne suffit pas à conclure à une anticipation. Il ne concerne qu'une minorité de comparaisons, des périodes tirées au hasard « correspondent » elles aussi, et il est compatible avec la simple continuité des sujets d'une semaine à l'autre, une hypothèse que ce test ne mesure pas. Les exemples ci-dessous montrent comment une période tirée au hasard peut sembler « correspondre », soit parce que le drop est assez vague pour coller à un événement survenu des années plus tard, soit parce qu'il évoque un fait plus ancien qui figure dans la liste."
-T["en"]["horo_reading"] = "Reading: in {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, for the past as for the future, and the two rates do not differ significantly (Fisher's exact test, p = {pdiff}). The \"future\" signal is not enough to conclude that the drops anticipate events. It concerns only a minority of comparisons, randomly drawn periods \"match\" too, and it is compatible with stories simply continuing from one week to the next, a hypothesis this test does not measure. The examples below show how a random period can seem to \"match\", either because the drop is vague enough to fit an event years later, or because it mentions an earlier fact that appears in the list."
+T["fr"]["horo_robust"] = "Pour tester la robustesse, un second modèle, plus puissant ({model}), a repris les mêmes questions pour {n} drops. Il est bien plus sceptique. Il ne voit aucun lien précis dans {none_c} des {nf} comparaisons « avenir », contre {none_m} pour le modèle principal sur les mêmes drops, et ne tranche que {dec_c} fois ({true_c} en faveur de la vraie période). Les deux modèles font le même choix dans {agree} des cas, mais leur accord au-delà du hasard reste modeste (kappa de Cohen {kappa}). Les rares « correspondances » dépendent donc du lecteur. C'est une limite de la mesure plus qu'une preuve supplémentaire, et elle interdit d'y voir une anticipation reconnaissable."
+T["en"]["horo_robust"] = "As a robustness check, a second, more capable model ({model}) answered the same questions for {n} drops. It is far more sceptical. It sees no specific link in {none_c} of the {nf} \"future\" comparisons, against {none_m} for the main model on the same drops, and decides only {dec_c} times ({true_c} in favour of the real period). The two models make the same choice in {agree} of cases, but their agreement beyond chance is modest (Cohen's kappa {kappa}), so the few \"matches\" depend on the reader. This is a limit of the measurement rather than further evidence, and it rules out reading them as recognisable foresight."
+T["fr"]["horo_reading"] = "Dans {none} des comparaisons « avenir », le modèle ne trouve aucun lien précis entre le drop et l'actualité. Quand il en trouve un, la vraie période l'emporte, pour le passé comme pour l'avenir, et les deux taux ne diffèrent pas significativement (test exact de Fisher, p = {pdiff}). Le signal « avenir » ne suffit pas à conclure à une anticipation. Il ne concerne qu'une minorité de comparaisons, des périodes tirées au hasard « correspondent » elles aussi, et il est compatible avec la simple continuité des sujets d'une semaine à l'autre, une hypothèse que ce test ne mesure pas. Les exemples ci-dessous montrent comment une période tirée au hasard peut sembler « correspondre », soit parce que le drop est assez vague pour coller à un événement survenu des années plus tard, soit parce qu'il évoque un fait plus ancien qui figure dans la liste."
+T["en"]["horo_reading"] = "In {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins, for the past as for the future, and the two rates do not differ significantly (Fisher's exact test, p = {pdiff}). The \"future\" signal is not enough to conclude that the drops anticipate events. It concerns only a minority of comparisons, randomly drawn periods \"match\" too, and it is compatible with stories simply continuing from one week to the next, a hypothesis this test does not measure. The examples below show how a random period can seem to \"match\", either because the drop is vague enough to fit an event years later, or because it mentions an earlier fact that appears in the list."
 T["fr"]["horo_robust"] = T["fr"]["horo_robust"].replace("un second modèle, plus puissant ({model})", "un second modèle ({model}, meilleur F1 de l'évaluation sur notre jeu de référence)")
 T["en"]["horo_robust"] = T["en"]["horo_robust"].replace("a second, more capable model ({model})", "a second model ({model}, best F1 in the evaluation on our reference set)")
 
@@ -932,13 +932,13 @@ T["fr"].update({
   "peak_hour": "heure de pointe", "phase_split_mark": "Rupture de phase de Q",
   "phases_method": "Méthode : statistique circulaire (longueur résultante, test de Rayleigh). La rupture est cherchée sur toutes les coupures entre jours qui laissent au moins 150 drops de chaque côté, en maximisant le gain de longueur résultante, et p est estimé par 200 permutations de l'ordre des drops.",
   # scene
-  "scene_lead": "Q n'est pas né seul. Il est apparu sur /pol/ (4chan), dans un écosystème déjà riche en théories du complot. Cette partie met en regard les drops et l'activité de la scène complotiste, avec les forums Reddit (r/conspiracy, r/greatawakening, r/CBTS_Stream, r/The_Donald, r/QAnonCasualties, r/conspiracytheories), les pages vues Wikipedia, les recherches Google et, à terme, /pol/ lui-même. La question directrice : Q mène-t-il la scène, ou la suit-il ?",
-  "scene_cov": "Couverture de l'échantillon Reddit : {done} jours sur {total} ({share}).",
+  "scene_lead": "Q n'est pas né seul. Il est apparu sur /pol/ (4chan), dans un écosystème déjà riche en théories du complot. Cette partie met en regard les drops et l'activité de la scène complotiste, avec les forums Reddit (r/conspiracy, r/greatawakening, r/CBTS_Stream, r/The_Donald, r/QAnonCasualties, r/conspiracytheories), les pages vues Wikipedia, les recherches Google et, à terme, /pol/ lui-même. La question directrice est donc de savoir si Q mène la scène ou s'il la suit.",
+  "scene_cov": "L'échantillon Reddit couvre {done} jours sur {total} ({share}).",
   "scene_provisional_note": "La collecte est en cours. Les résultats de cette partie sont provisoires et se complètent automatiquement.",
   "sync_title": "Syncrétisme : Q récupère-t-il les thèmes de la scène ?",
   "sync_text": "Sur {n} thèmes de la scène complotiste (alunissage, 11-Septembre, chemtrails, Pizzagate, Epstein, vaccins, élection « volée »…), {absent} n'apparaissent jamais dans les drops et {rare} moins de 10 fois. Q ne parle presque jamais des complots par leur nom. Il les porte par des personnes (Epstein, Soros, Rothschild, la Fondation Clinton). Pour les thèmes assez présents, le tableau compare, semaine par semaine, leur part dans les drops à l'attention du public.",
   "absorption_text": "Le nombre de thèmes distincts abordés par trimestre culmine au {q1} ({n1} thèmes) et au {q2} ({n2} thèmes).",
-  "quarter_fmt": "{q} trimestre {y}", "quarter_ord": ["1er", "2e", "3e", "4e"], "col_count": "occurrences", "see_also": "Voir aussi :",
+  "quarter_fmt": "{q} trimestre {y}", "quarter_ord": ["1er", "2e", "3e", "4e"], "col_count": "occurrences", "see_also": "Voir aussi la page",
   "absorption_chart": "Thèmes de la scène abordés par trimestre", "absorption_chart_note": "Nombre de thèmes distincts du lexique cités au moins une fois dans les drops du trimestre.",
   "n_themes": "thèmes",
   "col_theme": "Thème", "col_q_drops": "drops", "col_measure": "Attention mesurée", "col_lag_weeks": "décalage (sem.)", "col_r": "r", "col_p_fdr": "p ajustée", "col_verdict": "Verdict",
@@ -986,7 +986,7 @@ T["en"].update({
   "col_from_topic": "Topic of the drop", "col_to_topic": "Topic of the next", "col_lift": "ratio to expected",
   "chain_method": "Method: transition matrix between consecutive topics within a session (less than 30 minutes apart). The expected value is the mean of 1,000 permutations of the order of drops within each session, which preserves session composition. Only transitions seen at least 10 times are listed. A catch-all topic gathers many short drops, which limits the resolution of the analysis.",
   "drift_title": "Style drift and resemblances",
-  "drift_text": "A statistical model of character sequences, trained on one semester of drops, predicts the next semester more or less well, and the excess surprise measures drift. Two jumps dominate: from {a} to {b} (+{da} bit per character) and from {c} to {e} (+{dc}). Elsewhere the style is stable from one semester to the next. The first jump matches the move from 4chan to 8chan, the second the return on 8kun after 8chan was shut down (August-November 2019). Part of the drift reflects changes of subject, which the measure does not separate from style.",
+  "drift_text": "A statistical model of character sequences, trained on one semester of drops, predicts the next semester more or less well, and the excess surprise measures drift. Two jumps dominate, from {a} to {b} (+{da} bit per character) and from {c} to {e} (+{dc}). Elsewhere the style is stable from one semester to the next. The first jump matches the move from 4chan to 8chan, the second the return on 8kun after 8chan was shut down (August-November 2019). Part of the drift reflects changes of subject, which the measure does not separate from style.",
   "style_chart": "Surprise from one semester to another (bits per character)", "style_chart_note": "Rows are training semesters and columns tested semesters. The darker the cell, the more the tested semester surprises the model.",
   "style_train": "trained on", "style_test": "tested on", "bits_per_char": "bits per character",
   "col_bits_cross": "surprise (bits/char)", "col_bits_self": "baseline (bits/char)", "col_drift": "drift",
@@ -1007,7 +1007,7 @@ T["en"].update({
   "dfa_scale": "scale (days)", "dfa_F": "fluctuation F", "dfa_shuffled": "Q, days shuffled",
   "dfa_method": "Method: first-order DFA on daily and hourly counts of the main period (October 2017 - December 2020), with a shuffled-days control.",
   "avalanche_title": "Avalanches: \"critical\" sessions?",
-  "avalanche_text": "Systems at the edge of instability produce avalanches of all sizes, following a power law. Q's sessions do not. A power law fits only the {tail} largest of the {n_} sessions (from {xmin} drops), with an exponent of {a}, far from critical values (around 1.5), and it can be told apart neither from an exponential (p = {pexp}) nor from a lognormal (p = {pln}). Trump's tweet bursts look the same (exponent {at}). Negative result: nothing points to critical dynamics.",
+  "avalanche_text": "Systems at the edge of instability produce avalanches of all sizes, following a power law. Q's sessions do not. A power law fits only the {tail} largest of the {n_} sessions (from {xmin} drops), with an exponent of {a}, far from critical values (around 1.5), and it can be told apart neither from an exponential (p = {pexp}) nor from a lognormal (p = {pln}). Trump's tweet bursts look the same (exponent {at}). The result is negative, since nothing points to critical dynamics.",
   "ccdf_chart": "Session sizes (complementary distribution, log scales)", "ccdf_chart_note": "Share of sessions with at least x items. A power law would be a straight line.",
   "session_size": "session size", "ccdf": "share of sessions ≥ x",
   "avalanche_method": "Method: maximum-likelihood fit with threshold chosen by the Kolmogorov-Smirnov distance, goodness of fit from 100 synthetic samples, comparison with alternative laws by Vuong's test. A session groups drops less than 30 minutes apart.",
@@ -1016,13 +1016,13 @@ T["en"].update({
   "phases_chart": "Monthly peak hour (New York)", "phases_chart_note": "Circular mean of each month's posting times (at least 20 drops). The dotted line marks Q's phase break.",
   "peak_hour": "peak hour", "phase_split_mark": "Q's phase break",
   "phases_method": "Method: circular statistics (resultant length, Rayleigh test). The break is searched over every split between days leaving at least 150 drops on each side, maximising the gain in resultant length, and p comes from 200 permutations of the order of drops.",
-  "scene_lead": "Q was not born alone. It appeared on /pol/ (4chan), in an ecosystem already rich in conspiracy theories. This part sets the drops against the activity of the conspiracy scene: Reddit forums (r/conspiracy, r/greatawakening, r/CBTS_Stream, r/The_Donald, r/QAnonCasualties, r/conspiracytheories), Wikipedia page views, Google searches and, eventually, /pol/ itself. The guiding question is whether Q leads the scene or follows it.",
-  "scene_cov": "Coverage of the Reddit sample: {done} days out of {total} ({share}).",
+  "scene_lead": "Q was not born alone. It appeared on /pol/ (4chan), in an ecosystem already rich in conspiracy theories. This part sets the drops against the activity of the conspiracy scene, from Reddit forums (r/conspiracy, r/greatawakening, r/CBTS_Stream, r/The_Donald, r/QAnonCasualties, r/conspiracytheories), Wikipedia page views, Google searches and, eventually, /pol/ itself. The guiding question is whether Q leads the scene or follows it.",
+  "scene_cov": "The Reddit sample covers {done} days out of {total} ({share}).",
   "scene_provisional_note": "Collection is ongoing, so the results in this part are provisional and fill in automatically.",
   "sync_title": "Syncretism: does Q pick up the scene's themes?",
   "sync_text": "Of {n} themes of the conspiracy scene (moon landing, 9/11, chemtrails, Pizzagate, Epstein, vaccines, \"stolen\" election...), {absent} never appear in the drops and {rare} fewer than 10 times. Q almost never names conspiracies. It carries them through people (Epstein, Soros, Rothschild, the Clinton Foundation). For themes present often enough, the table compares, week by week, their share of drops with public attention.",
   "absorption_text": "The number of distinct themes raised per quarter peaks in {q1} ({n1} themes) and in {q2} ({n2} themes).",
-  "quarter_fmt": "Q{q} {y}", "quarter_ord": ["1", "2", "3", "4"], "col_count": "occurrences", "see_also": "See also:",
+  "quarter_fmt": "Q{q} {y}", "quarter_ord": ["1", "2", "3", "4"], "col_count": "occurrences", "see_also": "See also the page",
   "absorption_chart": "Scene themes raised per quarter", "absorption_chart_note": "Number of distinct lexicon themes cited at least once in the quarter's drops.",
   "n_themes": "themes",
   "col_theme": "Theme", "col_q_drops": "drops", "col_measure": "Attention measured", "col_lag_weeks": "lag (weeks)", "col_r": "r", "col_p_fdr": "adjusted p", "col_verdict": "Verdict",

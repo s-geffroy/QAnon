@@ -15,7 +15,7 @@
 <p id="c-single" hidden><a href="#" id="c-all">{{ t.corpus_show_all }}</a></p>
 <ol class="drops" id="c-list" aria-live="polite"></ol>
 <p><button type="button" class="copy" id="c-more" hidden>{{ t.corpus_more }}</button></p>
-<p class="note">{{ t.corpus_source }} <a href="../data/corpus.json">corpus.json</a> · <a href="data.html">{{ t.nav_data }}</a></p>
+<p class="note">{{ t.corpus_source }} (<a href="../data/corpus.json">corpus.json</a>, <a href="data.html">{{ t.nav_data }}</a>).</p>
 <script type="application/json" id="c-labels">{{ {"drop": t.drop_no, "pred": t.corpus_npred, "images": t.corpus_images, "verdicts": {"fulfilled": t.vd_fulfilled, "partial": t.vd_partial, "not_fulfilled": t.vd_not_fulfilled, "unverifiable": t.vd_unverifiable, "not_a_prediction": t.vd_not_a_prediction}, "empty": t.corpus_empty, "lang": lang} | tojson_compact }}</script>
 {% endblock %}
 {% block scripts %}

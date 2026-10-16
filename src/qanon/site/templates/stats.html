@@ -29,7 +29,7 @@
     <thead><tr><th>{{ t.col_from }}</th><th>{{ t.col_to }}</th><th class="r">{{ t.col_weeks }}</th><th class="r">{{ t.mean_per_week }}</th><th class="r">{{ t.col_n }}</th><th>{{ t.col_near_event }}</th></tr></thead>
     <tbody>{% for s in segments %}<tr><td>{{ s.from }}</td><td>{{ s.to }}</td><td class="r">{{ s.weeks }}</td><td class="r">{{ s.mean }}</td><td class="r">{{ s.total }}</td><td>{{ s.event }}</td></tr>{% endfor %}</tbody>
   </table></div>
-  <p class="note">{{ regimes_note }} {{ cite("jackson2005optimal", "killick2012pelt") }}</p>
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (regimes_note) | unlabel }} {{ cite("jackson2005optimal", "killick2012pelt") }}</p></details>
 </section>
 
 <section id="forums">

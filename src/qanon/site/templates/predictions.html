@@ -70,8 +70,8 @@
   </table></div>
   {{ chart("horo", charts.horo, t.horo_chart, t.horo_chart_note) }}
   {% if horo.examples %}<h3>{{ t.horo_examples }}</h3>
-  <ul class="plain">{% for e in horo.examples %}<li><a href="corpus.html#d{{ e.drop_id }}">{{ t.drop_no }}{{ e.drop_id }}</a>, {{ t.horo_score }} {{ e.score }}/10 : « {{ e.reason }} »</li>{% endfor %}</ul>{% endif %}
-  <p class="note">{{ horo.method }}</p>
+  <ul class="plain">{% for e in horo.examples %}<li><a href="corpus.html#d{{ e.drop_id }}">{{ t.drop_no }}{{ e.drop_id }}</a>, {{ t.horo_score }} {{ e.score }}/10. <q>{{ e.reason }}</q></li>{% endfor %}</ul>{% endif %}
+  <details class="method"><summary>{{ t.method_label }}</summary><p>{{ (horo.method) | unlabel }}</p></details>
 </section>
 {% endif %}
 {% if recy %}

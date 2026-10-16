@@ -431,7 +431,7 @@ class Site:
                                                   multi=p(r["share_drops_in_multi"], 0),
                                                   med=n(r["session_size_median"]),
                                                   span=n(r["session_span_median_min"]), max=n(r["session_size_max"])),
-            "rhythm_method": t["rhythm_method"].format(sens=" ; ".join(
+            "rhythm_method": t["rhythm_method"].format(sens=", ".join(
                 t["sens_item"].format(gap=n(x["gap_min"]), ns=n(x["n_sessions"]), multi=p(x["share_drops_in_multi"], 0))
                 for x in r.get("session_sensitivity", []))),
             "regimes_note": t["regimes_note"].format(phi=n(st["changepoints"]["phi"], 1),
@@ -735,7 +735,7 @@ class Site:
         out["hmm_rows"] = [{"name": names[s["state"]], "rate": n(s["rate_per_day"], 2), "disp": n(s["var_to_mean"], 1),
                             "dwell": n(s["mean_dwell_days"], 1), "days": p(s["share_days"], 0), "drops": p(s["share_drops"], 0)}
                            for s in h["states"]]
-        out["hmm_bic"] = ", ".join(f"K = {b['K']} : {n(b['bic'], 0)}" for b in h["bic"])
+        out["hmm_bic"] = ", ".join(f"{n(b['bic'], 0)} {'pour' if lang == 'fr' else 'for'} K = {b['K']}" for b in h["bic"])
         out["charts"]["hmm"] = charts.hmm_regimes(mk, lang)
         # -- chaine de themes
         ch = mk["topic_chain"]
@@ -1440,11 +1440,18 @@ class Site:
         data = yaml.safe_load(path.read_text())
         pr = lambda txt: self._prose(txt, lang)
         one = lambda txt: pr(txt)[0] if txt and pr(txt) else ""
+
+        def step(txt):
+            """« Reformuler (15 min) : pour chaque… » -> étiquette en gras et phrase, sans deux-points."""
+            m = re.match(r"([^:]{2,60}?\([^)]*\))\s*:\s*(.)(.*)", txt, re.S)
+            if not m:
+                return {"label": "", "text": one(txt)}
+            return {"label": m.group(1), "text": one(m.group(2).upper() + m.group(3))}
         sheets = []
         for sh in data["sheets"]:
             sheets.append({"id": sh["id"], "title": sh[f"title_{lang}"], "level": sh[f"level_{lang}"],
                            "duration": sh[f"duration_{lang}"], "goals": [one(x) for x in sh[f"goals_{lang}"]],
-                           "materials": pr(sh[f"materials_{lang}"]), "steps": [one(x) for x in sh[f"steps_{lang}"]],
+                           "materials": pr(sh[f"materials_{lang}"]), "steps": [step(x) for x in sh[f"steps_{lang}"]],
                            "questions": [one(x) for x in sh[f"questions_{lang}"]], "answers": pr(sh[f"answers_{lang}"]),
                            "caution": pr(sh[f"caution_{lang}"])})
         return {"intro": pr(data[f"intro_{lang}"]), "sheets": sheets}

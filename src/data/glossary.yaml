@@ -8,8 +8,8 @@ terms:
 - id: the-storm
   term: "The Storm"
   pattern: '(?i)\bthe storm\b'
-  def_fr: "Événement futur central du récit QAnon : l'arrestation massive de responsables démocrates et de membres de l'« élite », sur la base de supposés actes d'accusation scellés. Aucune de ces arrestations n'a eu lieu."
-  def_en: "The central anticipated event of QAnon lore: mass arrests of Democratic officials and members of the 'elite', supposedly based on sealed indictments. None of these arrests took place."
+  def_fr: "Événement futur central du récit QAnon, qui désigne l'arrestation massive de responsables démocrates et de membres de l'« élite », sur la base de supposés actes d'accusation scellés. Aucune de ces arrestations n'a eu lieu."
+  def_en: "The central anticipated event of QAnon lore, namely the mass arrest of Democratic officials and members of the 'elite', supposedly based on sealed indictments. None of these arrests took place."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: calm-before-the-storm
@@ -72,15 +72,15 @@ terms:
 - id: crumbs
   term: "Crumbs / Breadcrumbs"
   pattern: '(?i)\b(?:bread)?crumbs?\b'
-  def_fr: "Autre nom des drops (terme employé par Q) : des indices fragmentaires que les adeptes doivent assembler."
-  def_en: "Another name for the drops (a term Q used): fragmentary clues that followers are meant to piece together."
+  def_fr: "Autre nom des drops, employé par Q, qui désigne des indices fragmentaires que les adeptes doivent assembler."
+  def_en: "Another name for the drops, used by Q, for fragmentary clues that followers are meant to piece together."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: anons
   term: "Anons"
   pattern: '(?i)\banons?\b'
   def_fr: "Abréviation d'« anonymous » qui désigne les utilisateurs anonymes des imageboards, puis les adeptes de Q qui dissèquent les drops. Q s'adresse souvent directement à eux."
-  def_en: "Short for 'anonymous': anonymous imageboard users, then Q followers who dissect the drops. Q often addresses them directly."
+  def_en: "Short for 'anonymous', used first for anonymous imageboard users, then for Q followers who dissect the drops. Q often addresses them directly."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: bakers-bread
@@ -114,14 +114,14 @@ terms:
 - id: patriots-digital-soldiers
   term: "Patriots / Digital soldiers"
   pattern: '(?i)\bpatriots?\b|\bdigital soldiers?\b'
-  def_fr: "Termes par lesquels Q et ses adeptes se désignent ; « digital soldiers » reprend une phrase de Michael Flynn (2016) sur une « armée de soldats numériques » ayant fait élire Trump."
+  def_fr: "Termes par lesquels Q et ses adeptes se désignent. L'expression « digital soldiers » reprend une phrase de Michael Flynn (2016) sur une « armée de soldats numériques » ayant fait élire Trump."
   def_en: "Terms used by Q and followers for themselves. The phrase 'digital soldiers' borrows a 2016 Michael Flynn line about an 'army of digital soldiers' that elected Trump."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: q-plus
   term: "Q+"
   pattern: '(?<![A-Za-z0-9])Q\+(?![A-Za-z0-9+])'
-  def_fr: "Signature apparaissant dans certains drops ; une partie des adeptes y voit Donald Trump lui-même, qu'ils surnomment « Q+ »."
+  def_fr: "Signature apparaissant dans certains drops. Une partie des adeptes y voit Donald Trump lui-même, qu'ils surnomment « Q+ »."
   def_en: "Signature appearing on some drops. Some followers take it to be Donald Trump himself, whom they nickname 'Q+'."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
@@ -135,14 +135,14 @@ terms:
 - id: pizzagate
   term: "Pizzagate"
   pattern: '(?i)\bpizza ?gate\b'
-  def_fr: "Théorie du complot de 2016, sans fondement, selon laquelle des démocrates dirigeaient un réseau pédocriminel depuis la pizzeria Comet Ping Pong à Washington ; considérée comme précurseur de QAnon, elle a conduit un homme à y tirer au fusil en décembre 2016."
+  def_fr: "Théorie du complot de 2016, sans fondement, selon laquelle des démocrates dirigeaient un réseau pédocriminel depuis la pizzeria Comet Ping Pong à Washington. Considérée comme précurseur de QAnon, elle a conduit un homme à y tirer au fusil en décembre 2016."
   def_en: "Baseless 2016 conspiracy theory claiming Democrats ran a child-trafficking ring out of the Comet Ping Pong pizzeria in Washington. Regarded as QAnon's forerunner, it led a man to fire a rifle there in December 2016."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
 - id: adrenochrome
   term: "Adrenochrome"
   pattern: '(?i)\badrenochrome\b'
-  def_fr: "Composé chimique réel issu de l'oxydation de l'adrénaline ; les adeptes affirment faussement que les élites l'extrairaient d'enfants victimes de trafic pour rester jeunes. Absent des drops, il circule chez les adeptes."
+  def_fr: "Composé chimique réel issu de l'oxydation de l'adrénaline. Les adeptes affirment faussement que les élites l'extrairaient d'enfants victimes de trafic pour rester jeunes. Absent des drops, il circule chez les adeptes."
   def_en: "A real chemical compound formed by the oxidation of adrenaline. Followers falsely claim elites harvest it from trafficked children to stay young. Absent from the drops, it circulates among followers."
   source: "https://www.adl.org/resources/article/qanon-glossary"
 
@@ -164,7 +164,7 @@ terms:
   term: "Military Intelligence (MI)"
   pattern: '(?i:\bmilitary intelligence\b)|\bMI\b'
   def_fr: "Dans les premiers drops, le « renseignement militaire » est présenté comme seul acteur non corrompu, opposé au FBI, à la CIA et à la NSA, alors qu'il n'existe pas d'agence unique de ce nom. Le sigle « MI » peut ponctuellement désigner le Michigan."
-  def_en: "In the early drops, 'Military Intelligence' is cast as the only uncorrupted actor, set against the FBI, CIA and NSA; there is no single agency of that name. The abbreviation 'MI' can occasionally mean Michigan."
+  def_en: "In the early drops, 'Military Intelligence' is cast as the only uncorrupted actor, set against the FBI, CIA and NSA, although there is no single agency of that name. The abbreviation 'MI' can occasionally mean Michigan."
   source: "https://www.bellingcat.com/news/2021/04/22/how-qs-lost-drops-undermine-the-qanon-myth/"
 
 - id: sealed-indictments
@@ -184,29 +184,29 @@ terms:
 - id: mockingbird
   term: "Mockingbird"
   pattern: '(?i)\b(?:operation )?mockingbird\b'
-  def_fr: "Référence à l'« opération Mockingbird », présentée comme une opération de la CIA visant à influencer les médias ; Q l'emploie pour disqualifier la presse grand public, surtout dans les drops de 2017."
-  def_en: "Reference to 'Operation Mockingbird', described as a CIA operation to influence the media; Q uses it to discredit mainstream media, mostly in 2017 drops."
+  def_fr: "Référence à l'« opération Mockingbird », présentée comme une opération de la CIA visant à influencer les médias. Q l'emploie pour disqualifier la presse grand public, surtout dans les drops de 2017."
+  def_en: "Reference to 'Operation Mockingbird', described as a CIA operation to influence the media. Q uses it to discredit mainstream media, mostly in 2017 drops."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: think-mirror
   term: "Think mirror"
   pattern: '(?i)\bthink mirror\b'
-  def_fr: "Consigne de décodage de Q invitant à lire les événements ou les indices « en miroir » (à rebours) ; formule rare, attestée dans quelques drops dès novembre 2017."
-  def_en: "Q decoding instruction inviting readers to read events or clues 'in the mirror' (in reverse); a rare phrase found in a few drops from November 2017."
+  def_fr: "Consigne de décodage de Q invitant à lire les événements ou les indices « en miroir » (à rebours). C'est une formule rare, attestée dans quelques drops dès novembre 2017."
+  def_en: "Q decoding instruction inviting readers to read events or clues 'in the mirror' (in reverse). The phrase is rare, found in a few drops from November 2017."
   source: "https://github.com/jkingsman/JSON-QAnon"
 
 - id: dark-to-light
   term: "Dark to light"
   pattern: '(?i)\bdark(?:ness)? to light\b'
-  def_fr: "Formule de Q annonçant que les crimes cachés de l'élite seront révélés ; elle fait partie des 13 slogans suivis par le DFRLab pour mesurer la présence de QAnon en ligne."
+  def_fr: "Formule de Q annonçant que les crimes cachés de l'élite seront révélés. Elle fait partie des 13 slogans suivis par le DFRLab pour mesurer la présence de QAnon en ligne."
   def_en: "Q phrase announcing that the elite's hidden crimes will be revealed, one of the 13 slogans tracked by DFRLab to measure QAnon's online presence."
   source: "https://dfrlab.org/2021/05/26/qanons-hallmark-catchphrases-evaporating-from-the-mainstream-internet/"
 
 - id: nothing-can-stop
   term: "Nothing can stop what is coming"
   pattern: '(?i)\bnothing can stop what(?:\s+is|.s) coming\b'
-  def_fr: "Phrase récurrente de Q destinée à entretenir la certitude d'une victoire finale sur la Cabale ; reprise dans l'URL de l'article de The Atlantic « The Prophecies of Q »."
-  def_en: "Recurring Q phrase meant to sustain certainty of final victory over the Cabal; echoed in the URL of The Atlantic's 'The Prophecies of Q'."
+  def_fr: "Phrase récurrente de Q destinée à entretenir la certitude d'une victoire finale sur la Cabale. Elle est reprise dans l'URL de l'article de The Atlantic « The Prophecies of Q »."
+  def_en: "Recurring Q phrase meant to sustain certainty of final victory over the Cabal. It is echoed in the URL of The Atlantic's 'The Prophecies of Q'."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: enjoy-the-show
@@ -219,8 +219,8 @@ terms:
 - id: comms
   term: "Comms"
   pattern: '(?i)\bcomms\b'
-  def_fr: "Abréviation de « communications » ; Q l'emploie notamment pour affirmer qu'aucune communication extérieure au forum n'est authentique (« no outside comms ») ou pour inviter à « apprendre nos codes » (« learn our comms »)."
-  def_en: "Short for 'communications'; Q uses it notably to assert that no communication outside the board is genuine ('no outside comms') or to urge followers to 'learn our comms'."
+  def_fr: "Abréviation de « communications », que Q emploie notamment pour affirmer qu'aucune communication extérieure au forum n'est authentique (« no outside comms ») ou pour inviter à « apprendre nos codes » (« learn our comms »)."
+  def_en: "Short for 'communications', used by Q notably to assert that no communication outside the board is genuine ('no outside comms') or to urge followers to 'learn our comms'."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: coincidences
@@ -233,21 +233,21 @@ terms:
 - id: boom
   term: "Boom"
   pattern: '(?i)\bboom\b'
-  def_fr: "Terme de Q, souvent en majuscules, annonçant une révélation ou un coup porté à la Cabale, réel ou imaginaire ; il voisine avec « fireworks » et « pain »."
-  def_en: "Q term, often capitalised, announcing a revelation or a blow to the Cabal, real or imaginary; it sits alongside 'fireworks' and 'pain'."
+  def_fr: "Terme de Q, souvent en majuscules, annonçant une révélation ou un coup porté à la Cabale, réel ou imaginaire. Il voisine avec « fireworks » et « pain »."
+  def_en: "Q term, often capitalised, announcing a revelation or a blow to the Cabal, real or imaginary. It sits alongside 'fireworks' and 'pain'."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: castle-rock
   term: "Castle Rock"
   pattern: '(?i)\bcastle[ _-]?rock\b'
-  def_fr: "Code (« CASTLE_ROCK ») apparaissant dans deux drops du 4 juin 2020, au milieu de pseudo-messages militaires ; aucune source fiable n'en établit le sens."
-  def_en: "Code ('CASTLE_ROCK') appearing in two drops of 4 June 2020 amid pseudo-military messages; no reliable source establishes its meaning."
+  def_fr: "Code (« CASTLE_ROCK ») apparaissant dans deux drops du 4 juin 2020, au milieu de pseudo-messages militaires. Aucune source fiable n'en établit le sens."
+  def_en: "Code ('CASTLE_ROCK') appearing in two drops of 4 June 2020 amid pseudo-military messages. No reliable source establishes its meaning."
   source: "https://github.com/jkingsman/JSON-QAnon"
 
 - id: tick-tock
   term: "Tick tock"
   pattern: '(?i)\btick[ ,-]?tock\b'
-  def_fr: "Formule de Q signifiant que le temps est compté pour les adversaires visés ; attestée dans quelques drops de décembre 2017 à avril 2018."
+  def_fr: "Formule de Q signifiant que le temps est compté pour les adversaires visés, attestée dans quelques drops de décembre 2017 à avril 2018."
   def_en: "Q phrase signalling that time is running out for targeted opponents, found in a few drops from December 2017 to April 2018."
   source: "https://github.com/jkingsman/JSON-QAnon"
 
@@ -282,15 +282,15 @@ terms:
 - id: kraken
   term: "Kraken"
   pattern: '(?i)\b(?:release the )?kraken\b'
-  def_fr: "« Release the Kraken » : formule de l'avocate Sidney Powell (tirée du film « Le Choc des Titans ») pour ses recours contestant l'élection de 2020, largement reprise dans les milieux QAnon mais absente des drops."
-  def_en: "'Release the Kraken': lawyer Sidney Powell's catchphrase (from the film 'Clash of the Titans') for her lawsuits contesting the 2020 election, widely picked up in QAnon circles but absent from the drops."
+  def_fr: "Formule de l'avocate Sidney Powell, « Release the Kraken » (tirée du film « Le Choc des Titans »), pour ses recours contestant l'élection de 2020, largement reprise dans les milieux QAnon mais absente des drops."
+  def_en: "Lawyer Sidney Powell's catchphrase 'Release the Kraken' (from the film 'Clash of the Titans') for her lawsuits contesting the 2020 election, widely picked up in QAnon circles but absent from the drops."
   source: "https://en.wikipedia.org/wiki/Sidney_Powell"
 
 - id: jfk-jr
   term: "JFK Jr."
   pattern: '(?i)\bJFK\.? ?Jr\b|\bJohn F\.? Kennedy,? Jr\b'
   def_fr: "Croyance d'une partie des adeptes selon laquelle John F. Kennedy Jr., mort en 1999, aurait simulé sa mort et serait Q ou reviendrait. En novembre 2021, des centaines de personnes l'attendaient à Dallas."
-  def_en: "Belief among some followers that John F. Kennedy Jr., who died in 1999, faked his death and is Q or will return; in November 2021 hundreds gathered in Dallas expecting him."
+  def_en: "Belief among some followers that John F. Kennedy Jr., who died in 1999, faked his death and is Q or will return. In November 2021 hundreds gathered in Dallas expecting him."
   source: "https://en.wikipedia.org/wiki/QAnon"
 
 - id: expand-your-thinking
@@ -303,8 +303,8 @@ terms:
 - id: news-unlocks-map
   term: "News unlocks map"
   pattern: '(?i)\bnews unlocks (?:the )?map\b'
-  def_fr: "Formule de Q selon laquelle l'actualité permet de décoder une « carte » des réseaux de corruption ; des adeptes ont produit des cartes graphiques de ces liens supposés."
-  def_en: "Q phrase holding that news events decode a 'map' of corruption networks; followers produced graphic maps of these supposed links."
+  def_fr: "Formule de Q selon laquelle l'actualité permet de décoder une « carte » des réseaux de corruption. Des adeptes ont produit des cartes graphiques de ces liens supposés."
+  def_en: "Q phrase holding that news events decode a 'map' of corruption networks. Followers produced graphic maps of these supposed links."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: godspeed
@@ -324,8 +324,8 @@ terms:
 - id: red-pill
   term: "Red pill"
   pattern: '(?i)\bred[ -]?pill(?:ed|ing|s)?\b'
-  def_fr: "Emprunt au film « Matrix » : « prendre la pilule rouge » signifie adhérer à QAnon ; « red-pill » quelqu'un, c'est l'exposer aux drops pour le convertir."
-  def_en: "Borrowed from 'The Matrix': 'taking the red pill' means embracing QAnon; to 'red-pill' someone is to expose them to the drops to convert them."
+  def_fr: "Emprunté au film « Matrix », « prendre la pilule rouge » signifie adhérer à QAnon, et « red-pill » quelqu'un, c'est l'exposer aux drops pour le convertir."
+  def_en: "Borrowed from 'The Matrix', 'taking the red pill' means embracing QAnon, and to 'red-pill' someone is to expose them to the drops to convert them."
   source: "https://dailydot.com/q-anon-jargon-explained"
 
 - id: clowns

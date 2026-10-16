@@ -47,17 +47,17 @@ questions:
   q_fr: "Trump répondait-il à Q par ses tweets ?"
   q_en: "Did Trump answer Q through his tweets?"
   a_fr: |
-    C'est ce qu'affirmait Q (les « deltas »), mais les chiffres ne le montrent pas. {fig:deltas} En sens inverse, Q citait parfois Trump : {fig:tweets-cites} ([[trump]])
+    C'est ce qu'affirmait Q (les « deltas »), mais les chiffres ne le montrent pas. {fig:deltas} En sens inverse, Q citait parfois Trump. {fig:tweets-cites} ([[trump]])
   a_en: |
-    Q claimed so (the "deltas"), but the figures do not show it. {fig:deltas} The other way round, Q sometimes quoted Trump: {fig:tweets-cites} ([[trump]])
+    Q claimed so (the "deltas"), but the figures do not show it. {fig:deltas} The other way round, Q sometimes quoted Trump. {fig:tweets-cites} ([[trump]])
 
 - id: actualite
   q_fr: "De qui et de quoi Q parlait-il ?"
   q_en: "Whom and what did Q talk about?"
   a_fr: |
-    {fig:acteurs} Ce choix est très sélectif. {fig:surrepresentation} Q renvoyait aussi à la presse : {fig:medias} ([[actors]], [[news]], [[stats]])
+    {fig:acteurs} Ce choix est très sélectif. {fig:surrepresentation} Q renvoyait aussi à la presse. {fig:medias} ([[actors]], [[news]], [[stats]])
   a_en: |
-    {fig:acteurs} This choice is highly selective. {fig:surrepresentation} Q also linked to the press: {fig:medias} ([[actors]], [[news]], [[stats]])
+    {fig:acteurs} This choice is highly selective. {fig:surrepresentation} Q also linked to the press. {fig:medias} ([[actors]], [[news]], [[stats]])
 
 - id: combien
   q_fr: "Combien de personnes croient à QAnon ?"
