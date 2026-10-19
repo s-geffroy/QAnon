@@ -19,7 +19,8 @@ news (GDELT), public interest, the conspiracy scene and /pol/.*
 - **Pour enseigner / teaching** : [séances prêtes](https://s-geffroy.github.io/QAnon/fr/teaching.html)
 - **Citer / cite** : Geffroy, S. (2026). *Les drops de Q à l'épreuve des faits.*
   doi:[10.5281/zenodo.23338131](https://doi.org/10.5281/zenodo.23338131) (voir `CITATION.cff`) ;
-  document de travail (PDF, v1.2) : doi:[10.5281/zenodo.23473751](https://doi.org/10.5281/zenodo.23473751)
+  document de travail : doi:[10.5281/zenodo.23473750](https://doi.org/10.5281/zenodo.23473750) (toutes versions ;
+  v1.2 : doi:[10.5281/zenodo.23473751](https://doi.org/10.5281/zenodo.23473751))
 - **Licences** : code MIT (`LICENSE`), contenus, données et site CC BY 4.0 (`LICENSE-CC-BY-4.0`)
 
 La suite de ce fichier documente le worker qui calcule et publie le site.
@@ -182,7 +183,7 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
   `LICENSE-*.txt` a cote. Le site ne fait plus aucune requete vers un tiers.
 
 Auteur : Sylvain Geffroy. Archive Zenodo : doi:10.5281/zenodo.23338131 (toutes
-versions ; v1.0.0 : doi:10.5281/zenodo.23338132) ; document de travail
-(PDF, v1.2) : doi:10.5281/zenodo.23473751. `CITATION.cff` donne la reference ; chaque chiffre
+versions ; v1.0.0 : doi:10.5281/zenodo.23338132) ; document de travail :
+doi:10.5281/zenodo.23473750 (toutes versions ; v1.2 : doi:10.5281/zenodo.23473751). `CITATION.cff` donne la reference ; chaque chiffre
 cle du site a sa propre citation (page « Chiffres cles »). Les jeux de donnees
 sources gardent leurs propres conditions.

@@ -857,10 +857,10 @@ T["en"].update({
 })
 T["fr"].update({"doi_concept": "DOI de l'étude (toutes versions)", "doi_version": "Version",
   "doi_note": "Archivé sur Zenodo. Le DOI de l'étude pointe toujours vers la dernière version. Pour une citation exacte, utilisez le DOI de la version consultée.",
-  "doi_paper": "DOI du document de travail (PDF, version 1.2)"})
+  "doi_paper_concept": "DOI du document de travail (toutes versions)", "doi_paper": "Version 1.2 du document (PDF)"})
 T["en"].update({"doi_concept": "DOI of the study (all versions)", "doi_version": "Version",
   "doi_note": "Archived on Zenodo. The study DOI always resolves to the latest version. For an exact citation, use the DOI of the version you consulted.",
-  "doi_paper": "DOI of the working paper (PDF, version 1.2)"})
+  "doi_paper_concept": "DOI of the working paper (all versions)", "doi_paper": "Version 1.2 of the paper (PDF)"})
 T["fr"].update({"link_dead": "lien mort", "link_archive": "copie archivée",
   "links_note": "Liens vérifiés automatiquement le {date} ({n} adresses de la bibliographie, de la chronologie, du glossaire et des verdicts). {ok} répondent, {blocked} refusent les robots (pages probablement en ligne), {dead} sont morts, {error} en erreur temporaire. Pour un lien mort, une copie archivée est proposée quand elle existe."})
 T["en"].update({"link_dead": "dead link", "link_archive": "archived copy",

@@ -25,7 +25,11 @@ references:
     authors:
       - family-names: Geffroy
         given-names: Sylvain
-    doi: "10.5281/zenodo.23473751"
+    doi: "10.5281/zenodo.23473750"
+    identifiers:
+      - type: doi
+        value: "10.5281/zenodo.23473751"
+        description: "Version 1.2"
     version: "1.2"
     date-published: "2026-10-16"
     notes: "Document de travail (PDF) / working paper"

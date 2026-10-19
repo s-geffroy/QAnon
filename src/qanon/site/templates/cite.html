@@ -10,7 +10,8 @@
 <section><h2>DOI</h2>
   <p>{{ t.doi_concept }} (<a href="https://doi.org/{{ doi_concept }}">doi:{{ doi_concept }}</a>)</p>
   <p class="note">{{ t.doi_note }}</p>
-  <p>{{ t.doi_paper }} (<a href="https://doi.org/{{ doi_paper }}">doi:{{ doi_paper }}</a>)</p>
+  <p>{{ t.doi_paper_concept }} (<a href="https://doi.org/{{ doi_paper_concept }}">doi:{{ doi_paper_concept }}</a>)</p>
+  <ul><li>{{ t.doi_paper }} (<a href="https://doi.org/{{ doi_paper }}">doi:{{ doi_paper }}</a>)</li></ul>
   <ul>{% for v, d in doi_versions %}<li>{{ t.doi_version }} {{ v }} (<a href="https://doi.org/{{ d }}">doi:{{ d }}</a>)</li>{% endfor %}</ul>
 </section>
 <p class="note">{{ t.cite_figures }} <a href="figures.html">{{ t.nav_figures }}</a>.</p>
