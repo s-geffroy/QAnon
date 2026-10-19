@@ -180,7 +180,11 @@ worker tourne en utilisateur non privilegie. Sur l'hote, c'est le repertoire
 - **Bibliotheques de graphiques** hebergees avec le site (`src/qanon/site/static/vendor/`) :
   vega 5.30.0, vega-lite 5.21.0 et vega-embed 6.26.0 (BSD-3-Clause), fond de carte
   world-atlas 2.0.2 (ISC), copies a l'identique de npm (empreintes verifiees) ; licences
-  `LICENSE-*.txt` a cote. Le site ne fait plus aucune requete vers un tiers.
+  `LICENSE-*.txt` a cote.
+- **Seule requete externe** : le kit d'identite commune Ligne de Crete
+  (`https://www.ligne-de-crete.fr/kit/v1/ldc-kit.js`, charge dans `base.html`), qui pose
+  un bandeau et un pied de page dans un Shadow DOM et charge ses deux polices (IBM Plex
+  Sans) depuis le meme domaine. Il n'envoie aucune donnee. Ligne voulue : ne pas la retirer.
 
 Auteur : Sylvain Geffroy. Archive Zenodo : doi:10.5281/zenodo.23338131 (toutes
 versions ; v1.0.0 : doi:10.5281/zenodo.23338132) ; document de travail :
