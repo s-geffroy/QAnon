@@ -1542,12 +1542,12 @@ class Site:
         return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article, "paper_file": latex.PAPER_FILE,
                 "paper_doi": ZENODO_PAPER}
 
-    def write_paper_pdf(self, env, out):
+    def write_paper_pdf(self, env, out, version=VERSION):
         pp = self.paper()
         if not pp:
             return
         from weasyprint import HTML
-        html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=VERSION, site_url=SITE_URL,
+        html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=version, site_url=SITE_URL,
                                                           doi=ZENODO_PAPER)
         HTML(string=fmt.fr_html(html), base_url=str(out)).write_pdf(out / "data" / f"{latex.PAPER_FILE}.pdf")
 

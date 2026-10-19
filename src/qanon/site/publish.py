@@ -85,6 +85,9 @@ def run(ctx):
                 text = p.read_text(errors="ignore")
                 if "@@VERSION@@" in text:
                     p.write_text(text.replace("@@VERSION@@", version))
+        # Le PDF ne se corrige pas comme un texte (flux compresses) : il est refait avec la version publiee.
+        from .build import Site, make_env
+        Site(ctx.state, ctx.conn).write_paper_pdf(make_env(), out, version)
         env = {**os.environ, "GIT_TOKEN": token, "GIT_TERMINAL_PROMPT": "0"}
 
         def git(*args):
