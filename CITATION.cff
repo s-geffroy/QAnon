@@ -19,3 +19,13 @@ identifiers:
   - type: doi
     value: "10.5281/zenodo.23338132"
     description: "Version 1.0.0"
+references:
+  - type: report
+    title: "Les drops de Q à l'épreuve des faits : étude statistique des messages de « Q » (2017-2022)"
+    authors:
+      - family-names: Geffroy
+        given-names: Sylvain
+    doi: "10.5281/zenodo.23473751"
+    version: "1.2"
+    date-published: "2026-10-16"
+    notes: "Document de travail (PDF) / working paper"

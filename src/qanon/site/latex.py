@@ -181,14 +181,14 @@ def build(site):
             parts.append(r"\section*{" + inline(block[3:]) + "}")
         else:
             parts.append(inline(" ".join(block.split("\n"))))
-    from .build import SITE_URL, ZENODO_CONCEPT
+    from .build import SITE_URL, ZENODO_PAPER
     head = "\n".join([
         PREAMBLE + unicode_decls(),
         r"\title{" + inline(meta["title"]) + r"\\[4pt]\large " + inline(meta.get("subtitle", "")) + "}",
         r"\author{" + inline(meta["author"]) + "}",
         r"\date{" + inline(f"{meta.get('version', '')} · {meta.get('date', '')}") + "}",
         r"\begin{document}", r"\maketitle",
-        r"\begin{center}\small " + r"\url{" + SITE_URL + "} · doi:" + esc(ZENODO_CONCEPT) + r" · Licence CC BY 4.0\end{center}",
+        r"\begin{center}\small " + r"\url{" + SITE_URL + "} · doi:" + esc(ZENODO_PAPER) + r" · Licence CC BY 4.0\end{center}",
         r"\begin{abstract}\begin{otherlanguage}{english}\noindent\textbf{Abstract.} " + "\n\n".join(inline(x) for x in meta["abstract_en"].strip().split("\n\n"))
         + r"\end{otherlanguage}\end{abstract}"])
     tex = head + "\n\n" + "\n\n".join(p for p in parts if p) + "\n\n" + \

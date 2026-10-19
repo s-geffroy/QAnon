@@ -25,6 +25,8 @@ GOOGLE_SITE_VERIFICATION = "7ALh-q3iGOwM_Jbvo1u8vcBEhSF8vwxljQ6nR9uh4VA"
 # Archive Zenodo : DOI de concept (toutes versions, toujours la derniere) et DOI par version publiee.
 ZENODO_CONCEPT = "10.5281/zenodo.23338131"
 ZENODO_VERSIONS = {"1.0.0": "10.5281/zenodo.23338132"}
+# Document de travail (PDF) : depot Zenodo distinct de l'archive du code, DOI de la version 1.2.
+ZENODO_PAPER = "10.5281/zenodo.23473751"
 VERSION = "@@VERSION@@"   # remplace par le commit au moment de la publication (scripts/publish-pages.sh)
 # Quatre rubriques, par question du lecteur ; l'accueil (index) est le lien du titre.
 NAV = [
@@ -1526,17 +1528,19 @@ class Site:
         pdf = f"{SITE_URL}data/{latex.PAPER_FILE}.pdf"
         # Balises lues par Google Scholar (Highwire) et notice schema.org du document
         scholar = {"title": m["title"], "author": m["author"], "publication_date": iso.replace("-", "/"),
-                   "pdf_url": pdf, "language": "fr", "doi": ZENODO_CONCEPT, "technical_report_institution": "Zenodo",
+                   "pdf_url": pdf, "language": "fr", "doi": ZENODO_PAPER, "technical_report_institution": "Zenodo",
                    "fulltext_html_url": f"{SITE_URL}fr/paper.html"}
         article = {"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": m["title"],
                    "alternativeHeadline": m["subtitle"], "author": {"@type": "Person", "name": m["author"]},
                    "datePublished": iso, "inLanguage": "fr", "version": m["version"],
                    "abstract": m["abstract_en"].strip(), "url": f"{SITE_URL}fr/paper.html", "encoding": {
                        "@type": "MediaObject", "contentUrl": pdf, "encodingFormat": "application/pdf"},
-                   "identifier": f"https://doi.org/{ZENODO_CONCEPT}", "sameAs": f"https://doi.org/{ZENODO_CONCEPT}",
+                   "identifier": f"https://doi.org/{ZENODO_PAPER}", "sameAs": f"https://doi.org/{ZENODO_PAPER}",
+                   "isBasedOn": f"https://doi.org/{ZENODO_CONCEPT}",
                    "license": "https://creativecommons.org/licenses/by/4.0/"}
         # Une seule page porte les balises Scholar (texte integral francais), pour eviter un doublon.
-        return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article, "paper_file": latex.PAPER_FILE}
+        return {"pp": pp, "scholar": scholar if lang == "fr" else None, "jsonld": article, "paper_file": latex.PAPER_FILE,
+                "paper_doi": ZENODO_PAPER}
 
     def write_paper_pdf(self, env, out):
         pp = self.paper()
@@ -1544,7 +1548,7 @@ class Site:
             return
         from weasyprint import HTML
         html = env.get_template("paper_pdf.html").render(pp=pp, t=T["fr"], version=VERSION, site_url=SITE_URL,
-                                                          doi=ZENODO_CONCEPT)
+                                                          doi=ZENODO_PAPER)
         HTML(string=fmt.fr_html(html), base_url=str(out)).write_pdf(out / "data" / f"{latex.PAPER_FILE}.pdf")
 
     def page_research(self, lang, c):
@@ -1631,7 +1635,7 @@ class Site:
         year = time.strftime("%Y")
         return {"cite_text": t["cite_text"].format(year=year, version=VERSION) + f" https://doi.org/{ZENODO_CONCEPT}",
                 "cite_version": t["cite_version"].format(version=VERSION, updated=UPDATED),
-                "doi_concept": ZENODO_CONCEPT,
+                "doi_concept": ZENODO_CONCEPT, "doi_paper": ZENODO_PAPER,
                 "doi_versions": sorted(ZENODO_VERSIONS.items(), reverse=True),
                 "cite_bibtex": "@misc{geffroy_qdrops,\n  author = {Geffroy, Sylvain},\n"
                                f"  title = {{{t['site_title']}}},\n  year = {{{year}}},\n"

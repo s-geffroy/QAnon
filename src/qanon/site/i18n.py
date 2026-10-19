@@ -856,9 +856,11 @@ T["en"].update({
   "horo_reading_alt": "In {none} of the \"future\" comparisons the model finds no specific link between the drop and the news. When it does find one, the real period wins slightly more clearly for the following month than for the preceding week. Stories continuing from week to week explain part of this, and the examples below show that a randomly drawn period can also seem to \"match\".",
 })
 T["fr"].update({"doi_concept": "DOI de l'étude (toutes versions)", "doi_version": "Version",
-  "doi_note": "Archivé sur Zenodo. Le DOI de l'étude pointe toujours vers la dernière version. Pour une citation exacte, utilisez le DOI de la version consultée."})
+  "doi_note": "Archivé sur Zenodo. Le DOI de l'étude pointe toujours vers la dernière version. Pour une citation exacte, utilisez le DOI de la version consultée.",
+  "doi_paper": "DOI du document de travail (PDF, version 1.2)"})
 T["en"].update({"doi_concept": "DOI of the study (all versions)", "doi_version": "Version",
-  "doi_note": "Archived on Zenodo. The study DOI always resolves to the latest version. For an exact citation, use the DOI of the version you consulted."})
+  "doi_note": "Archived on Zenodo. The study DOI always resolves to the latest version. For an exact citation, use the DOI of the version you consulted.",
+  "doi_paper": "DOI of the working paper (PDF, version 1.2)"})
 T["fr"].update({"link_dead": "lien mort", "link_archive": "copie archivée",
   "links_note": "Liens vérifiés automatiquement le {date} ({n} adresses de la bibliographie, de la chronologie, du glossaire et des verdicts). {ok} répondent, {blocked} refusent les robots (pages probablement en ligne), {dead} sont morts, {error} en erreur temporaire. Pour un lien mort, une copie archivée est proposée quand elle existe."})
 T["en"].update({"link_dead": "dead link", "link_archive": "archived copy",
@@ -867,9 +869,9 @@ T["fr"]["pred_caveat"] += " Les paraphrases, produites en anglais par le modèle
 T["fr"]["horo_examples"] = "Quand le hasard « confirme » Q. Listes tirées au hasard jugées liées (justification du modèle, traduite)"
 T["fr"]["horo_robust"] = "Pour tester la robustesse, un second modèle, {model}, a repris les mêmes questions pour {n} drops. Les deux modèles font le même choix dans {agree} des comparaisons « avenir » (kappa de Cohen {kappa}) et {agree_p} des comparaisons « passé ». Sur ce sous-échantillon, la vraie période « avenir » est choisie dans {fc} des cas tranchés par le second modèle (p = {fpv}) contre {fm} par le modèle principal. Pour le passé, c'est {pc} contre {pm}."
 T["en"]["horo_robust"] = "As a robustness check, a second model, {model}, answered the same questions for {n} drops. The two models make the same choice in {agree} of \"future\" comparisons (Cohen's kappa {kappa}) and {agree_p} of \"past\" comparisons. On this subsample, the real \"future\" period is chosen in {fc} of the second model's decided cases (p = {fpv}) against {fm} for the main model. For the past, it is {pc} against {pm}."
-T["fr"].update({"nav_paper": "Article", "paper_title": "Document de travail", "paper_doi": "10.5281/zenodo.23338131",
+T["fr"].update({"nav_paper": "Article", "paper_title": "Document de travail",
   "paper_fr_only": ""})
-T["en"].update({"nav_paper": "Paper", "paper_title": "Working paper", "paper_doi": "10.5281/zenodo.23338131",
+T["en"].update({"nav_paper": "Paper", "paper_title": "Working paper",
   "paper_fr_only": "The full text is in French (HTML on the French page, PDF above), and this English abstract summarises it."})
 T["fr"]["horo_robust"] = "Pour tester la robustesse, un second modèle, plus puissant ({model}), a repris les mêmes questions pour {n} drops. Il est bien plus sceptique. Il ne voit aucun lien précis dans {none_c} des {nf} comparaisons « avenir », contre {none_m} pour le modèle principal sur les mêmes drops, et ne tranche que {dec_c} fois ({true_c} en faveur de la vraie période). Les deux modèles font le même choix dans {agree} des cas, mais leur accord au-delà du hasard reste modeste (kappa de Cohen {kappa}). Les rares « correspondances » dépendent donc du lecteur. C'est une limite de la mesure plus qu'une preuve supplémentaire, et elle interdit d'y voir une anticipation reconnaissable."
 T["en"]["horo_robust"] = "As a robustness check, a second, more capable model ({model}) answered the same questions for {n} drops. It is far more sceptical. It sees no specific link in {none_c} of the {nf} \"future\" comparisons, against {none_m} for the main model on the same drops, and decides only {dec_c} times ({true_c} in favour of the real period). The two models make the same choice in {agree} of cases, but their agreement beyond chance is modest (Cohen's kappa {kappa}), so the few \"matches\" depend on the reader. This is a limit of the measurement rather than further evidence, and it rules out reading them as recognisable foresight."
