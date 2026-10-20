@@ -7,6 +7,7 @@
 {% set meta_desc = t.get("meta_" ~ page, t.site_sub) %}
 <meta name="description" content="{{ meta_desc }}">
 <meta name="author" content="Sylvain Geffroy">
+<link rel="icon" href="../static/favicon.svg?v={{ v['favicon.svg'] }}" type="image/svg+xml">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
 <link rel="canonical" href="{{ site_url }}{{ lang }}/{{ page }}.html">
 <link rel="alternate" hreflang="{{ lang }}" href="{{ site_url }}{{ lang }}/{{ page }}.html">

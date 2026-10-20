@@ -14,6 +14,7 @@
   var l = (navigator.languages && navigator.languages[0]) || navigator.language || "fr";
   location.replace((/^fr/i.test(l) ? "fr" : "en") + "/index.html");
 </script>
+<link rel="icon" href="static/favicon.svg?v={{ v['favicon.svg'] }}" type="image/svg+xml">
 <link rel="stylesheet" href="static/style.css?v={{ v['style.css'] }}">
 </head>
 <body><main class="wrap"><p><a href="fr/index.html">Français</a> · <a href="en/index.html">English</a></p></main></body>
