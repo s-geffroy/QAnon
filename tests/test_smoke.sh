@@ -8,9 +8,11 @@ cd "$(dirname "$0")/.."
 # L'image doit contenir le code courant : sans ce build, on teste l'ancien.
 sudo appctl build >/dev/null
 
+# Le battement suit le premier cycle, apres l'import des etapes (3 a 5 s mesurees) :
+# 20 s de marge avant le SIGTERM.
 out=$(sudo appctl run worker sh -c '
   export WORKER_INTERVAL=1 WORKER_STATE=/tmp/state WORKER_HEARTBEAT=/tmp/beat PIPELINE_STAGES=load_timeline
-  timeout --signal=TERM 4 python3 -u /app/worker.py || true
+  timeout --signal=TERM 20 python3 -u /app/worker.py || true
   test -f /tmp/beat         || { echo "ECHEC : pas de battement"; exit 1; }
   test -f /tmp/state/cycles || { echo "ECHEC : aucun cycle effectue"; exit 1; }
   python3 -c "import sqlite3; n = sqlite3.connect(\"/tmp/state/qanon.db\").execute(\"select count(*) from events\").fetchone()[0]; assert n > 0, n; print(\"evenements\", n)"
