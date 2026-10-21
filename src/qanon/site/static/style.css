@@ -149,6 +149,8 @@ main section { scroll-margin-top: 1rem; }
 .note { color: var(--ink-2); font-size: .875rem; line-height: 1.5; margin: .4rem 0 0; }
 .skip { position: absolute; left: -999px; top: .5rem; background: var(--ink); color: var(--surface); padding: .5rem .8rem; z-index: 10; }
 .skip:focus { left: .5rem; }
+/* Bandeau ligne de crete : sa hauteur est reservee avant le chargement du kit (CLS). */
+ldc-bandeau:not(:defined) { display: block; height: 33px; }
 
 /* ------------------------------------------------------------------ en-tete et menus */
 .site-head { border-bottom: 1px solid var(--rule); background: var(--surface); position: relative; z-index: 5; }
