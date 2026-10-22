@@ -1,0 +1,43 @@
+fips,id,iso3,name,news,overrep,q
+US,usa,USA,United States,58231938,0.35,125
+RS,russia,RUS,Russia,3882010,4.85,117
+CH,china,CHN,China,5292504,2.46,81
+IR,iran,IRN,Iran,2495013,4.13,64
+SA,saudi_arabia,SAU,Saudi Arabia,1347526,7.53,63
+KN,north_korea,PRK,North Korea,896436,10.78,60
+UK,uk,GBR,United Kingdom,8710404,0.98,53
+UP,ukraine,UKR,Ukraine,1033689,3.27,21
+AS,australia,AUS,Australia,4148355,0.78,20
+HA,haiti,HTI,Haiti,136659,22.39,19
+GM,germany,DEU,Germany,1951735,1.16,14
+SY,syria,SYR,Syria,1813145,1.24,14
+FR,france,FRA,France,2295144,0.63,9
+PK,pakistan,PAK,Pakistan,2922993,0.5,9
+IS,israel,ISR,Israel,3660977,0.35,8
+MX,mexico,MEX,Mexico,1303481,0.86,7
+IT,italy,ITA,Italy,1281616,0.75,6
+HK,hong_kong,HKG,Hong Kong,418666,2.31,6
+CA,canada,CAN,Canada,4544220,0.21,6
+IZ,iraq,IRQ,Iraq,1037516,0.78,5
+JA,japan,JPN,Japan,1544693,0.52,5
+NZ,new_zealand,NZL,New Zealand,1161455,0.69,5
+AM,armenia,ARM,Armenia,405921,1.59,4
+SN,singapore,SGP,Singapore,590269,1.09,4
+QA,qatar,QAT,Qatar,350633,1.38,3
+YM,yemen,YEM,Yemen,429996,1.12,3
+LY,libya,LBY,Libya,416950,1.16,3
+CU,cuba,CUB,Cuba,317480,1.52,3
+KS,south_korea,KOR,South Korea,927220,0.35,2
+VT,vatican,VAT,Vatican / Holy See,50401,6.39,2
+BE,belgium,BEL,Belgium,592721,0.54,2
+AU,austria,AUT,Austria,304736,1.06,2
+SU,sudan,SDN,Sudan,494702,0.65,2
+KE,kenya,KEN,Kenya,1014000,0.32,2
+AF,afghanistan,AFG,Afghanistan,1303772,0.25,2
+VM,vietnam,VNM,Vietnam,861598,0.37,2
+VE,venezuela,VEN,Venezuela,527515,0.61,2
+EC,ecuador,ECU,Ecuador,105529,3.05,2
+TU,turkey,TUR,Turkey,1839509,0.09,1
+AE,uae,ARE,United Arab Emirates,586697,0.27,1
+EG,egypt,EGY,Egypt,995864,0.16,1
+SO,somalia,SOM,Somalia,329308,0.49,1

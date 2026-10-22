@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q and Trump&#39;s tweets — Q drops against the facts</title>
+
+<meta name="description" content="Did Donald Trump&#39;s tweets follow the Q drops? A statistical test of the timing QAnon claimed, compared with chance.">
+<meta name="author" content="Sylvain Geffroy">
+<link rel="icon" href="../static/favicon.svg?v=efe750b786" type="image/svg+xml">
+<link rel="icon" href="../static/icon-32.png?v=ca58f6701d" type="image/png" sizes="32x32">
+<link rel="icon" href="../static/icon-16.png?v=3eba78457b" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png?v=d88cd4fd9f">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<link rel="canonical" href="https://s-geffroy.github.io/QAnon/en/trump.html">
+<link rel="alternate" hreflang="en" href="https://s-geffroy.github.io/QAnon/en/trump.html">
+<link rel="alternate" hreflang="fr" href="https://s-geffroy.github.io/QAnon/fr/trump.html">
+<link rel="alternate" hreflang="x-default" href="https://s-geffroy.github.io/QAnon/fr/trump.html">
+<link rel="alternate" type="application/rss+xml" title="Q drops against the facts" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Q drops against the facts">
+<meta property="og:title" content="Q and Trump&#39;s tweets — Q drops against the facts">
+<meta property="og:description" content="Did Donald Trump&#39;s tweets follow the Q drops? A statistical test of the timing QAnon claimed, compared with chance.">
+<meta property="og:url" content="https://s-geffroy.github.io/QAnon/en/trump.html">
+<meta property="og:image" content="https://s-geffroy.github.io/QAnon/static/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Q drops against the facts","description":"A statistical study of \"Q\" posts (2017–2022) checked against real-world events","url":"https://s-geffroy.github.io/QAnon/en/index.html","inLanguage":"en","author":{"@type":"Person","name":"Sylvain Geffroy"},"license":"https://creativecommons.org/licenses/by/4.0/"}</script>
+
+<link rel="preload" href="../static/fonts/source-serif-4-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../static/fonts/atkinson-hyperlegible-next-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../static/style.css?v=020028962d">
+<script defer src="https://www.ligne-de-crete.fr/kit/v1/ldc-kit.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<ldc-bandeau></ldc-bandeau>
+<header class="site-head">
+  <div class="wrap head-row">
+    <a href="index.html" class="brand">Q drops against the facts</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Menu">
+      
+      <details class="nav-group">
+        <summary>What Q wrote</summary>
+        <ul>
+          <li><a href="activity.html"><span class="nav-title">Activity</span><span class="nav-desc">When Q posted: days, hours, silences</span></a></li>
+          <li><a href="discourse.html"><span class="nav-title">Discourse</span><span class="nav-desc">Topics, style and changes of hand</span></a></li>
+          <li><a href="actors.html"><span class="nav-title">Actors</span><span class="nav-desc">The people and institutions named</span></a></li>
+          <li><a href="timeline.html"><span class="nav-title">Timeline</span><span class="nav-desc">Key events, 2017 to 2022</span></a></li>
+          <li><a href="corpus.html"><span class="nav-title">Corpus</span><span class="nav-desc">Read and filter every drop</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group" data-current>
+        <summary>Against the facts</summary>
+        <ul>
+          <li><a href="predictions.html"><span class="nav-title">Predictions</span><span class="nav-desc">Every claim checked, with sources</span></a></li>
+          <li><a href="trump.html" aria-current="page"><span class="nav-title">Q and Trump</span><span class="nav-desc">Did Trump&#39;s tweets follow the drops?</span></a></li>
+          <li><a href="news.html"><span class="nav-title">News</span><span class="nav-desc">What Q picked from world news</span></a></li>
+          <li><a href="interest.html"><span class="nav-title">Public interest</span><span class="nav-desc">When the public searched for QAnon</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group">
+        <summary>Models</summary>
+        <ul>
+          <li><a href="stats.html"><span class="nav-title">Statistics</span><span class="nav-desc">Rhythm, vocabulary, breaks</span></a></li>
+          <li><a href="models.html"><span class="nav-title">Models</span><span class="nav-desc">Markov, physics, conspiracy scene, /pol/</span></a></li>
+        </ul>
+      </details>
+      
+      <details class="nav-group">
+        <summary>Resources</summary>
+        <ul>
+          <li><a href="paper.html"><span class="nav-title">Paper</span><span class="nav-desc">The full working paper</span></a></li>
+          <li><a href="figures.html"><span class="nav-title">Key figures</span><span class="nav-desc">Figures to quote, with their source</span></a></li>
+          <li><a href="faq.html"><span class="nav-title">FAQ</span><span class="nav-desc">Short answers to common questions</span></a></li>
+          <li><a href="research.html"><span class="nav-title">State of research</span><span class="nav-desc">What other studies say</span></a></li>
+          <li><a href="watch.html"><span class="nav-title">Watch</span><span class="nav-desc">New publications on QAnon</span></a></li>
+          <li><a href="teaching.html"><span class="nav-title">Teaching</span><span class="nav-desc">Ready-made classroom sessions</span></a></li>
+          <li><a href="glossary.html"><span class="nav-title">Glossary</span><span class="nav-desc">Q&#39;s vocabulary explained</span></a></li>
+          <li><a href="bibliography.html"><span class="nav-title">Bibliography</span><span class="nav-desc">Every reference</span></a></li>
+          <li><a href="data.html"><span class="nav-title">Data</span><span class="nav-desc">Download the data</span></a></li>
+          <li><a href="method.html"><span class="nav-title">Method</span><span class="nav-desc">Sources, choices and limits</span></a></li>
+          <li><a href="cite.html"><span class="nav-title">Cite</span><span class="nav-desc">How to cite this study</span></a></li>
+        </ul>
+      </details>
+      
+    </nav>
+    <a class="lang" href="../fr/trump.html" hreflang="fr" lang="fr">Français</a>
+  </div>
+</header>
+<main id="main" class="wrap">
+
+<h1>Q and Trump&#39;s tweets</h1>
+<p class="lead">Q claimed that some Trump tweets, posted minutes after a drop, proved its authenticity (the &#34;deltas&#34;). Trump tweeted about 13 times a day, so coincidences are unavoidable. The question is whether there are more than chance produces.</p>
+
+<figure class="chart">
+  <figcaption><h3>Gap between each drop and nearby tweets</h3><p class="note">Tweets within 60 minutes of each drop, in 2-minute bins. A negative value means the tweet precedes the drop.</p></figcaption>
+  <div class="vis-wrap"><div class="vis" id="vis-hist"></div></div>
+  <script type="application/json" data-chart="vis-hist">{"$schema":"https://vega.github.io/schema/vega-lite/v5.json","width":"container","background":null,"height":240,"data":{"values":[{"minute":-60,"m0":-59.85,"m1":-58.15,"value":107,"series":"observed"},{"minute":-60,"m0":-60,"m1":-58,"value":94.73,"series":"expected (chance)"},{"minute":-58,"m0":-57.85,"m1":-56.15,"value":97,"series":"observed"},{"minute":-58,"m0":-58,"m1":-56,"value":96.45,"series":"expected (chance)"},{"minute":-56,"m0":-55.85,"m1":-54.15,"value":94,"series":"observed"},{"minute":-56,"m0":-56,"m1":-54,"value":95.79,"series":"expected (chance)"},{"minute":-54,"m0":-53.85,"m1":-52.15,"value":95,"series":"observed"},{"minute":-54,"m0":-54,"m1":-52,"value":95.12,"series":"expected (chance)"},{"minute":-52,"m0":-51.85,"m1":-50.15,"value":86,"series":"observed"},{"minute":-52,"m0":-52,"m1":-50,"value":95.08,"series":"expected (chance)"},{"minute":-50,"m0":-49.85,"m1":-48.15,"value":100,"series":"observed"},{"minute":-50,"m0":-50,"m1":-48,"value":93.37,"series":"expected (chance)"},{"minute":-48,"m0":-47.85,"m1":-46.15,"value":82,"series":"observed"},{"minute":-48,"m0":-48,"m1":-46,"value":96.17,"series":"expected (chance)"},{"minute":-46,"m0":-45.85,"m1":-44.15,"value":108,"series":"observed"},{"minute":-46,"m0":-46,"m1":-44,"value":96.82,"series":"expected (chance)"},{"minute":-44,"m0":-43.85,"m1":-42.15,"value":111,"series":"observed"},{"minute":-44,"m0":-44,"m1":-42,"value":95.57,"series":"expected (chance)"},{"minute":-42,"m0":-41.85,"m1":-40.15,"value":104,"series":"observed"},{"minute":-42,"m0":-42,"m1":-40,"value":95.31,"series":"expected (chance)"},{"minute":-40,"m0":-39.85,"m1":-38.15,"value":108,"series":"observed"},{"minute":-40,"m0":-40,"m1":-38,"value":94.31,"series":"expected (chance)"},{"minute":-38,"m0":-37.85,"m1":-36.15,"value":101,"series":"observed"},{"minute":-38,"m0":-38,"m1":-36,"value":96.03,"series":"expected (chance)"},{"minute":-36,"m0":-35.85,"m1":-34.15,"value":103,"series":"observed"},{"minute":-36,"m0":-36,"m1":-34,"value":93.92,"series":"expected (chance)"},{"minute":-34,"m0":-33.85,"m1":-32.15,"value":111,"series":"observed"},{"minute":-34,"m0":-34,"m1":-32,"value":92.65,"series":"expected (chance)"},{"minute":-32,"m0":-31.85,"m1":-30.15,"value":76,"series":"observed"},{"minute":-32,"m0":-32,"m1":-30,"value":94.32,"series":"expected (chance)"},{"minute":-30,"m0":-29.85,"m1":-28.15,"value":105,"series":"observed"},{"minute":-30,"m0":-30,"m1":-28,"value":92.78,"series":"expected (chance)"},{"minute":-28,"m0":-27.85,"m1":-26.15,"value":95,"series":"observed"},{"minute":-28,"m0":-28,"m1":-26,"value":96.08,"series":"expected (chance)"},{"minute":-26,"m0":-25.85,"m1":-24.15,"value":94,"series":"observed"},{"minute":-26,"m0":-26,"m1":-24,"value":92.86,"series":"expected (chance)"},{"minute":-24,"m0":-23.85,"m1":-22.15,"value":91,"series":"observed"},{"minute":-24,"m0":-24,"m1":-22,"value":95.02,"series":"expected (chance)"},{"minute":-22,"m0":-21.85,"m1":-20.15,"value":93,"series":"observed"},{"minute":-22,"m0":-22,"m1":-20,"value":92.07,"series":"expected (chance)"},{"minute":-20,"m0":-19.85,"m1":-18.15,"value":84,"series":"observed"},{"minute":-20,"m0":-20,"m1":-18,"value":90.72,"series":"expected (chance)"},{"minute":-18,"m0":-17.85,"m1":-16.15,"value":78,"series":"observed"},{"minute":-18,"m0":-18,"m1":-16,"value":90.41,"series":"expected (chance)"},{"minute":-16,"m0":-15.85,"m1":-14.15,"value":93,"series":"observed"},{"minute":-16,"m0":-16,"m1":-14,"value":93.88,"series":"expected (chance)"},{"minute":-14,"m0":-13.85,"m1":-12.15,"value":100,"series":"observed"},{"minute":-14,"m0":-14,"m1":-12,"value":93.03,"series":"expected (chance)"},{"minute":-12,"m0":-11.85,"m1":-10.15,"value":96,"series":"observed"},{"minute":-12,"m0":-12,"m1":-10,"value":92.94,"series":"expected (chance)"},{"minute":-10,"m0":-9.85,"m1":-8.15,"value":101,"series":"observed"},{"minute":-10,"m0":-10,"m1":-8,"value":93.08,"series":"expected (chance)"},{"minute":-8,"m0":-7.85,"m1":-6.15,"value":94,"series":"observed"},{"minute":-8,"m0":-8,"m1":-6,"value":92.11,"series":"expected (chance)"},{"minute":-6,"m0":-5.85,"m1":-4.15,"value":87,"series":"observed"},{"minute":-6,"m0":-6,"m1":-4,"value":93.7,"series":"expected (chance)"},{"minute":-4,"m0":-3.85,"m1":-2.15,"value":99,"series":"observed"},{"minute":-4,"m0":-4,"m1":-2,"value":91.94,"series":"expected (chance)"},{"minute":-2,"m0":-1.85,"m1":-0.1499999999999999,"value":81,"series":"observed"},{"minute":-2,"m0":-2,"m1":0,"value":92.5,"series":"expected (chance)"},{"minute":0,"m0":0.15,"m1":1.85,"value":91,"series":"observed"},{"minute":0,"m0":0,"m1":2,"value":93.06,"series":"expected (chance)"},{"minute":2,"m0":2.15,"m1":3.85,"value":103,"series":"observed"},{"minute":2,"m0":2,"m1":4,"value":91.81,"series":"expected (chance)"},{"minute":4,"m0":4.15,"m1":5.85,"value":98,"series":"observed"},{"minute":4,"m0":4,"m1":6,"value":93.35,"series":"expected (chance)"},{"minute":6,"m0":6.15,"m1":7.85,"value":107,"series":"observed"},{"minute":6,"m0":6,"m1":8,"value":91.49,"series":"expected (chance)"},{"minute":8,"m0":8.15,"m1":9.85,"value":74,"series":"observed"},{"minute":8,"m0":8,"m1":10,"value":90.29,"series":"expected (chance)"},{"minute":10,"m0":10.15,"m1":11.85,"value":74,"series":"observed"},{"minute":10,"m0":10,"m1":12,"value":91.18,"series":"expected (chance)"},{"minute":12,"m0":12.15,"m1":13.85,"value":75,"series":"observed"},{"minute":12,"m0":12,"m1":14,"value":91.87,"series":"expected (chance)"},{"minute":14,"m0":14.15,"m1":15.85,"value":86,"series":"observed"},{"minute":14,"m0":14,"m1":16,"value":91.31,"series":"expected (chance)"},{"minute":16,"m0":16.15,"m1":17.85,"value":93,"series":"observed"},{"minute":16,"m0":16,"m1":18,"value":91.0,"series":"expected (chance)"},{"minute":18,"m0":18.15,"m1":19.85,"value":77,"series":"observed"},{"minute":18,"m0":18,"m1":20,"value":90.34,"series":"expected (chance)"},{"minute":20,"m0":20.15,"m1":21.85,"value":73,"series":"observed"},{"minute":20,"m0":20,"m1":22,"value":90.55,"series":"expected (chance)"},{"minute":22,"m0":22.15,"m1":23.85,"value":66,"series":"observed"},{"minute":22,"m0":22,"m1":24,"value":90.73,"series":"expected (chance)"},{"minute":24,"m0":24.15,"m1":25.85,"value":69,"series":"observed"},{"minute":24,"m0":24,"m1":26,"value":90.07,"series":"expected (chance)"},{"minute":26,"m0":26.15,"m1":27.85,"value":85,"series":"observed"},{"minute":26,"m0":26,"m1":28,"value":91.92,"series":"expected (chance)"},{"minute":28,"m0":28.15,"m1":29.85,"value":83,"series":"observed"},{"minute":28,"m0":28,"m1":30,"value":91.45,"series":"expected (chance)"},{"minute":30,"m0":30.15,"m1":31.85,"value":84,"series":"observed"},{"minute":30,"m0":30,"m1":32,"value":90.72,"series":"expected (chance)"},{"minute":32,"m0":32.15,"m1":33.85,"value":83,"series":"observed"},{"minute":32,"m0":32,"m1":34,"value":90.31,"series":"expected (chance)"},{"minute":34,"m0":34.15,"m1":35.85,"value":77,"series":"observed"},{"minute":34,"m0":34,"m1":36,"value":91.28,"series":"expected (chance)"},{"minute":36,"m0":36.15,"m1":37.85,"value":80,"series":"observed"},{"minute":36,"m0":36,"m1":38,"value":90.77,"series":"expected (chance)"},{"minute":38,"m0":38.15,"m1":39.85,"value":97,"series":"observed"},{"minute":38,"m0":38,"m1":40,"value":89.65,"series":"expected (chance)"},{"minute":40,"m0":40.15,"m1":41.85,"value":103,"series":"observed"},{"minute":40,"m0":40,"m1":42,"value":89.87,"series":"expected (chance)"},{"minute":42,"m0":42.15,"m1":43.85,"value":74,"series":"observed"},{"minute":42,"m0":42,"m1":44,"value":88.53,"series":"expected (chance)"},{"minute":44,"m0":44.15,"m1":45.85,"value":79,"series":"observed"},{"minute":44,"m0":44,"m1":46,"value":89.86,"series":"expected (chance)"},{"minute":46,"m0":46.15,"m1":47.85,"value":90,"series":"observed"},{"minute":46,"m0":46,"m1":48,"value":88.65,"series":"expected (chance)"},{"minute":48,"m0":48.15,"m1":49.85,"value":104,"series":"observed"},{"minute":48,"m0":48,"m1":50,"value":90.43,"series":"expected (chance)"},{"minute":50,"m0":50.15,"m1":51.85,"value":90,"series":"observed"},{"minute":50,"m0":50,"m1":52,"value":88.54,"series":"expected (chance)"},{"minute":52,"m0":52.15,"m1":53.85,"value":88,"series":"observed"},{"minute":52,"m0":52,"m1":54,"value":87.63,"series":"expected (chance)"},{"minute":54,"m0":54.15,"m1":55.85,"value":102,"series":"observed"},{"minute":54,"m0":54,"m1":56,"value":89.58,"series":"expected (chance)"},{"minute":56,"m0":56.15,"m1":57.85,"value":70,"series":"observed"},{"minute":56,"m0":56,"m1":58,"value":90.41,"series":"expected (chance)"},{"minute":58,"m0":58.15,"m1":59.85,"value":68,"series":"observed"},{"minute":58,"m0":58,"m1":60,"value":89.79,"series":"expected (chance)"}]},"layer":[{"transform":[{"filter":{"field":"series","equal":"observed"}}],"mark":{"type":"bar","cornerRadiusEnd":2},"encoding":{"x":{"field":"m0","type":"quantitative","title":"minutes (tweet − drop)","scale":{"domain":[-60,60]}},"x2":{"field":"m1"},"y":{"field":"value","type":"quantitative","title":"tweets","scale":{"zero":true}},"y2":{"datum":0},"color":{"field":"series","type":"nominal","title":null,"scale":{"domain":["observed","expected (chance)"],"range":["@series1","@ink2"]},"legend":{"orient":"top"}},"tooltip":[{"field":"minute","title":"min"},{"field":"series","title":" "},{"field":"value","title":"n","format":".1f"}]}},{"transform":[{"filter":{"field":"series","equal":"expected (chance)"}}],"mark":{"type":"line","strokeWidth":2,"interpolate":"step-after"},"encoding":{"x":{"field":"minute","type":"quantitative","title":"minutes (tweet − drop)","scale":{"domain":[-60,60]}},"y":{"field":"value","type":"quantitative"},"color":{"field":"series","type":"nominal","title":null,"scale":{"domain":["observed","expected (chance)"],"range":["@series1","@ink2"]},"legend":{"orient":"top"}},"tooltip":[{"field":"minute","title":"min"},{"field":"series","title":" "},{"field":"value","title":"n","format":".1f"}]}}]}</script>
+  
+<details><summary>Show data</summary><div class="table-wrap"><table>
+  <thead><tr><th class="r">min</th><th class="r">observed</th><th class="r">expected (chance)</th></tr></thead>
+  <tbody><tr><td class="r">-60</td><td class="r">107</td><td class="r">94.73</td></tr><tr><td class="r">-58</td><td class="r">97</td><td class="r">96.45</td></tr><tr><td class="r">-56</td><td class="r">94</td><td class="r">95.79</td></tr><tr><td class="r">-54</td><td class="r">95</td><td class="r">95.12</td></tr><tr><td class="r">-52</td><td class="r">86</td><td class="r">95.08</td></tr><tr><td class="r">-50</td><td class="r">100</td><td class="r">93.37</td></tr><tr><td class="r">-48</td><td class="r">82</td><td class="r">96.17</td></tr><tr><td class="r">-46</td><td class="r">108</td><td class="r">96.82</td></tr><tr><td class="r">-44</td><td class="r">111</td><td class="r">95.57</td></tr><tr><td class="r">-42</td><td class="r">104</td><td class="r">95.31</td></tr><tr><td class="r">-40</td><td class="r">108</td><td class="r">94.31</td></tr><tr><td class="r">-38</td><td class="r">101</td><td class="r">96.03</td></tr><tr><td class="r">-36</td><td class="r">103</td><td class="r">93.92</td></tr><tr><td class="r">-34</td><td class="r">111</td><td class="r">92.65</td></tr><tr><td class="r">-32</td><td class="r">76</td><td class="r">94.32</td></tr><tr><td class="r">-30</td><td class="r">105</td><td class="r">92.78</td></tr><tr><td class="r">-28</td><td class="r">95</td><td class="r">96.08</td></tr><tr><td class="r">-26</td><td class="r">94</td><td class="r">92.86</td></tr><tr><td class="r">-24</td><td class="r">91</td><td class="r">95.02</td></tr><tr><td class="r">-22</td><td class="r">93</td><td class="r">92.07</td></tr><tr><td class="r">-20</td><td class="r">84</td><td class="r">90.72</td></tr><tr><td class="r">-18</td><td class="r">78</td><td class="r">90.41</td></tr><tr><td class="r">-16</td><td class="r">93</td><td class="r">93.88</td></tr><tr><td class="r">-14</td><td class="r">100</td><td class="r">93.03</td></tr><tr><td class="r">-12</td><td class="r">96</td><td class="r">92.94</td></tr><tr><td class="r">-10</td><td class="r">101</td><td class="r">93.08</td></tr><tr><td class="r">-8</td><td class="r">94</td><td class="r">92.11</td></tr><tr><td class="r">-6</td><td class="r">87</td><td class="r">93.7</td></tr><tr><td class="r">-4</td><td class="r">99</td><td class="r">91.94</td></tr><tr><td class="r">-2</td><td class="r">81</td><td class="r">92.5</td></tr><tr><td class="r">0</td><td class="r">91</td><td class="r">93.06</td></tr><tr><td class="r">2</td><td class="r">103</td><td class="r">91.81</td></tr><tr><td class="r">4</td><td class="r">98</td><td class="r">93.35</td></tr><tr><td class="r">6</td><td class="r">107</td><td class="r">91.49</td></tr><tr><td class="r">8</td><td class="r">74</td><td class="r">90.29</td></tr><tr><td class="r">10</td><td class="r">74</td><td class="r">91.18</td></tr><tr><td class="r">12</td><td class="r">75</td><td class="r">91.87</td></tr><tr><td class="r">14</td><td class="r">86</td><td class="r">91.31</td></tr><tr><td class="r">16</td><td class="r">93</td><td class="r">91.0</td></tr><tr><td class="r">18</td><td class="r">77</td><td class="r">90.34</td></tr><tr><td class="r">20</td><td class="r">73</td><td class="r">90.55</td></tr><tr><td class="r">22</td><td class="r">66</td><td class="r">90.73</td></tr><tr><td class="r">24</td><td class="r">69</td><td class="r">90.07</td></tr><tr><td class="r">26</td><td class="r">85</td><td class="r">91.92</td></tr><tr><td class="r">28</td><td class="r">83</td><td class="r">91.45</td></tr><tr><td class="r">30</td><td class="r">84</td><td class="r">90.72</td></tr><tr><td class="r">32</td><td class="r">83</td><td class="r">90.31</td></tr><tr><td class="r">34</td><td class="r">77</td><td class="r">91.28</td></tr><tr><td class="r">36</td><td class="r">80</td><td class="r">90.77</td></tr><tr><td class="r">38</td><td class="r">97</td><td class="r">89.65</td></tr><tr><td class="r">40</td><td class="r">103</td><td class="r">89.87</td></tr><tr><td class="r">42</td><td class="r">74</td><td class="r">88.53</td></tr><tr><td class="r">44</td><td class="r">79</td><td class="r">89.86</td></tr><tr><td class="r">46</td><td class="r">90</td><td class="r">88.65</td></tr><tr><td class="r">48</td><td class="r">104</td><td class="r">90.43</td></tr><tr><td class="r">50</td><td class="r">90</td><td class="r">88.54</td></tr><tr><td class="r">52</td><td class="r">88</td><td class="r">87.63</td></tr><tr><td class="r">54</td><td class="r">102</td><td class="r">89.58</td></tr><tr><td class="r">56</td><td class="r">70</td><td class="r">90.41</td></tr><tr><td class="r">58</td><td class="r">68</td><td class="r">89.79</td></tr></tbody>
+</table></div></details>
+
+</figure>
+
+<section>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Baseline</th><th>Window</th><th>Direction</th><th class="r">Observed</th><th class="r">Chance</th><th class="r">× median</th><th class="r">p</th></tr></thead>
+    <tbody><tr><td>local (±30 min–3 h)</td><td>1 min</td><td>tweet after drop</td><td class="r">1.0%</td><td class="r">0.9%</td><td class="r">1.15</td><td class="r">0.186</td></tr><tr><td>local (±30 min–3 h)</td><td>5 min</td><td>tweet after drop</td><td class="r">4.2%</td><td class="r">4.0%</td><td class="r">1.05</td><td class="r">0.227</td></tr><tr><td>local (±30 min–3 h)</td><td>10 min</td><td>tweet after drop</td><td class="r">7.4%</td><td class="r">7.3%</td><td class="r">1.01</td><td class="r">0.442</td></tr><tr><td>local (±30 min–3 h)</td><td>30 min</td><td>tweet after drop</td><td class="r">16.5%</td><td class="r">17.6%</td><td class="r">0.94</td><td class="r">0.995</td></tr><tr><td>local (±30 min–3 h)</td><td>60 min</td><td>tweet after drop</td><td class="r">27.9%</td><td class="r">28.8%</td><td class="r">0.97</td><td class="r">0.948</td></tr><tr><td>local (±30 min–3 h)</td><td>1 min</td><td>tweet before drop</td><td class="r">0.7%</td><td class="r">0.9%</td><td class="r">0.84</td><td class="r">0.887</td></tr><tr><td>local (±30 min–3 h)</td><td>5 min</td><td>tweet before drop</td><td class="r">3.8%</td><td class="r">4.0%</td><td class="r">0.96</td><td class="r">0.739</td></tr><tr><td>local (±30 min–3 h)</td><td>10 min</td><td>tweet before drop</td><td class="r">7.4%</td><td class="r">7.4%</td><td class="r">1.01</td><td class="r">0.463</td></tr><tr><td>local (±30 min–3 h)</td><td>30 min</td><td>tweet before drop</td><td class="r">18.2%</td><td class="r">17.8%</td><td class="r">1.02</td><td class="r">0.197</td></tr><tr class="sig"><td>local (±30 min–3 h)</td><td>60 min</td><td>tweet before drop</td><td class="r">30.9%</td><td class="r">29.9%</td><td class="r">1.03</td><td class="r">0.041</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>1 min</td><td>tweet after drop</td><td class="r">1.0%</td><td class="r">0.8%</td><td class="r">1.30</td><td class="r">0.035</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>5 min</td><td>tweet after drop</td><td class="r">4.2%</td><td class="r">3.3%</td><td class="r">1.28</td><td class="r">0.001</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>10 min</td><td>tweet after drop</td><td class="r">7.4%</td><td class="r">6.1%</td><td class="r">1.20</td><td class="r">0.001</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>30 min</td><td>tweet after drop</td><td class="r">16.5%</td><td class="r">14.8%</td><td class="r">1.11</td><td class="r">0.001</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>60 min</td><td>tweet after drop</td><td class="r">27.9%</td><td class="r">25.1%</td><td class="r">1.11</td><td class="r">0.001</td></tr><tr><td>days (±1–14 d)</td><td>1 min</td><td>tweet before drop</td><td class="r">0.7%</td><td class="r">0.7%</td><td class="r">0.99</td><td class="r">0.532</td></tr><tr><td>days (±1–14 d)</td><td>5 min</td><td>tweet before drop</td><td class="r">3.8%</td><td class="r">3.4%</td><td class="r">1.13</td><td class="r">0.052</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>10 min</td><td>tweet before drop</td><td class="r">7.4%</td><td class="r">6.3%</td><td class="r">1.18</td><td class="r">0.001</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>30 min</td><td>tweet before drop</td><td class="r">18.2%</td><td class="r">15.4%</td><td class="r">1.18</td><td class="r">0.001</td></tr><tr class="sig"><td>days (±1–14 d)</td><td>60 min</td><td>tweet before drop</td><td class="r">30.9%</td><td class="r">26.5%</td><td class="r">1.17</td><td class="r">0.001</td></tr></tbody>
+  </table></div>
+  <details class="method"><summary>Method</summary><p>The actual share of drops followed (or preceded) by an original tweet within a window is compared with 1,000 draws where each drop is randomly shifted. The period runs up to January 8, 2021, with 4,953 drops and 46,694 original tweets (retweets excluded).</p></details>
+  <p class="note">Two baselines. &#34;Days&#34; keeps the time of day but not the co-activity of heavy news days, when both Q and Trump post more. It overstates synchrony, and the excess shows up in both directions. &#34;Local&#34; keeps the activity of neighbouring hours and only breaks minute-level synchrony, so it is the one that judges the &#34;deltas&#34; claim. Highlighted rows: p &lt; 0.05, uncorrected for multiple comparisons.</p>
+</section>
+<section>
+  <h2>Q quotes Trump</h2>
+  <p>59 drops link to a @realDonaldTrump tweet (63 found in the archive). The median delay between the tweet and its quotation is 114 min. Q reacts to tweets far more than it announces them.</p>
+  <p>13 drops mention a &#34;delta&#34; (Δ).</p>
+</section>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="disclaimer">QAnon is a conspiracy theory. This site studies its posts critically. The accusations they contain are reproduced as objects of study, never as facts.</p>
+    <ul class="foot-links">
+      <li>Data updated on Oct 22, 2026</li>
+      <li><a href="cite.html">Cite</a></li>
+      <li><a href="data.html">Data</a></li>
+      <li><a href="https://github.com/s-geffroy/QAnon">GitHub</a></li>
+      <li>Sylvain Geffroy</li>
+      <li><a href="https://creativecommons.org/licenses/by/4.0/deed.en" rel="license">CC BY 4.0</a> / <a href="https://github.com/s-geffroy/QAnon/blob/main/LICENSE">MIT</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="../static/vendor/vega-5.30.0.min.js"></script>
+<script src="../static/vendor/vega-lite-5.21.0.min.js"></script>
+<script src="../static/vendor/vega-embed-6.26.0.min.js"></script>
+<script src="../static/charts.js?v=1df88aa20f"></script>
+<script src="../static/nav.js?v=28dda0e03f"></script>
+
+</body>
+</html>
