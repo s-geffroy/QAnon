@@ -1,0 +1,200 @@
+category,first,id,iso3,last,n,name,role_en,role_fr,share
+person,2017-10-28,trump,,2020-11-13,386,Donald Trump,45th President of the United States (2017-2021),45e président des États-Unis (2017-2021),0.07772855416834475
+media,2017-10-30,msm,,2020-10-14,241,Mainstream media,"Mainstream media, labelled ""MSM"" or ""FAKE NEWS""","Grands médias, désignés comme « MSM » ou « FAKE NEWS »",0.04853000402738623
+person,2017-10-28,obama,,2020-10-22,166,Barack Obama,44th President of the United States (2009-2017),44e président des États-Unis (2009-2017),0.03342730567861458
+institution,2017-10-29,fbi,,2020-10-21,153,FBI,Federal Bureau of Investigation,Police fédérale américaine (Federal Bureau of Investigation),0.03080950463149416
+person,2017-10-28,hrc,,2020-10-15,131,Hillary Clinton,"Former Secretary of State, 2016 Democratic nominee","Ancienne secrétaire d'État, candidate démocrate 2016",0.026379379782521143
+country,2017-11-02,usa,USA,2020-10-09,125,United States,United States,États-Unis,0.02517116391461941
+institution,2017-11-02,doj,,2020-10-17,122,Department of Justice,US Department of Justice,Département de la Justice des États-Unis,0.024567055980668547
+country,2017-10-28,russia,RUS,2020-10-17,118,Russia,Russia,Russie,0.023761578735400725
+institution,2017-10-30,cia,,2020-10-14,117,CIA,"Central Intelligence Agency (""Clowns In America"" in Q's idiom)",Agence centrale de renseignement (« Clowns In America » pour Q),0.02356020942408377
+person,2017-11-14,rosenstein,,2020-10-11,102,Rod Rosenstein,Deputy Attorney General (2017-2019),Procureur général adjoint (2017-2019),0.02053966975432944
+organization,2017-10-28,democratic_party,,2020-09-02,101,Democratic Party,"Democratic Party (""D's"" in Q's idiom)",Parti démocrate (« D's » chez Q),0.020338300443012484
+institution,2017-10-30,senate,,2020-10-22,87,US Senate,United States Senate,Sénat des États-Unis,0.01751913008457511
+institution,2017-11-01,white_house,,2020-10-07,85,White House,White House (presidency),Maison-Blanche (présidence),0.0171163914619412
+person,2017-11-01,mueller,,2020-10-01,84,Robert Mueller,"Special Counsel for the Russia probe (2017-2019), former FBI Director","Procureur spécial chargé de l'enquête russe (2017-2019), ex-directeur du FBI",0.016915022150624244
+country,2017-10-30,china,CHN,2020-10-17,81,China,China,Chine,0.01631091421667338
+platform,2017-11-02,twitter,,2020-09-12,78,Twitter,Social network,Réseau social,0.015706806282722512
+institution,2017-10-30,nsa,,2020-10-07,66,NSA,"National Security Agency (""No Such Agency"")",Agence nationale de sécurité (« No Such Agency »),0.013290374546919049
+person,2017-10-30,sessions,,2020-09-26,65,Jeff Sessions,US Attorney General (2017-2018),Procureur général des États-Unis (2017-2018),0.013089005235602094
+country,2017-11-02,iran,IRN,2020-10-17,64,Iran,Iran,Iran,0.01288763592428514
+country,2017-11-02,saudi_arabia,SAU,2020-10-09,63,Saudi Arabia,Saudi Arabia,Arabie saoudite,0.012686266612968183
+country,2017-11-01,north_korea,PRK,2020-10-08,60,North Korea,North Korea,Corée du Nord,0.012082158679017317
+person,2017-10-29,comey,,2020-09-28,57,James Comey,"FBI Director (2013-2017), fired by Trump","Directeur du FBI (2013-2017), limogé par Trump",0.011478050745066451
+person,2018-04-03,huber,,2020-09-26,56,John Huber,US Attorney for Utah assigned a parallel review,Procureur fédéral de l'Utah chargé d'un examen parallèle,0.011276681433749497
+platform,2017-11-06,facebook,,2020-09-13,56,Facebook,Social network,Réseau social,0.011276681433749497
+country,2017-11-05,uk,GBR,2020-05-08,53,United Kingdom,United Kingdom,Royaume-Uni,0.01067257349979863
+institution,2017-11-02,inspector_general,,2020-04-10,53,Inspector General (DOJ OIG),Inspector General (chiefly the DOJ Office of the Inspector General),Inspection générale (notamment celle du département de la Justice),0.01067257349979863
+platform,2017-12-22,google,,2020-09-26,52,Google,Search engine and tech company (including Gmail),Moteur de recherche et groupe technologique (Gmail inclus),0.010471204188481676
+organization,2017-10-30,clinton_foundation,,2020-10-09,44,Clinton Foundation,Clinton family charitable foundation,Fondation caritative des Clinton,0.008860249697946033
+institution,2017-11-02,congress,,2020-10-07,43,US Congress,United States Congress,Congrès des États-Unis,0.008658880386629078
+person,2017-11-06,snowden,,2019-12-15,42,Edward Snowden,"Former NSA contractor, 2013 whistleblower","Ancien contractuel de la NSA, lanceur d'alerte (2013)",0.008457511075312122
+institution,2017-10-28,us_military,,2020-10-07,42,US Armed Forces,US armed forces,Forces armées américaines,0.008457511075312122
+group,2017-10-30,antifa,,2020-09-25,39,Antifa,Militant anti-fascist movement,Mouvance militante antifasciste,0.007853403141361256
+person,2017-10-28,soros,,2020-10-09,39,George Soros,"Financier and philanthropist, recurring conspiracy-theory target","Financier et philanthrope, cible récurrente de théories du complot",0.007853403141361256
+person,2018-03-17,biden,,2020-10-22,37,Joe Biden,"Former Vice President, 2020 Democratic nominee","Ancien vice-président, candidat démocrate 2020",0.007450664518727346
+group,2017-10-29,clinton_family,,2020-10-09,37,Clinton family,"The Clintons (bare ""Clinton"" mentions)",Les Clinton (mention du seul nom « Clinton »),0.007450664518727346
+person,2017-10-29,pelosi,,2020-10-07,36,Nancy Pelosi,Democratic Speaker of the House,Présidente démocrate de la Chambre des représentants,0.00724929520741039
+person,2017-12-11,schiff,,2020-09-09,34,Adam Schiff,"Democratic Representative (CA), House Intelligence chair","Représentant démocrate de Californie, président de la commission du renseignement",0.00684655658477648
+person,2017-10-29,mccain,,2020-10-08,33,John McCain,"Republican Senator (AZ), died 2018",Sénateur républicain de l'Arizona (mort en 2018),0.0066451872734595244
+person,2017-11-02,lynch,,2020-09-02,33,Loretta Lynch,US Attorney General (2015-2017),Procureure générale des États-Unis (2015-2017),0.0066451872734595244
+institution,2017-11-02,house,,2020-10-15,33,House of Representatives,US House of Representatives,Chambre des représentants des États-Unis,0.0066451872734595244
+person,2019-02-10,barr,,2020-06-21,32,William Barr,US Attorney General (2019-2020),Procureur général des États-Unis (2019-2020),0.00644381796214257
+person,2017-11-01,flynn,,2020-07-31,31,Michael Flynn,"General, National Security Advisor (2017)","Général, conseiller à la sécurité nationale (2017)",0.006242448650825614
+organization,2017-11-02,uranium_one,,2020-10-09,31,Uranium One,Mining company whose 2010 sale to Rosatom fuels a conspiracy narrative,Société minière dont la vente à Rosatom (2010) alimente un récit de complot,0.006242448650825614
+institution,2017-11-01,secret_service,,2020-06-04,30,Secret Service,United States Secret Service,Service de protection présidentielle (USSS),0.006041079339508659
+organization,2017-10-28,republican_party,,2020-09-02,30,Republican Party,"Republican Party (""R's"" in Q's idiom)",Parti républicain (« R's » chez Q),0.006041079339508659
+institution,2017-11-02,eu,,2020-09-13,29,European Union,European Union,Union européenne,0.005839710028191704
+person,2017-10-28,huma,,2018-08-29,29,Huma Abedin,Close aide to Hillary Clinton,Proche collaboratrice d'Hillary Clinton,0.005839710028191704
+organization,2017-11-02,dnc,,2020-10-15,28,Democratic National Committee,Democratic National Committee,Comité national démocrate,0.005638340716874748
+media,2017-11-06,msnbc,,2020-09-12,27,MSNBC,"Cable news network (""MSDNC"" in Q's idiom)",Chaîne d'information (« MSDNC » chez Q),0.005436971405557793
+person,2017-12-05,strzok,,2020-05-08,27,Peter Strzok,"FBI counterintelligence agent, fired in 2018","Agent du contre-espionnage du FBI, limogé en 2018",0.005436971405557793
+person,2017-11-12,epstein,,2020-10-01,26,Jeffrey Epstein,Financier convicted of sex crimes (died 2019),Financier condamné pour crimes sexuels (mort en 2019),0.005235602094240838
+person,2017-12-22,mccabe,,2020-09-28,26,Andrew McCabe,"FBI Deputy Director, fired in 2018","Directeur adjoint du FBI, limogé en 2018",0.005235602094240838
+person,2017-12-22,brennan,,2020-10-09,25,John Brennan,CIA Director (2013-2017),Directeur de la CIA (2013-2017),0.0050342327829238824
+country,2017-11-12,ukraine,UKR,2022-11-06,22,Ukraine,Ukraine,Ukraine,0.004430124848973017
+person,2019-07-09,durham,,2020-11-13,21,John Durham,Prosecutor probing the origins of the Russia investigation,Procureur chargé d'enquêter sur les origines de l'enquête russe,0.004228755537656061
+institution,2018-03-10,five_eyes,,2020-07-20,21,Five Eyes,"Intelligence alliance (US, UK, Canada, Australia, New Zealand)","Alliance de renseignement (États-Unis, Royaume-Uni, Canada, Australie, Nouvelle-Zélande)",0.004228755537656061
+person,2017-11-02,bill_clinton,,2020-09-28,21,Bill Clinton,42nd President of the United States (1993-2001),42e président des États-Unis (1993-2001),0.004228755537656061
+country,2017-11-12,australia,AUS,2020-05-08,20,Australia,Australia,Australie,0.004027386226339106
+country,2017-10-30,haiti,HTI,2019-03-14,19,Haiti,Haiti,Haïti,0.0038260169150221507
+group,2017-10-29,ms13,,2020-05-08,19,MS-13,Mara Salvatrucha transnational gang,Gang transnational Mara Salvatrucha,0.0038260169150221507
+person,2017-11-04,schumer,,2020-10-22,18,Chuck Schumer,"Senator (NY), Senate Democratic leader","Sénateur de New York, chef de la minorité démocrate au Sénat",0.003624647603705195
+person,2018-01-14,dorsey,,2020-05-28,18,Jack Dorsey,Co-founder and CEO of Twitter,Cofondateur et PDG de Twitter,0.003624647603705195
+organization,2017-10-30,muslim_brotherhood,,2020-10-09,18,Muslim Brotherhood,Muslim Brotherhood,Confrérie des Frères musulmans,0.003624647603705195
+person,2017-11-01,jfk,,2019-12-19,18,John F. Kennedy,35th President of the United States (assassinated 1963),35e président des États-Unis (assassiné en 1963),0.003624647603705195
+person,2018-01-21,nunes,,2020-04-28,17,Devin Nunes,"Republican Representative, House Intelligence chair","Représentant républicain, président de la commission du renseignement",0.00342327829238824
+group,2017-11-02,isis,,2020-06-30,17,ISIS (Islamic State),Islamic State jihadist organisation,Organisation djihadiste État islamique,0.00342327829238824
+person,2018-01-19,paul_ryan,,2020-10-09,16,Paul Ryan,Republican Speaker of the House (2015-2019),Président républicain de la Chambre (2015-2019),0.003221908981071285
+person,2018-04-28,lisa_page,,2020-04-28,16,Lisa Page,"FBI lawyer, texts with Peter Strzok","Juriste du FBI, échanges de SMS avec Strzok",0.003221908981071285
+institution,2017-10-28,military_intelligence,,2018-02-14,16,Military intelligence,"US military intelligence (""MI"" in Q's idiom)",Renseignement militaire américain (« MI » chez Q),0.003221908981071285
+institution,2018-05-11,darpa,,2020-09-11,16,DARPA,Defense Advanced Research Projects Agency,Agence de recherche avancée de la Défense,0.003221908981071285
+person,2018-11-09,whitaker,,2019-03-25,16,Matthew Whitaker,Acting Attorney General (2018-2019),Procureur général par intérim (2018-2019),0.003221908981071285
+media,2017-11-12,nyt,,2019-11-13,16,The New York Times,New York daily newspaper,Quotidien new-yorkais,0.003221908981071285
+institution,2017-11-02,dni,,2020-10-09,16,Director of National Intelligence,Office of the Director of National Intelligence,Direction du renseignement national (ODNI),0.003221908981071285
+media,2017-11-06,wikileaks,,2020-05-09,15,WikiLeaks,Leaked-document publishing organisation,Plateforme de publication de documents fuités,0.0030205396697543293
+group,2017-11-12,rothschild_family,,2019-07-12,15,Rothschild family,"Banking family, target of antisemitic conspiracy theories","Famille de banquiers, cible de théories du complot antisémites",0.0030205396697543293
+institution,2017-11-05,uk_intel,,2019-12-28,15,UK intelligence (MI6/MI5/GCHQ),British intelligence services,Services de renseignement britanniques,0.0030205396697543293
+country,2017-11-05,germany,DEU,2020-09-08,14,Germany,Germany,Allemagne,0.002819170358437374
+institution,2017-11-02,pentagon,,2020-09-10,14,Pentagon / Department of Defense,US Department of Defense,Département de la Défense des États-Unis,0.002819170358437374
+country,2018-03-28,syria,SYR,2020-06-30,14,Syria,Syria,Syrie,0.002819170358437374
+person,2017-11-02,jarrett,,2020-09-23,14,Valerie Jarrett,Senior adviser to Barack Obama,Conseillère principale de Barack Obama,0.002819170358437374
+person,2017-10-29,gowdy,,2018-11-09,14,Trey Gowdy,"Republican Representative, House Oversight chair","Représentant républicain, président de la commission de contrôle",0.002819170358437374
+person,2018-03-07,assange,,2020-09-15,14,Julian Assange,Founder of WikiLeaks,Fondateur de WikiLeaks,0.002819170358437374
+person,2018-05-05,bruce_ohr,,2019-07-25,13,Bruce Ohr,"Senior DOJ official, contact of Christopher Steele","Haut fonctionnaire du DOJ, contact de Christopher Steele",0.002617801047120419
+group,2018-05-08,deep_state,,2020-06-29,13,"""Deep State""","""Deep State"", the central imagined enemy of the QAnon narrative","« État profond », adversaire imaginaire central du récit QAnon",0.002617801047120419
+platform,2018-04-07,fourchan,,2020-06-24,13,4chan,"Anonymous imageboard, site of the first drops","Forum d'images anonyme, lieu des premiers drops",0.002617801047120419
+person,2017-11-01,podesta,,2019-11-21,13,John Podesta,Chairman of the 2016 Clinton campaign,Directeur de la campagne Clinton 2016,0.002617801047120419
+person,2018-04-28,james_baker,,2020-05-08,12,James Baker,FBI General Counsel,Conseiller juridique général du FBI,0.0024164317358034634
+platform,2017-11-06,reddit,,2020-07-01,12,Reddit,"Social forum, banned QAnon communities in 2018","Forum social, a banni les communautés QAnon en 2018",0.0024164317358034634
+person,2017-11-01,reagan,,2020-07-01,12,Ronald Reagan,40th President of the United States (1981-1989),40e président des États-Unis (1981-1989),0.0024164317358034634
+media,2018-06-16,wapo,,2020-05-24,12,The Washington Post,Washington daily newspaper (owned by Jeff Bezos),Quotidien de Washington (propriété de Jeff Bezos),0.0024164317358034634
+platform,2018-03-04,youtube,,2020-10-17,11,YouTube,Google's video platform,Plateforme vidéo de Google,0.0022150624244865083
+institution,2017-10-28,national_guard,,2022-11-08,11,National Guard,National Guard,Garde nationale,0.0022150624244865083
+media,2017-11-06,cnn,,2020-05-09,11,CNN,Cable news network,Chaîne d'information en continu,0.0022150624244865083
+person,2018-09-28,graham,,2020-06-11,10,Lindsey Graham,"Republican Senator (SC), Judiciary Committee chair","Sénateur républicain de Caroline du Sud, président de la commission judiciaire",0.002013693113169553
+person,2017-11-01,putin,,2020-02-07,10,Vladimir Putin,President of Russia,Président de la Russie,0.002013693113169553
+organization,2018-01-07,planned_parenthood,,2020-07-01,10,Planned Parenthood,US reproductive health organisation,Réseau américain de planning familial,0.002013693113169553
+platform,2018-06-13,eightchan,,2020-02-12,10,8chan / 8kun,"Anonymous imageboard, main home of the drops","Forum d'images anonyme, principal support des drops",0.002013693113169553
+group,2017-11-01,hollywood,,2020-09-12,10,Hollywood,US film industry,Industrie du cinéma américaine,0.002013693113169553
+person,2018-05-05,yates,,2019-03-26,10,Sally Yates,"Deputy, then Acting Attorney General (2015-2017)",Procureure générale adjointe puis par intérim (2015-2017),0.002013693113169553
+institution,2017-10-28,supreme_court,,2020-06-30,10,Supreme Court,US Supreme Court,Cour suprême des États-Unis,0.002013693113169553
+institution,2018-08-28,fisc,,2020-05-13,10,FISA Court,Foreign Intelligence Surveillance Court,Cour de surveillance du renseignement étranger (FISC),0.002013693113169553
+person,2018-01-27,barlow,,2019-03-11,10,John Perry Barlow,Co-founder of the Electronic Frontier Foundation (died 2018),Cofondateur de l'Electronic Frontier Foundation (mort en 2018),0.002013693113169553
+person,2017-10-28,weiner,,2020-10-09,10,Anthony Weiner,"Former Democratic Representative (NY), convicted","Ancien représentant démocrate de New York, condamné",0.002013693113169553
+person,2018-04-28,priestap,,2020-04-28,10,Bill Priestap,FBI Assistant Director for Counterintelligence,Directeur adjoint du contre-espionnage du FBI,0.002013693113169553
+person,2017-11-06,wray,,2019-02-10,10,Christopher Wray,FBI Director (from 2017),Directeur du FBI (depuis 2017),0.002013693113169553
+person,2017-11-03,kerry,,2020-05-10,10,John Kerry,Secretary of State (2013-2017),Secrétaire d'État (2013-2017),0.002013693113169553
+institution,2017-11-06,federal_reserve,,2019-02-19,10,Federal Reserve,US central bank (the Fed),Banque centrale des États-Unis (Fed),0.002013693113169553
+media,2017-11-06,fox_news,,2020-05-12,9,Fox News,Conservative cable news network,Chaîne d'information conservatrice,0.0018123238018525976
+organization,2017-12-22,crowdstrike,,2020-05-08,9,CrowdStrike,Cybersecurity firm that investigated the DNC hack,Société de cybersécurité ayant enquêté sur le piratage du DNC,0.0018123238018525976
+institution,2017-11-02,dhs,,2020-10-07,9,Department of Homeland Security,Department of Homeland Security,Département de la Sécurité intérieure,0.0018123238018525976
+country,2017-11-04,pakistan,PAK,2018-08-29,9,Pakistan,Pakistan,Pakistan,0.0018123238018525976
+platform,2017-12-22,amazon,,2019-03-29,9,Amazon,E-commerce and cloud company,Groupe de commerce en ligne et de cloud,0.0018123238018525976
+person,2017-11-02,maxine_waters,,2019-07-09,9,Maxine Waters,Democratic Representative (CA),Représentante démocrate de Californie,0.0018123238018525976
+person,2018-04-16,clapper,,2020-06-11,9,James Clapper,Director of National Intelligence (2010-2017),Directeur du renseignement national (2010-2017),0.0018123238018525976
+person,2018-04-10,horowitz,,2020-05-09,9,Michael Horowitz,Department of Justice Inspector General,Inspecteur général du département de la Justice,0.0018123238018525976
+person,2018-11-10,scaramucci,,2019-07-28,9,Anthony Scaramucci,White House Communications Director (2017),Directeur de la communication de la Maison-Blanche (2017),0.0018123238018525976
+country,2017-11-12,france,FRA,2020-06-04,9,France,France,France,0.0018123238018525976
+person,2018-01-21,zuckerberg,,2019-03-09,8,Mark Zuckerberg,Founder and CEO of Facebook,Fondateur et PDG de Facebook,0.0016109544905356424
+institution,2018-06-19,special_counsel,,2020-05-24,8,Special Counsel's Office,Special Counsel's Office (Mueller probe),Bureau du procureur spécial (enquête Mueller),0.0016109544905356424
+person,2018-02-11,ginsburg,,2019-03-26,8,Ruth Bader Ginsburg,Supreme Court Justice (died 2020),Juge à la Cour suprême (morte en 2020),0.0016109544905356424
+person,2018-09-27,feinstein,,2020-10-22,8,Dianne Feinstein,Democratic Senator (CA),Sénatrice démocrate de Californie,0.0016109544905356424
+person,2017-12-22,steele,,2020-10-08,8,Christopher Steele,"Former MI6 officer, author of the ""Steele dossier""","Ex-agent du MI6, auteur du « dossier Steele »",0.0016109544905356424
+institution,2020-05-15,cdc,,2020-10-07,8,CDC,Centers for Disease Control and Prevention,Centres de contrôle et de prévention des maladies,0.0016109544905356424
+person,2017-11-01,kim_jong_un,,2019-11-12,8,Kim Jong Un,Leader of North Korea,Dirigeant de la Corée du Nord,0.0016109544905356424
+group,2020-06-17,blm,,2020-09-12,8,Black Lives Matter,Movement against racist police violence,Mouvement contre les violences policières racistes,0.0016109544905356424
+country,2017-11-12,israel,ISR,2019-02-19,8,Israel,Israel,Israël,0.0016109544905356424
+media,2017-11-06,abc,,2020-10-18,8,ABC News,US television network,Réseau de télévision américain,0.0016109544905356424
+country,2017-11-12,mexico,MEX,2020-06-30,7,Mexico,Mexico,Mexique,0.001409585179218687
+media,2017-11-06,nbc,,2019-11-13,7,NBC News,US television network,Réseau de télévision américain,0.001409585179218687
+country,2017-10-29,canada,CAN,2018-09-19,7,Canada,Canada,Canada,0.001409585179218687
+person,2018-05-08,goodlatte,,2018-11-09,7,Bob Goodlatte,"Republican Representative, House Judiciary chair","Représentant républicain, président de la commission judiciaire de la Chambre",0.001409585179218687
+person,2018-04-28,rybicki,,2020-04-28,7,James Rybicki,Chief of staff to James Comey at the FBI,Chef de cabinet de James Comey au FBI,0.001409585179218687
+person,2018-05-05,kortan,,2020-04-28,7,Michael Kortan,FBI Assistant Director for Public Affairs,Directeur adjoint des affaires publiques du FBI,0.001409585179218687
+person,2018-08-14,mike_rogers,,2020-05-24,7,Mike Rogers (Adm.),"Admiral, NSA Director (2014-2018)","Amiral, directeur de la NSA (2014-2018)",0.001409585179218687
+person,2017-11-12,flake,,2020-04-15,7,Jeff Flake,Republican Senator (AZ),Sénateur républicain de l'Arizona,0.001409585179218687
+institution,2019-02-09,sdny,,2020-09-10,7,SDNY,"US Attorney's Office, Southern District of New York",Parquet fédéral du district sud de New York,0.001409585179218687
+person,2017-11-05,merkel,,2018-12-12,7,Angela Merkel,Chancellor of Germany (2005-2021),Chancelière d'Allemagne (2005-2021),0.001409585179218687
+person,2017-11-02,grassley,,2019-07-30,6,Chuck Grassley,"Republican Senator (IA), Judiciary Committee chair","Sénateur républicain de l'Iowa, président de la commission judiciaire",0.0012082158679017317
+person,2018-08-03,trisha_anderson,,2020-04-28,6,Trisha Anderson,FBI Principal Deputy General Counsel,Conseillère juridique générale adjointe du FBI,0.0012082158679017317
+person,2018-08-03,clinesmith,,2020-08-17,6,Kevin Clinesmith,FBI lawyer convicted of altering a FISA document,Juriste du FBI condamné pour falsification dans le dossier FISA,0.0012082158679017317
+institution,2018-07-01,ice,,2020-10-07,6,ICE,Immigration and Customs Enforcement,Police de l'immigration et des douanes,0.0012082158679017317
+country,2017-11-12,italy,ITA,2019-07-29,6,Italy,Italy,Italie,0.0012082158679017317
+country,2017-11-12,hong_kong,HKG,2019-01-06,6,Hong Kong,Hong Kong (Chinese special administrative region),Hong Kong (région administrative spéciale chinoise),0.0012082158679017317
+institution,2018-09-28,gang_of_eight,,2020-04-28,6,Gang of Eight,The eight congressional leaders briefed on classified intelligence,Les huit élus du Congrès informés des secrets du renseignement,0.0012082158679017317
+person,2019-02-17,smollett,,2019-07-15,6,Jussie Smollett,"Actor, convicted over a staged attack (2019)","Acteur, condamné pour une fausse agression (2019)",0.0012082158679017317
+person,2018-01-21,hannity,,2019-03-27,6,Sean Hannity,Fox News host,Animateur de Fox News,0.0012082158679017317
+person,2018-08-10,nellie_ohr,,2019-07-25,6,Nellie Ohr,"Fusion GPS contractor, wife of Bruce Ohr","Chercheuse employée par Fusion GPS, épouse de Bruce Ohr",0.0012082158679017317
+person,2018-08-03,steinbach,,2020-04-28,6,Michael Steinbach,"FBI Executive Assistant Director, National Security Branch",Directeur exécutif adjoint de la sécurité nationale au FBI,0.0012082158679017317
+person,2018-05-05,rachel_brand,,2018-10-10,6,Rachel Brand,"Associate Attorney General (No. 3 at DOJ, 2017-2018)","Procureure générale associée (n°3 du DOJ, 2017-2018)",0.0012082158679017317
+person,2018-04-03,bolton,,2020-07-31,6,John Bolton,National Security Advisor (2018-2019),Conseiller à la sécurité nationale (2018-2019),0.0012082158679017317
+person,2018-04-19,giuliani,,2018-05-15,5,Rudy Giuliani,"Former New York mayor, Trump's lawyer","Ancien maire de New York, avocat de Trump",0.0010068465565847766
+country,2017-11-06,iraq,IRQ,2020-10-17,5,Iraq,Iraq,Irak,0.0010068465565847766
+country,2017-11-12,japan,JPN,2020-05-28,5,Japan,Japan,Japon,0.0010068465565847766
+country,2017-11-12,new_zealand,NZL,2018-10-04,5,New Zealand,New Zealand,Nouvelle-Zélande,0.0010068465565847766
+organization,2018-04-04,vatican_church,,2020-06-29,5,Catholic Church,Catholic Church and the papacy,Église catholique et papauté,0.0010068465565847766
+organization,2017-12-05,red_cross,,2018-04-23,5,Red Cross,Red Cross,Croix-Rouge,0.0010068465565847766
+institution,2017-11-02,state_dept,,2020-09-02,5,State Department,US Department of State,Département d'État (affaires étrangères),0.0010068465565847766
+person,2019-05-24,coats,,2020-05-10,5,Dan Coats,Director of National Intelligence (2017-2019),Directeur du renseignement national (2017-2019),0.0010068465565847766
+person,2017-11-06,alwaleed,,2020-09-23,5,Al-Waleed bin Talal,"Saudi prince and investor, detained in 2017","Prince et investisseur saoudien, détenu en 2017",0.0010068465565847766
+person,2018-05-05,josh_campbell,,2020-04-28,5,Josh Campbell,"FBI special agent, later CNN analyst","Agent spécial du FBI, devenu analyste à CNN",0.0010068465565847766
+person,2018-08-03,giacalone,,2020-04-28,5,John Giacalone,"FBI Executive Assistant Director, National Security Branch",Directeur exécutif adjoint de la sécurité nationale au FBI,0.0010068465565847766
+person,2018-08-03,randy_coleman,,2020-04-28,5,Randy Coleman,FBI Executive Assistant Director (counterintelligence),Directeur adjoint exécutif du FBI (contre-espionnage),0.0010068465565847766
+person,2017-11-12,hitler,,2020-06-17,5,Adolf Hitler,"Nazi dictator, invoked as a historical reference","Dictateur nazi, invoqué comme référence historique",0.0010068465565847766
+group,2017-11-04,bush_family,,2020-09-02,5,Bush family,The Bushes (George H. W. and George W. Bush),Les Bush (George H. W. et George W. Bush),0.0010068465565847766
+institution,2017-11-12,central_banks,,2019-02-19,5,Central banks,Central banks (worldwide list reposted by Q),Banques centrales (liste mondiale reprise par Q),0.0010068465565847766
+institution,2019-11-12,nsc,,2020-05-24,5,National Security Council,National Security Council,Conseil de sécurité nationale,0.0010068465565847766
+person,2018-02-11,pence,,2020-06-04,4,Mike Pence,Vice President of the United States (2017-2021),Vice-président des États-Unis (2017-2021),0.0008054772452678212
+country,2017-11-12,singapore,SGP,2018-04-04,4,Singapore,Singapore,Singapour,0.0008054772452678212
+person,2017-11-06,bin_laden,,2018-08-15,4,Osama bin Laden,Founder of al-Qaeda (killed 2011),Fondateur d'Al-Qaïda (tué en 2011),0.0008054772452678212
+person,2017-11-01,manafort,,2018-09-01,4,Paul Manafort,"Trump 2016 campaign chairman, convicted","Directeur de campagne de Trump (2016), condamné",0.0008054772452678212
+person,2019-07-14,maxwell,,2020-08-20,4,Ghislaine Maxwell,"Epstein associate, convicted in 2021","Complice d'Epstein, condamnée en 2021",0.0008054772452678212
+person,2018-04-04,carter_page,,2020-01-23,4,Carter Page,Trump campaign adviser targeted by a FISA warrant,Conseiller de campagne de Trump visé par un mandat FISA,0.0008054772452678212
+organization,2017-11-06,podesta_group,,2018-08-16,4,Podesta Group,Tony Podesta's lobbying firm,Cabinet de lobbying de Tony Podesta,0.0008054772452678212
+media,2017-11-06,cbs,,2020-05-06,4,CBS News,US television network,Réseau de télévision américain,0.0008054772452678212
+country,2017-11-12,armenia,ARM,2018-04-23,4,Armenia,Armenia,Arménie,0.0008054772452678212
+person,2018-07-25,rice,,2020-05-24,3,Susan Rice,Obama's National Security Advisor (2013-2017),Conseillère à la sécurité nationale d'Obama (2013-2017),0.0006041079339508659
+country,2017-11-12,cuba,CUB,2019-12-19,3,Cuba,Cuba,Cuba,0.0006041079339508659
+organization,2018-04-27,fusion_gps,,2018-10-04,3,Fusion GPS,Research firm that commissioned the Steele dossier,Société de recherche qui a commandé le dossier Steele,0.0006041079339508659
+person,2018-08-28,rouhani,,2018-09-16,3,Hassan Rouhani,President of Iran (2013-2021),Président de l'Iran (2013-2021),0.0006041079339508659
+country,2017-11-06,yemen,YEM,2018-08-15,3,Yemen,Yemen,Yémen,0.0006041079339508659
+country,2017-11-06,qatar,QAT,2020-02-07,3,Qatar,Qatar,Qatar,0.0006041079339508659
+country,2017-11-02,libya,LBY,2018-08-15,3,Libya,Libya,Libye,0.0006041079339508659
+group,2017-11-02,al_qaeda,,2018-08-15,2,Al-Qaeda,Jihadist network founded by bin Laden,Réseau djihadiste fondé par Ben Laden,0.0004027386226339106
+person,2018-04-10,xi_jinping,,2018-04-10,2,Xi Jinping,President of China,Président de la Chine,0.0004027386226339106
+media,2018-06-16,politico,,2019-01-06,2,Politico,US political news outlet,Média politique américain,0.0004027386226339106
+country,2017-10-30,south_korea,KOR,2017-11-12,2,South Korea,South Korea,Corée du Sud,0.0004027386226339106
+country,2017-11-12,afghanistan,AFG,2018-08-15,2,Afghanistan,Afghanistan,Afghanistan,0.0004027386226339106
+country,2017-11-12,austria,AUT,2018-02-05,2,Austria,Austria,Autriche,0.0004027386226339106
+country,2018-04-04,vatican,VAT,2018-08-28,2,Vatican / Holy See,Holy See (Vatican City),Saint-Siège (Cité du Vatican),0.0004027386226339106
+country,2017-11-12,belgium,BEL,2018-12-02,2,Belgium,Belgium,Belgique,0.0004027386226339106
+country,2017-11-12,sudan,SDN,2018-08-15,2,Sudan,Sudan,Soudan,0.0004027386226339106
+country,2017-11-12,venezuela,VEN,2019-01-06,2,Venezuela,Venezuela,Venezuela,0.0004027386226339106
+country,2017-11-12,vietnam,VNM,2019-02-22,2,Vietnam,Vietnam,Viêt Nam,0.0004027386226339106
+country,2017-11-12,ecuador,ECU,2019-01-06,2,Ecuador,Ecuador,Équateur,0.0004027386226339106
+country,2017-11-12,kenya,KEN,2018-03-15,2,Kenya,Kenya,Kenya,0.0004027386226339106
+country,2017-11-12,egypt,EGY,2017-11-12,1,Egypt,Egypt,Égypte,0.0002013693113169553
+country,2017-11-12,uae,ARE,2017-11-12,1,United Arab Emirates,United Arab Emirates,Émirats arabes unis,0.0002013693113169553
+country,2017-11-12,turkey,TUR,2017-11-12,1,Turkey,Turkey,Turquie,0.0002013693113169553
+country,2018-08-15,somalia,SOM,2018-08-15,1,Somalia,Somalia,Somalie,0.0002013693113169553

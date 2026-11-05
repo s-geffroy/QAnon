@@ -1,0 +1,57 @@
+lang,id,page,text,url
+fr,drops,activity,"Le corpus compte 4 966 drops de « Q », publiés entre le 28 oct. 2017 et le 27 nov. 2022.",https://s-geffroy.github.io/QAnon/fr/figures.html#drops
+fr,jours-actifs,activity,"Q a publié au moins un drop sur 533 jours, sur une période de 1 857 jours.",https://s-geffroy.github.io/QAnon/fr/figures.html#jours-actifs
+fr,record,activity,"Le record est de 64 drops en une journée, le 28 mars 2019.",https://s-geffroy.github.io/QAnon/fr/figures.html#record
+fr,silence,activity,"Le plus long silence de Q a duré 563 jours, du 8 déc. 2020 au 24 juin 2022.",https://s-geffroy.github.io/QAnon/fr/figures.html#silence
+fr,questions,discourse,"Un drop contient en moyenne 1,39 points d'interrogation, et 38 % des drops en contiennent au moins un.",https://s-geffroy.github.io/QAnon/fr/figures.html#questions
+fr,deltas,trump,"Un tweet de Trump suit un drop en moins de 5 minutes dans 4,2 % des cas, contre 4,0 % attendus par hasard (modèle nul local, p = 0,227). Aucune synchronie n'est démontrée.",https://s-geffroy.github.io/QAnon/fr/figures.html#deltas
+fr,tweets-cites,trump,"59 drops citent un tweet de Trump, en médiane 114 min après sa publication.",https://s-geffroy.github.io/QAnon/fr/figures.html#tweets-cites
+fr,stylometrie,discourse,"La rupture de style la plus nette du corpus se situe autour du 25 nov. 2017, au passage sur 8chan.",https://s-geffroy.github.io/QAnon/fr/figures.html#stylometrie
+fr,acteurs,actors,"Les acteurs les plus cités sont Donald Trump (386), Mainstream media (241), Barack Obama (166), en nombre de drops. 33 % des drops nomment au moins un acteur du dictionnaire.",https://s-geffroy.github.io/QAnon/fr/figures.html#acteurs
+fr,surrepresentation,news,"Par rapport à l'actualité mondiale (GDELT), les acteurs que Q sur-représente le plus sont George Soros (×15,8), Hillary Clinton (×8,0), Democratic Party (×3,1).",https://s-geffroy.github.io/QAnon/fr/figures.html#surrepresentation
+fr,pays,news,"La corrélation de rang entre les pays cités par Q et leur poids dans l'actualité mondiale est de 0,61.",https://s-geffroy.github.io/QAnon/fr/figures.html#pays
+fr,curiosite,interest,"L'événement qui a le plus fait monter la curiosité pour QAnon sur Wikipédia est Meeting Trump à Tampa : premières pancartes « Q » très médiatisées (vues ×13,3 la semaine suivante).",https://s-geffroy.github.io/QAnon/fr/figures.html#curiosite
+fr,predictions,predictions,"13 % des drops (598) contiennent au moins une prédiction, soit 846 prédictions dont 203 précises.",https://s-geffroy.github.io/QAnon/fr/figures.html#predictions
+fr,horizon,stats,"Pour 129 prédictions à date précise, l'échéance tombe en médiane 7 jours après le drop, et 50 % à moins d'une semaine.",https://s-geffroy.github.io/QAnon/fr/figures.html#horizon
+fr,realisation,predictions,"39 des 140 prédictions vérifiables se sont réalisées, soit 28 % (IC 95 % 21 %–36 %).",https://s-geffroy.github.io/QAnon/fr/figures.html#realisation
+fr,realisation-hors-triviales,predictions,"Hors événements déjà annoncés ou programmés, le taux de réalisation tombe à 16 % (IC 95 % 10 %–24 %, 108 prédictions).",https://s-geffroy.github.io/QAnon/fr/figures.html#realisation-hors-triviales
+fr,arrestations,predictions,"Sur les 8 arrestations et inculpations annoncées par Q et vérifiables, 0 réalisée.",https://s-geffroy.github.io/QAnon/fr/figures.html#arrestations
+fr,modele,predictions,"Modèle retenu pour annoter le corpus : gpt-5.6-luna (F1 = 0,86 sur le jeu de référence, coût du corpus ≈ 0,59 $).",https://s-geffroy.github.io/QAnon/fr/figures.html#modele
+fr,rafales,stats,"Q publie par rafales, avec un coefficient de rafale B = 0,91. 26 % des drops suivent le précédent de moins de 5 minutes, 75 % de moins d'une heure.",https://s-geffroy.github.io/QAnon/fr/figures.html#rafales
+fr,sessions,stats,"Les drops se regroupent en 1 743 sessions (écart de moins de 30 minutes), et 85 % appartiennent à une session de plusieurs drops.",https://s-geffroy.github.io/QAnon/fr/figures.html#sessions
+fr,regimes,stats,Le volume hebdomadaire se découpe en 6 régimes d'activité.,https://s-geffroy.github.io/QAnon/fr/figures.html#regimes
+fr,medias,stats,Les drops contiennent 2 618 liens vers 375 sites. Le média d'information le plus cité est foxnews.com (149 drops).,https://s-geffroy.github.io/QAnon/fr/figures.html#medias
+fr,autocitation,stats,"8 % des drops renvoient à un drop antérieur de Q, 23 % à un message d'anonyme.",https://s-geffroy.github.io/QAnon/fr/figures.html#autocitation
+fr,religion,stats,"6,3 % des drops emploient un vocabulaire religieux ou moral, et 9 citent un verset biblique.",https://s-geffroy.github.io/QAnon/fr/figures.html#religion
+fr,lisibilite,stats,"L'indice de lisibilité de Flesch vaut 65, avec 7,0 mots par phrase en moyenne.",https://s-geffroy.github.io/QAnon/fr/figures.html#lisibilite
+fr,horoscope,predictions,"Test de l'horoscope (300 drops, à l'aveugle). Le modèle reconnaît la vraie période d'actualité dans 75 % des cas tranchés pour les 7 jours précédant le drop, et dans 68 % pour les 30 jours suivants. Pourtant, 6 % des périodes tirées au hasard obtiennent une note d'au moins 5 sur 10.",https://s-geffroy.github.io/QAnon/fr/figures.html#horoscope
+fr,propheties-recyclees,predictions,"17 sujets de prédiction (même événement, même acteur) sont annoncés sur au moins trois mois différents (74 prédictions). Dans 7 d'entre eux, l'annonce revient après un échec vérifié.",https://s-geffroy.github.io/QAnon/fr/figures.html#propheties-recyclees
+fr,autocitations-delai,predictions,"Q renvoie 387 fois à l'un de ses propres drops, dont 97 % le jour même. Ces autocitations sont des compléments, presque jamais des « preuves » après coup.",https://s-geffroy.github.io/QAnon/fr/figures.html#autocitations-delai
+en,drops,activity,"The corpus contains 4,966 ""Q"" drops, posted between Oct 28, 2017 and Nov 27, 2022.",https://s-geffroy.github.io/QAnon/en/figures.html#drops
+en,jours-actifs,activity,"Q posted at least one drop on 533 days, over a 1,857-day period.",https://s-geffroy.github.io/QAnon/en/figures.html#jours-actifs
+en,record,activity,"The record is 64 drops in a single day, on Mar 28, 2019.",https://s-geffroy.github.io/QAnon/en/figures.html#record
+en,silence,activity,"Q's longest silence lasted 563 days, from Dec 8, 2020 to Jun 24, 2022.",https://s-geffroy.github.io/QAnon/en/figures.html#silence
+en,questions,discourse,"A drop contains on average 1.39 question marks, and 38% of drops contain at least one.",https://s-geffroy.github.io/QAnon/en/figures.html#questions
+en,deltas,trump,"A Trump tweet follows a drop within 5 minutes in 4.2% of cases, against 4.0% expected by chance (local null model, p = 0.227), so no synchrony is demonstrated.",https://s-geffroy.github.io/QAnon/en/figures.html#deltas
+en,tweets-cites,trump,"59 drops quote a Trump tweet, a median of 114 min after it was posted.",https://s-geffroy.github.io/QAnon/en/figures.html#tweets-cites
+en,stylometrie,discourse,"The sharpest stylistic break in the corpus falls around Nov 25, 2017, when Q moved to 8chan.",https://s-geffroy.github.io/QAnon/en/figures.html#stylometrie
+en,acteurs,actors,"The most cited actors are Donald Trump (386), Mainstream media (241), Barack Obama (166), by number of drops. 33% of drops name at least one actor from the dictionary.",https://s-geffroy.github.io/QAnon/en/figures.html#acteurs
+en,surrepresentation,news,"Relative to world news (GDELT), the actors Q most over-represents are George Soros (×15.8), Hillary Clinton (×8.0), Democratic Party (×3.1).",https://s-geffroy.github.io/QAnon/en/figures.html#surrepresentation
+en,pays,news,The rank correlation between the countries Q mentions and their weight in world news is 0.61.,https://s-geffroy.github.io/QAnon/en/figures.html#pays
+en,curiosite,interest,"The event that most raised curiosity about QAnon on Wikipedia was First widely covered ""Q"" signs at a Trump rally in Tampa (views ×13.3 the following week).",https://s-geffroy.github.io/QAnon/en/figures.html#curiosite
+en,predictions,predictions,"13% of drops (598) contain at least one prediction, i.e. 846 predictions, 203 of them specific.",https://s-geffroy.github.io/QAnon/en/figures.html#predictions
+en,horizon,stats,"For 129 predictions with a full date, the deadline falls a median of 7 days after the drop, 50% within a week.",https://s-geffroy.github.io/QAnon/en/figures.html#horizon
+en,realisation,predictions,"39 of the 140 checkable predictions came true, i.e. 28% (95% CI 21%–36%).",https://s-geffroy.github.io/QAnon/en/figures.html#realisation
+en,realisation-hors-triviales,predictions,"Excluding already announced or scheduled events, the fulfilment rate drops to 16% (95% CI 10%–24%, 108 predictions).",https://s-geffroy.github.io/QAnon/en/figures.html#realisation-hors-triviales
+en,arrestations,predictions,"Of the 8 checkable arrests and indictments announced by Q, 0 came true.",https://s-geffroy.github.io/QAnon/en/figures.html#arrestations
+en,modele,predictions,"The model chosen to annotate the corpus is gpt-5.6-luna (F1 = 0.86 on the reference set, corpus cost ≈ $0.59).",https://s-geffroy.github.io/QAnon/en/figures.html#modele
+en,rafales,stats,"Q posts in bursts (burstiness B = 0.91). 26% of drops follow the previous one within 5 minutes, 75% within an hour.",https://s-geffroy.github.io/QAnon/en/figures.html#rafales
+en,sessions,stats,"Drops group into 1,743 sessions (gaps under 30 minutes), and 85% belong to a multi-drop session.",https://s-geffroy.github.io/QAnon/en/figures.html#sessions
+en,regimes,stats,Weekly volume splits into 6 activity regimes.,https://s-geffroy.github.io/QAnon/en/figures.html#regimes
+en,medias,stats,"Drops contain 2,618 links to 375 sites, and the most cited news outlet is foxnews.com (149 drops).",https://s-geffroy.github.io/QAnon/en/figures.html#medias
+en,autocitation,stats,"8% of drops reference an earlier Q drop, 23% an anonymous post.",https://s-geffroy.github.io/QAnon/en/figures.html#autocitation
+en,religion,stats,6.3% of drops use religious or moral vocabulary and 9 quote a Bible verse.,https://s-geffroy.github.io/QAnon/en/figures.html#religion
+en,lisibilite,stats,"Flesch reading ease is 65, with 7.0 words per sentence on average.",https://s-geffroy.github.io/QAnon/en/figures.html#lisibilite
+en,horoscope,predictions,"In the horoscope test (300 drops, blind), the model recognises the real news period in 75% of decided cases for the 7 days before the drop, and in 68% for the 30 days after. Yet 6% of randomly drawn periods still get a score of at least 5 out of 10.",https://s-geffroy.github.io/QAnon/en/figures.html#horoscope
+en,propheties-recyclees,predictions,"17 prediction subjects (same event, same actor) are announced in at least three different months (74 predictions). In 7 of them the announcement returns after a checked failure.",https://s-geffroy.github.io/QAnon/en/figures.html#propheties-recyclees
+en,autocitations-delai,predictions,"Q references one of his own drops 387 times, 97% of them the same day. These self-quotations are additions, almost never after-the-fact ""proof"".",https://s-geffroy.github.io/QAnon/en/figures.html#autocitations-delai
