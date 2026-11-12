@@ -1,0 +1,447 @@
+items:
+- key: 1-0
+  verdict: not_fulfilled
+  horizon: '2017-10-30'
+  trivial: false
+  explanation_fr: 'Q annonçait le signalement du passeport de Hillary Clinton le 30 octobre 2017 dans le cadre d''une prétendue extradition. Rien de tel n''a été rapporté : Clinton n''a été ni arrêtée ni inculpée, et a continué à voyager librement.'
+  explanation_en: 'Q claimed Hillary Clinton''s passport would be flagged on 30 October 2017 as part of an alleged extradition. Nothing of the kind was reported: Clinton was never arrested or charged and continued to travel freely.'
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://en.wikipedia.org/wiki/QAnon
+- key: 1-2
+  verdict: not_fulfilled
+  horizon: '2017-10-30'
+  trivial: false
+  explanation_fr: Q annonçait une opération militaire et une activation de la Garde nationale dans la plupart des grandes villes le 30 octobre 2017. Aucune mobilisation de ce type ni les émeutes annoncées n'ont eu lieu.
+  explanation_en: Q claimed a military operation and a National Guard activation across most major cities on 30 October 2017. No such mobilisation, nor the riots Q announced, took place.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://www.thedailybeast.com/pro-trump-conspiracy-qanon-keeps-missing-deadlines
+- key: 2-0
+  verdict: not_fulfilled
+  horizon: '2018-10-28'
+  trivial: false
+  explanation_fr: Q affirmait que Hillary Clinton était « détenue » et serait arrêtée. Elle n'a jamais été arrêtée ni inculpée ; cette annonce figure parmi les échecs les plus cités de Q.
+  explanation_en: Q claimed Hillary Clinton was 'detained' and would be arrested. She was never arrested or charged; this is among Q's most cited failed predictions.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://en.wikipedia.org/wiki/QAnon
+- key: 2-1
+  verdict: unverifiable
+  horizon: '2018-10-28'
+  trivial: false
+  explanation_fr: L'affirmation est liée à une prétendue arrestation de Hillary Clinton qui n'a jamais eu lieu ; elle n'a donc pas d'objet vérifiable. Trump a par ailleurs prononcé plusieurs allocutions télévisées sur d'autres sujets (p. ex. le discours sur l'état de l'Union du 30 janvier 2018).
+  explanation_en: The claim is tied to an alleged arrest of Hillary Clinton that never happened, so it has no checkable object. Trump did give several televised addresses on other topics (e.g. the State of the Union on 30 January 2018).
+  sources: []
+- key: 2-2
+  verdict: unverifiable
+  horizon: '2018-10-28'
+  trivial: false
+  explanation_fr: « S'isoler pour éviter une mauvaise image » ne désigne aucun fait observable, et l'affirmation dépend d'arrestations qui n'ont pas eu lieu.
+  explanation_en: '''Isolating himself to avoid negative optics'' describes no observable fact, and the claim depends on arrests that did not happen.'
+  sources: []
+- key: 2-3
+  verdict: unverifiable
+  horizon: '2017-10-30'
+  trivial: false
+  explanation_fr: « Mockingbird 10.30.17 » ne désigne aucun événement précis. Le 30 octobre 2017 fut le jour de la révélation de l'inculpation de Paul Manafort et Rick Gates par le procureur spécial, mais des inculpations étaient déjà annoncées par la presse le 27 octobre, et rien ne relie ce mot-code à cet événement.
+  explanation_en: '''Mockingbird 10.30.17'' names no specific event. 30 October 2017 was the day the special counsel''s indictment of Paul Manafort and Rick Gates was unsealed, but charges had already been reported on 27 October, and nothing links the code word to that event.'
+  sources: []
+- key: 4-1
+  verdict: unverifiable
+  horizon: '2018-10-29'
+  trivial: false
+  explanation_fr: L'affirmation porte sur l'attitude de Trump « à mesure que des gens sont inculpés » dans le cadre de prétendues poursuites contre ses adversaires, qui n'ont pas eu lieu ; elle est donc sans objet vérifiable.
+  explanation_en: The claim concerns Trump's stance 'as people begin to be indicted' in alleged prosecutions of his opponents that never took place, so it has no checkable object.
+  sources: []
+- key: 6-1
+  verdict: unverifiable
+  horizon: '2018-10-29'
+  trivial: false
+  explanation_fr: 'Variante du message précédent : la neutralité de Trump est conditionnée à des inculpations annoncées par Q qui n''ont pas eu lieu ; rien de vérifiable.'
+  explanation_en: 'A variant of the previous post: Trump''s neutrality is conditioned on indictments announced by Q that did not happen; nothing checkable.'
+  sources: []
+- key: 8-0
+  verdict: partial
+  horizon: '2018-10-29'
+  trivial: false
+  explanation_fr: Q affirmait que les sénateurs républicains sur le départ (Jeff Flake et Bob Corker avaient annoncé en octobre 2017 ne pas se représenter) voteraient « pro-Trump ». Tous deux ont voté avec la position de Trump dans environ 86 à 90 % des cas et pour la réforme fiscale finale de décembre 2017, mais Corker a voté contre la version du Sénat du 2 décembre 2017 et tous deux ont critiqué publiquement le président ; l'affirmation selon laquelle leur départ n'était « pas un choix » reste sans fondement établi.
+  explanation_en: Q claimed departing Senate Republicans (Jeff Flake and Bob Corker had announced in October 2017 they would not seek re-election) would vote 'pro Trump'. Both voted with Trump's position roughly 86-90% of the time and for the final tax bill in December 2017, but Corker voted against the Senate version on 2 December 2017 and both publicly criticised the president; Q's claim that their departures were 'not by choice' is unsupported.
+  sources:
+  - https://fivethirtyeight.com/features/the-last-hurrah-caucus-in-the-senate-now-has-the-power-to-kill-trumps-agenda
+  - https://en.wikipedia.org/wiki/Bob_Corker
+- key: 15-0
+  verdict: not_fulfilled
+  horizon: '2017-11-03'
+  trivial: false
+  explanation_fr: 'Q annonçait l''inculpation de John Podesta le 3 novembre 2017. Elle n''a pas eu lieu : Podesta n''a jamais été inculpé.'
+  explanation_en: 'Q claimed John Podesta would be indicted on 3 November 2017. This did not happen: Podesta was never charged.'
+  sources:
+  - https://www.thedailybeast.com/pro-trump-conspiracy-qanon-keeps-missing-deadlines
+  - https://en.wikipedia.org/wiki/John_Podesta
+- key: 15-1
+  verdict: not_fulfilled
+  horizon: '2017-11-06'
+  trivial: false
+  explanation_fr: 'Q annonçait l''inculpation de Huma Abedin le 6 novembre 2017. Elle n''a pas eu lieu : Abedin n''a jamais été inculpée.'
+  explanation_en: 'Q claimed Huma Abedin would be indicted on 6 November 2017. This did not happen: Abedin was never charged.'
+  sources:
+  - https://www.thedailybeast.com/pro-trump-conspiracy-qanon-keeps-missing-deadlines
+  - https://en.wikipedia.org/wiki/Huma_Abedin
+- key: 16-0
+  verdict: unverifiable
+  horizon: '2017-11-04'
+  trivial: false
+  explanation_fr: « Tenir la promesse MAGA » vendredi et samedi ne désigne aucun événement précis. Le vendredi 3 novembre 2017, Trump partait pour une tournée en Asie, sans les limogeages ou arrestations attendus par les adeptes.
+  explanation_en: '''Delivering on the MAGA promise'' on Friday and Saturday names no specific event. On Friday 3 November 2017 Trump left for an Asia tour, without the firings or arrests followers expected.'
+  sources: []
+- key: 16-1
+  verdict: fulfilled
+  horizon: '2018-10-31'
+  trivial: false
+  explanation_fr: Q affirmait que Trump ne courait « aucun risque de destitution ». Aucune procédure n'a eu lieu dans l'horizon de douze mois (prédiction réalisée sur cette période) ; Trump a ensuite été mis en accusation à deux reprises par la Chambre des représentants (18 décembre 2019 et 13 janvier 2021), puis acquitté par le Sénat les deux fois.
+  explanation_en: Q claimed Trump faced 'zero risk of impeachment'. No impeachment occurred within the 12-month horizon (fulfilled over that period); Trump was later impeached twice by the House (18 December 2019 and 13 January 2021) and acquitted by the Senate both times.
+  sources:
+  - https://en.wikipedia.org/wiki/First_impeachment_of_Donald_Trump
+  - https://en.wikipedia.org/wiki/Second_impeachment_of_Donald_Trump
+- key: 19-1
+  verdict: unverifiable
+  horizon: '2018-11-01'
+  trivial: false
+  explanation_fr: '« Faux dirigeants noirs » démasqués : aucune personne, aucun fait ni aucun critère identifiable ne permet de vérifier cette affirmation, qui relève de la rhétorique partisane.'
+  explanation_en: '''False black leaders'' being exposed: no identifiable person, fact or criterion allows this partisan claim to be checked.'
+  sources: []
+- key: 25-0
+  verdict: unverifiable
+  horizon: '2017-11-03'
+  trivial: false
+  explanation_fr: « Les preuves commencent le 3.11 » ne précise ni la nature ni l'objet des preuves. Aucune révélation correspondant aux affirmations de Q n'a été rendue publique à cette date.
+  explanation_en: '''Proof to begin 11.3'' specifies neither the nature nor the object of the proof. No disclosure matching Q''s claims was made public on that date.'
+  sources: []
+- key: 34-0
+  verdict: not_fulfilled
+  horizon: '2017-11-03'
+  trivial: false
+  explanation_fr: Q annonçait l'annonce de l'arrestation de John Podesta pour le 3 novembre 2017. Aucune arrestation n'a été annoncée ; Podesta n'a jamais été arrêté ni inculpé.
+  explanation_en: Q claimed John Podesta's arrest would be announced on 3 November 2017. No arrest was announced; Podesta was never arrested or charged.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://en.wikipedia.org/wiki/John_Podesta
+- key: 34-1
+  verdict: not_fulfilled
+  horizon: '2017-11-04'
+  trivial: false
+  explanation_fr: Q présentait l'arrestation de Podesta comme « exécutoire le 4.11 ». Rien de tel n'a eu lieu.
+  explanation_en: Q presented Podesta's arrest as 'actionable 11.4'. Nothing of the kind happened.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://en.wikipedia.org/wiki/John_Podesta
+- key: 34-3
+  verdict: not_fulfilled
+  horizon: '2018-11-01'
+  trivial: false
+  explanation_fr: Q annonçait des émeutes massives organisées pour empêcher l'arrestation de hauts responsables. Ni les arrestations ni les émeutes annoncées n'ont eu lieu.
+  explanation_en: Q claimed large organised riots would aim to prevent the arrest of senior officials. Neither the arrests nor the riots occurred.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://www.thedailybeast.com/pro-trump-conspiracy-qanon-keeps-missing-deadlines
+- key: 34-4
+  verdict: not_fulfilled
+  horizon: '2018-11-01'
+  trivial: false
+  explanation_fr: Q annonçait l'instauration d'un « contrôle militaire temporaire » aux États-Unis. Aucun régime de ce type n'a été instauré.
+  explanation_en: Q claimed a 'state of temporary military control' would be imposed in the US. No such regime was ever put in place.
+  sources:
+  - https://dailydot.com/qanon-failed-predictions
+  - https://en.wikipedia.org/wiki/QAnon
+- key: 34-5
+  verdict: unverifiable
+  horizon: '2018-11-01'
+  trivial: false
+  explanation_fr: Des opérations spéciales américaines à l'étranger ont lieu en permanence et sont en grande partie secrètes ; aucune opération intérieure du type décrit par Q n'a été rapportée. L'affirmation n'est pas vérifiable en l'état.
+  explanation_en: US special operations abroad are continuous and largely secret; no domestic operation of the kind Q described was reported. The claim cannot be checked as stated.
+  sources: []
+- key: 34-6
+  verdict: not_fulfilled
+  horizon: '2018-11-01'
+  trivial: false
+  explanation_fr: Q annonçait l'usage du système d'alerte d'urgence pour un message direct aux citoyens lors d'arrestations. Cela n'a pas eu lieu ; le seul message national fut le test programmé par la FEMA de l'alerte présidentielle le 3 octobre 2018, sans rapport avec les affirmations de Q.
+  explanation_en: Q claimed the Emergency Broadcast System would carry a direct message to citizens during the arrests. This did not happen; the only nationwide message was FEMA's scheduled test of the Presidential Alert on 3 October 2018, unrelated to Q's claims.
+  sources:
+  - https://en.wikipedia.org/wiki/Wireless_Emergency_Alerts
+  - https://dailydot.com/qanon-failed-predictions
+- key: 38-0
+  verdict: unverifiable
+  horizon: '2017-11-03'
+  trivial: false
+  explanation_fr: Des déploiements de la Garde nationale ont lieu en permanence (notamment après les ouragans de 2017) ; aucun déploiement inhabituel lié aux affirmations de Q n'a été rapporté le 3 novembre 2017.
+  explanation_en: National Guard deployments happen constantly (notably after the 2017 hurricanes); no unusual deployment linked to Q's claims was reported on 3 November 2017.
+  sources: []
+- key: 43-2
+  verdict: unverifiable
+  horizon: '2017-11-03'
+  trivial: false
+  explanation_fr: « Guettez les confirmations demain » ne précise pas ce qui serait confirmé ; aucun fait vérifiable.
+  explanation_en: '''Watch for confirmations tomorrow'' does not say what would be confirmed; nothing checkable.'
+  sources: []
+- key: 44-0
+  verdict: fulfilled
+  horizon: '2017-11-03'
+  trivial: true
+  explanation_fr: Q annonçait un message « important » de Trump sur Twitter avant son départ du vendredi. Le 3 novembre 2017, jour du départ annoncé pour la tournée asiatique, Trump a publié une série de tweets appelant le ministère de la Justice et le FBI à enquêter sur Clinton et le Parti démocrate ; le voyage était annoncé et Trump tweetait quotidiennement.
+  explanation_en: Q claimed Trump would send an 'important' Twitter message before departing on Friday. On 3 November 2017, the announced start of his Asia tour, Trump posted tweets urging the Justice Department and FBI to investigate Clinton and the Democrats; the trip was pre-announced and Trump tweeted daily.
+  sources:
+  - https://www.cbsnews.com/amp/news/trump-tweets-about-donna-brazile-hillary-clinton
+  - https://www.pbs.org/newshour/politics/trump-says-hes-disappointed-with-justice-department
+- key: 47-0
+  verdict: unverifiable
+  horizon: '2017-11-02'
+  trivial: false
+  explanation_fr: « Faux drapeau » suppose une intention cachée invérifiable. Aucune attaque majeure n'a eu lieu aux États-Unis le 2 novembre 2017.
+  explanation_en: '''False flag'' presumes an uncheckable hidden intent. No major attack occurred in the US on 2 November 2017.'
+  sources: []
+- key: 101-0
+  verdict: unverifiable
+  horizon: '2017-11-06'
+  trivial: false
+  explanation_fr: Le message est une suite de codes (« 11_6_TP_Pub ») sans signification établie ; l'interprétation du modèle ne repose sur rien de vérifiable.
+  explanation_en: The post is a string of codes ('11_6_TP_Pub') with no established meaning; the model's reading rests on nothing checkable.
+  sources: []
+- key: 112-2
+  verdict: not_a_prediction
+  horizon: '2017-11-07'
+  trivial: false
+  explanation_fr: « Les élections de mardi n'ont plus d'importance » est une opinion, pas l'annonce d'un événement. Les élections du 7 novembre 2017 (Virginie, New Jersey) ont eu lieu normalement.
+  explanation_en: '''Elections (tues) no longer matter'' is an opinion, not the announcement of an event. The 7 November 2017 elections (Virginia, New Jersey) took place normally.'
+  sources: []
+- key: 163-0
+  verdict: unverifiable
+  horizon: '2017-11-21'
+  trivial: false
+  explanation_fr: Q ne nomme pas le « témoin » censé comparaître ; aucun fait identifiable à vérifier.
+  explanation_en: Q does not name the 'witness' supposedly due to appear; there is no identifiable fact to check.
+  sources: []
+- key: 166-0
+  verdict: partial
+  horizon: '2018-11-20'
+  trivial: true
+  explanation_fr: Twitter a bien appliqué de nouvelles règles à partir du 18 décembre 2017, mais elles portaient sur les contenus haineux, abusifs et violents, non sur le pistage ou les cookies évoqués par Q ; ces règles avaient été annoncées publiquement en novembre 2017.
+  explanation_en: Twitter did start enforcing new rules on 18 December 2017, but they targeted hateful, abusive and violent content, not the tracking or cookies Q mentioned; the rules had been publicly announced in November 2017.
+  sources:
+  - https://www.arabnews.pk/node/1211021
+- key: 166-1
+  verdict: not_fulfilled
+  horizon: '2018-11-20'
+  trivial: false
+  explanation_fr: Q évoquait un scénario où le Secret Service conseillerait à Trump de cesser d'utiliser Twitter. Trump a continué à tweeter abondamment jusqu'à la suspension de son compte par Twitter le 8 janvier 2021.
+  explanation_en: Q described a scenario in which the Secret Service would advise Trump to stop using Twitter. Trump kept tweeting heavily until Twitter suspended his account on 8 January 2021.
+  sources:
+  - https://en.wikipedia.org/wiki/Deplatforming_of_Donald_Trump
+- key: 166-2
+  verdict: not_fulfilled
+  horizon: '2018-11-20'
+  trivial: false
+  explanation_fr: Trump n'a pas été réduit au silence sur Twitter dans l'horizon ; son compte a été suspendu le 8 janvier 2021, après l'assaut du Capitole, pour d'autres motifs que ceux avancés par Q.
+  explanation_en: Trump was not silenced on Twitter within the horizon; his account was suspended on 8 January 2021, after the Capitol attack, for reasons unrelated to Q's scenario.
+  sources:
+  - https://en.wikipedia.org/wiki/Deplatforming_of_Donald_Trump
+- key: 166-3
+  verdict: unverifiable
+  horizon: '2018-11-20'
+  trivial: false
+  explanation_fr: « POTUS refuse d'être réduit au silence » est une formule sans objet précis, liée à un scénario hypothétique ; Trump a simplement continué à tweeter.
+  explanation_en: '''POTUS refuses to be silenced'' is a phrase without a precise object, tied to a hypothetical scenario; Trump simply kept tweeting.'
+  sources: []
+- key: 228-0
+  verdict: not_a_prediction
+  horizon: '2018-11-25'
+  trivial: false
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
+- key: 228-1
+  verdict: not_a_prediction
+  horizon: '2018-11-25'
+  trivial: false
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
+- key: 228-2
+  verdict: not_a_prediction
+  horizon: '2018-11-25'
+  trivial: false
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
+- key: 228-3
+  verdict: not_a_prediction
+  horizon: '2018-11-25'
+  trivial: false
+  explanation_fr: "Le drop aligne « USA_leadership change », « SA_leadership change » (sans point d'interrogation : changements déjà survenus, élection de 2016 et Mohammed ben Salmane prince héritier depuis juin 2017) puis « GER_leadership change? » et « PAK_leadership change? » (questions). Ni constat passé ni question ne sont des prédictions selon les consignes du projet."
+  explanation_en: "The drop lists 'USA_leadership change' and 'SA_leadership change' (no question mark: changes that had already happened, the 2016 election and Mohammed bin Salman becoming crown prince in June 2017), then 'GER_leadership change?' and 'PAK_leadership change?' (questions). Under the project's guidelines, neither a statement about the past nor a question is a prediction."
+  sources: []
+- key: 242-0
+  verdict: unverifiable
+  horizon: '2017-12-02'
+  trivial: false
+  explanation_fr: « Soyez là demain » n'annonce aucun événement identifiable.
+  explanation_en: '''Be here tomorrow'' announces no identifiable event.'
+  sources: []
+- key: 243-0
+  verdict: unverifiable
+  horizon: '2017-12-10'
+  trivial: false
+  explanation_fr: « Attendez la semaine prochaine » n'annonce aucun événement identifiable.
+  explanation_en: '''Just wait until next week'' announces no identifiable event.'
+  sources: []
+- key: 262-0
+  verdict: partial
+  horizon: '2017-12-27'
+  trivial: false
+  explanation_fr: Le 27 décembre 2017, BBC Radio 4 a diffusé un entretien de Barack Obama avec le prince Harry (enregistré en septembre, annoncé le 17 décembre, soit après le message de Q). Il s'agissait d'une interview radio, sans lien établi avec une « réponse » ni avec le code « RED » de Q ; la coïncidence de date est réelle, le contenu ne correspond pas.
+  explanation_en: On 27 December 2017 BBC Radio 4 aired Barack Obama's interview with Prince Harry (recorded in September, announced on 17 December, i.e. after Q's post). It was a radio interview with no established link to a 'response' or to Q's 'RED' code; the date matches, the substance does not.
+  sources:
+  - https://www.npr.org/sections/thetwo-way/2017/12/27/573774407/in-bbc-interview-obama-tells-prince-harry-about-post-presidency-life
+  - https://www.staradvertiser.com/2017/12/17/breaking-news/prince-harry-interviews-obama-for-radio-show/
+- key: 262-1
+  verdict: unverifiable
+  horizon: '2017-12-28'
+  trivial: false
+  explanation_fr: Aucune source publique ne signale Barack Obama en Asie le 28 décembre 2017 ; sa tournée asiatique publique (Shanghai, New Delhi) avait eu lieu fin novembre - début décembre 2017, avant le message. Ses déplacements privés de fin d'année ne sont pas documentés de façon fiable.
+  explanation_en: No public source places Barack Obama in Asia on 28 December 2017; his public Asia tour (Shanghai, New Delhi) took place in late November - early December 2017, before the post. His private year-end movements are not reliably documented.
+  sources:
+  - https://www.dailywire.com/news/shadow-president-barack-obama-meet-world-leaders-emily-zanotti
+- key: 322-0
+  verdict: not_a_prediction
+  horizon: '2018-12-09'
+  trivial: false
+  explanation_fr: « 4e quart-temps, Patriots » est un slogan mobilisateur adressé aux adeptes, non un pronostic sportif.
+  explanation_en: '''4th quarter, Patriots'' is a rallying slogan addressed to followers, not a sports forecast.'
+  sources: []
+- key: 353-0
+  verdict: not_a_prediction
+  horizon: '2017-12-16'
+  trivial: false
+  explanation_fr: Q parle de son propre code d'identification (« tripcode ») et de sa présence sur le forum, non d'un événement extérieur.
+  explanation_en: Q is talking about its own identifying tripcode and presence on the board, not about an outside event.
+  sources: []
+- key: 370-0
+  verdict: unverifiable
+  horizon: '2017-12-29'
+  trivial: false
+  explanation_fr: « Compte à rebours lancé - 10 jours » ne précise pas l'événement attendu.
+  explanation_en: '''Clock started - 10 days'' does not specify the expected event.'
+  sources: []
+- key: 393-0
+  verdict: unverifiable
+  horizon: '2018-12-19'
+  trivial: false
+  explanation_fr: Un message personnalisé aux modérateurs et contributeurs relèverait de communications privées impossibles à vérifier.
+  explanation_en: A personalised message to moderators and contributors would be private communication that cannot be checked.
+  sources: []
+- key: 414-0
+  verdict: not_fulfilled
+  horizon: '2018-12-21'
+  trivial: false
+  explanation_fr: Q affirmait que Trump « vérifierait directement » ses messages. Trump n'a jamais authentifié Q ; interrogé en août 2020, il a déclaré ne pas savoir grand-chose du mouvement.
+  explanation_en: Q claimed Trump would 'verify directly' its posts. Trump never authenticated Q; asked in August 2020, he said he did not know much about the movement.
+  sources:
+  - https://en.wikipedia.org/wiki/QAnon
+  - https://www.npr.org/2020/08/19/904055593/trump-embraces-qanon-conspiracy-because-they-like-me
+- key: 464-0
+  verdict: unverifiable
+  horizon: '2018-01-14'
+  trivial: false
+  explanation_fr: « GROS LA SEMAINE PROCHAINE » n'annonce aucun événement identifiable.
+  explanation_en: '''BIG NEXT WEEK'' announces no identifiable event.'
+  sources: []
+- key: 474-0
+  verdict: unverifiable
+  horizon: '2019-01-06'
+  trivial: false
+  explanation_fr: « Matlock » est un nom de code dont l'objet n'est pas défini ; rien à vérifier.
+  explanation_en: '''Matlock'' is a code name with no defined object; nothing to check.'
+  sources: []
+- key: 500-0
+  verdict: not_fulfilled
+  horizon: '2020-04-10'
+  trivial: false
+  explanation_fr: Q associait « DEFCON 1 », « 4-10-20 » et « FIRE & FURY ». Aucune action militaire de ce type n'a eu lieu le 10 avril 2020 et le niveau DEFCON 1 n'a jamais été déclaré publiquement ; des commentateurs ont aussi lu « 4-10-20 » comme les initiales D-J-T.
+  explanation_en: Q combined 'DEFCON 1', '4-10-20' and 'FIRE & FURY'. No military action of the kind took place on 10 April 2020 and DEFCON 1 has never been publicly declared; commentators also read '4-10-20' as the letters D-J-T.
+  sources:
+  - https://en.wikipedia.org/wiki/DEFCON
+- key: 510-0
+  verdict: unverifiable
+  horizon: '2019-01-07'
+  trivial: false
+  explanation_fr: Le message est une consigne conditionnelle (« Juste après que POTUS modifie ses tweets… ») sans échéance ; rien n'établit que Trump ait jamais ajouté « Q » à ses tweets.
+  explanation_en: The post is a conditional instruction ('Directly after POTUS alters Tweets...') with no deadline; nothing shows Trump ever added 'Q' to his tweets.
+  sources: []
+- key: 518-0
+  verdict: unverifiable
+  horizon: '2018-01-14'
+  trivial: false
+  explanation_fr: « GROSSE semaine » n'annonce aucun événement identifiable.
+  explanation_en: '''BIG week'' announces no identifiable event.'
+  sources: []
+- key: 527-0
+  verdict: unverifiable
+  horizon: '2018-01-21'
+  trivial: false
+  explanation_fr: « La semaine prochaine - PLUS GROS. PUBLIC. » n'annonce aucun événement identifiable.
+  explanation_en: '''Next Week - BIGGER. PUBLIC.'' announces no identifiable event.'
+  sources: []
+- key: 530-0
+  verdict: unverifiable
+  horizon: '2018-01-21'
+  trivial: false
+  explanation_fr: « PLUS GROS la semaine prochaine » n'annonce aucun événement identifiable.
+  explanation_en: '''BIGGER next week'' announces no identifiable event.'
+  sources: []
+- key: 532-0
+  verdict: unverifiable
+  horizon: '2018-01-17'
+  trivial: false
+  explanation_fr: Q écrivait que Trump « pourrait » retweeter des mèmes lors de ses « Fake News Awards » (publiés le 17 janvier 2018, annoncés par Trump lui-même) ; la formulation conditionnelle et l'absence de mèmes identifiés rendent l'affirmation invérifiable.
+  explanation_en: Q wrote that Trump 'may' retweet memes during his 'Fake News Awards' (published 17 January 2018, announced by Trump himself); the hedged wording and lack of identified memes make the claim uncheckable.
+  sources: []
+- key: 538-0
+  verdict: unverifiable
+  horizon: '2018-01-20'
+  trivial: false
+  explanation_fr: « Tentatives majeures de faux drapeau cette semaine » suppose une intention cachée invérifiable et ne désigne aucun événement précis.
+  explanation_en: '''Major false flag attempts this week'' presumes an uncheckable hidden intent and names no specific event.'
+  sources: []
+- key: 566-0
+  verdict: fulfilled
+  horizon: '2019-01-19'
+  trivial: false
+  explanation_fr: 'Le mémo de la commission du Renseignement de la Chambre rédigé par l''équipe de Devin Nunes, objet d''une campagne publique #ReleaseTheMemo au moment du message, a été publié le 2 février 2018 après le feu vert de la Maison-Blanche.'
+  explanation_en: 'The House Intelligence Committee memo drafted by Devin Nunes''s staff, the subject of a public #ReleaseTheMemo campaign when Q posted, was released on 2 February 2018 after White House clearance.'
+  sources:
+  - https://en.wikipedia.org/wiki/Nunes_memo
+- key: 570-1
+  verdict: not_fulfilled
+  horizon: '2019-01-21'
+  trivial: false
+  explanation_fr: Q affirmait que le mémo rétablirait l'autorité de Jeff Sessions sur l'enquête russe. Sessions est resté récusé de l'enquête jusqu'à sa démission forcée le 7 novembre 2018.
+  explanation_en: Q claimed the memo would reinstate Jeff Sessions's authority over the Russia inquiry. Sessions remained recused from the inquiry until his forced resignation on 7 November 2018.
+  sources:
+  - https://en.wikipedia.org/wiki/Jeff_Sessions
+  - https://en.wikipedia.org/wiki/Nunes_memo
+- key: 570-2
+  verdict: not_fulfilled
+  horizon: '2019-01-21'
+  trivial: false
+  explanation_fr: Le mémo Nunes, publié le 2 février 2018, portait sur les demandes de surveillance FISA visant Carter Page ; il ne démontrait aucune « collusion au plus haut niveau ». Le rapport de l'inspecteur général de décembre 2019 a relevé 17 erreurs ou omissions importantes dans ces demandes, mais aucun biais politique à l'origine de l'enquête.
+  explanation_en: The Nunes memo, released on 2 February 2018, dealt with FISA surveillance applications targeting Carter Page; it did not demonstrate any 'collusion at the highest levels'. The December 2019 Inspector General report found 17 significant errors or omissions in those applications but no political bias behind the opening of the inquiry.
+  sources:
+  - https://en.wikipedia.org/wiki/Nunes_memo
+- key: 570-3
+  verdict: not_fulfilled
+  horizon: '2019-01-21'
+  trivial: false
+  explanation_fr: Le mémo affirmait que les demandes FISA s'appuyaient sur le dossier Steele sans en révéler le financement, mais il ne démontrait pas une instrumentalisation du renseignement par l'administration Obama pour faire gagner les démocrates. L'inspecteur général (décembre 2019) n'a pas trouvé de biais politique à l'ouverture de l'enquête.
+  explanation_en: The memo alleged the FISA applications relied on the Steele dossier without disclosing its funding, but it did not demonstrate that the Obama administration weaponised intelligence to secure a Democratic victory. The Inspector General (December 2019) found no political bias in the opening of the inquiry.
+  sources:
+  - https://en.wikipedia.org/wiki/Nunes_memo

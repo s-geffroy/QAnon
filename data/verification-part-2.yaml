@@ -1,0 +1,453 @@
+"items":
+- "key": "570-4"
+  "verdict": "partial"
+  "horizon": "2019-01-21"
+  "trivial": false
+  "explanation_fr": "Le mémo Nunes a été publié le 2 février 2018 ; il affirmait que la cour FISA n'avait pas été informée du financement politique du dossier Steele utilisé contre Carter Page. Il n'établissait pas la fourniture « sciemment » de fausses informations, et le FBI comme la minorité démocrate ont contesté sa présentation ; les erreurs du dossier FISA n'ont été documentées par l'inspecteur général qu'en décembre 2019."
+  "explanation_en": "The Nunes memo was released on February 2, 2018; it asserted that the FISA court had not been told about the political funding of the Steele dossier used against Carter Page. It did not establish that 'knowingly false' intelligence was provided, and the FBI and the Democratic minority disputed its framing; errors in the FISA applications were documented by the inspector general only in December 2019."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Nunes_memo"
+  - "https://www.axios.com/2018/02/02/read-nunes-memo-fbi-doj-fisa-mueller"
+- "key": "572-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-01-28"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "576-1"
+  "verdict": "unverifiable"
+  "horizon": "2019-01-21"
+  "trivial": false
+  "explanation_fr": "Q annonçait que la NSA « publierait tout » par accident, sans préciser quoi ; aucun objet vérifiable n'est désigné."
+  "explanation_en": "Q claimed the NSA would 'accidentally release it all', without saying what; no checkable object is identified."
+  "sources": []
+- "key": "577-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-01-28"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "577-1"
+  "verdict": "unverifiable"
+  "horizon": "2018-12-31"
+  "trivial": false
+  "explanation_fr": "« 2018 sera glorieuse » : slogan sans critère vérifiable."
+  "explanation_en": "'2018 will be glorious': a slogan with no checkable criterion."
+  "sources": []
+- "key": "609-0"
+  "verdict": "not_a_prediction"
+  "horizon": "2019-01-25"
+  "trivial": false
+  "explanation_fr": "Q cite un article de Fox News rapportant un propos prêté à John Kerry (Trump « pourrait partir d'ici un an ») ; ce n'est pas une prédiction de Q. Donald Trump est resté en fonctions jusqu'au 20 janvier 2021."
+  "explanation_en": "Q quotes a Fox News article reporting a remark attributed to John Kerry (Trump 'could be out in a year'); this is not Q's own prediction. Donald Trump remained in office until January 20, 2021."
+  "sources":
+  - "https://en.wikipedia.org/wiki/First_presidency_of_Donald_Trump"
+- "key": "621-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-01-27"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "636-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-02-04"
+  "trivial": false
+  "explanation_fr": "Q annonçait que tous les médias pousseraient le même « contre-récit » la semaine suivante ; le critère est trop flou pour être vérifié."
+  "explanation_en": "Q claimed every mainstream outlet would push the same 'counter-narrative' the following week; the criterion is too vague to check."
+  "sources": []
+- "key": "700-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-02-18"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "768-1"
+  "verdict": "fulfilled"
+  "horizon": "2019-02-15"
+  "trivial": false
+  "explanation_fr": "Q annonçait que le forum serait discuté « sur toutes les plateformes » dans les mois suivants. De fait, QAnon s'est largement diffusé sur YouTube, Facebook et Twitter en 2018 et a accédé à une forte couverture médiatique après le meeting de Trump à Tampa le 31 juillet 2018 ; c'est une annonce en partie autoréalisatrice."
+  "explanation_en": "Q claimed the board would be discussed 'across all platforms' in the coming months. QAnon did spread widely on YouTube, Facebook and Twitter in 2018 and drew heavy mainstream coverage after Trump's Tampa rally on July 31, 2018; the claim was partly self-fulfilling."
+  "sources":
+  - "https://fortune.com/2018/08/01/qanon-conspiracy-trump-tampa-rally"
+  - "https://en.wikipedia.org/wiki/QAnon"
+- "key": "780-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-02-16"
+  "trivial": false
+  "explanation_fr": "Q présentait un faux communiqué du DHS annonçant un rapport final sur des « millions de bulletins illégaux » dès mars 2018. Aucun rapport de ce type n'a été publié ; la commission présidentielle sur l'intégrité électorale a été dissoute le 3 janvier 2018 sans avoir établi de fraude massive."
+  "explanation_en": "Q presented a fake DHS statement announcing a final report on 'several million illegal ballots' as early as March 2018. No such report was ever released; the Presidential Advisory Commission on Election Integrity had been disbanded on January 3, 2018 without establishing any mass fraud."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Presidential_Advisory_Commission_on_Election_Integrity"
+- "key": "785-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2018-02-18"
+  "trivial": false
+  "explanation_fr": "Aucune attaque à la voiture n'a eu lieu à Londres dans les 24-48 heures suivant le message du 16 février 2018. Le seul incident de ce type à Londres en 2018 survient le 14 août devant le Parlement, six mois plus tard."
+  "explanation_en": "No car attack took place in London in the 24-48 hours after the February 16, 2018 post. The only such incident in London in 2018 occurred on August 14 outside Parliament, six months later."
+  "sources":
+  - "https://www.npr.org/2018/08/14/638432784/pedestrians-injured-in-car-crash-outside-u-k-parliament"
+  - "https://en.wikipedia.org/wiki/List_of_terrorist_incidents_in_2018"
+- "key": "856-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2018-11-11"
+  "trivial": false
+  "explanation_fr": "Trump souhaitait publiquement un défilé militaire depuis septembre 2017 ; le Pentagone a fixé la date au 11 novembre 2018 dans un mémo rendu public le 9 mars, trois jours après le message de Q. Le défilé a été annulé le 16-17 août 2018 en raison de son coût (92 millions de dollars) ; Trump a assisté le 11 novembre aux commémorations de l'Armistice à Paris."
+  "explanation_en": "Trump had publicly wanted a military parade since September 2017; the Pentagon set the date to November 11, 2018 in a memo made public on March 9, three days after Q's post. The parade was cancelled on August 16-17, 2018 over its cost ($92 million); on November 11 Trump attended the Armistice centenary in Paris."
+  "sources":
+  - "https://www.aljazeera.com/news/2018/3/10/trumps-military-parade-to-be-held-in-november-but-without-tanks"
+  - "https://www.rollingstone.com/politics/politics-news/trump-is-sad-to-cancel-his-ridiculous-military-parade-712508/"
+- "key": "865-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-03-11"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "890-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-11-11"
+  "trivial": false
+  "explanation_fr": "« Résolu d'ici le 11/11 » : l'objet de la résolution n'est pas identifié."
+  "explanation_en": "'Resolved by 11-11': the matter to be resolved is not identified."
+  "sources": []
+- "key": "911-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-03-31"
+  "trivial": false
+  "explanation_fr": "« March MADNESS » : jeu de mots sans objet vérifiable."
+  "explanation_en": "'March MADNESS': a pun with no checkable object."
+  "sources": []
+- "key": "912-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-03-10"
+  "trivial": false
+  "explanation_fr": "Q affirmait que l'alliance de renseignement Five Eyes (États-Unis, Royaume-Uni, Canada, Australie, Nouvelle-Zélande) n'existerait plus longtemps. Elle a continué de fonctionner sans interruption."
+  "explanation_en": "Q claimed the Five Eyes intelligence alliance (US, UK, Canada, Australia, New Zealand) would not be around much longer. It has continued to operate without interruption."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Five_Eyes"
+- "key": "954-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-03-25"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "964-5"
+  "verdict": "not_a_prediction"
+  "horizon": "2018-12-31"
+  "trivial": true
+  "explanation_fr": "La loi de finances omnibus signée le 23 mars 2018, cinq jours avant le message, attribuait déjà environ 700 milliards de dollars à la défense pour l'exercice 2018 (montant fixé par la NDAA de décembre 2017) : Q commente un fait acquis."
+  "explanation_en": "The omnibus spending bill signed on March 23, 2018, five days before the post, had already allotted about $700 billion to defense for fiscal 2018 (the figure set by the December 2017 NDAA): Q is commenting on an established fact."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Consolidated_Appropriations_Act,_2018"
+  - "https://en.wikipedia.org/wiki/National_Defense_Authorization_Act_for_Fiscal_Year_2018"
+- "key": "995-0"
+  "verdict": "partial"
+  "horizon": "2018-04-05"
+  "trivial": true
+  "explanation_fr": "Le 3 avril 2018, Trump a déclaré publiquement vouloir envoyer l'armée à la frontière mexicaine, et a signé le 4 avril un mémorandum déployant la Garde nationale. Le volet « MOAB » ne correspond à aucun événement ; la partie frontière était déjà annoncée le jour même."
+  "explanation_en": "On April 3, 2018 Trump publicly said he wanted to send the military to the Mexican border, and on April 4 he signed a memorandum deploying the National Guard. The 'MOAB' part matches no event; the border part had already been announced that same day."
+  "sources":
+  - "https://www.fox9.com/news/trump-signs-proclamation-to-send-national-guard-to-secure-u-s-mexico-border"
+- "key": "1007-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-30"
+  "trivial": false
+  "explanation_fr": "« APRIL SHOWERS » : formule sans objet vérifiable."
+  "explanation_en": "'APRIL SHOWERS': a phrase with no checkable object."
+  "sources": []
+- "key": "1008-0"
+  "verdict": "unverifiable"
+  "horizon": "2019-04-04"
+  "trivial": false
+  "explanation_fr": "Le message commente l'information (avril 2018) selon laquelle Mueller ne considérait pas Trump comme cible d'une enquête pénale ; le « NOT YET » ne désigne aucun événement précis, et l'interprétation de l'extraction est incertaine."
+  "explanation_en": "The post comments on the April 2018 report that Mueller did not consider Trump a criminal target; the 'NOT YET' designates no specific event, and the extraction's reading is uncertain."
+  "sources": []
+- "key": "1009-0"
+  "verdict": "fulfilled"
+  "horizon": "2019-04-04"
+  "trivial": true
+  "explanation_fr": "Trump avait annoncé le 3 avril 2018 vouloir sécuriser la frontière avec l'armée ; il a signé le 4 avril, jour du message, une proclamation envoyant la Garde nationale à la frontière mexicaine. Q reprend une décision déjà publique."
+  "explanation_en": "Trump had announced on April 3, 2018 that he wanted the military to secure the border; on April 4, the day of the post, he signed a proclamation sending the National Guard to the Mexican border. Q is echoing an already public decision."
+  "sources":
+  - "https://www.fox9.com/news/trump-signs-proclamation-to-send-national-guard-to-secure-u-s-mexico-border"
+  - "https://abc11.com/national-guard-us-border/3302375"
+- "key": "1010-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-09"
+  "trivial": false
+  "explanation_fr": "« UK/GER [5 jours] » : aucun événement n'est désigné."
+  "explanation_en": "'UK/GER [5 days]': no event is designated."
+  "sources": []
+- "key": "1014-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-04-04"
+  "trivial": false
+  "explanation_fr": "Q annonçait que Mark Zuckerberg quitterait la présidence du conseil de Facebook. Il est resté président et directeur général ; les propositions d'actionnaires pour un président indépendant ont été rejetées en 2018 et le 30 mai 2019."
+  "explanation_en": "Q claimed Mark Zuckerberg would step down as Facebook's chairman. He remained chairman and CEO; shareholder proposals for an independent chair were voted down in 2018 and on May 30, 2019."
+  "sources":
+  - "https://fortune.com/2019/05/30/facebook-ceo-mark-zuckerberg-chairman-shareholder-meeting/"
+  - "https://en.wikipedia.org/wiki/Mark_Zuckerberg"
+- "key": "1027-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-06"
+  "trivial": false
+  "explanation_fr": "Rien ne permet de vérifier si le président a veillé toute la nuit."
+  "explanation_en": "There is no way to check whether the president stayed up all night."
+  "sources": []
+- "key": "1027-1"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-06"
+  "trivial": false
+  "explanation_fr": "« Regardez les infos demain » : aucun événement n'est désigné."
+  "explanation_en": "'Watch the news tomorrow': no event is designated."
+  "sources": []
+- "key": "1043-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-04-06"
+  "trivial": false
+  "explanation_fr": "Aucune photo authentique de Barack Obama tenant un AK-47 en tenue traditionnelle n'a été rendue publique. La seule photo connue d'Obama en tenue traditionnelle, prise au Kenya en 2006 et diffusée en février 2008, ne montre aucune arme."
+  "explanation_en": "No authentic photo of Barack Obama holding an AK-47 in traditional attire has ever been made public. The only known photo of Obama in traditional dress, taken in Kenya in 2006 and circulated in February 2008, shows no weapon."
+  "sources":
+  - "https://www.npr.org/2008/02/29/87809206/use-of-obama-photo-in-campaign-angers-kenyans"
+- "key": "1067-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-10"
+  "trivial": false
+  "explanation_fr": "« Chine. Chongqing. Mardi. » : aucun événement n'est désigné ; Q a ensuite réinterprété ce message (voir 1120-0) en lien avec un discours de Xi Jinping prononcé à Boao (Hainan), et non à Chongqing."
+  "explanation_en": "'China. Chongqing. Tuesday.': no event is designated; Q later reinterpreted this post (see 1120-0) as referring to a Xi Jinping speech given in Boao (Hainan), not Chongqing."
+  "sources": []
+- "key": "1070-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-30"
+  "trivial": false
+  "explanation_fr": "« WAR. April showers. » : formule sans objet vérifiable."
+  "explanation_en": "'WAR. April showers.': a phrase with no checkable object."
+  "sources": []
+- "key": "1120-0"
+  "verdict": "fulfilled"
+  "horizon": "2018-04-10"
+  "trivial": false
+  "explanation_fr": "Le mardi 10 avril 2018, au forum de Boao, Xi Jinping a annoncé que la Chine réduirait « considérablement » cette année ses droits de douane sur les automobiles importées ; la baisse de 25 % à 15 % a été annoncée le 22 mai et appliquée le 1er juillet 2018. Le message de Q, publié le même jour, coïncide avec un discours attendu dans un contexte de tensions commerciales, et sa référence à Chongqing ne correspond pas."
+  "explanation_en": "On Tuesday, April 10, 2018, at the Boao Forum, Xi Jinping announced that China would 'considerably' cut import tariffs on cars that year; the cut from 25% to 15% was announced on May 22 and took effect on July 1, 2018. Q's post, published the same day, coincides with a speech that was anticipated amid trade tensions, and its Chongqing reference does not match."
+  "sources":
+  - "https://www.wamc.org/2018-04-10/xi-says-china-ready-to-lower-import-tariffs-and-trade-barriers"
+  - "https://www.icis.com/resources/news/2018/04/10/10210342/china-to-reduce-auto-import-tariffs-open-up-economy-further/"
+- "key": "1121-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-10"
+  "trivial": false
+  "explanation_fr": "Q annonçait une « action rapide » en réponse à la perquisition chez Michael Cohen (9 avril 2018), sans préciser laquelle."
+  "explanation_en": "Q claimed 'swift action' would answer the raid on Michael Cohen (April 9, 2018), without saying what action."
+  "sources": []
+- "key": "1124-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-04-10"
+  "trivial": false
+  "explanation_fr": "Q suggérait qu'Edward Snowden témoignerait puis divulguerait des informations. Snowden, réfugié en Russie depuis 2013, n'a pas témoigné devant le Congrès ni la justice américaine dans la période considérée."
+  "explanation_en": "Q suggested Edward Snowden would testify and then release information. Snowden, living in Russia since 2013, did not testify before Congress or a US court during the period."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Edward_Snowden"
+- "key": "1149-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-04-15"
+  "trivial": false
+  "explanation_fr": "Q annonçait le départ de Ruth Bader Ginsburg de la Cour suprême. Elle n'a jamais démissionné et est morte en fonctions le 18 septembre 2020."
+  "explanation_en": "Q claimed Ruth Bader Ginsburg would step down from the Supreme Court. She never resigned and died in office on September 18, 2020."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Ruth_Bader_Ginsburg"
+- "key": "1219-0"
+  "verdict": "partial"
+  "horizon": "2019-04-21"
+  "trivial": false
+  "explanation_fr": "Le 7-8 juin 2018, le département de la Justice a inculpé James Wolfe, ancien responsable de la sécurité de la commission du renseignement du Sénat, pour fausses déclarations sur ses contacts avec des journalistes, et a saisi des relevés d'une journaliste du New York Times. Il ne s'agit pas d'une « annonce publique » de Jeff Sessions lui-même, et l'objet du message reste vague."
+  "explanation_en": "On June 7-8, 2018 the Justice Department charged James Wolfe, former security director of the Senate Intelligence Committee, with lying about his contacts with reporters, and seized a New York Times reporter's records. This was not a 'public announcement' by Jeff Sessions himself, and the post's object remains vague."
+  "sources":
+  - "https://www.nbcnews.com/news/us-news/top-senate-staffer-arrested-leak-probe-after-ny-times-reporter-n881186"
+- "key": "1226-0"
+  "verdict": "not_a_prediction"
+  "horizon": "2018-04-22"
+  "trivial": false
+  "explanation_fr": "Le Comité national démocrate (DNC) avait déposé sa plainte contre la Russie, l'équipe de campagne de Trump et WikiLeaks le vendredi 20 avril 2018, la veille du message : Q commente un fait déjà public."
+  "explanation_en": "The Democratic National Committee had filed its lawsuit against Russia, the Trump campaign and WikiLeaks on Friday, April 20, 2018, the day before the post: Q is commenting on an already public fact."
+  "sources":
+  - "https://www.lawfaremedia.org/article/summary-democratic-national-committee-v-russian-federation-et-al"
+- "key": "1231-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-04-29"
+  "trivial": false
+  "explanation_fr": "« MOAB » la semaine suivante : métaphore sans objet identifiable."
+  "explanation_en": "'MOAB' next week: a metaphor with no identifiable object."
+  "sources": []
+- "key": "1234-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-11-11"
+  "trivial": false
+  "explanation_fr": "« L'Amérique sera de nouveau unie le 11.11.18 » : slogan sans critère vérifiable."
+  "explanation_en": "'America will be unified again by 11.11.18': a slogan with no checkable criterion."
+  "sources": []
+- "key": "1241-1"
+  "verdict": "fulfilled"
+  "horizon": "2019-04-23"
+  "trivial": false
+  "explanation_fr": "Le 8 mai 2018, Trump a annoncé le retrait des États-Unis de l'accord sur le nucléaire iranien (JCPOA). La décision était largement anticipée, Trump ayant fixé en janvier 2018 une échéance au 12 mai pour « corriger » l'accord."
+  "explanation_en": "On May 8, 2018 Trump announced the US withdrawal from the Iran nuclear deal (JCPOA). The decision was widely anticipated, since Trump had set a May 12 deadline in January 2018 to 'fix' the deal."
+  "sources":
+  - "https://en.wikipedia.org/wiki/United_States_withdrawal_from_the_Joint_Comprehensive_Plan_of_Action"
+- "key": "1260-0"
+  "verdict": "fulfilled"
+  "horizon": "2018-04-24"
+  "trivial": true
+  "explanation_fr": "Le dîner d'État en l'honneur d'Emmanuel Macron a bien eu lieu à la Maison-Blanche le 24 avril 2018 ; il figurait au programme officiel de la visite d'État annoncé à l'avance."
+  "explanation_en": "The state dinner honoring Emmanuel Macron did take place at the White House on April 24, 2018; it was on the official, pre-announced schedule of the state visit."
+  "sources":
+  - "https://www.boston.com/news/politics/2018/04/23/trump-hosting-glitzy-white-house-state-dinner-for-macron"
+- "key": "1266-0"
+  "verdict": "not_a_prediction"
+  "horizon": "2019-04-25"
+  "trivial": false
+  "explanation_fr": "Q commente l'annonce, faite le 11 avril 2018, que le président de la Chambre Paul Ryan ne se représenterait pas. Ryan n'a pas démissionné : il a exercé jusqu'à la fin de son mandat, le 3 janvier 2019."
+  "explanation_en": "Q is commenting on the April 11, 2018 announcement that House Speaker Paul Ryan would not seek reelection. Ryan did not resign: he served until the end of his term on January 3, 2019."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Paul_Ryan"
+- "key": "1287-0"
+  verdict: not_fulfilled
+  horizon: '2018-05-04'
+  trivial: true
+  explanation_fr: 'Q introduit (« Insert Rudy ») la déclaration publique de Rudy Giuliani selon laquelle l''enquête Mueller pourrait être close en « une semaine ou deux » et la reprend dans son récit. L''enquête ne s''est achevée que le 22 mars 2019, avec la remise du rapport Mueller. Annonce déjà publique, donc triviale.'
+  explanation_en: 'Q introduces (''Insert Rudy'') Rudy Giuliani''s public statement that the Mueller probe could be resolved in ''a week or two'' and folds it into its narrative. The investigation only ended on 22 March 2019, when the Mueller report was delivered. Already public, hence trivial.'
+  sources:
+  - https://en.wikipedia.org/wiki/Mueller_special_counsel_investigation
+  - https://en.wikipedia.org/wiki/Mueller_report
+- "key": "1289-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-05-06"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "1294-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-05-06"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "1307-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-04-30"
+  "trivial": false
+  "explanation_fr": "Q annonçait que le président déclassifierait des informations sur la Syrie, l'Iran et Uranium One. Aucune déclassification de ce type n'a eu lieu dans l'année ; l'examen confié au procureur John Huber, qui portait notamment sur Uranium One, s'est achevé début 2020 sans poursuites."
+  "explanation_en": "Q claimed the president would declassify information on Syria, Iran and Uranium One. No such declassification took place within the year; the review assigned to prosecutor John Huber, which covered Uranium One among other things, ended in early 2020 without charges."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Uranium_One_controversy"
+  - "https://www.inquirer.com/politics/nation/justice-department-hillary-clinton-inquiry-trump-20200110.html"
+- "key": "1341-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-05-20"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "1401-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-05-17"
+  "trivial": false
+  "explanation_fr": "Q relayait un article de Breitbart. Le rapport de l'inspecteur général publié le 14 juin 2018 a jugé que James Comey s'était écarté des normes et avait été « insubordonné », mais n'a pas conclu que le FBI ou le département de la Justice avaient enfreint la loi, ni que des biais politiques avaient déterminé les décisions de l'enquête."
+  "explanation_en": "Q relayed a Breitbart article. The inspector general's report released on June 14, 2018 found that James Comey had deviated from norms and been 'insubordinate', but did not conclude that the FBI or the Justice Department had broken the law, nor that political bias drove the investigative decisions."
+  "sources":
+  - "https://democracynow.org/2018/6/15/headlines/doj_inspector_general_comey_mishandled_clinton_email_probe"
+  - "https://en.wikipedia.org/wiki/Inspector_General_report_on_FBI_and_DOJ_actions_in_the_2016_election"
+- "key": "1433-1"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-05-21"
+  "trivial": false
+  "explanation_fr": "Rod Rosenstein ne s'est pas récusé et n'a pas été révoqué. Il a remis sa démission le 29 avril 2019, après la remise du rapport Mueller, avec effet au 11 mai 2019."
+  "explanation_en": "Rod Rosenstein neither recused himself nor was fired. He submitted his resignation on April 29, 2019, after the Mueller report was delivered, effective May 11, 2019."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Rod_Rosenstein"
+- "key": "1440-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-06-10"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "1441-0"
+  "verdict": "unverifiable"
+  "horizon": "2018-06-17"
+  "trivial": false
+  "explanation_fr": "Annonce sans objet identifiable ni critère vérifiable : rien ne permet de dire ce qui était censé se produire."
+  "explanation_en": "An announcement with no identifiable object or checkable criterion: nothing specifies what was supposed to happen."
+  "sources": []
+- "key": "1470-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-06-12"
+  "trivial": false
+  "explanation_fr": "L'enquête russe ne s'est pas arrêtée à la suite d'une divulgation montrant une origine corrompue : le procureur spécial Mueller a remis son rapport le 22 mars 2019, établissant l'ingérence russe sans retenir de conspiration avec la campagne Trump. En décembre 2019, l'inspecteur général a jugé l'ouverture de l'enquête suffisamment fondée et sans biais politique démontré."
+  "explanation_en": "The Russia investigation did not end because of a disclosure showing corrupt origins: Special Counsel Mueller delivered his report on March 22, 2019, establishing Russian interference without charging a conspiracy with the Trump campaign. In December 2019 the inspector general found the investigation's opening adequately predicated, with no documented political bias."
+  "sources":
+  - "https://en.wikipedia.org/wiki/Mueller_report"
+  - "https://en.wikipedia.org/wiki/Crossfire_Hurricane_(FBI_investigation)"
+- "key": "1494-0"
+  "verdict": "partial"
+  "horizon": "2019-06-13"
+  "trivial": false
+  "explanation_fr": "Le 17 septembre 2018, Trump a ordonné la déclassification de pages de la demande FISA visant Carter Page et de SMS de responsables du FBI, puis a suspendu cet ordre le 21 septembre en confiant les documents à l'inspecteur général. Il n'a donc pas « tout déclassifié » dans l'année ; un mémorandum plus large n'est venu que le 19 janvier 2021."
+  "explanation_en": "On September 17, 2018 Trump ordered the declassification of pages of the Carter Page FISA application and of FBI officials' text messages, then suspended the order on September 21, referring the documents to the inspector general. He thus did not 'declassify it all' within the year; a broader memorandum came only on January 19, 2021."
+  "sources":
+  - "https://www.npr.org/2018/09/17/648883919/trump-orders-declassification-of-documents-about-fbi-sought-by-house-republicans"
+  - "https://www.nbcnews.com/politics/national-security/trump-surrenders-demand-declassification-russia-probe-docs-n911871"
+- "key": "1496-0"
+  "verdict": "fulfilled"
+  "horizon": "2018-06-15"
+  "trivial": true
+  "explanation_fr": "Le rapport de l'inspecteur général sur l'enquête Clinton a bien été publié le 14 juin 2018, date annoncée par Michael Horowitz dans une lettre au Congrès dès le 7 juin. L'existence de versions « modifiées par Rosenstein » est une affirmation de Q sans fondement documenté."
+  "explanation_en": "The inspector general's report on the Clinton investigation was indeed released on June 14, 2018, a date Michael Horowitz had announced in a letter to Congress on June 7. The existence of versions 'modified by Rosenstein' is an undocumented claim by Q."
+  "sources":
+  - "https://www.washingtontimes.com/news/2018/jun/7/long-awaited-ig-report-comey-be-released-june-14/"
+- "key": "1516-0"
+  "verdict": "not_a_prediction"
+  "horizon": "2018-11-01"
+  "trivial": false
+  "explanation_fr": "Le message renvoie au passé : Jeff Sessions avait révélé le 29 mars 2018 que le procureur John Huber enquêtait depuis novembre 2017 (« Nov start »). Il n'annonce pas de révélation future."
+  "explanation_en": "The post refers to the past: Jeff Sessions had revealed on March 29, 2018 that prosecutor John Huber had been investigating since November 2017 ('Nov start'). It announces no future revelation."
+  "sources":
+  - "https://www.inquirer.com/politics/nation/justice-department-hillary-clinton-inquiry-trump-20200110.html"
+- "key": "1516-1"
+  "verdict": "not_fulfilled"
+  "horizon": "2018-12-01"
+  "trivial": false
+  "explanation_fr": "Rien n'indique que Hillary Clinton ait cherché un accord avec la justice ; elle n'a jamais été poursuivie, et l'examen du procureur Huber s'est achevé début 2020 sans aucune inculpation."
+  "explanation_en": "There is no indication that Hillary Clinton sought any deal with prosecutors; she was never charged, and prosecutor Huber's review ended in early 2020 without any charges."
+  "sources":
+  - "https://www.inquirer.com/politics/nation/justice-department-hillary-clinton-inquiry-trump-20200110.html"
+  - "https://sltrib.com/news/2020/01/10/report-utah-us-attorney"
+- "key": "1540-0"
+  "verdict": "not_a_prediction"
+  "horizon": "2018-06-24"
+  "trivial": false
+  "explanation_fr": "« See next » renvoie au message suivant de Q : il s'agit de son activité de publication, pas d'un événement annoncé."
+  "explanation_en": "'See next' points to Q's next post: it refers to Q's own posting activity, not an announced event."
+  "sources": []
+- "key": "1553-0"
+  verdict: unverifiable
+  horizon: '2019-06-18'
+  trivial: true
+  explanation_fr: 'Q reprend à son compte la déclaration publique de Jeff Sessions (juin 2018) : le procureur John Huber ferait des recommandations sur l''ouverture d''enquêtes ou la nomination d''un procureur spécial. Ces recommandations n''ont jamais été rendues publiques ; la mission de Huber s''est achevée début 2020 sans poursuites.'
+  explanation_en: 'Q adopts Jeff Sessions''s public statement (June 2018) that prosecutor John Huber would make recommendations on opening investigations or appointing a special counsel. Those recommendations were never made public; Huber''s review ended in early 2020 without charges.'
+  sources:
+  - https://en.wikipedia.org/wiki/John_Huber
+- "key": "1589-0"
+  "verdict": "not_fulfilled"
+  "horizon": "2019-06-26"
+  "trivial": false
+  "explanation_fr": "Onze élus républicains ont déposé des articles de mise en accusation contre Rod Rosenstein le 25 juillet 2018, mais la Chambre ne les a jamais votés ; Rosenstein n'a été ni mis en accusation ni destitué et a quitté ses fonctions de lui-même le 11 mai 2019."
+  "explanation_en": "Eleven Republican members filed articles of impeachment against Rod Rosenstein on July 25, 2018, but the House never voted on them; Rosenstein was neither impeached nor removed and left office on his own on May 11, 2019."
+  "sources":
+  - "https://www.npr.org/2018/07/25/632489887/house-conservatives-file-impeachment-articles-against-rod-rosenstein"
+  - "https://en.wikipedia.org/wiki/Rod_Rosenstein"

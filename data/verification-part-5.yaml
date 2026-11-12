@@ -1,0 +1,408 @@
+items:
+  - key: "3691-0"
+    verdict: not_fulfilled
+    horizon: "2020-12-31"
+    trivial: false
+    explanation_fr: "Q annonçait le « retour » d'Edward Snowden aux États-Unis en 2020 (#HOMECOMING2020). Snowden est resté en Russie : il y a obtenu un permis de séjour permanent en octobre 2020, puis la nationalité russe en septembre 2022."
+    explanation_en: "Q announced Edward Snowden's 'homecoming' to the United States in 2020 (#HOMECOMING2020). Snowden stayed in Russia: he was granted permanent residency there in October 2020 and Russian citizenship in September 2022."
+    sources: ["https://en.wikipedia.org/wiki/Edward_Snowden", "https://www.aljazeera.com/amp/news/2022/9/26/putin-grants-russian-citizenship-us-whistleblower-edward-snowden"]
+  - key: "3724-1"
+    verdict: not_a_prediction
+    horizon: "2020-12-18"
+    trivial: false
+    explanation_fr: "Q qualifiait la procédure de destitution alors en cours d'« ingérence électorale » démocrate pour 2020 ; il s'agit d'une caractérisation polémique d'un événement présent, non d'une annonce vérifiable."
+    explanation_en: "Q labelled the then-ongoing impeachment as Democratic 'election interference' for 2020; this is a polemical characterisation of a present event, not a checkable forecast."
+    sources: []
+  - key: "3779-0"
+    verdict: fulfilled
+    horizon: "2021-01-21"
+    trivial: true
+    explanation_fr: "Le Sénat a acquitté Donald Trump des deux chefs d'accusation le 5 février 2020 (52-48 et 53-47), loin des deux tiers requis. Avec une majorité républicaine de 53 sièges, cette issue était largement anticipée au moment du message."
+    explanation_en: "The Senate acquitted Donald Trump on both articles on 5 February 2020 (52-48 and 53-47), far short of the two-thirds required. With a 53-seat Republican majority, this outcome was widely expected when Q posted."
+    sources: ["https://en.wikipedia.org/wiki/First_impeachment_of_Donald_Trump"]
+  - key: "3788-0"
+    verdict: not_fulfilled
+    horizon: "2021-01-23"
+    trivial: false
+    explanation_fr: "Q commentait l'aveu du ministère de la Justice (rendu public le 23 janvier 2020) selon lequel au moins les deux derniers mandats FISA visant Carter Page manquaient de fondement, et annonçait la même conclusion pour « toute » la surveillance liée à Trump. Aucune conclusion de ce type n'a été rendue dans l'année : le rapport de l'inspecteur général (décembre 2019) avait jugé l'ouverture de l'enquête Crossfire Hurricane suffisamment fondée."
+    explanation_en: "Q commented on the Justice Department's admission (made public on 23 January 2020) that at least the last two FISA warrants on Carter Page lacked probable cause, and claimed the same conclusion would be reached for 'all' Trump-related surveillance. No such conclusion was issued within the year: the Inspector General's December 2019 report had found the opening of Crossfire Hurricane adequately predicated."
+    sources: ["https://www.lawfaremedia.org/article/fisc-declassifies-order-about-carter-page-fisa-applications", "https://en.wikipedia.org/wiki/Crossfire_Hurricane_(FBI_investigation)"]
+  - key: "3841-0"
+    verdict: unverifiable
+    horizon: "2021-02-07"
+    trivial: false
+    explanation_fr: "« La vérité sera rendue publique » : formule sans objet ni échéance vérifiables."
+    explanation_en: "'The truth will be made public': a formula with no checkable object or deadline."
+    sources: []
+  - key: "3915-0"
+    verdict: not_a_prediction
+    horizon: "2021-04-08"
+    trivial: false
+    explanation_fr: "Bernie Sanders a annoncé la suspension de sa campagne le 8 avril 2020 vers 11 h 45 (heure de l'Est) ; le message de Q, posté le même jour vers 16 h 28, est postérieur à l'annonce et ne constitue donc pas une prédiction."
+    explanation_en: "Bernie Sanders announced he was suspending his campaign on 8 April 2020 around 11:45 a.m. ET; Q's post, made the same day around 4:28 p.m., came after the announcement and is therefore not a prediction."
+    sources: ["https://en.wikipedia.org/wiki/Bernie_Sanders_2020_presidential_campaign", "https://qalerts.app/?n=3915"]
+  - key: "3932-2"
+    verdict: partial
+    horizon: "2021-04-10"
+    trivial: false
+    explanation_fr: "Le 30 juin 2020, le représentant Steve Cohen a déposé une résolution (H.Res. 1032, 35 coauteurs) demandant une enquête en vue de destituer William Barr ; mais la direction démocrate (Pelosi, Nadler) a écarté la destitution et la Chambre n'a jamais voté. Barr a démissionné de lui-même en décembre 2020."
+    explanation_en: "On 30 June 2020 Rep. Steve Cohen filed a resolution (H.Res. 1032, 35 co-sponsors) calling for an impeachment inquiry into William Barr, but the Democratic leadership (Pelosi, Nadler) ruled impeachment out and the House never voted. Barr resigned of his own accord in December 2020."
+    sources: ["https://foxnews.com/politics/ag-barr-targeted-by-house-dems-impeachment-resolution.amp", "https://www.aljazeera.com/news/2020/6/21/us-impeaching-barr-a-waste-of-time-says-top-democrat", "https://en.wikipedia.org/wiki/William_Barr"]
+  - key: "3932-3"
+    verdict: partial
+    horizon: "2021-04-10"
+    trivial: false
+    explanation_fr: "La commission judiciaire de la Chambre a tenu le 24 juin 2020 une audience sur la « politisation » du ministère de la Justice sous Barr (affaires Stone et Flynn) et a entendu Barr le 28 juillet 2020 ; aucune enquête parlementaire visant spécifiquement l'enquête Durham n'a toutefois été ouverte dans l'année."
+    explanation_en: "The House Judiciary Committee held a hearing on 24 June 2020 on the alleged 'politicisation' of the Justice Department under Barr (Stone and Flynn cases) and questioned Barr on 28 July 2020; no congressional investigation specifically targeting the Durham inquiry was opened within the year."
+    sources: ["https://www.pbs.org/newshour/politics/democrats-say-justice-department-whistleblowers-to-testify", "https://en.wikipedia.org/wiki/Durham_special_counsel_investigation"]
+  - key: "3957-0"
+    verdict: partial
+    horizon: "2021-04-14"
+    trivial: false
+    explanation_fr: "Q annonçait une « suppression [blackout] » des comptes pro-Trump liée à l'élection. Twitter a supprimé le compte personnel de Donald Trump le 8 janvier 2021 et plus de 70 000 comptes liés à QAnon dans les jours suivants, au motif de risques d'incitation à la violence après l'assaut du Capitole ; il ne s'agissait pas d'un « blackout » général des comptes favorables au président."
+    explanation_en: "Q announced a 'removal [blackout]' of pro-Trump accounts tied to the election. Twitter suspended Donald Trump's personal account on 8 January 2021 and more than 70,000 QAnon-linked accounts in the following days, citing incitement risks after the Capitol attack; this was not a general blackout of pro-president accounts."
+    sources: ["https://www.revolt.tv/news/2021/1/12/22226989/twitter-suspends-qanon-accounts-capitol-riot", "https://en.wikipedia.org/wiki/Social_media_use_by_Donald_Trump"]
+  - key: "3970-0"
+    verdict: unverifiable
+    horizon: "2020-12-31"
+    trivial: false
+    explanation_fr: "« L'éveil mondial » lié à l'élection de 2020 n'a pas d'objet mesurable."
+    explanation_en: "The 'World Awakening' tied to the 2020 election has no measurable object."
+    sources: []
+  - key: "3992-0"
+    verdict: not_a_prediction
+    horizon: "2021-04-28"
+    trivial: false
+    explanation_fr: "Q affirmait ce à quoi l'enquête Mueller (close en mars 2019) aurait été « destinée » ; il s'agit d'une interprétation du passé, non d'une prédiction."
+    explanation_en: "Q asserted what the Mueller investigation (closed in March 2019) was supposedly 'designed' for; this is an interpretation of the past, not a prediction."
+    sources: []
+  - key: "3992-2"
+    verdict: not_a_prediction
+    horizon: "2021-04-28"
+    trivial: false
+    explanation_fr: "Affirmation sur l'intention prêtée à l'enquête Mueller, close en 2019 ; la première procédure de destitution avait déjà eu lieu. Pas de prédiction."
+    explanation_en: "A claim about the purpose attributed to the Mueller investigation, which closed in 2019; the first impeachment had already taken place. Not a prediction."
+    sources: []
+  - key: "3992-3"
+    verdict: not_a_prediction
+    horizon: "2021-04-28"
+    trivial: false
+    explanation_fr: "Affirmation sur l'intention prêtée à l'enquête Mueller vis-à-vis des élections de mi-mandat de 2018, déjà passées au moment du message. Pas de prédiction."
+    explanation_en: "A claim about the purpose attributed to the Mueller investigation regarding the 2018 midterms, already past when Q posted. Not a prediction."
+    sources: []
+  - key: "3993-0"
+    verdict: unverifiable
+    horizon: "2021-04-28"
+    trivial: false
+    explanation_fr: "Les documents du « Gang of Eight » (briefings classifiés aux dirigeants du Congrès) ne sont pas définis et n'ont pas été déclassifiés en tant que tels ; seules les transcriptions d'auditions de la commission du renseignement de la Chambre ont été publiées le 7 mai 2020. Le « rôle critique » d'Adam Schiff n'est pas vérifiable."
+    explanation_en: "The 'Gang of Eight' material (classified briefings to congressional leaders) is undefined and was not declassified as such; only the House Intelligence Committee's interview transcripts were released on 7 May 2020. Adam Schiff's 'critical' role is not checkable."
+    sources: []
+  - key: "4010-0"
+    verdict: not_a_prediction
+    horizon: "2020-05-01"
+    trivial: false
+    explanation_fr: "Q citait la proclamation présidentielle déjà publiée faisant du 1er mai 2020 le « Law Day » ; il ne s'agit pas d'une prédiction."
+    explanation_en: "Q quoted the already-issued presidential proclamation making 1 May 2020 'Law Day'; this is not a prediction."
+    sources: []
+  - key: "4072-0"
+    verdict: unverifiable
+    horizon: "2020-05-10"
+    trivial: false
+    explanation_fr: "« BOOM WEEK AHEAD » n'identifie aucun événement vérifiable."
+    explanation_en: "'BOOM WEEK AHEAD' identifies no checkable event."
+    sources: []
+  - key: "4220-0"
+    verdict: fulfilled
+    horizon: '2021-05-12'
+    trivial: true
+    explanation_fr: 'Q cite approbativement Kevin McCarthy, pour qui le projet de loi de 3 000 milliards de dollars « ne deviendra jamais une loi ». Le HEROES Act, adopté par la Chambre le 15 mai 2020, n''a jamais été examiné par le Sénat. Déclaration déjà publique, donc triviale.'
+    explanation_en: 'Q approvingly quotes Kevin McCarthy saying the $3 trillion bill would ''never become law''. The HEROES Act, passed by the House on 15 May 2020, was never taken up by the Senate. Already public, hence trivial.'
+    sources:
+    - https://en.wikipedia.org/wiki/HEROES_Act
+  - key: "4294-0"
+    verdict: not_fulfilled
+    horizon: "2020-11-03"
+    trivial: false
+    explanation_fr: "Q annonçait la fin des consignes de confinement et de la promotion du vote par correspondance au lendemain de l'élection. Les restrictions sanitaires ont continué après le 3 novembre 2020 et ont même été renforcées lors de la vague hivernale (ordre régional de confinement en Californie le 3 décembre 2020)."
+    explanation_en: "Q announced that stay-at-home and vote-by-mail 'fear' tactics would end the day after the election. Public-health restrictions continued after 3 November 2020 and were even tightened during the winter wave (California's regional stay-at-home order of 3 December 2020)."
+    sources: ["https://www.cnbc.com/2020/12/03/california-to-impose-regional-stay-at-home-order-to-ease-covid-hospitalizations-governor-says.html", "https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_United_States"]
+  - key: "4381-0"
+    verdict: unverifiable
+    horizon: "2020-11-03"
+    trivial: false
+    explanation_fr: "Jugement sur l'attitude d'une chaîne (« incitera à la division ») sans critère vérifiable."
+    explanation_en: "A judgement on a TV network's conduct ('will incite division') with no checkable criterion."
+    sources: []
+  - key: "4414-0"
+    verdict: fulfilled
+    horizon: "2021-06-04"
+    trivial: false
+    explanation_fr: "Dans une liste présentée comme des signaux d'alerte, Q mentionnait la « suppression du compte Twitter de POTUS ». Twitter a suspendu définitivement le compte personnel de Donald Trump le 8 janvier 2021, invoquant un risque d'incitation à la violence après l'assaut du Capitole, et non dans le scénario de coup d'État décrit par Q."
+    explanation_en: "In a list framed as warning signs, Q mentioned 'POTUS twitter removal'. Twitter permanently suspended Donald Trump's personal account on 8 January 2021, citing a risk of incitement after the Capitol attack, not within the coup scenario Q described."
+    sources: ["https://en.wikipedia.org/wiki/Social_media_use_by_Donald_Trump", "https://www.revolt.tv/news/2021/1/12/22226989/twitter-suspends-qanon-accounts-capitol-riot"]
+  - key: "4414-1"
+    verdict: not_fulfilled
+    horizon: "2021-06-04"
+    trivial: false
+    explanation_fr: "Aucune coupure générale des communications sur le territoire continental des États-Unis n'a eu lieu dans l'année suivant le message."
+    explanation_en: "No general communications blackout across the continental United States occurred in the year after the post."
+    sources: ["https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_United_States", "https://en.wikipedia.org/wiki/QAnon"]
+  - key: "4414-2"
+    verdict: unverifiable
+    horizon: "2021-06-04"
+    trivial: false
+    explanation_fr: "« CLAS movement PELOSI or PENCE » renvoie à un déplacement classifié non défini ; rien de vérifiable."
+    explanation_en: "'CLAS movement PELOSI or PENCE' refers to an undefined classified movement; nothing checkable."
+    sources: []
+  - key: "4414-3"
+    verdict: fulfilled
+    horizon: "2021-06-04"
+    trivial: true
+    explanation_fr: "Environ 1 600 militaires d'active (82e division aéroportée de Fort Bragg, police militaire de Fort Drum, base de la 10e division de montagne) avaient déjà été prépositionnés autour de Washington les 1er-2 juin 2020, avant le message ; ils n'ont pas été déployés en ville et ont commencé à repartir les 4-5 juin."
+    explanation_en: "About 1,600 active-duty troops (82nd Airborne from Fort Bragg, military police from Fort Drum, home of the 10th Mountain Division) had already been staged around Washington on 1-2 June 2020, before the post; they were not deployed into the city and began leaving on 4-5 June."
+    sources: ["https://www.armytimes.com/news/your-army/2020/06/04/no-those-werent-active-duty-troops-on-the-streets-of-dc-last-night-officials-say/", "https://www.ksat.com/news/politics/2020/06/05/more-active-duty-troops-leaving-dc-others-remain-on-alert/"]
+  - key: "4446-0"
+    verdict: not_a_prediction
+    horizon: "2021-06-10"
+    trivial: false
+    explanation_fr: "Question rhétorique ; en juin 2020, l'extension du vote par correspondance était déjà au cœur du débat public. Pas de prédiction."
+    explanation_en: "A rhetorical question; by June 2020, expanding vote-by-mail was already at the centre of public debate. Not a prediction."
+    sources: []
+  - key: "4489-0"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q décrivait les effets attribués aux confinements alors en vigueur ; la contraction économique du printemps 2020 était déjà en cours et connue. Pas de prédiction."
+    explanation_en: "Q described effects attributed to lockdowns already in force; the spring 2020 economic contraction was already under way and known. Not a prediction."
+    sources: []
+  - key: "4489-1"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "En juin 2020, la hausse du chômage (14,7 % en avril, 13,3 % en mai) était déjà publiée ; Q décrivait une situation existante."
+    explanation_en: "By June 2020 the rise in unemployment (14.7% in April, 13.3% in May) had already been published; Q described an existing situation."
+    sources: []
+  - key: "4489-10"
+    verdict: unverifiable
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q attribuait à ses adversaires un plan visant à pousser Trump à employer l'armée ; l'intention alléguée n'est pas vérifiable. Trump n'a pas invoqué l'Insurrection Act en 2020."
+    explanation_en: "Q attributed to opponents a plan to bait Trump into using the military; the alleged intent is not checkable. Trump did not invoke the Insurrection Act in 2020."
+    sources: []
+  - key: "4489-11"
+    verdict: partial
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Une deuxième vague a bien conduit à de nouvelles restrictions (fermetures en Californie en juillet 2020, ordre régional de décembre 2020), décidées par des gouverneurs des deux partis ; la motivation électorale que Q leur prêtait n'est pas étayée."
+    explanation_en: "A second wave did lead to new restrictions (California closures in July 2020, regional order in December 2020), imposed by governors of both parties; the electoral motive Q attributed to them is unsupported."
+    sources: ["https://www.cnbc.com/2020/12/03/california-to-impose-regional-stay-at-home-order-to-ease-covid-hospitalizations-governor-says.html", "https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_United_States"]
+  - key: "4489-12"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "De nombreux grands jurys fédéraux avaient déjà été suspendus en mars 2020 en raison de la pandémie ; Q décrivait une situation existante en réaction à des propos de William Barr du jour même."
+    explanation_en: "Many federal grand juries had already been suspended in March 2020 because of the pandemic; Q described an existing situation, reacting to William Barr's remarks that day."
+    sources: []
+  - key: "4489-13"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q reprenait l'explication donnée par William Barr le 21 juin 2020 selon laquelle la pandémie ralentissait l'enquête Durham ; il s'agit d'un commentaire sur le présent."
+    explanation_en: "Q relayed William Barr's 21 June 2020 explanation that the pandemic was slowing the Durham inquiry; this is a comment on the present."
+    sources: []
+  - key: "4489-2"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Les meetings de Trump avaient été suspendus dès mars 2020 et venaient de reprendre (Tulsa, 20 juin 2020) ; Q décrivait une situation existante."
+    explanation_en: "Trump's rallies had been suspended since March 2020 and had just resumed (Tulsa, 20 June 2020); Q described an existing situation."
+    sources: []
+  - key: "4489-3"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Les restrictions visant les lieux de culte étaient en vigueur depuis mars 2020 ; Q décrivait une situation existante."
+    explanation_en: "Restrictions on places of worship had been in force since March 2020; Q described an existing situation."
+    sources: []
+  - key: "4489-4"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q accusait des gouverneurs démocrates à propos de mesures déjà prises (consignes sur les maisons de retraite au printemps 2020) ; il s'agit d'une accusation sur le présent, non d'une prédiction."
+    explanation_en: "Q accused Democratic governors over measures already taken (nursing-home guidance in spring 2020); this is an accusation about the present, not a prediction."
+    sources: []
+  - key: "4489-5"
+    verdict: not_a_prediction
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Joe Biden faisait déjà campagne principalement depuis son domicile depuis mars 2020 ; Q prêtait une intention à une situation existante."
+    explanation_en: "Joe Biden had already been campaigning mostly from home since March 2020; Q attributed an intent to an existing situation."
+    sources: []
+  - key: "4489-6"
+    verdict: fulfilled
+    horizon: "2021-06-21"
+    trivial: true
+    explanation_fr: "Pour l'élection de novembre 2020, la Californie, le Nevada, le New Jersey, le Vermont et Washington D.C. ont envoyé un bulletin à tous les électeurs inscrits ; la Californie l'avait déjà annoncé en mai 2020. Cela n'a pas donné lieu à une fraude significative."
+    explanation_en: "For the November 2020 election, California, Nevada, New Jersey, Vermont and Washington D.C. mailed a ballot to every registered voter; California had already announced this in May 2020. No significant fraud resulted."
+    sources: ["https://www.npr.org/2020/09/14/909338758/map-mail-in-voting-rules-by-state", "https://www.snopes.com/fact-check/millions-mail-in-ballots/"]
+  - key: "4489-8"
+    verdict: unverifiable
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q prêtait une coordination secrète aux maires et gouverneurs autour des manifestations ; ce plan supposé n'est pas vérifiable (la « zone autonome » de Seattle existait déjà depuis le 8 juin 2020)."
+    explanation_en: "Q alleged secret coordination by mayors and governors around the protests; this supposed plan is not checkable (Seattle's 'autonomous zone' had existed since 8 June 2020)."
+    sources: []
+  - key: "4489-9"
+    verdict: unverifiable
+    horizon: "2021-06-21"
+    trivial: false
+    explanation_fr: "Q décrivait un plan supposé d'insertion d'« Antifa » dans des zones contrôlées ; l'intention alléguée n'est pas vérifiable, et les manifestations près de la Maison-Blanche de fin mai 2020 étaient déjà passées."
+    explanation_en: "Q described an alleged plan to insert 'Antifa' into controlled zones; the alleged intent is not checkable, and the protests near the White House in late May 2020 had already taken place."
+    sources: []
+  - key: "4543-1"
+    verdict: unverifiable
+    horizon: "2021-06-29"
+    trivial: false
+    explanation_fr: "Allusion à des informations classifiées non définies (« CLAS 1-99 ») ; rien de vérifiable."
+    explanation_en: "An allusion to undefined classified information ('CLAS 1-99'); nothing checkable."
+    sources: []
+  - key: "4587-0"
+    verdict: not_fulfilled
+    horizon: "2020-11-04"
+    trivial: false
+    explanation_fr: "Q annonçait la fin du « récit » sur le Covid-19 au lendemain de l'élection. La pandémie et sa couverture se sont poursuivies : vague hivernale record et début de la vaccination en décembre 2020."
+    explanation_en: "Q claimed the Covid-19 'narrative' would end the day after the election. The pandemic and its coverage continued: a record winter wave and the start of vaccination in December 2020."
+    sources: ["https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_United_States"]
+  - key: "4587-1"
+    verdict: not_fulfilled
+    horizon: "2020-11-04"
+    trivial: false
+    explanation_fr: "Aucune cyberattaque massive n'a été signalée le 4 novembre 2020 ; le 12 novembre 2020, le conseil de coordination dirigé par la CISA a qualifié l'élection de « plus sûre de l'histoire américaine », sans aucun système compromis."
+    explanation_en: "No massive cyberattack was reported on 4 November 2020; on 12 November 2020 the CISA-led coordinating council called the election 'the most secure in American history', with no system compromised."
+    sources: ["https://www.nextgov.com/cybersecurity/2020/11/dhs-panel-says-2020-vote-was-most-secure-in-american-history/258296/"]
+  - key: "4620-0"
+    verdict: partial
+    horizon: "2020-11-03"
+    trivial: false
+    explanation_fr: "Des restrictions sanitaires sont effectivement restées en place jusqu'au 3 novembre 2020, décidées par des gouverneurs des deux partis, mais elles ne se sont pas arrêtées après l'élection, contrairement au scénario de Q ; la coordination alléguée n'est pas étayée."
+    explanation_en: "Public-health restrictions did remain in place through 3 November 2020, imposed by governors of both parties, but they did not stop after the election, contrary to Q's scenario; the alleged coordination is unsupported."
+    sources: ["https://www.cnbc.com/2020/12/03/california-to-impose-regional-stay-at-home-order-to-ease-covid-hospitalizations-governor-says.html", "https://en.wikipedia.org/wiki/COVID-19_pandemic_in_the_United_States"]
+  - key: "4620-1"
+    verdict: not_fulfilled
+    horizon: "2021-07-31"
+    trivial: false
+    explanation_fr: "Le report de la convention démocrate (de juillet au 17-20 août 2020) avait été annoncé dès le 2 avril 2020 ; Joe Biden y a été investi et est resté candidat jusqu'à l'élection, sans remplacement."
+    explanation_en: "The postponement of the Democratic convention (from July to 17-20 August 2020) had been announced on 2 April 2020; Joe Biden was nominated there and remained the candidate through the election, with no replacement."
+    sources: ["https://en.wikipedia.org/wiki/2020_Democratic_National_Convention", "https://www.bostonglobe.com/2020/04/02/nation/democratic-national-convention-postponed-until-august/"]
+  - key: "4657-0"
+    verdict: not_fulfilled
+    horizon: "2021-09-10"
+    trivial: false
+    explanation_fr: "Le deuxième débat (15 octobre 2020) a été annulé le 9 octobre par la Commission après le refus de Donald Trump d'un format virtuel, et non à l'initiative du camp Biden ; les débats du 29 septembre et du 22 octobre ont eu lieu."
+    explanation_en: "The second debate (15 October 2020) was cancelled on 9 October by the Commission after Donald Trump refused a virtual format, not at the Biden campaign's initiative; the debates of 29 September and 22 October took place."
+    sources: ["https://en.wikipedia.org/wiki/2020_United_States_presidential_debates", "https://www.fox35orlando.com/news/2nd-presidential-debate-officially-scrapped-after-trump-refuses-virtual-showdown"]
+  - key: "4657-1"
+    verdict: not_fulfilled
+    horizon: "2021-09-10"
+    trivial: false
+    explanation_fr: "Aucun élément n'a établi que le camp Biden aurait reçu les questions à l'avance pour les débats de 2020 ; les allégations de ce type ont été démenties par les vérificateurs."
+    explanation_en: "No evidence ever established that the Biden campaign received the questions in advance for the 2020 debates; such allegations were debunked by fact-checkers."
+    sources: ["https://www.politifact.com/factchecks/2020/oct/05/instagram-posts/biden-didnt-tweet-or-wear-earpiece-during-debate/", "https://en.wikipedia.org/wiki/2020_United_States_presidential_debates"]
+  - key: "4657-2"
+    verdict: not_fulfilled
+    horizon: "2021-09-10"
+    trivial: false
+    explanation_fr: "Les affirmations selon lesquelles Joe Biden portait une oreillette ou un micro lors du débat du 29 septembre 2020 ont été réfutées par les vérificateurs (pli de chemise, chapelet au poignet)."
+    explanation_en: "Claims that Joe Biden wore an earpiece or wire during the 29 September 2020 debate were debunked by fact-checkers (a shirt crease, a rosary on his wrist)."
+    sources: ["https://politifact.com/factchecks/2020/sep/30/facebook-posts/biden-did-not-wear-wire-during-first-presidential/", "https://www.politifact.com/factchecks/2020/oct/05/instagram-posts/biden-didnt-tweet-or-wear-earpiece-during-debate/"]
+  - key: "4686-0"
+    verdict: unverifiable
+    horizon: "2020-09-25"
+    trivial: false
+    explanation_fr: "Inviter à « suivre les événements » de deux semaines de septembre 2020 n'annonce aucun événement identifiable."
+    explanation_en: "Urging readers to 'track & follow events' over two weeks of September 2020 announces no identifiable event."
+    sources: []
+  - key: "4688-0"
+    verdict: not_fulfilled
+    horizon: "2021-09-13"
+    trivial: false
+    explanation_fr: "Q présentait le vote par correspondance comme un moyen de « truquer » l'élection de 2020. Les autorités électorales, la CISA et les tribunaux (plus de 60 recours rejetés) n'ont relevé aucune fraude de nature à changer le résultat."
+    explanation_en: "Q presented mail-in voting as a way to 'rig' the 2020 election. Election officials, CISA and the courts (more than 60 lawsuits dismissed) found no fraud capable of changing the outcome."
+    sources: ["https://en.wikipedia.org/wiki/Attempts_to_overturn_the_2020_United_States_presidential_election", "https://www.nextgov.com/cybersecurity/2020/11/dhs-panel-says-2020-vote-was-most-secure-in-american-history/258296/"]
+  - key: "4688-1"
+    verdict: not_a_prediction
+    horizon: "2021-09-13"
+    trivial: false
+    explanation_fr: "Q attribuait à ses adversaires un argument de propagande (« le pays guérira avec une victoire de Biden ») ; ce n'est pas une prédiction de Q."
+    explanation_en: "Q attributed a talking point to opponents ('the country will heal with a Biden victory'); this is not a prediction by Q."
+    sources: []
+  - key: "4778-0"
+    verdict: partial
+    horizon: "2021-07-12"
+    trivial: true
+    explanation_fr: "La date du 12 juillet 2021 avait déjà été fixée par la juge Alison Nathan en juillet 2020. Le procès a été reporté en mai 2021 et s'est ouvert le 29 novembre 2021 ; Ghislaine Maxwell a été reconnue coupable le 29 décembre 2021."
+    explanation_en: "The 12 July 2021 date had already been set by Judge Alison Nathan in July 2020. The trial was postponed in May 2021 and opened on 29 November 2021; Ghislaine Maxwell was convicted on 29 December 2021."
+    sources: ["https://en.wikipedia.org/wiki/Ghislaine_Maxwell", "https://www.theglobeandmail.com/world/article-ghislaine-maxwells-sex-crimes-trial-in-delayed-until-fall"]
+  - key: "4800-0"
+    verdict: unverifiable
+    horizon: "2020-10-31"
+    trivial: false
+    explanation_fr: "« RED OCTOBER » n'identifie aucun événement vérifiable."
+    explanation_en: "'RED OCTOBER' identifies no checkable event."
+    sources: []
+  - key: "4815-0"
+    verdict: unverifiable
+    horizon: "2020-10-31"
+    trivial: false
+    explanation_fr: "« RED OCTOBER », en réponse à un tweet de Trump, n'identifie aucun événement vérifiable."
+    explanation_en: "'RED OCTOBER', posted in reply to a Trump tweet, identifies no checkable event."
+    sources: []
+  - key: "4816-0"
+    verdict: not_a_prediction
+    horizon: "2020-10-07"
+    trivial: false
+    explanation_fr: "Q commentait un tweet de Donald Trump du 6 octobre 2020 annonçant la déclassification « sans caviardage » des documents sur l'enquête russe ; il s'agit d'un commentaire sur un fait du jour."
+    explanation_en: "Q commented on Donald Trump's 6 October 2020 tweet announcing the 'no redactions' declassification of Russia-inquiry documents; this is a comment on that day's event."
+    sources: []
+  - key: "4825-0"
+    verdict: not_a_prediction
+    horizon: "2020-11-03"
+    trivial: false
+    explanation_fr: "Q citait le texte d'un décret du gouverneur de New York indiquant sa durée de validité ; ce n'est pas une prédiction."
+    explanation_en: "Q quoted a New York governor's executive order stating its own duration; this is not a prediction."
+    sources: []
+  - key: "4842-0"
+    verdict: not_fulfilled
+    horizon: "2020-12-31"
+    trivial: false
+    explanation_fr: "Q extrapolait environ 2 838 000 décès toutes causes pour 2020, soit un niveau comparable à 2019. Les données définitives du CDC font état de 3 383 729 décès en 2020, une hausse record d'environ 529 000 par rapport à 2019, principalement due au Covid-19."
+    explanation_en: "Q extrapolated about 2,838,000 all-cause deaths for 2020, a level similar to 2019. Final CDC data record 3,383,729 deaths in 2020, a record increase of about 529,000 over 2019, mainly due to Covid-19."
+    sources: ["https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-10.pdf"]
+  - key: "4893-0"
+    verdict: not_a_prediction
+    horizon: "2021-10-18"
+    trivial: false
+    explanation_fr: "Q évoquait l'affaire de Devon Archer, ancien associé de Hunter Biden : condamné par un jury en 2018, verdict annulé par la juge Abrams, puis rétabli en appel le 8 octobre 2020. Ce sont des faits passés ; Hunter Biden n'était pas mis en cause dans ce dossier."
+    explanation_en: "Q referred to the case of Devon Archer, a former Hunter Biden business partner: convicted by a jury in 2018, verdict set aside by Judge Abrams, then reinstated on appeal on 8 October 2020. These are past events; Hunter Biden was not a defendant in that case."
+    sources: []
+  - key: "4893-1"
+    verdict: not_a_prediction
+    horizon: "2021-10-18"
+    trivial: false
+    explanation_fr: "C'est le verdict visant Devon Archer, et non Hunter Biden, que la juge Ronnie Abrams avait annulé en 2018 ; Q décrivait un fait passé."
+    explanation_en: "It was Devon Archer's verdict, not Hunter Biden's, that Judge Ronnie Abrams had set aside in 2018; Q described a past event."
+    sources: []
+  - key: "4893-2"
+    verdict: not_a_prediction
+    horizon: "2021-10-18"
+    trivial: false
+    explanation_fr: "La cour d'appel du 2e circuit avait rétabli la condamnation de Devon Archer le 8 octobre 2020, dix jours avant le message ; Q décrivait un fait passé."
+    explanation_en: "The Second Circuit had reinstated Devon Archer's conviction on 8 October 2020, ten days before the post; Q described a past event."
+    sources: []
+  - key: "4924-0"
+    verdict: unverifiable
+    horizon: "2020-10-23"
+    trivial: false
+    explanation_fr: "« BOOMS EN_ROUTE TOMORROW » n'identifie aucun événement vérifiable."
+    explanation_en: "'BOOMS EN_ROUTE TOMORROW' identifies no checkable event."
+    sources: []
