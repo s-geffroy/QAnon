@@ -1,0 +1,457 @@
+items:
+- key: 1589-1
+  verdict: unverifiable
+  horizon: '2019-06-26'
+  trivial: false
+  explanation_fr: Q évoquait la publication prochaine de messages, courriels et relevés d'appels désignés par des initiales, sans préciser lesquels ; l'ensemble visé n'est pas défini. Les échanges Strzok-Page avaient déjà été en grande partie rendus publics.
+  explanation_en: Q hinted at the upcoming release of texts, emails and call records identified only by initials, without saying which; the set referred to is undefined. The Strzok-Page messages had already largely been made public.
+  sources: []
+- key: 1595-0
+  verdict: unverifiable
+  horizon: '2018-07-31'
+  trivial: false
+  explanation_fr: Q annonçait que juillet 2018 serait « le mois où le monde a découvert la VÉRITÉ », sans dire laquelle ; aucun événement vérifiable n'est désigné. Aucune révélation de l'ampleur suggérée n'a eu lieu ce mois-là.
+  explanation_en: Q claimed July 2018 would be 'the month the world discovered the TRUTH', without saying which truth; no checkable event is named. No revelation of the suggested scale occurred that month.
+  sources: []
+- key: 1603-0
+  verdict: unverifiable
+  horizon: '2019-06-27'
+  trivial: false
+  explanation_fr: Q affirmait que des tentatives de « piéger » la Russie et le président seraient bientôt exposées, sans préciser lesquelles ni par qui. Le rapport Mueller (avril 2019) a au contraire documenté l'ingérence russe de 2016, tout en ne retenant pas de preuve suffisante d'une entente avec la campagne Trump.
+  explanation_en: Q claimed attempts to 'frame' Russia and the president would soon be exposed, without saying which or by whom. The Mueller report (April 2019) instead documented Russian interference in 2016, while finding insufficient evidence of a conspiracy with the Trump campaign.
+  sources: []
+- key: 1603-2
+  verdict: unverifiable
+  horizon: '2019-06-27'
+  trivial: false
+  explanation_fr: Q annonçait que les promoteurs d'une « immigration forcée » seraient démasqués, sans désigner personne ni préciser de mécanisme ; l'objet n'est pas vérifiable.
+  explanation_en: Q claimed the pushers of 'forced immigration' would be exposed, without naming anyone or describing how; there is no checkable object.
+  sources: []
+- key: 1608-0
+  verdict: fulfilled
+  horizon: '2019-06-27'
+  trivial: true
+  explanation_fr: 'Q reprend la déclaration de Trey Gowdy (31 janvier 2018) : il ne se représenterait pas et retournerait au « système judiciaire », et l''ajoute à sa liste de départs. Gowdy a quitté le Congrès en janvier 2019 et rejoint un cabinet d''avocats. Annonce déjà publique, donc triviale.'
+  explanation_en: 'Q repeats Trey Gowdy''s statement (31 January 2018) that he would not seek re-election and would return to the ''justice system'', adding him to its list of departures. Gowdy left Congress in January 2019 and joined a law firm. Already public, hence trivial.'
+  sources:
+  - https://en.wikipedia.org/wiki/Trey_Gowdy
+- key: 1670-0
+  verdict: unverifiable
+  horizon: '2018-07-04'
+  trivial: false
+  explanation_fr: '« Qu''en sera-t-il demain ? Coordonné. » : aucun événement identifiable n''est annoncé pour le 4 juillet 2018.'
+  explanation_en: '''What will tomorrow be? Coordinated.'': no identifiable event is announced for July 4, 2018.'
+  sources: []
+- key: 1745-0
+  verdict: not_fulfilled
+  horizon: '2019-07-28'
+  trivial: false
+  explanation_fr: Q affirmait que les documents FISA confirmeraient « immédiatement » des actes illégaux de leurs signataires. Une version caviardée des demandes de surveillance de Carter Page avait été publiée le 21 juillet 2018 ; ni elle ni le rapport de l'inspecteur général (décembre 2019, 17 erreurs ou omissions importantes) n'ont conduit à des poursuites contre les signataires, et l'enquête Durham n'en a inculpé aucun.
+  explanation_en: Q claimed the FISA documents would 'immediately' confirm illegal acts by their signers. A redacted version of the Carter Page surveillance applications had been released on July 21, 2018; neither it nor the inspector general's report (December 2019, 17 significant errors or omissions) led to charges against the signers, and the Durham inquiry charged none of them.
+  sources:
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+  - https://en.wikipedia.org/wiki/Durham_special_counsel_investigation
+- key: 1745-1
+  verdict: not_fulfilled
+  horizon: '2019-07-28'
+  trivial: false
+  explanation_fr: Q affirmait que les documents FISA prouveraient qu'une « campagne d'espionnage » de l'administration Obama visant à truquer l'élection reposait sur de fausses informations. Le rapport de l'inspecteur général (décembre 2019) a relevé de graves erreurs dans les demandes visant Carter Page, mais a jugé l'ouverture de l'enquête Crossfire Hurricane fondée et n'a pas trouvé de preuve d'un biais politique à son origine.
+  explanation_en: Q claimed the FISA documents would prove that an Obama administration 'spy campaign to rig an election' rested on false information. The inspector general's report (December 2019) found serious errors in the Carter Page applications, but found the opening of Crossfire Hurricane adequately predicated and no evidence that political bias drove it.
+  sources:
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+- key: 1745-3
+  verdict: not_fulfilled
+  horizon: '2019-07-28'
+  trivial: false
+  explanation_fr: Q annonçait une déclassification par le président de passages clés des documents FISA. Trump a ordonné le 17 septembre 2018 la déclassification de pages de la demande visant Carter Page, puis y a renoncé le 21 septembre en confiant les documents à l'inspecteur général ; rien n'a été déclassifié dans l'horizon d'un an.
+  explanation_en: Q announced a presidential declassification of key parts of the FISA documents. Trump ordered pages of the Carter Page application declassified on September 17, 2018, then backed off on September 21, sending the documents to the inspector general; nothing was declassified within the one-year horizon.
+  sources:
+  - https://www.scrippsnews.com/politics/political-scandals/inspector-general-to-review-trump-s-classified-doc-release
+- key: 1762-0
+  verdict: partial
+  horizon: '2019-07-30'
+  trivial: true
+  explanation_fr: Q insinuait que la Californie allumerait des incendies pour obtenir des fonds fédéraux. De grands incendies étaient déjà en cours (Carr Fire depuis le 23 juillet 2018), et le Camp Fire a suivi en novembre ; les enquêtes ont attribué le Carr Fire à l'étincelle d'un véhicule et le Camp Fire à des lignes électriques de PG&E, sans aucun lien avec l'État.
+  explanation_en: Q insinuated that California would light fires to obtain federal money. Major fires were already burning (Carr Fire since July 23, 2018), and the Camp Fire followed in November; investigations attributed the Carr Fire to a vehicle spark and the Camp Fire to PG&E power lines, with no link to the state.
+  sources:
+  - https://en.wikipedia.org/wiki/Carr_Fire
+  - https://en.wikipedia.org/wiki/Camp_Fire_(2018)
+- key: 1762-1
+  verdict: fulfilled
+  horizon: '2019-07-30'
+  trivial: true
+  explanation_fr: 'La Californie a déclaré l''état d''urgence et obtenu des déclarations fédérales de catastrophe pour les incendies de 2018 (Carr Fire en août, Camp Fire en novembre) : c''est la procédure ordinaire en cas de sinistre, déjà engagée lors de la publication, non un stratagème comme le suggérait Q.'
+  explanation_en: 'California declared states of emergency and obtained federal disaster declarations for the 2018 fires (Carr Fire in August, Camp Fire in November): the standard disaster procedure, already under way when Q posted, not a scheme as Q suggested.'
+  sources:
+  - https://en.wikipedia.org/wiki/2018_California_wildfires
+  - https://en.wikipedia.org/wiki/Carr_Fire
+- key: 1825-0
+  verdict: not_a_prediction
+  horizon: '2019-08-07'
+  trivial: false
+  explanation_fr: Q décrivait la stratégie des démocrates (« tout miser sur la vague bleue ») et non une victoire qu'il annonçait ; ailleurs, Q promettait une « vague rouge ». Les démocrates ont d'ailleurs remporté la Chambre en novembre 2018.
+  explanation_en: Q was describing the Democrats' strategy ('all-in [Blue Wave]'), not predicting their victory; elsewhere Q promised a 'red wave'. Democrats did win the House in November 2018.
+  sources:
+  - https://en.wikipedia.org/wiki/2018_United_States_House_of_Representatives_elections
+- key: 1833-0
+  verdict: not_a_prediction
+  horizon: '2019-08-10'
+  trivial: false
+  explanation_fr: Q affirmait que l'offensive démocrate en Californie visait à écarter Devin Nunes, sans prédire qu'il serait battu. Nunes a été réélu en novembre 2018 et a quitté le Congrès en janvier 2022 de son propre chef.
+  explanation_en: Q claimed the Democratic push in California aimed at removing Devin Nunes, without predicting his defeat. Nunes was re-elected in November 2018 and left Congress of his own accord in January 2022.
+  sources:
+  - https://en.wikipedia.org/wiki/Devin_Nunes
+- key: 1846-0
+  verdict: unverifiable
+  horizon: '2018-08-19'
+  trivial: false
+  explanation_fr: '« BOOM [SEMAINE PROCHAINE] » : aucun événement identifiable n''est désigné pour la semaine suivant le 11 août 2018.'
+  explanation_en: '''BOOM [NEXT WEEK]'': no identifiable event is named for the week after August 11, 2018.'
+  sources: []
+- key: 1927-10
+  verdict: unverifiable
+  horizon: '2019-08-19'
+  trivial: true
+  explanation_fr: 'Q cite, comme « effet » attendu, un décret déjà signé (amendements 2018 au Manuel des cours martiales) prévoyant que le secrétaire à la Défense publie des lignes directrices non contraignantes. Annonce déjà officielle, donc triviale ; la publication de ces lignes directrices et leur lien avec le scénario de Q ne sont pas établis.'
+  explanation_en: 'Q cites, as an expected ''effect'', an already signed order (2018 amendments to the Manual for Courts-Martial) providing that the Secretary of Defense would issue nonbinding guidance. Already official, hence trivial; whether that guidance was issued, and any link to Q''s scenario, is not established.'
+  sources: []
+- key: 1947-0
+  verdict: not_fulfilled
+  horizon: '2019-08-28'
+  trivial: false
+  explanation_fr: Q annonçait que Google serait réglementé, après les accusations de Trump du 28 août 2018. Aucune réglementation spécifique n'a été adoptée dans l'année ; le ministère de la Justice a ouvert un examen antitrust en 2019 et n'a poursuivi Google que le 20 octobre 2020, hors horizon.
+  explanation_en: Q announced Google would be regulated, after Trump's August 28, 2018 accusations. No specific regulation was adopted within the year; the Justice Department opened an antitrust review in 2019 and only sued Google on October 20, 2020, outside the horizon.
+  sources:
+  - https://en.wikipedia.org/wiki/United_States_v._Google_LLC_(2020)
+- key: 2008-0
+  verdict: fulfilled
+  horizon: '2018-08-30'
+  trivial: true
+  explanation_fr: Trump a tenu un meeting à Evansville (Indiana) le soir du 30 août 2018, annoncé publiquement depuis le 22 août.
+  explanation_en: Trump held a rally in Evansville, Indiana, on the evening of August 30, 2018, publicly announced since August 22.
+  sources:
+  - https://www.pbs.org/newshour/politics/watch-live-trump-holds-campaign-rally-in-indiana
+  - https://news.wnin.org/local-news/2018-08-22/trump-to-visit-evv-next-thursday
+- key: 2067-0
+  verdict: fulfilled
+  horizon: '2018-09-04'
+  trivial: true
+  explanation_fr: La Chambre reprenait ses travaux le 4 septembre 2018 après la pause d'août, et le Sénat siégeait (début des auditions de Brett Kavanaugh le même jour), selon un calendrier public.
+  explanation_en: The House returned on September 4, 2018 after the August recess and the Senate was in session (Brett Kavanaugh's hearings began that day), as publicly scheduled.
+  sources:
+  - https://www.wbur.org/hereandnow/2018/09/05/kavanaugh-hearings-resume
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2070-0
+  verdict: not_fulfilled
+  horizon: '2019-09-03'
+  trivial: false
+  explanation_fr: Q annonçait le licenciement « imminent » de Bruce Ohr. Il est resté au ministère de la Justice bien au-delà de l'horizon et a pris sa retraite le 30 septembre 2020, alors qu'une procédure disciplinaire était en cours ; il n'a pas été poursuivi.
+  explanation_en: Q announced Bruce Ohr's 'imminent' termination. He remained at the Justice Department well past the horizon and retired on September 30, 2020, while a disciplinary review was pending; he was not charged.
+  sources: &id003
+  - https://www.cbsnews.com/news/bruce-ohr-resigns-from-justice-department-2020-10-14/
+  - https://en.wikipedia.org/wiki/Bruce_Ohr
+- key: 2084-0
+  verdict: unverifiable
+  horizon: '2018-09-09'
+  trivial: false
+  explanation_fr: '« Une semaine mémorable » : aucun événement identifiable n''est annoncé.'
+  explanation_en: '''A Week to Remember'': no identifiable event is announced.'
+  sources: []
+- key: 2098-0
+  verdict: unverifiable
+  horizon: '2018-09-06'
+  trivial: false
+  explanation_fr: « Profitez du spectacle ce soir » ne désigne aucun événement précis ; Trump tenait ce soir-là un meeting public à Billings (Montana), déjà programmé.
+  explanation_en: '''Enjoy the show tonight'' names no specific event; Trump held a previously scheduled rally in Billings, Montana, that evening.'
+  sources: []
+- key: 2109-0
+  verdict: fulfilled
+  horizon: '2019-09-07'
+  trivial: false
+  explanation_fr: 'Q annonçait le départ imminent de Rod Rosenstein, au moment où la presse évoquait son possible limogeage (septembre 2018). Il est parti dans l''horizon de douze mois : démission annoncée le 29 avril 2019, effective le 11 mai 2019, après l''arrivée de William Barr — un départ volontaire plutôt que le renvoi alors évoqué.'
+  explanation_en: 'Q announced Rod Rosenstein''s imminent departure, at a time when the press was reporting he might be fired (September 2018). He left within the 12-month horizon: his resignation was announced on April 29, 2019 and took effect on May 11, 2019, after William Barr took office — a voluntary departure rather than the dismissal then rumoured.'
+  sources: &id001
+  - https://en.wikipedia.org/wiki/Rod_Rosenstein
+- key: 2113-0
+  verdict: not_a_prediction
+  horizon: '2018-09-30'
+  trivial: true
+  explanation_fr: 'Q renvoie à une information déjà publiée : le Washington Post avait révélé le 6 septembre 2018 qu''un grand jury entendait des témoins au sujet d''Andrew McCabe. McCabe n''a finalement jamais été inculpé (abandon annoncé en février 2020).'
+  explanation_en: 'Q refers to already published news: the Washington Post had reported on September 6, 2018 that a grand jury was hearing witnesses regarding Andrew McCabe. McCabe was ultimately never charged (decision announced in February 2020).'
+  sources:
+  - https://en.wikipedia.org/wiki/Andrew_McCabe
+- key: 2129-0
+  verdict: not_fulfilled
+  horizon: '2019-09-10'
+  trivial: false
+  explanation_fr: Q affirmait que la déclassification des documents FISA provoquerait le départ de Rod Rosenstein. Cette déclassification, ordonnée le 17 septembre 2018, a été suspendue le 21 ; Rosenstein n'a démissionné qu'en avril-mai 2019, sans lien avec une telle publication.
+  explanation_en: Q claimed declassifying the FISA documents would trigger Rod Rosenstein's departure. That declassification, ordered on September 17, 2018, was suspended on the 21st; Rosenstein only resigned in April-May 2019, unrelated to any such release.
+  sources:
+  - https://www.scrippsnews.com/politics/political-scandals/inspector-general-to-review-trump-s-classified-doc-release
+  - https://en.wikipedia.org/wiki/Rod_Rosenstein
+- key: 2129-1
+  verdict: not_fulfilled
+  horizon: '2019-09-10'
+  trivial: false
+  explanation_fr: Q affirmait que tous les signataires des demandes FISA seraient publiquement connus comme visés par une enquête. La déclassification annoncée a été suspendue ; l'inspecteur général a examiné les demandes (rapport de décembre 2019) et l'enquête Durham n'a inculpé aucun des signataires.
+  explanation_en: Q claimed all signers of the FISA applications would be publicly known to be under investigation. The announced declassification was suspended; the inspector general reviewed the applications (December 2019 report) and the Durham inquiry charged none of the signers.
+  sources:
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+  - https://en.wikipedia.org/wiki/Durham_special_counsel_investigation
+- key: 2129-2
+  verdict: not_fulfilled
+  horizon: '2019-09-10'
+  trivial: false
+  explanation_fr: Q affirmait que la déclassification prouverait « sans discussion » que le gouvernement Obama avait sciemment présenté de fausses preuves à la cour FISA pour influencer l'élection. Le rapport de l'inspecteur général (décembre 2019) a relevé 17 erreurs ou omissions importantes, mais n'a pas établi d'intention politique ni de manœuvre visant l'élection.
+  explanation_en: Q claimed declassification would prove 'without argument' that the Obama government knowingly presented false evidence to the FISA court to influence the election. The inspector general's report (December 2019) found 17 significant errors or omissions but did not establish political intent or an election-related scheme.
+  sources:
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+- key: 2168-1
+  verdict: not_fulfilled
+  horizon: '2019-09-12'
+  trivial: false
+  explanation_fr: Q annonçait l'effondrement des autres sites relayant ses messages, 8chan devenant le seul canal. Reddit a fermé le forum r/greatawakening le 12 septembre 2018, mais les agrégateurs de « drops » ont continué ; c'est 8chan lui-même qui a été mis hors ligne le 5 août 2019.
+  explanation_en: Q announced the collapse of the other sites relaying its posts, leaving 8chan as the only channel. Reddit closed r/greatawakening on September 12, 2018, but drop aggregators continued; it was 8chan itself that went offline on August 5, 2019.
+  sources:
+  - https://en.wikipedia.org/wiki/8chan
+  - https://en.wikipedia.org/wiki/QAnon
+- key: 2187-0
+  verdict: partial
+  horizon: '2018-09-20'
+  trivial: true
+  explanation_fr: Un test national de l'« alerte présidentielle » par la FEMA (et non le ministère de la Défense) était publiquement programmé pour le jeudi 20 septembre 2018 ; il a été reporté le 17 septembre à cause de l'ouragan Florence et a eu lieu le 3 octobre 2018.
+  explanation_en: A national 'Presidential Alert' test by FEMA (not the Department of Defense) was publicly scheduled for Thursday, September 20, 2018; it was postponed on September 17 because of Hurricane Florence and took place on October 3, 2018.
+  sources: &id002
+  - https://engadget.com/2018/09/17/fema-postpones-mobile-emergency-alert-test
+  - https://en.wikipedia.org/wiki/Wireless_Emergency_Alerts
+- key: 2200-0
+  verdict: fulfilled
+  horizon: '2019-09-17'
+  trivial: false
+  explanation_fr: Brett Kavanaugh a été confirmé par le Sénat le 6 octobre 2018 (50 voix contre 48). L'affirmation de Q selon laquelle les démocrates auraient proposé d'abandonner les accusations contre une suspension de la déclassification n'est étayée par aucune source.
+  explanation_en: Brett Kavanaugh was confirmed by the Senate on October 6, 2018 (50-48). Q's claim that Democrats offered to drop the allegations in exchange for halting declassification is not supported by any source.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2204-0
+  verdict: unverifiable
+  horizon: '2018-09-23'
+  trivial: false
+  explanation_fr: Q évoquait des réunions entre Jeff Sessions et le procureur John Huber le week-end suivant ; aucune information publique ne permet de confirmer ou d'infirmer ces réunions, ni les suites qu'il suggérait.
+  explanation_en: Q mentioned weekend meetings between Jeff Sessions and prosecutor John Huber; no public information can confirm or refute these meetings or the consequences he implied.
+  sources: []
+- key: 2205-0
+  verdict: unverifiable
+  horizon: '2018-09-18'
+  trivial: false
+  explanation_fr: Q affirmait que Jeff Sessions enverrait une lettre classifiée à deux juges de la Cour suprême ; une telle lettre serait secrète par définition et aucune trace publique n'en existe.
+  explanation_en: Q claimed Jeff Sessions would send a classified letter to two Supreme Court justices; such a letter would by definition be secret, and no public record of it exists.
+  sources: []
+- key: 2210-0
+  verdict: fulfilled
+  horizon: '2019-09-18'
+  trivial: false
+  explanation_fr: 'Q annonçait le départ imminent de Rod Rosenstein, au moment où la presse évoquait son possible limogeage (septembre 2018). Il est parti dans l''horizon de douze mois : démission annoncée le 29 avril 2019, effective le 11 mai 2019, après l''arrivée de William Barr — un départ volontaire plutôt que le renvoi alors évoqué.'
+  explanation_en: 'Q announced Rod Rosenstein''s imminent departure, at a time when the press was reporting he might be fired (September 2018). He left within the 12-month horizon: his resignation was announced on April 29, 2019 and took effect on May 11, 2019, after William Barr took office — a voluntary departure rather than the dismissal then rumoured.'
+  sources: *id001
+- key: 2239-0
+  verdict: unverifiable
+  horizon: '2018-09-20'
+  trivial: false
+  explanation_fr: L'appel à la vigilance, visant apparemment le meeting de Trump à Las Vegas le 20 septembre 2018, ne désigne aucun événement ; aucun incident notable n'y a été signalé.
+  explanation_en: The call for vigilance, apparently aimed at Trump's Las Vegas rally on September 20, 2018, names no event; no notable incident was reported there.
+  sources: []
+- key: 2250-0
+  verdict: not_fulfilled
+  horizon: '2019-09-21'
+  trivial: false
+  explanation_fr: Q annonçait une « vague rouge » en novembre 2018. Les républicains ont perdu la Chambre des représentants (les démocrates gagnant 41 sièges), tout en gagnant deux sièges au Sénat.
+  explanation_en: Q announced a 'red wave' in November 2018. Republicans lost the House of Representatives (Democrats gained 41 seats), while gaining two Senate seats.
+  sources:
+  - https://en.wikipedia.org/wiki/2018_United_States_House_of_Representatives_elections
+  - https://en.wikipedia.org/wiki/2018_United_States_Senate_elections
+- key: 2253-1
+  verdict: not_fulfilled
+  horizon: '2019-09-21'
+  trivial: false
+  explanation_fr: Q affirmait que la déclassification FISA « ferait tomber la maison ». La déclassification ordonnée le 17 septembre 2018 a été suspendue le 21 ; les documents publiés plus tard et le rapport de l'inspecteur général (décembre 2019) n'ont pas eu l'effet annoncé.
+  explanation_en: Q claimed FISA declassification would 'bring the house down'. The declassification ordered on September 17, 2018 was suspended on the 21st; documents released later and the inspector general's report (December 2019) did not have the announced effect.
+  sources:
+  - https://www.scrippsnews.com/politics/political-scandals/inspector-general-to-review-trump-s-classified-doc-release
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+- key: 2270-0
+  verdict: unverifiable
+  horizon: '2018-10-14'
+  trivial: false
+  explanation_fr: Q recommandait un forum Voat aux anciens utilisateurs de r/greatawakening (fermé le 12 septembre 2018) et affirmait qu'un lieu central serait « important » ; aucun critère vérifiable n'est fixé.
+  explanation_en: Q recommended a Voat forum to former r/greatawakening users (closed on September 12, 2018) and said a central location would be 'important'; no checkable criterion is set.
+  sources: []
+- key: 2273-0
+  verdict: not_fulfilled
+  horizon: '2019-09-23'
+  trivial: false
+  explanation_fr: Q affirmait que « tout sortirait » via la déclassification FISA. Celle-ci, suspendue le 21 septembre 2018, n'a pas eu lieu dans l'année ; l'inspecteur général a publié son rapport en décembre 2019 et des extraits n'ont été déclassifiés qu'en 2020.
+  explanation_en: Q claimed 'it will all come out' through FISA declassification. Suspended on September 21, 2018, it did not happen within the year; the inspector general published his report in December 2019 and excerpts were only declassified in 2020.
+  sources:
+  - https://www.scrippsnews.com/politics/political-scandals/inspector-general-to-review-trump-s-classified-doc-release
+  - https://en.wikipedia.org/wiki/Inspector_General_report_on_the_Crossfire_Hurricane_investigation
+- key: 2273-1
+  verdict: not_fulfilled
+  horizon: '2019-09-23'
+  trivial: false
+  explanation_fr: Q affirmait que la publication des documents FISA forcerait Rod Rosenstein à démissionner. Aucune publication de ce type n'a eu lieu ; Rosenstein a démissionné en avril-mai 2019, après l'arrivée de William Barr, pour des raisons sans rapport.
+  explanation_en: Q claimed the release of the FISA documents would force Rod Rosenstein to resign. No such release took place; Rosenstein resigned in April-May 2019, after William Barr took office, for unrelated reasons.
+  sources: *id001
+- key: 2283-0
+  verdict: unverifiable
+  horizon: '2019-09-27'
+  trivial: false
+  explanation_fr: Les juges de la Cour suprême bénéficient déjà d'une protection par la police de la Cour, dont les modalités ne sont pas publiques ; l'annonce de Q ne peut être vérifiée.
+  explanation_en: Supreme Court justices are already protected by the Court's police, whose arrangements are not public; Q's announcement cannot be checked.
+  sources: []
+- key: 2286-0
+  verdict: fulfilled
+  horizon: '2019-09-27'
+  trivial: false
+  explanation_fr: Brett Kavanaugh a été confirmé par le Sénat le 6 octobre 2018 (50 voix contre 48), au lendemain de l'audition de Christine Blasey Ford, alors que l'issue du vote restait incertaine.
+  explanation_en: Brett Kavanaugh was confirmed by the Senate on October 6, 2018 (50-48); when Q posted, the day of Christine Blasey Ford's testimony, the outcome was still uncertain.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2286-1
+  verdict: fulfilled
+  horizon: '2019-09-27'
+  trivial: false
+  explanation_fr: 'Q annonçait le départ imminent de Rod Rosenstein, au moment où la presse évoquait son possible limogeage (septembre 2018). Il est parti dans l''horizon de douze mois : démission annoncée le 29 avril 2019, effective le 11 mai 2019, après l''arrivée de William Barr — un départ volontaire plutôt que le renvoi alors évoqué.'
+  explanation_en: 'Q announced Rod Rosenstein''s imminent departure, at a time when the press was reporting he might be fired (September 2018). He left within the 12-month horizon: his resignation was announced on April 29, 2019 and took effect on May 11, 2019, after William Barr took office — a voluntary departure rather than the dismissal then rumoured.'
+  sources: *id001
+- key: 2286-3
+  verdict: fulfilled
+  horizon: '2019-09-27'
+  trivial: true
+  explanation_fr: Le test national de l'« alerte présidentielle », reporté le 17 septembre au 3 octobre 2018, a eu lieu à cette date ; il était publiquement programmé.
+  explanation_en: The national 'Presidential Alert' test, postponed on September 17 to October 3, 2018, took place on that date; it was publicly scheduled.
+  sources: *id002
+- key: 2296-0
+  verdict: not_fulfilled
+  horizon: '2018-11-30'
+  trivial: false
+  explanation_fr: Q attribuait aux démocrates l'intention de destituer le juge Kavanaugh s'ils remportaient le Congrès en novembre 2018. Ils ont gagné la Chambre, mais n'ont jamais engagé de procédure de destitution contre lui.
+  explanation_en: Q attributed to Democrats a plan to impeach Justice Kavanaugh if they won Congress in November 2018. They won the House but never initiated impeachment proceedings against him.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh
+- key: 2298-0
+  verdict: unverifiable
+  horizon: '2019-09-29'
+  trivial: false
+  explanation_fr: Q affirmait que Google et Facebook suivraient Twitter dans une « censure générale » ; ni la prémisse ni le critère ne sont définis. Les plateformes ont continué à appliquer et durcir leurs règles de modération, ce qui ne correspond pas à un événement identifiable.
+  explanation_en: Q claimed Google and Facebook would follow Twitter in 'blanket censorship'; neither the premise nor a criterion is defined. The platforms kept applying and tightening their moderation rules, which is not an identifiable event.
+  sources: []
+- key: 2300-0
+  verdict: fulfilled
+  horizon: '2019-09-30'
+  trivial: false
+  explanation_fr: Brett Kavanaugh a été confirmé par le Sénat le 6 octobre 2018 (50 voix contre 48), après une enquête complémentaire du FBI d'une semaine.
+  explanation_en: Brett Kavanaugh was confirmed by the Senate on October 6, 2018 (50-48), after a one-week supplemental FBI inquiry.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2300-1
+  verdict: fulfilled
+  horizon: '2019-09-30'
+  trivial: false
+  explanation_fr: 'Q annonçait le départ imminent de Rod Rosenstein, au moment où la presse évoquait son possible limogeage (septembre 2018). Il est parti dans l''horizon de douze mois : démission annoncée le 29 avril 2019, effective le 11 mai 2019, après l''arrivée de William Barr — un départ volontaire plutôt que le renvoi alors évoqué.'
+  explanation_en: 'Q announced Rod Rosenstein''s imminent departure, at a time when the press was reporting he might be fired (September 2018). He left within the 12-month horizon: his resignation was announced on April 29, 2019 and took effect on May 11, 2019, after William Barr took office — a voluntary departure rather than the dismissal then rumoured.'
+  sources: *id001
+- key: 2301-0
+  verdict: unverifiable
+  horizon: '2018-10-31'
+  trivial: false
+  explanation_fr: « OCTOBRE ROUGE » ne désigne aucun événement vérifiable.
+  explanation_en: '''RED OCTOBER'' names no checkable event.'
+  sources: []
+- key: 2307-0
+  verdict: fulfilled
+  horizon: '2018-10-07'
+  trivial: true
+  explanation_fr: Q relaie une déclaration publique annonçant un vote dans la semaine sur la nomination de Brett Kavanaugh ; le vote de clôture a eu lieu le 5 octobre et la confirmation le 6 octobre 2018.
+  explanation_en: Q relays a public statement announcing a vote that week on Brett Kavanaugh's nomination; the cloture vote took place on October 5 and confirmation on October 6, 2018.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2326-0
+  verdict: unverifiable
+  horizon: '2018-10-05'
+  trivial: true
+  explanation_fr: « Sessions demain [lié à des documents] » ne précise pas l'événement ; la date coïncide avec l'échéance publique (4 octobre 2018) de l'assignation de la commission judiciaire de la Chambre réclamant au ministère de la Justice les notes d'Andrew McCabe.
+  explanation_en: '''Sessions tomorrow [doc related]'' does not specify the event; the date matches the public deadline (October 4, 2018) of the House Judiciary Committee subpoena seeking Andrew McCabe''s memos from the Justice Department.'
+  sources: []
+- key: 2326-1
+  verdict: fulfilled
+  horizon: '2018-10-07'
+  trivial: true
+  explanation_fr: Brett Kavanaugh a été confirmé le samedi 6 octobre 2018 ; le calendrier (rapport complémentaire du FBI puis vote en fin de semaine) avait été annoncé par le chef de la majorité Mitch McConnell.
+  explanation_en: Brett Kavanaugh was confirmed on Saturday, October 6, 2018; the schedule (supplemental FBI report, then a vote at the end of the week) had been announced by Majority Leader Mitch McConnell.
+  sources:
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh_Supreme_Court_nomination
+- key: 2326-2
+  verdict: unverifiable
+  horizon: '2018-10-14'
+  trivial: false
+  explanation_fr: « [RR] la semaine prochaine » ne désigne pas d'événement précis. L'audition à huis clos de Rod Rosenstein prévue le 11 octobre 2018 par deux commissions de la Chambre a été reportée la veille, puis n'a pas eu lieu en 2018.
+  explanation_en: '''[RR] next week'' names no specific event. Rod Rosenstein''s closed-door interview with two House committees, set for October 11, 2018, was postponed the day before and did not take place in 2018.'
+  sources: []
+- key: 2358-0
+  verdict: partial
+  horizon: '2019-10-06'
+  trivial: false
+  explanation_fr: 'Q annonçait que les démocrates chercheraient à destituer le juge Kavanaugh. Après leur victoire à la Chambre (novembre 2018), aucune procédure n''a été engagée, mais en septembre 2019, après de nouvelles révélations du New York Times, plusieurs candidats démocrates à la présidentielle (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) ont publiquement réclamé sa destitution.'
+  explanation_en: 'Q claimed Democrats would seek to impeach Justice Kavanaugh. After they won the House (November 2018), no proceedings were opened, but in September 2019, following new New York Times reporting, several Democratic presidential candidates (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) publicly called for his impeachment.'
+  sources:
+  - https://www.foxla.com/news/democratic-presidential-candidates-call-for-kavanaughs-impeachment
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh
+- key: 2362-0
+  verdict: unverifiable
+  horizon: '2018-10-14'
+  trivial: false
+  explanation_fr: « [SEMAINE BOOM] », sous des citations de Ronald Reagan, ne désigne aucun événement vérifiable pour la semaine suivant le 7 octobre 2018.
+  explanation_en: '''[BOOM WEEK]'', below Ronald Reagan quotes, names no checkable event for the week after October 7, 2018.'
+  sources: []
+- key: 2368-0
+  verdict: partial
+  horizon: '2019-10-08'
+  trivial: false
+  explanation_fr: 'Q annonçait que les démocrates chercheraient à destituer le juge Kavanaugh. Après leur victoire à la Chambre (novembre 2018), aucune procédure n''a été engagée, mais en septembre 2019, après de nouvelles révélations du New York Times, plusieurs candidats démocrates à la présidentielle (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) ont publiquement réclamé sa destitution.'
+  explanation_en: 'Q claimed Democrats would seek to impeach Justice Kavanaugh. After they won the House (November 2018), no proceedings were opened, but in September 2019, following new New York Times reporting, several Democratic presidential candidates (Kamala Harris, Elizabeth Warren, Beto O''Rourke, Julián Castro) publicly called for his impeachment.'
+  sources:
+  - https://www.foxla.com/news/democratic-presidential-candidates-call-for-kavanaughs-impeachment
+  - https://en.wikipedia.org/wiki/Brett_Kavanaugh
+- key: 2369-0
+  verdict: not_fulfilled
+  horizon: '2019-10-08'
+  trivial: false
+  explanation_fr: Q annonçait comme prochaine étape le témoignage de Rod Rosenstein devant la Chambre. L'audition prévue le 11 octobre 2018 a été reportée la veille et n'a pas eu lieu avant son départ en mai 2019 ; il n'a témoigné publiquement qu'en juin 2020, devant la commission judiciaire du Sénat.
+  explanation_en: Q announced Rod Rosenstein's House testimony as the next step. The interview set for October 11, 2018 was postponed the day before and did not happen before he left in May 2019; he only testified publicly in June 2020, before the Senate Judiciary Committee.
+  sources:
+  - https://amp.cnn.com/cnn/2018/10/10/politics/rosenstein-house-judiciary-meeting-delayed
+  - https://en.wikipedia.org/wiki/Rod_Rosenstein
+- key: 2379-0
+  verdict: fulfilled
+  horizon: '2018-10-09'
+  trivial: true
+  explanation_fr: Trump a annoncé le soir du 9 octobre 2018, lors d'un meeting à Council Bluffs (Iowa), la levée de l'interdiction estivale de l'essence E15 ; la mesure avait été annoncée par la Maison-Blanche plus tôt dans la journée, comme le rapportait l'article cité par Q.
+  explanation_en: Trump announced on the evening of October 9, 2018, at a rally in Council Bluffs, Iowa, the lifting of the summer ban on E15 gasoline; the White House had announced the measure earlier that day, as reported by the article Q linked.
+  sources:
+  - https://www.foxbusiness.com/markets/in-boon-for-farmers-trump-lifts-restrictions-on-ethanol
+  - https://nebraskapublicmedia.org/en/news/news-articles/trump-touts-year-round-e15-sales-in-council-bluffs/
+- key: 2381-0
+  verdict: not_fulfilled
+  horizon: '2019-10-09'
+  trivial: false
+  explanation_fr: Q réitérait le licenciement « imminent » de Bruce Ohr. Il est resté au ministère de la Justice au-delà de l'horizon et a pris sa retraite le 30 septembre 2020, en pleine procédure disciplinaire ; il n'a pas été poursuivi.
+  explanation_en: Q repeated that Bruce Ohr's termination was 'imminent'. He remained at the Justice Department past the horizon and retired on September 30, 2020, during a disciplinary review; he was not charged.
+  sources: *id003
+- key: 2396-0
+  verdict: partial
+  horizon: '2018-11-11'
+  trivial: true
+  explanation_fr: Une rencontre Trump-Poutine à Paris le 11 novembre 2018 avait été annoncée fin octobre par John Bolton. Il n'y a finalement pas eu de rencontre formelle, à la demande de la France, mais les deux dirigeants ont échangé brièvement lors du déjeuner du centenaire de l'Armistice.
+  explanation_en: A Trump-Putin meeting in Paris on November 11, 2018 had been announced in late October by John Bolton. In the end there was no formal meeting, at France's request, but the two leaders spoke briefly at the Armistice centenary lunch.
+  sources:
+  - https://www.timesofisrael.com/putin-trump-have-good-talk-on-world-situation-over-lunch-in-paris/

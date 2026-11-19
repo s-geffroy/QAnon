@@ -1,0 +1,847 @@
+actor_ids,claim,date,deadline,deadline_type,drop_id,event_type,k,month,specificity,subjects
+hrc,"Q claims that Hillary Clinton’s passport will be flagged beginning at 12:01 a.m. on October 30, 2017.",2017-10-28,2017-10-30,explicit,1,other,0,2017-10,specific,Hillary Clinton
+usa,Q claims that massive riots and people fleeing the United States will occur in response to the alleged operation.,2017-10-28,,none,1,attack,1,2017-10,vague,U.S. residents; riot organizers
+national_guard; usa,"Q claims that the U.S. military will conduct an operation while the National Guard is activated, including activation for duty across most major cities on October 30, 2017.",2017-10-28,2017-10-30,explicit,1,military,2,2017-10,specific,U.S. military; National Guard
+hrc,Q claims that Hillary Clinton will be arrested after her alleged detention.,2017-10-28,,none,2,arrest,0,2017-10,specific,Hillary Clinton
+trump,Q claims that the President will not appear on television to address the nation.,2017-10-28,,none,2,other,1,2017-10,specific,Donald Trump
+trump,Q claims that the President will isolate himself to avoid negative public optics.,2017-10-28,,none,2,other,2,2017-10,specific,Donald Trump
+,"Q signals that an unspecified event or development called “Mockingbird” will occur or become significant on October 30, 2017.",2017-10-28,2017-10-30,explicit,2,other,3,2017-10,vague,
+,Q claims that people will begin to be indicted.,2017-10-29,,none,4,indictment,0,2017-10,vague,
+trump,"Q claims that POTUS will not address the nation about these issues, purportedly to remain neutral for public-relations reasons.",2017-10-29,,none,4,other,1,2017-10,specific,Donald Trump
+,Q claims that people will begin to be indicted.,2017-10-29,,none,6,indictment,0,2017-10,vague,
+trump,"Q claims that POTUS will not address the nation about these issues while indictments begin, in order to remain publicly neutral.",2017-10-29,,none,6,other,1,2017-10,specific,POTUS
+senate; trump,Q claims that Senate Republicans who are dropping out will nevertheless vote in support of President Trump.,2017-10-29,,none,8,other,0,2017-10,specific,Senate Republicans; President Trump
+,Q claims that a future “great awakening” will reveal that local and national Black leaders are corrupt and paid off to keep Black people poor and dependent.,2017-10-29,,none,9,disclosure,0,2017-10,vague,local and national Black leaders
+cia; democratic_party; msm,Q claims that attempts to censor information or control the narrative will fail.,2017-10-29,,none,9,other,1,2017-10,vague,Democratic Party; mainstream media; Central Intelligence Agency
+podesta,"Q claims that John Podesta will be indicted on November 3, 2017.",2017-10-31,2017-11-03,explicit,15,indictment,0,2017-10,specific,John Podesta
+huma,"Q claims that Huma Abedin will be indicted on November 6, 2017.",2017-10-31,2017-11-06,explicit,15,indictment,1,2017-10,specific,Huma Abedin
+,Q claims that serious corruption will be disclosed or become public.,2017-10-31,,none,15,disclosure,2,2017-10,vague,
+trump; usa,Q claims that events on Friday and Saturday will deliver on the MAGA political promise.,2017-10-31,2017-11-04,relative,16,other,0,2017-10,vague,Donald Trump; U.S. government
+congress; trump,Q claims that Donald Trump will face no impeachment risk.,2017-10-31,,none,16,other,1,2017-10,specific,Donald Trump; U.S. Congress
+,"Q claims that disclosure of details about the alleged network will occur, after which readers will laugh at the preceding questions or narrative.",2017-11-01,,none,19,disclosure,0,2017-11,vague,
+democratic_party,Q claims that local and national Black leaders whom Q characterizes as false will next be exposed as shills for the Democratic Party.,2017-11-01,,relative,19,disclosure,1,2017-11,specific,local Black leaders; national Black leaders; Democratic Party
+democratic_party,"Q claims that more people who announce they will not seek reelection will be pressured or brought under control, including people aligned with the Democratic Party.",2017-11-01,,none,24,other,0,2017-11,vague,politicians; Democratic Party
+,Q claims that not all implicated people will be prosecuted.,2017-11-01,,none,24,other,1,2017-11,vague,
+,Q claims that all implicated people will comply with instructions or do as they are told.,2017-11-01,,none,24,other,2,2017-11,vague,
+mccain; pelosi,Q claims that proof or evidence related to the subject of the post will begin to emerge.,2017-11-01,2017-11-03,explicit,25,disclosure,0,2017-11,vague,Nancy Pelosi; John McCain
+,Q claims that much information will be revealed publicly.,2017-11-01,,none,27,disclosure,0,2017-11,vague,
+,"Q claims that the perpetrators involved in the alleged child-abduction networks will eventually be taken into custody, after which the abductions will be terminated.",2017-11-01,,none,29,arrest,0,2017-11,vague,
+,"Q claims that some matters connected to foreign heads of state will remain classified, while others will be declassified or otherwise released.",2017-11-01,,none,31,declassification,0,2017-11,vague,Foreign heads of state
+,"Q claims that an initial, fast and meaningful wave of events will occur and immediately signal something to others, causing the situation to turn in Q's favor.",2017-11-01,,relative,32,other,0,2017-11,vague,
+,Q claims that some people will be jailed as alleged deep-cover agents.,2017-11-01,,relative,32,arrest,1,2017-11,vague,
+podesta,Q claims that an announcement of John Podesta’s arrest will occur.,2017-11-01,2017-11-03,explicit,34,arrest,0,2017-11,specific,John Podesta
+podesta,Q claims that action related to John Podesta’s arrest will occur.,2017-11-01,2017-11-04,explicit,34,arrest,1,2017-11,specific,John Podesta
+,Q claims that the public will be given confirmation or disclosure of the alleged events following the arrest action.,2017-11-01,,relative,34,disclosure,2,2017-11,vague,the public
+,Q claims that public riots will occur in an effort to prevent the arrests and capture of additional senior public officials.,2017-11-01,,relative,34,attack,3,2017-11,specific,senior public officials
+usa,Q claims that temporary military control will be imposed within the country.,2017-11-01,,relative,34,military,4,2017-11,specific,the U.S. military
+usa,Q claims that special-operations missions will be conducted domestically and abroad.,2017-11-01,,relative,34,military,5,2017-11,specific,U.S. special operations forces
+usa,Q claims that the Emergency Broadcast System will be activated to deliver a message to the public.,2017-11-01,,relative,34,disclosure,6,2017-11,specific,the Emergency Broadcast System; the U.S. public
+usa,Q claims that organizations or people attempting to interfere will be met with force by the military under newly authorized laws.,2017-11-01,,relative,34,military,7,2017-11,vague,the U.S. military; organizations and individuals opposing the operation
+trump; usa,"Q claims that military personnel will undertake operations, while the president is protected aboard Air Force One and abroad.",2017-11-01,,none,35,military,0,2017-11,vague,Donald Trump; U.S. military
+usa,Q claims that any spillover of the operations into the streets will be quickly suppressed.,2017-11-01,,none,35,military,1,2017-11,vague,U.S. authorities
+,Q warns that additional alleged false-flag attacks or incidents will occur.,2017-11-01,,none,35,attack,2,2017-11,vague,
+national_guard,Q claims that National Guard deployments will begin the following day.,2017-11-02,2017-11-03,relative,38,military,0,2017-11,specific,National Guard
+usa,Q claims that resistance to the effort to remove entrenched federal-government actors will be dealt with swiftly.,2017-11-02,,none,43,other,0,2017-11,vague,U.S. federal government
+usa,Q claims that military personnel may be seen domestically in connection with protecting the public and demonstrating resolve.,2017-11-02,,none,43,military,1,2017-11,vague,U.S. military
+,Q claims that confirmations of the asserted developments will occur tomorrow.,2017-11-02,2017-11-03,relative,43,disclosure,2,2017-11,vague,
+usa,Q claims that the U.S. president will send an important message via Twitter before departing on Friday.,2017-11-02,2017-11-03,relative,44,other,0,2017-11,vague,U.S. president
+,Q claims that a major false-flag attack will occur today.,2017-11-02,2017-11-02,relative,47,attack,0,2017-11,vague,
+,"Q claims that a major, unspecified event referred to as “the Storm” is imminent or underway.",2017-11-02,,relative,55,other,0,2017-11,vague,
+twitter,"Q claims that social media platforms, potentially including the U.S. president's Twitter account, will be shut down or subjected to mass censorship to prevent the spread of information.",2017-11-02,,none,59,other,0,2017-11,vague,social media platforms; U.S. president's Twitter account
+twitter,Q claims that Twitter and other social media platforms will experience periodic outages due to infiltration.,2017-11-02,,none,61,other,0,2017-11,vague,Twitter; other social media platforms
+,"Q claims that, if /pol/ and the internet are taken down, Q and its supporters will be ready to respond.",2017-11-02,,none,63,other,0,2017-11,vague,/pol/; Q and Q's supporters
+,"Q suggests that the lights may go out, implying a possible future blackout or loss of power and claiming that Q-aligned actors would remain in control.",2017-11-02,,none,64,other,0,2017-11,vague,
+trump,"Q claims that the president will imminently depart, potentially prompting further posts.",2017-11-02,,relative,65,other,0,2017-11,vague,POTUS
+cia,Q claims that a leak or ongoing action at CIA headquarters in Langley will provide verification of the alleged attack ahead of schedule.,2017-11-02,,none,66,disclosure,0,2017-11,vague,CIA
+,Q claims that information about the referenced events will be leaked.,2017-11-03,,none,67,disclosure,0,2017-11,vague,
+,Q claims that people will soon understand the meaning behind “Alice & Wonderland.”,2017-11-04,,relative,74,disclosure,0,2017-11,vague,
+trump,Q claims that the world will be substantially different by the time the U.S. president returns from his trip.,2017-11-05,,relative,75,other,0,2017-11,vague,POTUS
+,Q claims that the information represented by these clues will eventually result in disclosures described as the biggest in history.,2017-11-05,,relative,76,disclosure,0,2017-11,vague,
+,Q claims that the meaning behind “Alice & Wonderland” will soon become understood or be revealed.,2017-11-05,,relative,78,disclosure,0,2017-11,vague,
+,"Q claims that unspecified events are about to occur or be disclosed, as allegedly referenced by the signatures.",2017-11-05,,relative,87,other,0,2017-11,vague,
+eu; saudi_arabia; usa,"Q claims that whatever event or development occurred in Saudi Arabia will also occur in the United States, Asia, and the European Union.",2017-11-05,,none,95,other,0,2017-11,vague,Saudi Arabia; United States; Asia; European Union
+,Q suggests that an unspecified event will occur within 10 days.,2017-11-05,,relative,97,other,0,2017-11,vague,
+,"Q indicates that a publication or post associated with “TP” (apparently the President) will occur on November 6, 2017.",2017-11-05,2017-11-06,explicit,101,other,0,2017-11,vague,the President
+,Q claims that the /pol/ platform will likely be shut down.,2017-11-05,,none,112,other,0,2017-11,vague,/pol/
+,Q claims that additional false-flag events are imminent.,2017-11-05,,relative,112,attack,1,2017-11,vague,
+,Q claims that the elections scheduled for Tuesday will no longer matter at this stage.,2017-11-05,2017-11-07,explicit,112,election,2,2017-11,vague,
+,"Q claims that operations are underway and operators are active, implying that a future real-world operation or action will occur.",2017-11-06,,none,122,other,0,2017-11,vague,
+,Q claims that the inner families of the alleged New World Order triangle will collapse.,2017-11-11,,none,140,other,0,2017-11,vague,Inner TRI families; New World Order
+,Q claims that the situation will continue to deteriorate.,2017-11-11,,none,141,other,0,2017-11,vague,
+,Q claims that the information or clues that have been released will soon form a complete picture.,2017-11-11,,relative,141,disclosure,1,2017-11,vague,
+,Q claims that this emerging picture will cause people worldwide to become aware of what is being revealed.,2017-11-11,,none,141,disclosure,2,2017-11,vague,the world
+,"Q suggests that, at some unspecified future time, people will understand that an unnamed group had planned another mass-extinction event.",2017-11-14,,none,154,disclosure,0,2017-11,vague,
+,Q claims that a witness will appear publicly.,2017-11-20,2017-11-21,relative,163,other,0,2017-11,vague,an unnamed witness
+twitter,"Q claims that Twitter will implement a new tracking, cookies, or spyware-related policy effective around mid-December.",2017-11-20,,relative,166,other,0,2017-11,specific,Twitter
+secret_service; trump,Q presents as a possible outcome that the Secret Service will advise the president to stop using Twitter because of the new policy and associated security risks.,2017-11-20,,relative,166,other,1,2017-11,specific,United States Secret Service; POTUS
+trump; twitter,Q presents as a possible outcome that Twitter will silence or restrict the president because of its new policy.,2017-11-20,,relative,166,other,2,2017-11,specific,Twitter; POTUS
+trump; twitter,Q claims that POTUS will refuse to be silenced on Twitter.,2017-11-20,,none,166,other,3,2017-11,specific,POTUS; Twitter
+,Q claims that a forthcoming “Red October” signal or event has not yet occurred and will occur in the future.,2017-11-20,,none,168,other,0,2017-11,vague,
+,Q claims that efforts to silence or suppress the discussion will worsen in the future.,2017-11-20,,none,174,other,0,2017-11,vague,
+,Q claims that unnamed actors’ reliance on symbolism will lead to their downfall.,2017-11-21,,none,184,other,0,2017-11,vague,
+,Q claims that the people who openly use the referenced owl/Y symbolism will ultimately be brought down because of their reliance on that symbolism.,2017-11-21,,none,189,other,0,2017-11,vague,
+,Q claims that social-media platforms will promote a conspiracy theory and establish new rules enabling censorship or bans.,2017-11-21,,none,189,other,1,2017-11,vague,social-media platforms
+usa,Q claims that the leadership of the United States will change.,2017-11-25,,none,228,other,0,2017-11,specific,United States
+saudi_arabia,Q claims that the leadership of Saudi Arabia will change.,2017-11-25,,none,228,other,1,2017-11,specific,Saudi Arabia
+germany,Q claims that the leadership of Germany will change.,2017-11-25,,none,228,other,2,2017-11,specific,Germany
+pakistan,Q suggests that the leadership of Pakistan may change.,2017-11-25,,none,228,other,3,2017-11,specific,Pakistan
+,Q claims that revelations will be disclosed very soon.,2017-11-30,,relative,236,disclosure,0,2017-11,vague,
+white_house,Q claims that the person responsible for posting insider photographs from the White House party will be investigated.,2017-12-01,,none,241,other,0,2017-12,vague,White House
+,Q claims that an unspecified event or development will occur tomorrow.,2017-12-01,2017-12-02,relative,242,other,0,2017-12,vague,
+,Q implies that an unspecified significant event will occur or be revealed next week.,2017-12-01,2017-12-10,relative,243,other,0,2017-12,vague,
+obama,"Q claims that Hussein will release or appear in a red-related video response on December 27, 2017.",2017-12-05,2017-12-27,explicit,262,disclosure,0,2017-12,specific,Hussein
+obama,"Q claims that Hussein will be in Asia on December 28, 2017.",2017-12-05,2017-12-28,explicit,262,other,1,2017-12,specific,Hussein; Asia
+,"Q claims that a person or entity referred to as “Johnny” will depart or be removed, and that this will be reflected in an updated list and news coverage.",2017-12-05,,none,265,other,0,2017-12,vague,
+,Q claims that AL will experience an unspecified forthcoming event or departure.,2017-12-06,,none,277,other,0,2017-12,vague,AL
+,Q suggests that a military strike package codenamed “Bravo-dT450-1” will occur.,2017-12-07,,none,286,military,0,2017-12,vague,
+uk,Q claims that the New England Patriots will win the fourth quarter.,2017-12-09,,none,322,other,0,2017-12,specific,New England Patriots
+,"Q claims that a false-flag event or events will occur, accompanied by significant consequential developments.",2017-12-10,,none,326,attack,0,2017-12,vague,
+,Q claims that light will overcome darkness in the future.,2017-12-11,,none,328,other,0,2017-12,vague,
+,Q claims that light will expose darkness in the future.,2017-12-11,,none,328,disclosure,1,2017-12,vague,
+,Q claims that light will reveal darkness in the future.,2017-12-11,,none,328,disclosure,2,2017-12,vague,
+,Q claims that light will defeat darkness in the future.,2017-12-11,,none,328,other,3,2017-12,vague,
+usa,"Q claims that another government shutdown will occur, potentially causing people to lose access to government services.",2017-12-11,,none,332,economic,0,2017-12,vague,U.S. government
+,Q claims that unspecified watchers will erase the archive from the web.,2017-12-14,,none,345,other,0,2017-12,vague,unspecified watchers
+,Q claims that within 24 hours the trip code will be restored or Q will depart.,2017-12-14,2017-12-16,relative,353,other,0,2017-12,vague,Q
+,Q claims that an unspecified real-world event will occur when a 10-day countdown ends.,2017-12-18,2017-12-29,relative,370,other,0,2017-12,vague,
+,Q claims that an unspecified action will be taken to flush out an unnamed enemy.,2017-12-19,,none,381,other,0,2017-12,vague,
+,"Q claims that a significant impending event or development is near, without specifying what it will be.",2017-12-19,,relative,387,other,0,2017-12,vague,
+,"Q claims that, within the next few months, board owners, moderators, and other supporters will receive a personalized message on multiple platforms recognizing their contributions.",2017-12-19,,relative,393,other,0,2017-12,specific,Board owners; Moderators; Other supporters
+,Q claims that CEO resignations will occur or become notable.,2017-12-21,,none,413,resignation,0,2017-12,vague,
+usa,Q claims that the President of the United States will directly verify information in order to authorize its dissemination.,2017-12-21,,none,414,disclosure,0,2017-12,specific,President of the United States
+congress; usa,Q claims that a future operation will be staged to prevent or remove political figures or officeholders.,2017-12-22,,none,436,other,0,2017-12,vague,U.S. president; U.S. Congress
+usa,Q claims that the U.S. space program or space capabilities will return in a major way.,2017-12-23,,none,443,other,0,2017-12,vague,United States; U.S. space program
+,Q signals that an unspecified real-world event will occur within five minutes.,2017-12-23,,relative,454,other,0,2017-12,vague,
+,"Q claims that a significant, unspecified real-world event will occur next week.",2018-01-05,2018-01-14,relative,464,other,0,2018-01,vague,
+,Q claims that significant events will occur in the future.,2018-01-05,,none,468,other,0,2018-01,vague,
+,Q claims that Matlock will become public.,2018-01-06,,none,474,disclosure,0,2018-01,specific,Matlock
+,Q claims that the seventh floor will no longer exist or remain in operation.,2018-01-07,,none,494,other,0,2018-01,vague,
+,"Q suggests that a non-nuclear military action described as “FIRE & FURY” will occur or be initiated on April 10, 2020, involving unspecified states and commands.",2018-01-07,2020-04-10,explicit,500,military,0,2018-01,vague,unspecified states; unspecified commands
+,Q claims that the information or correlations discussed will eventually become public.,2018-01-07,,none,507,disclosure,0,2018-01,vague,
+trump,Q claims that POTUS will alter his tweets to appear at one-minute intervals and add the letter “Q.”,2018-01-07,,none,510,other,0,2018-01,specific,Donald Trump; POTUS
+,"Q claims that a significant, unspecified event will occur during the upcoming week.",2018-01-09,2018-01-14,relative,518,other,0,2018-01,vague,
+,Q claims that targeted killings will occur.,2018-01-13,,none,525,death,0,2018-01,vague,
+,Q claims that a power outage will occur.,2018-01-13,,none,525,other,1,2018-01,vague,
+,Q claims that a flight or flights will be rerouted.,2018-01-13,,none,525,other,2,2018-01,vague,
+,Q claims that a flight or flights will return after being rerouted.,2018-01-13,,none,525,other,3,2018-01,vague,
+,Q claims that people will be running or fleeing.,2018-01-13,,none,525,other,4,2018-01,vague,
+dorsey,"Q claims that Jack Dorsey will face an impending departure, removal, or death, signaled by the phrase “Goodbye @Jack.”",2018-01-13,,none,525,other,5,2018-01,vague,Jack Dorsey
+,Q claims that the public will awaken politically or otherwise become aware of a purported truth.,2018-01-13,,none,525,other,6,2018-01,vague,the public
+,Q claims that the message will spread widely.,2018-01-13,,none,525,other,7,2018-01,vague,
+,Q claims that a larger event or development will become public the following week.,2018-01-13,2018-01-21,relative,527,disclosure,0,2018-01,vague,
+msm,Q claims that mainstream media activity or coverage will occur on a large scale.,2018-01-13,,none,529,other,0,2018-01,vague,Mainstream media
+,Q claims that a push related to a conspiracy narrative is forthcoming.,2018-01-13,,none,529,other,1,2018-01,vague,
+,"Q claims that a bigger, unspecified event or development will occur next week.",2018-01-13,2018-01-21,relative,530,other,0,2018-01,vague,
+trump,Q claims that the president may retweet one or more of the referenced memes or posts.,2018-01-14,,none,532,other,0,2018-01,specific,Donald Trump
+,Q claims that an unspecified significant event is imminent or nearer than people think.,2018-01-14,,relative,535,other,0,2018-01,vague,
+,Q claims that an unspecified “axis of evil” will respond with retaliatory fire or military action.,2018-01-14,,none,537,military,0,2018-01,vague,the “axis of evil”
+,Q claims that major false-flag attacks or operations will be attempted during the current week.,2018-01-14,2018-01-20,relative,538,attack,0,2018-01,vague,
+democratic_party,Q claims that the Democratic Party will come to an end.,2018-01-18,,none,540,other,0,2018-01,vague,Democratic Party
+,Q claims that public outrage will lead to many so-called “untouchables” being jailed.,2018-01-18,,none,540,arrest,1,2018-01,vague,So-called “untouchables”
+,Q claims that a cure will spread worldwide.,2018-01-19,,none,556,other,0,2018-01,vague,
+usa,Q implies that the State of the Union address or related event will occur at a strategically significant time.,2018-01-19,,none,558,other,0,2018-01,vague,United States government
+schumer,Q claims that CS will live in fear from this point onward.,2018-01-19,,none,565,other,0,2018-01,vague,CS
+,Q claims that the referenced memo will be released after final clearance is completed.,2018-01-19,,none,566,disclosure,0,2018-01,specific,
+,Q claims that the forthcoming memo will shift the public narrative.,2018-01-21,,none,570,disclosure,0,2018-01,vague,
+sessions,Q claims that the memo will reinstate Jeff Sessions’s authority over matters related to Russia and other investigations.,2018-01-21,,explicit,570,disclosure,1,2018-01,specific,Jeff Sessions
+,Q claims that the memo will demonstrate collusion at the highest levels.,2018-01-21,,none,570,disclosure,2,2018-01,specific,
+obama; trump; usa,Q claims that the memo will demonstrate that the Obama administration weaponized the intelligence community to ensure Donald Trump’s defeat and maintain an insurance plan.,2018-01-21,,none,570,disclosure,3,2018-01,specific,Barack Obama; Donald Trump; United States intelligence community
+usa,Q claims that the memo will demonstrate that knowingly false intelligence was provided to FISA judges to obtain warrants.,2018-01-21,,none,570,disclosure,4,2018-01,specific,FISA judges; United States intelligence community
+,"Q claims that a significant, globally consequential event will occur within the coming week.",2018-01-21,2018-01-28,relative,572,other,0,2018-01,vague,
+,"Q claims that a forthcoming flood of emails, videos, audio recordings, photographs, and similar materials will be disclosed.",2018-01-21,,none,576,disclosure,0,2018-01,vague,
+nsa,Q claims that the NSA will accidentally release all of the referenced materials.,2018-01-21,,none,576,disclosure,1,2018-01,specific,NSA
+,Q claims that the current week will bring revealing developments or disclosures.,2018-01-21,2018-01-28,relative,577,disclosure,0,2018-01,vague,
+,Q claims that significant events or developments will occur during 2018.,2018-01-21,2018-12-31,explicit,577,other,1,2018-01,vague,
+,Q claims that a future disclosure or revelation will identify people who are genuinely on the team and distinguish them from pretenders.,2018-01-23,,none,596,disclosure,0,2018-01,vague,
+,Q claims that the destruction or disappearance of the final posts will immediately reveal the truth to the public.,2018-01-23,,relative,596,disclosure,1,2018-01,vague,
+russia; snowden,Q claims that an unspecified event involving Edward Snowden and/or Russia is imminent.,2018-01-23,,relative,601,other,0,2018-01,vague,Edward Snowden; Russia
+trump,Q endorses or highlights the claim that Donald Trump will no longer be president within about a year.,2018-01-25,2019-01-25,relative,609,other,0,2018-01,specific,Donald Trump
+usa; white_house,Q claims that the referenced executive order will become critically important in the coming weeks.,2018-01-26,,relative,610,other,0,2018-01,vague,White House; U.S. government
+,"Q claims that the entity represented by “[19]” would cease to exist immediately if selected individuals were harmed, in the context of a nuclear standoff.",2018-01-27,,none,618,other,0,2018-01,vague,[19]
+,"Q claims that a significant unspecified event will occur imminently, such that nobody will sleep that night.",2018-01-27,2018-01-27,relative,621,other,0,2018-01,vague,
+,"Q implies that an unspecified person or persons will die by murder, prompting mourning.",2018-01-27,,none,635,death,0,2018-01,vague,
+,"Q implies that an unspecified person or persons will die from a heart attack, prompting mourning.",2018-01-27,,none,635,death,1,2018-01,vague,
+msm; mueller,Q claims that every mainstream media news station will promote the same counter-narrative involving alleged Mueller-related fake news and Russia.,2018-01-27,2018-02-04,relative,636,disclosure,0,2018-01,specific,mainstream media news stations; Robert Mueller
+,"Q claims that, if the counter-narrative fails, a major false-flag event will be carried out to force a shift in public discourse.",2018-01-27,,none,636,attack,1,2018-01,vague,
+,Q claims that the referenced film or raw material will go viral.,2018-02-05,,none,672,other,0,2018-02,vague,
+,Q suggests that an unspecified event will occur next week.,2018-02-09,2018-02-18,relative,700,other,0,2018-02,vague,
+,Q claims that the addressee will cease to exist.,2018-02-10,,none,712,death,0,2018-02,vague,
+,"Q claims that future news coverage will highlight the significance of the phrase or subject ""The Hunt For,"" implying a forthcoming news development related to it.",2018-02-11,,none,724,disclosure,0,2018-02,vague,
+,Q claims that the unnamed addressee will cease to exist.,2018-02-11,,none,729,death,0,2018-02,vague,
+,Q claims that an unspecified person or entity will cease to exist.,2018-02-11,,none,731,death,0,2018-02,vague,
+,"Q claims that information will be released before an alleged cover-up, causing the public to become informed.",2018-02-11,,none,735,disclosure,0,2018-02,vague,The public
+,Q claims that a collapse will follow once the public is informed.,2018-02-11,,none,735,other,1,2018-02,vague,
+,"Q claims that another prison will be prepared, apparently to accommodate additional detainees beyond Guantánamo Bay's capacity.",2018-02-11,,none,740,other,0,2018-02,vague,Guantánamo Bay detention camp
+,Q claims that a response to the attack on big pharmaceutical companies will occur in the future.,2018-02-12,,none,750,other,0,2018-02,vague,big pharmaceutical companies
+eu,Q warns that a possible car attack may occur in the European Union within 72 hours.,2018-02-14,,relative,757,attack,0,2018-02,vague,European Union
+,"Q claims that news will report new drugs coming out, possibly related to flu or another unspecified condition.",2018-02-15,,none,762,other,0,2018-02,vague,
+obama,Q claims that a response to the alleged mailing of a letter containing white powder to Hussein will occur.,2018-02-15,,none,763,other,0,2018-02,vague,Hussein
+,"Q claims that a future event or development involving water should be watched for, without specifying what will occur.",2018-02-15,,none,765,other,0,2018-02,vague,
+,Q claims that unidentified opponents will try to discredit Q or the movement.,2018-02-15,,none,768,other,0,2018-02,vague,
+,Q claims that the QAnon discussion board will be spread and discussed across all platforms in the coming months.,2018-02-15,,relative,768,other,1,2018-02,specific,QAnon discussion board
+,Q claims that arrests will occur.,2018-02-15,,none,778,arrest,0,2018-02,vague,
+dhs; doj; white_house,"Q claims that the DHS will submit a final report to the White House, DOJ, and other state and local agencies outlining its election-interference findings as early as March 2018.",2018-02-16,,explicit,780,disclosure,0,2018-02,specific,Department of Homeland Security; White House; Department of Justice
+,Q claims that the pyramid will collapse.,2018-02-16,,none,783,other,0,2018-02,vague,
+uk,"Q warns that a possible car attack may occur in London, UK, within 24 hours.",2018-02-16,2018-02-18,relative,785,attack,0,2018-02,specific,United Kingdom; London
+,"Q claims that an unspecified future event will occur soon, signaled by the activation of a clock.",2018-02-18,,relative,793,other,0,2018-02,vague,
+china; crowdstrike; hrc,"Q claims that the referenced information concerning China, intelligence sales, Hillary Clinton's email server, missing emails, and CrowdStrike will be made public soon.",2018-02-22,,relative,809,disclosure,0,2018-02,vague,China; Hillary Clinton; CrowdStrike
+,Q claims that brute-force efforts will be necessary to access or decipher the referenced embedded string.,2018-02-23,,none,823,other,0,2018-02,vague,
+,Q cryptically signals that a future event or action associated with the phrase “bring the thunder” and the coded references will occur.,2018-03-03,,none,829,other,0,2018-03,vague,
+,Q suggests that the news will report or reveal an unspecified significant event during the coming week.,2018-03-03,,relative,832,other,0,2018-03,vague,
+,Q implies that a noteworthy or relevant event will appear in the news during the current week.,2018-03-04,,relative,839,other,0,2018-03,vague,
+china; snowden,"Q claims that Edward Snowden will cross a border into China, apparently within a three-unit countdown.",2018-03-05,,relative,845,other,0,2018-03,vague,Edward Snowden; China
+,Q claims that a significant future event related to water will occur or be revealed.,2018-03-06,,none,847,other,0,2018-03,vague,
+hrc,"Q claims that a damaging disclosure or video concerning Hillary Clinton will be released, implied by the reference to a forthcoming “drop” and “raw vid.”",2018-03-06,,none,854,disclosure,0,2018-03,vague,Hillary Clinton
+,"Q claims that a memorable parade involving military personnel will take place on November 11, 2018.",2018-03-06,2018-11-11,explicit,856,military,0,2018-03,vague,military personnel
+china; russia,Q claims that reports concerning Russia and China will become available or be released.,2018-03-06,,none,859,disclosure,0,2018-03,vague,Russia; China
+,Q claims that a final future event or revelation will be extraordinary or 'magical.',2018-03-06,,none,860,other,0,2018-03,vague,
+,"Q claims that a significant news event will occur during the week of March 5–11, 2018.",2018-03-06,2018-03-11,relative,865,other,0,2018-03,vague,
+msm,Q claims that the mainstream media will fail in its efforts.,2018-03-06,,none,868,other,0,2018-03,vague,mainstream media
+trump,"Q claims that President Donald Trump will soon initiate or reveal a significant real-world event or development, described metaphorically as setting the stage.",2018-03-08,,relative,879,other,0,2018-03,vague,Donald Trump
+iran,Q claims that Iran will be the next focus of an unspecified action or event.,2018-03-08,,none,888,military,0,2018-03,vague,Iran
+,"Q claims that an unspecified matter will be resolved by November 11, 2018.",2018-03-08,2018-11-11,explicit,890,other,0,2018-03,vague,
+,"Q claims that, after Q's unspecified actions are completed, a man will claim Kenyan citizenship in order to escape.",2018-03-09,,none,894,other,0,2018-03,vague,
+,Q claims that some platforms will collapse under the weight of their own illegal activities.,2018-03-09,,none,896,other,0,2018-03,vague,Online platforms
+,Q claims that sell-offs and liquidity events will occur.,2018-03-09,,none,897,economic,0,2018-03,vague,
+,"Q claims that significant events will occur during March, characterized as “madness.”",2018-03-10,2018-03-31,explicit,911,other,0,2018-03,vague,
+five_eyes,Q claims that the Five Eyes intelligence-sharing alliance will cease to exist or otherwise no longer continue for much longer.,2018-03-10,,none,912,other,0,2018-03,specific,Five Eyes
+israel,"Q claims that Israel will be addressed or dealt with last, for a specific undisclosed reason.",2018-03-10,,none,916,other,0,2018-03,vague,Israel
+,Q claims that more unspecified information or developments will be forthcoming.,2018-03-10,,none,934,other,0,2018-03,vague,
+,"Q claims that future events will clarify the relevance of continued Nazi ideology and the meaning of “N,” in connection with a subgroup.",2018-03-10,,none,938,other,0,2018-03,vague,
+,Q claims that the public will soon learn previously undisclosed information.,2018-03-15,,relative,951,disclosure,0,2018-03,vague,the public
+,"Q claims that a future time will come when the people they identify as traitors will be unable to walk down the street, implying widespread public hostility or consequences against them.",2018-03-17,,none,953,other,0,2018-03,vague,People identified by Q as traitors
+,Q claims that an unspecified significant event or events will occur next week.,2018-03-17,2018-03-25,relative,954,other,0,2018-03,vague,
+,Q claims that the people coordinating efforts against Q will fail.,2018-03-21,,none,958,other,0,2018-03,vague,
+twitter,Q claims that an unspecified forthcoming event or disclosure involving Twitter will occur soon.,2018-03-28,,relative,964,disclosure,0,2018-03,vague,Twitter
+google,Q claims that an unspecified forthcoming event or disclosure involving Google will occur soon.,2018-03-28,,relative,964,disclosure,1,2018-03,vague,Google
+amazon,Q claims that an unspecified forthcoming event or disclosure involving Amazon will occur soon.,2018-03-28,,relative,964,disclosure,2,2018-03,vague,Amazon
+,Q claims that an unspecified forthcoming event or disclosure involving Microsoft will occur soon.,2018-03-28,,relative,964,disclosure,3,2018-03,vague,Microsoft
+iran,Q claims that Iran will be the next focus of the sequence of events being described.,2018-03-28,,none,964,other,4,2018-03,vague,Iran
+usa,Q claims that approximately $700 billion will be allocated to the military during 2018.,2018-03-28,2018-12-31,explicit,964,economic,5,2018-03,specific,United States military
+,Q claims that many people will be buried before they are exposed.,2018-03-28,,none,967,death,0,2018-03,vague,
+,Q claims that justice will be served to everyone playing the game.,2018-03-28,,none,969,legal_ruling,0,2018-03,vague,
+white_house,Q claims that a “house cleaning” at or involving the White House will be completed within 30 unspecified time units.,2018-03-28,,relative,970,other,0,2018-03,vague,White House
+msm,Q claims that mainstream media will not highlight the unraveling of events from the bottom to the top.,2018-03-28,,none,972,other,0,2018-03,vague,Mainstream media
+,Q claims that a new board will be created.,2018-03-28,,none,973,other,0,2018-03,vague,
+,Q claims that /GA/ will change.,2018-03-28,,none,981,other,0,2018-03,vague,/GA/
+,Q claims that a notification will be issued.,2018-03-28,,none,981,disclosure,1,2018-03,vague,
+,"Q claims that arrests will occur, apparently during April 2018.",2018-04-02,,explicit,988,arrest,0,2018-04,vague,
+,Q claims that sealed materials will be unsealed or otherwise exposed.,2018-04-02,,none,988,declassification,1,2018-04,vague,
+,Q claims that military action will begin.,2018-04-02,,none,988,military,2,2018-04,vague,
+,Q claims that the streets will not be safe for unspecified people or groups referred to as “them.”,2018-04-03,,none,993,other,0,2018-04,vague,
+,"Q claims that a military- or border-related event, possibly involving a MOAB, will occur within one day.",2018-04-03,2018-04-05,relative,995,military,0,2018-04,vague,
+vatican_church,Q claims that the Pope will experience a terrible period during May 2018.,2018-04-03,,explicit,997,other,0,2018-04,vague,Pope
+vatican_church,Q claims that people who supported the Pope will be exposed or publicly revealed.,2018-04-03,,none,997,disclosure,1,2018-04,vague,Pope's supporters
+,"Q claims that an unspecified event will occur in April, suggested by the phrase “April showers.”",2018-04-03,2018-04-30,explicit,1007,other,0,2018-04,vague,
+usa,Q implies that the President of the United States will eventually become subject to a criminal investigation.,2018-04-04,,none,1008,other,0,2018-04,specific,President of the United States
+usa,Q claims that troops will be deployed to the border.,2018-04-04,,none,1009,military,0,2018-04,specific,U.S. troops
+germany; uk,Q suggests that an unspecified event involving the United Kingdom and Germany will occur within five days.,2018-04-04,2018-04-09,relative,1010,other,0,2018-04,vague,United Kingdom; Germany
+zuckerberg,Q claims that Mark Zuckerberg will step down as chairman.,2018-04-04,,none,1014,resignation,0,2018-04,specific,Mark Zuckerberg
+usa; zuckerberg,Q claims that Mark Zuckerberg will leave the United States or be outside the United States.,2018-04-04,,none,1014,other,1,2018-04,vague,Mark Zuckerberg; United States
+,Q claims that the “Hussein timeline” will become relevant in the near future.,2018-04-04,,relative,1016,other,0,2018-04,vague,
+,"Q claims that an unnamed Arizona public official will not seek another term, purportedly citing his health.",2018-04-04,,none,1022,election,0,2018-04,vague,Unnamed Arizona public official
+,Q claims that an unspecified event involving Jared Cohen will occur soon.,2018-04-04,,relative,1024,other,0,2018-04,vague,Jared Cohen
+usa,Q claims that the U.S. president will remain awake throughout the night.,2018-04-04,2018-04-06,relative,1027,other,0,2018-04,vague,U.S. president
+,Q suggests that a newsworthy event will occur or be reported the following day.,2018-04-04,2018-04-06,relative,1027,other,1,2018-04,vague,
+usa,Q claims that a Navy ship will crash.,2018-04-06,,none,1032,military,0,2018-04,vague,U.S. Navy
+obama,Q claims that photographs will emerge showing Hussein (Barack Obama) holding an AK-47 while wearing tribal attire.,2018-04-06,,none,1043,disclosure,0,2018-04,specific,Hussein (Barack Obama)
+,Q claims that the internet will be shut down.,2018-04-06,,none,1043,other,1,2018-04,vague,Internet
+google,Q claims that Google will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,0,2018-04,vague,Google
+youtube,Q claims that YouTube will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,1,2018-04,vague,YouTube
+facebook,Q claims that Facebook will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,2,2018-04,vague,Facebook
+twitter,Q claims that Twitter will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,3,2018-04,vague,Twitter
+,Q claims that Yahoo will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,4,2018-04,vague,Yahoo
+,Q claims that Bing will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,5,2018-04,vague,Bing
+,Q claims that Instagram will be shut down or otherwise disabled.,2018-04-06,,none,1044,other,6,2018-04,vague,Instagram
+,Q claims that internet access will be paused or disrupted.,2018-04-06,,none,1044,other,7,2018-04,vague,Internet
+china,"Q suggests that an unspecified event will occur in Chongqing, China, on Tuesday.",2018-04-07,2018-04-10,explicit,1067,other,0,2018-04,vague,China; Chongqing
+,"Q claims that a war-related event will occur in April, suggested through the phrase “April showers” following “WAR.”",2018-04-07,2018-04-30,explicit,1070,military,0,2018-04,vague,
+,Q claims that a relevant real-world event will occur soon.,2018-04-07,,relative,1071,other,0,2018-04,vague,
+,Q claims that the public will learn information about why California is “special.”,2018-04-07,,none,1072,disclosure,0,2018-04,vague,California
+facebook,Q claims that additional information or disclosures about Facebook will be released in the future.,2018-04-09,,none,1102,disclosure,0,2018-04,vague,Facebook
+syria; usa,Q claims that a troop withdrawal or reduction of military forces will still occur.,2018-04-09,,none,1106,military,0,2018-04,vague,U.S. military; Syria
+usa,"Q claims that a military operation or mobilization will begin, apparently in connection with the border wall.",2018-04-09,,none,1111,military,0,2018-04,vague,U.S. military
+china; usa; xi_jinping,"Q claims that Xi Jinping or China will confirm a reduction in tariffs on automobile imports, possibly involving Ford and the United States.",2018-04-10,2018-04-10,explicit,1120,economic,0,2018-04,specific,Xi Jinping; China; Ford; United States
+,"Q claims that actions taken today, described as a raid, will be met with swift action.",2018-04-10,2018-04-10,explicit,1121,other,0,2018-04,vague,
+bolton,Q claims that John Bolton will remove unnamed people from their positions as part of a personnel purge.,2018-04-10,,none,1123,other,0,2018-04,vague,John Bolton
+snowden,Q suggests that Edward Snowden will testify and then release or disclose information.,2018-04-10,,none,1124,disclosure,0,2018-04,specific,Edward Snowden
+iran,Q suggests that Iran will be the next target or arena of a significant military action.,2018-04-14,,none,1146,military,0,2018-04,vague,Iran
+,Q claims that an unspecified event will occur soon.,2018-04-15,,relative,1147,other,0,2018-04,vague,
+ginsburg; supreme_court,Q claims that Ruth Bader Ginsburg will step down from the Supreme Court.,2018-04-15,,none,1149,resignation,0,2018-04,specific,Ruth Bader Ginsburg; Supreme Court
+ginsburg; lynch,"Q claims that Loretta Lynch will step up to a new position, apparently in connection with Ginsburg’s departure.",2018-04-15,,none,1149,other,1,2018-04,vague,Loretta Lynch; Ruth Bader Ginsburg
+,Q claims that a new attorney general will be appointed.,2018-04-15,,none,1149,resignation,2,2018-04,vague,Attorney General
+,Q claims that an unspecified real-world event will occur soon.,2018-04-17,,relative,1169,other,0,2018-04,vague,
+,Q claims that a plane crash will occur as a forthcoming major event.,2018-04-17,,none,1174,other,0,2018-04,vague,
+,Q claims that the people referred to in the drop will lose everything.,2018-04-19,,none,1184,other,0,2018-04,vague,
+,"Q claims that future events concerning an intelligence trip to North Korea will cause serious consequences for unnamed people, possibly including officials losing their positions.",2018-04-19,,none,1186,other,0,2018-04,vague,Mike Pompeo
+pelosi,Q claims that statements concerning intelligence and buying or selling will politically ruin her.,2018-04-19,,none,1187,other,0,2018-04,vague,Nancy Pelosi
+,Q indicates that an unspecified event or development is expected in June 2018.,2018-04-19,,relative,1195,other,0,2018-04,vague,
+usa,Q claims that the upcoming midterm elections will be safe.,2018-04-19,,none,1197,election,0,2018-04,vague,United States midterm elections
+,Q claims that an unspecified opportunity or access to information will be opened or made available later.,2018-04-20,,relative,1209,other,0,2018-04,vague,
+sessions,"Q claims that Jeff Sessions will make a public announcement concerning leaks, potentially involving journalism ethics and standards.",2018-04-21,,none,1219,disclosure,0,2018-04,specific,Jeff Sessions
+dnc,Q claims that the Democratic National Committee will initiate a pre-planned lawsuit the day after the drop.,2018-04-21,2018-04-22,relative,1226,other,0,2018-04,specific,Democratic National Committee
+,Q claims that a major event referred to as “MOAB” will occur or unfold the following week.,2018-04-21,2018-04-29,relative,1231,military,0,2018-04,vague,
+,"Q claims that a major event or revelation, referred to as “MOAB,” is forthcoming.",2018-04-21,,none,1232,other,0,2018-04,vague,
+haiti,Q claims that an unspecified group will lose support among Black voters after information about Haiti is revealed.,2018-04-21,,none,1233,election,0,2018-04,vague,Black voters; unspecified political group; Haiti
+usa,"Q claims that America will be unified again by November 11, 2018.",2018-04-21,2018-11-11,explicit,1234,other,0,2018-04,vague,United States
+iran,Q claims that Iran will be the next country or subject of a forthcoming major development or action.,2018-04-23,,none,1241,other,0,2018-04,vague,Iran
+iran; usa,Q claims that the United States will not agree to continue the Iran nuclear deal in its current form.,2018-04-23,,none,1241,other,1,2018-04,specific,United States; Iran
+red_cross,"Q claims that unspecified events will occur imminently and that the Red Cross references, smuggling, and related funding are relevant to them.",2018-04-23,,relative,1249,other,0,2018-04,vague,Red Cross
+doj; fbi; planned_parenthood,Q suggests that an unspecified event related to the linked Planned Parenthood fetal-tissue investigation will occur soon.,2018-04-23,,relative,1253,other,0,2018-04,vague,Planned Parenthood; Federal Bureau of Investigation; U.S. Department of Justice
+iran,Q claims that Iran will be the next target of an unspecified future action or event.,2018-04-24,,none,1254,military,0,2018-04,vague,Iran
+,Q claims that a state dinner will take place tonight.,2018-04-24,2018-04-24,relative,1260,other,0,2018-04,vague,
+,Q claims that there will be more outcry.,2018-04-25,,none,1261,other,0,2018-04,vague,
+house,Q claims that the Speaker of the House will resign.,2018-04-25,,none,1266,resignation,0,2018-04,specific,Speaker of the House
+,Q suggests that multiple resignations will occur.,2018-04-25,,none,1266,resignation,1,2018-04,vague,
+,Q suggests that an unspecified event or action will be completed within 30 units of time.,2018-04-27,,relative,1280,other,0,2018-04,vague,
+mueller; special_counsel,Q cites or endorses the claim that the Mueller probe will reach a resolution within a week or two.,2018-04-27,,relative,1287,other,0,2018-04,specific,Robert Mueller; Special Counsel investigation
+,Q suggests that an unspecified event or development will occur next week.,2018-04-27,2018-05-06,relative,1289,other,0,2018-04,vague,
+,Q claims that a significant unspecified event will occur in the week ahead.,2018-04-28,2018-05-06,relative,1294,other,0,2018-04,vague,
+,"Q claims that the next phase of the movement will bring justice, implying that unspecified legal or accountability outcomes will occur.",2018-04-29,,none,1296,legal_ruling,0,2018-04,vague,
+iran; syria; uranium_one; usa,"Q claims that the President of the United States will declassify information concerning Syria, Iran, and the Uranium One connection.",2018-04-30,,none,1307,declassification,0,2018-04,specific,President of the United States; Syria; Iran; Uranium One
+,Q indicates that an unnamed Republican senator will depart soon.,2018-05-08,,relative,1319,resignation,0,2018-05,vague,
+trump,Q claims that pending sanctions and military actions will provide the president with more ammunition or intelligence against unidentified adversaries.,2018-05-08,,none,1320,military,0,2018-05,vague,POTUS
+,"Q claims that, at some future time, unspecified people will no longer be safe walking down the street.",2018-05-10,,none,1328,attack,0,2018-05,vague,
+obama,Q claims that information will become public revealing or further demonstrating criminal and corrupt abuses of power allegedly undertaken by the Hussein administration with domestic and foreign dignitaries.,2018-05-10,,none,1332,disclosure,0,2018-05,vague,Hussein administration; Domestic dignitaries; Foreign dignitaries
+,Q claims that attacks against them or their movement will become more severe.,2018-05-11,,none,1339,attack,0,2018-05,vague,
+,"Q claims that a significant, unspecified event will occur during the coming week.",2018-05-12,2018-05-20,relative,1341,other,0,2018-05,vague,
+,"Q claims that attacks, apparently referring to misinformation or related attacks on the movement, will become worse.",2018-05-12,,none,1343,attack,0,2018-05,vague,
+usa,Q suggests that an unspecified event will occur in connection with the delayed federal judicial nominations within approximately 30 days.,2018-05-13,,relative,1355,other,0,2018-05,vague,U.S. federal judicial nominations
+,Q claims that attacks will intensify.,2018-05-14,,none,1361,attack,0,2018-05,vague,
+,Q claims that unspecified pain or hardship will occur in the future.,2018-05-14,,none,1367,other,0,2018-05,vague,
+,Q claims that people or groups with an agenda to silence others will fail.,2018-05-16,,none,1384,other,0,2018-05,vague,
+,Q claims that one or more bombs are about to explode in a coordinated incident.,2018-05-17,,relative,1395,attack,0,2018-05,vague,bomb disposal team
+,Q implies that unspecified bad news concerning unnamed opponents will soon become public.,2018-05-17,,relative,1400,other,0,2018-05,vague,
+doj; fbi,Q claims that the Justice Department inspector general will report that the FBI and DOJ broke the law during the Clinton email investigation.,2018-05-17,,none,1401,disclosure,0,2018-05,specific,U.S. Department of Justice; Federal Bureau of Investigation; DOJ Inspector General
+,Q claims that attacks will worsen in the future.,2018-05-20,,none,1424,attack,0,2018-05,vague,
+msm,"Q claims that the mainstream media, allegedly cooperating with foreign and domestic actors, will launch a broad attack.",2018-05-20,,none,1425,attack,0,2018-05,vague,mainstream media; foreign actors; domestic actors
+dni,"Q claims that highly classified information will eventually be revealed to House investigators, the DNI, and the public.",2018-05-21,,none,1433,disclosure,0,2018-05,vague,House investigators; Director of National Intelligence; the public
+rosenstein,"Q claims that, after the information is revealed, Rod Rosenstein will have to recuse himself or be forcibly removed from office.",2018-05-21,,none,1433,other,1,2018-05,specific,Rod Rosenstein
+,Q claims that attacks will occur.,2018-05-22,,none,1438,attack,0,2018-05,vague,
+,Q claims that attacks from all sides will intensify.,2018-05-22,,none,1438,attack,1,2018-05,vague,
+,"Q implies that a notable, unspecified event or series of events will occur during the coming week.",2018-06-03,2018-06-10,relative,1440,other,0,2018-06,vague,
+,"Q implies that a notable, unspecified real-world event will occur within the coming week.",2018-06-10,2018-06-17,relative,1441,other,0,2018-06,vague,
+,Q claims that many more suicides will occur.,2018-06-11,,none,1445,death,0,2018-06,vague,
+,Q claims that the forthcoming release of the relevant report or documents will contain many redactions.,2018-06-11,,none,1453,disclosure,0,2018-06,vague,
+uk,"Q suggests that an unspecified real-world event will occur in London, possibly at or involving Hyde Park, in December 2018.",2018-06-11,,explicit,1456,other,0,2018-06,vague,London; Hyde Park
+assange,Q claims that information or evidence concerning a server will bring down the implicated political establishment.,2018-06-11,,none,1462,disclosure,0,2018-06,vague,SR/JA/WL lawsuit
+doj; fbi; russia,"Q claims that information will be released, after which the Russia investigation will end and the origins of the narrative will be shown to be corrupt.",2018-06-12,,none,1470,disclosure,0,2018-06,specific,Russia investigation; DOJ; FBI
+huber,"Q claims that John Huber is coming, implying his future involvement or arrival in the matter.",2018-06-12,,none,1470,other,1,2018-06,vague,John Huber
+rosenstein,Q claims that upcoming interviews concerning Rod Rosenstein will air on Laura Ingraham’s program.,2018-06-12,,none,1482,other,0,2018-06,vague,Rod Rosenstein; Laura Ingraham
+house,"Q implies that an unspecified event involving the House is about to happen, and that some House members must remain uninvolved or unaffected by it.",2018-06-12,,relative,1484,other,0,2018-06,vague,U.S. House of Representatives
+,Q claims that readers will soon need access to a collection of proofs or links.,2018-06-12,,relative,1486,other,0,2018-06,vague,
+,Q claims that a bigger push or escalation of the attacks and attempts described will occur.,2018-06-13,,none,1489,other,0,2018-06,vague,
+,Q claims that quiet attempts to suppress or shut down the movement will become public and more conspicuous.,2018-06-13,,none,1489,disclosure,1,2018-06,vague,
+,Q claims that the appointment of a second special counsel would fail.,2018-06-13,,none,1492,other,0,2018-06,vague,
+trump; usa,"Q claims that the president will declassify all relevant materials, prompted by optics and efforts to portray the Russia investigation as a political attack or cover-up.",2018-06-13,,none,1494,declassification,0,2018-06,specific,Donald Trump; U.S. government
+doj; fbi,"Q claims that the modified redacted IG report (the RR version) will be released on June 15, 2018.",2018-06-13,2018-06-15,explicit,1496,disclosure,0,2018-06,specific,FBI; U.S. Department of Justice
+rosenstein,Q claims that the central figure identified as “RR” will face immediate impeachment if the alleged conflict is brought to light.,2018-06-13,,relative,1496,other,1,2018-06,vague,RR
+rosenstein,Q claims that the central figure identified as “RR” will resign if the alleged conflict is brought to light.,2018-06-13,,relative,1496,resignation,2,2018-06,vague,RR
+rosenstein,Q claims that the central figure identified as “RR” will be terminated if the alleged conflict is brought to light.,2018-06-13,,relative,1496,other,3,2018-06,vague,RR
+rosenstein,Q claims that the central figure identified as “RR” will recuse themself if the alleged conflict is brought to light.,2018-06-13,,relative,1496,other,4,2018-06,vague,RR
+,Q claims that proof or evidentiary material concerning Marine One will be released or shown in the future.,2018-06-15,,none,1507,disclosure,0,2018-06,vague,Marine One
+us_military,Q claims that material showing the interior of Air Force One will be released or shown after the Marine One material.,2018-06-15,,none,1507,disclosure,1,2018-06,vague,Air Force One
+trump,Q suggests that the referenced speech will help get the sitting president elected or reelected.,2018-06-15,,none,1510,election,0,2018-06,vague,Donald Trump
+,Q claims that news will be unlocked or released.,2018-06-16,,none,1514,disclosure,0,2018-06,vague,
+huber; sessions,Q claims that Jeff Sessions will reveal information related to John Huber at the beginning of November 2018.,2018-06-16,2018-11-01,explicit,1516,disclosure,0,2018-06,specific,Jeff Sessions; John Huber
+hrc; huber,"Q claims that Hillary Clinton will panic and request a deal in December 2018, in connection with John Huber.",2018-06-16,2018-12-01,explicit,1516,other,1,2018-06,specific,Hillary Clinton; John Huber
+,Q claims that an unspecified event connected to the referenced Saturday Night Live sketch will occur soon.,2018-06-17,,relative,1532,other,0,2018-06,vague,Saturday Night Live
+lisa_page,Q claims that an entity or material identified as “LP” will be released after an unspecified event or condition.,2018-06-18,,none,1538,disclosure,0,2018-06,vague,LP
+strzok,Q claims that an entity or material identified as “PS” will be released after an unspecified event or condition.,2018-06-18,,none,1538,disclosure,1,2018-06,vague,PS
+,Q claims that an unspecified future event will occur next.,2018-06-18,2018-06-24,relative,1540,other,0,2018-06,vague,
+,Q claims that a full moon will occur in the future.,2018-06-18,,none,1543,other,0,2018-06,vague,
+,Q claims that previously undiscovered stars will be learned about or discovered.,2018-06-18,,none,1543,disclosure,1,2018-06,vague,
+,Q claims that missions will move forward.,2018-06-18,,none,1543,other,2,2018-06,vague,
+doj; huber,"Q states that U.S. Attorney John Huber will provide recommendations about whether additional matters should be opened, whether existing investigations need more resources, or whether a special counsel should be appointed.",2018-06-18,,none,1553,other,0,2018-06,specific,John Huber; U.S. Department of Justice
+doj; huber,Q suggests that criminal charges may be filed before the midterm elections in connection with the investigations described.,2018-06-18,,relative,1553,indictment,1,2018-06,vague,U.S. Department of Justice; John Huber
+iran,Q claims that Iran will be the next focus of an unspecified future development or event.,2018-06-20,,none,1570,other,0,2018-06,vague,Iran
+,"Q claims that, at some future point, the streets will no longer be safe for the people it describes as its opponents.",2018-06-20,,relative,1574,attack,0,2018-06,vague,
+,Q claims that a shift in tactics involving attacks will occur.,2018-06-20,,none,1581,attack,0,2018-06,vague,
+,Q claims that proof or evidence will soon become important in the real world.,2018-06-21,,relative,1584,other,0,2018-06,vague,
+,Q claims that organized riots are planned to occur.,2018-06-21,,none,1585,attack,0,2018-06,vague,
+,Q claims that attacks will intensify.,2018-06-21,,none,1585,attack,1,2018-06,vague,
+,Q claims that a rescheduled question-and-answer session or related update will occur in the future.,2018-06-22,,none,1587,other,0,2018-06,vague,
+rosenstein,Q claims that Rod Rosenstein will either comply with document demands or face impeachment and removal if he refuses.,2018-06-26,,none,1589,other,0,2018-06,specific,Rod Rosenstein
+doj,Q suggests that DOJ texts and other communications—including messages and call records—will soon be publicly disclosed.,2018-06-26,,relative,1589,disclosure,1,2018-06,specific,U.S. Department of Justice
+congress,Q claims that the opposing actors will lose once the documents are supplied to and reviewed by congressional leaders and the public.,2018-06-26,,none,1589,other,2,2018-06,vague,U.S. Congress
+,"Q claims that a significant or consequential event will occur during a long night, following an error.",2018-06-26,,none,1590,other,0,2018-06,vague,
+ms13,"Q claims that a server will unlock or provide access to information concerning “SR,” and that MS-13 phones will be unlocked to access command-and-control information.",2018-06-26,,relative,1591,other,0,2018-06,vague,SR; MS-13
+,"Q claims that July 2018 will be the month when the world discovers the truth, implying a significant disclosure of previously hidden information.",2018-06-26,2018-07-31,explicit,1595,disclosure,0,2018-06,vague,
+,Q claims that the unnamed opponents will fail.,2018-06-27,,none,1602,other,0,2018-06,vague,
+,Q claims that information will be declassified.,2018-06-27,,none,1602,declassification,1,2018-06,vague,
+,Q claims that information will be publicly revealed or exposed.,2018-06-27,,none,1602,disclosure,2,2018-06,vague,
+russia; usa,Q claims that attempts to frame Russia and the U.S. president will soon be exposed.,2018-06-27,,relative,1603,disclosure,0,2018-06,specific,Russia; U.S. president
+,Q claims that the world will unite in support of the stated cause.,2018-06-27,,none,1603,other,1,2018-06,vague,Countries of the world
+,"Q claims that people pushing forced immigration will be exposed, including the reasons behind their actions.",2018-06-27,,none,1603,disclosure,2,2018-06,specific,Forced immigration proponents
+iran,Q claims that Iranian military generals will eventually act in accordance with the will of the Iranian people against the installed regime.,2018-06-27,,relative,1604,military,0,2018-06,vague,Iranian military generals; Iranian people; Iranian government
+trump,Q conveys the claim that investigators will uncover more information about the alleged effort to remove the president and will then take action based on those findings.,2018-06-27,,none,1605,disclosure,0,2018-06,vague,investigators; Donald Trump
+,Q conveys the claim that the witness referred to as “Mr. S” will need legal counsel.,2018-06-27,,none,1605,other,1,2018-06,vague,Mr. S
+ginsburg; supreme_court,"Q claims that Ruth Bader Ginsburg will be the next Supreme Court justice to leave office, presumably through resignation or retirement.",2018-06-27,,none,1607,resignation,0,2018-06,vague,Ruth Bader Ginsburg; U.S. Supreme Court
+gowdy,Q presents Trey Gowdy's stated intention that he will not seek reelection to Congress or any other elected office and will instead return to the justice system.,2018-06-27,,none,1608,other,0,2018-06,specific,Trey Gowdy
+putin; uranium_one,Q claims that information involving Putin and/or the Uranium One matter will emerge after the summit.,2018-06-28,,relative,1626,disclosure,0,2018-06,vague,Vladimir Putin; Uranium One
+msm,Q claims that unnamed people will attempt to apply pressure through mainstream media in order to cancel the summit.,2018-06-28,,relative,1626,other,1,2018-06,vague,Mainstream media
+trump,"Q claims that coordinated violent attacks will escalate from small incidents to larger attacks, potentially being staged to implicate supporters of the president.",2018-06-28,,none,1641,attack,0,2018-06,vague,pro-POTUS supporters
+,Q claims that sex- and child-related arrests will occur and receive news coverage.,2018-06-29,,none,1644,arrest,0,2018-06,vague,
+,Q claims that resignations will occur as those in power lose control.,2018-06-29,,none,1644,resignation,1,2018-06,vague,
+,Q claims that people will be lost or otherwise suffer serious consequences.,2018-06-29,,none,1644,other,2,2018-06,vague,
+,Q claims that people will become terrified.,2018-06-29,,none,1644,other,3,2018-06,vague,
+,Q claims that people will reject the forthcoming developments or revelations.,2018-06-29,,none,1644,other,4,2018-06,vague,
+,Q claims that people will need to be guided through the forthcoming developments or revelations.,2018-06-29,,none,1644,other,5,2018-06,vague,
+senate; supreme_court,Q claims that a vote to confirm a Supreme Court nominee will occur in the future.,2018-06-30,,relative,1649,other,0,2018-06,vague,U.S. Supreme Court; U.S. Senate
+gowdy,Q claims that the person or entity who will be involved in the anticipated event will not be Trey Gowdy.,2018-06-30,,none,1650,other,0,2018-06,vague,Trey Gowdy
+,Q claims that sealed indictments will be filed.,2018-07-01,,none,1660,indictment,0,2018-07,vague,
+,Q claims that CEOs will resign.,2018-07-01,,none,1660,resignation,1,2018-07,vague,CEOs
+senate,Q claims that senators will resign.,2018-07-01,,none,1660,resignation,2,2018-07,vague,U.S. Senate
+congress,Q claims that members of Congress will resign.,2018-07-01,,none,1660,resignation,3,2018-07,vague,U.S. Congress
+fbi,Q claims that senior FBI officials will be terminated.,2018-07-01,,none,1660,other,4,2018-07,vague,FBI
+doj,Q claims that senior DOJ officials will be terminated.,2018-07-01,,none,1660,other,5,2018-07,vague,U.S. Department of Justice
+,Q claims that the media will enter a blackout.,2018-07-01,,none,1660,other,6,2018-07,vague,Media
+usa,Q claims that the U.S. midterm elections will be postponed or otherwise punted.,2018-07-01,,none,1660,election,7,2018-07,vague,U.S. midterm elections
+,Q claims that events or actions will be coordinated tomorrow.,2018-07-03,2018-07-04,relative,1670,other,0,2018-07,vague,
+,Q claims that unnamed actors will attempt to divide people or groups but will fail.,2018-07-03,,none,1676,other,0,2018-07,vague,
+,Q claims that something significant will be released or occur imminently.,2018-07-24,,relative,1687,other,0,2018-07,vague,
+,Q claims that positive or favorable events will occur in the future.,2018-07-25,,none,1696,other,0,2018-07,vague,
+,Q claims that an unspecified significant development will become known soon.,2018-07-25,,relative,1705,other,0,2018-07,vague,
+,Q claims that an unnamed person will return to the headlines.,2018-07-25,,none,1706,other,0,2018-07,vague,
+,Q claims that a significant unspecified event or disclosure is imminent.,2018-07-25,,relative,1709,other,0,2018-07,vague,
+,Q claims that FISA-related material will immediately confirm illegal acts by the people who signed it.,2018-07-28,,relative,1745,disclosure,0,2018-07,specific,FISA signers
+obama,Q claims that FISA-related material will immediately confirm that the Obama administration’s alleged spying campaign to influence an election was based on false information.,2018-07-28,,relative,1745,disclosure,1,2018-07,specific,Barack Obama; FISA
+usa,Q claims that FISA-related revelations will bring down the political establishment or cause a major institutional collapse.,2018-07-28,,none,1745,other,2,2018-07,vague,FISA; U.S. political establishment
+trump; usa,"Q claims that the president will declassify key portions of FISA-related material showing that the dossier was used as the primary source to obtain high-level intelligence surveillance of a Republican presidential opponent and, after the election, of the president.",2018-07-28,,none,1745,declassification,3,2018-07,specific,Donald Trump; U.S. president; FISA; U.S. intelligence agencies
+,Q claims that something significant will be released or occur imminently.,2018-07-29,,relative,1748,other,0,2018-07,vague,
+,"Q claims that attorney Michael Avenatti's website will be relevant to an imminent development, though the specific event is not identified.",2018-07-29,,none,1752,other,0,2018-07,vague,Michael Avenatti
+,Q claims that California will experience major fires.,2018-07-30,,none,1762,other,0,2018-07,specific,California
+usa,Q claims that California will declare a state of emergency and request billions of dollars in federal assistance.,2018-07-30,,none,1762,economic,1,2018-07,specific,California; U.S. federal government
+,Q claims that the world is about to undergo a significant change.,2018-07-31,,relative,1778,other,0,2018-07,vague,
+,Q claims that a significant unspecified event or disclosure is about to occur.,2018-08-02,,relative,1802,other,0,2018-08,vague,
+,Q claims that a threat will occur at a future rally.,2018-08-03,,none,1805,attack,0,2018-08,vague,
+,Q claims that evidence related to FISA will be disclosed or released in the future.,2018-08-05,,none,1816,disclosure,0,2018-08,vague,FISA
+,Q claims that attacks by the media and affiliated actors will intensify.,2018-08-06,,none,1822,attack,0,2018-08,vague,Fake news media; covert alternative media affiliates
+democratic_party; house,"Q suggests that Democrats will achieve a ""blue wave"" and win a majority in the House of Representatives in the upcoming midterm elections.",2018-08-07,,none,1825,election,0,2018-08,specific,Democratic Party; U.S. House of Representatives
+doj; fbi,Q claims that the FBI and Department of Justice will rapidly expand their investigation or related activities.,2018-08-09,,none,1828,other,0,2018-08,vague,Federal Bureau of Investigation; U.S. Department of Justice
+,"Q claims that, at some unspecified future time, certain unnamed people will no longer be safe walking down the street.",2018-08-10,,none,1832,attack,0,2018-08,vague,
+nunes,Q claims that Devin Nunes will be removed from office.,2018-08-10,,none,1833,election,0,2018-08,specific,Devin Nunes
+,Q implies that a significant explosive or disruptive event will occur next week.,2018-08-11,2018-08-19,relative,1846,other,0,2018-08,vague,
+,"Q claims that, if midterm-election strength appears insufficient for recovery, the relevant actors will initiate a war, potentially by causing missiles to be fired accidentally.",2018-08-11,,none,1847,military,0,2018-08,vague,
+,Q claims that an unnamed Republican senator will depart soon.,2018-08-11,,relative,1850,resignation,0,2018-08,vague,
+,Q claims that unspecified actors will take action.,2018-08-14,,none,1865,other,0,2018-08,vague,
+,Q claims that a man who follows Q will be caught.,2018-08-14,,none,1872,arrest,0,2018-08,vague,
+vatican_church,Q claims that many similar reports about abuse by trusted religious figures will surface around the world.,2018-08-15,,none,1879,disclosure,0,2018-08,vague,Catholic Church
+,"Q claims that the hunters—implied to be people involved in child trafficking—will become the hunted, implying that they will be pursued or exposed.",2018-08-15,,none,1881,other,0,2018-08,vague,
+hrc,Q claims that the people implicated in the referenced email matter will go to jail.,2018-08-15,,none,1888,other,0,2018-08,vague,Paul Combetta; people implicated in the Hillary Clinton email matter
+,"Q claims that a future development will affect or alter the timeline, and suggests that the budget will be significant to watch.",2018-08-16,,none,1925,economic,0,2018-08,vague,
+fbi,Q indicates that personnel in the FBI will be removed.,2018-08-19,,none,1927,resignation,0,2018-08,vague,FBI
+doj,Q indicates that personnel in the Department of Justice will be removed.,2018-08-19,,none,1927,resignation,1,2018-08,vague,Department of Justice
+cia,Q indicates that personnel in the CIA will be removed.,2018-08-19,,none,1927,resignation,2,2018-08,vague,CIA
+state_dept,Q indicates that personnel in the State Department will be removed.,2018-08-19,,none,1927,resignation,3,2018-08,vague,State Department
+white_house,Q indicates that White House personnel will be removed.,2018-08-19,,none,1927,resignation,4,2018-08,vague,White House
+house,Q indicates that personnel in the House of Representatives will be removed.,2018-08-19,,none,1927,resignation,5,2018-08,vague,U.S. House of Representatives
+senate,Q indicates that personnel in the Senate will be removed.,2018-08-19,,none,1927,resignation,6,2018-08,vague,U.S. Senate
+,"Q indicates that chairs, CEOs, and vice presidents will be removed.",2018-08-19,,none,1927,resignation,7,2018-08,vague,Corporate chairs; Chief executive officers; Vice presidents
+usa,Q indicates that the United States will adopt a military budget described as the largest in its history.,2018-08-19,,none,1927,military,8,2018-08,vague,United States
+usa,Q indicates that there will be an increased military presence around the president.,2018-08-19,,none,1927,military,9,2018-08,vague,U.S. military; President of the United States
+dhs,"Q endorses the stated plan that the Secretary of Defense, consulting with the Secretary of Homeland Security, will issue guidance concerning the disposition of military criminal charges.",2018-08-19,2019-01-01,explicit,1927,other,10,2018-08,specific,Secretary of Defense; Secretary of Homeland Security
+,Q claims that a significant or consequential event will occur during the upcoming week.,2018-08-26,,relative,1933,other,0,2018-08,vague,
+iran,Q claims that something extraordinary will soon happen in Iran.,2018-08-28,,relative,1943,other,0,2018-08,vague,Iran
+google,Q claims that Google will be subjected to government regulation.,2018-08-28,,none,1947,other,0,2018-08,specific,Google
+,Q claims that comparing history books about World War I and World War II from different publication periods will lead to the discovery of something alarming.,2018-08-28,,none,1957,disclosure,0,2018-08,vague,
+,Q claims that those responsible will eventually be dead and/or suffering.,2018-08-28,,none,1966,death,0,2018-08,vague,
+,Q suggests that a significant statement or announcement will be forthcoming.,2018-08-29,,none,1977,disclosure,0,2018-08,vague,
+msm,"Q claims that the fake news media will carry out another large, coordinated wave of attacks, designated wave number three.",2018-08-30,,none,1998,attack,0,2018-08,vague,fake news media
+usa,Q claims that everything stated by the President will eventually be made public.,2018-08-30,,none,2005,disclosure,0,2018-08,vague,President of the United States
+,Q claims that a big rally will take place tonight.,2018-08-30,2018-08-30,relative,2008,other,0,2018-08,vague,
+,Q claims that a significant unspecified event will occur soon.,2018-08-30,,relative,2023,other,0,2018-08,vague,
+,Q claims that they will take action to protect the vote.,2018-08-31,,none,2038,election,0,2018-08,vague,Q
+,Q implies that a person or entity identified as “ES” will resign.,2018-09-02,,none,2063,resignation,0,2018-09,vague,ES
+house; senate,Q claims that both chambers of the U.S. Congress—the House and Senate—will be in session.,2018-09-03,2018-09-04,relative,2067,other,0,2018-09,specific,U.S. House of Representatives; U.S. Senate
+bruce_ohr; doj,Q claims that Bruce Ohr’s employment termination is imminent.,2018-09-03,,none,2070,resignation,0,2018-09,specific,Bruce Ohr; U.S. Department of Justice
+,"Q claims that a notable, memorable event will occur within approximately one week.",2018-09-04,2018-09-09,relative,2084,other,0,2018-09,vague,
+,Q claims that attacks against Q will intensify.,2018-09-05,,none,2089,attack,0,2018-09,vague,Q
+obama,Q claims that information will become public revealing further evidence of criminal and corrupt abuses of power by the Obama administration in cooperation with domestic and foreign dignitaries.,2018-09-05,,none,2096,disclosure,0,2018-09,vague,Obama administration; Domestic dignitaries; Foreign dignitaries
+,"Q claims that a significant real-world event or development will occur during the evening of September 6, 2018.",2018-09-06,2018-09-06,relative,2098,other,0,2018-09,vague,
+,Q claims that the referenced people's attempts will fail.,2018-09-07,,none,2106,other,0,2018-09,vague,
+rosenstein,"Q claims that Rod Rosenstein will leave his position, likely through resignation or removal.",2018-09-07,,none,2109,resignation,0,2018-09,specific,Rod Rosenstein
+mccabe,Q claims that the public will learn in September 2018 that a grand jury has been empaneled concerning Andrew McCabe.,2018-09-07,2018-09-30,explicit,2113,disclosure,0,2018-09,specific,Andrew McCabe; grand jury
+,Q claims that the true evidence relevant to the court testimony will soon come to light publicly.,2018-09-07,,relative,2117,disclosure,0,2018-09,vague,
+rosenstein,"Q claims that declassification of the FISA materials will initiate Rod Rosenstein's resignation, recusal, and/or removal.",2018-09-10,,none,2129,resignation,0,2018-09,specific,Rod Rosenstein
+,Q claims that declassification of the FISA materials will lead to all of the signers being under investigation.,2018-09-10,,none,2129,other,1,2018-09,specific,Signers of the FISA materials
+fisc; obama; usa,Q claims that full declassification of the FISA materials will demonstrate that the U.S. government under Barack Obama knowingly presented false evidence to the FISC to obtain intelligence surveillance authority over a presidential candidate for the purpose of influencing the 2016 election and retaining political power.,2018-09-10,,none,2129,declassification,2,2018-09,specific,U.S. government; Barack Obama; FISC
+white_house,Q claims that full release of the FISA materials will bring down the White House.,2018-09-10,,none,2129,other,3,2018-09,vague,White House
+,Q claims that an unspecified event will occur or become apparent very soon.,2018-09-11,,relative,2153,other,0,2018-09,vague,
+facebook; twitter,"Q claims that Twitter and Facebook will next take forceful action against QAnon, apparently through censorship or content moderation.",2018-09-12,,relative,2166,other,0,2018-09,vague,Twitter; Facebook
+,Q claims that another wave of attacks will occur.,2018-09-12,,none,2168,attack,0,2018-09,vague,
+eightchan,"Q claims that other sites tracking Q-related communications will collapse, leaving 8chan as the main communications hub.",2018-09-12,,none,2168,other,1,2018-09,specific,8chan
+nunes,Q claims that the content match concerning the Nunes interview will become increasingly apparent in the future.,2018-09-16,,none,2182,other,0,2018-09,vague,Devin Nunes
+pentagon,Q claims that the Department of Defense will conduct a test on Thursday to confirm the free flow of direct communications.,2018-09-16,2018-09-20,explicit,2187,other,0,2018-09,specific,U.S. Department of Defense
+,Q claims that Judge K will be confirmed regardless of the sexual-assault allegations and any pullback of the declassification effort.,2018-09-17,,none,2200,other,0,2018-09,specific,Judge K
+huber; sessions,"Q claims that Jeff Sessions and John Huber will hold meetings over the upcoming weekend, implying developments connected to those meetings.",2018-09-17,2018-09-23,relative,2204,other,0,2018-09,specific,Jeff Sessions; John Huber
+sessions; supreme_court,"Q claims that Attorney General Jeff Sessions will send a classified letter to two Supreme Court justices concerning recusal, unrecusal, and conflicts based on unclassified material.",2018-09-17,2018-09-18,relative,2205,disclosure,0,2018-09,specific,Jeff Sessions; Supreme Court of the United States
+rosenstein,"Q claims that Rod Rosenstein will leave his position, presumably by being fired or otherwise departing.",2018-09-18,,none,2210,resignation,0,2018-09,specific,Rod Rosenstein
+,Q claims that people announcing campaigns for the 2020 presidency will face sexual-misconduct allegations used to facilitate or justify their resignations.,2018-09-19,,none,2219,resignation,0,2018-09,vague,2020 presidential candidates
+,Q claims that public visibility of the matter will change soon.,2018-09-20,,relative,2232,disclosure,0,2018-09,vague,
+,Q implies that an unspecified concerning event may occur tonight and urges people attending to remain vigilant.,2018-09-20,2018-09-20,relative,2239,other,0,2018-09,vague,
+australia; uk; usa,Q claims that the contents or implications of the FISA matter will become known publicly worldwide.,2018-09-21,,none,2248,disclosure,0,2018-09,vague,United States; United Kingdom; Australia
+republican_party,Q claims that Republicans will achieve a major electoral gain—a “red wave”—in the November 2018 elections.,2018-09-21,,relative,2250,election,0,2018-09,specific,Republican Party
+rosenstein,Q claims that Rod Rosenstein will leave his position or otherwise depart from government service.,2018-09-21,,none,2252,resignation,0,2018-09,vague,Rod Rosenstein
+usa,Q claims that attempts to bait the U.S. president into firing someone and thereby crossing a red line will fail.,2018-09-21,,none,2253,other,0,2018-09,vague,U.S. president
+usa,Q claims that declassification of FISA materials will have a major destabilizing impact.,2018-09-21,,none,2253,declassification,1,2018-09,specific,U.S. government; FISA
+usa,Q claims that FISA-related developments will bring down the existing political establishment or government structure.,2018-09-21,,none,2261,other,0,2018-09,vague,FISA; U.S. government
+,"Q claims that an unspecified real-world event is about to occur, expressed through the phrase “music is about to stop.”",2018-09-21,,relative,2262,other,0,2018-09,vague,
+,"Q claims that, in the coming weeks, one central location outside 8chan will become important for former /GA/ Redditors.",2018-09-21,2018-10-14,relative,2270,other,0,2018-09,vague,former /GA/ Redditors
+fbi; usa,Q claims that FISA-related materials will be declassified and that the information will become public.,2018-09-23,,none,2273,declassification,0,2018-09,specific,U.S. government; FBI; Foreign Intelligence Surveillance Court
+rosenstein,Q claims that the release of the FISA materials will force Rod Rosenstein to resign or be terminated.,2018-09-23,,none,2273,resignation,1,2018-09,specific,Rod Rosenstein
+,"Q forecasts an impending week characterized by a major, unspecified crisis or upheaval.",2018-09-23,,relative,2273,other,2,2018-09,vague,
+supreme_court,Q claims that one or more Supreme Court justices will receive full-time security details.,2018-09-27,,none,2283,other,0,2018-09,specific,Supreme Court justices
+senate,Q claims that Justice K (Brett Kavanaugh) will be confirmed.,2018-09-27,,none,2286,legal_ruling,0,2018-09,specific,Brett Kavanaugh; U.S. Senate
+doj; rosenstein,Q claims that Rod Rosenstein will leave his position.,2018-09-27,,none,2286,resignation,1,2018-09,specific,Rod Rosenstein; U.S. Department of Justice
+,Q signals that classified information will be declassified or released.,2018-09-27,,none,2286,declassification,2,2018-09,vague,
+usa,Q signals that a presidential emergency-alert test will occur.,2018-09-27,,none,2286,other,3,2018-09,specific,U.S. President; U.S. federal government
+congress,"Q claims that, if their side takes control in the November 2018 midterm elections, it will impeach Justice K.",2018-09-28,2018-11-30,explicit,2296,other,0,2018-09,specific,Justice K; the U.S. Congress
+facebook; google; twitter,Q claims that Google and Facebook will follow Twitter in censoring content deemed threatening to their survival or to an election.,2018-09-29,,none,2298,other,0,2018-09,specific,Google; Facebook; Twitter
+trump; twitter,Q predicts an attempt to impose a communications blackout involving the president's Twitter account.,2018-09-29,,none,2298,other,1,2018-09,vague,Donald Trump; Twitter
+senate,Q claims that Brett Kavanaugh will be confirmed as a justice.,2018-09-30,,none,2300,legal_ruling,0,2018-09,specific,Brett Kavanaugh; U.S. Senate
+doj; rosenstein,Q claims that Rod Rosenstein will leave his position as deputy attorney general.,2018-09-30,,none,2300,resignation,1,2018-09,specific,Rod Rosenstein; U.S. Department of Justice
+,Q indicates that classified information will be declassified or released.,2018-09-30,,none,2300,declassification,2,2018-09,vague,
+,"Q claims that a significant, unspecified event will occur during or in connection with October.",2018-09-30,2018-10-31,explicit,2301,other,0,2018-09,vague,
+,Q claims that people will eventually learn something about what they have witnessed and be shocked by it.,2018-10-01,,none,2305,disclosure,0,2018-10,vague,
+,"Q claims that a vote will take place during the week of October 1, 2018.",2018-10-01,2018-10-07,relative,2307,other,0,2018-10,vague,
+sessions,"Q claims that an event involving Jeff Sessions, related to documents, will occur tomorrow.",2018-10-03,2018-10-05,relative,2326,disclosure,0,2018-10,vague,Jeff Sessions
+senate,Q claims that the confirmation of Justice K will occur over the weekend.,2018-10-03,2018-10-07,relative,2326,other,1,2018-10,specific,Brett Kavanaugh; U.S. Senate
+rosenstein,"Q claims that an unspecified event involving Rod Rosenstein will occur the following week, and indicates that it will concern the probe rather than an update.",2018-10-03,2018-10-14,relative,2326,other,2,2018-10,vague,Rod Rosenstein
+fbi; mueller; usa,Q implies that documents or information concerning the alleged Russia-hacking narrative and the construction of the Mueller investigation will be declassified or publicly released.,2018-10-04,,none,2332,declassification,0,2018-10,vague,U.S. government; FBI; Robert Mueller
+,Q claims that the media assets will be removed.,2018-10-04,,none,2337,other,0,2018-10,vague,media assets
+,Q claims that Justice K will be impeached.,2018-10-06,,none,2358,other,0,2018-10,specific,Justice K
+,Q suggests that an unspecified significant event or development will occur during the following week.,2018-10-07,2018-10-14,relative,2362,other,0,2018-10,vague,
+trump,Q claims that POTUS will not be induced to fire someone.,2018-10-08,,none,2367,other,0,2018-10,vague,POTUS
+democratic_party; senate,"Q claims that Democrats will pursue impeachment of Supreme Court Justice Brett Kavanaugh, contingent on taking control of the Senate.",2018-10-08,,none,2368,other,0,2018-10,specific,Democratic Party; Brett Kavanaugh; U.S. Senate
+house; rosenstein,Q claims that Rod Rosenstein will testify before the U.S. House as the next development.,2018-10-08,,relative,2369,other,0,2018-10,specific,Rod Rosenstein; U.S. House of Representatives
+,Q claims that an announcement will be made that night concerning an increase in the ethanol concentration of gasoline.,2018-10-09,2018-10-09,relative,2379,economic,0,2018-10,vague,
+bruce_ohr,Q claims that Bruce Ohr will be terminated imminently.,2018-10-09,,relative,2381,other,0,2018-10,specific,Bruce Ohr
+,Q claims that attempts to label people who challenge the prevailing narrative as racists or white supremacists will fail.,2018-11-02,,none,2386,other,0,2018-11,vague,
+putin; usa,"Q claims that the U.S. president will meet with Vladimir Putin on November 11, 2018.",2018-11-03,2018-11-11,explicit,2396,other,0,2018-11,specific,U.S. president; Vladimir Putin
+mueller,Q claims that the Mueller investigation will end.,2018-11-03,,none,2397,other,0,2018-11,vague,Robert Mueller; Mueller investigation
+house; senate,Q claims that the ongoing House and Senate investigations will be terminated around the midterm elections.,2018-11-03,2018-11-06,explicit,2397,other,1,2018-11,specific,U.S. House of Representatives; U.S. Senate
+,Q claims that the linked strategic speech will be used in the future.,2018-11-04,,none,2406,other,0,2018-11,vague,
+antifa,"Q claims that organized groups, allegedly including ANTIFA or other organizations, will conduct a coordinated push involving voter intimidation or disruption at 29 or more battleground voting locations.",2018-11-04,,none,2416,election,0,2018-11,specific,ANTIFA; other organizations
+,Q claims that uniformed and non-uniformed personnel will be stationed across the United States to safeguard the public.,2018-11-04,,none,2416,other,1,2018-11,vague,
+,"Q claims that high-priority targets will be acted against or engaged on November 5 or 6, 2018.",2018-11-05,2018-11-06,relative,2421,other,0,2018-11,vague,
+,Q claims that the political left will have no chance in the upcoming electoral contest.,2018-11-05,2018-11-06,explicit,2426,election,0,2018-11,vague,the political left
+,Q claims that a declassification will occur.,2018-11-06,,none,2429,declassification,0,2018-11,vague,
+house; senate,Q claims that oversight will shift from the House to the Senate Judiciary Committee.,2018-11-07,,none,2444,other,0,2018-11,specific,U.S. Senate; U.S. House of Representatives; Senate Judiciary Committee
+senate,Q claims that the Senate will be used as the administration’s next two-year legislative or oversight phase.,2018-11-07,,relative,2444,other,1,2018-11,vague,U.S. Senate
+usa,Q claims that a military operation or action is planned.,2018-11-07,,none,2444,military,2,2018-11,vague,U.S. military
+,Q claims that people who are currently unaware or uninformed will soon gain understanding or awareness.,2018-11-07,,relative,2450,other,0,2018-11,vague,
+whitaker,"Q claims that there will be no recusal in the matter under discussion, apparently referring to acting Attorney General Matthew Whitaker's recusal from the Russia investigation.",2018-11-07,,none,2455,other,0,2018-11,specific,Matthew Whitaker
+white_house,Q claims that the White House’s public image will remain stable during the following week.,2018-11-10,2018-11-18,relative,2468,other,0,2018-11,vague,White House
+,Q claims that people who do not preserve appearances and promote the MAGA agenda will be exposed.,2018-11-10,,none,2468,disclosure,1,2018-11,vague,
+,Q claims that news will become available or be released.,2018-11-10,,none,2475,disclosure,0,2018-11,vague,
+,Q claims that the unsealing of unspecified materials will begin.,2018-11-11,,none,2478,disclosure,0,2018-11,vague,
+,Q claims that declassification of unspecified materials will begin.,2018-11-11,,none,2478,declassification,1,2018-11,vague,
+supreme_court,Q indicates that the Supreme Court will issue rulings concerning challenges involving civil versus non-civil matters.,2018-11-11,,none,2483,legal_ruling,0,2018-11,vague,Supreme Court of the United States
+supreme_court; usa,Q indicates that the Supreme Court will issue rulings concerning appeals in USA v. [unnamed defendant].,2018-11-11,,none,2483,legal_ruling,1,2018-11,vague,Supreme Court of the United States; USA v. [unnamed defendant]
+,Q claims that something significant will occur or be released imminently.,2018-11-12,,relative,2491,other,0,2018-11,vague,
+whitaker,Q claims that attacks against Acting Attorney General Matthew Whitaker will intensify.,2018-11-20,,none,2495,attack,0,2018-11,vague,Matthew Whitaker
+,Q implies that an unspecified event or development requiring heightened vigilance will occur in December.,2018-11-25,,relative,2499,other,0,2018-11,vague,
+doj; house; usa,"Q claims that selected classified documents, including classified documents 1–4, will become public.",2018-11-25,,none,2501,disclosure,0,2018-11,specific,U.S. Department of Justice; House Committee; President of the United States
+,Q claims that an unspecified event related to the referenced whistleblower disclosure will occur on Monday.,2018-11-30,2018-12-03,explicit,2505,other,0,2018-11,vague,
+huber; sessions,Q claims that people who doubted Jeff Sessions and John Huber will soon face unspecified consequences.,2018-11-30,,relative,2506,other,0,2018-11,vague,Jeff Sessions; John Huber
+mueller,Q claims that Robert Mueller will face criminal charges related to Uranium One (U1).,2018-11-30,,none,2512,indictment,0,2018-11,specific,Robert Mueller
+bush_family,Q claims that a state funeral for George H. W. Bush will occur the following week.,2018-12-01,2018-12-09,relative,2522,other,0,2018-12,specific,George H. W. Bush
+doj,Q suggests that an unnamed individual will soon be fired or removed from the U.S. Department of Justice.,2018-12-02,,none,2524,resignation,0,2018-12,vague,U.S. Department of Justice
+,Q claims that the world will soon undergo a change.,2018-12-02,,relative,2536,other,0,2018-12,vague,
+doj; fbi; usa,"Q claims that the public will soon learn that the DOJ, FBI, and other U.S. and foreign entities have been working behind the scenes on a major criminal investigation.",2018-12-03,,relative,2539,disclosure,0,2018-12,specific,U.S. Department of Justice; Federal Bureau of Investigation; Other U.S. and foreign entities; The public
+fbi; secret_service,"Q claims that, if the recipient chooses to change careers and apply to the Secret Service or FBI, their application will be fast-tracked.",2018-12-03,,none,2545,other,0,2018-12,vague,United States Secret Service; Federal Bureau of Investigation
+fbi; strzok,"Q claims that FBI official Peter Strzok will depart or has departed the bureau, such that no high-ranking FBI officials involved in the two investigations will remain.",2018-12-05,,none,2552,resignation,0,2018-12,specific,Peter Strzok; Federal Bureau of Investigation
+,"Q claims that, at some unspecified future point, Q will be asked a question.",2018-12-07,,none,2563,other,0,2018-12,vague,Q
+federal_reserve; usa,"Q claims that the Federal Reserve will begin a steep increase in interest rates in March 2019, allegedly with the aim of damaging the economy before the 2020 presidential election.",2018-12-10,2019-03-01,explicit,2575,economic,0,2018-12,specific,Federal Reserve; United States
+pelosi; schumer; trump; usa,Q claims that President Trump will use the U.S. military to build a wall along the U.S.-Mexico border if congressional leaders Nancy Pelosi and Chuck Schumer do not agree to border-wall funding.,2018-12-11,,none,2579,military,0,2018-12,specific,Donald Trump; U.S. military; Nancy Pelosi; Chuck Schumer
+,Q claims that information about Cardinal Pell’s suppressed case or identity will be brought into public view.,2018-12-12,,none,2590,disclosure,0,2018-12,vague,Cardinal George Pell
+clinton_family,Q claims that a public hearing involving Clinton whistleblowers will reveal explosive information.,2018-12-12,2018-12-13,explicit,2600,disclosure,0,2018-12,vague,Clinton whistleblowers
+rosenstein,Q claims that Rod Rosenstein will leave his position.,2018-12-12,,none,2601,resignation,0,2018-12,specific,Rod Rosenstein
+doj; sessions,"Q implies that Attorney General Jeff Sessions will soon assign another prosecutor outside Washington, D.C., with the same mandate and authority as the referenced prosecutor.",2018-12-12,,relative,2603,other,0,2018-12,vague,Jeff Sessions; U.S. Department of Justice
+huber,"Q claims that John Huber will bring severe negative consequences to Washington, D.C.",2018-12-12,,none,2604,other,0,2018-12,vague,"John Huber; Washington, D.C."
+,Q claims that voter fraud will not be exposed before January 2019.,2018-12-12,2019-01-01,relative,2610,disclosure,0,2018-12,vague,
+,"Q claims that a voter-ID initiative will be pushed in 2019, based on verifiable intelligence concerning fraud.",2018-12-12,,explicit,2610,other,1,2018-12,specific,
+,Q claims that elections will be safeguarded beginning in 2020 and thereafter.,2018-12-12,,explicit,2610,election,2,2018-12,vague,
+federal_reserve,Q claims that gold will destroy the Federal Reserve.,2018-12-12,,none,2619,economic,0,2018-12,vague,Federal Reserve
+senate,Q claims that the U.S. Senate will investigate matters concerning 2019.,2018-12-12,2019-12-31,explicit,2620,other,0,2018-12,specific,U.S. Senate
+,Q claims that voter fraud in California will eventually be brought to light.,2018-12-12,,none,2621,disclosure,0,2018-12,specific,California
+clinton_foundation; uranium_one,"Q claims that information concerning U1, the dossier, the Clinton Foundation, and related matters will eventually be publicly disclosed.",2018-12-19,,none,2626,disclosure,0,2018-12,vague,U1; Clinton Foundation
+,Q claims that people allegedly complicit in treasonous or traitorous acts will soon no longer hold positions of power.,2018-12-20,,relative,2630,other,0,2018-12,vague,
+democratic_party,Q claims that the Democratic Party will cease to exist after the alleged information is exposed.,2018-12-20,,none,2635,other,0,2018-12,vague,Democratic Party
+,Q endorses the claim that secret emails concerning allegations of underage sex will lead to prominent people being arrested.,2019-01-06,,none,2659,arrest,0,2019-01,vague,
+,Q claims that the option to address the matter through transparency will expire at an unspecified future point.,2019-01-06,,relative,2661,disclosure,0,2019-01,vague,
+,Q claims that attempts by unnamed individuals to block or protect themselves from the investigation will fail.,2019-01-13,,none,2672,other,0,2019-01,vague,
+,Q claims that the blockade will end and conditions will be ready to proceed.,2019-02-09,,none,2680,military,0,2019-02,vague,
+scaramucci,"Q claims that the blockade will be removed, following a model associated with Scaramucci.",2019-02-09,,none,2681,other,0,2019-02,vague,Scaramucci
+barr; doj,Q claims that William Barr will be installed as Attorney General.,2019-02-09,,none,2681,other,1,2019-02,specific,William Barr; U.S. Department of Justice
+barr; doj; whitaker,Q claims that Barr and Matthew Whitaker will review the relevant classified notes and reservations concerning declassification.,2019-02-09,,none,2681,declassification,2,2019-02,specific,William Barr; Matthew Whitaker; U.S. Department of Justice
+barr; doj; inspector_general; whitaker,Q claims that Barr and Whitaker will remove the declassification review assignment from the Office of Inspector General.,2019-02-09,,none,2681,declassification,3,2019-02,specific,William Barr; Matthew Whitaker; U.S. Department of Justice; Office of Inspector General
+barr; house,Q claims that Barr will execute the President's declassification order and provide House committee members with supplemental documentation in a classified setting.,2019-02-09,,none,2681,declassification,4,2019-02,specific,William Barr; U.S. House of Representatives
+doj; whitaker,Q claims that Matthew Whitaker will remain on the senior staff of the Department of Justice.,2019-02-09,,none,2681,other,5,2019-02,specific,Matthew Whitaker; U.S. Department of Justice
+barr; huber; inspector_general,Q claims that Barr will meet with John Huber and the Office of Inspector General.,2019-02-09,,none,2681,other,6,2019-02,specific,William Barr; John Huber; Office of Inspector General
+inspector_general,Q claims that the Office of Inspector General will issue a report.,2019-02-09,,none,2681,disclosure,7,2019-02,vague,Office of Inspector General
+barr; house; huber; whitaker,"Q claims that House Democrats will threaten to subpoena Barr and Whitaker over declassification, the special counsel report, and Huber-related matters.",2019-02-09,,none,2681,other,8,2019-02,specific,House Democrats; William Barr; Matthew Whitaker; John Huber
+house,Q claims that House Democrats will use subpoena power in connection with the referenced sequence of actions.,2019-02-09,,none,2681,other,9,2019-02,vague,House Democrats
+north_korea; usa,"Q claims that there will be a meeting with North Korea concerning a denuclearization plan or process, followed by sanctions relief and humanitarian aid.",2019-02-09,,none,2681,military,10,2019-02,specific,North Korea; United States
+australia; uk; usa,Q claims that the United Kingdom and Australia will shift their narratives concerning an alleged in-country spying campaign against the President.,2019-02-09,,none,2681,other,11,2019-02,vague,United Kingdom; Australia; U.S. President
+house; usa,Q claims that public awareness of Democratic lawmakers' actions will end the discussion over the border wall.,2019-02-09,,none,2681,other,12,2019-02,vague,House Democrats; U.S. public
+schiff,Q claims that Adam Schiff will leak classified information again.,2019-02-11,,none,2694,disclosure,0,2019-02,specific,Adam Schiff
+,"Q suggests that at some point in the future, a countdown or timer will reach exactly 0:00.00.",2019-02-12,,relative,2702,other,0,2019-02,vague,
+congress; trump; usa,Q indicates that Donald Trump will sign the border-security bill and declare a national emergency at the U.S.-Mexico border.,2019-02-14,,none,2711,other,0,2019-02,specific,Donald Trump; U.S. government; U.S. Congress
+doj,Q claims that additional departures from the U.S. Department of Justice will occur soon.,2019-02-14,,relative,2714,resignation,0,2019-02,vague,U.S. Department of Justice
+,Q suggests that an unspecified real-world event or development will occur in the coming weeks.,2019-02-14,,relative,2717,other,0,2019-02,vague,
+bill_clinton; hrc,Q claims that Bill and Hillary Clinton’s public health will begin to deteriorate rapidly.,2019-02-14,,none,2725,other,0,2019-02,specific,Bill Clinton; Hillary Clinton
+,Q claims that attempts to carry out false-flag operations may occur in order to change the public narrative.,2019-02-15,2019-02-25,relative,2726,attack,0,2019-02,vague,
+,Q claims that a multi-day news-coverage event may occur and force a pause in other news coverage.,2019-02-15,2019-02-25,relative,2726,other,1,2019-02,vague,news media
+,Q claims that the remaining identities will be revealed or become known.,2019-02-15,,none,2731,disclosure,0,2019-02,vague,
+,Q claims that additional disinformation reports will falsely state that Q said someone had died.,2019-02-15,,none,2735,other,0,2019-02,vague,
+,Q claims that attacks will dramatically intensify across all platforms.,2019-02-17,,none,2772,attack,0,2019-02,vague,online platforms
+obama,"Q claims that information demonstrating alleged criminal and corrupt abuses of power by the Obama administration, allegedly involving domestic and foreign dignitaries, will become public.",2019-02-18,,none,2789,disclosure,0,2019-02,vague,Obama administration; Domestic dignitaries; Foreign dignitaries
+,Q claims that a significant unspecified event will occur soon.,2019-02-18,,relative,2792,other,0,2019-02,vague,
+usa,"Q claims that if the selected platforms are taken down or hacked, the government will immediately classify them as public utilities and subject them to regulation or control.",2019-02-18,,relative,2793,other,0,2019-02,vague,U.S. government; selected social-media and online platforms
+,"Q claims that indictments, arrests, and declassification will generate worldwide media coverage.",2019-02-18,,none,2803,disclosure,0,2019-02,vague,
+,"Q claims that disclosures of media-related leaks, bribery, or collusion will lead to resignations.",2019-02-18,,none,2803,resignation,1,2019-02,vague,media
+,"Q claims that disclosures of media-related leaks, bribery, or collusion will be followed by criminal prosecutions.",2019-02-18,,none,2803,other,2,2019-02,vague,media
+inspector_general,"Q claims that an Inspector General report concerning treason, sedition, or subversive activities will be released.",2019-02-18,,none,2804,disclosure,0,2019-02,vague,Office of Inspector General
+,"Q claims that classified information concerning treason, sedition, or subversive activities will be declassified.",2019-02-18,,none,2804,declassification,1,2019-02,vague,
+,"Q claims that additional facts concerning treason, sedition, or subversive activities will be publicly released.",2019-02-18,,none,2804,disclosure,2,2019-02,vague,
+cia,Q claims that the CIA will no longer provide the addressed person with actionable intelligence.,2019-02-19,,none,2805,other,0,2019-02,vague,CIA
+,"Q claims that all requested documents, along with additional documents, will be declassified.",2019-02-19,,none,2816,declassification,0,2019-02,vague,
+maxine_waters; schiff; sdny,"Q claims that investigations by SDNY, AS, and MW intended to delay or prevent the release of the documents will fail.",2019-02-19,,none,2816,declassification,1,2019-02,specific,SDNY; AS; MW
+doj; inspector_general; mueller,Q claims that Robert Mueller will deliver his report to the Department of Justice before the Office of the Inspector General releases its next installment.,2019-02-20,,none,2839,disclosure,0,2019-02,specific,Robert Mueller; U.S. Department of Justice; U.S. Office of the Inspector General
+,"Q claims that major real-world events will begin directly after the Mueller investigation, surpassing the spectacle of the Super Bowl.",2019-02-20,2019-02-21,relative,2843,other,0,2019-02,vague,
+lynch; trump,"Q claims that LL will be offered a Supreme Court seat and that POTUS will back or confirm the offer on April 15, 2019.",2019-02-22,2019-04-15,explicit,2861,other,0,2019-02,specific,LL; POTUS
+,Q claims that a Vietnam trip will occur in the future.,2019-02-22,,relative,2866,other,0,2019-02,vague,
+,"Q claims that major, unspecified events will occur within the next 21 days.",2019-02-26,2019-03-19,relative,2903,other,0,2019-02,vague,
+,Q claims that an unspecified significant event is impending in connection with March Madness.,2019-03-03,,relative,2923,other,0,2019-03,vague,
+mueller,"Q claims that after Mueller's purported ""insurance policy"" expires, a blockade will be reapplied and an anti-Trump media narrative will be maintained.",2019-03-03,,none,2935,military,0,2019-03,vague,Robert Mueller
+fisc; usa,Q claims that declassification will reveal the other data or evidentiary anchors provided to the FISC to obtain the surveillance warrant.,2019-03-03,,none,2938,declassification,0,2019-03,specific,FISC; United States government
+,Q claims that a full-scale attack will occur during the March Madness period.,2019-03-03,,relative,2942,attack,0,2019-03,vague,
+,Q claims that an unspecified event or turning point is approaching a countdown time of 0:00:00.,2019-03-03,,relative,2948,other,0,2019-03,vague,
+,Q claims that the public will become aware of information through a document dump.,2019-03-04,,none,2957,disclosure,0,2019-03,vague,the public
+facebook,Q claims that Facebook will return to the news.,2019-03-06,,none,2984,other,0,2019-03,vague,Facebook
+,Q claims that Microsoft will shut down immediately after the drop.,2019-03-06,,relative,2984,other,1,2019-03,vague,Microsoft
+,Q claims that an unspecified event is about to happen.,2019-03-09,,relative,3010,other,0,2019-03,vague,
+,Q claims that indictments will be issued in the future.,2019-03-09,,none,3011,indictment,0,2019-03,vague,
+,Q claims that an unspecified event will take place imminently.,2019-03-09,,relative,3014,other,0,2019-03,vague,
+,Q claims that difficult truths will soon become publicly known or disclosed.,2019-03-12,,relative,3038,disclosure,0,2019-03,vague,
+,Q claims that the unsealing of the first several indictments will bring about national unity and political change.,2019-03-12,,none,3041,disclosure,0,2019-03,vague,
+,Q claims that an unspecified significant ending or culmination is near.,2019-03-14,,relative,3055,other,0,2019-03,vague,
+,Q claims that unnamed parties will characterize the matter as a political attack.,2019-03-14,,none,3059,other,0,2019-03,vague,
+gang_of_eight; schiff,Q claims that Gang of Eight intelligence material will be declassified and become critical to the situation.,2019-03-14,,none,3063,declassification,0,2019-03,vague,Adam Schiff; Gang of Eight
+democratic_party; usa,Q claims that Democrats will steal the 2020 U.S. elections.,2019-03-14,,explicit,3071,election,0,2019-03,specific,Democratic Party; United States
+,Q suggests that an unspecified real-world event will occur within days and may be significant enough to affect headlines or news coverage.,2019-03-14,,relative,3078,other,0,2019-03,vague,
+,Q claims that the real events or developments will begin soon.,2019-03-15,,relative,3094,other,0,2019-03,vague,
+,Q claims that a rapid strike or attack will occur.,2019-03-17,,none,3109,attack,0,2019-03,vague,
+,Q claims that a strike or military action is forthcoming or underway.,2019-03-17,,none,3110,military,0,2019-03,vague,
+dorsey; twitter,"Q claims that a fast strike or retaliatory action will occur, apparently directed at Twitter or its leadership.",2019-03-18,,relative,3111,other,0,2019-03,vague,Twitter; Jack Dorsey
+,"Q claims that if records are unsealed, significant information will be revealed.",2019-03-20,,none,3136,disclosure,0,2019-03,vague,Rachel Chandler
+,Q claims that nobody involved will escape consequences from the matter.,2019-03-23,,none,3168,other,0,2019-03,vague,
+,Q claims that the politically controlled media and related corporations will be held accountable.,2019-03-25,,none,3176,other,0,2019-03,vague,media organizations; corporations
+,Q claims or implies that Kim Foxx will leave her position or otherwise be removed from office.,2019-03-26,,none,3198,resignation,0,2019-03,specific,Kim Foxx
+steele,Q endorses the claim that Christopher Steele will probably be indicted in connection with the dossier and FISA applications.,2019-03-27,,none,3229,indictment,0,2019-03,specific,Christopher Steele
+doj; smollett,Q claims that the U.S. Department of Justice will prosecute Jussie Smollett in connection with the dropped charges.,2019-03-27,,none,3237,other,0,2019-03,specific,U.S. Department of Justice; Jussie Smollett
+doj; fbi; smollett,Q claims that the FBI and Department of Justice will review the Jussie Smollett case in Chicago.,2019-03-28,,none,3255,other,0,2019-03,specific,Federal Bureau of Investigation (FBI); U.S. Department of Justice; Jussie Smollett
+,Q claims that attacks against the targets will intensify as the targets turn to the other side.,2019-04-11,,none,3312,attack,0,2019-04,vague,
+mueller,Q claims that the Mueller-related blockade will end and that an unspecified event or development will soon be unleashed despite investigations by committee members.,2019-04-18,,relative,3314,other,0,2019-04,vague,Robert Mueller; Congressional committee members
+,Q claims that Robert Hannigan will soon become a household name.,2019-04-27,,relative,3327,other,0,2019-04,vague,Robert Hannigan
+schiff,Q claims that a bigger story related to the referenced figures and leak investigations will be discovered within one year.,2019-04-27,2020-04-27,relative,3329,disclosure,0,2019-04,vague,Adam Schiff; Glenn Simpson
+,Q claims that an offensive campaign aimed at destroying the “old guard” will begin in May 2019.,2019-05-02,,explicit,3331,other,0,2019-05,vague,the “old guard”
+,"Q claims that a significant, unspecified event will occur during the coming week.",2019-05-12,2019-05-19,relative,3332,other,0,2019-05,vague,
+democratic_party,"Q claims that attempts by Democrats, the news media, and people allegedly guilty of treason to shape public opinion through falsehoods will fail.",2019-05-12,,none,3334,other,0,2019-05,vague,Democrats; news media; people Q alleges are guilty of treason
+,"Q claims that the remaining classified FISA materials will be declassified by May 24, 2019.",2019-05-23,2019-05-24,relative,3340,declassification,0,2019-05,specific,FISA materials
+,Q claims that a large quantity of proofs or evidence will be disclosed after the declassification.,2019-05-23,,none,3340,disclosure,1,2019-05,vague,
+,"Q claims that, soon, one person will publicly turn on another as a result of misdirection.",2019-05-23,,relative,3344,other,0,2019-05,vague,
+comey; white_house,"Q claims that the release of the H report and the Comey-related release will precede a mass public awakening involving the White House, media, state governments, and foreign actors.",2019-07-08,,none,3354,disclosure,0,2019-07,vague,White House; James Comey
+,"Q claims that, after this alleged turning point, many indictments or similar legal actions will follow.",2019-07-08,,none,3354,indictment,1,2019-07,vague,
+usa,"Q claims that senior-level government positions will be lost and that last-minute testimony will undermine blackmail protections, leaving previously protected people vulnerable to legal or other consequences.",2019-07-08,,none,3354,other,2,2019-07,vague,U.S. government
+epstein; sessions,Q claims that it will be revealed that Jeff Sessions began the investigation into Jeffrey Epstein.,2019-07-08,,none,3370,disclosure,0,2019-07,specific,Jeff Sessions; Jeffrey Epstein
+flynn,Q claims that news concerning Michael Flynn will be forthcoming.,2019-07-08,,none,3372,disclosure,0,2019-07,vague,Michael Flynn
+,Q claims that a population of placeholders will begin in August 2019.,2019-07-08,2019-08-01,explicit,3376,other,0,2019-07,vague,
+epstein,Q claims that substantially more information or records related to the Epstein investigation will become public through unsealing.,2019-07-09,,none,3385,disclosure,0,2019-07,vague,Jeffrey Epstein investigation
+,Q claims that a fight will occur.,2019-07-09,,relative,3386,other,0,2019-07,vague,
+,Q claims that liberals will express outrage.,2019-07-09,,relative,3386,other,1,2019-07,vague,liberals
+,Q claims that attacks by what they characterize as the fake-news media will intensify.,2019-07-10,,none,3409,attack,0,2019-07,vague,news media
+,Q claims that the coming week will be notable or memorable due to unspecified real-world events.,2019-07-14,2019-07-21,relative,3434,other,0,2019-07,vague,
+smollett,Q claims that federal charges will be brought against Jussie Smollett.,2019-07-14,,none,3435,indictment,0,2019-07,specific,Jussie Smollett
+,Q claims that those previously pursuing or investigating others will themselves become targets of investigation or accountability.,2019-07-22,,none,3464,other,0,2019-07,vague,
+,Q claims that the coming political process will not be another ordinary four-year election cycle.,2019-07-22,,none,3464,election,1,2019-07,vague,
+,"Q claims that 2019 will be a year of a major, unspecified event or development described as a “boomerang.”",2019-07-24,2019-12-31,explicit,3472,other,0,2019-07,vague,
+coats; dni,"Q endorses or repeats the prediction that the Director of National Intelligence, Dan Coats, will be replaced or leave office next week.",2019-07-26,2019-08-04,relative,3513,resignation,0,2019-07,specific,Dan Coats; Office of the Director of National Intelligence
+,Q endorses or repeats the prediction that documents will be declassified next week.,2019-07-26,2019-08-04,relative,3513,declassification,1,2019-07,vague,
+durham,Q endorses or repeats the prediction that there will be news about Durham next week.,2019-07-26,2019-08-04,relative,3513,other,2,2019-07,vague,John Durham
+,Q suggests that an unspecified event will occur within 1–2 hours.,2019-07-30,,relative,3551,other,0,2019-07,vague,
+,Q claims that there will be an upcoming public or political push framing voter ID requirements as voter suppression of minority voters.,2019-07-30,,none,3556,other,0,2019-07,vague,QAnon movement; voter ID advocates/opponents
+,Q claims that news concerning the alleged declassification or disclosure of exculpatory FISA-surveillance evidence will emerge during this week.,2019-07-30,2019-08-04,relative,3559,disclosure,0,2019-07,vague,
+,Q claims that the public will soon gain a clearer understanding of the events referenced in the drop.,2019-08-01,,relative,3569,disclosure,0,2019-08,vague,The public
+coats,Q claims that a declassification will occur after an event involving Coats.,2019-08-01,,none,3570,declassification,0,2019-08,vague,Dan Coats
+usa,Q claims that America will become unified again.,2019-11-11,,none,3579,other,0,2019-11,vague,United States
+,Q claims that indictments will be issued.,2019-11-11,,none,3587,indictment,0,2019-11,vague,
+,"Q claims that the prepared “Harvest” will soon be delivered to the public for consumption, implying a forthcoming public disclosure or release.",2019-11-16,,relative,3599,disclosure,0,2019-11,vague,
+,Q claims that some people who previously supported the president will become puppets or puppet masters.,2019-11-20,,none,3608,other,0,2019-11,vague,people who previously supported the president
+,Q claims that an interaction with anonymous participants will occur soon.,2019-11-24,,relative,3627,other,0,2019-11,vague,
+,Q claims that a public awakening will occur in the future.,2019-12-02,,none,3645,other,0,2019-12,vague,
+,Q claims that the reason behind the matter being discussed will be publicly answered soon.,2019-12-07,,relative,3661,disclosure,0,2019-12,vague,
+barr,"Q claims that planned and coordinated attacks, characterized as a smear campaign, will be directed at William Barr.",2019-12-14,,none,3668,attack,0,2019-12,specific,William Barr
+,Q claims that dates beginning from an unspecified point will become important.,2019-12-14,,none,3669,other,0,2019-12,vague,
+snowden,Q claims that Edward Snowden will return home in 2020.,2019-12-15,2020-12-31,explicit,3691,other,0,2019-12,specific,Edward Snowden
+,Q claims that the unsealing of the first indictment will trigger mass public awakening.,2019-12-17,,none,3716,indictment,0,2019-12,vague,
+,Q claims that the first arrest will verify that action is underway and confirm a future direction.,2019-12-17,,none,3716,arrest,1,2019-12,vague,
+,Q claims that unnamed opponents will fight.,2019-12-17,,none,3716,military,2,2019-12,vague,
+,Q claims that the unsealing of the first indictment will trigger a mass public awakening.,2019-12-17,,none,3717,indictment,0,2019-12,vague,
+,Q claims that the first arrest will verify that the anticipated action has begun and confirm the future direction of events.,2019-12-17,,none,3717,arrest,1,2019-12,vague,
+,Q claims that unidentified parties will fight.,2019-12-17,,none,3717,military,2,2019-12,vague,
+doj; fbi,Q claims that Durham’s discoveries will lead to early retirements or departures among officials in the FBI and Department of Justice.,2019-12-18,,none,3718,resignation,0,2019-12,vague,FBI; U.S. Department of Justice
+,Q claims that attempts to delay or block what it calls inevitable justice will fail.,2019-12-18,,none,3724,legal_ruling,0,2019-12,vague,
+democratic_party,Q claims that Democrats will interfere in the 2020 election.,2019-12-18,,explicit,3724,election,1,2019-12,specific,Democratic Party
+,Q claims that a major forthcoming development will shock the world.,2019-12-19,,none,3728,other,0,2019-12,vague,
+trump,Q claims that the harm done to POTUS on paper can later be undone or reversed.,2019-12-19,,none,3728,other,1,2019-12,vague,Donald Trump
+,Q claims that a significant unspecified event will occur in the future.,2019-12-27,,none,3756,other,0,2019-12,vague,
+,Q claims that the truth will be disclosed or revealed.,2019-12-29,,none,3771,disclosure,0,2019-12,vague,
+senate; usa,Q claims that two-thirds of the Senate will not vote to convict the president in the impeachment proceedings.,2020-01-21,,none,3779,legal_ruling,0,2020-01,specific,United States Senate; President of the United States
+,Q claims that the public will learn the truth.,2020-01-23,,none,3783,disclosure,0,2020-01,vague,the public
+,"Q claims that a future real-world ""storm"" will occur and become apparent to the public.",2020-01-23,,none,3785,other,0,2020-01,vague,
+doj; usa,Q claims that it will be concluded that surveillance related to the president lacked sufficient predication to establish probable cause.,2020-01-23,,none,3788,other,0,2020-01,specific,U.S. Department of Justice; President of the United States
+congress,Q claims that the impeachment proceedings will end.,2020-01-30,,none,3806,legal_ruling,0,2020-01,vague,U.S. Congress
+,Q claims that people who learn the truth or undergo the “Great Awakening” will be unable to walk down the street.,2020-01-31,,none,3815,other,0,2020-01,vague,the public
+,Q claims that an unspecified event connected to the referenced post will occur soon.,2020-01-31,,relative,3817,other,0,2020-01,vague,
+crowdstrike; dnc; hrc; russia,"Q claims that the truth about the DNC breach, alleged election interference, and Hillary Clinton's private server/email investigation will be made public.",2020-02-07,,none,3841,disclosure,0,2020-02,specific,Hillary Clinton; Democratic National Committee; CrowdStrike; Russia
+,Q claims that the first item or event referenced will send a shock wave.,2020-02-08,,none,3848,other,0,2020-02,vague,
+,Q claims that attacks will intensify.,2020-02-10,,none,3854,attack,0,2020-02,vague,
+,Q suggests that critical facts may be publicly disseminated through unsealing or declassification before a future globally televised sit-down.,2020-02-14,,none,3862,disclosure,0,2020-02,vague,
+,"Q claims that the upcoming spring or summer will be very “hot,” implying notable developments during that period.",2020-02-17,,relative,3868,other,0,2020-02,vague,
+usa,Q claims that the upcoming election will not be a normal four-year election.,2020-03-27,,none,3904,election,0,2020-03,vague,United States
+,Q claims that difficult truths will soon be publicly revealed.,2020-03-28,,relative,3906,disclosure,0,2020-03,vague,
+,"Q claims that the world will soon understand something, without specifying what will be understood.",2020-04-08,,relative,3914,other,0,2020-04,vague,
+,Q claims that Bernie Sanders will drop out of the presidential race.,2020-04-08,,relative,3915,election,0,2020-04,specific,Bernie Sanders
+,Q claims that difficult truths will soon be publicly revealed.,2020-04-09,,relative,3918,disclosure,0,2020-04,vague,
+,Q claims that FISA-related indictments will mark the beginning of subsequent events or actions.,2020-04-09,,none,3921,indictment,0,2020-04,vague,
+doj,Q claims that FISA-related indictments will occur and mark the beginning of a broader process of public justice.,2020-04-10,,none,3929,indictment,0,2020-04,vague,FISA; U.S. Department of Justice
+,Q suggests that departures or resignations will occur among chief executives.,2020-04-10,,none,3929,resignation,1,2020-04,vague,Chief executives
+fbi,Q suggests that departures or resignations will occur within the FBI.,2020-04-10,,none,3929,resignation,2,2020-04,vague,FBI
+doj,Q suggests that departures or resignations will occur within the Department of Justice.,2020-04-10,,none,3929,resignation,3,2020-04,vague,U.S. Department of Justice
+state_dept,Q suggests that departures or resignations will occur within the State Department.,2020-04-10,,none,3929,resignation,4,2020-04,vague,U.S. Department of State
+white_house,Q suggests that departures or resignations will occur within the White House.,2020-04-10,,none,3929,resignation,5,2020-04,vague,White House
+,Q suggests that departures or resignations will occur within the Defense Intelligence Agency.,2020-04-10,,none,3929,resignation,6,2020-04,vague,Defense Intelligence Agency
+pentagon,Q suggests that departures or resignations will occur within the Pentagon.,2020-04-10,,none,3929,resignation,7,2020-04,vague,Pentagon
+senate,Q suggests that departures or resignations will occur among members of the Senate.,2020-04-10,,none,3929,resignation,8,2020-04,vague,U.S. Senate
+house,Q suggests that departures or resignations will occur among members of the House of Representatives.,2020-04-10,,none,3929,resignation,9,2020-04,vague,U.S. House of Representatives
+usa,Q suggests that ambassadors will depart or resign.,2020-04-10,,none,3929,resignation,10,2020-04,vague,U.S. ambassadors
+,Q suggests that inspectors general will depart or resign.,2020-04-10,,none,3929,resignation,11,2020-04,vague,Inspectors general
+usa,Q suggests that judges will be installed or appointed.,2020-04-10,,none,3929,other,12,2020-04,vague,U.S. judiciary
+supreme_court,Q suggests that Supreme Court justices will be installed or appointed.,2020-04-10,,none,3929,other,13,2020-04,vague,U.S. Supreme Court
+white_house,Q suggests that White House personnel will be installed or appointed.,2020-04-10,,none,3929,other,14,2020-04,vague,White House
+fbi,Q suggests that FBI personnel will be installed or appointed.,2020-04-10,,none,3929,other,15,2020-04,vague,FBI
+cia,Q suggests that CIA personnel will be installed or appointed.,2020-04-10,,none,3929,other,16,2020-04,vague,CIA
+doj,Q suggests that Department of Justice personnel will be installed or appointed.,2020-04-10,,none,3929,other,17,2020-04,vague,U.S. Department of Justice
+usa,Q suggests that U.S. attorneys will be installed or appointed.,2020-04-10,,none,3929,other,18,2020-04,vague,U.S. attorneys
+,Q claims that the public will learn the truth about the matter at issue.,2020-04-10,,none,3932,disclosure,0,2020-04,vague,the public
+,Q claims that the media will attempt to portray the forthcoming developments as a partisan attack.,2020-04-10,,none,3932,other,1,2020-04,vague,the media
+barr; house,Q claims that the House of Representatives will push to remove William Barr from office.,2020-04-10,,none,3932,resignation,2,2020-04,specific,House of Representatives; William Barr
+barr; durham; house,Q claims that the House of Representatives will open investigations concerning William Barr and John Durham.,2020-04-10,,none,3932,other,3,2020-04,specific,House of Representatives; William Barr; John Durham
+,Q claims that pro-President accounts will face an impending blackout or removal.,2020-04-14,,relative,3957,other,0,2020-04,specific,pro-President accounts
+,Q claims that all available assets will be deployed during the 2020 election.,2020-04-14,,relative,3957,other,1,2020-04,vague,
+,Q claims that pro-allied sleepers will change their positions to oppose the indicated side.,2020-04-14,,none,3957,other,2,2020-04,vague,pro-allied sleepers
+,Q claims that all available assets will be deployed during the upcoming election.,2020-04-14,,relative,3962,election,0,2020-04,vague,
+,Q claims that the 2020 election will bring about or contribute to a worldwide awakening.,2020-04-15,2020-12-31,explicit,3970,election,0,2020-04,vague,2020 election
+house; mueller; senate,"Q claims that the Mueller investigation was intended to stall until the midterm elections, after which ongoing House and Senate investigations would be terminated.",2020-04-28,,relative,3992,legal_ruling,0,2020-04,specific,Robert Mueller; U.S. House of Representatives; U.S. Senate
+,"Q claims that the investigation would help generate future protests, riots, threats, violence, and alleged false-flag events.",2020-04-28,,relative,3992,attack,1,2020-04,vague,
+congress; mueller; usa,Q claims that the Mueller investigation was intended to fuel impeachment or removal proceedings against the president.,2020-04-28,,none,3992,legal_ruling,2,2020-04,specific,Robert Mueller; U.S. Congress; President of the United States
+democratic_party,Q claims that the Mueller investigation was intended to mobilize the Democratic Party for a victory in the midterm elections.,2020-04-28,,relative,3992,election,3,2020-04,specific,Democratic Party
+gang_of_eight; schiff,"Q claims that Gang of Eight intelligence material will be declassified, at which point Adam Schiff’s role will become critical.",2020-04-28,,none,3993,declassification,0,2020-04,specific,Adam Schiff; Gang of Eight
+,Q claims that unspecified barriers or defenses will collapse.,2020-04-28,,none,4001,other,0,2020-04,vague,
+trump; usa,"Q states that May 1, 2020, will be observed as Law Day, U.S.A., with Americans and relevant institutions urged to reflect on the rule of law and display the U.S. flag.",2020-04-30,2020-05-01,explicit,4010,other,0,2020-04,specific,"Donald J. Trump; United States government; Americans; legal profession; press; radio, television, and media industries"
+,"Q claims that a significant, unspecified event will occur during the coming week.",2020-05-02,2020-05-10,relative,4072,other,0,2020-05,vague,
+coats; usa,Q claims that a declassification event will occur after an event or development involving Dan Coats.,2020-05-06,,none,4133,declassification,0,2020-05,vague,Dan Coats; U.S. government
+,Q claims that news reports in the near future will reveal a significant event or development.,2020-05-07,,relative,4138,other,0,2020-05,vague,
+,"Q suggests that a significant news development will occur soon, without specifying the event or its subjects.",2020-05-07,,relative,4141,other,0,2020-05,vague,
+,Q claims that the coming week will involve memorable or notable events.,2020-05-10,,relative,4198,other,0,2020-05,vague,
+congress,Q claims that the approximately $3 trillion coronavirus relief bill will never become law.,2020-05-12,,none,4220,other,0,2020-05,specific,U.S. Congress
+,Q claims that many additional unspecified developments or disclosures will occur soon.,2020-05-13,,relative,4229,other,0,2020-05,vague,
+usa,Q claims that the fear and compliance tactics associated with vote-by-mail and stay-at-home measures will end by Election Day.,2020-05-20,2020-11-03,relative,4294,other,0,2020-05,vague,U.S. election
+nunes; state_dept; trump,Q implies that the events or information described in the linked article will soon become significant or relevant to remember.,2020-05-21,,relative,4309,other,0,2020-05,vague,Donald Trump; Devin Nunes; U.S. State Department; Marie Yovanovitch
+,Q claims that conditions will improve and “all will be well” immediately after the election.,2020-05-24,,relative,4316,other,0,2020-05,vague,
+usa,Q claims that the President will take action against the described domestic groups or individuals.,2020-05-30,,none,4354,other,0,2020-05,vague,President of the United States
+dhs; doj; fbi,"Q claims that the Department of Homeland Security, FBI, and Department of Justice will take action against the described domestic groups or individuals.",2020-05-30,,none,4354,other,1,2020-05,vague,Department of Homeland Security; Federal Bureau of Investigation; Department of Justice
+dhs; doj; fbi,Q claims that investigations may result in action against individuals or entities allegedly supporting the described groups or targets.,2020-05-30,,none,4354,other,2,2020-05,vague,Department of Homeland Security; Federal Bureau of Investigation; Department of Justice
+,Q suggests that a significant unspecified event will occur imminently.,2020-05-31,,relative,4368,other,0,2020-05,vague,
+democratic_party; msnbc,Q claims that MSNBC and affiliated media will incite and promote division before the 2020 U.S. election unless Democrats regain congressional control.,2020-06-01,2020-11-03,explicit,4381,other,0,2020-06,specific,MSNBC; Democratic Party
+antifa,Q claims that arrests of people in Antifa's highest ranks may occur imminently.,2020-06-02,,relative,4385,arrest,0,2020-06,vague,Antifa; Antifa senior figures
+,Q claims that an unspecified event involving Q or its supporters will occur in the future.,2020-06-02,,none,4386,other,0,2020-06,vague,
+antifa,Q suggests that members of Antifa's highest ranks may soon be arrested.,2020-06-03,,relative,4395,arrest,0,2020-06,vague,Antifa
+twitter; usa,Q claims that the president’s Twitter account will be removed.,2020-06-04,,none,4414,other,0,2020-06,specific,President of the United States; Twitter
+usa,Q claims that a communications blackout will occur across the continental United States.,2020-06-04,,none,4414,other,1,2020-06,specific,United States
+pelosi; pence,Q claims that Nancy Pelosi or Mike Pence will be moved.,2020-06-04,,none,4414,other,2,2020-06,specific,Nancy Pelosi; Mike Pence
+usa,"Q claims that military assets, including the 10th Mountain Division and 1st Marine Division, will be moved to central locations under the pretext of controlling citizen riots.",2020-06-04,,none,4414,military,3,2020-06,specific,United States military; 10th Mountain Division; 1st Marine Division
+,Q claims that the Secretary of Defense will issue an instruction.,2020-06-04,,none,4414,other,4,2020-06,vague,Secretary of Defense
+,Q claims that one or more unspecified political surprises will occur in October 2020.,2020-06-05,,explicit,4425,other,0,2020-06,vague,
+,"Q claims that an unspecified anticipated event will occur soon, ending the current wait.",2020-06-09,,relative,4441,other,0,2020-06,vague,
+democratic_party,Q suggests that Democrats will push for voting by mail when electronic election cheating is no longer possible.,2020-06-10,,none,4446,election,0,2020-06,specific,Democratic Party
+,Q claims that the parties involved in the SDNY dispute will fight over control of the office or position.,2020-06-20,,none,4484,other,0,2020-06,vague,Southern District of New York
+usa,Q claims that COVID-19 lockdowns will wipe out the president’s economic gains.,2020-06-21,,none,4489,economic,0,2020-06,specific,U.S. president; U.S. economy
+usa,Q claims that COVID-19 lockdowns will wipe out the president’s unemployment gains.,2020-06-21,,none,4489,economic,1,2020-06,specific,U.S. president; U.S. labor market
+usa,Q claims that COVID-19 lockdowns will prevent or weaken the president’s rallies and gatherings.,2020-06-21,,none,4489,other,2,2020-06,specific,U.S. president
+,Q claims that lockdown policies will close churches and restrict person-to-person interaction.,2020-06-21,,none,4489,other,3,2020-06,specific,Churches; State and local governments
+,Q claims that COVID-related policies will increase the reported death toll by sending COVID-positive seniors into care facilities and combining pneumonia and influenza deaths with COVID deaths.,2020-06-21,,none,4489,other,4,2020-06,specific,State and local governments; Senior-care facilities
+biden,Q claims that Biden will hide from public appearances to avoid embarrassment.,2020-06-21,,none,4489,other,5,2020-06,specific,Joe Biden
+,Q claims that Democratic-controlled states will flood voters’ doorsteps with mail-in ballots.,2020-06-21,,none,4489,election,6,2020-06,specific,Democratic-controlled states; Voters
+blm,Q claims that a future four-year Black Lives Matter campaign will generate public unrest.,2020-06-21,,relative,4489,other,7,2020-06,vague,Black Lives Matter
+blm,"Q claims that unrest associated with the Black Lives Matter campaign will be released in controlled cities and designated safe zones, with arrested people released through mayoral or gubernatorial coordination.",2020-06-21,,none,4489,other,8,2020-06,specific,Black Lives Matter; Mayors; Governors; Cities
+antifa; usa; white_house,"Q claims that Antifa will be inserted into designated safe zones, producing violent unrest and attempts to breach the White House or other central locations.",2020-06-21,,none,4489,attack,9,2020-06,specific,Antifa; White House; U.S. government
+trump; usa; white_house,Q claims that such unrest will be used to provoke President Trump into deploying the military and generate footage of a peaceful protester being shot or the White House perimeter being breached.,2020-06-21,,explicit,4489,military,10,2020-06,specific,Donald Trump; U.S. military; White House
+usa,"Q claims that a second COVID-19 wave will give Democratic mayors and governors an opportunity to impose new restrictions, limit economic recovery, and sustain the mail-in-voting narrative.",2020-06-21,,relative,4489,economic,11,2020-06,specific,Democratic mayors; Democratic governors; U.S. economy
+,Q claims that grand-jury proceedings will be halted because of close-proximity COVID restrictions.,2020-06-21,,none,4489,legal_ruling,12,2020-06,specific,Grand juries; Courts
+durham,"Q claims that witnesses called in pending investigations, including the Durham investigation, will be prevented from traveling by invoking COVID-19 safety concerns.",2020-06-21,,none,4489,other,13,2020-06,specific,Durham investigation; Witnesses
+,Q claims that an unspecified event involving “the People's General” will occur soon.,2020-06-24,,relative,4506,other,0,2020-06,vague,
+,Q implies that an unspecified event will occur soon and urges followers to be prepared.,2020-06-26,,relative,4534,other,0,2020-06,vague,
+,"Q implies that the 2020 presidential election will produce a particular, though unspecified, outcome.",2020-06-29,,none,4537,election,0,2020-06,vague,2020 presidential election
+,"Q claims that ongoing investigations will reveal who was truly responsible for managing the COVID-19 emergency, including actors in health care, politics, the economy, and the media.",2020-06-29,,none,4541,disclosure,0,2020-06,vague,COVID-19 emergency managers; ongoing investigations
+,"Q claims that, in a few months, it will be learned that people behind acts of vandalism and violence had hoped to exploit the resulting disorder to dissolve the social order and build a less free society.",2020-06-29,,relative,4541,disclosure,1,2020-06,vague,unnamed actors behind the protests and violence
+deep_state,"Q claims that the alleged plots and betrayals of the opposing forces will be revealed and exposed, and that their power will ultimately collapse and amount to nothing.",2020-06-29,,none,4542,disclosure,0,2020-06,vague,the alleged deep state and globalist forces
+,Q claims that media organizations plan to disregard the alleged effort as a political attack or election interference and promote a corresponding scripted narrative.,2020-06-29,,none,4543,other,0,2020-06,vague,media organizations
+usa,Q claims that some commanding officers may provide classified information that does not reflect the positions of the U.S. president or the U.S. attorney general.,2020-06-29,,none,4543,disclosure,1,2020-06,specific,some commanding officers; U.S. president; U.S. attorney general
+mexico,"Q claims that the next challenge will be a rise in reported COVID-19 cases, attributed to increased testing and infections moving from Mexico to California, alongside an overall decline in death rates.",2020-06-30,,none,4546,other,0,2020-06,vague,COVID-19; Mexico; California
+,Q claims that the upcoming summer will be very hot.,2020-07-02,,none,4564,other,0,2020-07,vague,
+,"Q claims that revelations or events involving crimes against children will lead to a broader public awakening, with one development leading to many others.",2020-07-02,,none,4566,other,0,2020-07,vague,the public
+,Q claims that the COVID-19 narrative will end one day after Election Day.,2020-07-17,2020-11-04,explicit,4587,other,0,2020-07,vague,COVID-19 narrative
+,"Q claims that attempts at massive cyberattacks will occur on November 4, 2020.",2020-07-17,2020-11-04,explicit,4587,attack,1,2020-07,vague,
+,Q claims that declassification will occur in the days ahead.,2020-07-19,,relative,4598,declassification,0,2020-07,vague,
+,Q claims that more incidents will be framed as acts of violence in an effort to attack or discredit the targeted movement or people.,2020-07-22,,none,4612,attack,0,2020-07,vague,
+democratic_party,"Q claims that Democratic political actors will use COVID-19 infection rates to justify restricting public activity through November 3, 2020.",2020-07-31,2020-11-03,explicit,4620,other,0,2020-07,specific,Democratic Party; state and local governments
+democratic_party,Q claims that the Democratic convention will be delayed as part of a strategic effort to replace or take over the party’s nominee after the convention.,2020-07-31,,none,4620,election,1,2020-07,specific,Democratic Party
+,Q suggests that an unspecified significant development will occur in November 2020.,2020-09-09,,explicit,4640,other,0,2020-09,vague,
+biden,Q claims that the Biden campaign will find an excuse or reason to terminate the debates.,2020-09-10,,none,4657,other,0,2020-09,specific,Biden campaign
+biden,Q claims that the Biden campaign will be provided with the debate questions in advance.,2020-09-10,,none,4657,disclosure,1,2020-09,specific,Biden campaign
+biden,Q claims that the Biden campaign will be provided with the debate questions in advance and assistance through a special communication device.,2020-09-10,,none,4657,disclosure,2,2020-09,specific,Biden campaign
+,Q claims that an unspecified group will deploy a “centralized” picture-frame approach within 2–4 days.,2020-09-10,,relative,4661,other,0,2020-09,vague,
+,"Q suggests that notable real-world events will unfold during September 14–18 and September 21–25, 2020, and should be tracked.",2020-09-13,2020-09-25,explicit,4686,other,0,2020-09,vague,
+usa,Q claims that actors will use mass mail-in-ballot distribution and related legal challenges to rig or delay the outcome of the 2020 U.S. presidential election after an election-night defeat.,2020-09-13,,none,4688,election,0,2020-09,specific,U.S. presidential election; U.S. Postal Service
+biden; usa,Q claims that a Biden victory would result in the country healing and political violence ending.,2020-09-13,,none,4688,election,1,2020-09,specific,Joe Biden; United States
+usa,Q claims that a constitutional crisis may be enabled or left unresolved.,2020-09-13,,none,4688,other,2,2020-09,vague,United States
+,Q claims that justice-related action or an outcome will occur in the future.,2020-09-14,,none,4714,legal_ruling,0,2020-09,vague,
+,Q claims that unnamed political opponents will refuse to concede on election night.,2020-09-16,,relative,4722,election,0,2020-09,vague,Unnamed political opponents
+,Q claims that unnamed political opponents will legally contest the election in battleground states.,2020-09-16,,none,4722,legal_ruling,1,2020-09,vague,Unnamed political opponents
+,Q claims that unnamed political opponents will cast doubt on the election results.,2020-09-16,,none,4722,election,2,2020-09,vague,Unnamed political opponents
+,Q claims that unnamed political opponents will organize massive riots and attempt to create an anarchic situation.,2020-09-16,,none,4722,attack,3,2020-09,vague,Unnamed political opponents
+usa,"Q claims that disputes over mail-in ballots after Election Day will cast doubt on the legitimacy of the president's victory, delay or legally challenge the election results, and potentially provoke riots and an effort to overturn the outcome.",2020-09-20,,none,4738,election,0,2020-09,vague,mail-in voting; U.S. presidential election
+,Q claims that God will ultimately expose or reveal all evil.,2020-09-20,,none,4739,disclosure,0,2020-09,vague,God
+,Q claims that God will eventually bring justice for harms and needless violence directed at believers.,2020-09-20,,none,4739,legal_ruling,1,2020-09,vague,God
+,Q claims that an unspecified significant real-world event will occur soon.,2020-09-24,,relative,4762,other,0,2020-09,vague,
+,Q claims that some unspecified people will take an easy path and exit early.,2020-09-25,,none,4767,other,0,2020-09,vague,
+,Q claims that a future judgment or reckoning will occur.,2020-09-25,,none,4768,legal_ruling,0,2020-09,vague,
+maxwell,"Q claims that a trial involving Ghislaine Maxwell will take place on July 12, 2021.",2020-09-28,2021-07-12,explicit,4778,other,0,2020-09,specific,Ghislaine Maxwell
+,"Q claims that a marathon will end, implying the conclusion of an ongoing effort or event.",2020-09-30,,none,4795,other,0,2020-09,vague,
+,Q claims that an unspecified significant event will occur during October 2020.,2020-10-01,2020-10-31,explicit,4800,other,0,2020-10,vague,
+,"Q claims that a significant event or development will occur during October 2020, characterized as “Red October.”",2020-10-06,2020-10-31,explicit,4815,other,0,2020-10,vague,
+fbi; trump,"Q suggests that the president will release or disclose the relevant GSA v. FBI material without redactions on October 7, 2020.",2020-10-06,2020-10-07,relative,4816,disclosure,0,2020-10,specific,Donald Trump; GSA; FBI
+,"Q claims that the cited New York executive order will remain in effect until November 3, 2020.",2020-10-07,2020-11-03,explicit,4825,other,0,2020-10,specific,New York State government
+usa,Q claims that the President of the United States will next be characterized as mentally incapacitated in connection with COVID-19.,2020-10-08,,relative,4836,other,0,2020-10,vague,President of the United States
+usa,"Q projects that total deaths from all causes in the United States in 2020 will be approximately 2,838,000.",2020-10-09,2020-12-31,explicit,4842,death,0,2020-10,specific,United States
+,"Q claims that a significant, unspecified real-world event will occur after the date of the drop.",2020-10-14,,relative,4866,other,0,2020-10,vague,
+,Q claims that a China-style tactic to censor and terminate dissenting views on online platforms will be implemented or intensify.,2020-10-15,,none,4873,other,0,2020-10,vague,online platforms
+,Q suggests that Hunter Biden will be unanimously convicted by a jury.,2020-10-18,,none,4893,legal_ruling,0,2020-10,specific,Hunter Biden; jury
+,Q suggests that Judge Ronnie Abrams will overturn Hunter Biden’s conviction.,2020-10-18,,none,4893,legal_ruling,1,2020-10,specific,Ronnie Abrams; Hunter Biden
+usa,Q suggests that a federal appeals court will reinstate Hunter Biden’s conviction after it is overturned.,2020-10-18,,none,4893,legal_ruling,2,2020-10,specific,U.S. federal appeals court; Hunter Biden
+,Q claims that unspecified explosive or otherwise significant events (“booms”) will occur tomorrow.,2020-10-21,2020-10-23,relative,4924,other,0,2020-10,vague,
+cia,Q suggests that non-CIA background information will be revealed next.,2020-10-21,,none,4926,disclosure,0,2020-10,vague,CIA
